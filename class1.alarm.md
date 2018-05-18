@@ -10,7 +10,7 @@ Alarm events that indicate that something not ordinary has occurred. Note that t
 
 Undefined alarm. 
 
-##   Type1 (0x01) Warning ===== 
+##   Type1 (0x01) Warning 
 
 Indicates a warning condition. 
 
@@ -22,7 +22,7 @@ Indicates a warning condition.
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
 
-##   Type2 (0x02) Alarm occurred ===== 
+##   Type2 (0x02) Alarm occurred
 
 Indicates an alarm condition. 
 
@@ -34,7 +34,7 @@ Indicates an alarm condition.
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
 
-##   Type3 (0x03) Alarm sound on/off ===== 
+##   Type3 (0x03) Alarm sound on/off
 
 Alarm sound should be turned on or off. 
 
@@ -46,7 +46,7 @@ Alarm sound should be turned on or off.
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
 
-##   Type4 (0x04) Alarm light on/off ===== 
+##   Type4 (0x04) Alarm light on/off
 
 Alarm light should be turned on or off. 
 
@@ -58,7 +58,7 @@ Alarm light should be turned on or off.
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
 
-##   Type5 (0x05) Power on/off ===== 
+##   Type5 (0x05) Power on/off
 
 Power has been lost or is available again. 
 
@@ -70,7 +70,7 @@ Power has been lost or is available again.
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
 
-##   Type6 (0x06) Emergency Stop ===== 
+##   Type6 (0x06) Emergency Stop 
 
 Emergency stop has been hit/activated. All systems on the zone/sub-zone should go to their inactive/safe state.
  
@@ -82,7 +82,7 @@ Emergency stop has been hit/activated. All systems on the zone/sub-zone should g
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
 
-##   Type7 (0x07) Emergency Pause ===== 
+##   Type7 (0x07) Emergency Pause
 
 Emergency pause has been hit/activated. All systems on the zone/sub-zone should go to their inactive/safe state but preserve there settings. 
 
@@ -94,7 +94,7 @@ Emergency pause has been hit/activated. All systems on the zone/sub-zone should 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
 
-##   Type8 (0x08) Emergency Reset ===== 
+##   Type8 (0x08) Emergency Reset
 
 Issued after an emergency stop or pause in order for nodes to reset and start operating .
 
@@ -106,7 +106,7 @@ Issued after an emergency stop or pause in order for nodes to reset and start op
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
 
-##   Type9 (0x09) Emergency Resume ===== 
+##   Type9 (0x09) Emergency Resume 
 
 Issued after an emergency pause in order for nodes to start operating from where they left of without resetting their registers . 
 
@@ -118,7 +118,7 @@ Issued after an emergency pause in order for nodes to start operating from where
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
 
-##   Type10 (0x0A) Arm ===== 
+##   Type10 (0x0A) Arm
 
 Issued after an alarm system has been armed. 
 
@@ -130,7 +130,7 @@ Issued after an alarm system has been armed.
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
 
-##   Type11 (0x0B) Disarm ===== 
+##   Type11 (0x0B) Disarm
 
 Issued after an alarm system has been disarmed. 
 
