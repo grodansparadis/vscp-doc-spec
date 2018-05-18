@@ -19,7 +19,7 @@ General diagnostic event.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
                     1
-##   Type1 (0x01) Overvoltage. ===== 
+##   Type1 (0x01) Overvoltage.
 
 Over voltage has been diagnosed. 
 
@@ -30,7 +30,7 @@ Over voltage has been diagnosed.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type2 (0x02) Undervoltage. ===== 
+##   Type2 (0x02) Undervoltage. 
 
 Under voltage has been diagnosed.
 
