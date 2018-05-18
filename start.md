@@ -25,3 +25,4 @@ Collected in a package described as **VSCP & friends** a complete solution frame
 {{  ::copyright.png?600  |}}
 
 `<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.grodansparadis.com">`Grodans Paradis AB`</a>``</p>``</HTML>`
+
