@@ -67,9 +67,9 @@ The following picture shows the nickname discovery process for a newly added nod
 
 
 
-{{ :1_home_akhe_vscp_spec_images_nickname_seq.jpg |}} \\ 
-\\ 
-\\
+![VSCP Works](./images/1_home_akhe_vscp_spec_images_nickname_seq.jpg)
+
+
 ##### Node discovery
 
  1.  The node which initially has its nickname set to 0xFF probe for a segment controller. Class = 0, Type = 2 

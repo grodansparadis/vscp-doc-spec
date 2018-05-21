@@ -75,7 +75,7 @@ Recommended connector is RJ-34/RJ-12 or RJ-11 with pinout as in this table.
  | 8     | GND       |       |       | RJ-45 | Brown                        | 
 
 
-{{:0_home_akhe_vscp_spec_images_rj45.jpg}}
+![RJ-45](./images/0_home_akhe_vscp_spec_images_rj45.jpg)
 
 
 Note that the schematics drawings for VSCP modules use a symbol that is numbered looking from the PCB side. It thus appear as to be numbered in the other direction but is actually the same.

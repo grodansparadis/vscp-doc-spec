@@ -314,7 +314,7 @@ A node that implements the bootloader but does not want to share memory content 
 
 VSCP will start the boot loading process for all algorithms by checking if the device is present. This is done by reading register 0xD0 which is the first byte of the GUID and for a valid VSCP device it should always return something. 
 
-{{::check_device_there.jpg?500|}}
+![Bootload 1](./images/check_device_there.jpg)
 
 The picture above show this in a CAN monitor
 
@@ -322,11 +322,11 @@ The purpose is to see if an MDF is available which automatically can supply some
 
 The boot loading always start by trying to set the device in boot loader mode. This is done by sending CLASS1.PROTOCOL, Type=25, Set device in boot loader mode. For now hardware this has no value as it is not running VSCP yet so in that case the boot loading process is just tried even if the device does not acknowledge that it is going into boot loader mode.
 
-{{::boot_log.jpg?500|}}
+![Bootload 2](./images/boot_log.jpg)
 
 In the last step the boot loader is leaving the boot loader firmware and goes up to VSCP domain. This is shown here
 
-{{::boot_log_end.jpg?500|}}
+![Bootload 3](./images/boot_log_end.jpg)
 
 For a node that comes from the VSCP domain, that is preserve it's nickname, VSCP Works is able to determine if the node comes alive again. For a node that need to discover a nickname this is not possible.
 

@@ -100,9 +100,5 @@ Announcements is an important part of the traffic on the multicast channel.  The
 
 It's up to the implementer to decide what events should be available on a multicast channel by setting the receive/transmit filters/masks for the channel. Several channels can be set up on different ports forming different subnets. Normally just a filtered number of events is transmitted. A typical example of such a segment is a group of nodes on Ethernet.
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}
 
