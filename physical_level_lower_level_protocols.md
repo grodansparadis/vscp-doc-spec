@@ -1,6 +1,6 @@
-# Physical Level/Lower level protocols
+# Transport protocols (currently) used by VSCP
 
-When the protocol was designed its usefulness on the CAN bus was the main objective. The identifier length and many other things on Level I are therefore very “CAN-ish” in its design and behavior. CAN is however no prerequisite. The protocol works equally well over RS-232, RF-Links, Ethernet etc. CAN can be seen as the least common denominator.
+VSCP can use most physical Level/Lower level protocols to trasnport events. When the VSCP protocol/framework was designed its usefulness on the CAN bus was the main objective. The identifier length and many other things on Level I are therefore very “CAN-ish” in its design and behavior. CAN is however no prerequisite. The protocol works equally well over RS-232, RF-Links, Ethernet etc. CAN can be seen as the least common denominator.
 
 Now VSCP has two protocol levels. Level I and level II.
 
@@ -8,9 +8,7 @@ Level I is effective over bandwidth limited links but don't have the full GUID o
 
 Level II use the full GUID and can handle more data. This level is useful for nodes which have more resources.
 
-## Dumb nodes
 
-Normally a node have registers as specified by the VSCP standard and it also have a pointer to a MDF (Module Description File) that describes it. There is however something that is called a **dumb node** which is a Level II node that only can send (yes possibly also receive) events. This type can not do anything else. It is defined by a full GUID ans is marked with a dumb node bit in the header (see [vscp.h](https///github.com/grodansparadis/vscp/blob/master/src/vscp/common/vscp.h)).
 
 ## Transport protocols currently used by VSCP
 

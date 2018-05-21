@@ -27,8 +27,4 @@ The 802.15.4 payload is max 122 bytes. This payload can carry one or more VSCP e
 
 
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>` 
+{% include "./bottom_copyright.md" %} 

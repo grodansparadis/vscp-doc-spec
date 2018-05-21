@@ -185,9 +185,5 @@ Argument is timer ID.
 
 This event will be sent once each 24 hours when new astronomical calculations has been performed. The event can be useful if one need to do things when the sunrise/sunset etc times changes.
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}
 

@@ -14,4 +14,25 @@ The executable name for VSCP Works.
 Internet of Things, a term for connected **things**. 
 
 ## SECO 
-This stands for SENsor & COntrol 
+This abbrevation stands for **SE**nsor & **CO**ntrol. Some use **attenuator** for the same thing.
+
+## TCP/IP
+The Transmission Control Protocol and Internet Protocol
+
+## UDP
+User Datagram Protocol
+
+## CAN
+Control Area Network. A very robust network protocol that among other things is commonly used in cars and heavy machinery.
+
+## CANAL
+CAN Abstraction Layer - VSCP interface used for VSCP level I drivers. Originally this was a CAN pure interface.
+
+## OHAS
+Open Home Automation Server
+
+## EDA
+Acronym for **Event-Decision-Action**
+
+## OS
+Operating System

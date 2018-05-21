@@ -209,8 +209,4 @@ Method [CLASS1.PROTOCOL TYPE=32](http://www.vscp.org/docs/vscpspec/doku.php?id=c
 
 The Level II Decision Matrix has no entry for originating address. The action parameter field can be used for this information if needed. 
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}

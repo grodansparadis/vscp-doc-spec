@@ -823,8 +823,4 @@ Part of the VSCP boot-loader functionality. This is the negative response after 
 
 
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}

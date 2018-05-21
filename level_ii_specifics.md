@@ -244,8 +244,4 @@ we use *: in the same way for FFs so that
 
 These short cut notations makes it much easier to write GUID's. 
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}

@@ -15,8 +15,4 @@ This class mirrors the standard measurement events is [CLASS1.MEASUREMENT=10](ht
  | 4-7  | Data with format defined by byte 0.                                | 
 
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}

@@ -992,8 +992,4 @@ where the later points to a list with entries of the former type.
 
 the `<payload>` tag is for devices that have the capability to have large information on-board, and in this case the ui packet is delivered inside the mdf.
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}

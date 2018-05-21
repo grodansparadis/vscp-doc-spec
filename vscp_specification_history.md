@@ -153,8 +153,4 @@
  | 2004-01-26 | AKHE | Level 2 introduced. 2004-03-01 — Settled for master less solution.                                                                                                                                                                                                                                                                                                                                                                                                                                 | 
  | 2004-10-22 | AKHE | A all lights on/off and a dimmer control type added.                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}

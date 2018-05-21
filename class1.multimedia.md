@@ -519,8 +519,4 @@ Album can be looked upon as a play-list which is a term used for many other mult
 
 Response for multimedia control.
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}

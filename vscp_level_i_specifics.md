@@ -216,8 +216,5 @@ What if I want the lights to be turned on when the alarm goes off?
 Same solution here. Program the alarm control to send the on-event to the zone on alarm.
 
 *You imagination is the only limitation….*
-\\ 
-----
-{{  ::copyright.png?400  |}}
 
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}`

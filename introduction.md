@@ -117,7 +117,7 @@ An application does not need to bother how the actual control is done. On the ap
 
 A system to present some measurement data is another example. Think of a system with temperature sensors. They all use different technologies but a driver for each translate the temperature readings to a common
 
-    CLASS1.MEASUREMENT, Type=6, Temperature measurement events. 
+    CLASS1.MEASUREMENT, Type=6, Temperature measurement events
 
 This event is region independent and format independent. It is easy to create a driver that log this value into a database. Also here in a common format. You can now build a web applet that shows the temperature for every possible temperature sensor. As the format is common and easy to collect in a database in a common way you can also write a statistical application that show temperature data and work for any temperature sensor.
 

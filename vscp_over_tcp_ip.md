@@ -15,10 +15,6 @@ A RFC 854 (telnet) based protocol is supported over TCP/IP. The protocol is impl
 The VSCP Link Interface implemented in a node is described [here](http://www.vscp.org/docs/vscpfirmware/doku.php?id=start_l2#vcsp_link_interface_based_nodes_tcp_ip).
 
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}
 
  

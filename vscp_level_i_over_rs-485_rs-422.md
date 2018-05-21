@@ -60,9 +60,5 @@ The DOW checksum is used. [http://www.vscp.org/wiki/doku.php?id=vscp_specificati
 
 
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}
 

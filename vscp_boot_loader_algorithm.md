@@ -338,9 +338,5 @@ Bootloader source code is available on [GitHUB](https///github.com/grodansparadi
 The Microchip application note AN247 is the base work for this application. It and its accompanying source can be found at [http://ww1.microchip.com/downloads/en/AppNotes/00247a.pdf](http://ww1.microchip.com/downloads/en/AppNotes/00247a.pdf)
 
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}
 

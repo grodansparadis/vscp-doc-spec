@@ -90,9 +90,5 @@ Typically this event is sent on the multicast announce channel
  | 1    | LSB of channel | 
  | 2-5  | Reserved       | 
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}
 

@@ -221,8 +221,4 @@ If you want your own GUID series you can ask for one by sending an email to [gui
 
     Stefan Langer - datenheim.de, Germany, st.langer (at) gmx.net
     
-    \\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}

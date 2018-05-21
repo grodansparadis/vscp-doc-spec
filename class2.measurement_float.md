@@ -14,9 +14,5 @@ This is a mirror of [CLASS1_MEASUREMENT](http://www.vscp.org/docs/vscpspec/doku.
  | 3    | Unit from measurements, 0-255.                                 | 
  | 4-11 | 64-bit double precision floating point value stored MSB first. | 
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}
 

@@ -1,10 +1,10 @@
 # VSCP Specification
 
-{{:wiki:logo.png|}}
+![Very Simple Control Protocol](./images/logo_100.png "Very Simple Control Protocol") 
  
 
 **Specification reversion:** 1.10.18 - 2018-03-20 
-[HISTORY](vscp_specification_history)
+[HISTORY](vscp_specification_history.md)
 
 **VSCP is free.** Free to use. Free to change. Free to do whatever you want to do with it. VSCP is not owned by anyone. VSCP will stay free and gratis forever.
 
@@ -20,9 +20,5 @@ Collected in a package described as **VSCP & friends** a complete solution frame
 
 
  
-\\ 
-----
-{{  ::copyright.png?600  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.grodansparadis.com">`Grodans Paradis AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}
 

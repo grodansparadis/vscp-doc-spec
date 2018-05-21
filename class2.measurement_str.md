@@ -16,9 +16,5 @@ Floating point numbers should be written as "2345.456" **NOT** as "2345,456" ind
  | 3    | Unit from measurements, 0-255.                                                                                                                   | 
  | 4..  | String up to the maximum data size 483 digits including a possible decimal point. The decimal pint should always be a "." independent of locale. | 
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}
 

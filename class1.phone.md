@@ -102,8 +102,4 @@ The call has been transferred. byte
  | 1   | Index of phone event (base=0). Each call can be broken up into fragments. This is the fragment number.                                                | 
  | 2   | Total number of events (fragments) for this call information.                                                                                         | 
  | 3-7 | Caller information. Real text information.                                                                                                            | 
-\\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}

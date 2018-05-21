@@ -922,8 +922,6 @@ Bit 39 is bit 7 of data byte 4. Bit 0 is bit 0 of data byte 7.
  | Minute  | 0-59        | 
  | Seconds | 0-59        | 
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
 
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+
+{% include "./bottom_copyright.md" %}

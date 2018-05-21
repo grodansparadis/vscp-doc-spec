@@ -27,8 +27,4 @@ Event with ID for the GSM cell. Normally this is a 16-bit value but a 32-bit val
  | ---- | -----------  | 
  | 0-3  | GSM Cell ID. | 
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}

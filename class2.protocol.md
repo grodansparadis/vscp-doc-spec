@@ -120,9 +120,5 @@ This defines the response from a Level II node for a [CLASS1.PROTOCOL, Type=32, 
  | 3     | 0x00 which is the least significant byte of 32000 | 
 
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}
 

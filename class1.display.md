@@ -167,8 +167,4 @@ This event set the color for LED(s) pointed out by zone/sub-zone.
 
 If multi-byte resolution for the colors is needed use index to address the byte where 0 means the MSB byte, 1 MSB+1 byte etc (Big endian).
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
-
-`<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`
+{% include "./bottom_copyright.md" %}
