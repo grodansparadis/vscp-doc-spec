@@ -24,7 +24,7 @@ The boot loader sequence is as follows:
 
 The boot-loader is built to direct control flash if other methods such as intermediate storage is used. Data can be loaded direct and program block can just get a dummy ACK. 
 
-{{ ::vscp_std_boot_loader_algorithm.png?400 |}}
+![Firmware update procedure](./images/vscp_std_boot_loader_algorithm.png)
 Diagram by **Andreas Merkle**
 
 
