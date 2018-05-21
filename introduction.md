@@ -181,7 +181,7 @@ A web interface named OHAS is under development that will make it possible to bu
 
 VSCP makes it easy and very cost effective to build systems with distributed intelligence. The protocol is placed in the Public Domain so it is therefore free for anyone to use and modify to their own needs. VSCP can be used all the way from the application down to the device but it can also be used as an abstraction to other technologies so one application can be written that transparently use several different technologies..
 
-More information and downloads is available at [http://www.vscp.org](http://www.vscp.org)
+More information and downloads is available at [the VSCP site](http://www.vscp.org "The VSCP site")
 
 {% include "./bottom_copyright.md" %}
 
