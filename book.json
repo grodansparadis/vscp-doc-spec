@@ -1,0 +1,7 @@
+{
+    "title":"The VSCP Specification",
+    "description":"This is the official spceification for the Very Simple Control Protocol.",
+    "author":"Ake Hedman, Grodans Paradis AB",
+    "language":"en",
+    "plugins":["disqus"]
+}
