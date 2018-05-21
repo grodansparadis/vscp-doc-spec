@@ -1,10 +1,22 @@
 # Summary
 
-## Intro
+## Introduction
 
-* [Introduction](README.md)
-    * [Start](vscp_start.md)
-    * [Introduction](introduction.md)
+* [About this document](README.md)
+* [VSCP - what is it?](introduction.md)
+
+## Essential VSCP Parts
+
+*  [VSCP Level I Specifics](vscp_level_i_specifics.md)
+*  [VSCP Level II Specifics](level_ii_specifics.md)
+*  [Globally Unique Identifiers GUID](globally_unique_identifiers.md)
+*  [Register Abstraction Model](register_abstraction_model.md)
+*  [Decision Matrix](decision_matrix.md)
+*  [Data coding](data_coding.md)
+*  [Module Description File - MDF](module_description_file.md)
+*  [VSCP boot loader algorithm](vscp_boot_loader_algorithm.md)
+*  [VSCP Multicast](vscp_multicast.md)
+
 
 ## Transport protocols used by VSCP
 
@@ -26,17 +38,7 @@
     *  [VSCP over MQTT](vscp_over_mqtt.md)
     *  [VSCP Text](vscp_text.md)
 
-## Essential Parts
 
-*  [VSCP Level I Specifics](vscp_level_i_specifics.md)
-*  [VSCP Level II Specifics](level_ii_specifics.md)
-*  [Globally Unique Identifiers GUID](globally_unique_identifiers.md)
-*  [Register Abstraction Model](register_abstraction_model.md)
-*  [Decision Matrix](decision_matrix.md)
-*  [Data coding](data_coding.md)
-*  [Module Description File - MDF](module_description_file.md)
-*  [VSCP boot loader algorithm](vscp_boot_loader_algorithm.md)
-*  [VSCP Multicast](vscp_multicast.md)
 
 ## Level I events
 
