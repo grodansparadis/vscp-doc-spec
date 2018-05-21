@@ -183,8 +183,6 @@ VSCP makes it easy and very cost effective to build systems with distributed int
 
 More information and downloads is available at [http://www.vscp.org](http://www.vscp.org)
 
-\\ 
-----
-{{  ::copyright.png?400  |}}
+
 
 `<HTML>``<p style="color:red;text-align:center;">``<a href="http://www.paradiseofthefrog.com">`Paradise of the Frog AB`</a>``</p>``</HTML>`

@@ -8,11 +8,11 @@
 
 **VSCP is free.** Free to use. Free to change. Free to do whatever you want to do with it. VSCP is not owned by anyone. VSCP will stay free and gratis forever.
 
-This document is copyright © 2000-2018 Åke Hedman, [Grodans Paradis AB](http://www.grodansparadis.com), `<[akhe@grodansparadis.com](akhe@grodansparadis.com)>` 
+This document is copyright © 2000-2018 Åke Hedman, [Grodans Paradis AB](http://www.grodansparadis.com), <[akhe@grodansparadis.com](akhe@grodansparadis.com)>
 
-Many people has helped to create and evolve this protocol: *Behzad Ardakani, Marcus Rejås, Charles Tewiah, Mark Marooth, Gediminas Simanskis, Henk Hofstra, Stefan Langer, Kurt Herremans, Jiri Kubias, Frank Sautter, Dinesh Guleria, David Steeman, Andreas Merkle, Arpad Toth, Anders Forsgren, Stuart O'Reilly * are valued contributors. 
+Many people has helped to create and evolve this protocol: *Behzad Ardakani, Marcus Rejås, Charles Tewiah, Mark Marooth, Gediminas Simanskis, Henk Hofstra, Stefan Langer, Kurt Herremans, Jiri Kubias, Frank Sautter, Dinesh Guleria, David Steeman, Andreas Merkle, Arpad Toth, Anders Forsgren, Stuart O'Reilly* are valued contributors. 
 
-If you use VSCP components professionally please consider contributing resources to the project ([http://vscp.org/support.php](http://vscp.org/support.php)). Keeping this project going is a daily struggle and has been so for fourteen years now.
+If you use VSCP components professionally please consider contributing resources to the project ([http://vscp.org/support.php](http://vscp.org/support.php)). Keeping this project going is a daily struggle and has been so since the summer of 2000 now. A long time compared to most oother projects.
 
 # Abstract
 
