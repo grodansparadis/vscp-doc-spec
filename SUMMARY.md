@@ -3,14 +3,13 @@
 ## Intro
 
 * [Introduction](README.md)
-    * [start](start.md)
-    * [vscp start](vscp_start.md)
+    * [Start](vscp_start.md)
     * [Introduction](introduction.md)
 
 ## Transport protocols used by VSCP
 
 * [Low level protocols](physical_level_lower_level_protocols.md)
-    *  [Dumb nodes]()
+    *  [Dumb nodes](vscp_dumb.md)
     *  [VSCP over TCP/IP](vscp_over_tcp_ip.md)
     *  [VSCP over Ethernet (raw Ethernet)](vscp_over_ethernet_raw_ethernet.md)
     *  [VSCP over UDP](vscp_over_udp.md)
@@ -91,11 +90,12 @@
 
 ## Other documentation**
 
-*  [ VSCP Server](https///www.vscp.org/docs/vscpd/doku.php?id=start )
-*  [ VSCP Helper lib](https///www.vscp.org/docs/vscphelper/doku.php?id=start )
-*  [ VSCP Works](https///www.vscp.org/docs/vscpworks/doku.php?id=start )
-*  [ VSCP Firmware](https///www.vscp.org/docs/vscpfirmware/doku.php )
-*  [ VSCP L1 Framework](https///github.com/BlueAndi/vscp-framework/blob/master/README.md )
-*  [ VSCP Arduino](https///github.com/BlueAndi/vscp-arduino )
-*  [ HTML ](https///www.vscp.org/docs/html5/doku.php )
-*  [ General VSCP wiki ](https///www.vscp.org/wiki/doku.php )
+*  [VSCP Server](https///www.vscp.org/docs/vscpd/doku.php?id=start)
+*  [VSCP Helper lib](https///www.vscp.org/docs/vscphelper/doku.php?id=start)
+*  [VSCP Works](https///www.vscp.org/docs/vscpworks/doku.php?id=start)
+*  [VSCP Firmware](https///www.vscp.org/docs/vscpfirmware/doku.php)
+*  [VSCP L1 Framework](https///github.com/BlueAndi/vscp-framework/blob/master/README.md)
+*  [VSCP Arduino](https///github.com/BlueAndi/vscp-arduino)
+*  [VSCP Javascript lib.](https///www.vscp.org/docs/html5/doku.php)
+*  [VSCP HTML demo](https///www.vscp.org/docs/html5/doku.php)
+*  [General VSCP wiki](https///www.vscp.org/wiki/doku.php)
