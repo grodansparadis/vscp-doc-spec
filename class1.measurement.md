@@ -26,11 +26,11 @@ All events in this class are mirrored in
 
 
 
-##   Type0 (0x00) Undefined ===== 
+##   Type=0 (0x00) Undefined
 
 Undefined measurement value. 
 
-##   Type1 (0x01) Count ===== 
+##   Type=1 (0x01) Count  
 
 This is a discrete value typical for a count. There is no unit for this measurement just a discrete value. 
 
@@ -39,7 +39,7 @@ This is a discrete value typical for a count. There is no unit for this measurem
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type2 (0x02) Length/Distance ===== 
+##   Type=2 (0x02) Length/Distance  
 
 **Default unit:** Meter. 
 
@@ -50,7 +50,7 @@ This is a measurement of a length or a distance.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type3 (0x03) Mass ===== 
+##   Type=3 (0x03) Mass  
 
 **Default unit:** Kilogram.
 
@@ -61,7 +61,7 @@ This is a measurement of a mass.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type4 (0x04) Time ===== 
+##   Type=4 (0x04) Time  
 
 A time measurement.
 
@@ -73,7 +73,7 @@ A time measurement.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type5 (0x05) Electric Current ===== 
+##   Type=5 (0x05) Electric Current  
 
 **Default unit:** Ampere.
 
@@ -84,7 +84,7 @@ This is a measurement of an electric current.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type6 (0x06) Temperature ===== 
+##   Type=6 (0x06) Temperature  
 
 **Default unit:** Kelvin. \\ 
 **Opt. unit:** Degree Celsius (1), Fahrenheit (2)
@@ -96,7 +96,7 @@ This is a measurement of a temperature.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type7 (0x07) Amount of substance ===== 
+##   Type=7 (0x07) Amount of substance  
 
 **Default unit:** Mole.
 
@@ -107,7 +107,7 @@ This is a measurement of an amount of a substance.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type8 (0x08) Luminous Intensity (Intensity of light) ===== 
+##   Type=8 (0x08) Luminous Intensity (Intensity of light)  
 
 **Default unit:** Candela.
 
@@ -118,7 +118,7 @@ This is a measurement of luminous intensity.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type9 (0x09) Frequency ===== 
+##   Type=9 (0x09) Frequency  
 
 **Default unit:** Hertz.
 
@@ -129,7 +129,7 @@ This is a measurement of regular events during a second.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type10 (0x0A) Radioactivity and other random events ===== 
+##   Type=10 (0x0A) Radioactivity and other random events  
 
 **Default unit:** becquerel.
 **Optional unit:** curie (1)
@@ -141,7 +141,7 @@ This is a measurement of rates of things, which happen randomly, or are unpredic
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type11 (0x0B) Force ===== 
+##   Type=11 (0x0B) Force  
 
 **Default unit:** newton.
 
@@ -152,7 +152,7 @@ This is a measurement of force.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type12 (0x0C) Pressure ===== 
+##   Type=12 (0x0C) Pressure  
 
 **Default unit:** pascal. \\ 
 **Opt. unit:** bar (1), psi (2)
@@ -164,7 +164,7 @@ This is a measurement of pressure.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type13 (0x0D) Energy ===== 
+##   Type=13 (0x0D) Energy  
 
 **Default unit:** Joule. \\ 
 **Optional unit:** KWh (1)
@@ -176,7 +176,7 @@ This is a measurement of energy.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type14 (0x0E) Power ===== 
+##   Type=14 (0x0E) Power  
 
 **Default unit:** watt. \\
 **Optional unit:** Horse power (1).
@@ -188,7 +188,7 @@ This is a measurement of power.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type15 (0x0F) Electrical Charge ===== 
+##   Type=15 (0x0F) Electrical Charge  
 
 **Default unit:** coulomb.
 
@@ -199,7 +199,7 @@ This is a measurement electrical charge.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type16 (0x10) Electrical Potential (Voltage) ===== 
+##   Type=16 (0x10) Electrical Potential (Voltage)  
 
 **Default unit:** volt.
 
@@ -210,7 +210,7 @@ This is a measurement of electrical potential.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type17 (0x11) Electrical Capacitance ===== 
+##   Type=17 (0x11) Electrical Capacitance  
 
 **Default unit:** farad (F).
 
@@ -221,7 +221,7 @@ This is a measurement of electric capacitance.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type18 (0x012) Electrical Resistance ===== 
+##   Type=18 (0x012) Electrical Resistance  
 
 **Default unit:** ohm (Ω).
 
@@ -232,7 +232,7 @@ This is a measurement of resistance.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type19 (0x13) Electrical Conductance ===== 
+##   Type=19 (0x13) Electrical Conductance  
 
 **Default unit:** siemens.
 
@@ -243,7 +243,7 @@ This is a measurement of electrical conductance.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type20 (0x14) Magnetic Field Strength ===== 
+##   Type=20 (0x14) Magnetic Field Strength  
 
 **Default unit:** amperes per meter (H).
 **Optional units:** teslas (B) (1)
@@ -255,7 +255,7 @@ This is a measurement of magnetic field strength.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type21 (0x15) Magnetic Flux ===== 
+##   Type=21 (0x15) Magnetic Flux  
 
 **Default unit:** weber (Wb).
 
@@ -266,7 +266,7 @@ This is a measurement of magnetic flux.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type22 (0x16) Magnetic Flux Density ===== 
+##   Type=22 (0x16) Magnetic Flux Density  
 
 **Default unit:** tesla (B).
 
@@ -277,7 +277,7 @@ This is a measurement of flux density or field strength for magnetic fields (als
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type23 (0x17) Inductance ===== 
+##   Type=23 (0x17) Inductance  
 
 **Default unit:** henry (H).
 
@@ -288,7 +288,7 @@ This is a measurement of inductance.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type24 (0x18) Luminous Flux ===== 
+##   Type=24 (0x18) Luminous Flux  
 
 **Default unit:** Lumen (lm= cd * sr)
 
@@ -299,7 +299,7 @@ This is a measurement of luminous Flux.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type25 (0x19) Illuminance ===== 
+##   Type=25 (0x19) Illuminance  
 
 **Default unit:** lux (lx) ( lx = lm / m² )
 
@@ -310,7 +310,7 @@ This is used to express both Illuminance (incidence of light) and Luminous Emitt
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type26 (0x1A) Radiation dose ===== 
+##   Type=26 (0x1A) Radiation dose  
 
 **Default unit:** gray (Gy). \\ 
 **Opt unit:** sievert (Sv) (1).
@@ -322,7 +322,7 @@ This is a measurement of a radiation dose (Absorbed dose of ionizing radiation).
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type27 (0x1B) Catalytic activity ===== 
+##   Type=27 (0x1B) Catalytic activity  
 
 **Default unit:** katal (z).
 
@@ -333,7 +333,7 @@ This is a measurement of catalytic activity used in biochemistry.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type28 (0x1C) Volume ===== 
+##   Type=28 (0x1C) Volume  
 
 **Default unit:** cubic meter (m³)\\ 
 **Opt. unit:** Liter (dm³) (1), decilitre (100 cm³) (2), centilitre (10 cm³) (3), millilitre (cm³) (4) where unit 4 is only available for Level II measurement events where units can hold this value.
@@ -345,7 +345,7 @@ This is a measurement of volume.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type29 (0x1D) Sound intensity ===== 
+##   Type=29 (0x1D) Sound intensity  
 
 **Default unit:** W/m2, watt per square meter. 
 
@@ -356,7 +356,7 @@ This is a measurement of sound intensity (acoustic intensity).
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type30 (0x1E) Angle ===== 
+##   Type=30 (0x1E) Angle  
 
 **Default unit:** radian (rad) (Plane angles). \\ 
 **Opt Unit:** degree (1) \\ 
@@ -370,7 +370,7 @@ This is a measurement of an angle.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type31 (0x1F) Position WGS 84 ===== 
+##   Type=31 (0x1F) Position WGS 84  
 
 **Default unit:** Longitude. \\ 
 **Opt. unit:** Latitude.
@@ -382,7 +382,7 @@ This is a measurement of a position as of WGS 84. Normally given as a floating p
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type32 (0x20) Speed ===== 
+##   Type=32 (0x20) Speed  
 
 **Default unit:** Meters per second. \\ 
 **Optional unit:** Kilometers per hour (1) Miles per hour (2)
@@ -394,7 +394,7 @@ This is a measurement of a speed.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type33 (0x21) Acceleration ===== 
+##   Type=33 (0x21) Acceleration  
 
 **Default unit:** Meters per second/second (m/s2).
 
@@ -405,7 +405,7 @@ This is a measurement of acceleration.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type34 (0x22) Tension ===== 
+##   Type=34 (0x22) Tension  
 
 **Default unit:** N/m.
 
@@ -416,7 +416,7 @@ This is a measurement of tension.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type35 (0x23) Damp/moist (Hygrometer reading) ===== 
+##   Type=35 (0x23) Damp/moist (Hygrometer reading)  
 
 **Default unit:** Relative percentage 0-100%.
 
@@ -427,7 +427,7 @@ This is a measurement of relative moistness (Humidity).
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type36 (0x24) Flow ===== 
+##   Type=36 (0x24) Flow  
 
 **Default unit:** Cubic meters/second. \\ 
 **Opt Unit:** Liters/Second.
@@ -439,7 +439,7 @@ This is a measurement of flow.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type37 (0x25) Thermal resistance ===== 
+##   Type=37 (0x25) Thermal resistance  
 
 **Default unit:** Thermal ohm K/W.
 
@@ -450,7 +450,7 @@ This is a measurement of thermal resistance.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type38 (0x26) Refractive (optical) power ===== 
+##   Type=38 (0x26) Refractive (optical) power  
 
 **Default unit:** dioptre (dpt) m-1.
 
@@ -461,7 +461,7 @@ This is a measurement of refractive (optical) power.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type39 (0x27) Dynamic viscosity ===== 
+##   Type=39 (0x27) Dynamic viscosity  
 
 **Default unit:** poiseuille (Pl) 
 
@@ -472,7 +472,7 @@ This is a measurement of dynamic viscosity.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type40 (0x28) Sound impedance ===== 
+##   Type=40 (0x28) Sound impedance  
 
 **Default unit:** rayl (Pa·s/m)
 
@@ -483,7 +483,7 @@ This is a measurement of sound impedance.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type41 (0x29) Sound resistance ===== 
+##   Type=41 (0x29) Sound resistance  
 
 **Default unit:** Acoustic ohm Pa · s/ m³.
 
@@ -494,7 +494,7 @@ This is a measurement of sound resistance.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type42 (0x2A) Electric elastance ===== 
+##   Type=42 (0x2A) Electric elastance  
 
 **Default unit:** daraf (f-1).
 
@@ -505,7 +505,7 @@ This is a measurement of electric elasticity.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type43 (0x2B) Luminous energy ===== 
+##   Type=43 (0x2B) Luminous energy  
 
 **Default unit:** talbot ( tb = lm * s) 
 
@@ -516,7 +516,7 @@ This is a measurement of luminous energy.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type44 (0x2C) Luminance ===== 
+##   Type=44 (0x2C) Luminance  
 
 **Default unit:** cd / m²) (non SI unit = nit)
 
@@ -527,7 +527,7 @@ This is a measurement of luminance.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type45 (0x2D) Chemical concentration ===== 
+##   Type=45 (0x2D) Chemical concentration  
 
 **Default unit:** molal (mol/kg).
 
@@ -538,11 +538,11 @@ This is a measurement of chemical concentration.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type46 (0x2E) Reserved ===== 
+##   Type=46 (0x2E) Reserved  
 
-Reserved (previously was doublet of Type 26, don't use any longer!) 
+Reserved (previously was doublet of Type= 26, don't use any longer!) 
 
-##   Type47 (0x2F) Dose equivalent ===== 
+##   Type=47 (0x2F) Dose equivalent  
 
 **Default unit:** sievert (J/Kg).
 
@@ -553,11 +553,11 @@ This is a measurement of dose equivalent.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type48 (0x30) Reserved ===== 
+##   Type=48 (0x30) Reserved  
 
-Reserved (was doublet of type 24, do not use any longer!)
+Reserved (was doublet of Type= 24, do not use any longer!)
 
-##   Type49 (0x31) Dew Point ===== 
+##   Type=49 (0x31) Dew Point  
 
 **Default unit:** Kelvin. \\ 
 **Opt. unit:** Degree Celsius (1), Fahrenheit (2)
@@ -569,7 +569,7 @@ This is a measurement of the Dew Point.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type50 (0x32) Relative Level ===== 
+##   Type=50 (0x32) Relative Level  
 
 **Default unit:** Relative value.
 
@@ -580,7 +580,7 @@ This is a relative value for a level measurement without a unit. It is just rela
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type51 (0x33) Altitude. ===== 
+##   Type=51 (0x33) Altitude.  
 
 **Default unit:** Meter. \\ 
 **Opt. unit:** Feet(1), inches (2)
@@ -592,7 +592,7 @@ Altitude in meters.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type52 (0x34) Area ===== 
+##   Type=52 (0x34) Area  
 
 **Default unit:** square meter (m²)
 
@@ -603,7 +603,7 @@ Area in square meter.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type53 (0x35) Radiant intensity ===== 
+##   Type=53 (0x35) Radiant intensity  
 
 **Default unit:** watt per steradian ( W / sr )
 
@@ -614,7 +614,7 @@ Radiated power per room angle.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type54 (0x36) Radiance ===== 
+##   Type=54 (0x36) Radiance  
 
 **Default unit:** watt per steradian per square metre ( W / (sr * m²) )
 
@@ -625,7 +625,7 @@ This is the radiant flux emitted, reflected, transmitted or received by a surfac
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type55 (0x37) Irradiance, Exitance, Radiosity ===== 
+##   Type=55 (0x37) Irradiance, Exitance, Radiosity  
 
 **Default unit:** watt per square metre ( W / m² )
 
@@ -636,7 +636,7 @@ Power emitted from or striking onto a surface or area.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type56 (0x38) Spectral radiance ===== 
+##   Type=56 (0x38) Spectral radiance  
 
 **Default unit:** watt per steradian per square metre per nm (W·sr-1·m-2·nm-1) \\  
 **Opt. unit:** watt per steradian per meter3 (W·sr-1·m-3) (1), watt per steradian per square metre per hertz (W·sr-1·m-3) (2)
@@ -648,7 +648,7 @@ Radiance of a surface per unit frequency or wavelength.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type57 (0x39) Spectral irradiance ===== 
+##   Type=57 (0x39) Spectral irradiance  
 
 **Default unit:** watt per square metre per nm (W·m-2·nm-1) \\ 
 **Opt. unit:** watt per metre3 (W·m-3) (1), watt per square metre per hertz (W·m-2·Hz-1) (2)
@@ -660,7 +660,7 @@ Irradiance of a surface per unit frequency or wavelength.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type58 (0x3A) Sound pressure (acoustic pressure) ===== 
+##   Type=58 (0x3A) Sound pressure (acoustic pressure)  
 
 **Default unit:** pascal (Pa) 
 
@@ -671,7 +671,7 @@ This is a measurement of sound pressure (acoustic pressure).
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type59 (0x3B) Sound energy density ===== 
+##   Type=59 (0x3B) Sound energy density  
 
 **Default unit:** pascal (Pa) 
 
@@ -682,7 +682,7 @@ Sound energy density or sound density is the sound energy per unit volume.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
-##   Type60 (0x3C) Sound level ===== 
+##   Type=60 (0x3C) Sound level  
 
 **Default unit:** decibel (dB) 
 

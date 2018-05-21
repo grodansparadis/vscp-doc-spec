@@ -22,11 +22,11 @@ The id is something you set that have meaning for you. Typically it can be used 
 
 Remember that the receiving side also have the originating id (GUID) as an identification from where a logging event originates.
 
-##   Type0 (0x00) Undefined. ===== 
+##   Type=0 (0x00) Undefined.
 
 General Log event. 
 
-##   Type1 (0x01) Log event. ===== 
+##   Type=1 (0x01) Log event.
 
 Message for Log. Several frames have to be sent for a event that take up more the five bytes which is the maximum for each frame. In this case the zero based index (byte 2) should be increased for each frame. 
 
@@ -37,7 +37,7 @@ Message for Log. Several frames have to be sent for a event that take up more th
  | 2    | Idx for this message.  | 
  | 3-7  | Message.               | 
 
-##   Type2(0x01) Log Start. ===== 
+##   Type=2(0x01) Log Start.
 
 Start logging. 
 
@@ -45,7 +45,7 @@ Start logging.
  | ---- | ----------- | 
  | 0    | ID for log. | 
 
-##   Type3 (0x03) Log Stop. ===== 
+##   Type=3 (0x03) Log Stop.
 
 Stop logging. 
 
@@ -53,7 +53,7 @@ Stop logging.
  | ---- | ----------- | 
  | 0    | ID for log. | 
 
-##   Type4 (0x04) Log Level. ===== 
+##   Type=4 (0x04) Log Level.
 
 Set level for logging. 
 

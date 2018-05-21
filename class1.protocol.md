@@ -667,7 +667,7 @@ should be sent.
 Note that if sending the events back to back some devices will not be able to cope with the data stream. It is therefor advisable to have a short delay between each mdf data frame sent out.
 
 
-## Type=37 (0x25) Extended page read register.=====
+## Type=37 (0x25) Extended page read register.
 
 **Mandatory.** Must be implemented by all devices.
 

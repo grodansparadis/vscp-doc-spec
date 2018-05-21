@@ -6,11 +6,11 @@
 
 This class is for phone related functionality. 
 
-##   Type0 (0x00) Undefined. ===== 
+##   Type=0 (0x00) Undefined. 
 
 General event. 
 
-##   Type1 (0x00) Incoming call. ===== 
+##   Type=1 (0x00) Incoming call. 
 
 There is an incoming phone call. Usually a caller ID node just sends out numerical information. A database event can follow (later) that contains the real text information.
 
@@ -45,7 +45,7 @@ Calls from unlisted numbers are presented as
  | 2    | Total number of events (fragments) for this call information.                                            | 
  | 3-7  | Caller information. Number or real text information.                                                     | 
 
-##   Type2 (0x02) Outgoing call. ===== 
+##   Type=2 (0x02) Outgoing call. 
 
 There is an outgoing phone call. 
 
@@ -56,7 +56,7 @@ There is an outgoing phone call.
  | 2    | Total number of events (fragments) for this call information.                                            | 
  | 3-7  | Caller information. Number or real text information.                                                     | 
 
-##   Type3 (0x03) Ring. ===== 
+##   Type=3 (0x03) Ring.
 
 This is a event indicating that there is a “ring” for this call. 
 
@@ -64,7 +64,7 @@ This is a event indicating that there is a “ring” for this call.
  | ---- | -----------                                                                                | 
  | 0    | An ID for the call. This can for instance be a number that increases by one for each call. | 
 
-##   Type4 (0x04) Answer. ===== 
+##   Type=4 (0x04) Answer.
 
 The call has been answered. 
 
@@ -74,28 +74,28 @@ The call has been answered.
  | 1    | Zone for answer location.                                                                  | 
  | 2    | Sub-zone for answer location.                                                              | 
 
-##  Type5 (0x05) Hangup. ===== 
+##  Type=5 (0x05) Hangup.
 
 The call has been terminated by the receiving end. 
 
  | 0 | An ID for the call. This can for instance be a number that increases by one for each call. | 
  | - | ------------------------------------------------------------------------------------------ | 
 
-##   Type6 (0x06) Giveup. ===== 
+##   Type=6 (0x06) Giveup.
 
 The call has been terminated by the originating end. byte 
 
  | 0 | An ID for the call. This can for instance be a number that increases by one for each call. | 
  | - | ------------------------------------------------------------------------------------------ | 
 
-##   Type7 (0x07) Transfer. ===== 
+##   Type=7 (0x07) Transfer.
 
 The call has been transferred. byte 
 
  | 0 | An ID for the call. This can for instance be a number that increases by one for each call. | 
  | - | ------------------------------------------------------------------------------------------ | 
 
-##   Type8 (0x08) Database Info.  ===== 
+##   Type=8 (0x08) Database Info.
 
  | 0   | Id for the call. This is a number that is increased by one for each call. In this case the number is the same as for the incoming or outgoing events. | 
  | -   | ----------------------------------------------------------------------------------------------------------------------------------------------------- | 

@@ -45,7 +45,7 @@ This is the response from a read and a write. Note that the data is returned in 
  | Byte 0-3  | Start register for register read/written. | 
  | Byte 4… | Data read/written.                        | 
 
-## Type=20 (0x14) High end server/service capabilities ===== 
+## Type=20 (0x14) High end server/service capabilities
 
 Should be implemented by all Level II devices and be sent out at least once every 60 second.
 
@@ -109,7 +109,7 @@ Non standard port definitions. Each consist of three bytes.
  | 1    | 0xD4 which is the most significant byte of 32000  | 
  | 3    | 0x00 which is the least significant byte of 32000 | 
 
-## Type=32 (0x20) Level II who is there response ===== 
+## Type=32 (0x20) Level II who is there response
 
 This defines the response from a Level II node for a [CLASS1.PROTOCOL, Type=32, Who is there?](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.protocol#type_31_0x1f_who_is_there) event.
 

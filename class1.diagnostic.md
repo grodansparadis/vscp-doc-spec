@@ -8,7 +8,7 @@ Diagnostic functionality.
 
 The diagnostic events can be used to report malfunctions and errors. 
 
-##   Type0 (0x00) General. ===== 
+##   Type=0 (0x00) General.
 
 General diagnostic event. 
 
@@ -19,7 +19,7 @@ General diagnostic event.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
                     1
-##   Type1 (0x01) Overvoltage.
+##   Type=1 (0x01) Overvoltage.
 
 Over voltage has been diagnosed. 
 
@@ -30,7 +30,7 @@ Over voltage has been diagnosed.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type2 (0x02) Undervoltage. 
+##   Type=2 (0x02) Undervoltage. 
 
 Under voltage has been diagnosed.
 
@@ -41,7 +41,7 @@ Under voltage has been diagnosed.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type3 (0x03) USB VBUS low. 
+##   Type=3 (0x03) USB VBUS low. 
 
 Low voltage on USB VBUS has been diagnosed.
 
@@ -53,7 +53,7 @@ Low voltage on USB VBUS has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type4 (0x04) Battery voltage low. 
+##   Type=4 (0x04) Battery voltage low. 
 
 Low battery voltage has been diagnosed.
 
@@ -65,7 +65,7 @@ Low battery voltage has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type5 (0x05) Battery full voltage.
+##   Type=5 (0x05) Battery full voltage.
 
 Battery full voltage has been diagnosed.
 
@@ -76,7 +76,7 @@ Battery full voltage has been diagnosed.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type6 (0x06) Battery error.
+##   Type=6 (0x06) Battery error.
 
 Battery error has been diagnosed.
 
@@ -87,7 +87,7 @@ Battery error has been diagnosed.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type7 (0x07) Battery OK.
+##   Type=7 (0x07) Battery OK.
 
 Functional battery has been diagnosed.
 
@@ -99,7 +99,7 @@ Functional battery has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type8 (0x08) Over current.
+##   Type=8 (0x08) Over current.
 
 Over current has been diagnosed.
 
@@ -111,7 +111,7 @@ Over current has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type9 (0x09) Circuit error.
+##   Type=9 (0x09) Circuit error.
 
 Circuit error has been diagnosed.
 
@@ -123,7 +123,7 @@ Circuit error has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type10 (0x0A) Short circuit.
+##   Type=10 (0x0A) Short circuit.
 
 Short circuit has been diagnosed.
 
@@ -134,7 +134,7 @@ Short circuit has been diagnosed.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type11 (0x0B) Open Circuit.
+##   Type=11 (0x0B) Open Circuit.
 
 Open Circuit has been diagnosed.
 
@@ -146,7 +146,7 @@ Open Circuit has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type12 (0x0C) Moist.
+##   Type=12 (0x0C) Moist.
 
 Moist has been diagnosed.
 
@@ -157,7 +157,7 @@ Moist has been diagnosed.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type13 (0x0D) Wire failure.
+##   Type=13 (0x0D) Wire failure.
 
 Wire failure has been diagnosed.
 
@@ -169,7 +169,7 @@ Wire failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type14 (0x0E) Wireless faliure.
+##   Type=14 (0x0E) Wireless faliure.
 
 Wireless faliure has been diagnosed.
 
@@ -181,7 +181,7 @@ Wireless faliure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type15 (0x0F) IR failure.
+##   Type=15 (0x0F) IR failure.
 
 IR failure has been diagnosed.
 
@@ -193,7 +193,7 @@ IR failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type16 (0x10) 1-wire failure.
+##   Type=16 (0x10) 1-wire failure.
 
 1-wire failure has been diagnosed.
 
@@ -204,7 +204,7 @@ IR failure has been diagnosed.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type17 (0x11) RS-222 failure.
+##   Type=17 (0x11) RS-222 failure.
 
 RS-222 failure has been diagnosed.
 
@@ -216,7 +216,7 @@ RS-222 failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type18 (0x12) RS-232 failure.
+##   Type=18 (0x12) RS-232 failure.
 
 RS-232 failure has been diagnosed.
 
@@ -228,7 +228,7 @@ RS-232 failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type19 (0x13) RS-423 failure.
+##   Type=19 (0x13) RS-423 failure.
 
 RS-423 failure has been diagnosed.
 
@@ -240,7 +240,7 @@ RS-423 failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type20 (0x14) RS-485 failure.
+##   Type=20 (0x14) RS-485 failure.
 
 RS-485 failure has been diagnosed.
 
@@ -252,7 +252,7 @@ RS-485 failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type21 (0x15) CAN failure.
+##   Type=21 (0x15) CAN failure.
 
 CAN failure has been diagnosed.
 
@@ -264,7 +264,7 @@ CAN failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type22 (0x16) LAN failure.
+##   Type=22 (0x16) LAN failure.
 
 LAN failure has been diagnosed.
 
@@ -275,7 +275,7 @@ LAN failure has been diagnosed.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type23 (0x17) USB failure.
+##   Type=23 (0x17) USB failure.
 
 USB failure has been diagnosed.
 
@@ -287,7 +287,7 @@ USB failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type24 (0x18) Wifi failure.
+##   Type=24 (0x18) Wifi failure.
 
 Wifi failure has been diagnosed.
 
@@ -299,7 +299,7 @@ Wifi failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type25 (0x19) NFC/RFID failure.
+##   Type=25 (0x19) NFC/RFID failure.
 
 NFC/RFID failure has been diagnosed.
 
@@ -311,7 +311,7 @@ NFC/RFID failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type26 (0x1A) Low signal.
+##   Type=26 (0x1A) Low signal.
 
 Low signal has been diagnosed.
 
@@ -323,7 +323,7 @@ Low signal has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type27 (0x1B) High signal.
+##   Type=27 (0x1B) High signal.
 
 High signal has been diagnosed.
 
@@ -335,7 +335,7 @@ High signal has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type28 (0x1C) ADC failure.
+##   Type=28 (0x1C) ADC failure.
 
 ADC failure has been diagnosed.
 
@@ -347,7 +347,7 @@ ADC failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type29 (0x1D) ALU failure.
+##   Type=29 (0x1D) ALU failure.
 
 ALU failure has been diagnosed.
 
@@ -358,7 +358,7 @@ ALU failure has been diagnosed.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type30 (0x1E) Assert.
+##   Type=30 (0x1E) Assert.
 
 An assert has been diagnosed.
 
@@ -370,7 +370,7 @@ An assert has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type31 (0x1F) DAC failure.
+##   Type=31 (0x1F) DAC failure.
 
 DAC failure has been diagnosed.
 
@@ -382,7 +382,7 @@ DAC failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type32 (0x20) DMA failure.
+##   Type=32 (0x20) DMA failure.
 
 DMA failure has been diagnosed.
 
@@ -394,7 +394,7 @@ DMA failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type33 (0x21) Ethernet failure. 
+##   Type=33 (0x21) Ethernet failure. 
 
 Ethernet failure has been diagnosed.
 
@@ -406,7 +406,7 @@ Ethernet failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type34 (0x22) Exception. 
+##   Type=34 (0x22) Exception. 
 
 Exception has been diagnosed.
 
@@ -417,7 +417,7 @@ Exception has been diagnosed.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type35 (0x23) FPU failure. 
+##   Type=35 (0x23) FPU failure. 
 
 Floating point unit (FPU) failure has been diagnosed.
 
@@ -429,7 +429,7 @@ Floating point unit (FPU) failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type36 (0x24) GPIO failure. 
+##   Type=36 (0x24) GPIO failure. 
 
 General purpose I/O (GPIO) failure has been diagnosed.
 
@@ -441,7 +441,7 @@ General purpose I/O (GPIO) failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type37 (0x25) I2C failure. 
+##   Type=37 (0x25) I2C failure. 
 
 I2C failure has been diagnosed.
 
@@ -453,7 +453,7 @@ I2C failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type38 (0x26) I2S failure. 
+##   Type=38 (0x26) I2S failure. 
 
 I2C failure has been diagnosed.
 
@@ -465,7 +465,7 @@ I2C failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type39 (0x27) Invalid configuration. 
+##   Type=39 (0x27) Invalid configuration. 
 
 Invalid configuration has been diagnosed.
 
@@ -477,7 +477,7 @@ Invalid configuration has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type40 (0x28) MMU failure. 
+##   Type=40 (0x28) MMU failure. 
 
 Memory Management Unit (MMU) failure has been diagnosed.
 
@@ -489,7 +489,7 @@ Memory Management Unit (MMU) failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type41 (0x29) NMI failure. 
+##   Type=41 (0x29) NMI failure. 
 
 Non mask-able interrupt (NMI) failure has been diagnosed.
 
@@ -501,7 +501,7 @@ Non mask-able interrupt (NMI) failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type42 (0x2A) Overheat. 
+##   Type=42 (0x2A) Overheat. 
 
 Overheat has been diagnosed.
 
@@ -513,7 +513,7 @@ Overheat has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type43 (0x2B) PLL fail. 
+##   Type=43 (0x2B) PLL fail. 
 
 Phased Locked Loop (PLL) fail has been diagnosed.
 
@@ -524,7 +524,7 @@ Phased Locked Loop (PLL) fail has been diagnosed.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type44 (0x2C) POR failure. 
+##   Type=44 (0x2C) POR failure. 
 
 Power ON Reset (POR) fail has been diagnosed.
 
@@ -536,7 +536,7 @@ Power ON Reset (POR) fail has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type45 (0x2D) PWM failure. 
+##   Type=45 (0x2D) PWM failure. 
 
 Pulse Width Modulation (PWM) failure has been diagnosed.
 
@@ -547,7 +547,7 @@ Pulse Width Modulation (PWM) failure has been diagnosed.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type46 (0x2E) RAM failure. 
+##   Type=46 (0x2E) RAM failure. 
 
 Random Access Memory (RAM) failure has been diagnosed.
 
@@ -559,7 +559,7 @@ Random Access Memory (RAM) failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type47 (0x2F) ROM failure. 
+##   Type=47 (0x2F) ROM failure. 
 
 Read only memory (ROM) failure has been diagnosed.
 
@@ -571,7 +571,7 @@ Read only memory (ROM) failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type48 (0x30) SPI failure. 
+##   Type=48 (0x30) SPI failure. 
 
 Serial peripheral interface (SPI) failure has been diagnosed.
 
@@ -583,7 +583,7 @@ Serial peripheral interface (SPI) failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type49 (0x31) Stack failure. 
+##   Type=49 (0x31) Stack failure. 
 
 Stack failure has been diagnosed.
 
@@ -595,7 +595,7 @@ Stack failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type50 (0x32) LIN bus failure. 
+##   Type=50 (0x32) LIN bus failure. 
 
 LIN bus failure has been diagnosed.
 
@@ -607,7 +607,7 @@ LIN bus failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type51 (0x33) UART failure. 
+##   Type=51 (0x33) UART failure. 
 
 UART failure has been diagnosed.
 
@@ -619,7 +619,7 @@ UART failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type52 (0x34) Unhandled interrupt. 
+##   Type=52 (0x34) Unhandled interrupt. 
 
 Unhandled interrupt has been diagnosed.
 
@@ -631,7 +631,7 @@ Unhandled interrupt has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type53 (0x35) Memory failure. 
+##   Type=53 (0x35) Memory failure. 
 
 Memory failure has been diagnosed.
 
@@ -643,7 +643,7 @@ Memory failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type54 (0x36) Variable range failure. 
+##   Type=54 (0x36) Variable range failure. 
 
 Variable range failure has been diagnosed.
 
@@ -655,7 +655,7 @@ Variable range failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type55 (0x37) WDT failure. 
+##   Type=55 (0x37) WDT failure. 
 
 Watch Dog Timer (WDT) failure has been diagnosed.
 
@@ -667,7 +667,7 @@ Watch Dog Timer (WDT) failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type56 (0x38) EEPROM failure. 
+##   Type=56 (0x38) EEPROM failure. 
 
 EEPROM failure has been diagnosed.
 
@@ -679,7 +679,7 @@ EEPROM failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type57 (0x39) Encryption failure. 
+##   Type=57 (0x39) Encryption failure. 
 
 Encryption failure has been diagnosed.
 
@@ -691,7 +691,7 @@ Encryption failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type58 (0x3A) Bad user input failure. 
+##   Type=58 (0x3A) Bad user input failure. 
 
 Bad user input failure has been diagnosed.
 
@@ -703,7 +703,7 @@ Bad user input failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type59 (0x3B) Decryption failure. 
+##   Type=59 (0x3B) Decryption failure. 
 
 Decryption failure has been diagnosed.
 
@@ -715,7 +715,7 @@ Decryption failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type60 (0x3C) Noise. 
+##   Type=60 (0x3C) Noise. 
 
 Noise has been diagnosed.
 
@@ -727,7 +727,7 @@ Noise has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type61 (0x3D) Boot loader failure. 
+##   Type=61 (0x3D) Boot loader failure. 
 
 Boot loader failure has been diagnosed.
 
@@ -739,7 +739,7 @@ Boot loader failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type62 (0x3E) Program flow failure. 
+##   Type=62 (0x3E) Program flow failure. 
 
 Program flow failure has been diagnosed.
 
@@ -751,7 +751,7 @@ Program flow failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type63 (0x3F) RTC faiure. 
+##   Type=63 (0x3F) RTC faiure. 
 
 Real Time Clock (RTC) failure has been diagnosed.
 
@@ -762,7 +762,7 @@ Real Time Clock (RTC) failure has been diagnosed.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type64 (0x40) System test failure. 
+##   Type=64 (0x40) System test failure. 
 
 System test failure has been diagnosed.
 
@@ -774,7 +774,7 @@ System test failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type65 (0x41) Sensor failure. 
+##   Type=65 (0x41) Sensor failure. 
 
 Sensor failure has been diagnosed.
 
@@ -786,7 +786,7 @@ Sensor failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type66 (0x42) Safe state entered. 
+##   Type=66 (0x42) Safe state entered. 
 
 Safe state entered has been diagnosed.
 
@@ -797,9 +797,8 @@ Safe state entered has been diagnosed.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-#define VSCP_TYPE_DIAGNOSTIC_SIGNAL_IMPLAUSIBLE             67
 
-##   Type67 (0x43)Signal implausible. 
+##   Type=67 (0x43)Signal implausible. 
 
 Signal implausible has been diagnosed.
 
@@ -811,7 +810,7 @@ Signal implausible has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type68 (0x44) Storage fail. 
+##   Type=68 (0x44) Storage fail. 
 
 Storage fail has been diagnosed.
 
@@ -823,7 +822,7 @@ Storage fail has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type69 (0x45) Self test OK. 
+##   Type=69 (0x45) Self test OK. 
 
 Self test OK has been diagnosed.
 
@@ -834,7 +833,7 @@ Self test OK has been diagnosed.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type70 (0x46) ESD/EMC/EMI failure. 
+##   Type=70 (0x46) ESD/EMC/EMI failure. 
 
 ESD/EMC/EMI failure has been diagnosed.
 
@@ -846,7 +845,7 @@ ESD/EMC/EMI failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type71 (0x47) Timeout. 
+##   Type=71 (0x47) Timeout. 
 
 Timeout has been diagnosed.
 
@@ -858,7 +857,7 @@ Timeout has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type72 (0x48) LCD failure.  
+##   Type=72 (0x48) LCD failure.  
 
 LCD failure has been diagnosed.
 
@@ -870,7 +869,7 @@ LCD failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type73 (0x49) Touch panel failure.  
+##   Type=73 (0x49) Touch panel failure.  
 
 Touch panel failure has been diagnosed.
 
@@ -882,7 +881,7 @@ Touch panel failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type74 (0x4A) no load. 
+##   Type=74 (0x4A) no load. 
 
 No load has been diagnosed.
 
@@ -894,7 +893,7 @@ No load has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type75 (0x4B) Cooling failure. 
+##   Type=75 (0x4B) Cooling failure. 
 
 Cooling failure has been diagnosed.
 
@@ -906,7 +905,7 @@ Cooling failure has been diagnosed.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type76 (0x4C) Heating failure.  
+##   Type=76 (0x4C) Heating failure.  
 
 Heating failure has been diagnosed.
 
@@ -917,7 +916,7 @@ Heating failure has been diagnosed.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type77 (0x4D) Transmission failure. 
+##   Type=77 (0x4D) Transmission failure. 
 
 Transmission failure has been diagnosed.
 
@@ -928,7 +927,7 @@ Transmission failure has been diagnosed.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type78 (0x4E) Receiption failure. 
+##   Type=78 (0x4E) Receiption failure. 
 
 Receiption failure has been diagnosed.
 
@@ -939,7 +938,7 @@ Receiption failure has been diagnosed.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type79 (0x4F) External IC failure. 
+##   Type=79 (0x4F) External IC failure. 
 
 A failure in an external IC circuit has been detected.
 

@@ -7,7 +7,7 @@
 Error reporting functionality that follow the errors defined in the [vscp.h](https///github.com/grodansparadis/vscp_software/blob/master/src/vscp/common/vscp.h) header file.
 
 
-##   Type0 (0x00) Success. ===== 
+##   Type=0 (0x00) Success.
 
 This error message is used to report success that is no error.
 
@@ -18,7 +18,7 @@ This error message is used to report success that is no error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type1 (0x01) Error. ===== 
+##   Type=1 (0x01) Error.
 
 This error message is used to indicate an error condition.
 
@@ -29,7 +29,7 @@ This error message is used to indicate an error condition.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type7 (0x07) Channel error. ===== 
+##   Type=7 (0x07) Channel error.
 
 This error message is used to indicate a (communication) channel problem.
 
@@ -40,7 +40,7 @@ This error message is used to indicate a (communication) channel problem.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type8 (0x08) fifo empty error. ===== 
+##   Type=8 (0x08) fifo empty error.
 
 This error message is used to indicate a fifo empty problem.
 
@@ -51,7 +51,7 @@ This error message is used to indicate a fifo empty problem.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type9 (0x09) fifo full error. ===== 
+##   Type=9 (0x09) fifo full error.
 
 This error message is used to indicate a fifo full problem.
 
@@ -62,7 +62,7 @@ This error message is used to indicate a fifo full problem.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type10 (0x0A) fifo size error. ===== 
+##   Type=10 (0x0A) fifo size error.
 
 This error message is used to indicate a fifo size problem.
 
@@ -73,7 +73,7 @@ This error message is used to indicate a fifo size problem.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type11 (0x0B) fifo wait error. ===== 
+##   Type=11 (0x0B) fifo wait error.
 
 This error message is used to indicate a fifo wait problem.
 
@@ -84,7 +84,7 @@ This error message is used to indicate a fifo wait problem.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type12 (0x0C) generic error. ===== 
+##   Type=12 (0x0C) generic error.
 
 This error message is used to indicate a generic error.
 
@@ -95,7 +95,7 @@ This error message is used to indicate a generic error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type13 (0x0D) hardware error. ===== 
+##   Type=13 (0x0D) hardware error.
 
 This error message is used to indicate a hardware error.
 
@@ -106,7 +106,7 @@ This error message is used to indicate a hardware error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type14 (0x0E) initialization error. ===== 
+##   Type=14 (0x0E) initialization error.
 
 This error message is used to indicate a initialization error.
 
@@ -117,7 +117,7 @@ This error message is used to indicate a initialization error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type15 (0x0F) missing initialization error. ===== 
+##   Type=15 (0x0F) missing initialization error.
 
 This error message is used to indicate a missing initialization error.
 
@@ -128,7 +128,7 @@ This error message is used to indicate a missing initialization error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type16 (0x10) initialization ready. ===== 
+##   Type=16 (0x10) initialization ready.
 
 This error message is used to indicate a initialization ready error.
 
@@ -139,7 +139,7 @@ This error message is used to indicate a initialization ready error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type17 (0x11) not supported. ===== 
+##   Type=17 (0x11) not supported. 
 
 This error message is used to indicate a not supported error.
 
@@ -150,7 +150,7 @@ This error message is used to indicate a not supported error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type18 (0x12) overrun error. ===== 
+##   Type=18 (0x12) overrun error. 
 
 This error message is used to indicate an overrun error.
 
@@ -161,7 +161,7 @@ This error message is used to indicate an overrun error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type19 (0x13) receiver empty error. ===== 
+##   Type=19 (0x13) receiver empty error. 
 
 This error message is used to indicate a receiver empty error.
 
@@ -172,7 +172,7 @@ This error message is used to indicate a receiver empty error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type20 (0x14) register error. ===== 
+##   Type=20 (0x14) register error. 
 
 This error message is used to indicate a register error.
 
@@ -183,7 +183,7 @@ This error message is used to indicate a register error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type21 (0x15) transmitter full error. ===== 
+##   Type=21 (0x15) transmitter full error. 
 
 This error message is used to indicate a transmitter full error.
 
@@ -198,7 +198,7 @@ This error message is used to indicate a transmitter full error.
 
 Reserved
 
-##   Type28 (0x1C) library error. ===== 
+##   Type=28 (0x1C) library error. 
 
 This error message is used to indicate a library error.
 
@@ -209,7 +209,7 @@ This error message is used to indicate a library error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type29 (0x1D) procedural address error. ===== 
+##   Type=29 (0x1D) procedural address error. 
 
 This error message is used to indicate a procedural address error.
 
@@ -220,7 +220,7 @@ This error message is used to indicate a procedural address error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type30 (0x1E) only one instance error. ===== 
+##   Type=30 (0x1E) only one instance error. 
 
 This error message is used to indicate an only one instance error.
 
@@ -231,7 +231,7 @@ This error message is used to indicate an only one instance error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type31 (0x1F) sub driver error. ===== 
+##   Type=31 (0x1F) sub driver error. 
 
 This error message is used to indicate a sub driver error.
 
@@ -243,7 +243,7 @@ This error message is used to indicate a sub driver error.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type32 (0x20) timeout error. ===== 
+##   Type=32 (0x20) timeout error. 
 
 This error message is used to indicate a timeout error.
 
@@ -255,7 +255,7 @@ This error message is used to indicate a timeout error.
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
-##   Type33 (0x21) not open error. ===== 
+##   Type=33 (0x21) not open error. 
 
 This error message is used to indicate a not open error.
 
@@ -266,7 +266,7 @@ This error message is used to indicate a not open error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type34 (0x22) parameter error. ===== 
+##   Type=34 (0x22) parameter error.
 
 This error message is used to indicate a parameter error.
 
@@ -277,7 +277,7 @@ This error message is used to indicate a parameter error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type35 (0x23) memory error. ===== 
+##   Type=35 (0x23) memory error.  
 
 This error message is used to indicate a memory error.
 
@@ -288,7 +288,7 @@ This error message is used to indicate a memory error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type36 (0x24) internal error. ===== 
+##   Type=36 (0x24) internal error. 
 
 This error message is used to indicate a internal error.
 
@@ -299,7 +299,7 @@ This error message is used to indicate a internal error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type37 (0x25) communication error. ===== 
+##   Type=37 (0x25) communication error. 
 
 This error message is used to indicate a communication error.
 
@@ -310,7 +310,7 @@ This error message is used to indicate a communication error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type38 (0x26) user error. ===== 
+##   Type=38 (0x26) user error. 
 
 This error message is used to indicate a user error.
 
@@ -321,7 +321,7 @@ This error message is used to indicate a user error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type39 (0x27) password error. ===== 
+##   Type=39 (0x27) password error. 
 
 This error message is used to indicate a password error.
 
@@ -332,7 +332,7 @@ This error message is used to indicate a password error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type40 (0x28) connection error. ===== 
+##   Type=40 (0x28) connection error. 
 
 This error message is used to indicate a connection error.
 
@@ -343,7 +343,7 @@ This error message is used to indicate a connection error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type41 (0x29) invalid handle error. ===== 
+##   Type=41 (0x29) invalid handle error. 
 
 This error message is used to indicate a invalid handle error.
 
@@ -354,7 +354,7 @@ This error message is used to indicate a invalid handle error.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
-##   Type42 (0x2A) operation failed error. ===== 
+##   Type=42 (0x2A) operation failed error. 
 
 This error message is used to indicate an operation failed error.
 
