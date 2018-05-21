@@ -1,3 +1,12 @@
+## CAN
+Control Area Network. A very robust network protocol that among other things is commonly used in cars and heavy machinery.
+
+## CAN4VSCP
+VSCP level I over CAN. Also specifies bus-speed and power.
+
+## CANAL
+CAN Abstraction Layer - VSCP interface used for VSCP level I drivers. Originally this was a CAN pure interface.
+
 ## VSCP
 Stands for *Very Simple Control Protocol* and is the name for the protocol and the framework used for the VSCP system.
 
@@ -21,12 +30,6 @@ The Transmission Control Protocol and Internet Protocol
 
 ## UDP
 User Datagram Protocol
-
-## CAN
-Control Area Network. A very robust network protocol that among other things is commonly used in cars and heavy machinery.
-
-## CANAL
-CAN Abstraction Layer - VSCP interface used for VSCP level I drivers. Originally this was a CAN pure interface.
 
 ## OHAS
 Open Home Automation Server
