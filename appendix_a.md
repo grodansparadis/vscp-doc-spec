@@ -1,6 +1,6 @@
 # Appendix A - Assigned GUIDs
 
-If you want your own GUID series you can ask for one by sending an email to [guid@vscp.org](guid@vscp.org) or filling in [this form](https///docs.google.com/forms/d/1PwH-8E5z3oiFcoxUvDqIDhSqVXBIhAMt-92MNnvgEBM/viewform). It is a free service.
+If you want your own GUID series you can ask for one by sending an email to [guid@vscp.org](guid@vscp.org). It is a free service.
 
 ####  01:00:00:00:00:00:00:00:00:00:00:00:XX:XX:XX:XX 
     Grodans Paradis AB, Brattbergavägen 17 820 50 LOS Sweden Phone: +46 (0)8 40011835 

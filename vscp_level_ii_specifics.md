@@ -17,11 +17,11 @@ typedef struct {
         
         /* Time block - Always UTC time */
         uint16_t year; 
-        uint8_t month;	        /* 1-12 */
-        uint8_t day;	        /* 1-31 */
-        uint8_t hour;	        /* 0-23 */
-        uint8_t minute;	        /* 0-59 */
-        uint8_t second;	        /* 0-59 */
+        uint8_t month;          /* 1-12 */
+        uint8_t day;            /* 1-31 */
+        uint8_t hour;           /* 0-23 */
+        uint8_t minute;         /* 0-59 */
+        uint8_t second;         /* 0-59 */
         
         uint32_t timestamp;     /* Relative time stamp for package in microseconds */
                                 /* ~71 minutes before roll over */
@@ -29,7 +29,7 @@ typedef struct {
         /* ----- CRC should be calculated from here to end + data block ----  */
         
         uint16_t head;          /* Bit 15   GUID is IP v.6 address. */
-	                        /* Bit 14   This is a dumb node. No MDF, register, nothing. */
+	                            /* Bit 14   This is a dumb node. No MDF, register, nothing. */
                                 /* Bit 8-13 = Reserved */
                                 /* bit 765  priority, Priority 0-7 where 0 is highest. */
                                 /* bit 4 = hard coded, true for a hard coded device. */
@@ -55,6 +55,7 @@ The biggest differences is that the GUID is sent in each event and that both cla
 The CRC is calculated using the CCITT polynomial
 
  The format in a stream is 
+
 
 ## VSCP LEVEL II UDP datagram offsets
 
@@ -172,51 +173,13 @@ The VSCP team controls the rest of the addresses and will allocate addresses to 
 
 ## Predefined VSCP GUID's
 
-It is possible to create your own GUID without requesting a series and still get a valid VSCP GUID.
+It is possible to create your own GUID without requesting a series and still have a valid global VSCP GUID. This is because GUID series has been constructed from Ethernet MAC addresses and other common id series. Full list is [here](./vscp_globally_unique_identifiers.md).
 
-### Assigned Global Unique IDs
 
-** FF:FF:FF:FF:FF:FF:FF:FF:YY:YY:YY:YY:YY:YY:YY:YY **
-Dallas Semiconductor GUID's. This is the 1-wire/iButton 64-bit ID. The device code is in the MSB byte and CRC in the LSB byte. 
 
-** FF:FF:FF:FF:FF:FF:FF:FE:YY:YY:YY:YY:YY:YY:XX:XX **
-Ethernet Device GUID's. The holder of the address can freely use the two least significant bytes of the GUID. MAC address in MSB - LSB order. Also called MAC-48 or EUI-48 by IEEE 
+## Assigned VSCP GUID's
 
-** FF:FF:FF:FF:FF:FF:FF:FD:YY:YY:YY:YY:XX:XX:XX:XX **
-Internet version 4 GUID's. This is a 32-bit ID so the holder of the address can freely use the four least significant bytes of the GUID. IP V4 address in MSB - LSB order.
-
-** FF:FF:FF:FF:FF:FF:FF:FC:XX:XX:XX:XX:XX:XX:XX:XX **
-Private. Use for in-house local use. The GUID should never appear outside your local segments. 
-
-** FF:FF:FF:FF:FF:FF:FF:FB:YY:YY:YY:XX:XX:XX:XX:XX ** 
-ISO ID. This is a three byte ID so the holder of the ISO ID can freely use the five least significant bytes of the GUID. 
-
-** FF:FF:FF:FF:FF:FF:FF:FA:YY:YY:YY:YY:XX:XX:XX:XX ** 
-CiA (CAN in Automation) vendor ID. This is a 32-bit ID so the holder of the vendor ID can freely use the four least significant bytes of the GUID.
-
-** FF:FF:FF:FF:FF:FF:FF:F9:YY:YY:YY:XX:XX:XX:XX:XX ** 
-ZigBee 802.15.4 OID. This is a 24-bit ID so the holder of the OID can freely use the five least significant bytes of the GUID. 
-
-** FF:FF:FF:FF:FF:FF:FF:F8:YY:YY:YY:YY:YY:YY:XX:XX ** 
-Bluetooth MAC. This is a 48-bit ID so the holder of the OID can freely use the two least significant bytes of the GUID. 
-
-** FF:FF:FF:FF:FF:FF:FF:F7:YY:YY:YY:YY:YY:YY:YY:YY ** 
-IEEE EUI-64. This is a 64-bit ID. The upper three bytes are purchased from IEEE by the company that releases the product. The lower five bytes are assigned by the device and must be unique.
-
-** FF:FF:FF:FF:FF:FF:FF:F6:00:YY:YY:YY:YY:YY:YY:YY ** 
-Reserved for RAMTRON MRAM (and compatible), seven byte IDs.
-
-** FF:FF:FF:FF:FF:FF:FF:F6:01:YY:YY:YY:YY:YY:YY:YY - FF:FF:FF:FF:FF:FF:FF:F6:FF:YY:YY:YY:YY:YY:YY:YY	**
-Reserved other future seven bit ID (memory devices) that may have ID, such as PRAM etc.
-
-** FF:FF:FF:FF:FF:FF:FF:F5:00:00:00:00:XX:XX:xXX:XX - FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:XX:XX:XX:XX ** 	
-Reserved
-
-**00:00:00:00:00:00:00:00:00:00:00:00:xx:xx:xx:xx** 
-Lab usage. You can use this range for your own development or for in-house local use. The GUID should never appear outside your local segments. 
-
-** FE:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY**	
-Reserved for a generated 128 bit GUID where the most significant byte is replaced by FE Only use for Level II and on internal net. [http://hegel.ittc.ku.edu/topics/internet/internet-drafts/draft-l/draft-leach-uuids-guids-01.txt](http://hegel.ittc.ku.edu/topics/internet/internet-drafts/draft-l/draft-leach-uuids-guids-01.txt)
+Current predefined GUID series is listed in [appendix A](./appendix_a.md). You can request your own series by writing [guid@vscp.org](guid@vscp.org)
 
 ## Shorthand GUID's
 
