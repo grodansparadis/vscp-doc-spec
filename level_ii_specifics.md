@@ -8,7 +8,7 @@ Level II nodes are intended for media with higher bandwidth then Level I nodes a
 
 The header for a level II event is defined as
 
-'''c++
+```c++
 typedef struct {
         uint16_t crc;           /* crc checksum (calculated from here to end) */
                                 /* Used for UDP/Ethernet etc */
@@ -48,7 +48,7 @@ typedef struct {
         uint8_t *pdata;         /* Pointer to data. Max 512 bytes */
         
     } vscpEvent;
-´´´
+```
 
 The biggest differences is that the GUID is sent in each event and that both class and type has a 16-bit length.
 
@@ -58,7 +58,7 @@ The CRC is calculated using the CCITT polynomial
 
 ## VSCP LEVEL II UDP datagram offsets
 
-'''c++
+```c++
 #define VSCP_MULTICAST_PACKET0_POS_PKTTYPE              0
 
 #define VSCP_MULTICAST_PACKET0_POS_HEAD                 1
@@ -95,7 +95,7 @@ The CRC is calculated using the CCITT polynomial
 #define VSCP_MULTICAST_PACKET0_POS_VSCP_SIZE_LSB        35
 
 #define VSCP_MULTICAST_PACKET0_POS_VSCP_DATA            36
-'''
+```
 
 As is noted the obid and time-stamp is not present in the actual stream and is only inserted by the driver interface software.
 
@@ -111,7 +111,7 @@ Other methods to generate GUID's s also available form more information see Appe
 
 VSCP level II events can be presented as XML data. Format is
 
-'''xml
+```xml
 `<?xml version = "1.0" encoding = "UTF-8" ?>` 
 `<!-- Version 0.0.1 2007-09-27 -->` 
 `<event>` 
@@ -133,13 +133,13 @@ VSCP level II events can be presented as XML data. Format is
     `<coding>`How value is codes`</coding>`
     `<value>`Measurement value`</value>` 
 `</event>`
-'''
+```
 
 ## JSON Representation
 
 VSCP level II events can be presented as JSON data. Format is
 
-'''json
+```json
 { 
     “measurement”: {
          “head”:flags,
@@ -154,7 +154,7 @@ VSCP level II events can be presented as JSON data. Format is
          “value”: 0,       /* optional for measurements */
     }
 }
-'''
+```
 
 ## Globally Unique Identifiers
 
