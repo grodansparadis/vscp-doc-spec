@@ -44,8 +44,8 @@
 
 *  [Level I Events](level_i_events.md)
 *  [CLASS1.PROTOCOL (0)](class1.protocol.md)
-    * [Type=0, Undefined](./class1.protocol.html#type0-0x00-undefined)
-    * [Type=1, Segment Controller Heartbeat](./class1.protocol.html#type1-0x01-segment-controller-heartbeat)
+    * [Type=0, Undefined](./class1.protocol.md#type0-0x00-undefined)
+    * [Type=1, Segment Controller Heartbeat](./class1.protocol.md#type1-0x01-segment-controller-heartbeat)
 *  [CLASS1.ALARM (1)](class1.alarm.md)
 *  [CLASS1.SECURITY (2)](class1.security.md)
 *  [CLASS1.MEASUREMENT (10)](class1.measurement.md)
