@@ -44,8 +44,8 @@
 
 *  [Level I Events](level_i_events.md)
 *  [CLASS1.PROTOCOL (0)](class1.protocol.md)
-    * [Type=0, Undefined](class1.protocol.md#Type=0-\(0x00\)-Undefined.)
-    * [Type=1, Segment Controller Heartbeat](class1.protocol.md#Type=1-\(0x01\)-Segment-Controller-Heartbeat.)
+    * [Type=0, Undefined](class1.protocol.md#type=0-\(0x00\)-undefined.)
+    * [Type=1, Segment Controller Heartbeat](class1.protocol.md#type=1-\(0x01\)-segment-controller-heartbeat.)
 *  [CLASS1.ALARM (1)](class1.alarm.md)
 *  [CLASS1.SECURITY (2)](class1.security.md)
 *  [CLASS1.MEASUREMENT (10)](class1.measurement.md)
@@ -94,7 +94,7 @@
 
 ## Other documentation**
 
-*  [VSCP Server](https///www.vscp.org/docs/vscpd/doku.php?id=start)
+*  [VSCP Daemon](https///www.vscp.org/docs/vscpd/doku.php?id=start)
 *  [VSCP Helper lib](https///www.vscp.org/docs/vscphelper/doku.php?id=start)
 *  [VSCP Works](https///www.vscp.org/docs/vscpworks/doku.php?id=start)
 *  [VSCP Firmware](https///www.vscp.org/docs/vscpfirmware/doku.php)
