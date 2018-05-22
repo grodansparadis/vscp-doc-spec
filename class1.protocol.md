@@ -65,6 +65,7 @@ On a Level II system.
  | Data | Description                                            | 
  | ---- | -----------                                            | 
  | 0-15 | **GUID**. This is the GUID of the node. MSB in byte 0. | 
+ 
 ## Type=3 (0x03) Probe ACK.
 
 **Mandatory.** Must be implemented by all devices.

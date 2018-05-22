@@ -75,15 +75,15 @@
 ## Level II events
 
 *  [Level II Events](level_ii_events.md)
-*  [CLASS2.PROTOCOL1(512)](class2.protocol1.md)
-*  [CLASS2.PROTOCOL(1024)](class2.protocol.md)
-*  [CLASS2.CONTROL(1025)](class2.control.md)
-*  [CLASS2.INFORMATION(1026)](class2.information.md)
-*  [CLASS2.TEXT2SPEECH(1027)](class2.text2speech.md)
-*  [CLASS2.CUSTOM(1029)](class2.custom.md)
-*  [CLASS2.DISPLAY(1030)](class2.display.md)
-*  [CLASS2.MEASUREMENT_STR(1040)](class2.measurement_str.md)
-*  [CLASS2.MEASUREMENT_FLOAT(1060)](class2.measurement_float.md)
+*  [CLASS2.PROTOCOL1 (512)](class2.protocol1.md)
+*  [CLASS2.PROTOCOL (1024)](class2.protocol.md)
+*  [CLASS2.CONTROL (1025)](class2.control.md)
+*  [CLASS2.INFORMATION (1026)](class2.information.md)
+*  [CLASS2.TEXT2SPEECH (1027)](class2.text2speech.md)
+*  [CLASS2.CUSTOM (1029)](class2.custom.md)
+*  [CLASS2.DISPLAY (1030)](class2.display.md)
+*  [CLASS2.MEASUREMENT_STR (1040)](class2.measurement_str.md)
+*  [CLASS2.MEASUREMENT_FLOAT (1060)](class2.measurement_float.md)
 *  [CLASS2.VSCPD(65535)](class2.vscpd.md)
            
 
