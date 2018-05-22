@@ -4,7 +4,7 @@
     
 ## Description
 
-Error reporting functionality that follow the errors defined in the [vscp.h](https///github.com/grodansparadis/vscp_software/blob/master/src/vscp/common/vscp.h) header file.
+Error reporting functionality that follow the errors defined in the [vscp.h](https://github.com/grodansparadis/vscp_software/blob/master/src/vscp/common/vscp.h) header file.
 
 
 ##   Type=0 (0x00) Success.

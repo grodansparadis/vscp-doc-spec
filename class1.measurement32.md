@@ -4,7 +4,7 @@
 
 ### Description
 
-Floating point single precision measurements. This class mirrors the standard measurement events is [CLASS1.MEASUREMENT=10](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.measurement). The measurement unit is always the standard unit. 
+Floating point single precision measurements. This class mirrors the standard measurement events is [CLASS1.MEASUREMENT=10](./class1.measurement.md). The measurement unit is always the standard unit. 
 
 The value is a "float"	- IEEE-754, 32 Bits, single precision. 
 

@@ -102,7 +102,7 @@ A node indicates that a close has occurred. This can be a door/window close, a m
 
 Heartbeats can be used to indicate that a unit is alive or to send periodic data. This can be sent out at predefined intervals to indicate that the node is alive, however, it does not necessarily mean the node is functioning as it should. It simply states that the node is connected to the network. To check if a node is functioning, other properties such as a measurement event or registry should be used. This event should be sent as a response to a “Segment Status Heartbeat” (CLASS1.PROTOCOL, Type=1) in order to provide a method of finding out what is connected to the network. The data bytes from byte 3 and forward can be used to send a descriptive/user friendly name if desired.
 
-**Mandatory.** All nodes should send this event at least once each minute. A Level II node should normally not send this event but instead send [Level II node heartbeat](http://www.vscp.org/docs/vscpspec/doku.php?id=class2.information#type_2_0x0002_level_ii_node_heartbeat). Recommended interval is 30-60 seconds but in a node that need to sleep longer to save resources a longer interval can be used.
+**Mandatory.** All nodes should send this event at least once each minute. A Level II node should normally not send this event but instead send [Level II node heartbeat](./class2.information.md#type_2_0x0002_level_ii_node_heartbeat). Recommended interval is 30-60 seconds but in a node that need to sleep longer to save resources a longer interval can be used.
 
  | Data byte | Description                                                        | 
  | --------- | -----------                                                        | 
@@ -417,8 +417,8 @@ Depending on the Token device type a number of this event are sent on the segmen
  | 16    | Biometric device.                                                                                                               | 256-bits | 
  | 17    | Biometric device.                                                                                                               | 64-bits  | 
  | 18    | Bluetooth device.                                                                                                               | 48-bits  | 
- | 19    | GSM IMEI code (International Mobile Equipment Identity) AA-BBBBBB-CCCCCC-D packed in 64 bits. http://en.wikipedia.org/wiki/IMEI | 64-bits  | 
- | 20    | GSM IMSI code (International Mobile Subscriber Identity) packed in 64 bits. http://en.wikipedia.org/wiki/IMSI                   | 64-bits  | 
+ | 19    | GSM IMEI code (International Mobile Equipment Identity) AA-BBBBBB-CCCCCC-D packed in 64 bits. https://en.wikipedia.org/wiki/IMEI | 64-bits  | 
+ | 20    | GSM IMSI code (International Mobile Subscriber Identity) packed in 64 bits. https://en.wikipedia.org/wiki/IMSI                   | 64-bits  | 
  | 21    | RFID Token.                                                                                                                     | 40-bits  | 
  | 22    | RFID Token.                                                                                                                     | 32-bits  | 
  | 23    | RFID Token.                                                                                                                     | 24-bits  | 
@@ -842,7 +842,7 @@ A device generated a date event. Time is UTC.
  | 5         | month (1-12)                                                       | 
  | 6         | day (1-31)                                                         | 
 
-See also [CLASS1.INFORMATION, Type=77](https///www.vscp.org/docs/vscpspec/doku.php?id=class1.information#type_77_0x4d_datetime) which combines date and time in one event.
+See also [CLASS1.INFORMATION, Type=77](./class1.information.md#type_77_0x4d_datetime) which combines date and time in one event.
 ## Type = 73 (0x49) Time
 
 A device generated a time event. Time is UTC. 
@@ -858,7 +858,7 @@ A device generated a time event. Time is UTC.
  | 6         | milliseconds MSB (0-999)                                           | 
  | 7         | milliseconds LSB (0-999)                                           | 
 
-See also [CLASS1.INFORMATION, Type=77](https///www.vscp.org/docs/vscpspec/doku.php?id=class1.information#type_77_0x4d_datetime) which combines date and time in one event.
+See also [CLASS1.INFORMATION, Type=77](./class1.information.md#type_77_0x4d_datetime) which combines date and time in one event.
 ## Type = 74 (0x4A) Weekday
 
 A device generated a weekday event.

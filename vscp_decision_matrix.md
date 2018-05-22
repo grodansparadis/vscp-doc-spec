@@ -107,7 +107,7 @@ A numeric action can be set and its meaning is application specific.
 
 ### General
 
-The number of matrix rows are limited in a micro controller. The control class has an event defined that gets the number of elements in the matrix and the location of the matrix in the register model of the node (Get Decision matrix info, [CLASS1.PROTOCOL, Type=33](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.protocol#type_33_0x21_get_decision_matrix_info)).
+The number of matrix rows are limited in a micro controller. The control class has an event defined that gets the number of elements in the matrix and the location of the matrix in the register model of the node (Get Decision matrix info, [CLASS1.PROTOCOL, Type=33](./class1.protocol.md#type_33_0x21_get_decision_matrix_info)).
 
 The matrix information is read and written with the standard read/write control functions. And is placed in the standard low register range (<0x80) or in an optional page in this area.
 
@@ -115,7 +115,7 @@ Note that there is no demand that a node implements a decision matrix. If not im
 
 A special paged feature is available for the decision matrix to save register space. If the offset for the decision matrix is 0x7e the decision matrix is indexed. This means that 0x7e is the index and 0x7f is the data. Read a byte from the matrix by first setting the index to the position you want to read and reading the byte in 0x7f. Set index to the position you want to write and write data into 0x7f.
 
-Method [CLASS1.PROTOCOL TYPE=32](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.protocol#type_32_0x20_who_is_there_response) is used to fetch decision matrix information for a specific node. 
+Method [CLASS1.PROTOCOL TYPE=32](./class1.protocol.md#type_32_0x20_who_is_there_response) is used to fetch decision matrix information for a specific node. 
 
 It is important to note that the decision matrix can contain any number of lines for a specific event element. So one incoming event can trigger many actions.
 
@@ -132,7 +132,7 @@ The decision matrix structure gives us the freedom to implement events that perf
 
 ## Decision matrix for Level II nodes.
 
-There is a lot more freedom to set up a decision matrix structures on level II nodes due to less space constraints.One implementation is the decision matrix in the VSCP Daemon which is described [here](http://www.vscp.org/docs/vscpd/doku.php?id=vscp_daemon_decision_matrix).
+There is a lot more freedom to set up a decision matrix structures on level II nodes due to less space constraints.One implementation is the decision matrix in the VSCP Daemon which is described [here](https://www.vscp.org/docs/vscpd/doku.php?id=vscp_daemon_decision_matrix).
 
 A general form is discussed here. To understand how this decision matrix is updated one needs to understand how it is set up. Each line of the matrix is built from a table of entries of the following form: 
 
@@ -205,7 +205,7 @@ A special paged feature is available for the decision matrix to save register sp
 
 The index byte is used to select rows and the selected row is available from the byte after the index byte to the 0x80 border.
 
-Method [CLASS1.PROTOCOL TYPE=32](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.protocol#type_32_0x20_who_is_there_response) is used to fetch decision matrix information for a specific node. Byte six of the response tells the actual size for a decision matrix row.
+Method [CLASS1.PROTOCOL TYPE=32](./class1.protocol.md#type_32_0x20_who_is_there_response) is used to fetch decision matrix information for a specific node. Byte six of the response tells the actual size for a decision matrix row.
 
 The Level II Decision Matrix has no entry for originating address. The action parameter field can be used for this information if needed. 
 

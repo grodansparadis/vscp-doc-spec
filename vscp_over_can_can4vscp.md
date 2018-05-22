@@ -80,7 +80,7 @@ Recommended connector is RJ-34/RJ-12 or RJ-11 with pinout as in this table.
 
 Note that the schematics drawings for VSCP modules use a symbol that is numbered looking from the PCB side. It thus appear as to be numbered in the other direction but is actually the same.
 
-Note also that CANopen specify a different schema [http://www.cd-systems.com/Can/can-cables.htm](http://www.cd-systems.com/Can/can-cables.htm) which is opposite numbered VSCP but they are actually the same. We use the numbering that look into the female connector and count from the left. They use the Arabic style and count from the right.
+Note also that CANopen specify a different schema [https://www.cd-systems.com/Can/can-cables.htm](https://www.cd-systems.com/Can/can-cables.htm) which is opposite numbered VSCP but they are actually the same. We use the numbering that look into the female connector and count from the left. They use the Arabic style and count from the right.
 
 Always try to use a pair of wires for CANH/CANL fort best noise immunity. If the EIA/TIA 56B standard is used this condition will be satisfied. This is good as most Ethernet networks already is wired this way. 
 

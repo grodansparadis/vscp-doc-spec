@@ -17,7 +17,6 @@
 *  [VSCP boot loader algorithm](vscp_boot_loader_algorithm.md)
 *  [VSCP Multicast](vscp_multicast.md)
 
-
 ## Transport protocols used by VSCP
 
 * [Low level protocols](physical_level_lower_level_protocols.md)

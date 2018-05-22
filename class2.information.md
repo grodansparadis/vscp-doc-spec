@@ -46,8 +46,8 @@ This event is used for cards, RFID's, iButtons and other identification devices.
  | 16          | Biometri device 256-bits.                                                                                                                                            | 
  | 17          | Biometri device. 64-bits.                                                                                                                                            | 
  | 18          | Bluetooth device. 48-bits                                                                                                                                            | 
- | 19          | GSM IMEI code (International Mobile Equipment Identity) AA-BBBBBB-CCCCCC-D packed in 64 bits. [http://en.wikipedia.org/wiki/IMEI](http://en.wikipedia.org/wiki/IMEI) | 
- | 20          | GSM IMSI code (International Mobile Subscriber Identity) packed in 64 bits. [http://en.wikipedia.org/wiki/IMSI](http://en.wikipedia.org/wiki/IMSI)                   | 
+ | 19          | GSM IMEI code (International Mobile Equipment Identity) AA-BBBBBB-CCCCCC-D packed in 64 bits. [https://en.wikipedia.org/wiki/IMEI](https://en.wikipedia.org/wiki/IMEI) | 
+ | 20          | GSM IMSI code (International Mobile Subscriber Identity) packed in 64 bits. [https://en.wikipedia.org/wiki/IMSI](https://en.wikipedia.org/wiki/IMSI)                   | 
  | 21-255      | Reserved.                                                                                                                                                            | 
 
 # Type=2 (0x0002) Level II Node Heartbeat

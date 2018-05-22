@@ -4,7 +4,7 @@
     
 ## Description
 
-Representation for different general data types. Byte 0 is the data coding byte described [here](http://www.vscp.org/docs/vscpspec/doku.php?id=data_coding). Unit may not have meaning for some of the types and should be set to zero in that case.
+Representation for different general data types. Byte 0 is the data coding byte described [here](./data_coding.md). Unit may not have meaning for some of the types and should be set to zero in that case.
 
 ## Type = 0 (0x00) Undefined
 
@@ -69,7 +69,7 @@ Signal Level is a relative strength value that (as default) has its maximum at 1
  | Code | Description                                                                                        | 
  | ---- | -----------                                                                                        | 
  | 0    | (0-100) percentage                                                                                 | 
- | 1    | **Byte count = 2**: Min = 0, Max = 255 \\ **Byte count = 3**: Min = 0, Max = 65535 \\ and so on... | 
+ | 1    | **Byte count = 2**: Min = 0, Max = 255  **Byte count = 3**: Min = 0, Max = 65535  and so on... | 
 
 
 Units for Level II are the same as for Level I for the first four units.
@@ -88,7 +88,7 @@ Signal Quality be used to give an indication of the quality of the digital part 
  | Code | Description                                                                                        | 
  | ---- | -----------                                                                                        | 
  | 0    | 0-100, Percent                                                                                     | 
- | 1    | **Byte count = 2**: Min = 0, Max = 255 \\ **Byte count = 3**: Min = 0, Max = 65535 \\ and so on... | 
+ | 1    | **Byte count = 2**: Min = 0, Max = 255  **Byte count = 3**: Min = 0, Max = 65535  and so on... | 
  | 2    | tbd                                                                                                | 
 
 Units for Level II are the same as for Level I for the first four units.

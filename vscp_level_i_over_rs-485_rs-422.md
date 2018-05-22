@@ -39,7 +39,7 @@ A master on a RS-485 segment must check for new nodes on regular intervals. With
  | 13   | Data byte 7                                          | 
  | 14   | Packet CRC (counted from address (low 8-bits of it). | 
 
-The DOW checksum is used. [http://www.vscp.org/wiki/doku.php?id=vscp_specification_crc_polynoms.](http://www.vscp.org/wiki/doku.php?id=vscp_specification_crc_polynoms.)
+The DOW checksum is used. [https://www.vscp.org/wiki/doku.php?id=vscp_specification_crc_polynoms.](https://www.vscp.org/wiki/doku.php?id=vscp_specification_crc_polynoms.)
 
 ##### Operations
 

@@ -4,6 +4,6 @@
     
 ## Description
 
-Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.weather)
+Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./class1.weather.md)
 
 {% include "./bottom_copyright.md" %}

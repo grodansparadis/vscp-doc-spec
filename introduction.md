@@ -74,20 +74,20 @@ The **VSCP server** and **VSCP Works** is released under GPL2 due to it's use of
 
 ## License
 
-Alternative licenses for VSCP & Friends may be arranged by contacting **Grodans Paradis AB/Paradise of the Frog** at [info@grodansparadis.com](info@grodansparadis.com), [http://www.grodansparadis.com]
+Alternative licenses for VSCP & Friends may be arranged by contacting **Grodans Paradis AB/Paradise of the Frog** at [info@grodansparadis.com](info@grodansparadis.com), [https://www.grodansparadis.com]
 
 
 ## Where is the project located?
 
 Current information about VSCP (Very Simple Control Protocol) can be found at:
-[http://www.vscp.org](http://www.vscp.org)
+[https://www.vscp.org](http://www.vscp.org)
 
 There is a forum/mailing lists available [here](https///groups.google.com/forum/#!forum/vscp) where you an ask for help or discuss VSCP development.
 
 
 ## When was the project started?
 
-Many of the thoughts behind this protocol come from work done by Ake Hedman as early as 1986 but the high node costs at the time made it impossible to do the things VSCP can do today. The official start date/time is **2000-08-28 14:07 CET** when the EDA project [http://sourceforge.net/projects/eda](http://sourceforge.net/projects/eda) was registered at Sourceforge. EDA, is an acronym for **Event-Decision-Action** and is still preserved in the decision matrix of VSCP. 
+Many of the thoughts behind this protocol come from work done by Ake Hedman as early as 1986 but the high node costs at the time made it impossible to do the things VSCP can do today. The official start date/time is **2000-08-28 14:07 CET** when the EDA project [https://sourceforge.net/projects/eda](https://sourceforge.net/projects/eda) was registered at Sourceforge. EDA, is an acronym for **Event-Decision-Action** and is still preserved in the decision matrix of VSCP. 
 
 ##  Why another protocol? 
 
@@ -181,7 +181,7 @@ A web interface named OHAS is under development that will make it possible to bu
 
 VSCP makes it easy and very cost effective to build systems with distributed intelligence. The protocol is placed in the Public Domain so it is therefore free for anyone to use and modify to their own needs. VSCP can be used all the way from the application down to the device but it can also be used as an abstraction to other technologies so one application can be written that transparently use several different technologies..
 
-More information and downloads is available at [the VSCP site](http://www.vscp.org "The VSCP site")
+More information and downloads is available at [the VSCP site](https://www.vscp.org "The VSCP site")
 
 {% include "./bottom_copyright.md" %}
 

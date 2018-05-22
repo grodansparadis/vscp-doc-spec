@@ -111,7 +111,7 @@ Non standard port definitions. Each consist of three bytes.
 
 ## Type=32 (0x20) Level II who is there response
 
-This defines the response from a Level II node for a [CLASS1.PROTOCOL, Type=32, Who is there?](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.protocol#type_31_0x1f_who_is_there) event.
+This defines the response from a Level II node for a [CLASS1.PROTOCOL, Type=32, Who is there?](./class1.protocol.md#type_31_0x1f_who_is_there) event.
 
  | Byte  | Description                                       | 
  | ----  | -----------                                       | 

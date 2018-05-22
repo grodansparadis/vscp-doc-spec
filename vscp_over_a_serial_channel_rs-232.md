@@ -4,7 +4,7 @@ A byte stuffing binary interface is used to talk to the module through the seria
 
 The protocol is created for VSCP Level I events but can be used for other purposes also, as the 16 byte data content indicates. In this case the class and type bytes can be used freely by the implementer. 
 
-Protocol defines are in [vscp_serial.h](https///github.com/grodansparadis/vscp_software/blob/master/src/vscp/common/vscp_serial.h)
+Protocol defines are in [vscp_serial.h](https://github.com/grodansparadis/vscp_software/blob/master/src/vscp/common/vscp_serial.h)
 
 ### General frame format
 

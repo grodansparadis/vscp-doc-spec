@@ -19,7 +19,7 @@ This is the most common node type. Dynamic nodes are VSCP nodes that confirm ful
 
 *  Must react on PROBE event on its assigned address with a probe ACK and should send out the ACK with the hard coded bit set.
 
-Sample implementations are available at [http://www.vscp.org ]
+Sample implementations are available at [https://www.vscp.org ]
 
 ### Hard coded nodes
 

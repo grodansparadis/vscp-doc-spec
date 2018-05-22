@@ -3,7 +3,7 @@
     CLASS1.MEASUREZONE
 
 
-Measurements with zone information. This class mirrors the standard measurement events is [CLASS1.MEASUREMENT=10](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.measurement) with the difference that index, zone, and sub-zone is added. This in turn limits the data-coding options to normalized integer (see [Data-coding](http://www.vscp.org/docs/vscpspec/doku.php?id=data_coding) for a description). The default unit for the measurement should always be used.
+Measurements with zone information. This class mirrors the standard measurement events is [CLASS1.MEASUREMENT=10](./class1.measurement.md) with the difference that index, zone, and sub-zone is added. This in turn limits the data-coding options to normalized integer (see [Data-coding](./data_coding.md) for a description). The default unit for the measurement should always be used.
 
  | Byte | Description                                                        | 
  | ---- | -----------                                                        | 

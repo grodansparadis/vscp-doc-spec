@@ -4,25 +4,25 @@
 
 ##  Description
 
-Measurements are fetched from the [SI units and from SI derived units](https///en.wikipedia.org/wiki/International_System_of_Units). The SI unit (or the SI derived unit) is also used as the default unit. As in the SI unit standard, names for a unit is in lower case ("newton") and the unit ("N") is in upper case.
+Measurements are fetched from the [SI units and from SI derived units](https://en.wikipedia.org/wiki/International_System_of_Units). The SI unit (or the SI derived unit) is also used as the default unit. As in the SI unit standard, names for a unit is in lower case ("newton") and the unit ("N") is in upper case.
 
-Byte 0 is the data coding byte for all measurement packages. The default unit has bits 0,1,2 set to 000 and the first optional unit 001 and so on. It also have a field for the item ( if more than one sensor is controlled by the node) that the value belongs to. See [Data-coding](http://www.vscp.org/docs/vscpspec/doku.php?id=data_coding) for a full description on data coding used.
+Byte 0 is the data coding byte for all measurement packages. The default unit has bits 0,1,2 set to 000 and the first optional unit 001 and so on. It also have a field for the item ( if more than one sensor is controlled by the node) that the value belongs to. See [data-coding](./vscp_data_coding.md) for a full description on data coding used.
 
-All events in this class are mirrored in [CLASS1.MEASUREMENT32=70 (0x46)](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.measurement32) as a single precision float. Default unit is used.
+All events in this class are mirrored in [CLASS1.MEASUREMENT32=70 (0x46)](./class1.measurement32.md_) as a single precision float. Default unit is used.
 
-All events in this class are mirrored in [CLASS1.MEASUREMENT64=60 (0x3C)](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.measurement64) as floating point values using only the default unit .
+All events in this class are mirrored in [CLASS1.MEASUREMENT64=60 (0x3C)](./class1.measurement64.md) as floating point values using only the default unit .
 
-All events in this class are mirrored in [CLASS1.MEASUREZONE=65 (0x41)](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.measurezone) as normalized integer values with index, zone, sub-zone. Default unit is used.
+All events in this class are mirrored in [CLASS1.MEASUREZONE=65 (0x41)](./class1.measurezone.md) as normalized integer values with index, zone, sub-zone. Default unit is used.
 
-All events in this class are mirrored in [CLASS1.SETVALUEZONE=85 (0x55)](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.setvaluezone) as a normalized value using only the default unit but with index/zone/subzone.
+All events in this class are mirrored in [CLASS1.SETVALUEZONE=85 (0x55)](./class1.setvaluezone.md) as a normalized value using only the default unit but with index/zone/subzone.
 
-All of the above is also available as [LEVEL I events over Level II](http://www.vscp.org/docs/vscpspec/doku.php?id=class2.protocol1).
-
-All events in this class are mirrored in 
-[CLASS2.MEASUREMENT_STR=1040 (0x410)](http://www.vscp.org/docs/vscpspec/doku.php?id=class2.measurement_str) which use decimal string values.
+All of the above is also available as [LEVEL I events over Level II](./class2.protocol1.md).
 
 All events in this class are mirrored in 
-[CLASS2.MEASUREMENT_FLOAT=1060 (0x424)](http://www.vscp.org/docs/vscpspec/doku.php?id=class2.measurement_float) which use decimal float values.
+[CLASS2.MEASUREMENT_STR=1040 (0x410)](./class2.measurement_str.md) which use decimal string values.
+
+All events in this class are mirrored in 
+[CLASS2.MEASUREMENT_FLOAT=1060 (0x424)](./class2.measurement_float.md) which use decimal float values.
 
 
 
@@ -375,7 +375,7 @@ This is a measurement of an angle.
 **Default unit:** Longitude. \\ 
 **Opt. unit:** Latitude.
 
-This is a measurement of a position as of WGS 84. Normally given as a floating point value. See [http://www.vscp.org/docs/vscpspec/doku.php?id=class1.gps](CLASS1.GPS) for a better candidate to use for position data.
+This is a measurement of a position as of WGS 84. Normally given as a floating point value. See [./class1.gps.md](CLASS1.GPS) for a better candidate to use for position data.
 
  | Data byte | Description                         | 
  | --------- | -----------                         | 
@@ -384,7 +384,7 @@ This is a measurement of a position as of WGS 84. Normally given as a floating p
 
 ##   Type=32 (0x20) Speed  
 
-**Default unit:** Meters per second. \\ 
+**Default unit:** Meters per second.   
 **Optional unit:** Kilometers per hour (1) Miles per hour (2)
 
 This is a measurement of a speed. 
@@ -429,7 +429,7 @@ This is a measurement of relative moistness (Humidity).
 
 ##   Type=36 (0x24) Flow  
 
-**Default unit:** Cubic meters/second. \\ 
+**Default unit:** Cubic meters/second.   
 **Opt Unit:** Liters/Second.
 
 This is a measurement of flow. 
@@ -559,7 +559,7 @@ Reserved (was doublet of Type= 24, do not use any longer!)
 
 ##   Type=49 (0x31) Dew Point  
 
-**Default unit:** Kelvin. \\ 
+**Default unit:** Kelvin.  
 **Opt. unit:** Degree Celsius (1), Fahrenheit (2)
 
 This is a measurement of the Dew Point. 
@@ -582,7 +582,7 @@ This is a relative value for a level measurement without a unit. It is just rela
 
 ##   Type=51 (0x33) Altitude.  
 
-**Default unit:** Meter. \\ 
+**Default unit:** Meter.  
 **Opt. unit:** Feet(1), inches (2)
 
 Altitude in meters. 

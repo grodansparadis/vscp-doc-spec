@@ -6,11 +6,11 @@ For VSCP multicast the address
 
 should be used.Please see the following:
 
-[http://www.iana.org/assignments/multicast-addresses](http://www.iana.org/assignments/multicast-addresses) and [http://www.tldp.org/HOWTO/Multicast-HOWTO.html](http://www.tldp.org/HOWTO/Multicast-HOWTO.html) 
+[https://www.iana.org/assignments/multicast-addresses](https://www.iana.org/assignments/multicast-addresses) and [https://www.tldp.org/HOWTO/Multicast-HOWTO.html](https://www.tldp.org/HOWTO/Multicast-HOWTO.html) 
 
 Currently the multicast interface is used for heart beats and announcements of available services and to set up multicast groups that share events. For this port **9698** is always used.
 
-General multicast information can be found [here](http://www.juniper.net/techpubs/en_US/junos12.1x46/topics/concept/multicast-ip-overview.html).
+General multicast information can be found [here](https://www.juniper.net/techpubs/en_US/junos12.1x46/topics/concept/multicast-ip-overview.html).
 
 ## Packet format
 
@@ -65,7 +65,7 @@ Time should always be UTC time. If the time block is set to all zero the current
 
 For encryption/decryption code using OpenSSL see [this link](https///wiki.openssl.org/index.php/EVP_Authenticated_Encryption_and_Decryption). Note that byte 0 of the frame is never encrypted. The encryption/decryption is instead carried out over byte 1 to the CRC.
 
-On the VSCP Server the md5 of the [vscptoken](http://www.vscp.org/docs/vscpd/doku.php?id=configuring_the_vscp_daemon#security) is used as the key for AES128.
+On the VSCP Server the md5 of the [vscptoken](https://www.vscp.org/docs/vscpd/doku.php?id=configuring_the_vscp_daemon#security) is used as the key for AES128.
 
 ##### Definition of head
 

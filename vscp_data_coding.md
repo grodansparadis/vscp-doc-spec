@@ -9,7 +9,7 @@ As a guideline the format defined bellow for the first data byte of a data frame
  | coding(bits 7,6,5) | unit (bits 4,3) | Sensor index (bits 2,1,0) | 
  | ------------------ | --------------- | ------------------------- | 
 
-Tells how data that follows should be interpreted. This is used for [CLASS1.MEASUREMENT](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.measurement) and [CLASS1.DATA](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.data) among others. 
+Tells how data that follows should be interpreted. This is used for [CLASS1.MEASUREMENT](./class1.measurement.md) and [CLASS1.DATA](./class1.data.md) among others. 
 
 ### Control byte, coding - Bits 5,6,7
 
@@ -84,7 +84,7 @@ Data is coded as a IEEE-754 1985 floating point value
 
     s eeeeeeee mmmmmmmmmmmmmmmmmmmmmmm 
 
-That is a total of 32-bits. The most significant byte is stored first. The frame holds a total of five bytes. The full definition is at [http://www.psc.edu/general/software/packages/ieee/ieee.html] and further info at [http://en.wikipedia.org/wiki/IEEE_754-1985] 
+That is a total of 32-bits. The most significant byte is stored first. The frame holds a total of five bytes. The full definition is at [https://www.psc.edu/general/software/packages/ieee/ieee.html] and further info at [https://en.wikipedia.org/wiki/IEEE_754-1985] 
 
 #### 110b Reserved.( 0xC0 )
 
@@ -108,35 +108,35 @@ There are many measurement types in VSCP and more will be defined as time goes. 
 
 ## Level I measurement classes
 
-[CLASS1.MEASUREMENT (10)](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.measurement)
+[CLASS1.MEASUREMENT (10)](./class1.measurement.md)
 This is the main measurement class. It is built to be as resource efficient as possible if that is what one want but it also accept single precision floating point and strings.
 
 **VSCP_CLASS2_LEVEL1_MEASUREMENT** is the same except that it's class is 512 + 10 and that the first 16-byte of data is the interface GUID where the Level I event carried over Level II should be delivered as a Level I event again.
 
-[CLASS1.MEASUREMENT64(60)](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.measurement64)
+[CLASS1.MEASUREMENT64(60)](./class1.measurement64.md)
 
-Used for double precision floating point measurements over Level I. Sensor index is always zero and so is the measurement unit so a temperature for example must be sent with Kelvin as it's unit. Working in a low end device this may be the only eay to get this kind of precision but if it is possible to affoard the overhead of Level II [CLASS2.MEASUREMENT_FLOAT(1060)](http://www.vscp.org/docs/vscpspec/doku.php?id=class2.measurement_float) is a much better choice.
+Used for double precision floating point measurements over Level I. Sensor index is always zero and so is the measurement unit so a temperature for example must be sent with Kelvin as it's unit. Working in a low end device this may be the only eay to get this kind of precision but if it is possible to affoard the overhead of Level II [CLASS2.MEASUREMENT_FLOAT(1060)](./class2.measurement_float.md) is a much better choice.
 
 **VSCP_CLASS2_LEVEL1_MEASUREMENT64** is the same except that it's class is 512 + 64 and that the first 16-byte of data is the interface GUID where the Level I event carried over Level II should be delivered as a Level I event again. 
 
-[CLASS1.MEASUREZONE(65)](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.measurezone)
+[CLASS1.MEASUREZONE(65)](./class1.measurezone.md)
 
 **VSCP_CLASS2_LEVEL1_MEASUREMENTZONE** is the same except that it's class is 512 + 65 and that the first 16-byte of data is the interface GUID where the Level I event carried over Level II should be delivered as a Level I event again.
 
-[CLASS1.MEASUREMENT32(70)](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.measurement32)
+[CLASS1.MEASUREMENT32(70)](./class1.measurement32.md)
 
 **VSCP_CLASS2_LEVEL1_MEASUREMENT32** is the same except that it's class is 512 + 70 and that the first 16-byte of data is the interface GUID where the Level I event carried over Level II should be delivered as a Level I event again.
 
-[CLASS1.SETVALUEZONE(85)](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.setvaluezone)
+[CLASS1.SETVALUEZONE(85)](./class1.setvaluezone.md)
 
 **VSCP_CLASS2_LEVEL1_SETVALUEZONE** is the same except that it's class is 512 + 85 and that the first 16-byte of data is the interface GUID where the Level I event carried over Level II should be delivered as a Level I event again.
 
 ## Level II measurement classes
 
-[CLASS2.MEASUREMENT_STR(1040)](http://www.vscp.org/docs/vscpspec/doku.php?id=class2.measurement_str)
+[CLASS2.MEASUREMENT_STR(1040)](./class2.measurement_str.md)
 
 
-[CLASS2.MEASUREMENT_FLOAT(1060)](http://www.vscp.org/docs/vscpspec/doku.php?id=class2.measurement_float)
+[CLASS2.MEASUREMENT_FLOAT(1060)](./class2.measurement_float.md)
 
 
 

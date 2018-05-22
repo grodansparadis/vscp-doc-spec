@@ -4,7 +4,7 @@
     
 ## Description
 
-This class is reserved for internal events used by the decision matrix mechanism of the [VSCP server](http://www.vscp.org/docs/vscpd/doku.php). Events of this type should never be visible on a physical bus. 
+This class is reserved for internal events used by the decision matrix mechanism of the [VSCP Daemon](https://www.vscp.org/docs/vscpd/doku.php). Events of this type should never be visible on a physical bus. 
 
 ## Type = 0 (0x0000) Undefined.
 

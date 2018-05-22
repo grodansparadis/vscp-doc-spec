@@ -169,7 +169,7 @@ Besides the GUID it is recommended that all nodes should have a node description
 
 Some GUID's are reserved and unavailable for assignment. Appendix A list these and also assigned IDs.
 
-The VSCP team controls the rest of the addresses and will allocate addresses to individuals or companies by them sending a request to [guid@vscp.org](guid@vscp.org). You can request a series of 32-bits making it possible for you to manufacture 4294967295 nodes. If you need more (!!!) you can ask for another series. There is no cost for reserving a series. Appendix A in this document contains a list of assigned addresses which will also be available at [http://www.vscp.org](http://www.vscp.org)
+The VSCP team controls the rest of the addresses and will allocate addresses to individuals or companies by them sending a request to [guid_request@vscp.org](guid_request@vscp.org). You can request a series of 32-bits making it possible for you to manufacture 4294967295 nodes. If you need more (!!!) you can ask for another series. There is no cost for reserving a series. Appendix A in this document contains a list of assigned addresses which will also be available at [https://www.vscp.org](https://www.vscp.org)
 
 ## Predefined VSCP GUID's
 
@@ -179,7 +179,7 @@ It is possible to create your own GUID without requesting a series and still hav
 
 ## Assigned VSCP GUID's
 
-Current predefined GUID series is listed in [appendix A](./appendix_a.md). You can request your own series by writing [guid@vscp.org](guid@vscp.org)
+Current predefined GUID series is listed in [appendix A](./appendix_a.md). You can request your own series by writing [guid_request@vscp.org](guid_request@vscp.org)
 
 ## Shorthand GUID's
 

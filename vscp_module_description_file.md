@@ -10,14 +10,14 @@ On Level II devices this information can be available in the configuration data 
 
 ### Kelvin NTC10K
 
-The Kelvin NTC10K is one of [Grodans Paradis AB's](http://www.grodansparadis.com/) modules and it has it's product page [here](http://www.grodansparadis.com/kelvinntc10k/kelvin_ntc10ka.html). The MDF file for this modules is [here](http://www.eurosource.se/ntc10KA_1.xml).
+The Kelvin NTC10K is one of [Grodans Paradis AB's](https://www.grodansparadis.com/) modules and it has it's product page [here](https://www.grodansparadis.com/kelvinntc10k/kelvin_ntc10ka.html). The MDF file for this modules is [here](https://www.eurosource.se/ntc10KA_1.xml).
 
 
-*  Paris relay board - [http://www.eurosource.se/paris_010.xml](http://www.eurosource.se/paris_010.xml)
+*  Paris relay board - [https://www.eurosource.se/paris_010.xml](https://www.eurosource.se/paris_010.xml)
 
 ### Paris relay module
 
-The Paris module is another module from Grodans Paradis AB and it is documented [here](http://www.grodansparadis.com/paris/paris.html). The MDF file for this modules is [here](http://www.eurosource.se/paris_010.xml).
+The Paris module is another module from Grodans Paradis AB and it is documented [here](https://www.grodansparadis.com/paris/paris.html). The MDF file for this modules is [here](https://www.eurosource.se/paris_010.xml).
 
 ## XML Format Specification
 
@@ -36,7 +36,7 @@ The type will always be “uint8_t” in this case
 “\n” can be used for a new line in text. 
 
 If you want to insert HTML as content use a construct like this
-`<code=xml>`
+```xml
 <![CDATA[
 `<html>`
     `<head>`
@@ -47,13 +47,13 @@ If you want to insert HTML as content use a construct like this
     `</body>`
 `</html>`
 ]]>
-`</code>`
+```
 
 this is especially useful for info, description and help items.
 
 ##### Format
 
-`<code=xml>`
+```xml
 `<?xml version = "1.0" encoding = "UTF-8" ?>`   
 <!-- Version 0.0.6     2012-10-01  
     "string"    - Text string  
@@ -646,10 +646,10 @@ this is especially useful for info, description and help items.
 `</vscp>`
 
 
-`</code>`
+```
 
 
-Valid abstraction types are [here](http://www.vscp.org/docs/vscpspec/doku.php?id=register_abstraction_model#abstractions).
+Valid abstraction types are [here](./vscp_register_abstraction_model.md#abstractions).
 
 ## Creating a new MDF file
 
@@ -670,7 +670,7 @@ For user applications this may be inconvenient as a higher level application wan
 
 Lets look at an example. The reference model for the Ethernet based Nova module have a protection timer. O the unit this timer takes up two consecutive registers for each output channel it protects. The first byte is as it should be the most significant byte of the timer and the second byte is the least significant byte. Thus the actual timer value is byte0 * 256 + byte1. In the MDF file for Nova this is written as
 
-`<code="xml">`
+```xml
 `<reg page="0" offset="26" >` 			
 	<name lang="en">Output protection timer 0 MSB</name> 			
 	<description lang="en"> 				
@@ -702,11 +702,11 @@ Lets look at an example. The reference model for the Ethernet based Nova module 
 	</description> 			
 	<access>rw</access> 		
 `</reg>`
-`</code>`
+```
 
 As seen the register at position 26 and 27 is used. Both on page 0. A user that gets this information presented for him/here needs to do some calculations to actually set the value. To make it possible to preset this to a user in a more user friendly way and abstraction is defines.
 
-`<code="xml">`
+```xml
 `<abstraction id="Protectiontimer0" type="uint16_t" default="0" page = "0" offset = "26" >`
 	<name lang="en">Output protection timer 0</name>      			
 	<description lang="en"> 				
@@ -725,7 +725,7 @@ As seen the register at position 26 and 27 is used. Both on page 0. A user that 
 	</help>      	
 	<access>rw</access>     		
 `</abstraction>`
-`</code>`
+```
 
 Now the two registers instead is presented as an unsigned 16 bit integer in a way a user expect it to be. He/she just set the value in seconds for the protection timer and the control system knowing that an unsigned integer needs two bytes can write or read the value from the register pair 26/27.
 
@@ -769,7 +769,7 @@ The access tag is used to tell if a cell is readable or writable or both. **r** 
  | **default** | Default value for register. Default is 0.                                                                                                                                                                          | 
  | **min**     | Minimum value for register. Default is 0.                                                                                                                                                                          | 
  | **max**     | Maximum value for register. Default is 255.                                                                                                                                                                        | 
- | **type**    | See [register types](http://www.vscp.org/docs/vscpspec/doku.php?id=module_description_file&#register_types) below.                                                                                                 | 
+ | **type**    | See [register types](./vscp_module_description_file.md&#register_types) below.                                                                                                 | 
  | **size**    | Size (number of registers) for certain types. Default=1.                                                                                                                                                           | 
  | **fgcolor** | Foreground color for the location this register is presented in. Default is black. Format is **0x//rrggbb//** where **rr** is red value, **gg** is green value, **bb** is blue value or equivalent decimal number. | 
  | **bgcolor** | Background color for the location this register is presented in. Default is white. Format is **0x//rrggbb//** where **rr** is red value, **gg** is green value, **bb** is blue value or equivalent decimal number. | 
@@ -791,13 +791,13 @@ Instead of defining a decision matrix with a register entry for each of its byte
 
 The example 
 
-`<code="xml">`
+```xml
     <reg page="0" offset="32" type="dmatrix1" size="64" 
                   oddfg="0xrrggbb" evenfg="0xrrggbb" oddbg="0xrrggbb" evenbg="0xrrggbb" >
     `<name lang="en">`Decision matrix`</name>`
     `<description lang="en">`Decision matrix for Odessa`</description>` 
     `<reg>`
-`</code>`
+```
 
 will generate 64 register entries for a decision matrix that consist of eight rows (64/8) and name them automatically. 
 
@@ -810,13 +810,13 @@ A register block is a consecutive area of registers that is located on the same 
 
 The example 
 
-`<code="xml">`
+```xml
     <reg page="0" offset="4" type="block" size="8"
                 oddfg="rrggbb" evenfg="rrggbb" oddbg="rrggbb" evenbg="rrggbb" >
     `<name lang="en">`Reserved`</name>`
     `<description lang="en">`Reserved for future use.`</description>` 
     `<reg>`
-`</code>`
+```
     
 will generate eight register defines as
 
@@ -844,7 +844,7 @@ This is functionality that will be extended heavily in the future.
 
 A sample can look like this
 
-`<code="xml">`
+```xml
 `<setup>`
     `<recipe>`
         `<name>`Blink-channel0`</name>`
@@ -865,7 +865,7 @@ A sample can look like this
         `<write-abstraction name="blink-frequency0" value="$frequency" />`
     `</recipe>`
 `</setup>`
-`</code>`
+```
     
 The recipe has a name which is not multilingual and a description which is multilingual. From this description we see that this recipe will blink channel 0. Names of a recipe can be referenced from other recipes. A name containing spaces will have the spaces replaced by underscores. The description is some informative text for a user.
 
@@ -950,20 +950,20 @@ A live setup screen is a pointer to a web page that can be used to setup/control
 
 The format for the tag is
 
-`<code="xml">`
+```xml
     `<setup-ui type="live" url="path to interface">`
      `<description lang="en">`Bla. bla. bla. bla.`</description>`
      `<payload>`If url is empty base64 encoded ui content here`</payload>`
     `</setup-ui>`
-`</code>`
+```
 
 or 
 
-`<code="xml">`
+```xml
     `<setup-ui type="live-list" format="JSONP|JSON|XML" url="path to list of setup interfaces">`
      `<description lang="en">`Bla. bla. bla. bla.`</description>`
     `</setup-ui>`
-`</code>`  
+```  
 
 where the later points to a list with entries of the former type.
 
@@ -973,20 +973,20 @@ This type is a package in a zip file with JavaScript code/HTML5/CSS that defines
 
 The format for the tag is
 
-`<code="xml">`
+```xml
     `<setup-ui type="package" url="path to package">`
      `<description lang="en">`Bla. bla. bla. bla.`</description>`
      `<payload>`If url is empty base64 encoded content here`</payload>`
     `</setup-ui>`
-`</code>`
+```
 
 or 
 
-`<code="xml">`
+```xml
     `<setup-ui type="package-list" ptype="zip" format="JSONP|JSON|XML" url="path to list of packages">`
      `<description lang="en">`Bla. bla. bla. bla.`</description>`
     `</setup-ui>`
-`</code>`
+```
 
 where the later points to a list with entries of the former type.
 

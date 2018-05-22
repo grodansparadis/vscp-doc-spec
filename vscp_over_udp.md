@@ -87,7 +87,7 @@ A packet traveling from a Level I device out to the Level II world should have a
 
 The Level II register abstraction level also has more registers (32-bit address is used) and all registers are 32–bits wide. Registers 0-255 are byte wide and are the same as for level 1. If these registers are read at level 2 they still is read as 32-bit but have the unused bits set to zero. 
 
-VSCP daemon implementation described [here](http://www.vscp.org/docs/vscpd/doku.php?id=daemon_udp_protocol_description_general).
+VSCP daemon implementation described [here](https://www.vscp.org/docs/vscpd/doku.php?id=daemon_udp_protocol_description_general).
 
 
 

@@ -4,7 +4,7 @@
 
 ### Description
 
-This class mirrors the standard measurement events is [CLASS1.MEASUREMENT=10](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.measurement) but also have zone information and is intended for setting a value instead of providing a measurement.
+This class mirrors the standard measurement events is [CLASS1.MEASUREMENT=10](./class1.measurement.md) but also have zone information and is intended for setting a value instead of providing a measurement.
 
  | Byte | Description                                                        | 
  | ---- | -----------                                                        | 

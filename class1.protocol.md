@@ -6,7 +6,7 @@
 
 This class defines some types that must be implemented by every node that implements the VSCP protocol. The types in this class must be handled by all level I and Level II nodes. Note also that this class is repeated as Level II class=512 with the only difference that GUID's are used instead of nicknames. This means that for all Level II class=512 events the data described here is preceded by the 16-bit destination GUID (address of receiver) stored with MSB first followed by the data specified here. Nickname is present also if documented below but have no meaning and should be discarded.
 
-All other events are optional except for **one exception**. All nodes should send [CLASS1.INFORMATION, Type = 9 (0x09) Node Heartbeat](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.information#type_9_0x09_node_heartbeat) at least once every minute.
+All other events are optional except for **one exception**. All nodes should send [CLASS1.INFORMATION, Type = 9 (0x09) Node Heartbeat](./class1.information.md#type_9_0x09_node_heartbeat) at least once every minute.
 
 ## Type=0 (0x00) Undefined.
 
@@ -65,7 +65,7 @@ On a Level II system.
  | Data | Description                                            | 
  | ---- | -----------                                            | 
  | 0-15 | **GUID**. This is the GUID of the node. MSB in byte 0. | 
- 
+
 ## Type=3 (0x03) Probe ACK.
 
 **Mandatory.** Must be implemented by all devices.
@@ -298,7 +298,7 @@ Data for a block of memory. This event has no meaning for any node that is not i
  | 6         | Data.       | 
  | 7         | Data.       | 
 
-A [Block Data ACK](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.protocol#type_50_0x32_block_data_transfer_ack) (or a [Block data NACK](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.protocol#type_51_0x33_block_data_transfer_nack) on failure) is sent as a response for each event received.
+A [Block Data ACK](./class1.protocol.md#type_50_0x32_block_data_transfer_ack) (or a [Block data NACK](./class1.protocol.md#type_51_0x33_block_data_transfer_nack) on failure) is sent as a response for each event received.
 
 **Note** If the block to fill is not a multiple of eight the receiving node should handle and discard any excess data. This is true also if more block data frames are received than the block can hold.
 
@@ -503,13 +503,13 @@ Data count can be as many as the buffer of the Level II node accepts.
 
 Should be implemented by all devices that work over 802.15.4/Ethernet/Internet or other high end protocols.This event can be broadcasted on a segment by a node to get information about available servers. 
 
-The VSCP daemon documentation have a description on [how server/service discovery](http://www.vscp.org/docs/vscpd/doku.php?id=server_disovery) works. 
+The VSCP daemon documentation have a description on [how server/service discovery](https://www.vscp.org/docs/vscpd/doku.php?id=server_disovery) works. 
 
 ## Type=28 (0x1C) High end server/service response
 
 Should be implemented by all devices that work on 802.15.4/Ethernet/Internet and have a Level I link. This is because a Level II device can be present on a Level I bus. A typical example is a Bluetooth gateway. A user find the bud/segment by the Bluetooth device and can then discover other parts of the system through it.
 
-A Level II node respond with [CLASS2.PROTOCOL, Type=32m Level II who is response](http://www.vscp.org/docs/vscpspec/doku.php?id=class2.protocol#type_32_0x20_level_ii_who_is_there_response) to this event. It is also possible to listen for  [CLASS2.PROTOCOL, Type=20 (0x14) High end server capabilities](http://www.vscp.org/docs/vscpspec/doku.php?id=class2.protocol#type_20_0x14_high_end_server_capabilities) to discover Level II nodes.
+A Level II node respond with [CLASS2.PROTOCOL, Type=32m Level II who is response](./class2.protocol.md#type_32_0x20_level_ii_who_is_there_response) to this event. It is also possible to listen for  [CLASS2.PROTOCOL, Type=20 (0x14) High end server capabilities](class2.protocol.md#type_20_0x14_high_end_server_capabilities) to discover Level II nodes.
 
  | Data byte | Description                                                                                   | 
  | --------- | -----------                                                                                   | 
@@ -522,15 +522,15 @@ A Level II node respond with [CLASS2.PROTOCOL, Type=32m Level II who is response
  | 6         | Server Port MSB - or other relevant data as of server capabilities                            | 
  | 7         | Server Port LSB - or other relevant data as of server capabilities                            | 
 
-Bit codes for capabilities is the same as for the lower 16 bits of [CLASS2.PROTOCOL, Type=20 (0x14) High end server capabilities](http://www.vscp.org/docs/vscpspec/doku.php?id=class2.protocol#type_20_0x14_high_end_server_capabilities).
+Bit codes for capabilities is the same as for the lower 16 bits of [CLASS2.PROTOCOL, Type=20 (0x14) High end server capabilities](class2.protocol.md#type_20_0x14_high_end_server_capabilities).
 
-**For programmers:** Bits are defined in [vscp.h](https///github.com/grodansparadis/vscp/blob/master/src/vscp/common/vscp.h).
+**For programmers:** Bits are defined in [vscp.h](https://github.com/grodansparadis/vscp/blob/master/src/vscp/common/vscp.h).
 
 A node that need a TCP connection to a host. Broadcast HIGH END SERVER PROBE on the segment and waits for HIGH END SERVER RESPONSE from one or more servers to connect to. If a suitable server has responded it can decide to connect to that server. Note that one server can reply with **none, one or many** HIGH END SERVER RESPONSE events.
 
 A server like the VSCP server can span multiple segments and a reply can therefore be received from a remote segment as well. This can be an advantage in some cases and unwanted in some cases. The server configuration should have control on how it is handled. 
 
-The VSCP daemon documentation have a description on [how server/service discovery](http://www.vscp.org/docs/vscpd/doku.php?id=server_disovery) works. 
+The VSCP daemon documentation have a description on [how server/service discovery](https://www.vscp.org/docs/vscpd/doku.php?id=server_disovery) works. 
 
     
 
@@ -573,7 +573,7 @@ This event can be used as a fast way to find out which nodes there is on a segme
 Response is 
     Class=0, Type=32.
     
-A Level II node respond with [CLASS2.PROTOCOL, Type=32m Level II who is response](http://www.vscp.org/docs/vscpspec/doku.php?id=class2.protocol#type_32_0x20_level_ii_who_is_there_response) to this event.
+A Level II node respond with [CLASS2.PROTOCOL, Type=32m Level II who is response](class2.protocol.md#type_32_0x20_level_ii_who_is_there_response) to this event.
 
 ## Type=32 (0x20) Who is there response
 
@@ -814,13 +814,13 @@ Part of the VSCP boot-loader functionality. This is the negative response after 
 
 **Not mandatory** Only needed if a VSCP boot loader algorithm is used.
 
-Part of the VSCP boot-loader functionality. This is the positive response after a node received a [CLASS1.PROTOCOL, Type=16](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.protocol#type_16_0x10_block_data), block data transfer. It is sent by the node as a validation that it can handle the block data transfer. 
+Part of the VSCP boot-loader functionality. This is the positive response after a node received a [CLASS1.PROTOCOL, Type=16](./class1.protocol.md#type_16_0x10_block_data), block data transfer. It is sent by the node as a validation that it can handle the block data transfer. 
 
 ## Type=51 (0x33) Block data transfer NACK.
 
 **Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
 
-Part of the VSCP boot-loader functionality. This is the negative response after a node received a [CLASS1.PROTOCOL, Type=16](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.protocol#type_16_0x10_block_data), block data transfer. It is sent by the node as an indication that it can NOT handle the block data transfer. 
+Part of the VSCP boot-loader functionality. This is the negative response after a node received a [CLASS1.PROTOCOL, Type=16](./class1.protocol.md#type_16_0x10_block_data), block data transfer. It is sent by the node as an indication that it can NOT handle the block data transfer. 
 
 
 

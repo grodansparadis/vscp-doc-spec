@@ -4,7 +4,7 @@
     
 #  Description 
 
-Level II specific display functionality. Also look at [CLASS1.DISPLAY](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.display) 
+Level II specific display functionality. Also look at [CLASS1.DISPLAY](./class1.display.md) 
 
 {% include "./bottom_copyright.md" %}
 

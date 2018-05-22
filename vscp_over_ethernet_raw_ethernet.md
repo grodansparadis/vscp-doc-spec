@@ -51,13 +51,13 @@ Time should always be UTC time. If the time block is set to all zero the current
  | 3    | AES256 CBC encryption. 16-byte IV is appended to each frame. | 
  | 4-15 | Reserved                                                     | 
 
-For encryption/decryption code using OpenSSL see [this link](https///wiki.openssl.org/index.php/EVP_Authenticated_Encryption_and_Decryption). Note that byte 0 of the frame is never encrypted. The encryption/decryption is instead carried out over byte 1 to the CRC.
+For encryption/decryption code using OpenSSL see [this link](https://wiki.openssl.org/index.php/EVP_Authenticated_Encryption_and_Decryption). Note that byte 0 of the frame is never encrypted. The encryption/decryption is instead carried out over byte 1 to the CRC.
 
 On the VSCP Server the md5 of the [vscptoken](http://www.vscp.org/docs/vscpd/doku.php?id=configuring_the_vscp_daemon#security) is used as the key for AES128.
 
 ##### Definition of head
 
-See [vscp.h](https///github.com/grodansparadis/vscp/blob/master/src/vscp/common/vscp.h)
+See [vscp.h](https://github.com/grodansparadis/vscp/blob/master/src/vscp/common/vscp.h)
 
  | Bits  | Description                                                         | 
  | ----  | -----------                                                         | 
@@ -122,7 +122,7 @@ The unused pairs can be used to power nodes and that way making them lower cost.
  | 7   | GND         | 
  | 8   | GND         | 
 
-Maximum power usage depends on the cabling but for AWG-24 it is 0.5A for each pair but never more then 13 watts. There is a description of how different manufacturers implement this here [http://pinouts.ru/Net/poe_pinout.shtml]. A calculator for losses can be found here [http://www.demarctech.com/techsupport/poecalculate.htm||Power calculator].
+Maximum power usage depends on the cabling but for AWG-24 it is 0.5A for each pair but never more then 13 watts. There is a description of how different manufacturers implement this here [https://pinouts.ru/Net/poe_pinout.shtml]. A calculator for losses can be found here [https://www.demarctech.com/techsupport/poecalculate.htm||Power calculator].
 
 
 

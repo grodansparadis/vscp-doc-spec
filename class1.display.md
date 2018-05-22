@@ -6,7 +6,7 @@
 
 This is generic display related functionality. Show info on a screen, LED-display diode, etc.
 
-The [New_York module](http://www.grodansparadis.com) is an example on the how this can be implemented in a module. 
+The [CAN4VSCP New York module](https://www.grodansparadis.com) is an example on the how this can be implemented in a module. 
 
 ##### Escape sequences
 

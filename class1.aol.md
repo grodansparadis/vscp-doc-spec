@@ -4,7 +4,7 @@
 
 ## Description
 
-AOL Event. The main idea of AOL is to send warnings to remote administrators about different PC conditions using a LAN. Info here [http://en.wikipedia.org/wiki/Alert_on_LAN] 
+AOL Event. The main idea of AOL is to send warnings to remote administrators about different PC conditions using a LAN. Info here [https://en.wikipedia.org/wiki/Alert_on_LAN] 
 
 ## Type = 0 (0x00)
 

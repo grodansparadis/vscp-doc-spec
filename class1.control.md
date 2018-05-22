@@ -31,7 +31,7 @@ Turn on/off lamps on nodes in zone.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
-See also [CLASS1.CONTROL, Type=40](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.control#type_40_0x28_all_lamp_s_on) and [CLASS1.CONTROL, Type=42](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.control#type_41_0x29_all_lamp_s_off) which don't use byte 0 but instead are separated in two distinct events.
+See also [CLASS1.CONTROL, Type=40](./class1.control.md#type_40_0x28_all_lamp_s_on) and [CLASS1.CONTROL, Type=42](./class1.control.md#type_41_0x29_all_lamp_s_off) which don't use byte 0 but instead are separated in two distinct events.
 
 ## Type = 3 (0x03) Open
 
@@ -260,7 +260,7 @@ Synchronize events on a segment.
 
  | Data byte | Description                                                                                                                                  | 
  | --------- | -----------                                                                                                                                  | 
- | 0         | Sensor index for a sensor within a module (see [data coding](http://www.vscp.org/docs/vscpspec/doku.php?id=data_coding). 255 is all sensors. | 
+ | 0         | Sensor index for a sensor within a module (see [data coding](./data_coding.md). 255 is all sensors. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                   | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                           | 
 
@@ -392,7 +392,7 @@ The control byte have the following bits defined
  | 5             | IETF (RFC-5646/4647) | en-US for American English. en-GB British.        | 
 
 
-ISO codes can be found [here](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+ISO codes can be found [here](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
 ## Type=33 (0x21) Big Change level
 
@@ -467,7 +467,7 @@ Turn on all lamps in a zone.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
-See also [CLASS1.CONTROL, Type=2](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.control#type_2_0x02_all_lamp_s_on_off)
+See also [CLASS1.CONTROL, Type=2](./class1.control.md#type_2_0x02_all_lamp_s_on_off)
 
 ## Type = 41 (0x29) (All) Lamp(s) off
 
@@ -479,7 +479,7 @@ Turn off all lamps in a zone.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
-See also [CLASS1.CONTROL, Type=2](http://www.vscp.org/docs/vscpspec/doku.php?id=class1.control#type_2_0x02_all_lamp_s_on_off)
+See also [CLASS1.CONTROL, Type=2](./class1.control.md#type2-0x02-all-lamps-on-off)
 
 ## Type = 42 (0x2A) Lock
 
@@ -501,5 +501,8 @@ Unock devices in a zone.
  | 0         | Not used.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
+
+
 
 {% include "./bottom_copyright.md" %}
