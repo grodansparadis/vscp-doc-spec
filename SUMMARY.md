@@ -91,7 +91,7 @@
 *  [Appendix A - Assigned GUIDs](appendix_a.md)
 *  [Specification history](vscp_specification_history.md)
 
-## Other documentation**
+## Other documentation
 
 *  [VSCP Daemon](https///www.vscp.org/docs/vscpd/doku.php?id=start)
 *  [VSCP Helper lib](https///www.vscp.org/docs/vscphelper/doku.php?id=start)

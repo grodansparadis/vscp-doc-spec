@@ -38,14 +38,14 @@ The type will always be “uint8_t” in this case
 If you want to insert HTML as content use a construct like this
 ```xml
 <![CDATA[
-`<html>`
-    `<head>`
-        `<script/>`
-    `<head>`
-    `<body>`
+<html>
+    <head>
+        <script/>
+    <head>
+    <body>
         Your HTML's body
-    `</body>`
-`</html>`
+     </body>
+</html>
 ]]>
 ```
 
@@ -54,50 +54,50 @@ this is especially useful for info, description and help items.
 ##### Format
 
 ```xml
-`<?xml version = "1.0" encoding = "UTF-8" ?>`   
+<?xml version = "1.0" encoding="UTF-8" ?>
 <!-- Version 0.0.6     2012-10-01  
     "string"    - Text string  
     "bitfield"  - a field of bits. Width tells how many bits the field consist 
-                of. When read from a device the number of bits will always be 
-				in even octets with unused bits set to zero. Bitfield is 
-                taken from MSB part thrue LSB and continues that way on 
-                next octet in the series.   
+                  of. When read from a device the number of bits will always be 
+                  in even octets with unused bits set to zero. Bitfield is 
+                  taken from MSB part thrue LSB and continues that way on 
+                  next octet in the series.   
     "bool"      - 1 bit number specified as true or false.  
     "int8_t"    - 8  bit number. Hexadecimal if it starts with "0x" else decimal.  
     "uint8_t"   - Unsigned 8  bit number. Hexadecimal if it starts 
-				with "0x" else decimal.  
+                  with "0x" else decimal.  
     "int16_t"   - 16 bit signed number. Hexadecimal if it starts with "0x" 
-                else decimal  
+                  else decimal  
     "uint16_t"  - 16 bit unsigned number. Hexadecimal if it starts 
-				with "0x" else decimal  
+                  with "0x" else decimal  
     "int32_t"   - 32 bit signed number. Hexadecimal if it starts with "0x" 
-                else decimal  
+                  else decimal  
     "uint32_t"  - 32 bit unsigned number. Hexadecimal if it starts 
-				with "0x" else decimal  
+                  with "0x" else decimal  
     "int64_t"   - 64 bit signed number. Hexadecimal if it starts with "0x" 
-                else decimal  
+                  else decimal  
     "uint64_t"  - 64 bit unsigned number. Hexadecimal if it starts 
-				with "0x" else decimal  
-    "float"	 - Data is coded as a IEEE-754 1985 floating point value
-				That is a total of 32-bits. The most significant byte is 
-                stored first. 
+                  with "0x" else decimal  
+    "float"	- Data is coded as a IEEE-754 1985 floating point value
+                  That is a total of 32-bits. The most significant byte is 
+                  stored first. 
     "double"	- IEEE-754, 64 Bits, double precision. 
-				That is a total of 64-bits. The most significant byte is 
+                  That is a total of 64-bits. The most significant byte is 
                 stored first.
     "date"      - Must be passed in the format dd-mm-yyyy and mapped to 
-                "yy yy mm dd" that is four bytes, MSB->LSB
+                  "yy yy mm dd" that is four bytes, MSB->LSB
     "time"      - Must be passed in the format hh:mm:ss where hh is 24 hour 
-                clock and mapped to "hh mm ss" MSB->LSBthat is four bytes.
-    "guid"	  - Holds the 16 bytes of a GUID. Stored on the form 
-                11:22:33:... MSB->LSB 
+                  clock and mapped to "hh mm ss" MSB->LSBthat is four bytes.
+    "guid"	- Holds the 16 bytes of a GUID. Stored on the form 
+                  11:22:33:... MSB->LSB 
 
     synonyms
  1. -------
     "char"      - Is the same as "int8_t".
     "byte"      - Is the same as "uint8_t".
-    "short"	 - Is the same as "int16_t".
+    "short"	- Is the same as "int16_t".
     "integer"   - Is the same as "int16_t".
-    "long"	  - Is the same as "int32_t".
+    "long"	- Is the same as "int32_t".
 
     index storage
  2. ------------
@@ -116,17 +116,17 @@ this is especially useful for info, description and help items.
     index8_time
     index8_guid
     index8_string   - String stored as [width, string]. Width tells how long the strings are. 
-					If any of them are shorter then this value it should be zero terminated.
+                      If any of them are shorter then this value it should be zero terminated.
 	
--->   
+-->
 
-`<!-- General section -->`     
-`<vscp>` 
+<!-- General section -->
+<vscp>
 
 	<!-- one or many. First one is used -->
 	<redirect mdf-path="url" />
 
-	<module>  <!-- one file can contain one or several modules -->      
+	<module>  <!-- one file can contain one or several modules -->
 		
 		<name lang="en">aaaaaaaa</name>    
 		<model>bbbbb</model>    
@@ -141,7 +141,7 @@ this is especially useful for info, description and help items.
 		
 		<manufacturer>        
 			<name lang="en">tttttttttttttttttttt</name>  
-      	  `<!-- One or many -->`
+      	  <!-- One or many -->
 			<address lang="en">              
 				<street>ttttttttttttt</street>            
 				<town>llllllllll</town>            
@@ -222,9 +222,9 @@ this is especially useful for info, description and help items.
 	that maps to a register which is  specified by page/offset and is of a 
 	predefined type  The ID is the tag that can be used in Level II 
 	configuration events. 
--->   
+-->
 
-	<abstractions>       
+	<abstractions>
 	<!--	The abstract variable "somename" is defined as a boolean type 
 			which can have a value 0 or 1 (system also recognize false/true). 
 			This variable is located at page=0, offset=1 at bit=0. As this is 
@@ -235,7 +235,7 @@ this is especially useful for info, description and help items.
 			"id" and "name". "id" is the same for a certain abstraction for all 
 			languages and what is used internally by system software. "name" is 
 			what is presented to the user.     
-	-->     
+	-->
 	<abstraction id="somename" 
 					type="bool" 
 					default="false" 
@@ -252,19 +252,19 @@ this is especially useful for info, description and help items.
 			That is a 16-bit signed integer. It has a default value of 182 
 			and is located at page=0 offset=15 and 16 (big-endian). The variable 
 			can be read and written.    
-	-->    
+	-->
 	<abstraction id="alsoaname" type="short" default="182" 
 					page = "0" offset = "15" indexed="false" >         
 		<name lang="en">tttt</name>     
 		<description lang="en">yyy</description>         
 		<help type="text/url"  lang="en">tttt</help>     
 		<access>rw</access>    
-	</abstraction>      
+	</abstraction>
 
 	<!--	Here a abstract variable "adescriptivename" of type string is 
 			defined. A width is needed here and the string is stored in 
 			page=0 at offset=20-21. Read write access is possible    
-	-->    
+	-->
 	
 	<abstraction id="adescriptivename" type="string" width="12" default="" 
 					page = "0" offset = "20" indexed="false" >
@@ -272,13 +272,13 @@ this is especially useful for info, description and help items.
 		<description lang="en">yyy</description>         
 		<help type="text/url"  lang="en">tttt</help>     
 		<access>rw</access>    
-	</abstraction>      
+	</abstraction>
 	<!--	This example shows a value list stored in an integer. This is 
 			typically presented to the user as a list-box or a combo-box 
 			with values to choose from. If register space is limited it 
 			can be more efficient to use a bitfield for the options.    
-	-->    
-	<abstraction id="namedlist" type="integer" default="" page = "0" offset = "100" >        
+	-->
+	<abstraction id="namedlist" type="integer" default="" page = "0" offset = "100" >
 		<name lang="en">tttt</name>     
 		<description lang="en">yyy</description>         
 		<help type="text/url"  lang="en">tttt</help>     
@@ -321,7 +321,7 @@ this is especially useful for info, description and help items.
 				<description lang="en">item8_description</description>                
 			</item>         
 		</valuelist>       
-	</abstraction>   
+	</abstraction>
 
 	<abstraction id="Calibrations" type="index8_int16_t"
                           page = "0" offset = "116" size="6" > 			
@@ -336,44 +336,44 @@ this is especially useful for info, description and help items.
 	</abstraction>
 
 
-`</abstractions>`     
+</abstractions>
 
 
 
 
-`<!-- Register section -->`   
+<!-- Register section -->
 
-`<registers>`       
+<registers>
 
 <!-- 	The following is abstraction "alsoaname"     
 		described in register space by two reg items.     
--->     
-`<reg page="0" offset="15" default="0" >`         
-	<name lang="en">alsoaname_msb</name>         
-	<description lang="en">MSB of alsoaname</description>         
-	<help type="text/url"  lang="en">tttt</help>         
-	<access>rw</access>     
-`</reg>`     
+-->
+<reg page="0" offset="15" default="0" >
+	<name lang="en">alsoaname_msb</name>
+	<description lang="en">MSB of alsoaname</description>
+	<help type="text/url"  lang="en">tttt</help>
+	<access>rw</access>
+</reg>
 
-`<reg page="0" offset="16" >`         
-	<help type="text/url"  lang="en">tttt</help>         
-	<name lang="en">alsoaname_lsb</name>         
-	<description lang="en">LSB of alsoaname</description>         
-	<access>rw</access>     
-`</reg>`       
+<reg page="0" offset="16" >
+	<help type="text/url"  lang="en">tttt</help>
+	<name lang="en">alsoaname_lsb</name>
+	<description lang="en">LSB of alsoaname</description>
+	<access>rw</access>
+</reg>
 
 <!--	The following is abstraction "adescriptivename"     
 		described in register space. Note the use of "width"     
 		which can be used to tell how many registers an abstraction     
 		see instead of having many register defines. Default width     
 		is one byte.     
--->     
-`<reg page="0" offset="15" width="12" >`         
-	<help type="text/url"  lang="en">tttt</help>         
-	<name lang="en">abcdefghih</name>         
-	<description lang="en">The string adescriptivename</description>         
-	<access>rw</access>     
-`</reg>`       
+-->
+<reg page="0" offset="15" width="12" >
+	<help type="text/url"  lang="en">tttt</help>
+	<name lang="en">abcdefghih</name>
+	<description lang="en">The string adescriptivename</description>
+	<access>rw</access>
+</reg>
 
 <!--	This example shows how individual bits in a register is defined. 
 		Note that each bit can be named. Note also at pos 4 
@@ -381,47 +381,47 @@ this is especially useful for info, description and help items.
 		bits wide. Here a valuelist also could have been defined describing 
 		the possible values. All eight bites in register at page=0, 
 		offset=1 is described here.     
--->     
-`<reg page="0" offset="1" >`           
-	<help type="text/url"  lang="en">tttt</help>         
-	<name lang="en">tttt</name>         
-	<description lang="en">yyy</description>         
-	<access>rw</access>           
-	<bit pos="0" default="false" >               
+-->
+<reg page="0" offset="1" >
+	<help type="text/url" lang="en">tttt</help>
+	<name lang="en">tttt</name>
+	<description lang="en">yyy</description>
+	<access>rw</access>
+	<bit pos="0" default="false" >
 		<name lang="en">tttt</name>               
 		<description lang="en">yyy</description>             
 		<help type="text/url"  lang="en">tttt</help>         
-	</bit>           
-	<bit pos="1">             
+	</bit>
+	<bit pos="1">
 		<name lang="en">tttt</name>             
 		<description lang="en">yyy</description>             
 		<help type="text/url"  lang="en">tttt</help>         
-	</bit>           
-	<bit pos="2">             
+	</bit>
+	<bit pos="2">
 		<name lang="en">tttt</name>             
 		<description lang="en">yyy</description>             
 		<help type="text/url"  lang="en">tttt</help>         
-	</bit>           
-	<bit pos="3">             
+	</bit>
+	<bit pos="3">
 		<name lang="en">tttt</name>             
 		<description lang="en">yyy</description>             
 		<help type="text/url"  lang="en">tttt</help>         
-	</bit>   
-	<!-- example for bit groups -->       
-	<bit pos="4" width="4">     
+	</bit>
+	<!-- example for bit groups -->
+	<bit pos="4" width="4">
 		<name lang="en">tttt</name>             
 		<description lang="en">yyy</description>             
 		<help type="text/url"  lang="en">tttt</help>     
-	</bit>     
-`</reg>`       
+	</bit>
+</reg>
 
 <!--	Here a bitfield with width of six bits has been defined. 
 		Note the access rights for the field. If access rights 
 		is not given read+write access is presumed. The register 
 		itself is not give a name here just the bit field.     
--->     
-`<reg page="0" offset="2">`           
-	<bit pos="2" width="6">               
+-->
+<reg page="0" offset="2">
+	<bit pos="2" width="6">
 		<name lang="en">tttt</name>             
 		<description lang="en">yyy</description>             
 		<help type="text/url"  lang="en">tttt</help>             
@@ -473,16 +473,16 @@ this is especially useful for info, description and help items.
 				<help type="text/url"  lang="en">tttt</help>                
 			</item>             
 		</valuelist>         
-	</bit>     
-`</reg>`       
+	</bit>
+</reg>
 
-`<!--	Here all bits of a register is used as a value list which is only readable. -->`     
-`<reg page = "0" offset = "88">`         
-	<name lang="en">tttt</name>         
-	<description lang="en">yyy</description>         
-	<help type="text/url"  lang="en">tttt</help>         
-	<access>r</access>         
-	<valuelist>               
+<!--	Here all bits of a register is used as a value list which is only readable. -->
+<reg page = "0" offset = "88">
+	<name lang="en">tttt</name>
+	<description lang="en">yyy</description>
+	<help type="text/url"  lang="en">tttt</help>
+	<access>r</access>
+	<valuelist>
 		<item value = "0x0">                 
 			<name lang="en">undefined</name>              
 			<description lang="en">yyy</description>                 
@@ -528,40 +528,40 @@ this is especially useful for info, description and help items.
 			<description lang="en">yyy</description>                 
 			<help type="text/url"  lang="en">tttt</help>                
 		</item>         
-	</valuelist>     
-`</reg>`       
+	</valuelist>
+</reg>
 
-`<!-- Example where min/max is used -->`     
-`<reg page = "0" offset = "88" min="8" max="32">`         
-	<name lang="en">Trust</name>         
-	<description lang="en">yyy</description>         
-	<help type="text/url"  lang="en">tttt</help>     
-`</reg>`   
+<!-- Example where min/max is used -->
+<reg page = "0" offset = "88" min="8" max="32">
+	<name lang="en">Trust</name>
+	<description lang="en">yyy</description>
+	<help type="text/url"  lang="en">tttt</help>
+</reg>
 
-`</registers>`         
+</registers>
 
-`<!-- Decision matrix -->` 
+<!-- Decision matrix -->
 
-`<dmatrix>`       
+<dmatrix>
 	<help type="text/url"  lang="en">tttt</help> 
      
-	<!-- Can currently be 1 or 2 -->     
-	<level>1</level>     
+	<!-- Can currently be 1 or 2 -->
+	<level>1</level>
 
-	<!-- Where is matrix located -->     
-	<start page="0" offset="1" indexed="true|false"/>  
+	<!-- Where is matrix located -->
+	<start page="0" offset="1" indexed="true|false"/>
 	<!-- If the matrix is placed at location 126 (Level I) it will
 		automatically be set to indexed --> 
 
-	<!-- # of rows in matrix -->     
-	<rowcnt>10</rowcnt>     
+	<!-- # of rows in matrix -->
+	<rowcnt>10</rowcnt>
 
 	<!-- Size in bytes for one row - only for level II. 
-			Always 8 for Level I. Defaults to 8. -->     
-	<rowsize>8</rowsize>    
+			Always 8 for Level I. Defaults to 8. -->
+	<rowsize>8</rowsize>
 
-	<!-- Code for action -->     
-	<action code="0x0">         
+	<!-- Code for action -->
+	<action code="0x0">
 		<name lang="en"></name>         
 		<description lang="en"></description>         
 		<help type="text/url"  lang="en">tttt</help>         
@@ -585,18 +585,18 @@ this is especially useful for info, description and help items.
 		</param>     
 	</action> 
 
-`</dmatrix>`     
+</dmatrix>
 
-`<!-- Events this module can generate (or receive) -->` 
-`<!-- Normally you only describe events the module is capable to send out -->`
-`<!-- here. In this case direction="out" which is the default and  -->`
-`<!-- what is used if direction is not given. Sometimes some events can  -->`
-`<!-- have special meaning to the module. A typical is the CONTROL.SYNC event -->`
-`<!-- if a module understands this the event can be described here with  -->`
-`<!-- direction="in". -->`
+<!-- Events this module can generate (or receive) 				-->
+<!-- Normally you only describe events the module is capable to send out 	-->
+<!-- here. In this case direction="out" which is the default and  		-->
+<!-- what is used if direction is not given. Sometimes some events can  	-->
+<!-- have special meaning to the module. A typical is the CONTROL.SYNC event 	-->
+<!-- if a module understands this the event can be described here with  	-->
+<!-- direction="in". 								-->
 
-`<events>`     
-	<event class="0" type="10" direction="in | out" >           
+`<events>
+	<event class="0" type="10" direction="in | out" >
 		<help type="text/url"  lang="en">tttt</help>           
 		<!-- Optional: user event name -->     
 		<name lang="en"></name>     
@@ -617,29 +617,29 @@ this is especially useful for info, description and help items.
 			</bit>     
 		</data>     
 	</event> 
-`</events>`   
+`</events>
 
-`<!-- A valuelist can be used here as well -->`     
+`<!-- A valuelist can be used here as well -->
  
-`<!-- Description/specification for alarm bits -->` 
+`<!-- Description/specification for alarm bits --> 
 
-`<alarm>`     
-	<bit pos="1">         
+`<alarm>
+	<bit pos="1">
 		<name lang="en">tttt</name>         
 		<description lang="en">yyy</description>         
 		<help type="text/url"  lang="en">tttt</help>     
 	</bit> 
-`</alarm>`     
+`</alarm>
 
 `<!-- bootlader information -->` 
 
-`<boot>`     `<!-- bootloader algorithm that can be used on this module -->`     
-	<algorithm>1</algorithm>     
-	<!-- Size of boot block/sector -->     
-	<blocksize>20</blocksize>     
-	<!-- Number of available boot blocks/sectors -->     
+`<boot>`     `<!-- bootloader algorithm that can be used on this module -->
+	<algorithm>1</algorithm>
+	<!-- Size of boot block/sector -->
+	<blocksize>20</blocksize>
+	<!-- Number of available boot blocks/sectors -->
 	<blockcount>66</blockcount> 
-`</boot>`   
+`</boot>
 
 `</module>` 
 
@@ -671,9 +671,9 @@ For user applications this may be inconvenient as a higher level application wan
 Lets look at an example. The reference model for the Ethernet based Nova module have a protection timer. O the unit this timer takes up two consecutive registers for each output channel it protects. The first byte is as it should be the most significant byte of the timer and the second byte is the least significant byte. Thus the actual timer value is byte0 * 256 + byte1. In the MDF file for Nova this is written as
 
 ```xml
-`<reg page="0" offset="26" >` 			
-	<name lang="en">Output protection timer 0 MSB</name> 			
-	<description lang="en"> 				
+<reg page="0" offset="26" >
+	<name lang="en">Output protection timer 0 MSB</name>
+	<description lang="en">
 		This is the most significant byte for the output protection timer.  				
 		An output will be inactivated if not written to before this time  				
 		has elapsed. 				
@@ -683,13 +683,13 @@ Lets look at an example. The reference model for the Ethernet based Nova module 
 		to ensure that an output  				
 		is deactivated after a preset time even if the controlling device 
 		failed to deactivate the relay.   			
-	</description> 			
-	<access>rw</access> 	
-`</reg>`
+	</description>
+	<access>rw</access>
+</reg>
 	
-`<reg page="0" offset="27" >` 			
-	<name lang="en">Output protection timer 0 LSB</name> 			
-	<description lang="en"> 				
+<reg page="0" offset="27" >
+	<name lang="en">Output protection timer 0 LSB</name>
+	<description lang="en">
 		This is the least significant byte for the output protection timer.  				
 		An output will be inactivated if not written to before this time  				
 		has elapsed. 				
@@ -699,17 +699,17 @@ Lets look at an example. The reference model for the Ethernet based Nova module 
 		to ensure that an output  				
 		is deactivated after a preset time even if the controlling device 
 		failed to deactivate the relay.   			
-	</description> 			
-	<access>rw</access> 		
-`</reg>`
+	</description>
+	<access>rw</access>
+</reg>
 ```
 
 As seen the register at position 26 and 27 is used. Both on page 0. A user that gets this information presented for him/here needs to do some calculations to actually set the value. To make it possible to preset this to a user in a more user friendly way and abstraction is defines.
 
 ```xml
-`<abstraction id="Protectiontimer0" type="uint16_t" default="0" page = "0" offset = "26" >`
-	<name lang="en">Output protection timer 0</name>      			
-	<description lang="en"> 				
+<abstraction id="Protectiontimer0" type="uint16_t" default="0" page = "0" offset = "26" >
+	<name lang="en">Output protection timer 0</name>
+	<description lang="en">
 		This is the least significant byte for the output protection timer.  				
 		An output will be inactivated if not written to before this time  				
 		has elapsed.\n 				
@@ -719,12 +719,12 @@ As seen the register at position 26 and 27 is used. Both on page 0. A user that 
 		to ensure that an output  				
 		is deactivated after a preset time even if the controlling device 
 		failed to deactivate the relay.   			
-	</description>          			
+	</description>
 	<help type="url"  lang="en">
 		http://www.vscp.org/wiki/doku.php/modules/nova#output_protection_time_registers
-	</help>      	
-	<access>rw</access>     		
-`</abstraction>`
+	</help>
+	<access>rw</access>
+</abstraction>
 ```
 
 Now the two registers instead is presented as an unsigned 16 bit integer in a way a user expect it to be. He/she just set the value in seconds for the protection timer and the control system knowing that an unsigned integer needs two bytes can write or read the value from the register pair 26/27.
@@ -738,24 +738,24 @@ User software first try to present information to users using the definitions in
 
 ### name tag
 
-    `<name lang="en">`register name`</name>`
+    <name lang="en">`register name`</name>
     
 The name tag names the register. This is how the register will be named by handling software. The name tag can have the usual **lang** attribute and there can be one name tag for each supported language.
 
 ### description tag
 
-    `<description lang="en">`register name`</description>`
+    <description lang="en">register name</description>
     
 The description tag describes the register and its use. The description tag can have the usual **lang** attribute and there can be one description tag for each supported language. "\n" can be inserted in text as a new line marker.
 
 ### help tag
 
-    `<help type="text/html/url"  lang="en">`tttt`</help>`
+    <help type="text/html/url"  lang="en">tttt</help>
 The help tag gives help about the register and its use. The help tag can have the usual **lang** attribute and there can be one help tag for each supported language. The type can be **text** for general inline text help, **html** for inline html help or **url** for an external web page.
     
 ### access tag
 
-    `<access>`rw`</access>`
+    <access>rw</access>
 
 The access tag is used to tell if a cell is readable or writable or both. **r** is readable and **w** is writable. 
     
@@ -794,9 +794,9 @@ The example
 ```xml
     <reg page="0" offset="32" type="dmatrix1" size="64" 
                   oddfg="0xrrggbb" evenfg="0xrrggbb" oddbg="0xrrggbb" evenbg="0xrrggbb" >
-    `<name lang="en">`Decision matrix`</name>`
-    `<description lang="en">`Decision matrix for Odessa`</description>` 
-    `<reg>`
+    <name lang="en">`Decision matrix`</name>`
+    <description lang="en">Decision matrix for Odessa</description>
+    <reg>
 ```
 
 will generate 64 register entries for a decision matrix that consist of eight rows (64/8) and name them automatically. 
@@ -813,9 +813,9 @@ The example
 ```xml
     <reg page="0" offset="4" type="block" size="8"
                 oddfg="rrggbb" evenfg="rrggbb" oddbg="rrggbb" evenbg="rrggbb" >
-    `<name lang="en">`Reserved`</name>`
-    `<description lang="en">`Reserved for future use.`</description>` 
-    `<reg>`
+    <name lang="en">`Reserved`</name>
+    <description lang="en">`Reserved for future use.`</description>
+    <reg>
 ```
     
 will generate eight register defines as
@@ -831,47 +831,46 @@ will generate eight register defines as
  | Reserved6 | 0    | 10     | Reserved for future use. | 
  | Reserved7 | 0    | 11     | Reserved for future use. | 
 
-\\ 
     
 ## Setup recipes
 
 **Preliminary**
 
 Setup recipes are stored sequences that can be used to setup a specific device in a certain way. They can just set up a device according to some rules or they can interact with a user
-and setup a device from user input or just guide a user through a specific setup.  
+and setup a device from user input or just guide a user through a specific setup.
 
 This is functionality that will be extended heavily in the future.
 
 A sample can look like this
 
 ```xml
-`<setup>`
-    `<recipe>`
-        `<name>`Blink-channel0`</name>`
-        `<description lang="en">`
+<setup>
+    <recipe>
+        <name>Blink-channel0</name>
+        <description lang="en">
         Set channel 0 to output and blink with 10 Hz.
-        `</description>`
-        `<!-- Set channel as output -->`
-        `<write-bit-in-reg pos="3" page="0" offset="2" value="false" />`
-        `<write-register page="0" offset="0" value="0" />`
-        `<!-- Read frequency from user -->`
-        `<messagebox>`
-            `<function>`input`</function>`
-            `<name lang="en">`Beijing I/O node`</name>`
-            `<description lang="en">`With what frequency should channel blink?`</description>`
-            `<variable type="byte" name="frequency" />`
-        `</messagebox>`
-        `<!-- Write frequency to abstraction register -->`
-        `<write-abstraction name="blink-frequency0" value="$frequency" />`
-    `</recipe>`
-`</setup>`
+        </description>
+        <!-- Set channel as output -->
+        <write-bit-in-reg pos="3" page="0" offset="2" value="false" />
+        <write-register page="0" offset="0" value="0" />
+        <!-- Read frequency from user -->
+        <messagebox>
+            <function>`input`</function>
+            <name lang="en">`Beijing I/O node`</name>
+            <description lang="en">`With what frequency should channel blink?`</description>
+            <variable type="byte" name="frequency" />
+        </messagebox>
+        <!-- Write frequency to abstraction register -->
+        <write-abstraction name="blink-frequency0" value="$frequency" />
+    </recipe>
+</setup>
 ```
     
 The recipe has a name which is not multilingual and a description which is multilingual. From this description we see that this recipe will blink channel 0. Names of a recipe can be referenced from other recipes. A name containing spaces will have the spaces replaced by underscores. The description is some informative text for a user.
 
 Allowed tags are
 
-    `<write-bit-in-reg>`
+    <write-bit-in-reg>
 This sets a bit in a specified register. 
 
 Allowed attributes are
@@ -884,7 +883,7 @@ Allowed attributes are
  | width      | Number of bits if this is a bit array. Default = 1 no bitarray.                                                                                                                                                 | 
  | value      | Value for bit. Can either be true/false or 0/1. The value can also be a variable and if so should be preceded with a dollar sign '$'. If width > 1 the value can have a numerical value that fits in width ^ 2. | 
 
-    `<write-bit-in-abstraction>`
+    <write-bit-in-abstraction>
 
 This sets a bit in a specified abstraction
  
@@ -897,7 +896,7 @@ Allowed attributes are
  | width      | Number of bits if this is a bit array. Default = 1 no bitarray.                                                                       | 
  | value      | Value for bit. Can either be true/false or 0/1. The value can also be a variable and if so should be preceded with a dollar sign '$'. | 
 
-    `<write-register>`
+    <write-register>
     
 This sets a value in a register
 
@@ -907,7 +906,7 @@ This sets a value in a register
  | offset     | Offset in page where register is located                                                                                              | 
  | value      | Value for bit. Can either be true/false or 0/1. The value can also be a variable and if so should be preceded with a dollar sign '$'. | 
 
-    `<write-abstraction>`
+    <write-abstraction>
     
 This sets a value of an abstraction
 
@@ -916,7 +915,7 @@ This sets a value of an abstraction
  | name       | Name of abstraction                                                                                                                        | 
  | value      | Value that is valid for the type of the abstraction. The value can also be a variable and if so should be preceded with a dollar sign '$'. | 
 
-    `<messagebox>`
+    <messagebox>
     
 This displays a message box which can be of several types. It can be used to inform a user about different things and it can be used to input information from a user.  
 
@@ -951,18 +950,18 @@ A live setup screen is a pointer to a web page that can be used to setup/control
 The format for the tag is
 
 ```xml
-    `<setup-ui type="live" url="path to interface">`
-     `<description lang="en">`Bla. bla. bla. bla.`</description>`
-     `<payload>`If url is empty base64 encoded ui content here`</payload>`
-    `</setup-ui>`
+    <setup-ui type="live" url="path to interface">
+        <description lang="en">Bla. bla. bla. bla.</description>
+         <payload>If url is empty base64 encoded ui content here</payload>
+    </setup-ui>
 ```
 
 or 
 
 ```xml
-    `<setup-ui type="live-list" format="JSONP|JSON|XML" url="path to list of setup interfaces">`
-     `<description lang="en">`Bla. bla. bla. bla.`</description>`
-    `</setup-ui>`
+    <setup-ui type="live-list" format="JSONP|JSON|XML" url="path to list of setup interfaces">
+        <description lang="en">Bla. bla. bla. bla.</description>
+    </setup-ui>
 ```  
 
 where the later points to a list with entries of the former type.
@@ -974,18 +973,18 @@ This type is a package in a zip file with JavaScript code/HTML5/CSS that defines
 The format for the tag is
 
 ```xml
-    `<setup-ui type="package" url="path to package">`
-     `<description lang="en">`Bla. bla. bla. bla.`</description>`
-     `<payload>`If url is empty base64 encoded content here`</payload>`
-    `</setup-ui>`
+    <setup-ui type="package" url="path to package">
+     `<description lang="en">`Bla. bla. bla. bla.</description>
+     `<payload>If url is empty base64 encoded content here</payload>
+    </setup-ui>
 ```
 
 or 
 
 ```xml
-    `<setup-ui type="package-list" ptype="zip" format="JSONP|JSON|XML" url="path to list of packages">`
-     `<description lang="en">`Bla. bla. bla. bla.`</description>`
-    `</setup-ui>`
+    <setup-ui type="package-list" ptype="zip" format="JSONP|JSON|XML" url="path to list of packages">
+        <description lang="en">Bla. bla. bla. bla.</description>
+    </setup-ui>
 ```
 
 where the later points to a list with entries of the former type.
