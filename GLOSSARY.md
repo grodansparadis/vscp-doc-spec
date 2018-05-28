@@ -1,4 +1,4 @@
-## CAN
+## CANBUS
 Control Area Network. A very robust network protocol that among other things is commonly used in cars and heavy machinery.
 
 ## CAN4VSCP

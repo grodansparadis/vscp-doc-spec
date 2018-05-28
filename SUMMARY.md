@@ -93,7 +93,7 @@
 
 ## Other documentation
 
-*  [VSCP Daemon](https///www.vscp.org/docs/vscpd/doku.php?id=start)
+*  [VSCP Daemon](https://grodansparadis.gitbooks.io/the-vscp-specification)
 *  [VSCP Helper lib](https///www.vscp.org/docs/vscphelper/doku.php?id=start)
 *  [VSCP Works](https///www.vscp.org/docs/vscpworks/doku.php?id=start)
 *  [VSCP Firmware](https///www.vscp.org/docs/vscpfirmware/doku.php)
