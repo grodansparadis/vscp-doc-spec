@@ -6,12 +6,12 @@
 
 Control functionality. One of the main concepts of VSCP is that it is an event driven protocol. Commands are sent out as events to the network not as events to specific devices. A device can belong to a zone which select limit events of interest for the particular node.. If there is a need to control a specific device the registry model should be used. This is the only way to directly control a device. 
 
-## Type=0 (0x00) - General event
+## <a name="type0"></a>Type=0 (0x00) - General event
     VSCP_TYPE_CONTROL_GENERAL
 General Event.
 ----
 
-## Type=1 (0x01) - Mute on/off
+## <a name="type1"></a>Type=1 (0x01) - Mute on/off
     VSCP_TYPE_CONTROL_MUTE
 Mute/Un-mute all sound generating nodes in a zone 
 
@@ -23,7 +23,7 @@ Mute/Un-mute all sound generating nodes in a zone
 
 ----
 
-## Type=2 (0x02) - (All) Lamp(s) on/off
+## <a name="type2"></a>Type=2 (0x02) - (All) Lamp(s) on/off
     VSCP_TYPE_CONTROL_ALL_LAMPS
 Turn on/off lamps on nodes in zone.
 
@@ -37,7 +37,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
 
 ----
 
-## Type=3 (0x03) - Open
+## <a name="type3"></a>Type=3 (0x03) - Open
     VSCP_TYPE_CONTROL_OPEN
 Perform open on all nodes in zone. 
 
@@ -50,7 +50,7 @@ Perform open on all nodes in zone.
 
 ----
 
-## Type=4 (0x04) - Close
+## <a name="type4"></a>Type=4 (0x04) - Close
     VSCP_TYPE_CONTROL_CLOSE
 Perform close on all nodes in zone. 
 
@@ -63,7 +63,7 @@ Perform close on all nodes in zone.
 
 ----
 
-## Type=5 (0x05) - TurnOn
+## <a name="type5"></a>Type=5 (0x05) - TurnOn
     VSCP_TYPE_CONTROL_TURNON
 Turn On a nodes in a zone/subzone. 
 
@@ -76,7 +76,7 @@ Turn On a nodes in a zone/subzone.
 
 ----
 
-## Type=6 (0x06) - TurnOff
+## <a name="type6"></a>Type=6 (0x06) - TurnOff
     VSCP_TYPE_CONTROL_TURNOFF
 Turn Off a nodes in a zone/subzone. 
 
@@ -89,7 +89,7 @@ Turn Off a nodes in a zone/subzone.
 
 ----
 
-## Type=7 (0x07) - Start
+## <a name="type7"></a>Type=7 (0x07) - Start
     VSCP_TYPE_CONTROL_START
 Start all nodes in a zone.
 
@@ -101,7 +101,7 @@ Start all nodes in a zone.
 
 ----
 
-## Type=8 (0x08) - Stop
+## <a name="type8"></a>Type=8 (0x08) - Stop
     VSCP_TYPE_CONTROL_STOP
 Stop all nodes in zone. 
 
@@ -114,7 +114,7 @@ Stop all nodes in zone.
 
 ----
 
-## Type=9 (0x09) - Reset
+## <a name="type9"></a>Type=9 (0x09) - Reset
     VSCP_TYPE_CONTROL_RESET
 Perform Reset on all nodes in zone. 
 
@@ -127,7 +127,7 @@ Perform Reset on all nodes in zone.
 
 ----
 
-## Type=10 (0x0A) - Interrupt
+## <a name="type10"></a>Type=10 (0x0A) - Interrupt
     VSCP_TYPE_CONTROL_INTERRUPT
 Perform Interrupt on all nodes in zone. 
 
@@ -140,7 +140,7 @@ Perform Interrupt on all nodes in zone.
 
 ----
 
-## Type=11 (0x0B) - Sleep
+## <a name="type11"></a>Type=11 (0x0B) - Sleep
     VSCP_TYPE_CONTROL_SLEEP
 Perform Sleep on all nodes in zone. 
 
@@ -153,7 +153,7 @@ Perform Sleep on all nodes in zone.
 
 ----
 
-## Type=12 (0x0C) - Wakeup
+## <a name="type12"></a>Type=12 (0x0C) - Wakeup
     VSCP_TYPE_CONTROL_WAKEUP
 Wakeup all nodes in zone. 
 
@@ -166,7 +166,7 @@ Wakeup all nodes in zone.
 
 ----
 
-## Type=13 (0x0D) - Resume
+## <a name="type13"></a>Type=13 (0x0D) - Resume
     VSCP_TYPE_CONTROL_RESUME
 Resume all nodes in zone. 
 
@@ -179,7 +179,7 @@ Resume all nodes in zone.
 
 ----
 
-## Type=14 (0x0E) - Pause
+## <a name="type14"></a>Type=14 (0x0E) - Pause
     VSCP_TYPE_CONTROL_PAUSE
 Pause all nodes in zone. 
 
@@ -192,7 +192,7 @@ Pause all nodes in zone.
 
 ----
 
-## Type=15 (0x0F) - Activate
+## <a name="type15"></a>Type=15 (0x0F) - Activate
     VSCP_TYPE_CONTROL_ACTIVATE
 Activate all nodes in zone. 
 
@@ -205,7 +205,7 @@ Activate all nodes in zone.
 
 ----
 
-## Type=16 (0x10) - Deactivate
+## <a name="type16"></a>Type=16 (0x10) - Deactivate
     VSCP_TYPE_CONTROL_DEACTIVATE
 Deactivate all nodes in zone. 
 
@@ -218,22 +218,22 @@ Deactivate all nodes in zone.
 
 ----
 
-## Type=17 (0x11) - Reserved for future use
+## <a name="type17"></a>Type=17 (0x11) - Reserved for future use
     VSCP_TYPE_CONTROL_RESERVED17
 Reserved. 
 ----
 
-## Type=18 (0x12) - Reserved for future use
+## <a name="type18"></a>Type=18 (0x12) - Reserved for future use
     VSCP_TYPE_CONTROL_RESERVED18
 Reserved. 
 ----
 
-## Type=19 (0x13) - Reserved for future use
+## <a name="type19"></a>Type=19 (0x13) - Reserved for future use
     VSCP_TYPE_CONTROL_RESERVED19
 Reserved.
 ----
 
-## Type=20 (0x14) - Dim lamp(s)
+## <a name="type20"></a>Type=20 (0x14) - Dim lamp(s)
     VSCP_TYPE_CONTROL_DIM_LAMPS
 Dim all dimmer devices on a segment to a specified dim value. 
 
@@ -245,7 +245,7 @@ Dim all dimmer devices on a segment to a specified dim value.
 
 ----
 
-## Type=21 (0x15) - Change Channel
+## <a name="type21"></a>Type=21 (0x15) - Change Channel
     VSCP_TYPE_CONTROL_CHANGE_CHANNEL
 This is typical for changing TV channels or for changing AV amp input source etc. 
 
@@ -257,7 +257,7 @@ This is typical for changing TV channels or for changing AV amp input source etc
 
 ----
 
-## Type=22 (0x16) - Change Level
+## <a name="type22"></a>Type=22 (0x16) - Change Level
     VSCP_TYPE_CONTROL_CHANGE_LEVEL
 Change an absolute level. 
 
@@ -269,7 +269,7 @@ Change an absolute level.
 
 ----
 
-## Type=23 (0x17) - Relative Change Level
+## <a name="type23"></a>Type=23 (0x17) - Relative Change Level
     VSCP_TYPE_CONTROL_RELATIVE_CHANGE_LEVEL
 
  Relative Change Level request
@@ -282,7 +282,7 @@ Change an absolute level.
 
 ----
 
-## Type=24 (0x18) - Measurement Request
+## <a name="type24"></a>Type=24 (0x18) - Measurement Request
     VSCP_TYPE_CONTROL_MEASUREMENT_REQUEST
 Measurement Request
 
@@ -294,7 +294,7 @@ Measurement Request
 
 ----
 
-## Type=25 (0x19) - Stream Data
+## <a name="type25"></a>Type=25 (0x19) - Stream Data
     VSCP_TYPE_CONTROL_STREAM_DATA
 Request to stream data
 
@@ -307,7 +307,7 @@ Use this event for streamed data out from a node. The source is then given by th
 
 ----
 
-## Type=26 (0x1A) - Sync
+## <a name="type26"></a>Type=26 (0x1A) - Sync
     VSCP_TYPE_CONTROL_SYNC
 Synchronize events on a segment. 
 
@@ -321,7 +321,7 @@ The sensor index can be used to index units within a module also or used as some
 
 ----
 
-## Type=27 (0x1B) - Zoned Stream Data
+## <a name="type27"></a>Type=27 (0x1B) - Zoned Stream Data
     VSCP_TYPE_CONTROL_ZONED_STREAM_DATA
 Request streamed data from nodes identified by zone/subzone.
 
@@ -334,7 +334,7 @@ Request streamed data from nodes identified by zone/subzone.
 
 ----
 
-## Type=28 (0x1C) - Set Pre-set
+## <a name="type28"></a>Type=28 (0x1C) - Set Pre-set
     VSCP_TYPE_CONTROL_SET_PRESET
 Some nodes may have pre-set configurations to choose from. With this event a pre-set can be set for a zone/sub-zone.
 
@@ -350,7 +350,7 @@ Type=48 as a response event.
 
 ----
 
-## Type=29 (0x1D) - Toggle state
+## <a name="type29"></a>Type=29 (0x1D) - Toggle state
     VSCP_TYPE_CONTROL_TOGGLE_STATE
 Toggle the state of a node.
 
@@ -364,7 +364,7 @@ Note: This may be a bad design option as it often demands that the state should 
 
 ----
 
-## Type=30 (0x1E) - Timed pulse on
+## <a name="type30"></a>Type=30 (0x1E) - Timed pulse on
     VSCP_TYPE_CONTROL_TIMED_PULSE_ON
 With this event it is possible to generate a timed pulse that is on for a specified time.
 
@@ -402,7 +402,7 @@ The control byte have the following bits defined
 
 ----
 
-## Type=31 (0x1F) - Timed pulse off
+## <a name="type31"></a>Type=31 (0x1F) - Timed pulse off
     VSCP_TYPE_CONTROL_TIMED_PULSE_OFF
 With this event it is possible to generate a timed pulse that is off for a specified time.
 
@@ -440,7 +440,7 @@ The control byte have the following bits defined
 
 ----
 
-## Type=32 (0x20) - Set country/language
+## <a name="type32"></a>Type=32 (0x20) - Set country/language
     VSCP_TYPE_CONTROL_SET_COUNTRY_LANGUAGE
 Set country and language.
 
@@ -465,7 +465,7 @@ ISO codes can be found [here](https://en.wikipedia.org/wiki/List_of_ISO_639-1_co
 
 ----
 
-## Type=33 (0x21) - Big Change level
+## <a name="type33"></a>Type=33 (0x21) - Big Change level
     VSCP_TYPE_CONTROL_BIG_CHANGE_LEVEL
 Big Change level can be used in situations when the one byte level of CLASS1.CONTROL, Type=22 is not enough.
 
@@ -478,7 +478,7 @@ Big Change level can be used in situations when the one byte level of CLASS1.CON
 
 ----
 
-## Type=34 (0x22) - Move shutter up
+## <a name="type34"></a>Type=34 (0x22) - Move shutter up
     VSCP_TYPE_CONTROL_SHUTTER_UP
 Move shutter up.
 
@@ -490,7 +490,7 @@ Move shutter up.
 
 ----
 
-## Type=35 (0x23) - Move shutter down
+## <a name="type35"></a>Type=35 (0x23) - Move shutter down
     VSCP_TYPE_CONTROL_SHUTTER_DOWN
 Move shutter down.
 
@@ -502,7 +502,7 @@ Move shutter down.
 
 ----
 
-## Type=36 (0x24) - Move shutter left
+## <a name="type36"></a>Type=36 (0x24) - Move shutter left
     VSCP_TYPE_CONTROL_SHUTTER_LEFT
 Move shutter left.
 
@@ -515,7 +515,7 @@ Move shutter left.
 
 ----
 
-## Type=37 (0x25) - Move shutter right
+## <a name="type37"></a>Type=37 (0x25) - Move shutter right
     VSCP_TYPE_CONTROL_SHUTTER_RIGHT
 Move shutter right.
 
@@ -527,7 +527,7 @@ Move shutter right.
 
 ----
 
-## Type=38 (0x26) - Move shutter to middle position
+## <a name="type38"></a>Type=38 (0x26) - Move shutter to middle position
     VSCP_TYPE_CONTROL_SHUTTER_MIDDLE
 Move shutter to middle position.
 
@@ -539,7 +539,7 @@ Move shutter to middle position.
 
 ----
 
-## Type=39 (0x27) - Move shutter to preset position
+## <a name="type39"></a>Type=39 (0x27) - Move shutter to preset position
     VSCP_TYPE_CONTROL_SHUTTER_PRESET
 Move shutter to preset position.
 
@@ -552,7 +552,7 @@ Move shutter to preset position.
 
 ----
 
-## Type=40 (0x28) - (All) Lamp(s) on
+## <a name="type40"></a>Type=40 (0x28) - (All) Lamp(s) on
     VSCP_TYPE_CONTROL_ALL_LAMPS_ON
 Turn on all lamps in a zone.
 
@@ -566,7 +566,7 @@ See also [CLASS1.CONTROL, Type=2](./class1.control.md#type2)
 
 ----
 
-## Type=41 (0x29) - (All) Lamp(s) off
+## <a name="type41"></a>Type=41 (0x29) - (All) Lamp(s) off
     VSCP_TYPE_CONTROL_ALL_LAMPS_OFF
 Turn off all lamps in a zone.
 
@@ -580,7 +580,7 @@ See also [CLASS1.CONTROL, Type=2](./class1.control.md#type2)
 
 ----
 
-## Type=42 (0x2A) - Lock
+## <a name="type42"></a>Type=42 (0x2A) - Lock
     VSCP_TYPE_CONTROL_LOCK
 Lock devices in a zone.
 
@@ -593,7 +593,7 @@ Lock devices in a zone.
 
 ----
 
-## Type=43 (0x2B) - Unlock
+## <a name="type43"></a>Type=43 (0x2B) - Unlock
     VSCP_TYPE_CONTROL_UNLOCK
 Unock devices in a zone.
 

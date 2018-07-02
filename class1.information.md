@@ -6,12 +6,12 @@
 
 Most of the events below have an index parameter that can be used to indicate which of several SECO (sensor/control) units on a node originated the event. Set to zero if the node only control one item. 
 
-## Type=0 (0x00) - General event
+## <a name="type0"></a>Type=0 (0x00) - General event
     VSCP_TYPE_INFORMATION_GENERAL
 General Event.
 ----
 
-## Type=1 (0x01) - Button
+## <a name="type1"></a>Type=1 (0x01) - Button
     VSCP_TYPE_INFORMATION_BUTTON
 A button has been pressed/released. 
 
@@ -27,7 +27,7 @@ A button has been pressed/released.
 
 ----
 
-## Type=2 (0x02) - Mouse
+## <a name="type2"></a>Type=2 (0x02) - Mouse
     VSCP_TYPE_INFORMATION_MOUSE
 A mouse movement has occurred. 
 
@@ -43,7 +43,7 @@ A mouse movement has occurred.
 
 ----
 
-## Type=3 (0x03) - On
+## <a name="type3"></a>Type=3 (0x03) - On
     VSCP_TYPE_INFORMATION_ON
 A node indicates that a condition is in its on state. Heater on, lights on are two examples. 
 
@@ -55,7 +55,7 @@ A node indicates that a condition is in its on state. Heater on, lights on are t
 
 ----
 
-## Type=4 (0x04) - Off
+## <a name="type4"></a>Type=4 (0x04) - Off
     VSCP_TYPE_INFORMATION_OFF
 A node indicates that a condition is in its off state. Heater off, lights off are two examples. 
 
@@ -67,7 +67,7 @@ A node indicates that a condition is in its off state. Heater off, lights off ar
 
 ----
 
-## Type=5 (0x05) - Alive
+## <a name="type5"></a>Type=5 (0x05) - Alive
     VSCP_TYPE_INFORMATION_ALIVE
 A node tells the world that it is alive. 
 
@@ -79,7 +79,7 @@ A node tells the world that it is alive.
 
 ----
 
-## Type=6 (0x06) - Terminating
+## <a name="type6"></a>Type=6 (0x06) - Terminating
     VSCP_TYPE_INFORMATION_TERMINATING
 A node tells the world that it is terminating. 
 
@@ -93,7 +93,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## Type=7 (0x07) - Opened
+## <a name="type7"></a>Type=7 (0x07) - Opened
     VSCP_TYPE_INFORMATION_OPENED
 A node indicates that an open has occurred. This can be a door/window open, a modem line open etc. 
 
@@ -105,7 +105,7 @@ A node indicates that an open has occurred. This can be a door/window open, a mo
 
 ----
 
-## Type=8 (0x08) - Closed
+## <a name="type8"></a>Type=8 (0x08) - Closed
     VSCP_TYPE_INFORMATION_CLOSED
 A node indicates that a close has occurred. This can be a door/window close, a modem line closure etc. 
 
@@ -117,7 +117,7 @@ A node indicates that a close has occurred. This can be a door/window close, a m
 
 ----
 
-## Type=9 (0x09) - Node Heartbeat
+## <a name="type9"></a>Type=9 (0x09) - Node Heartbeat
     VSCP_TYPE_INFORMATION_NODE_HEARTBEAT
 Heartbeats can be used to indicate that a unit is alive or to send periodic data. This can be sent out at predefined intervals to indicate that the node is alive, however, it does not necessarily mean the node is functioning as it should. It simply states that the node is connected to the network. To check if a node is functioning, other properties such as a measurement event or registry should be used. This event should be sent as a response to a “Segment Status Heartbeat” (CLASS1.PROTOCOL, Type=1) in order to provide a method of finding out what is connected to the network. The data bytes from byte 3 and forward can be used to send a descriptive/user friendly name if desired.
 
@@ -131,7 +131,7 @@ Heartbeats can be used to indicate that a unit is alive or to send periodic data
 
 ----
 
-## Type=10 (0x0A) - Below limit
+## <a name="type10"></a>Type=10 (0x0A) - Below limit
     VSCP_TYPE_INFORMATION_BELOW_LIMIT
 This indicates that the node has a condition that is below a configurable limit. 
 
@@ -143,7 +143,7 @@ This indicates that the node has a condition that is below a configurable limit.
 
 ----
 
-## Type=11 (0x0B) - Above limit
+## <a name="type11"></a>Type=11 (0x0B) - Above limit
     VSCP_TYPE_INFORMATION_ABOVE_LIMIT
 This indicates that the node has a condition that is above a configurable limit. 
 
@@ -155,7 +155,7 @@ This indicates that the node has a condition that is above a configurable limit.
 
 ----
 
-## Type=12 (0x0C) - Pulse
+## <a name="type12"></a>Type=12 (0x0C) - Pulse
     VSCP_TYPE_INFORMATION_PULSE
 This can be used for slow pulse counts. This can be an S0-pulse interface or something similar. 
 
@@ -167,7 +167,7 @@ This can be used for slow pulse counts. This can be an S0-pulse interface or som
 
 ----
 
-## Type=13 (0x0D) - Error
+## <a name="type13"></a>Type=13 (0x0D) - Error
     VSCP_TYPE_INFORMATION_ERROR
 A node indicates that an error occurred. 
 
@@ -179,7 +179,7 @@ A node indicates that an error occurred.
 
 ----
 
-## Type=14 (0x0E) - Resumed
+## <a name="type14"></a>Type=14 (0x0E) - Resumed
     VSCP_TYPE_INFORMATION_RESUMED
 A node indicates that it has resumed operation. 
 
@@ -191,7 +191,7 @@ A node indicates that it has resumed operation.
 
 ----
 
-## Type=15 (0x0F) - Paused
+## <a name="type15"></a>Type=15 (0x0F) - Paused
     VSCP_TYPE_INFORMATION_PAUSED
 A node indicates that it has paused. 
 
@@ -203,7 +203,7 @@ A node indicates that it has paused.
 
 ----
 
-## Type=16 (0x10) - Sleeping
+## <a name="type16"></a>Type=16 (0x10) - Sleeping
     VSCP_TYPE_INFORMATION_SLEEP
 A node indicates that it entered a sleeping state. 
 
@@ -215,7 +215,7 @@ A node indicates that it entered a sleeping state.
 
 ----
 
-## Type=17 (0x11) - Good morning
+## <a name="type17"></a>Type=17 (0x11) - Good morning
     VSCP_TYPE_INFORMATION_GOOD_MORNING
 The system should enter its morning state. This can be a user pressing a button to set his/her house to its morning state. 
 
@@ -227,7 +227,7 @@ The system should enter its morning state. This can be a user pressing a button 
 
 ----
 
-## Type=18 (0x12) - Good day
+## <a name="type18"></a>Type=18 (0x12) - Good day
     VSCP_TYPE_INFORMATION_GOOD_DAY
 The system should enter its day state. This can be a user pressing a button to set his/her house to its day state. 
 
@@ -239,7 +239,7 @@ The system should enter its day state. This can be a user pressing a button to s
 
 ----
 
-## Type=19 (0x13) - Good afternoon
+## <a name="type19"></a>Type=19 (0x13) - Good afternoon
     VSCP_TYPE_INFORMATION_GOOD_AFTERNOON
 The system should enter its afternoon state. This can be a user pressing a button to set his/her house to its afternoon state. 
 
@@ -251,7 +251,7 @@ The system should enter its afternoon state. This can be a user pressing a butto
 
 ----
 
-## Type=20 (0x14) - Good evening
+## <a name="type20"></a>Type=20 (0x14) - Good evening
     VSCP_TYPE_INFORMATION_GOOD_EVENING
 The system should enter its evening state. This can be a user pressing a button to set his/her house to its evening state. 
 
@@ -263,7 +263,7 @@ The system should enter its evening state. This can be a user pressing a button 
 
 ----
 
-## Type=21 (0x15) - Good night
+## <a name="type21"></a>Type=21 (0x15) - Good night
     VSCP_TYPE_INFORMATION_GOOD_NIGHT
 The system should enter its night state. This can be a user pressing a button to set his/her house to its night state. 
 
@@ -275,7 +275,7 @@ The system should enter its night state. This can be a user pressing a button to
 
 ----
 
-## Type=22 (0x16) - See you soon
+## <a name="type22"></a>Type=22 (0x16) - See you soon
     VSCP_TYPE_INFORMATION_SEE_YOU_SOON
 The system should be on a temporary alert. This can be a user locking the door to go out to the waste bin or similar situation. An alarm system should not be activated in this situation. 
 
@@ -287,7 +287,7 @@ The system should be on a temporary alert. This can be a user locking the door t
 
 ----
 
-## Type=23 (0x17) - Goodbye
+## <a name="type23"></a>Type=23 (0x17) - Goodbye
     VSCP_TYPE_INFORMATION_GOODBYE
 The system should be on a goodbye alert. This can be a user locking the door to go out for a days work or similar situation. All alarm systems should be activated in this situation. 
 
@@ -299,7 +299,7 @@ The system should be on a goodbye alert. This can be a user locking the door to 
 
 ----
 
-## Type=24 (0x18) - Stop
+## <a name="type24"></a>Type=24 (0x18) - Stop
     VSCP_TYPE_INFORMATION_STOP
 A node indicates that a stop event occurred. This can for example be a motor stopping. 
 
@@ -311,7 +311,7 @@ A node indicates that a stop event occurred. This can for example be a motor sto
 
 ----
 
-## Type=25 (0x19) - Start
+## <a name="type25"></a>Type=25 (0x19) - Start
     VSCP_TYPE_INFORMATION_START
 A node indicates that a start event occurred. This can be a motor starting. 
 
@@ -323,7 +323,7 @@ A node indicates that a start event occurred. This can be a motor starting.
 
 ----
 
-## Type=26 (0x1A) - ResetCompleted
+## <a name="type26"></a>Type=26 (0x1A) - ResetCompleted
     VSCP_TYPE_INFORMATION_RESET_COMPLETED
 A node indicates that a reset occurred. This can be a node doing a warm start. 
 
@@ -335,7 +335,7 @@ A node indicates that a reset occurred. This can be a node doing a warm start.
 
 ----
 
-## Type=27 (0x1B) - Interrupted
+## <a name="type27"></a>Type=27 (0x1B) - Interrupted
     VSCP_TYPE_INFORMATION_INTERRUPTED
 A node indicates that a reset occurred. This can also be a node doing a warm start. 
 
@@ -347,7 +347,7 @@ A node indicates that a reset occurred. This can also be a node doing a warm sta
 
 ----
 
-## Type=28 (0x1C) - PreparingToSleep
+## <a name="type28"></a>Type=28 (0x1C) - PreparingToSleep
     VSCP_TYPE_INFORMATION_PREPARING_TO_SLEEP
 A node indicates that a sleep event occurred. This can be a node going to its inactive state. 
 
@@ -359,7 +359,7 @@ A node indicates that a sleep event occurred. This can be a node going to its in
 
 ----
 
-## Type=29 (0x1D) - WokenUp
+## <a name="type29"></a>Type=29 (0x1D) - WokenUp
     VSCP_TYPE_INFORMATION_WOKEN_UP
 A node indicates that a wakeup event occurred. This can be a node going to it awake state. 
 
@@ -371,7 +371,7 @@ A node indicates that a wakeup event occurred. This can be a node going to it aw
 
 ----
 
-## Type=30 (0x1E) - Dusk
+## <a name="type30"></a>Type=30 (0x1E) - Dusk
     VSCP_TYPE_INFORMATION_DUSK
 A node indicates that the system should enter its dusk state. 
 
@@ -383,7 +383,7 @@ A node indicates that the system should enter its dusk state.
 
 ----
 
-## Type=31 (0x1F) - Dawn
+## <a name="type31"></a>Type=31 (0x1F) - Dawn
     VSCP_TYPE_INFORMATION_DAWN
 A node indicates that the system should enter its dawn state. 
 
@@ -395,7 +395,7 @@ A node indicates that the system should enter its dawn state.
 
 ----
 
-## Type=32 (0x20) - Active
+## <a name="type32"></a>Type=32 (0x20) - Active
     VSCP_TYPE_INFORMATION_ACTIVE
 A node indicates that its active. 
 
@@ -407,7 +407,7 @@ A node indicates that its active.
 
 ----
 
-## Type=33 (0x21) - Inactive
+## <a name="type33"></a>Type=33 (0x21) - Inactive
     VSCP_TYPE_INFORMATION_INACTIVE
 A node indicates that its inactive. 
 
@@ -419,7 +419,7 @@ A node indicates that its inactive.
 
 ----
 
-## Type=34 (0x22) - Busy
+## <a name="type34"></a>Type=34 (0x22) - Busy
     VSCP_TYPE_INFORMATION_BUSY
 A node indicates that its busy. 
 
@@ -431,7 +431,7 @@ A node indicates that its busy.
 
 ----
 
-## Type=35 (0x23) - Idle
+## <a name="type35"></a>Type=35 (0x23) - Idle
     VSCP_TYPE_INFORMATION_IDLE
 A node indicates that its idle. 
 
@@ -443,7 +443,7 @@ A node indicates that its idle.
 
 ----
 
-## Type=36 (0x24) - Stream Data
+## <a name="type36"></a>Type=36 (0x24) - Stream Data
     VSCP_TYPE_INFORMATION_STREAM_DATA
 A steam of information from a node can be reported with this event. This can be a serial RS-232 channel or some other sequential stream. 
 
@@ -454,7 +454,7 @@ A steam of information from a node can be reported with this event. This can be 
 
 ----
 
-## Type=37 (0x25) - Token Activity
+## <a name="type37"></a>Type=37 (0x25) - Token Activity
     VSCP_TYPE_INFORMATION_TOKEN_ACTIVITY
 This event is used for cards, RFID's, iButtons, GSM phones and other identification devices. The event is generated when the token device is attached/detached to/from the system. Level II has a counterpart to this event that can take more data. CLASS2.INFORMATION Type=1
 
@@ -502,7 +502,7 @@ Depending on the Token device type a number of this event are sent on the segmen
  | 26-63 | Reserved.                         |          | 
 ----
 
-## Type=38 (0x26) - Stream Data with zone
+## <a name="type38"></a>Type=38 (0x26) - Stream Data with zone
     VSCP_TYPE_INFORMATION_STREAM_DATA_WITH_ZONE
 A steam of information from a node can be reported with this event. This can be a serial RS-232 channel or some other sequential stream. 
 
@@ -515,7 +515,7 @@ A steam of information from a node can be reported with this event. This can be 
 
 ----
 
-## Type=39 (0x27) - Confirm
+## <a name="type39"></a>Type=39 (0x27) - Confirm
     VSCP_TYPE_INFORMATION_CONFIRM
 This event can be used as a general confirm event for zoned and stream data. 
 
@@ -530,7 +530,7 @@ This event can be used as a general confirm event for zoned and stream data.
 
 ----
 
-## Type=40 (0x28) - Level Changed
+## <a name="type40"></a>Type=40 (0x28) - Level Changed
     VSCP_TYPE_INFORMATION_LEVEL_CHANGED
 Response/confirmation from ex. a dimmer control after a dimmer command or some other unit that change a level. 
 
@@ -542,7 +542,7 @@ Response/confirmation from ex. a dimmer control after a dimmer command or some o
 
 ----
 
-## Type=41 (0x29) - Warning
+## <a name="type41"></a>Type=41 (0x29) - Warning
     VSCP_TYPE_INFORMATION_WARNING
  A node indicates that a warning condition occurred. 
 
@@ -554,7 +554,7 @@ Response/confirmation from ex. a dimmer control after a dimmer command or some o
 
 ----
 
-## Type=42 (0x2A) - State
+## <a name="type42"></a>Type=42 (0x2A) - State
     VSCP_TYPE_INFORMATION_STATE
 A node indicates that a state change has occurred. Th numerical ID for the current state and the state that is about to become active is supplied. 
 
@@ -568,7 +568,7 @@ A node indicates that a state change has occurred. Th numerical ID for the curre
 
 ----
 
-## Type=43 (0x2B) - Action Trigger
+## <a name="type43"></a>Type=43 (0x2B) - Action Trigger
     VSCP_TYPE_INFORMATION_ACTION_TRIGGER
 A node indicates that an action has been triggered by this event. 
 
@@ -580,7 +580,7 @@ A node indicates that an action has been triggered by this event.
 
 ----
 
-## Type=44 (0x2C) - Sunrise
+## <a name="type44"></a>Type=44 (0x2C) - Sunrise
     VSCP_TYPE_INFORMATION_SUNRISE
 A node indicates that sunrise is detected/calculated. 
 
@@ -592,7 +592,7 @@ A node indicates that sunrise is detected/calculated.
 
 ----
 
-## Type=45 (0x2D) - Sunset
+## <a name="type45"></a>Type=45 (0x2D) - Sunset
     VSCP_TYPE_INFORMATION_SUNSET
 A node indicates that sunset is detected/calculated. 
 
@@ -604,7 +604,7 @@ A node indicates that sunset is detected/calculated.
 
 ----
 
-## Type=46 (0x2E) - Start of record
+## <a name="type46"></a>Type=46 (0x2E) - Start of record
     VSCP_TYPE_INFORMATION_START_OF_RECORD
 This event is used to mark the start of a multi-frame data transfer. This can typically be a GPS received which sends a train of events from one GPS record. The index byte can be used to distinguish record between each other. 
 
@@ -617,7 +617,7 @@ This event is used to mark the start of a multi-frame data transfer. This can ty
 
 ----
 
-## Type=47 (0x2F) - End of record
+## <a name="type47"></a>Type=47 (0x2F) - End of record
     VSCP_TYPE_INFORMATION_END_OF_RECORD
 This event is used to mark the end of a multi-frame data transfer. The index byte can be used to distinguish record between each other. 
 
@@ -629,7 +629,7 @@ This event is used to mark the end of a multi-frame data transfer. The index byt
 
 ----
 
-## Type=48 (0x30) - Pre-set active
+## <a name="type48"></a>Type=48 (0x30) - Pre-set active
     VSCP_TYPE_INFORMATION_PRESET_ACTIVE
 This event is used to tell the system that a pre-set configuration is active. Usually a response from a node after a CLASS1.CONTROL, Type=28 has been received by a node.
 
@@ -642,7 +642,7 @@ This event is used to tell the system that a pre-set configuration is active. Us
 
 ----
 
-## Type=49 (0x31) - Detect
+## <a name="type49"></a>Type=49 (0x31) - Detect
     VSCP_TYPE_INFORMATION_DETECT
 This event is used to tell the system that a detection of some kind has occurred. 
 
@@ -656,7 +656,7 @@ The first byte is used as an index if a module have several channels or detector
 
 ----
 
-## Type=50 (0x32) - Overflow
+## <a name="type50"></a>Type=50 (0x32) - Overflow
     VSCP_TYPE_INFORMATION_OVERFLOW
 This event is used to tell the system that an overflow of some kind has occurred. 
 
@@ -670,7 +670,7 @@ The first byte is used as an index if a module have several channels or detector
 
 ----
 
-## Type=51 (0x33) - Big level changed
+## <a name="type51"></a>Type=51 (0x33) - Big level changed
     VSCP_TYPE_INFORMATION_BIG_LEVEL_CHANGED
 This is meant to be used as a confirmation event for CLASS1.CONTROL, Type=33 events.
 
@@ -683,7 +683,7 @@ This is meant to be used as a confirmation event for CLASS1.CONTROL, Type=33 eve
 
 ----
 
-## Type=52 (0x34) - Civil sunrise twilight time
+## <a name="type52"></a>Type=52 (0x34) - Civil sunrise twilight time
     VSCP_TYPE_INFORMATION_SUNRISE_TWILIGHT_START
 Civil twilight is the period when the Sun is below the horizon but its center is less than 6 degrees below. The "Civil Twilight Starts" time is the dawn or civil dawn, with the center of the Sun at exactly 6 degrees below the horizon. Equally, the "Civil Twilight Ends" time is dusk or civil dusk, when the Sun is 6 degrees below the horizon in the evening.
 
@@ -703,7 +703,7 @@ A node indicates that sunrise twilight time is detected/calculated.
 
 ----
 
-## Type=53 (0x35) - Civil sunset twilight time
+## <a name="type53"></a>Type=53 (0x35) - Civil sunset twilight time
     VSCP_TYPE_INFORMATION_SUNSET_TWILIGHT_START
 A node indicates that sunset twilight time is detected/calculated.
 
@@ -723,7 +723,7 @@ Technically, the start and end times are when the true geocentric position of th
 
 ----
 
-## Type=54 (0x36) - Nautical sunrise twilight time
+## <a name="type54"></a>Type=54 (0x36) - Nautical sunrise twilight time
     VSCP_TYPE_INFORMATION_NAUTICAL_SUNRISE_TWILIGHT_START
 A node indicates that nautical sunrise twilight time is detected/calculated. 
 
@@ -743,7 +743,7 @@ Technically, the start and end times are when the true geocentric position of th
 
 ----
 
-## Type=55 (0x37) - Nautical sunset twilight time
+## <a name="type55"></a>Type=55 (0x37) - Nautical sunset twilight time
     VSCP_TYPE_INFORMATION_NAUTICAL_SUNSET_TWILIGHT_START
 A node indicates that nautical sunset twilight time is detected/calculated.
 
@@ -763,7 +763,7 @@ Technically, the start and end times are when the true geocentric position of th
 
 ----
 
-## Type=56 (0x38) - Astronomical sunrise twilight time
+## <a name="type56"></a>Type=56 (0x38) - Astronomical sunrise twilight time
     VSCP_TYPE_INFORMATION_ASTRONOMICAL_SUNRISE_TWILIGHT_START
 A node indicates that astronomical sunrise twilight time is detected/calculated. 
 
@@ -781,7 +781,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
 
 ----
 
-## Type=57 (0x39) - Astronomical sunset twilight time
+## <a name="type57"></a>Type=57 (0x39) - Astronomical sunset twilight time
     VSCP_TYPE_INFORMATION_ASTRONOMICAL_SUNSET_TWILIGHT_START
 A node indicates that astronomical sunset twilight time is detected/calculated.
 
@@ -799,7 +799,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
 
 ----
 
-## Type=58 (0x3A) - Calculated Noon
+## <a name="type58"></a>Type=58 (0x3A) - Calculated Noon
     VSCP_TYPE_INFORMATION_CALCULATED_NOON
 This event is used for reporting of a calculated noon (real noon).
 
@@ -811,7 +811,7 @@ This event is used for reporting of a calculated noon (real noon).
 
 ----
 
-## Type=59 (0x3B) - Shutter up
+## <a name="type59"></a>Type=59 (0x3B) - Shutter up
     VSCP_TYPE_INFORMATION_SHUTTER_UP
 Shutter is moving up.
 
@@ -823,7 +823,7 @@ Shutter is moving up.
 
 ----
 
-## Type=60 (0x3C) - Shutter down
+## <a name="type60"></a>Type=60 (0x3C) - Shutter down
     VSCP_TYPE_INFORMATION_SHUTTER_DOWN
 Shutter is moving down.
 
@@ -835,7 +835,7 @@ Shutter is moving down.
 
 ----
 
-## Type=61 (0x3D) - Shutter left
+## <a name="type61"></a>Type=61 (0x3D) - Shutter left
     VSCP_TYPE_INFORMATION_SHUTTER_LEFT
 Shutter is moving left.
 
@@ -847,7 +847,7 @@ Shutter is moving left.
 
 ----
 
-## Type=62 (0x3E) - Shutter right
+## <a name="type62"></a>Type=62 (0x3E) - Shutter right
     VSCP_TYPE_INFORMATION_SHUTTER_RIGHT
 Shutter is moving right.
 
@@ -859,7 +859,7 @@ Shutter is moving right.
 
 ----
 
-## Type=63 (0x3F) - Shutter reached top end
+## <a name="type63"></a>Type=63 (0x3F) - Shutter reached top end
     VSCP_TYPE_INFORMATION_SHUTTER_END_TOP
 Shutter reached top end.
 
@@ -872,7 +872,7 @@ Shutter reached top end.
 
 ----
 
-## Type=64 (0x40) - Shutter reached bottom end
+## <a name="type64"></a>Type=64 (0x40) - Shutter reached bottom end
     VSCP_TYPE_INFORMATION_SHUTTER_END_BOTTOM
 Shutter reached bottom end.
 
@@ -884,7 +884,7 @@ Shutter reached bottom end.
 
 ----
 
-## Type=65 (0x41) - Shutter reached middle end
+## <a name="type65"></a>Type=65 (0x41) - Shutter reached middle end
     VSCP_TYPE_INFORMATION_SHUTTER_END_MIDDLE
 Shutter reached middle end.
 
@@ -896,7 +896,7 @@ Shutter reached middle end.
 
 ----
 
-## Type=66 (0x42) - Shutter reached preset end
+## <a name="type66"></a>Type=66 (0x42) - Shutter reached preset end
     VSCP_TYPE_INFORMATION_SHUTTER_END_PRESET
 Shutter reached preset end.
 
@@ -908,7 +908,7 @@ Shutter reached preset end.
 
 ----
 
-## Type=67 (0x43) - Shutter reached preset left
+## <a name="type67"></a>Type=67 (0x43) - Shutter reached preset left
     VSCP_TYPE_INFORMATION_SHUTTER_END_LEFT
 Shutter reached preset left.
 
@@ -920,7 +920,7 @@ Shutter reached preset left.
 
 ----
 
-## Type=68 (0x44) - Shutter reached preset right
+## <a name="type68"></a>Type=68 (0x44) - Shutter reached preset right
     VSCP_TYPE_INFORMATION_SHUTTER_END_RIGHT
 Shutter reached preset right.
 
@@ -932,7 +932,7 @@ Shutter reached preset right.
 
 ----
 
-## Type=69 (0x45) - Long click
+## <a name="type69"></a>Type=69 (0x45) - Long click
     VSCP_TYPE_INFORMATION_LONG_CLICK
 Long click detected.
 
@@ -944,7 +944,7 @@ Long click detected.
 
 ----
 
-## Type=70 (0x46) - Single click
+## <a name="type70"></a>Type=70 (0x46) - Single click
     VSCP_TYPE_INFORMATION_SINGLE_CLICK
 Single click detected.
 
@@ -956,7 +956,7 @@ Single click detected.
 
 ----
 
-## Type=71 (0x47) - Double click
+## <a name="type71"></a>Type=71 (0x47) - Double click
     VSCP_TYPE_INFORMATION_DOUBLE_CLICK
 Double click detected.
 
@@ -968,7 +968,7 @@ Double click detected.
 
 ----
 
-## Type=72 (0x48) - Date
+## <a name="type72"></a>Type=72 (0x48) - Date
     VSCP_TYPE_INFORMATION_DATE
 A device generated a date event. Time is UTC. 
 
@@ -986,7 +986,7 @@ See also [CLASS1.INFORMATION, Type=77](./class1.information.md#type77) which com
 
 ----
 
-## Type=73 (0x49) - Time
+## <a name="type73"></a>Type=73 (0x49) - Time
     VSCP_TYPE_INFORMATION_TIME
 A device generated a time event. Time is UTC. 
 
@@ -1005,7 +1005,7 @@ See also [CLASS1.INFORMATION, Type=77](./class1.information.md#type77) which com
 
 ----
 
-## Type=74 (0x4A) - Weekday
+## <a name="type74"></a>Type=74 (0x4A) - Weekday
     VSCP_TYPE_INFORMATION_WEEKDAY
 A device generated a weekday event.
 
@@ -1018,7 +1018,7 @@ A device generated a weekday event.
 
 ----
 
-## Type=75 (0x4B) - Lock
+## <a name="type75"></a>Type=75 (0x4B) - Lock
     VSCP_TYPE_INFORMATION_LOCK
 A device got locked.
 
@@ -1030,7 +1030,7 @@ A device got locked.
 
 ----
 
-## Type=76 (0x4C) - Unlock
+## <a name="type76"></a>Type=76 (0x4C) - Unlock
     VSCP_TYPE_INFORMATION_UNLOCK
 A device got unlocked.
 
@@ -1042,7 +1042,7 @@ A device got unlocked.
 
 ----
 
-## Type=77 (0x4D) - DateTime
+## <a name="type77"></a>Type=77 (0x4D) - DateTime
     VSCP_TYPE_INFORMATION_DATETIME
 A device generated a date/time event. Time is UTC. 
 

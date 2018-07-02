@@ -5,7 +5,7 @@
 ## Description
 
 Level II Control functionality.
-## Type=0 (0x00) - General event
+## <a name="type0"></a>Type=0 (0x00) - General event
     VSCP2_TYPE_CONTROL_GENERAL
 General Event.
 ----

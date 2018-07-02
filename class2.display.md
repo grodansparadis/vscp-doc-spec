@@ -6,7 +6,7 @@
 
 Level II specific display functionality. Also look at [CLASS1.DISPLAY](./class1.display.md) 
 
-## Type=0 (0x00) - General event
+## <a name="type0"></a>Type=0 (0x00) - General event
     VSCP2_TYPE_DISPLAY_GENERAL
 General Event.
 ----

@@ -9,12 +9,12 @@ Dedicated class for multimedia functionality. This class was introduced to suppl
 The Play/Pause/Stop etc. events in the CLASS1.CONTROL class can also be used for media control.
 
 
-## Type=0 (0x00) - General event
+## <a name="type0"></a>Type=0 (0x00) - General event
     VSCP_TYPE_MULTIMEDIA_GENERAL
 General Event.
 ----
 
-## Type=1 (0x01) - Playback
+## <a name="type1"></a>Type=1 (0x01) - Playback
     VSCP_TYPE_MULTIMEDIA_PLAYBACK
 This is for controlling playback functionality 
 
@@ -50,7 +50,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
 
 ----
 
-## Type=2 (0x02) - NavigatorKey English
+## <a name="type2"></a>Type=2 (0x02) - NavigatorKey English
     VSCP_TYPE_MULTIMEDIA_NAVIGATOR_KEY_ENG
 This is typically for navigation functions or DVD controls 
 
@@ -78,7 +78,7 @@ This is typically for navigation functions or DVD controls
 
 ----
 
-## Type=3 (0x03) - Adjust Contrast
+## <a name="type3"></a>Type=3 (0x03) - Adjust Contrast
     VSCP_TYPE_MULTIMEDIA_ADJUST_CONTRAST
 This is typically for adjusting the contrast level of a display device 
 
@@ -90,7 +90,7 @@ This is typically for adjusting the contrast level of a display device
 
 ----
 
-## Type=4 (0x04) - Adjust Focus
+## <a name="type4"></a>Type=4 (0x04) - Adjust Focus
     VSCP_TYPE_MULTIMEDIA_ADJUST_FOCUS
 This is typically for adjusting the focus settings of a display device 
 
@@ -102,7 +102,7 @@ This is typically for adjusting the focus settings of a display device
 
 ----
 
-## Type=5 (0x05) - Adjust Tint
+## <a name="type5"></a>Type=5 (0x05) - Adjust Tint
     VSCP_TYPE_MULTIMEDIA_ADJUST_TINT
 This is typically for adjusting the tint settings of a display device 
 
@@ -114,7 +114,7 @@ This is typically for adjusting the tint settings of a display device
 
 ----
 
-## Type=6 (0x06) - Adjust Color Balance
+## <a name="type6"></a>Type=6 (0x06) - Adjust Color Balance
     VSCP_TYPE_MULTIMEDIA_ADJUST_COLOUR_BALANCE
 This is typically for adjusting the color balance settings of a display device. 
 
@@ -126,7 +126,7 @@ This is typically for adjusting the color balance settings of a display device.
 
 ----
 
-## Type=7 (0x07) - Adjust Brightness
+## <a name="type7"></a>Type=7 (0x07) - Adjust Brightness
     VSCP_TYPE_MULTIMEDIA_ADJUST_BRIGHTNESS
 This is typically for adjusting the tint settings of a display device 
 
@@ -138,7 +138,7 @@ This is typically for adjusting the tint settings of a display device
 
 ----
 
-## Type=8 (0x08) - Adjust Hue
+## <a name="type8"></a>Type=8 (0x08) - Adjust Hue
     VSCP_TYPE_MULTIMEDIA_ADJUST_HUE
 This is typically for adjusting the hue settings of a display device 
 
@@ -150,7 +150,7 @@ This is typically for adjusting the hue settings of a display device
 
 ----
 
-## Type=9 (0x09) - Adjust Bass
+## <a name="type9"></a>Type=9 (0x09) - Adjust Bass
     VSCP_TYPE_MULTIMEDIA_ADJUST_BASS
 This is typically for adjusting the bass level settings of a sound device. Depending on the implementation, this could automatically adjust the treble level. To adjust left and right bass levels, a node would have to use separate zones or sub-zones for left and right. 
 
@@ -162,7 +162,7 @@ This is typically for adjusting the bass level settings of a sound device. Depen
 
 ----
 
-## Type=10 (0x0A) - Adjust Treble
+## <a name="type10"></a>Type=10 (0x0A) - Adjust Treble
     VSCP_TYPE_MULTIMEDIA_ADJUST_TREBLE
 This is typically for adjusting the treble level settings of a sound device. Depending on the implementation, this could automatically adjust the bass level. To adjust left and right treble levels, a node would have to use separate zones or sub-zones for left and right. 
 
@@ -174,7 +174,7 @@ This is typically for adjusting the treble level settings of a sound device. Dep
 
 ----
 
-## Type=11 (0x0B) - Adjust Master Volume
+## <a name="type11"></a>Type=11 (0x0B) - Adjust Master Volume
     VSCP_TYPE_MULTIMEDIA_ADJUST_MASTER_VOLUME
 This is typically for adjusting the master volume level. This could be used for adjusting the level for all speakers. 
 
@@ -186,7 +186,7 @@ This is typically for adjusting the master volume level. This could be used for 
 
 ----
 
-## Type=12 (0x0C) - Adjust Front Volume
+## <a name="type12"></a>Type=12 (0x0C) - Adjust Front Volume
     VSCP_TYPE_MULTIMEDIA_ADJUST_FRONT_VOLUME
 This is typically for adjusting the front speaker volume level. This usually means the two front speakers as opposed to the single center speaker. 
 
@@ -198,7 +198,7 @@ This is typically for adjusting the front speaker volume level. This usually mea
 
 ----
 
-## Type=13 (0x0D) - Adjust Center Volume
+## <a name="type13"></a>Type=13 (0x0D) - Adjust Center Volume
     VSCP_TYPE_MULTIMEDIA_ADJUST_CENTRE_VOLUME
 This is typically for adjusting the front speaker volume level. This usually means the single center speaker as opposed to the two front speakers. 
 
@@ -210,7 +210,7 @@ This is typically for adjusting the front speaker volume level. This usually mea
 
 ----
 
-## Type=14 (0x0E) - Adjust Rear Volume
+## <a name="type14"></a>Type=14 (0x0E) - Adjust Rear Volume
     VSCP_TYPE_MULTIMEDIA_ADJUST_REAR_VOLUME
 This is typically for adjusting the rear speaker volume level. 
 
@@ -222,7 +222,7 @@ This is typically for adjusting the rear speaker volume level.
 
 ----
 
-## Type=15 (0x0F) - Adjust Side Volume
+## <a name="type15"></a>Type=15 (0x0F) - Adjust Side Volume
     VSCP_TYPE_MULTIMEDIA_ADJUST_SIDE_VOLUME
 This is typically for adjusting the side speaker volume level. 
 
@@ -234,27 +234,27 @@ This is typically for adjusting the side speaker volume level.
 
 ----
 
-## Type=16 (0x10) - Reserved
+## <a name="type16"></a>Type=16 (0x10) - Reserved
     VSCP_TYPE_MULTIMEDIA_RESERVED16
 These are reserved for other future speaker combinations
 ----
 
-## Type=17 (0x11) - Reserved
+## <a name="type17"></a>Type=17 (0x11) - Reserved
     VSCP_TYPE_MULTIMEDIA_RESERVED17
 These are reserved for other future speaker combinations
 ----
 
-## Type=18 (0x12) - Reserved
+## <a name="type18"></a>Type=18 (0x12) - Reserved
     VSCP_TYPE_MULTIMEDIA_RESERVED18
 These are reserved for other future speaker combinations
 ----
 
-## Type=19 (0x13) - Reserved
+## <a name="type19"></a>Type=19 (0x13) - Reserved
     VSCP_TYPE_MULTIMEDIA_RESERVED19
 These are reserved for other future speaker combinations
 ----
 
-## Type=20 (0x14) - Select Disk
+## <a name="type20"></a>Type=20 (0x14) - Select Disk
     VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_DISK
 This is typically for selecting a disk for playback 
 
@@ -266,7 +266,7 @@ This is typically for selecting a disk for playback
 
 ----
 
-## Type=21 (0x15) - Select Track
+## <a name="type21"></a>Type=21 (0x15) - Select Track
     VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_TRACK
 This is typically for selecting a track for playback 
 
@@ -278,7 +278,7 @@ This is typically for selecting a track for playback
 
 ----
 
-## Type=22 (0x16) - Select Album/Play list
+## <a name="type22"></a>Type=22 (0x16) - Select Album/Play list
     VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_ALBUM
 This is typically for selecting an album or play-list for playback 
 
@@ -290,7 +290,7 @@ This is typically for selecting an album or play-list for playback
 
 ----
 
-## Type=23 (0x17) - Select Channel
+## <a name="type23"></a>Type=23 (0x17) - Select Channel
     VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_CHANNEL
 This is typically for selecting a TV Channel 
 
@@ -302,7 +302,7 @@ This is typically for selecting a TV Channel
 
 ----
 
-## Type=24 (0x18) - Select Page
+## <a name="type24"></a>Type=24 (0x18) - Select Page
     VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_PAGE
 This is typically for selecting a page of a film 
 
@@ -314,7 +314,7 @@ This is typically for selecting a page of a film
 
 ----
 
-## Type=25 (0x19) - Select Chapter
+## <a name="type25"></a>Type=25 (0x19) - Select Chapter
     VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_CHAPTER
 This is typically for selecting a chapter of a film 
 
@@ -326,7 +326,7 @@ This is typically for selecting a chapter of a film
 
 ----
 
-## Type=26 (0x1A) - Select Screen Format
+## <a name="type26"></a>Type=26 (0x1A) - Select Screen Format
     VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_SCREEN_FORMAT
 This is for controlling screen format of a display device 
 
@@ -338,7 +338,7 @@ This is for controlling screen format of a display device
 
 ----
 
-## Type=27 (0x1B) - Select Input Source
+## <a name="type27"></a>Type=27 (0x1B) - Select Input Source
     VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_INPUT_SOURCE
 This is for controlling the input source of a playback device 
 
@@ -378,7 +378,7 @@ This is for controlling the input source of a playback device
 
 ----
 
-## Type=28 (0x1C) - Select Output
+## <a name="type28"></a>Type=28 (0x1C) - Select Output
     VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_OUTPUT
 This is for controlling the output of a playback device 
 
@@ -405,7 +405,7 @@ This is for controlling the output of a playback device
 
 ----
 
-## Type=29 (0x1D) - Record
+## <a name="type29"></a>Type=29 (0x1D) - Record
     VSCP_TYPE_MULTIMEDIA_RECORD
 Control a recording device. 
 
@@ -417,7 +417,7 @@ Control a recording device.
 
 ----
 
-## Type=30 (0x1E) - Set Recording Volume
+## <a name="type30"></a>Type=30 (0x1E) - Set Recording Volume
     VSCP_TYPE_MULTIMEDIA_SET_RECORDING_VOLUME
 Control a recording device. 
 
@@ -429,7 +429,7 @@ Control a recording device.
 
 ----
 
-## Type=40 (0x28) - Tivo Function
+## <a name="type40"></a>Type=40 (0x28) - Tivo Function
     VSCP_TYPE_MULTIMEDIA_TIVO_FUNCTION
 This is typically for accessing TIVO functions 
 
@@ -459,7 +459,7 @@ This is typically for accessing TIVO functions
 
 ----
 
-## Type=50 (0x32) - Get Current Title
+## <a name="type50"></a>Type=50 (0x32) - Get Current Title
     VSCP_TYPE_MULTIMEDIA_GET_CURRENT_TITLE
 Get the title for the current active media. 
 
@@ -471,7 +471,7 @@ Get the title for the current active media.
 
 ----
 
-## Type=51 (0x33) - Set media position in milliseconds
+## <a name="type51"></a>Type=51 (0x33) - Set media position in milliseconds
     VSCP_TYPE_MULTIMEDIA_SET_POSITION
 This is for controlling the position in the stream/file of a playback device 
 
@@ -484,7 +484,7 @@ This is for controlling the position in the stream/file of a playback device
 
 ----
 
-## Type=52 (0x34) - Get media information
+## <a name="type52"></a>Type=52 (0x34) - Get media information
     VSCP_TYPE_MULTIMEDIA_GET_MEDIA_INFO
 Get various media information from a device. 
 
@@ -498,7 +498,7 @@ If a device does not support the requested type of media information its sends a
 
 ----
 
-## Type=53 (0x35) - Remove Item from Album
+## <a name="type53"></a>Type=53 (0x35) - Remove Item from Album
     VSCP_TYPE_MULTIMEDIA_REMOVE_ITEM
 Remove an item from an album. 
 
@@ -510,7 +510,7 @@ Remove an item from an album.
 
 ----
 
-## Type=54 (0x36) - Remove all Items from Album
+## <a name="type54"></a>Type=54 (0x36) - Remove all Items from Album
     VSCP_TYPE_MULTIMEDIA_REMOVE_ALL_ITEMS
 Remove all items from an album. 
 
@@ -522,7 +522,7 @@ Remove all items from an album.
 
 ----
 
-## Type=55 (0x37) - Save Album/Play list
+## <a name="type55"></a>Type=55 (0x37) - Save Album/Play list
     VSCP_TYPE_MULTIMEDIA_SAVE_ALBUM
 Save album/play-list to permanent storage. 
 
@@ -534,7 +534,7 @@ Save album/play-list to permanent storage.
 
 ----
 
-## Type=60 (0x3C) - Multimedia Control
+## <a name="type60"></a>Type=60 (0x3C) - Multimedia Control
     VSCP_TYPE_MULTIMEDIA_CONTROL
 Send multimedia information. This can be the title for the current active media. It can be sent as a response to a “Get Title” or similar event or by its own when a new title is playing or other multimedia information has changed.
 
@@ -605,7 +605,7 @@ Album can be looked upon as a play-list which is a term used for many other mult
 
 ----
 
-## Type=61 (0x3D) - Multimedia Control response
+## <a name="type61"></a>Type=61 (0x3D) - Multimedia Control response
     VSCP_TYPE_MULTIMEDIA_CONTROL_RESPONSE
 Response for multimedia control.
 ----

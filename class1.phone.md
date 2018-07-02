@@ -6,12 +6,12 @@
 
 This class is for phone related functionality. 
 
-## Type=0 (0x00) - General event
+## <a name="type0"></a>Type=0 (0x00) - General event
     VSCP_TYPE_PHONE_GENERAL
 General Event.
 ----
 
-## Type=1 (0x01) - Incoming call
+## <a name="type1"></a>Type=1 (0x01) - Incoming call
     VSCP_TYPE_PHONE_INCOMING_CALL
 There is an incoming phone call. Usually a caller ID node just sends out numerical information. A database event can follow (later) that contains the real text information.
 
@@ -48,7 +48,7 @@ Calls from unlisted numbers are presented as
 
 ----
 
-## Type=2 (0x02) - Outgoing call
+## <a name="type2"></a>Type=2 (0x02) - Outgoing call
     VSCP_TYPE_PHONE_OUTGOING_CALL
 There is an outgoing phone call. 
 
@@ -61,7 +61,7 @@ There is an outgoing phone call.
 
 ----
 
-## Type=3 (0x03) - Ring
+## <a name="type3"></a>Type=3 (0x03) - Ring
     VSCP_TYPE_PHONE_RING
 This is a event indicating that there is a “ring” for this call. 
 
@@ -71,7 +71,7 @@ This is a event indicating that there is a “ring” for this call.
 
 ----
 
-## Type=4 (0x04) - Answer
+## <a name="type4"></a>Type=4 (0x04) - Answer
     VSCP_TYPE_PHONE_ANSWER
 The call has been answered. 
 
@@ -83,7 +83,7 @@ The call has been answered.
 
 ----
 
-## Type=5 (0x05) - Hangup
+## <a name="type5"></a>Type=5 (0x05) - Hangup
     VSCP_TYPE_PHONE_HANGUP
 The call has been terminated by the receiving end. 
 
@@ -94,7 +94,7 @@ The call has been terminated by the receiving end.
 
 ----
 
-## Type=6 (0x06) - Giveup
+## <a name="type6"></a>Type=6 (0x06) - Giveup
     VSCP_TYPE_PHONE_GIVEUP
 The call has been terminated by the originating end. byte 
 
@@ -105,7 +105,7 @@ The call has been terminated by the originating end. byte
 
 ----
 
-## Type=7 (0x07) - Transfer
+## <a name="type7"></a>Type=7 (0x07) - Transfer
     VSCP_TYPE_PHONE_TRANSFER
 The call has been transferred. byte 
 
@@ -116,7 +116,7 @@ The call has been transferred. byte
 
 ----
 
-## Type=8 (0x08) - Database Info
+## <a name="type8"></a>Type=8 (0x08) - Database Info
     VSCP_TYPE_PHONE_DATABASE_INFO
  Call database info.
  

@@ -6,12 +6,12 @@
 
 AOL Event. The main idea of AOL is to send warnings to remote administrators about different PC conditions using a LAN. Info here [https://en.wikipedia.org/wiki/Alert_on_LAN](https://en.wikipedia.org/wiki/Alert_on_LAN)
 
-## Type=0 (0x00) - General event
+## <a name="type0"></a>Type=0 (0x00) - General event
     VSCP_TYPE_AOL_GENERAL
 General Event.
 ----
 
-## Type=1 (0x01) - System unplugged from power source
+## <a name="type1"></a>Type=1 (0x01) - System unplugged from power source
     VSCP_TYPE_AOL_UNPLUGGED_POWER
 This node was unplugged from its power source.
 
@@ -23,7 +23,7 @@ This node was unplugged from its power source.
 
 ----
 
-## Type=2 (0x02) - System unplugged from network
+## <a name="type2"></a>Type=2 (0x02) - System unplugged from network
     VSCP_TYPE_AOL_UNPLUGGED_LAN
 This node was unplugged from the network.
 
@@ -35,7 +35,7 @@ This node was unplugged from the network.
 
 ----
 
-## Type=3 (0x03) - Chassis intrusion
+## <a name="type3"></a>Type=3 (0x03) - Chassis intrusion
     VSCP_TYPE_AOL_CHASSIS_INTRUSION
 This node detected chassis intrusion.
 
@@ -47,7 +47,7 @@ This node detected chassis intrusion.
 
 ----
 
-## Type=4 (0x04) - Processor removal
+## <a name="type4"></a>Type=4 (0x04) - Processor removal
     VSCP_TYPE_AOL_PROCESSOR_REMOVAL
 This node detected processor removal.
 
@@ -59,7 +59,7 @@ This node detected processor removal.
 
 ----
 
-## Type=5 (0x05) - System environmental errors
+## <a name="type5"></a>Type=5 (0x05) - System environmental errors
     VSCP_TYPE_AOL_ENVIRONMENT_ERROR
 This node detected system environmental errors.
 
@@ -71,7 +71,7 @@ This node detected system environmental errors.
 
 ----
 
-## Type=6 (0x06) - High temperature
+## <a name="type6"></a>Type=6 (0x06) - High temperature
     VSCP_TYPE_AOL_HIGH_TEMPERATURE
 This node detected high temperature.
 
@@ -83,7 +83,7 @@ This node detected high temperature.
 
 ----
 
-## Type=7 (0x07) - Fan speed problem
+## <a name="type7"></a>Type=7 (0x07) - Fan speed problem
     VSCP_TYPE_AOL_FAN_SPEED
 This node detected Fan speed problem.
 
@@ -95,7 +95,7 @@ This node detected Fan speed problem.
 
 ----
 
-## Type=8 (0x08) - Voltage fluctuations
+## <a name="type8"></a>Type=8 (0x08) - Voltage fluctuations
     VSCP_TYPE_AOL_VOLTAGE_FLUCTUATIONS
 This node detected Voltage fluctuations.
 
@@ -107,7 +107,7 @@ This node detected Voltage fluctuations.
 
 ----
 
-## Type=9 (0x09) - Operating system errors
+## <a name="type9"></a>Type=9 (0x09) - Operating system errors
     VSCP_TYPE_AOL_OS_ERROR
 This node detected Operating system errors.
 
@@ -119,7 +119,7 @@ This node detected Operating system errors.
 
 ----
 
-## Type=10 (0x0A) - System power-on error
+## <a name="type10"></a>Type=10 (0x0A) - System power-on error
     VSCP_TYPE_AOL_POWER_ON_ERROR
 This node detected System power-on errors.
 
@@ -131,7 +131,7 @@ This node detected System power-on errors.
 
 ----
 
-## Type=11 (0x0B) - System is hung
+## <a name="type11"></a>Type=11 (0x0B) - System is hung
     VSCP_TYPE_AOL_SYSTEM_HUNG
 This node detected System is hung.
 
@@ -143,7 +143,7 @@ This node detected System is hung.
 
 ----
 
-## Type=12 (0x0C) - Component failure
+## <a name="type12"></a>Type=12 (0x0C) - Component failure
     VSCP_TYPE_AOL_COMPONENT_FAILURE
 This node detected Component failure.
 
@@ -155,7 +155,7 @@ This node detected Component failure.
 
 ----
 
-## Type=13 (0x0D) - Remote system reboot upon report of a critical failure
+## <a name="type13"></a>Type=13 (0x0D) - Remote system reboot upon report of a critical failure
     VSCP_TYPE_AOL_REBOOT_UPON_FAILURE
 This node detected Remote system reboot upon report of a critical failure.
 
@@ -167,7 +167,7 @@ This node detected Remote system reboot upon report of a critical failure.
 
 ----
 
-## Type=14 (0x0E) - Repair Operating System
+## <a name="type14"></a>Type=14 (0x0E) - Repair Operating System
     VSCP_TYPE_AOL_REPAIR_OPERATING_SYSTEM
 This node detected Repair Operating System.
 
@@ -179,7 +179,7 @@ This node detected Repair Operating System.
 
 ----
 
-## Type=15 (0x0F) - Update BIOS image
+## <a name="type15"></a>Type=15 (0x0F) - Update BIOS image
     VSCP_TYPE_AOL_UPDATE_BIOS_IMAGE
 This node detected Update BIOS image.
 
@@ -191,7 +191,7 @@ This node detected Update BIOS image.
 
 ----
 
-## Type=16 (0x10) - Update Perform other diagnostic procedures
+## <a name="type16"></a>Type=16 (0x10) - Update Perform other diagnostic procedures
     VSCP_TYPE_AOL_UPDATE_DIAGNOSTIC_PROCEDURE
 This node detected Update Perform other diagnostic procedures.
 
