@@ -1,15 +1,14 @@
-# Class=508 (0x01FC) - Error
+# Class=1020 (0x03FC) - Class2 Level I Error
 
-    CLASS1.ERROR
+    CLASS2.LEVEL1.ERROR
 
 ## Description
 
-Error reporting functionality that follow the errors defined in the [vscp.h](https://github.com/grodansparadis/vscp_software/blob/master/src/vscp/common/vscp.h) header file.
+This class mirrors the [CLASS1.ERROR](./class1.error.md) class but use a different data format with a GUID stored in the first 16 bytes of the data followed by the standard data thus offset with 16-bytes.
 
-
+See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
 ## Type=0 (0x00) - Success
-    VSCP_TYPE_ERROR_SUCCESS
-This error message is used to report success, that is no error.
+    VSCP_TYPE_ERROR_SUCCESSThis error message is used to report success, that is no error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -21,8 +20,7 @@ This error message is used to report success, that is no error.
 ----
 
 ## Type=1 (0x01) - Error
-    VSCP_TYPE_ERROR_ERROR
-This error message is used to indicate an error condition.
+    VSCP_TYPE_ERROR_ERRORThis error message is used to indicate an error condition.
 
  | Data byte | Description | 
  | :---------: | ----------- | 
@@ -34,8 +32,7 @@ This error message is used to indicate an error condition.
 ----
 
 ## Type=7 (0x07) - Channel error
-    VSCP_TYPE_ERROR_CHANNEL
-This error message is used to indicate a (communication) channel problem.
+    VSCP_TYPE_ERROR_CHANNELThis error message is used to indicate a (communication) channel problem.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -47,8 +44,7 @@ This error message is used to indicate a (communication) channel problem.
 ----
 
 ## Type=8 (0x08) - Fifo empty error
-    VSCP_TYPE_ERROR_FIFO_EMPTY
-This error message is used to indicate a fifo empty problem.
+    VSCP_TYPE_ERROR_FIFO_EMPTYThis error message is used to indicate a fifo empty problem.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -60,8 +56,7 @@ This error message is used to indicate a fifo empty problem.
 ----
 
 ## Type=9 (0x09) - Fifo full error
-    VSCP_TYPE_ERROR_FIFO_FULL
-This error message is used to indicate a fifo full problem.
+    VSCP_TYPE_ERROR_FIFO_FULLThis error message is used to indicate a fifo full problem.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -73,8 +68,7 @@ This error message is used to indicate a fifo full problem.
 ----
 
 ## Type=10 (0x0A) - Fifo size error
-    VSCP_TYPE_ERROR_FIFO_SIZE
-This error message is used to indicate a fifo size problem.
+    VSCP_TYPE_ERROR_FIFO_SIZEThis error message is used to indicate a fifo size problem.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -86,8 +80,7 @@ This error message is used to indicate a fifo size problem.
 ----
 
 ## Type=11 (0x0B) - Fifo wait error
-    VSCP_TYPE_ERROR_FIFO_WAIT
-This error message is used to indicate a fifo wait problem.
+    VSCP_TYPE_ERROR_FIFO_WAITThis error message is used to indicate a fifo wait problem.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -99,8 +92,7 @@ This error message is used to indicate a fifo wait problem.
 ----
 
 ## Type=12 (0x0C) - Generic error
-    VSCP_TYPE_ERROR_GENERIC
-This error message is used to indicate a generic error.
+    VSCP_TYPE_ERROR_GENERICThis error message is used to indicate a generic error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -112,8 +104,7 @@ This error message is used to indicate a generic error.
 ----
 
 ## Type=13 (0x0D) - Hardware error
-    VSCP_TYPE_ERROR_HARDWARE
-This error message is used to indicate a hardware error.
+    VSCP_TYPE_ERROR_HARDWAREThis error message is used to indicate a hardware error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -125,8 +116,7 @@ This error message is used to indicate a hardware error.
 ----
 
 ## Type=14 (0x0E) - initialization error
-    VSCP_TYPE_ERROR_INIT_FAIL
-This error message is used to indicate a initialization error.
+    VSCP_TYPE_ERROR_INIT_FAILThis error message is used to indicate a initialization error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -138,8 +128,7 @@ This error message is used to indicate a initialization error.
 ----
 
 ## Type=15 (0x0F) - Missing initialization error
-    VSCP_TYPE_ERROR_INIT_MISSING
-This error message is used to indicate a missing initialization error.
+    VSCP_TYPE_ERROR_INIT_MISSINGThis error message is used to indicate a missing initialization error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -151,8 +140,7 @@ This error message is used to indicate a missing initialization error.
 ----
 
 ## Type=16 (0x10) - Initialization ready
-    VSCP_TYPE_ERROR_INIT_READY
-This error message is used to indicate a initialization ready error.
+    VSCP_TYPE_ERROR_INIT_READYThis error message is used to indicate a initialization ready error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -164,8 +152,7 @@ This error message is used to indicate a initialization ready error.
 ----
 
 ## Type=17 (0x11) - Not supported
-    VSCP_TYPE_ERROR_NOT_SUPPORTED
-This error message is used to indicate a not supported error.
+    VSCP_TYPE_ERROR_NOT_SUPPORTEDThis error message is used to indicate a not supported error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -177,8 +164,7 @@ This error message is used to indicate a not supported error.
 ----
 
 ## Type=18 (0x12) - Overrun error
-    VSCP_TYPE_ERROR_OVERRUN
-This error message is used to indicate an overrun error.
+    VSCP_TYPE_ERROR_OVERRUNThis error message is used to indicate an overrun error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -190,8 +176,7 @@ This error message is used to indicate an overrun error.
 ----
 
 ## Type=19 (0x13) - Receiver empty error
-    VSCP_TYPE_ERROR_RCV_EMPTY
-This error message is used to indicate a receiver empty error.
+    VSCP_TYPE_ERROR_RCV_EMPTYThis error message is used to indicate a receiver empty error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -203,8 +188,7 @@ This error message is used to indicate a receiver empty error.
 ----
 
 ## Type=20 (0x14) - Register error
-    VSCP_TYPE_ERROR_REGISTER
-This error message is used to indicate a register error.
+    VSCP_TYPE_ERROR_REGISTERThis error message is used to indicate a register error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -216,8 +200,7 @@ This error message is used to indicate a register error.
 ----
 
 ## Type=21 (0x15) - Transmitter full error
-    VSCP_TYPE_ERROR_TRM_FULL
-This error message is used to indicate a transmitter full error.
+    VSCP_TYPE_ERROR_TRM_FULLThis error message is used to indicate a transmitter full error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -229,8 +212,7 @@ This error message is used to indicate a transmitter full error.
 ----
 
 ## Type=28 (0x1C) - Library error
-    VSCP_TYPE_ERROR_LIBRARY
-This error message is used to indicate a library error.
+    VSCP_TYPE_ERROR_LIBRARYThis error message is used to indicate a library error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -242,8 +224,7 @@ This error message is used to indicate a library error.
 ----
 
 ## Type=29 (0x1D) - Procedural address error
-    VSCP_TYPE_ERROR_PROCADDRESS
-This error message is used to indicate a procedural address error.
+    VSCP_TYPE_ERROR_PROCADDRESSThis error message is used to indicate a procedural address error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -255,8 +236,7 @@ This error message is used to indicate a procedural address error.
 ----
 
 ## Type=30 (0x1E) - Only one instance error
-    VSCP_TYPE_ERROR_ONLY_ONE_INSTANCE
-This error message is used to indicate an only one instance error.
+    VSCP_TYPE_ERROR_ONLY_ONE_INSTANCEThis error message is used to indicate an only one instance error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -268,8 +248,7 @@ This error message is used to indicate an only one instance error.
 ----
 
 ## Type=31 (0x1F) - Sub driver error
-    VSCP_TYPE_ERROR_SUB_DRIVER
-This error message is used to indicate a sub driver error.
+    VSCP_TYPE_ERROR_SUB_DRIVERThis error message is used to indicate a sub driver error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -281,8 +260,7 @@ This error message is used to indicate a sub driver error.
 ----
 
 ## Type=32 (0x20) - Timeout error
-    VSCP_TYPE_ERROR_TIMEOUT
-This error message is used to indicate a timeout error.
+    VSCP_TYPE_ERROR_TIMEOUTThis error message is used to indicate a timeout error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -294,8 +272,7 @@ This error message is used to indicate a timeout error.
 ----
 
 ## Type=33 (0x21) - Not open error
-    VSCP_TYPE_ERROR_NOT_OPEN
-This error message is used to indicate a not open error.
+    VSCP_TYPE_ERROR_NOT_OPENThis error message is used to indicate a not open error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -307,8 +284,7 @@ This error message is used to indicate a not open error.
 ----
 
 ## Type=34 (0x22) - Parameter error
-    VSCP_TYPE_ERROR_PARAMETER
-This error message is used to indicate a parameter error.
+    VSCP_TYPE_ERROR_PARAMETERThis error message is used to indicate a parameter error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -320,8 +296,7 @@ This error message is used to indicate a parameter error.
 ----
 
 ## Type=35 (0x23) - Memory error
-    VSCP_TYPE_ERROR_MEMORY
-This error message is used to indicate a memory error.
+    VSCP_TYPE_ERROR_MEMORYThis error message is used to indicate a memory error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -333,8 +308,7 @@ This error message is used to indicate a memory error.
 ----
 
 ## Type=36 (0x24) - Internal error
-    VSCP_TYPE_ERROR_INTERNAL
-This error message is used to indicate a internal error.
+    VSCP_TYPE_ERROR_INTERNALThis error message is used to indicate a internal error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -346,8 +320,7 @@ This error message is used to indicate a internal error.
 ----
 
 ## Type=37 (0x25) - Communication error
-    VSCP_TYPE_ERROR_COMMUNICATION
-This error message is used to indicate a communication error.
+    VSCP_TYPE_ERROR_COMMUNICATIONThis error message is used to indicate a communication error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -359,8 +332,7 @@ This error message is used to indicate a communication error.
 ----
 
 ## Type=38 (0x26) - User error
-    VSCP_TYPE_ERROR_USER
-This error message is used to indicate a user error.
+    VSCP_TYPE_ERROR_USERThis error message is used to indicate a user error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -372,8 +344,7 @@ This error message is used to indicate a user error.
 ----
 
 ## Type=39 (0x27) - Password error
-    VSCP_TYPE_ERROR_PASSWORD
-This error message is used to indicate a password error.
+    VSCP_TYPE_ERROR_PASSWORDThis error message is used to indicate a password error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -385,8 +356,7 @@ This error message is used to indicate a password error.
 ----
 
 ## Type=40 (0x28) - Connection error
-    VSCP_TYPE_ERROR_CONNECTION
-This error message is used to indicate a connection error.
+    VSCP_TYPE_ERROR_CONNECTIONThis error message is used to indicate a connection error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -398,8 +368,7 @@ This error message is used to indicate a connection error.
 ----
 
 ## Type=41 (0x29) - Invalid handle error
-    VSCP_TYPE_ERROR_INVALID_HANDLE
-This error message is used to indicate a invalid handle error.
+    VSCP_TYPE_ERROR_INVALID_HANDLEThis error message is used to indicate a invalid handle error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -411,8 +380,7 @@ This error message is used to indicate a invalid handle error.
 ----
 
 ## Type=42 (0x2A) - Operation failed error
-    VSCP_TYPE_ERROR_OPERATION_FAILED
-This error message is used to indicate an operation failed error.
+    VSCP_TYPE_ERROR_OPERATION_FAILEDThis error message is used to indicate an operation failed error.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -424,8 +392,7 @@ This error message is used to indicate an operation failed error.
 ----
 
 ## Type=43 (0x2B) - Supplied buffer is to small to fit content
-    VSCP_TYPE_ERROR_BUFFER_SMALL
-This error message is used to indicate that the supplied buffer is to small to fit content.
+    VSCP_TYPE_ERROR_BUFFER_SMALLThis error message is used to indicate that the supplied buffer is to small to fit content.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -437,8 +404,7 @@ This error message is used to indicate that the supplied buffer is to small to f
 ----
 
 ## Type=44 (0x2C) - Requested item is unknown
-    VSCP_TYPE_ERROR_ITEM_UNKNOWN
-This error message is used to indicate that the requested item (remote variable) is unknown.
+    VSCP_TYPE_ERROR_ITEM_UNKNOWNThis error message is used to indicate that the requested item (remote variable) is unknown.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
@@ -450,8 +416,7 @@ This error message is used to indicate that the requested item (remote variable)
 ----
 
 ## Type=45 (0x2D) - Name is already in use
-    VSCP_TYPE_ERROR_NAME_USED
-This error message is used to indicate that the name is already in use.
+    VSCP_TYPE_ERROR_NAME_USEDThis error message is used to indicate that the name is already in use.
 
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 

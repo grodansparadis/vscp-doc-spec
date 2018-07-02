@@ -1,10 +1,10 @@
-# Class=206 (0xCE) Position (GPS)
+# Class=206 (0xCE) - Position (GNSS)
 
-    CLASS1.GPS
-    
+    CLASS1.GNSS
+
 ## Description
 
-Control and interface for the GPS protocols (NMEA, SIRF etc)to VSCP
+Control and interface for the global navigation satellite system (GNSS) (for example GPS) protocols (NMEA, SIRF etc)to VSCP
 
 
 *  For Angle use CLASS1.MEASUREMENT, Type = 30 (0x1E) Angle 
@@ -25,27 +25,30 @@ Typically one NMEA, SIRF etc frame with information needs to be translated to ma
 *  CLASS1.INFORMATION, Type=47 (0x2F) End of record
 
 if preferred to hold the events together. 
+## Type=0 (0x00) - General event
+    VSCP_TYPE_GNSS_GENERAL
+General Event.
+----
 
-## Type = 0 (0x00) Undefined.
-
-General event. 
-
-## Type = 1 (0x01) Position.
-
+## Type=1 (0x01) - Position
+    VSCP_TYPE_GNSS_POSITION
 Position information as decimal Latitude + Longitude. 
 
  | Byte | Description                        | 
- | ---- | -----------                        | 
+ | :----: | -----------                        | 
  | 0-3  | Latitude as floating point value.  | 
  | 4-7  | Longitude as floating point value. | 
 
-## Type = 2 (0x02) Satellites.
+----
 
+## Type=2 (0x02) - Satellites
+    VSCP_TYPE_GNSS_SATELLITES
 Number of satellites used. 
 
  | Byte | Description                | 
- | ---- | -----------                | 
+ | :----: | -----------                | 
  | 0    | Number of satellites used. | 
 
+----
 
 {% include "./bottom_copyright.md" %}

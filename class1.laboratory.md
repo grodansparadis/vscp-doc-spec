@@ -1,5 +1,4 @@
-# Class=510 (0x1FE) Laboratory use
-
+# Class=510 (0x01FE) - Laboratory use
 
     CLASS1.LABORATORY
 
@@ -7,8 +6,9 @@
 
 This class is intended for lab usage. No production device should use this event type. 
 
-## Type = 0 (0x00) Undefined.
-
-General event.
+## Type=0 (0x00) - General event
+    VSCP_TYPE_LABORATORY_GENERAL
+General Event.
+----
 
 {% include "./bottom_copyright.md" %}

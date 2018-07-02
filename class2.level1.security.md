@@ -1,19 +1,18 @@
-# Class=2 (0x02) - Security
+# Class=514 (0x0202) - Class2 Level I Security
 
-    CLASS1.SECURITY
+    CLASS2.LEVEL1.SECURITY
 
 ## Description
 
-Security related events for alarms and similar devices. 
+This class mirrors the [CLASS1.SECURITY](./class1.security.md) class but use a different data format with a GUID stored in the first 16 bytes of the data followed by the standard data thus offset with 16-bytes.
 
+See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
 ## Type=0 (0x00) - General event
-    VSCP_TYPE_SECURITY_GENERAL
-General Event.
+    VSCP_TYPE_SECURITY_GENERALGeneral Event.
 ----
 
 ## Type=1 (0x01) - Motion Detect
-    VSCP_TYPE_SECURITY_MOTION
-A motion has been detected. 
+    VSCP_TYPE_SECURITY_MOTIONA motion has been detected. 
 
  | Data byte | Description | 
  | :---------: | ----------- | 
@@ -26,8 +25,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=2 (0x02) - Glass break
-    VSCP_TYPE_SECURITY_GLASS_BREAK
-A glass break event has been detected. 
+    VSCP_TYPE_SECURITY_GLASS_BREAKA glass break event has been detected. 
 
  | Data byte | Description | 
  | :---------: | -----------  | 
@@ -40,8 +38,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=3 (0x03) - Beam break
-    VSCP_TYPE_SECURITY_BEAM_BREAK
-A beam break event has been detected. 
+    VSCP_TYPE_SECURITY_BEAM_BREAKA beam break event has been detected. 
 
  | Data byte | Description | 
  | :---------: | ----------- | 
@@ -54,8 +51,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=4 (0x04) - Sensor tamper
-    VSCP_TYPE_SECURITY_SENSOR_TAMPER
-A sensor tamper has been detected. 
+    VSCP_TYPE_SECURITY_SENSOR_TAMPERA sensor tamper has been detected. 
 
  | Data byte | Description | 
  | :---------: | ----------- | 
@@ -68,8 +64,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=5 (0x05) - Shock sensor
-    VSCP_TYPE_SECURITY_SHOCK_SENSOR
-A shock sensor event has been detected. 
+    VSCP_TYPE_SECURITY_SHOCK_SENSORA shock sensor event has been detected. 
 
  | Data byte | Description | 
  | :---------: | ----------- | 
@@ -82,8 +77,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=6 (0x06) - Smoke sensor
-    VSCP_TYPE_SECURITY_SMOKE_SENSOR
-A smoke sensor event has been detected. 
+    VSCP_TYPE_SECURITY_SMOKE_SENSORA smoke sensor event has been detected. 
 
  | Data byte | Description | 
  | :---------: | ----------- | 
@@ -96,8 +90,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=7 (0x07) - Heat sensor
-    VSCP_TYPE_SECURITY_HEAT_SENSOR
-A heat sensor event has been detected. 
+    VSCP_TYPE_SECURITY_HEAT_SENSORA heat sensor event has been detected. 
 
  | Data byte | Description | 
  | :---------: | ----------- | 
@@ -110,8 +103,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=8 (0x08) - Panic switch
-    VSCP_TYPE_SECURITY_PANIC_SWITCH
-A panic switch event has been detected. 
+    VSCP_TYPE_SECURITY_PANIC_SWITCHA panic switch event has been detected. 
 
  | Data byte | Description | 
  | :---------: | ----------- | 
@@ -124,8 +116,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=9 (0x09) - Door Contact
-    VSCP_TYPE_SECURITY_DOOR_OPEN
-Indicates a door sensor reports that a door is open. 
+    VSCP_TYPE_SECURITY_DOOR_OPENIndicates a door sensor reports that a door is open. 
 
  | Data byte | Description | 
  | :---------: | ----------- | 
@@ -138,8 +129,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=10 (0x0A) - Window Contact
-    VSCP_TYPE_SECURITY_WINDOW_OPEN
-Indicates a window sensor reports that a window is open.
+    VSCP_TYPE_SECURITY_WINDOW_OPENIndicates a window sensor reports that a window is open.
 
  | Data byte | Description | 
  | :---------: | ----------- | 
@@ -152,8 +142,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=11 (0x0B) - CO Sensor
-    VSCP_TYPE_SECURITY_CO_SENSOR
-CO sensor has detected CO at non secure level
+    VSCP_TYPE_SECURITY_CO_SENSORCO sensor has detected CO at non secure level
 
  | Data byte | Description | 
  | :---------: | ----------- | 
@@ -166,8 +155,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=12 (0x0C) - Frost detected
-    VSCP_TYPE_SECURITY_FROST_DETECTED
-A frost sensor condition is detected
+    VSCP_TYPE_SECURITY_FROST_DETECTEDA frost sensor condition is detected
 
  | Data byte | Description | 
  | :---------: | ----------- | 
@@ -180,8 +168,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=13 (0x0D) - Flame detected
-    VSCP_TYPE_SECURITY_FLAME_DETECTED
-Flame is detected.
+    VSCP_TYPE_SECURITY_FLAME_DETECTEDFlame is detected.
 
  | Data byte | Description | 
  | :---------: | -----------  | 
@@ -194,8 +181,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=14 (0x0E) - Oxygen Low
-    VSCP_TYPE_SECURITY_OXYGEN_LOW
-Low oxygen level detected.
+    VSCP_TYPE_SECURITY_OXYGEN_LOWLow oxygen level detected.
 
  | Data byte | Description | 
  | :---------: | ----------- | 
@@ -208,8 +194,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=15 (0x0F) - Weight detected.
-    VSCP_TYPE_SECURITY_WEIGHT_DETECTED
-Weight-detector triggered.
+    VSCP_TYPE_SECURITY_WEIGHT_DETECTEDWeight-detector triggered.
 
  | Data byte | Description | 
  | :---------: | -----------  | 
@@ -222,8 +207,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=16 (0x10) - Water detected.
-    VSCP_TYPE_SECURITY_WATER_DETECTED
-Water has been detected.
+    VSCP_TYPE_SECURITY_WATER_DETECTEDWater has been detected.
 
  | Data byte | Description | 
  | :---------: | ----------- | 
@@ -236,8 +220,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=17 (0x11) - Condensation detected.
-    VSCP_TYPE_SECURITY_CONDENSATION_DETECTED
-Condensation (humidity) detected.
+    VSCP_TYPE_SECURITY_CONDENSATION_DETECTEDCondensation (humidity) detected.
 
  | Data byte | Description | 
  | :---------: | ----------- | 
@@ -250,8 +233,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=18 (0x12) - Noise (sound) detected.
-    VSCP_TYPE_SECURITY_SOUND_DETECTED
-Noise (sound) has been detected.
+    VSCP_TYPE_SECURITY_SOUND_DETECTEDNoise (sound) has been detected.
 
  | Data byte | Description | 
  | :---------: | ----------- | 
@@ -264,8 +246,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=19 (0x13) - Harmful sound levels detected.
-    VSCP_TYPE_SECURITY_HARMFUL_SOUND_LEVEL
-Harmful sound levels detected.
+    VSCP_TYPE_SECURITY_HARMFUL_SOUND_LEVELHarmful sound levels detected.
 
  | Data byte | Description | 
  | :---------: | ----------- | 
@@ -278,8 +259,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=20 (0x14) - Tamper detected.
-    VSCP_TYPE_SECURITY_TAMPER
-Tamper detected.
+    VSCP_TYPE_SECURITY_TAMPERTamper detected.
 
  | Data byte | Description | 
  | :---------: | ----------- | 

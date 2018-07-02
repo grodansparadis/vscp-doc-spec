@@ -1,4 +1,4 @@
-# Class=1024 (0x400) - Level II Protocol Functionality =======
+# Class=1024 (0x0400) - Level II Protocol Functionality
 
     CLASS2.PROTOCOL
 
@@ -8,12 +8,13 @@ For Level I events class=0 defines protocol control functionality. All events of
 
 This class defines protocol functionality for Level II. To simplify the handling of level II events, the data portion of the VSCP event can be considered as being made up of two parts. An 8-byte code portion (size of long integer) followed by a data portion if required. This is simply done to make processing level II events a little easier. The following events have been added to the level II control events to support configuration management. 
 
-## Type = 0 (0x0000) Undefined.
+## Type=0 (0x00) - General event
+    VSCP2_TYPE_PROTOCOL_GENERAL
+General Event.
+----
 
-General event. 
-
-## Type = 1 (0x0001) ReadRegister
-
+## Type=1 (0x01) - Read Register
+    VSCP2_TYPE_PROTOCOL_READ_REGISTER
 Read a Level II register 
 
  | Byte       | Description                                      | 
@@ -26,8 +27,10 @@ Number of registers to read can also be restricted by the buffer size on the boa
 
 This means that buffer_size - 8 is maximum data bytes read. 
 
-## Type = 2 (0x0002) WriteRegister 
+----
 
+## Type=2 (0x02) - Write Register
+    VSCP2_TYPE_PROTOCOL_WRITE_REGISTER
  | Byte       | Description                                      | 
  | ----       | -----------                                      | 
  | Byte 0-15  | Contains the GUID of the target node (MSB->LSB). | 
@@ -36,8 +39,10 @@ This means that buffer_size - 8 is maximum data bytes read.
 
 Number of registers to write can also be restricted by the buffer size on the board (register 0x98). If this register is set to something else then 0 (default) this is the max size for data. This means that buffer_size - 24 is maximum data bytes written. 
 
-## Type = 3 (0x0003) ReadWriteResponse
+----
 
+## Type=3 (0x03) - Read Write Response
+    VSCP2_TYPE_PROTOCOL_READ_WRITE_RESPONSE
 This is the response from a read and a write. Note that the data is returned in both cases and can be checked for validity. 
 
  | Byte      | Description                               | 
@@ -45,12 +50,14 @@ This is the response from a read and a write. Note that the data is returned in 
  | Byte 0-3  | Start register for register read/written. | 
  | Byte 4… | Data read/written.                        | 
 
-## Type=20 (0x14) High end server/service capabilities
+----
 
+## Type=20 (0x14) - High end server/service capabilities
+    VSCP2_TYPE_PROTOCOL_HIGH_END_SERVER_CAPS
 Should be implemented by all Level II devices and be sent out at least once every 60 second.
 
  | Data byte | Description                                                                                                                      | 
- | --------- | -----------                                                                                                                      | 
+ | :----: | -----------                                                                                                                      | 
  | 0         | VSCP server 64-bit capability code MSB                                                                                           | 
  | 1         | VSCP server 64-bit capability code                                                                                               | 
  | 2         | VSCP server 64-bit capability code                                                                                               | 
@@ -69,7 +76,7 @@ Should be implemented by all Level II devices and be sent out at least once ever
 Description of bit-usage for VSCP server 64-bit **capability code**. A bit should be set only if the service is active. 
 
  | Bit       | Usage                                                                                                              | 
- | ---       | -----                                                                                                              | 
+ | :----:       | -----                                                                                                              | 
  | Bit 16-63 | Reserved.                                                                                                          | 
  | Bit 15    | Have VSCP TCP server.                                                                                              | 
  | Bit 14    | Have VSCP UDP server.                                                                                              | 
@@ -94,7 +101,7 @@ Description of bit-usage for VSCP server 64-bit **capability code**. A bit shoul
 
 Non standard port definitions. Each consist of three bytes.
  | Byte | Description                                                                                                     | 
- | ---- | -----------                                                                                                     | 
+ | :----: | -----------                                                                                                     | 
  | 0    | 0-63 Identify the service from the bit number (see bit usage). Offset zero. Bit 7 is set if encryption is used. | 
  | 1    | Port MSB byte                                                                                                   | 
  | 2    | Port LSB byte                                                                                                   | 
@@ -104,21 +111,24 @@ Non standard port definitions. Each consist of three bytes.
 **Example:** The standard TCP/IP server is on port **9598** if it has been moved to port **32000** the three bytes will be 
 
  | Byte | Description                                       | 
- | ---- | -----------                                       | 
+ | :----: | -----------                                       | 
  | 0    | 15 for bit 15 which is the TCP/IP server          | 
  | 1    | 0xD4 which is the most significant byte of 32000  | 
  | 3    | 0x00 which is the least significant byte of 32000 | 
 
-## Type=32 (0x20) Level II who is there response
+----
 
-This defines the response from a Level II node for a [CLASS1.PROTOCOL, Type=32, Who is there?](./class1.protocol.md#type_31_0x1f_who_is_there) event.
+## Type=32 (0x20) - Level II who is there response
+    VSCP2_TYPE_PROTOCOL_WHO_IS_THERE_RESPONSE
+This defines the response from a Level II node for a [CLASS1.PROTOCOL, Type=32, Who is there?](./class1.protocol.md#type31) event.
 
  | Byte  | Description                                       | 
- | ----  | -----------                                       | 
+ | :----:  | -----------                                       | 
  | 0-15  | GUID for node                                     | 
  | 16-47 | MDF of node                                       | 
  | 3     | 0x00 which is the least significant byte of 32000 | 
 
 
-{% include "./bottom_copyright.md" %}
+----
 
+{% include "./bottom_copyright.md" %}

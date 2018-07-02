@@ -1,19 +1,18 @@
-# Class=50 (0x32) - Alert On LAN
+# Class=562 (0x0232) - Class2 Level I AOL
 
-    CLASS1.AOL
+    CLASS2.LEVEL1.AOL
 
 ## Description
 
-AOL Event. The main idea of AOL is to send warnings to remote administrators about different PC conditions using a LAN. Info here [https://en.wikipedia.org/wiki/Alert_on_LAN](https://en.wikipedia.org/wiki/Alert_on_LAN)
+This class mirrors the [CLASS1.AOL](./class1.aol.md) class but use a different data format with a GUID stored in the first 16 bytes of the data followed by the standard data thus offset with 16-bytes.
 
+See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
 ## Type=0 (0x00) - General event
-    VSCP_TYPE_AOL_GENERAL
-General Event.
+    VSCP_TYPE_AOL_GENERALGeneral Event.
 ----
 
 ## Type=1 (0x01) - System unplugged from power source
-    VSCP_TYPE_AOL_UNPLUGGED_POWER
-This node was unplugged from its power source.
+    VSCP_TYPE_AOL_UNPLUGGED_POWERThis node was unplugged from its power source.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
@@ -24,8 +23,7 @@ This node was unplugged from its power source.
 ----
 
 ## Type=2 (0x02) - System unplugged from network
-    VSCP_TYPE_AOL_UNPLUGGED_LAN
-This node was unplugged from the network.
+    VSCP_TYPE_AOL_UNPLUGGED_LANThis node was unplugged from the network.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
@@ -36,8 +34,7 @@ This node was unplugged from the network.
 ----
 
 ## Type=3 (0x03) - Chassis intrusion
-    VSCP_TYPE_AOL_CHASSIS_INTRUSION
-This node detected chassis intrusion.
+    VSCP_TYPE_AOL_CHASSIS_INTRUSIONThis node detected chassis intrusion.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
@@ -48,8 +45,7 @@ This node detected chassis intrusion.
 ----
 
 ## Type=4 (0x04) - Processor removal
-    VSCP_TYPE_AOL_PROCESSOR_REMOVAL
-This node detected processor removal.
+    VSCP_TYPE_AOL_PROCESSOR_REMOVALThis node detected processor removal.
 
  | Data byte | Description                                                        | 
  | --------- | -----------                                                        | 
@@ -60,8 +56,7 @@ This node detected processor removal.
 ----
 
 ## Type=5 (0x05) - System environmental errors
-    VSCP_TYPE_AOL_ENVIRONMENT_ERROR
-This node detected system environmental errors.
+    VSCP_TYPE_AOL_ENVIRONMENT_ERRORThis node detected system environmental errors.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
@@ -72,8 +67,7 @@ This node detected system environmental errors.
 ----
 
 ## Type=6 (0x06) - High temperature
-    VSCP_TYPE_AOL_HIGH_TEMPERATURE
-This node detected high temperature.
+    VSCP_TYPE_AOL_HIGH_TEMPERATUREThis node detected high temperature.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
@@ -84,8 +78,7 @@ This node detected high temperature.
 ----
 
 ## Type=7 (0x07) - Fan speed problem
-    VSCP_TYPE_AOL_FAN_SPEED
-This node detected Fan speed problem.
+    VSCP_TYPE_AOL_FAN_SPEEDThis node detected Fan speed problem.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
@@ -96,8 +89,7 @@ This node detected Fan speed problem.
 ----
 
 ## Type=8 (0x08) - Voltage fluctuations
-    VSCP_TYPE_AOL_VOLTAGE_FLUCTUATIONS
-This node detected Voltage fluctuations.
+    VSCP_TYPE_AOL_VOLTAGE_FLUCTUATIONSThis node detected Voltage fluctuations.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
@@ -108,8 +100,7 @@ This node detected Voltage fluctuations.
 ----
 
 ## Type=9 (0x09) - Operating system errors
-    VSCP_TYPE_AOL_OS_ERROR
-This node detected Operating system errors.
+    VSCP_TYPE_AOL_OS_ERRORThis node detected Operating system errors.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
@@ -120,8 +111,7 @@ This node detected Operating system errors.
 ----
 
 ## Type=10 (0x0A) - System power-on error
-    VSCP_TYPE_AOL_POWER_ON_ERROR
-This node detected System power-on errors.
+    VSCP_TYPE_AOL_POWER_ON_ERRORThis node detected System power-on errors.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
@@ -132,8 +122,7 @@ This node detected System power-on errors.
 ----
 
 ## Type=11 (0x0B) - System is hung
-    VSCP_TYPE_AOL_SYSTEM_HUNG
-This node detected System is hung.
+    VSCP_TYPE_AOL_SYSTEM_HUNGThis node detected System is hung.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
@@ -144,8 +133,7 @@ This node detected System is hung.
 ----
 
 ## Type=12 (0x0C) - Component failure
-    VSCP_TYPE_AOL_COMPONENT_FAILURE
-This node detected Component failure.
+    VSCP_TYPE_AOL_COMPONENT_FAILUREThis node detected Component failure.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
@@ -156,8 +144,7 @@ This node detected Component failure.
 ----
 
 ## Type=13 (0x0D) - Remote system reboot upon report of a critical failure
-    VSCP_TYPE_AOL_REBOOT_UPON_FAILURE
-This node detected Remote system reboot upon report of a critical failure.
+    VSCP_TYPE_AOL_REBOOT_UPON_FAILUREThis node detected Remote system reboot upon report of a critical failure.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
@@ -168,8 +155,7 @@ This node detected Remote system reboot upon report of a critical failure.
 ----
 
 ## Type=14 (0x0E) - Repair Operating System
-    VSCP_TYPE_AOL_REPAIR_OPERATING_SYSTEM
-This node detected Repair Operating System.
+    VSCP_TYPE_AOL_REPAIR_OPERATING_SYSTEMThis node detected Repair Operating System.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
@@ -180,8 +166,7 @@ This node detected Repair Operating System.
 ----
 
 ## Type=15 (0x0F) - Update BIOS image
-    VSCP_TYPE_AOL_UPDATE_BIOS_IMAGE
-This node detected Update BIOS image.
+    VSCP_TYPE_AOL_UPDATE_BIOS_IMAGEThis node detected Update BIOS image.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
@@ -192,8 +177,7 @@ This node detected Update BIOS image.
 ----
 
 ## Type=16 (0x10) - Update Perform other diagnostic procedures
-    VSCP_TYPE_AOL_UPDATE_DIAGNOSTIC_PROCEDURE
-This node detected Update Perform other diagnostic procedures.
+    VSCP_TYPE_AOL_UPDATE_DIAGNOSTIC_PROCEDUREThis node detected Update Perform other diagnostic procedures.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 

@@ -1,8 +1,7 @@
-# Class=509 (0x1FD) Logging i/f
-
+# Class=509 (0x01FD) - Logging
 
     CLASS1.LOG
-    
+
 ## Description
 
 Logging functionality. 
@@ -22,44 +21,49 @@ The id is something you set that have meaning for you. Typically it can be used 
 
 Remember that the receiving side also have the originating id (GUID) as an identification from where a logging event originates.
 
-##   Type=0 (0x00) Undefined.
+## Type=0 (0x00) - General event
+    VSCP_TYPE_LOG_GENERAL
+General Event.
+----
 
-General Log event. 
-
-##   Type=1 (0x01) Log event.
-
+## Type=1 (0x01) - Log event
+    VSCP_TYPE_LOG_MESSAGE
 Message for Log. Several frames have to be sent for a event that take up more the five bytes which is the maximum for each frame. In this case the zero based index (byte 2) should be increased for each frame. 
 
  | Byte | Description            | 
- | ---- | -----------            | 
+ | :----: | -----------            | 
  | 0    | ID for event.          | 
  | 1    | Log level for message. | 
  | 2    | Idx for this message.  | 
- | 3-7  | Message.               | 
+ | 3-7  | Message.               |
+----
 
-##   Type=2(0x01) Log Start.
-
+## Type=2 (0x02) - Log Start
+    VSCP_TYPE_LOG_START
 Start logging. 
 
  | Byte | Description | 
- | ---- | ----------- | 
+ | :----: | ----------- | 
  | 0    | ID for log. | 
+----
 
-##   Type=3 (0x03) Log Stop.
-
+## Type=3 (0x03) - Log Stop
+    VSCP_TYPE_LOG_STOP
 Stop logging. 
 
  | Byte | Description | 
- | ---- | ----------- | 
+ | :----: | ----------- | 
  | 0    | ID for log. | 
+----
 
-##   Type=4 (0x04) Log Level.
-
+## Type=4 (0x04) - Log Level
+    VSCP_TYPE_LOG_LEVEL
 Set level for logging. 
 
  | Byte | Description                  | 
- | ---- | -----------                  | 
+ | :----: | -----------                  | 
  | 0    | ID for log byte 0 Log level. | 
 
+----
 
 {% include "./bottom_copyright.md" %}

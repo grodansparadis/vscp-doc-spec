@@ -1,20 +1,21 @@
-# Class=1026 (0x402) Level II Information =======
+# Class=1026 (0x0402) - Level II Information
 
     CLASS2.INFORMATION
-##  Description 
 
-Level II Information events. 
+## Description
 
-# Type=0 (0x0000) Undefined.
+Level II Information events.
+## Type=0 (0x00) - General event
+    VSCP2_TYPE_INFORMATION_GENERAL
+General Event.
+----
 
-General event. 
-
-# Type=1 (0x0001) Token Activity
-
+## Type=1 (0x01) - Token Activity
+    VSCP2_TYPE_INFORMATION_TOKEN_ACTIVITY
 This event is used for cards, RFID's, iButtons and other identification devices. The event is generated when the token device is attached/detached to/from the system. 
 
  | Byte | Description                | 
- | ---- | -----------                | 
+ | :----: | -----------                | 
  | 0    | Event code.                | 
  | 1    | Zone.                      | 
  | 2    | Sub-zone.                  | 
@@ -25,7 +26,7 @@ This event is used for cards, RFID's, iButtons and other identification devices.
 ##### Event codes
 
  | Code  | Description           | 
- | ----  | -----------           | 
+ | :----:  | -----------           | 
  | 0     | Touched and released. | 
  | 1     | Touched.              | 
  | 2     | Released.             | 
@@ -35,7 +36,7 @@ This event is used for cards, RFID's, iButtons and other identification devices.
 ##### Token device type 
 
  | Device type | Description                                                                                                                                                          | 
- | ----------- | -----------                                                                                                                                                          | 
+ | :-----------: | -----------                                                                                                                                                          | 
  | 0           | Unknown Token.                                                                                                                                                       | 
  | 1           | iButton 64-bit token.                                                                                                                                                | 
  | 2           | RFID Token.                                                                                                                                                          | 
@@ -48,24 +49,27 @@ This event is used for cards, RFID's, iButtons and other identification devices.
  | 18          | Bluetooth device. 48-bits                                                                                                                                            | 
  | 19          | GSM IMEI code (International Mobile Equipment Identity) AA-BBBBBB-CCCCCC-D packed in 64 bits. [https://en.wikipedia.org/wiki/IMEI](https://en.wikipedia.org/wiki/IMEI) | 
  | 20          | GSM IMSI code (International Mobile Subscriber Identity) packed in 64 bits. [https://en.wikipedia.org/wiki/IMSI](https://en.wikipedia.org/wiki/IMSI)                   | 
- | 21-255      | Reserved.                                                                                                                                                            | 
+ | 21-255      | Reserved.                                                                                                                                                          | 
+----
 
-# Type=2 (0x0002) Level II Node Heartbeat
-
+## Type=2 (0x02) - Level II Node Heartbeat
+    VSCP2_TYPE_INFORMATION_HEART_BEAT
 A level II node should send this event at least once a minute to indicate that it is live and well. The implementation **is mandatory**. Recommended interval is 30-60 seconds but in a node that need to sleep longer to save resources a longer interval can be used.
 
  | Byte | Description                 | 
- | ---- | -----------                 | 
+ | :----: | -----------                 | 
  | 0-63 | Real text name of the node. | 
 
 This event is sent by all level nodes even if they are just a client which can connect to a server but not accept connections itself. 
 
-# Type=3 (0x0003) Level II Proxy Node Heartbeat
+----
 
+## Type=3 (0x03) - Level II Proxy Node Heartbeat
+    VSCP2_TYPE_INFORMATION_PROXY_HEART_BEAT
 This event, which it is advised that all nodes should implement, can be sent by a server that have lower end nodes connected to it at different interfaces. This can be level II or level I nodes. 
 
  | Byte    | Description                                                             | 
- | ----    | -----------                                                             | 
+ | :----:    | -----------                                                             | 
  | 0-15    | Real GUID for node (not interface GUID)                                 | 
  | 16-31   | Reserved                                                                | 
  | 32-47   | GUID for interface on server the node is connected to.                  | 
@@ -76,8 +80,10 @@ This event, which it is advised that all nodes should implement, can be sent by 
 
 If the real GUID for a node is not known (for example discovery is in progress or have failed) bytes 0-15 should be set to zero. This is true for a node that has been configured as a known node but where the system has not yet fetched information from the node.
 
-# Type=4 (0x0004) Level II Multicast channel announce
+----
 
+## Type=4 (0x04) - Level II Multicast channel announce
+    VSCP2_TYPE_INFORMATION_CHANNEL_ANNOUNCE
 This event is used by multicast nodes to announce which port(=channel) they communicate on. This may be something they want or not want to share with the rest of the world for security reasons. Therefore this is an optional event. 
 
 If several channels is used several events is sent.
@@ -85,10 +91,11 @@ If several channels is used several events is sent.
 Typically this event is sent on the multicast announce channel
 
  | Byte | Description    | 
- | ---- | -----------    | 
+ | :----: | -----------    | 
  | 0    | MSB of channel | 
  | 1    | LSB of channel | 
  | 2-5  | Reserved       | 
 
-{% include "./bottom_copyright.md" %}
+----
 
+{% include "./bottom_copyright.md" %}

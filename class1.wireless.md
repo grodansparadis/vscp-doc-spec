@@ -1,4 +1,4 @@
-# Class=212 (0xD4) Wireless
+# Class=212 (0xD4) - Wireless
 
     CLASS1.WIRELESS
 
@@ -15,16 +15,18 @@ This class of events is used for wireless equipment such as cellular phones etc.
 
 *  For Time-stamp use CLASS1.MEASUREMENT, Type = 4 (0x04) Time
 
-## Type = 0 (0x00) Undefined.
+## Type=0 (0x00) - General event
+    VSCP_TYPE_WIRELESS_GENERAL
+General Event.
+----
 
-General event. 
-
-## Type = 1 (0x01) GSM Cell.
-
+## Type=1 (0x01) - GSM Cell
+    VSCP_TYPE_WIRELESS_GSM_CELL
 Event with ID for the GSM cell. Normally this is a 16-bit value but a 32-bit value is used in VSCP. 
 
  | Byte | Description  | 
- | ---- | -----------  | 
+ | :----: | -----------  | 
  | 0-3  | GSM Cell ID. | 
+----
 
 {% include "./bottom_copyright.md" %}

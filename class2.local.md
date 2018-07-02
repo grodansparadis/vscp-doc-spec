@@ -1,6 +1,6 @@
 # Class=1025 (0x0401) - Level II Control
 
-    CLASS2.CONTROL
+    CLASS2.LOCAL
 
 ## Description
 
