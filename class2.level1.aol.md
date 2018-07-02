@@ -7,11 +7,11 @@
 This class mirrors the [CLASS1.AOL](./class1.aol.md) class but use a different data format with a GUID stored in the first 16 bytes of the data followed by the standard data thus offset with 16-bytes.
 
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
-## <a name="type0"></a>Type=0 (0x00) - General event
+## <a name="type0">Type=0 (0x00) - General event</a>
     VSCP_TYPE_AOL_GENERALGeneral Event.
 ----
 
-## <a name="type1"></a>Type=1 (0x01) - System unplugged from power source
+## <a name="type1">Type=1 (0x01) - System unplugged from power source</a>
     VSCP_TYPE_AOL_UNPLUGGED_POWERThis node was unplugged from its power source.
 
  | Data byte | Description                                                        | 
@@ -22,7 +22,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type2"></a>Type=2 (0x02) - System unplugged from network
+## <a name="type2">Type=2 (0x02) - System unplugged from network</a>
     VSCP_TYPE_AOL_UNPLUGGED_LANThis node was unplugged from the network.
 
  | Data byte | Description                                                        | 
@@ -33,7 +33,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type3"></a>Type=3 (0x03) - Chassis intrusion
+## <a name="type3">Type=3 (0x03) - Chassis intrusion</a>
     VSCP_TYPE_AOL_CHASSIS_INTRUSIONThis node detected chassis intrusion.
 
  | Data byte | Description                                                        | 
@@ -44,7 +44,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type4"></a>Type=4 (0x04) - Processor removal
+## <a name="type4">Type=4 (0x04) - Processor removal</a>
     VSCP_TYPE_AOL_PROCESSOR_REMOVALThis node detected processor removal.
 
  | Data byte | Description                                                        | 
@@ -55,7 +55,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type5"></a>Type=5 (0x05) - System environmental errors
+## <a name="type5">Type=5 (0x05) - System environmental errors</a>
     VSCP_TYPE_AOL_ENVIRONMENT_ERRORThis node detected system environmental errors.
 
  | Data byte | Description                                                        | 
@@ -66,7 +66,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type6"></a>Type=6 (0x06) - High temperature
+## <a name="type6">Type=6 (0x06) - High temperature</a>
     VSCP_TYPE_AOL_HIGH_TEMPERATUREThis node detected high temperature.
 
  | Data byte | Description                                                        | 
@@ -77,7 +77,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type7"></a>Type=7 (0x07) - Fan speed problem
+## <a name="type7">Type=7 (0x07) - Fan speed problem</a>
     VSCP_TYPE_AOL_FAN_SPEEDThis node detected Fan speed problem.
 
  | Data byte | Description                                                        | 
@@ -88,7 +88,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type8"></a>Type=8 (0x08) - Voltage fluctuations
+## <a name="type8">Type=8 (0x08) - Voltage fluctuations</a>
     VSCP_TYPE_AOL_VOLTAGE_FLUCTUATIONSThis node detected Voltage fluctuations.
 
  | Data byte | Description                                                        | 
@@ -99,7 +99,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type9"></a>Type=9 (0x09) - Operating system errors
+## <a name="type9">Type=9 (0x09) - Operating system errors</a>
     VSCP_TYPE_AOL_OS_ERRORThis node detected Operating system errors.
 
  | Data byte | Description                                                        | 
@@ -110,7 +110,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type10"></a>Type=10 (0x0A) - System power-on error
+## <a name="type10">Type=10 (0x0A) - System power-on error</a>
     VSCP_TYPE_AOL_POWER_ON_ERRORThis node detected System power-on errors.
 
  | Data byte | Description                                                        | 
@@ -121,7 +121,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type11"></a>Type=11 (0x0B) - System is hung
+## <a name="type11">Type=11 (0x0B) - System is hung</a>
     VSCP_TYPE_AOL_SYSTEM_HUNGThis node detected System is hung.
 
  | Data byte | Description                                                        | 
@@ -132,7 +132,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type12"></a>Type=12 (0x0C) - Component failure
+## <a name="type12">Type=12 (0x0C) - Component failure</a>
     VSCP_TYPE_AOL_COMPONENT_FAILUREThis node detected Component failure.
 
  | Data byte | Description                                                        | 
@@ -143,7 +143,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type13"></a>Type=13 (0x0D) - Remote system reboot upon report of a critical failure
+## <a name="type13">Type=13 (0x0D) - Remote system reboot upon report of a critical failure</a>
     VSCP_TYPE_AOL_REBOOT_UPON_FAILUREThis node detected Remote system reboot upon report of a critical failure.
 
  | Data byte | Description                                                        | 
@@ -154,7 +154,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type14"></a>Type=14 (0x0E) - Repair Operating System
+## <a name="type14">Type=14 (0x0E) - Repair Operating System</a>
     VSCP_TYPE_AOL_REPAIR_OPERATING_SYSTEMThis node detected Repair Operating System.
 
  | Data byte | Description                                                        | 
@@ -165,7 +165,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type15"></a>Type=15 (0x0F) - Update BIOS image
+## <a name="type15">Type=15 (0x0F) - Update BIOS image</a>
     VSCP_TYPE_AOL_UPDATE_BIOS_IMAGEThis node detected Update BIOS image.
 
  | Data byte | Description                                                        | 
@@ -176,7 +176,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type16"></a>Type=16 (0x10) - Update Perform other diagnostic procedures
+## <a name="type16">Type=16 (0x10) - Update Perform other diagnostic procedures</a>
     VSCP_TYPE_AOL_UPDATE_DIAGNOSTIC_PROCEDUREThis node detected Update Perform other diagnostic procedures.
 
  | Data byte | Description                                                        | 

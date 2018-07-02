@@ -15,12 +15,12 @@ This class of events is used for wireless equipment such as cellular phones etc.
 
 *  For Time-stamp use CLASS1.MEASUREMENT, Type = 4 (0x04) Time
 
-## <a name="type0"></a>Type=0 (0x00) - General event
+## <a name="type0">Type=0 (0x00) - General event</a>
     VSCP_TYPE_WIRELESS_GENERAL
 General Event.
 ----
 
-## <a name="type1"></a>Type=1 (0x01) - GSM Cell
+## <a name="type1">Type=1 (0x01) - GSM Cell</a>
     VSCP_TYPE_WIRELESS_GSM_CELL
 Event with ID for the GSM cell. Normally this is a 16-bit value but a 32-bit value is used in VSCP. 
 

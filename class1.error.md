@@ -7,7 +7,7 @@
 Error reporting functionality that follow the errors defined in the [vscp.h](https://github.com/grodansparadis/vscp_software/blob/master/src/vscp/common/vscp.h) header file.
 
 
-## <a name="type0"></a>Type=0 (0x00) - Success
+## <a name="type0">Type=0 (0x00) - Success</a>
     VSCP_TYPE_ERROR_SUCCESS
 This error message is used to report success, that is no error.
 
@@ -20,7 +20,7 @@ This error message is used to report success, that is no error.
 
 ----
 
-## <a name="type1"></a>Type=1 (0x01) - Error
+## <a name="type1">Type=1 (0x01) - Error</a>
     VSCP_TYPE_ERROR_ERROR
 This error message is used to indicate an error condition.
 
@@ -33,7 +33,7 @@ This error message is used to indicate an error condition.
 
 ----
 
-## <a name="type7"></a>Type=7 (0x07) - Channel error
+## <a name="type7">Type=7 (0x07) - Channel error</a>
     VSCP_TYPE_ERROR_CHANNEL
 This error message is used to indicate a (communication) channel problem.
 
@@ -46,7 +46,7 @@ This error message is used to indicate a (communication) channel problem.
 
 ----
 
-## <a name="type8"></a>Type=8 (0x08) - Fifo empty error
+## <a name="type8">Type=8 (0x08) - Fifo empty error</a>
     VSCP_TYPE_ERROR_FIFO_EMPTY
 This error message is used to indicate a fifo empty problem.
 
@@ -59,7 +59,7 @@ This error message is used to indicate a fifo empty problem.
 
 ----
 
-## <a name="type9"></a>Type=9 (0x09) - Fifo full error
+## <a name="type9">Type=9 (0x09) - Fifo full error</a>
     VSCP_TYPE_ERROR_FIFO_FULL
 This error message is used to indicate a fifo full problem.
 
@@ -72,7 +72,7 @@ This error message is used to indicate a fifo full problem.
 
 ----
 
-## <a name="type10"></a>Type=10 (0x0A) - Fifo size error
+## <a name="type10">Type=10 (0x0A) - Fifo size error</a>
     VSCP_TYPE_ERROR_FIFO_SIZE
 This error message is used to indicate a fifo size problem.
 
@@ -85,7 +85,7 @@ This error message is used to indicate a fifo size problem.
 
 ----
 
-## <a name="type11"></a>Type=11 (0x0B) - Fifo wait error
+## <a name="type11">Type=11 (0x0B) - Fifo wait error</a>
     VSCP_TYPE_ERROR_FIFO_WAIT
 This error message is used to indicate a fifo wait problem.
 
@@ -98,7 +98,7 @@ This error message is used to indicate a fifo wait problem.
 
 ----
 
-## <a name="type12"></a>Type=12 (0x0C) - Generic error
+## <a name="type12">Type=12 (0x0C) - Generic error</a>
     VSCP_TYPE_ERROR_GENERIC
 This error message is used to indicate a generic error.
 
@@ -111,7 +111,7 @@ This error message is used to indicate a generic error.
 
 ----
 
-## <a name="type13"></a>Type=13 (0x0D) - Hardware error
+## <a name="type13">Type=13 (0x0D) - Hardware error</a>
     VSCP_TYPE_ERROR_HARDWARE
 This error message is used to indicate a hardware error.
 
@@ -124,7 +124,7 @@ This error message is used to indicate a hardware error.
 
 ----
 
-## <a name="type14"></a>Type=14 (0x0E) - initialization error
+## <a name="type14">Type=14 (0x0E) - initialization error</a>
     VSCP_TYPE_ERROR_INIT_FAIL
 This error message is used to indicate a initialization error.
 
@@ -137,7 +137,7 @@ This error message is used to indicate a initialization error.
 
 ----
 
-## <a name="type15"></a>Type=15 (0x0F) - Missing initialization error
+## <a name="type15">Type=15 (0x0F) - Missing initialization error</a>
     VSCP_TYPE_ERROR_INIT_MISSING
 This error message is used to indicate a missing initialization error.
 
@@ -150,7 +150,7 @@ This error message is used to indicate a missing initialization error.
 
 ----
 
-## <a name="type16"></a>Type=16 (0x10) - Initialization ready
+## <a name="type16">Type=16 (0x10) - Initialization ready</a>
     VSCP_TYPE_ERROR_INIT_READY
 This error message is used to indicate a initialization ready error.
 
@@ -163,7 +163,7 @@ This error message is used to indicate a initialization ready error.
 
 ----
 
-## <a name="type17"></a>Type=17 (0x11) - Not supported
+## <a name="type17">Type=17 (0x11) - Not supported</a>
     VSCP_TYPE_ERROR_NOT_SUPPORTED
 This error message is used to indicate a not supported error.
 
@@ -176,7 +176,7 @@ This error message is used to indicate a not supported error.
 
 ----
 
-## <a name="type18"></a>Type=18 (0x12) - Overrun error
+## <a name="type18">Type=18 (0x12) - Overrun error</a>
     VSCP_TYPE_ERROR_OVERRUN
 This error message is used to indicate an overrun error.
 
@@ -189,7 +189,7 @@ This error message is used to indicate an overrun error.
 
 ----
 
-## <a name="type19"></a>Type=19 (0x13) - Receiver empty error
+## <a name="type19">Type=19 (0x13) - Receiver empty error</a>
     VSCP_TYPE_ERROR_RCV_EMPTY
 This error message is used to indicate a receiver empty error.
 
@@ -202,7 +202,7 @@ This error message is used to indicate a receiver empty error.
 
 ----
 
-## <a name="type20"></a>Type=20 (0x14) - Register error
+## <a name="type20">Type=20 (0x14) - Register error</a>
     VSCP_TYPE_ERROR_REGISTER
 This error message is used to indicate a register error.
 
@@ -215,7 +215,7 @@ This error message is used to indicate a register error.
 
 ----
 
-## <a name="type21"></a>Type=21 (0x15) - Transmitter full error
+## <a name="type21">Type=21 (0x15) - Transmitter full error</a>
     VSCP_TYPE_ERROR_TRM_FULL
 This error message is used to indicate a transmitter full error.
 
@@ -228,7 +228,7 @@ This error message is used to indicate a transmitter full error.
 
 ----
 
-## <a name="type28"></a>Type=28 (0x1C) - Library error
+## <a name="type28">Type=28 (0x1C) - Library error</a>
     VSCP_TYPE_ERROR_LIBRARY
 This error message is used to indicate a library error.
 
@@ -241,7 +241,7 @@ This error message is used to indicate a library error.
 
 ----
 
-## <a name="type29"></a>Type=29 (0x1D) - Procedural address error
+## <a name="type29">Type=29 (0x1D) - Procedural address error</a>
     VSCP_TYPE_ERROR_PROCADDRESS
 This error message is used to indicate a procedural address error.
 
@@ -254,7 +254,7 @@ This error message is used to indicate a procedural address error.
 
 ----
 
-## <a name="type30"></a>Type=30 (0x1E) - Only one instance error
+## <a name="type30">Type=30 (0x1E) - Only one instance error</a>
     VSCP_TYPE_ERROR_ONLY_ONE_INSTANCE
 This error message is used to indicate an only one instance error.
 
@@ -267,7 +267,7 @@ This error message is used to indicate an only one instance error.
 
 ----
 
-## <a name="type31"></a>Type=31 (0x1F) - Sub driver error
+## <a name="type31">Type=31 (0x1F) - Sub driver error</a>
     VSCP_TYPE_ERROR_SUB_DRIVER
 This error message is used to indicate a sub driver error.
 
@@ -280,7 +280,7 @@ This error message is used to indicate a sub driver error.
 
 ----
 
-## <a name="type32"></a>Type=32 (0x20) - Timeout error
+## <a name="type32">Type=32 (0x20) - Timeout error</a>
     VSCP_TYPE_ERROR_TIMEOUT
 This error message is used to indicate a timeout error.
 
@@ -293,7 +293,7 @@ This error message is used to indicate a timeout error.
 
 ----
 
-## <a name="type33"></a>Type=33 (0x21) - Not open error
+## <a name="type33">Type=33 (0x21) - Not open error</a>
     VSCP_TYPE_ERROR_NOT_OPEN
 This error message is used to indicate a not open error.
 
@@ -306,7 +306,7 @@ This error message is used to indicate a not open error.
 
 ----
 
-## <a name="type34"></a>Type=34 (0x22) - Parameter error
+## <a name="type34">Type=34 (0x22) - Parameter error</a>
     VSCP_TYPE_ERROR_PARAMETER
 This error message is used to indicate a parameter error.
 
@@ -319,7 +319,7 @@ This error message is used to indicate a parameter error.
 
 ----
 
-## <a name="type35"></a>Type=35 (0x23) - Memory error
+## <a name="type35">Type=35 (0x23) - Memory error</a>
     VSCP_TYPE_ERROR_MEMORY
 This error message is used to indicate a memory error.
 
@@ -332,7 +332,7 @@ This error message is used to indicate a memory error.
 
 ----
 
-## <a name="type36"></a>Type=36 (0x24) - Internal error
+## <a name="type36">Type=36 (0x24) - Internal error</a>
     VSCP_TYPE_ERROR_INTERNAL
 This error message is used to indicate a internal error.
 
@@ -345,7 +345,7 @@ This error message is used to indicate a internal error.
 
 ----
 
-## <a name="type37"></a>Type=37 (0x25) - Communication error
+## <a name="type37">Type=37 (0x25) - Communication error</a>
     VSCP_TYPE_ERROR_COMMUNICATION
 This error message is used to indicate a communication error.
 
@@ -358,7 +358,7 @@ This error message is used to indicate a communication error.
 
 ----
 
-## <a name="type38"></a>Type=38 (0x26) - User error
+## <a name="type38">Type=38 (0x26) - User error</a>
     VSCP_TYPE_ERROR_USER
 This error message is used to indicate a user error.
 
@@ -371,7 +371,7 @@ This error message is used to indicate a user error.
 
 ----
 
-## <a name="type39"></a>Type=39 (0x27) - Password error
+## <a name="type39">Type=39 (0x27) - Password error</a>
     VSCP_TYPE_ERROR_PASSWORD
 This error message is used to indicate a password error.
 
@@ -384,7 +384,7 @@ This error message is used to indicate a password error.
 
 ----
 
-## <a name="type40"></a>Type=40 (0x28) - Connection error
+## <a name="type40">Type=40 (0x28) - Connection error</a>
     VSCP_TYPE_ERROR_CONNECTION
 This error message is used to indicate a connection error.
 
@@ -397,7 +397,7 @@ This error message is used to indicate a connection error.
 
 ----
 
-## <a name="type41"></a>Type=41 (0x29) - Invalid handle error
+## <a name="type41">Type=41 (0x29) - Invalid handle error</a>
     VSCP_TYPE_ERROR_INVALID_HANDLE
 This error message is used to indicate a invalid handle error.
 
@@ -410,7 +410,7 @@ This error message is used to indicate a invalid handle error.
 
 ----
 
-## <a name="type42"></a>Type=42 (0x2A) - Operation failed error
+## <a name="type42">Type=42 (0x2A) - Operation failed error</a>
     VSCP_TYPE_ERROR_OPERATION_FAILED
 This error message is used to indicate an operation failed error.
 
@@ -423,7 +423,7 @@ This error message is used to indicate an operation failed error.
 
 ----
 
-## <a name="type43"></a>Type=43 (0x2B) - Supplied buffer is to small to fit content
+## <a name="type43">Type=43 (0x2B) - Supplied buffer is to small to fit content</a>
     VSCP_TYPE_ERROR_BUFFER_SMALL
 This error message is used to indicate that the supplied buffer is to small to fit content.
 
@@ -436,7 +436,7 @@ This error message is used to indicate that the supplied buffer is to small to f
 
 ----
 
-## <a name="type44"></a>Type=44 (0x2C) - Requested item is unknown
+## <a name="type44">Type=44 (0x2C) - Requested item is unknown</a>
     VSCP_TYPE_ERROR_ITEM_UNKNOWN
 This error message is used to indicate that the requested item (remote variable) is unknown.
 
@@ -449,7 +449,7 @@ This error message is used to indicate that the requested item (remote variable)
 
 ----
 
-## <a name="type45"></a>Type=45 (0x2D) - Name is already in use
+## <a name="type45">Type=45 (0x2D) - Name is already in use</a>
     VSCP_TYPE_ERROR_NAME_USED
 This error message is used to indicate that the name is already in use.
 

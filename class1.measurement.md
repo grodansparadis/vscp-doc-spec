@@ -25,12 +25,12 @@ All events in this class are mirrored in
 [CLASS2.MEASUREMENT_FLOAT=1060 (0x424)](./class2.measurement_float.md) which use decimal float values.
 
 
-## <a name="type0"></a>Type=0 (0x00) - General event
+## <a name="type0">Type=0 (0x00) - General event</a>
     VSCP_TYPE_MEASUREMENT_GENERAL
 General Event.
 ----
 
-## <a name="type1"></a>Type=1 (0x01) - Count
+## <a name="type1">Type=1 (0x01) - Count</a>
     VSCP_TYPE_MEASUREMENT_COUNT
 This is a discrete value typical for a count. There is no unit for this measurement just a discrete value. 
 
@@ -40,7 +40,7 @@ This is a discrete value typical for a count. There is no unit for this measurem
  | 1-7       | Data with format defined by byte 0. |
 ----
 
-## <a name="type2"></a>Type=2 (0x02) - Length/Distance
+## <a name="type2">Type=2 (0x02) - Length/Distance</a>
     VSCP_TYPE_MEASUREMENT_LENGTH
 **Default unit:** Meter. 
 
@@ -52,7 +52,7 @@ This is a measurement of a length or a distance.
  | 1-7       | Data with format defined by byte 0. | 
 ----
 
-## <a name="type3"></a>Type=3 (0x03) - Mass
+## <a name="type3">Type=3 (0x03) - Mass</a>
     VSCP_TYPE_MEASUREMENT_MASS
 **Default unit:** Kilogram.
 
@@ -65,7 +65,7 @@ This is a measurement of a mass.
 
 ----
 
-## <a name="type4"></a>Type=4 (0x04) - Time
+## <a name="type4">Type=4 (0x04) - Time</a>
     VSCP_TYPE_MEASUREMENT_TIME
 A time measurement.
 
@@ -79,7 +79,7 @@ A time measurement.
 
 ----
 
-## <a name="type5"></a>Type=5 (0x05) - Electric Current
+## <a name="type5">Type=5 (0x05) - Electric Current</a>
     VSCP_TYPE_MEASUREMENT_ELECTRIC_CURRENT
 **Default unit:** Ampere.
 
@@ -92,7 +92,7 @@ This is a measurement of an electric current.
 
 ----
 
-## <a name="type6"></a>Type=6 (0x06) - Temperature
+## <a name="type6">Type=6 (0x06) - Temperature</a>
     VSCP_TYPE_MEASUREMENT_TEMPERATURE
 **Default unit:** Kelvin.  
 **Opt. unit:** Degree Celsius (1), Fahrenheit (2)
@@ -106,7 +106,7 @@ This is a measurement of a temperature.
 
 ----
 
-## <a name="type7"></a>Type=7 (0x07) - Amount of substance
+## <a name="type7">Type=7 (0x07) - Amount of substance</a>
     VSCP_TYPE_MEASUREMENT_AMOUNT_OF_SUBSTANCE
 **Default unit:** Mole.
 
@@ -119,7 +119,7 @@ This is a measurement of an amount of a substance.
 
 ----
 
-## <a name="type8"></a>Type=8 (0x08) - Luminous Intensity (Intensity of light)
+## <a name="type8">Type=8 (0x08) - Luminous Intensity (Intensity of light)</a>
     VSCP_TYPE_MEASUREMENT_INTENSITY_OF_LIGHT
 **Default unit:** Candela.
 
@@ -132,7 +132,7 @@ This is a measurement of luminous intensity.
 
 ----
 
-## <a name="type9"></a>Type=9 (0x09) - Frequency
+## <a name="type9">Type=9 (0x09) - Frequency</a>
     VSCP_TYPE_MEASUREMENT_FREQUENCY
 
 **Default unit:** Hertz.
@@ -146,7 +146,7 @@ This is a measurement of regular events during a second.
 
 ----
 
-## <a name="type10"></a>Type=10 (0x0A) - Radioactivity and other random events
+## <a name="type10">Type=10 (0x0A) - Radioactivity and other random events</a>
     VSCP_TYPE_MEASUREMENT_RADIOACTIVITY
 **Default unit:** becquerel.
 **Optional unit:** curie (1)
@@ -160,7 +160,7 @@ This is a measurement of rates of things, which happen randomly, or are unpredic
 
 ----
 
-## <a name="type11"></a>Type=11 (0x0B) - Force
+## <a name="type11">Type=11 (0x0B) - Force</a>
     VSCP_TYPE_MEASUREMENT_FORCE
 **Default unit:** newton.
 
@@ -173,7 +173,7 @@ This is a measurement of force.
 
 ----
 
-## <a name="type12"></a>Type=12 (0x0C) - Pressure
+## <a name="type12">Type=12 (0x0C) - Pressure</a>
     VSCP_TYPE_MEASUREMENT_PRESSURE
 **Default unit:** pascal.  
 **Opt. unit:** bar (1), psi (2)
@@ -187,7 +187,7 @@ This is a measurement of pressure.
 
 ----
 
-## <a name="type13"></a>Type=13 (0x0D) - Energy
+## <a name="type13">Type=13 (0x0D) - Energy</a>
     VSCP_TYPE_MEASUREMENT_ENERGY
 **Default unit:** Joule.  
 **Optional unit:** KWh (1)
@@ -201,7 +201,7 @@ This is a measurement of energy.
 
 ----
 
-## <a name="type14"></a>Type=14 (0x0E) - Power
+## <a name="type14">Type=14 (0x0E) - Power</a>
     VSCP_TYPE_MEASUREMENT_POWER
 **Default unit:** watt.  
 **Optional unit:** Horse power (1).
@@ -215,7 +215,7 @@ This is a measurement of power.
 
 ----
 
-## <a name="type15"></a>Type=15 (0x0F) - Electrical Charge
+## <a name="type15">Type=15 (0x0F) - Electrical Charge</a>
     VSCP_TYPE_MEASUREMENT_ELECTRICAL_CHARGE
 **Default unit:** coulomb.
 
@@ -228,7 +228,7 @@ This is a measurement electrical charge.
 
 ----
 
-## <a name="type16"></a>Type=16 (0x10) - Electrical Potential (Voltage)
+## <a name="type16">Type=16 (0x10) - Electrical Potential (Voltage)</a>
     VSCP_TYPE_MEASUREMENT_ELECTRICAL_POTENTIAL
 **Default unit:** volt.
 
@@ -241,7 +241,7 @@ This is a measurement of electrical potential.
 
 ----
 
-## <a name="type17"></a>Type=17 (0x11) - Electrical Capacitance
+## <a name="type17">Type=17 (0x11) - Electrical Capacitance</a>
     VSCP_TYPE_MEASUREMENT_ELECTRICAL_CAPACITANCE
 **Default unit:** farad (F).
 
@@ -254,7 +254,7 @@ This is a measurement of electric capacitance.
 
 ----
 
-## <a name="type18"></a>Type=18 (0x12) - Electrical Resistance
+## <a name="type18">Type=18 (0x12) - Electrical Resistance</a>
     VSCP_TYPE_MEASUREMENT_ELECTRICAL_RESISTANCE
 **Default unit:** ohm (Ω).
 
@@ -266,7 +266,7 @@ This is a measurement of resistance.
  | 1-7       | Data with format defined by byte 0. | 
 ----
 
-## <a name="type19"></a>Type=19 (0x13) - Electrical Conductance
+## <a name="type19">Type=19 (0x13) - Electrical Conductance</a>
     VSCP_TYPE_MEASUREMENT_ELECTRICAL_CONDUCTANCE
 **Default unit:** siemens.
 
@@ -279,7 +279,7 @@ This is a measurement of electrical conductance.
 
 ----
 
-## <a name="type20"></a>Type=20 (0x14) - Magnetic Field Strength
+## <a name="type20">Type=20 (0x14) - Magnetic Field Strength</a>
     VSCP_TYPE_MEASUREMENT_MAGNETIC_FIELD_STRENGTH
 **Default unit:** amperes per meter (H).  
 **Optional units:** teslas (B) (1)
@@ -293,7 +293,7 @@ This is a measurement of magnetic field strength.
 
 ----
 
-## <a name="type21"></a>Type=21 (0x15) - Magnetic Flux
+## <a name="type21">Type=21 (0x15) - Magnetic Flux</a>
     VSCP_TYPE_MEASUREMENT_MAGNETIC_FLUX
 **Default unit:** weber (Wb).
 
@@ -306,7 +306,7 @@ This is a measurement of magnetic flux.
 
 ----
 
-## <a name="type22"></a>Type=22 (0x16) - Magnetic Flux Density
+## <a name="type22">Type=22 (0x16) - Magnetic Flux Density</a>
     VSCP_TYPE_MEASUREMENT_MAGNETIC_FLUX_DENSITY
 **Default unit:** tesla (B).
 
@@ -319,7 +319,7 @@ This is a measurement of flux density or field strength for magnetic fields (als
 
 ----
 
-## <a name="type23"></a>Type=23 (0x17) - Inductance
+## <a name="type23">Type=23 (0x17) - Inductance</a>
     VSCP_TYPE_MEASUREMENT_INDUCTANCE
 **Default unit:** henry (H).
 
@@ -332,7 +332,7 @@ This is a measurement of inductance.
 
 ----
 
-## <a name="type24"></a>Type=24 (0x18) - Luminous Flux
+## <a name="type24">Type=24 (0x18) - Luminous Flux</a>
     VSCP_TYPE_MEASUREMENT_FLUX_OF_LIGHT
 **Default unit:** Lumen (lm= cd * sr)
 
@@ -345,7 +345,7 @@ This is a measurement of luminous Flux.
 
 ----
 
-## <a name="type25"></a>Type=25 (0x19) - Illuminance
+## <a name="type25">Type=25 (0x19) - Illuminance</a>
     VSCP_TYPE_MEASUREMENT_ILLUMINANCE
 **Default unit:** lux (lx) ( lx = lm / m² )
 
@@ -358,7 +358,7 @@ This is used to express both Illuminance (incidence of light) and Luminous Emitt
 
 ----
 
-## <a name="type26"></a>Type=26 (0x1A) - Radiation dose
+## <a name="type26">Type=26 (0x1A) - Radiation dose</a>
     VSCP_TYPE_MEASUREMENT_RADIATION_DOSE
 **Default unit:** gray (Gy).   
 **Opt unit:** sievert (Sv) (1).
@@ -372,7 +372,7 @@ This is a measurement of a radiation dose (Absorbed dose of ionizing radiation).
 
 ----
 
-## <a name="type27"></a>Type=27 (0x1B) - Catalytic activity
+## <a name="type27">Type=27 (0x1B) - Catalytic activity</a>
     VSCP_TYPE_MEASUREMENT_CATALYTIC_ACITIVITY
 **Default unit:** katal (z).
 
@@ -385,7 +385,7 @@ This is a measurement of catalytic activity used in biochemistry.
 
 ----
 
-## <a name="type28"></a>Type=28 (0x1C) - Volume
+## <a name="type28">Type=28 (0x1C) - Volume</a>
     VSCP_TYPE_MEASUREMENT_VOLUME
 **Default unit:** cubic meter (m³)   
 **Opt. unit:** Liter (dm³) (1), decilitre (100 cm³) (2), centilitre (10 cm³) (3), millilitre (cm³) (4) where unit 4 is only available for Level II measurement events where units can hold this value.
@@ -399,7 +399,7 @@ This is a measurement of volume.
 
 ----
 
-## <a name="type29"></a>Type=29 (0x1D) - Sound intensity
+## <a name="type29">Type=29 (0x1D) - Sound intensity</a>
     VSCP_TYPE_MEASUREMENT_SOUND_INTENSITY
 **Default unit:** W/m2, watt per square meter. 
 
@@ -412,7 +412,7 @@ This is a measurement of sound intensity (acoustic intensity).
 
 ----
 
-## <a name="type30"></a>Type=30 (0x1E) - Angle
+## <a name="type30">Type=30 (0x1E) - Angle</a>
     VSCP_TYPE_MEASUREMENT_ANGLE
 * **Default unit:** radian (rad) (Plane angles).   
 * **Opt Unit:** degree (1).
@@ -428,7 +428,7 @@ This is a measurement of an angle.
 
 ----
 
-## <a name="type31"></a>Type=31 (0x1F) - Position WGS 84
+## <a name="type31">Type=31 (0x1F) - Position WGS 84</a>
     VSCP_TYPE_MEASUREMENT_POSITION
 **Default unit:** Longitude.  
 **Opt. unit:** Latitude.
@@ -442,7 +442,7 @@ This is a measurement of a position as of WGS 84. Normally given as a floating p
 
 ----
 
-## <a name="type32"></a>Type=32 (0x20) - Speed
+## <a name="type32">Type=32 (0x20) - Speed</a>
     VSCP_TYPE_MEASUREMENT_SPEED
 **Default unit:** Meters per second.   
 **Optional unit:** Kilometers per hour (1) Miles per hour (2)
@@ -456,7 +456,7 @@ This is a measurement of a speed.
 
 ----
 
-## <a name="type33"></a>Type=33 (0x21) - Acceleration
+## <a name="type33">Type=33 (0x21) - Acceleration</a>
     VSCP_TYPE_MEASUREMENT_ACCELERATION
 **Default unit:** Meters per second/second (m/s2).
 
@@ -469,7 +469,7 @@ This is a measurement of acceleration.
 
 ----
 
-## <a name="type34"></a>Type=34 (0x22) - Tension
+## <a name="type34">Type=34 (0x22) - Tension</a>
     VSCP_TYPE_MEASUREMENT_TENSION
 **Default unit:** N/m.
 
@@ -482,7 +482,7 @@ This is a measurement of tension.
 
 ----
 
-## <a name="type35"></a>Type=35 (0x23) - Damp/moist (Hygrometer reading)
+## <a name="type35">Type=35 (0x23) - Damp/moist (Hygrometer reading)</a>
     VSCP_TYPE_MEASUREMENT_HUMIDITY
 **Default unit:** Relative percentage 0-100%.
 
@@ -495,7 +495,7 @@ This is a measurement of relative moistness (Humidity).
 
 ----
 
-## <a name="type36"></a>Type=36 (0x24) - Flow
+## <a name="type36">Type=36 (0x24) - Flow</a>
     VSCP_TYPE_MEASUREMENT_FLOW
 **Default unit:** Cubic meters/second.   
 **Opt Unit:** Liters/Second.
@@ -509,7 +509,7 @@ This is a measurement of flow.
 
 ----
 
-## <a name="type37"></a>Type=37 (0x25) - Thermal resistance
+## <a name="type37">Type=37 (0x25) - Thermal resistance</a>
     VSCP_TYPE_MEASUREMENT_THERMAL_RESISTANCE
 **Default unit:** Thermal ohm K/W.
 
@@ -522,7 +522,7 @@ This is a measurement of thermal resistance.
 
 ----
 
-## <a name="type38"></a>Type=38 (0x26) - Refractive (optical) power
+## <a name="type38">Type=38 (0x26) - Refractive (optical) power</a>
     VSCP_TYPE_MEASUREMENT_REFRACTIVE_POWER
 **Default unit:** dioptre (dpt) m-1.
 
@@ -535,7 +535,7 @@ This is a measurement of refractive (optical) power.
 
 ----
 
-## <a name="type39"></a>Type=39 (0x27) - Dynamic viscosity
+## <a name="type39">Type=39 (0x27) - Dynamic viscosity</a>
     VSCP_TYPE_MEASUREMENT_DYNAMIC_VISCOSITY
 **Default unit:** poiseuille (Pl) 
 
@@ -548,7 +548,7 @@ This is a measurement of dynamic viscosity.
 
 ----
 
-## <a name="type40"></a>Type=40 (0x28) - Sound impedance
+## <a name="type40">Type=40 (0x28) - Sound impedance</a>
     VSCP_TYPE_MEASUREMENT_SOUND_IMPEDANCE
 **Default unit:** rayl (Pa·s/m)
 
@@ -561,7 +561,7 @@ This is a measurement of sound impedance.
 
 ----
 
-## <a name="type41"></a>Type=41 (0x29) - Sound resistance
+## <a name="type41">Type=41 (0x29) - Sound resistance</a>
     VSCP_TYPE_MEASUREMENT_SOUND_RESISTANCE
 **Default unit:** Acoustic ohm Pa · s/ m³.
 
@@ -574,7 +574,7 @@ This is a measurement of sound resistance.
 
 ----
 
-## <a name="type42"></a>Type=42 (0x2A) - Electric elastance
+## <a name="type42">Type=42 (0x2A) - Electric elastance</a>
     VSCP_TYPE_MEASUREMENT_ELECTRIC_ELASTANCE
 **Default unit:** daraf (f-1).
 
@@ -587,7 +587,7 @@ This is a measurement of electric elasticity.
 
 ----
 
-## <a name="type43"></a>Type=43 (0x2B) - Luminous energy
+## <a name="type43">Type=43 (0x2B) - Luminous energy</a>
     VSCP_TYPE_MEASUREMENT_LUMINOUS_ENERGY
 **Default unit:** talbot ( tb = lm * s) 
 
@@ -600,7 +600,7 @@ This is a measurement of luminous energy.
 
 ----
 
-## <a name="type44"></a>Type=44 (0x2C) - Luminance
+## <a name="type44">Type=44 (0x2C) - Luminance</a>
     VSCP_TYPE_MEASUREMENT_LUMINANCE
 **Default unit:** cd / m²) (non SI unit = nit)
 
@@ -613,7 +613,7 @@ This is a measurement of luminance.
 
 ----
 
-## <a name="type45"></a>Type=45 (0x2D) - Chemical concentration
+## <a name="type45">Type=45 (0x2D) - Chemical concentration</a>
     VSCP_TYPE_MEASUREMENT_CHEMICAL_CONCENTRATION
 **Default unit:** molal (mol/kg).
 
@@ -626,13 +626,13 @@ This is a measurement of chemical concentration.
 
 ----
 
-## <a name="type46"></a>Type=46 (0x2E) - Reserved
+## <a name="type46">Type=46 (0x2E) - Reserved</a>
     VSCP_TYPE_MEASUREMENT_RESERVED46
 Reserved (previously was doublet of Type= 26, don't use any longer!) 
 
 ----
 
-## <a name="type47"></a>Type=47 (0x2F) - Dose equivalent
+## <a name="type47">Type=47 (0x2F) - Dose equivalent</a>
     VSCP_TYPE_MEASUREMENT_DOSE_EQVIVALENT
 **Default unit:** sievert (J/Kg).
 
@@ -645,13 +645,13 @@ This is a measurement of dose equivalent.
 
 ----
 
-## <a name="type48"></a>Type=48 (0x30) - Reserved
+## <a name="type48">Type=48 (0x30) - Reserved</a>
     VSCP_TYPE_MEASUREMENT_RESERVED48
 Reserved (was doublet of Type= 24, do not use any longer!)
 
 ----
 
-## <a name="type49"></a>Type=49 (0x31) - Dew Point
+## <a name="type49">Type=49 (0x31) - Dew Point</a>
     VSCP_TYPE_MEASUREMENT_DEWPOINT
 **Default unit:** Kelvin.  
 **Opt. unit:** Degree Celsius (1), Fahrenheit (2)
@@ -665,7 +665,7 @@ This is a measurement of the Dew Point.
 
 ----
 
-## <a name="type50"></a>Type=50 (0x32) - Relative Level
+## <a name="type50">Type=50 (0x32) - Relative Level</a>
     VSCP_TYPE_MEASUREMENT_RELATIVE_LEVEL
 **Default unit:** Relative value.
 
@@ -678,7 +678,7 @@ This is a relative value for a level measurement without a unit. It is just rela
 
 ----
 
-## <a name="type51"></a>Type=51 (0x33) - Altitude
+## <a name="type51">Type=51 (0x33) - Altitude</a>
     VSCP_TYPE_MEASUREMENT_ALTITUDE
 **Default unit:** Meter.  
 **Opt. unit:** Feet(1), inches (2)
@@ -692,7 +692,7 @@ Altitude in meters.
 
 ----
 
-## <a name="type52"></a>Type=52 (0x34) - Area
+## <a name="type52">Type=52 (0x34) - Area</a>
     VSCP_TYPE_MEASUREMENT_AREA
 **Default unit:** square meter (m²)
 
@@ -705,7 +705,7 @@ Area in square meter.
 
 ----
 
-## <a name="type53"></a>Type=53 (0x35) - Radiant intensity
+## <a name="type53">Type=53 (0x35) - Radiant intensity</a>
     VSCP_TYPE_MEASUREMENT_RADIANT_INTENSITY
 **Default unit:** watt per steradian ( W / sr )
 
@@ -718,7 +718,7 @@ Radiated power per room angle.
 
 ----
 
-## <a name="type54"></a>Type=54 (0x36) - Radiance
+## <a name="type54">Type=54 (0x36) - Radiance</a>
     VSCP_TYPE_MEASUREMENT_RADIANCE
 **Default unit:** watt per steradian per square metre ( W / (sr * m²) )
 
@@ -731,7 +731,7 @@ This is the radiant flux emitted, reflected, transmitted or received by a surfac
 
 ----
 
-## <a name="type55"></a>Type=55 (0x37) - Irradiance, Exitance, Radiosity
+## <a name="type55">Type=55 (0x37) - Irradiance, Exitance, Radiosity</a>
     VSCP_TYPE_MEASUREMENT_IRRADIANCE
 **Default unit:** watt per square metre ( W / m² )
 
@@ -744,7 +744,7 @@ Power emitted from or striking onto a surface or area.
 
 ----
 
-## <a name="type56"></a>Type=56 (0x38) - Spectral radiance
+## <a name="type56">Type=56 (0x38) - Spectral radiance</a>
     VSCP_TYPE_MEASUREMENT_SPECTRAL_RADIANCE
 **Default unit:** watt per steradian per square metre per nm (W·sr-1·m-2·nm-1)    
 **Opt. unit:** watt per steradian per meter3 (W·sr-1·m-3) (1), watt per steradian per square metre per hertz (W·sr-1·m-3) (2)
@@ -758,7 +758,7 @@ Radiance of a surface per unit frequency or wavelength.
 
 ----
 
-## <a name="type57"></a>Type=57 (0x39) - Spectral irradiance
+## <a name="type57">Type=57 (0x39) - Spectral irradiance</a>
     VSCP_TYPE_MEASUREMENT_SPECTRAL_IRRADIANCE
 **Default unit:** watt per square metre per nm (W·m-2·nm-1)   
 **Opt. unit:** watt per metre3 (W·m-3) (1), watt per square metre per hertz (W·m-2·Hz-1) (2)
@@ -772,7 +772,7 @@ Irradiance of a surface per unit frequency or wavelength.
 
 ----
 
-## <a name="type58"></a>Type=58 (0x3A) - Sound pressure (acoustic pressure)
+## <a name="type58">Type=58 (0x3A) - Sound pressure (acoustic pressure)</a>
     VSCP_TYPE_MEASUREMENT_SOUND_PRESSURE
 **Default unit:** pascal (Pa) 
 
@@ -785,7 +785,7 @@ This is a measurement of sound pressure (acoustic pressure).
 
 ----
 
-## <a name="type59"></a>Type=59 (0x3B) - Sound energy density
+## <a name="type59">Type=59 (0x3B) - Sound energy density</a>
     VSCP_TYPE_MEASUREMENT_SOUND_DENSITY
 **Default unit:** pascal (Pa) 
 
@@ -798,7 +798,7 @@ Sound energy density or sound density is the sound energy per unit volume.
 
 ----
 
-## <a name="type60"></a>Type=60 (0x3C) - Sound level
+## <a name="type60">Type=60 (0x3C) - Sound level</a>
     VSCP_TYPE_MEASUREMENT_SOUND_LEVEL
 **Default unit:** decibel (dB) 
 

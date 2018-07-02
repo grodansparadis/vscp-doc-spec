@@ -8,7 +8,7 @@ Diagnostic functionality.
 
 The diagnostic events can be used to report malfunctions and errors. 
 
-## <a name="type0"></a>Type=0 (0x00) - General event
+## <a name="type0">Type=0 (0x00) - General event</a>
     VSCP_TYPE_DIAGNOSTIC_GENERAL
 General Event. 
 
@@ -22,7 +22,7 @@ General Event.
         
 ----
 
-## <a name="type1"></a>Type=1 (0x01) - Overvoltage
+## <a name="type1">Type=1 (0x01) - Overvoltage</a>
     VSCP_TYPE_DIAGNOSTIC_OVERVOLTAGE
 Over voltage has been diagnosed. 
 
@@ -35,7 +35,7 @@ Over voltage has been diagnosed.
 
 ----
 
-## <a name="type2"></a>Type=2 (0x02) - Undervoltage
+## <a name="type2">Type=2 (0x02) - Undervoltage</a>
     VSCP_TYPE_DIAGNOSTIC_UNDERVOLTAGE
 Under voltage has been diagnosed.
 
@@ -48,7 +48,7 @@ Under voltage has been diagnosed.
 
 ----
 
-## <a name="type3"></a>Type=3 (0x03) - USB VBUS low
+## <a name="type3">Type=3 (0x03) - USB VBUS low</a>
     VSCP_TYPE_DIAGNOSTIC_VBUS_LOW
 Low voltage on USB VBUS has been diagnosed.
 
@@ -61,7 +61,7 @@ Low voltage on USB VBUS has been diagnosed.
 
 ----
 
-## <a name="type4"></a>Type=4 (0x04) - Battery voltage low
+## <a name="type4">Type=4 (0x04) - Battery voltage low</a>
     VSCP_TYPE_DIAGNOSTIC_BATTERY_LOW
 Low battery voltage has been diagnosed.
 
@@ -75,7 +75,7 @@ Low battery voltage has been diagnosed.
 
 ----
 
-## <a name="type5"></a>Type=5 (0x05) - Battery full voltage
+## <a name="type5">Type=5 (0x05) - Battery full voltage</a>
     VSCP_TYPE_DIAGNOSTIC_BATTERY_FULL
 Battery full voltage has been diagnosed.
 
@@ -88,7 +88,7 @@ Battery full voltage has been diagnosed.
 
 ----
 
-## <a name="type6"></a>Type=6 (0x06) - Battery error
+## <a name="type6">Type=6 (0x06) - Battery error</a>
     VSCP_TYPE_DIAGNOSTIC_BATTERY_ERROR
 Battery error has been diagnosed.
 
@@ -101,7 +101,7 @@ Battery error has been diagnosed.
 
 ----
 
-## <a name="type7"></a>Type=7 (0x07) - Battery OK
+## <a name="type7">Type=7 (0x07) - Battery OK</a>
     VSCP_TYPE_DIAGNOSTIC_BATTERY_OK
 Functional battery has been diagnosed.
 
@@ -115,7 +115,7 @@ Functional battery has been diagnosed.
 
 ----
 
-## <a name="type8"></a>Type=8 (0x08) - Over current
+## <a name="type8">Type=8 (0x08) - Over current</a>
     VSCP_TYPE_DIAGNOSTIC_OVERCURRENT
 Over current has been diagnosed.
 
@@ -129,7 +129,7 @@ Over current has been diagnosed.
 
 ----
 
-## <a name="type9"></a>Type=9 (0x09) - Circuit error
+## <a name="type9">Type=9 (0x09) - Circuit error</a>
     VSCP_TYPE_DIAGNOSTIC_CIRCUIT_ERROR
 Circuit error has been diagnosed.
 
@@ -143,7 +143,7 @@ Circuit error has been diagnosed.
 
 ----
 
-## <a name="type10"></a>Type=10 (0x0A) - Short circuit
+## <a name="type10">Type=10 (0x0A) - Short circuit</a>
     VSCP_TYPE_DIAGNOSTIC_SHORT_CIRCUIT
 Short circuit has been diagnosed.
 
@@ -156,7 +156,7 @@ Short circuit has been diagnosed.
 
 ----
 
-## <a name="type11"></a>Type=11 (0x0B) - Open Circuit
+## <a name="type11">Type=11 (0x0B) - Open Circuit</a>
     VSCP_TYPE_DIAGNOSTIC_OPEN_CIRCUIT
 Open Circuit has been diagnosed.
 
@@ -169,7 +169,7 @@ Open Circuit has been diagnosed.
 
 ----
 
-## <a name="type12"></a>Type=12 (0x0C) - Moist
+## <a name="type12">Type=12 (0x0C) - Moist</a>
     VSCP_TYPE_DIAGNOSTIC_MOIST
 Moist has been diagnosed.
 
@@ -182,7 +182,7 @@ Moist has been diagnosed.
 
 ----
 
-## <a name="type13"></a>Type=13 (0x0D) - Wire failure
+## <a name="type13">Type=13 (0x0D) - Wire failure</a>
     VSCP_TYPE_DIAGNOSTIC_WIRE_FAIL
 Wire failure has been diagnosed.
 
@@ -195,7 +195,7 @@ Wire failure has been diagnosed.
 
 ----
 
-## <a name="type14"></a>Type=14 (0x0E) - Wireless faliure
+## <a name="type14">Type=14 (0x0E) - Wireless faliure</a>
     VSCP_TYPE_DIAGNOSTIC_WIRELESS_FAIL
 Wireless faliure has been diagnosed.
 
@@ -208,7 +208,7 @@ Wireless faliure has been diagnosed.
 
 ----
 
-## <a name="type15"></a>Type=15 (0x0F) - IR failure
+## <a name="type15">Type=15 (0x0F) - IR failure</a>
     VSCP_TYPE_DIAGNOSTIC_IR_FAIL
 IR failure has been diagnosed.
 
@@ -221,7 +221,7 @@ IR failure has been diagnosed.
 
 ----
 
-## <a name="type16"></a>Type=16 (0x10) - 1-wire failure
+## <a name="type16">Type=16 (0x10) - 1-wire failure</a>
     VSCP_TYPE_DIAGNOSTIC_1WIRE_FAIL
 1-wire failure has been diagnosed.
 
@@ -234,7 +234,7 @@ IR failure has been diagnosed.
 
 ----
 
-## <a name="type17"></a>Type=17 (0x11) - RS-222 failure
+## <a name="type17">Type=17 (0x11) - RS-222 failure</a>
     VSCP_TYPE_DIAGNOSTIC_RS222_FAIL
 RS-222 failure has been diagnosed.
 
@@ -247,7 +247,7 @@ RS-222 failure has been diagnosed.
 
 ----
 
-## <a name="type18"></a>Type=18 (0x12) - RS-232 failure
+## <a name="type18">Type=18 (0x12) - RS-232 failure</a>
     VSCP_TYPE_DIAGNOSTIC_RS232_FAIL
 RS-232 failure has been diagnosed.
 
@@ -260,7 +260,7 @@ RS-232 failure has been diagnosed.
 
 ----
 
-## <a name="type19"></a>Type=19 (0x13) - RS-423 failure
+## <a name="type19">Type=19 (0x13) - RS-423 failure</a>
     VSCP_TYPE_DIAGNOSTIC_RS423_FAIL
 RS-423 failure has been diagnosed.
 
@@ -274,7 +274,7 @@ RS-423 failure has been diagnosed.
 
 ----
 
-## <a name="type20"></a>Type=20 (0x14) - RS-485 failure
+## <a name="type20">Type=20 (0x14) - RS-485 failure</a>
     VSCP_TYPE_DIAGNOSTIC_RS485_FAIL
 RS-485 failure has been diagnosed.
 
@@ -287,7 +287,7 @@ RS-485 failure has been diagnosed.
 
 ----
 
-## <a name="type21"></a>Type=21 (0x15) - CAN failure
+## <a name="type21">Type=21 (0x15) - CAN failure</a>
     VSCP_TYPE_DIAGNOSTIC_CAN_FAIL
 CAN failure has been diagnosed.
 
@@ -301,7 +301,7 @@ CAN failure has been diagnosed.
 
 ----
 
-## <a name="type22"></a>Type=22 (0x16) - LAN failure
+## <a name="type22">Type=22 (0x16) - LAN failure</a>
     VSCP_TYPE_DIAGNOSTIC_LAN_FAIL
 LAN failure has been diagnosed.
 
@@ -314,7 +314,7 @@ LAN failure has been diagnosed.
 
 ----
 
-## <a name="type23"></a>Type=23 (0x17) - USB failure
+## <a name="type23">Type=23 (0x17) - USB failure</a>
     VSCP_TYPE_DIAGNOSTIC_USB_FAIL
 USB failure has been diagnosed.
 
@@ -327,7 +327,7 @@ USB failure has been diagnosed.
 
 ----
 
-## <a name="type24"></a>Type=24 (0x18) - Wifi failure
+## <a name="type24">Type=24 (0x18) - Wifi failure</a>
     VSCP_TYPE_DIAGNOSTIC_WIFI_FAIL
 Wifi failure has been diagnosed.
 
@@ -340,7 +340,7 @@ Wifi failure has been diagnosed.
 
 ----
 
-## <a name="type25"></a>Type=25 (0x19) - NFC/RFID failure
+## <a name="type25">Type=25 (0x19) - NFC/RFID failure</a>
     VSCP_TYPE_DIAGNOSTIC_NFC_RFID_FAIL
 NFC/RFID failure has been diagnosed.
 
@@ -353,7 +353,7 @@ NFC/RFID failure has been diagnosed.
 
 ----
 
-## <a name="type26"></a>Type=26 (0x1A) - Low signal
+## <a name="type26">Type=26 (0x1A) - Low signal</a>
     VSCP_TYPE_DIAGNOSTIC_LOW_SIGNAL
 Low signal has been diagnosed.
 
@@ -366,7 +366,7 @@ Low signal has been diagnosed.
 
 ----
 
-## <a name="type27"></a>Type=27 (0x1B) - High signal
+## <a name="type27">Type=27 (0x1B) - High signal</a>
     VSCP_TYPE_DIAGNOSTIC_HIGH_SIGNAL
 High signal has been diagnosed.
 
@@ -380,7 +380,7 @@ High signal has been diagnosed.
 
 ----
 
-## <a name="type28"></a>Type=28 (0x1C) - ADC failure
+## <a name="type28">Type=28 (0x1C) - ADC failure</a>
     VSCP_TYPE_DIAGNOSTIC_ADC_FAIL
 ADC failure has been diagnosed.
 
@@ -393,7 +393,7 @@ ADC failure has been diagnosed.
 
 ----
 
-## <a name="type29"></a>Type=29 (0x1D) - ALU failure
+## <a name="type29">Type=29 (0x1D) - ALU failure</a>
     VSCP_TYPE_DIAGNOSTIC_ALU_FAIL
 ALU failure has been diagnosed.
 
@@ -406,7 +406,7 @@ ALU failure has been diagnosed.
 
 ----
 
-## <a name="type30"></a>Type=30 (0x1E) - Assert
+## <a name="type30">Type=30 (0x1E) - Assert</a>
     VSCP_TYPE_DIAGNOSTIC_ASSERT
 An assert has been diagnosed.
 
@@ -419,7 +419,7 @@ An assert has been diagnosed.
 
 ----
 
-## <a name="type31"></a>Type=31 (0x1F) - DAC failure
+## <a name="type31">Type=31 (0x1F) - DAC failure</a>
     VSCP_TYPE_DIAGNOSTIC_DAC_FAIL
 DAC failure has been diagnosed.
 
@@ -432,7 +432,7 @@ DAC failure has been diagnosed.
 
 ----
 
-## <a name="type32"></a>Type=32 (0x20) - DMA failure
+## <a name="type32">Type=32 (0x20) - DMA failure</a>
     VSCP_TYPE_DIAGNOSTIC_DMA_FAIL
 DMA failure has been diagnosed.
 
@@ -445,7 +445,7 @@ DMA failure has been diagnosed.
 
 ----
 
-## <a name="type33"></a>Type=33 (0x21) - Ethernet failure
+## <a name="type33">Type=33 (0x21) - Ethernet failure</a>
     VSCP_TYPE_DIAGNOSTIC_ETH_FAIL
 Ethernet failure has been diagnosed.
 
@@ -459,7 +459,7 @@ Ethernet failure has been diagnosed.
 
 ----
 
-## <a name="type34"></a>Type=34 (0x22) - Exception
+## <a name="type34">Type=34 (0x22) - Exception</a>
     VSCP_TYPE_DIAGNOSTIC_EXCEPTION
 Exception has been diagnosed.
 
@@ -472,7 +472,7 @@ Exception has been diagnosed.
 
 ----
 
-## <a name="type35"></a>Type=35 (0x23) - FPU failure
+## <a name="type35">Type=35 (0x23) - FPU failure</a>
     VSCP_TYPE_DIAGNOSTIC_FPU_FAIL
 Floating point unit (FPU) failure has been diagnosed.
 
@@ -485,7 +485,7 @@ Floating point unit (FPU) failure has been diagnosed.
 
 ----
 
-## <a name="type36"></a>Type=36 (0x24) - GPIO failure
+## <a name="type36">Type=36 (0x24) - GPIO failure</a>
     VSCP_TYPE_DIAGNOSTIC_GPIO_FAIL
 General purpose I/O (GPIO) failure has been diagnosed.
 
@@ -498,7 +498,7 @@ General purpose I/O (GPIO) failure has been diagnosed.
 
 ----
 
-## <a name="type37"></a>Type=37 (0x25) - I2C failure
+## <a name="type37">Type=37 (0x25) - I2C failure</a>
     VSCP_TYPE_DIAGNOSTIC_I2C_FAIL
 I2C failure has been diagnosed.
 
@@ -511,7 +511,7 @@ I2C failure has been diagnosed.
 
 ----
 
-## <a name="type38"></a>Type=38 (0x26) - I2S failure
+## <a name="type38">Type=38 (0x26) - I2S failure</a>
     VSCP_TYPE_DIAGNOSTIC_I2S_FAIL
 I2C failure has been diagnosed.
 
@@ -524,7 +524,7 @@ I2C failure has been diagnosed.
 
 ----
 
-## <a name="type39"></a>Type=39 (0x27) - Invalid configuration
+## <a name="type39">Type=39 (0x27) - Invalid configuration</a>
     VSCP_TYPE_DIAGNOSTIC_INVALID_CONFIG
 Invalid configuration has been diagnosed.
 
@@ -537,7 +537,7 @@ Invalid configuration has been diagnosed.
 
 ----
 
-## <a name="type40"></a>Type=40 (0x28) - MMU failure
+## <a name="type40">Type=40 (0x28) - MMU failure</a>
     VSCP_TYPE_DIAGNOSTIC_MMU_FAIL
 Memory Management Unit (MMU) failure has been diagnosed.
 
@@ -550,7 +550,7 @@ Memory Management Unit (MMU) failure has been diagnosed.
 
 ----
 
-## <a name="type41"></a>Type=41 (0x29) - NMI failure
+## <a name="type41">Type=41 (0x29) - NMI failure</a>
     VSCP_TYPE_DIAGNOSTIC_NMI
 Non mask-able interrupt (NMI) failure has been diagnosed.
 
@@ -563,7 +563,7 @@ Non mask-able interrupt (NMI) failure has been diagnosed.
 
 ----
 
-## <a name="type42"></a>Type=42 (0x2A) - Overheat
+## <a name="type42">Type=42 (0x2A) - Overheat</a>
     VSCP_TYPE_DIAGNOSTIC_OVERHEAT
 Overheat has been diagnosed.
 
@@ -576,7 +576,7 @@ Overheat has been diagnosed.
 
 ----
 
-## <a name="type43"></a>Type=43 (0x2B) - PLL fail
+## <a name="type43">Type=43 (0x2B) - PLL fail</a>
     VSCP_TYPE_DIAGNOSTIC_PLL_FAIL
 Phased Locked Loop (PLL) fail has been diagnosed.
 
@@ -589,7 +589,7 @@ Phased Locked Loop (PLL) fail has been diagnosed.
 
 ----
 
-## <a name="type44"></a>Type=44 (0x2C) - POR failure
+## <a name="type44">Type=44 (0x2C) - POR failure</a>
     VSCP_TYPE_DIAGNOSTIC_POR_FAIL
 Power ON Reset (POR) fail has been diagnosed.
 
@@ -602,7 +602,7 @@ Power ON Reset (POR) fail has been diagnosed.
 
 ----
 
-## <a name="type45"></a>Type=45 (0x2D) - PWM failure
+## <a name="type45">Type=45 (0x2D) - PWM failure</a>
     VSCP_TYPE_DIAGNOSTIC_PWM_FAIL
 Pulse Width Modulation (PWM) failure has been diagnosed.
 
@@ -615,7 +615,7 @@ Pulse Width Modulation (PWM) failure has been diagnosed.
 
 ----
 
-## <a name="type46"></a>Type=46 (0x2E) - RAM failure
+## <a name="type46">Type=46 (0x2E) - RAM failure</a>
     VSCP_TYPE_DIAGNOSTIC_RAM_FAIL
 Random Access Memory (RAM) failure has been diagnosed.
 
@@ -628,7 +628,7 @@ Random Access Memory (RAM) failure has been diagnosed.
 
 ----
 
-## <a name="type47"></a>Type=47 (0x2F) - ROM failure
+## <a name="type47">Type=47 (0x2F) - ROM failure</a>
     VSCP_TYPE_DIAGNOSTIC_ROM_FAIL
 Read only memory (ROM) failure has been diagnosed.
 
@@ -641,7 +641,7 @@ Read only memory (ROM) failure has been diagnosed.
 
 ----
 
-## <a name="type48"></a>Type=48 (0x30) - SPI failure
+## <a name="type48">Type=48 (0x30) - SPI failure</a>
     VSCP_TYPE_DIAGNOSTIC_SPI_FAIL
 Serial peripheral interface (SPI) failure has been diagnosed.
 
@@ -654,7 +654,7 @@ Serial peripheral interface (SPI) failure has been diagnosed.
 
 ----
 
-## <a name="type49"></a>Type=49 (0x31) - Stack failure
+## <a name="type49">Type=49 (0x31) - Stack failure</a>
     VSCP_TYPE_DIAGNOSTIC_STACK_FAIL
 Stack failure has been diagnosed.
 
@@ -668,7 +668,7 @@ Stack failure has been diagnosed.
 
 ----
 
-## <a name="type50"></a>Type=50 (0x32) - LIN bus failure
+## <a name="type50">Type=50 (0x32) - LIN bus failure</a>
     VSCP_TYPE_DIAGNOSTIC_LIN_FAIL
 LIN bus failure has been diagnosed.
 
@@ -682,7 +682,7 @@ LIN bus failure has been diagnosed.
 
 ----
 
-## <a name="type51"></a>Type=51 (0x33) - UART failure
+## <a name="type51">Type=51 (0x33) - UART failure</a>
     VSCP_TYPE_DIAGNOSTIC_UART_FAIL
 UART failure has been diagnosed.
 
@@ -695,7 +695,7 @@ UART failure has been diagnosed.
 
 ----
 
-## <a name="type52"></a>Type=52 (0x34) - Unhandled interrupt
+## <a name="type52">Type=52 (0x34) - Unhandled interrupt</a>
     VSCP_TYPE_DIAGNOSTIC_UNHANDLED_INT
 Unhandled interrupt has been diagnosed.
 
@@ -708,7 +708,7 @@ Unhandled interrupt has been diagnosed.
 
 ----
 
-## <a name="type53"></a>Type=53 (0x35) - Memory failure
+## <a name="type53">Type=53 (0x35) - Memory failure</a>
     VSCP_TYPE_DIAGNOSTIC_MEMORY_FAIL
 Memory failure has been diagnosed.
 
@@ -721,7 +721,7 @@ Memory failure has been diagnosed.
 
 ----
 
-## <a name="type54"></a>Type=54 (0x36) - Variable range failure
+## <a name="type54">Type=54 (0x36) - Variable range failure</a>
     VSCP_TYPE_DIAGNOSTIC_VARIABLE_RANGE
 Variable range failure has been diagnosed.
 
@@ -734,7 +734,7 @@ Variable range failure has been diagnosed.
 
 ----
 
-## <a name="type55"></a>Type=55 (0x37) - WDT failure
+## <a name="type55">Type=55 (0x37) - WDT failure</a>
     VSCP_TYPE_DIAGNOSTIC_WDT
 Watch Dog Timer (WDT) failure has been diagnosed.
 
@@ -747,7 +747,7 @@ Watch Dog Timer (WDT) failure has been diagnosed.
 
 ----
 
-## <a name="type56"></a>Type=56 (0x38) - EEPROM failure
+## <a name="type56">Type=56 (0x38) - EEPROM failure</a>
     VSCP_TYPE_DIAGNOSTIC_EEPROM_FAIL
 EEPROM failure has been diagnosed.
 
@@ -760,7 +760,7 @@ EEPROM failure has been diagnosed.
 
 ----
 
-## <a name="type57"></a>Type=57 (0x39) - Encryption failure
+## <a name="type57">Type=57 (0x39) - Encryption failure</a>
     VSCP_TYPE_DIAGNOSTIC_ENCRYPTION_FAIL
 Encryption failure has been diagnosed.
 
@@ -773,7 +773,7 @@ Encryption failure has been diagnosed.
 
 ----
 
-## <a name="type58"></a>Type=58 (0x3A) - Bad user input failure
+## <a name="type58">Type=58 (0x3A) - Bad user input failure</a>
     VSCP_TYPE_DIAGNOSTIC_BAD_USER_INPUT
 Bad user input failure has been diagnosed.
 
@@ -786,7 +786,7 @@ Bad user input failure has been diagnosed.
 
 ----
 
-## <a name="type59"></a>Type=59 (0x3B) - Decryption failure
+## <a name="type59">Type=59 (0x3B) - Decryption failure</a>
     VSCP_TYPE_DIAGNOSTIC_DECRYPTION_FAIL
 Decryption failure has been diagnosed.
 
@@ -799,7 +799,7 @@ Decryption failure has been diagnosed.
 
 ----
 
-## <a name="type60"></a>Type=60 (0x3C) - Noise
+## <a name="type60">Type=60 (0x3C) - Noise</a>
     VSCP_TYPE_DIAGNOSTIC_NOISE
 Noise has been diagnosed.
 
@@ -812,7 +812,7 @@ Noise has been diagnosed.
 
 ----
 
-## <a name="type61"></a>Type=61 (0x3D) - Boot loader failure
+## <a name="type61">Type=61 (0x3D) - Boot loader failure</a>
     VSCP_TYPE_DIAGNOSTIC_BOOTLOADER_FAIL
 Boot loader failure has been diagnosed.
 
@@ -826,7 +826,7 @@ Boot loader failure has been diagnosed.
 
 ----
 
-## <a name="type62"></a>Type=62 (0x3E) - Program flow failure
+## <a name="type62">Type=62 (0x3E) - Program flow failure</a>
     VSCP_TYPE_DIAGNOSTIC_PROGRAMFLOW_FAIL
 Program flow failure has been diagnosed.
 
@@ -839,7 +839,7 @@ Program flow failure has been diagnosed.
 
 ----
 
-## <a name="type63"></a>Type=63 (0x3F) - RTC faiure
+## <a name="type63">Type=63 (0x3F) - RTC faiure</a>
     VSCP_TYPE_DIAGNOSTIC_RTC_FAIL
 Real Time Clock (RTC) failure has been diagnosed.
 
@@ -852,7 +852,7 @@ Real Time Clock (RTC) failure has been diagnosed.
 
 ----
 
-## <a name="type64"></a>Type=64 (0x40) - System test failure
+## <a name="type64">Type=64 (0x40) - System test failure</a>
     VSCP_TYPE_DIAGNOSTIC_SYSTEM_TEST_FAIL
 System test failure has been diagnosed.
 
@@ -865,7 +865,7 @@ System test failure has been diagnosed.
 
 ----
 
-## <a name="type65"></a>Type=65 (0x41) - Sensor failure
+## <a name="type65">Type=65 (0x41) - Sensor failure</a>
     VSCP_TYPE_DIAGNOSTIC_SENSOR_FAIL
 Sensor failure has been diagnosed.
 
@@ -878,7 +878,7 @@ Sensor failure has been diagnosed.
 
 ----
 
-## <a name="type66"></a>Type=66 (0x42) - Safe state entered
+## <a name="type66">Type=66 (0x42) - Safe state entered</a>
     VSCP_TYPE_DIAGNOSTIC_SAFESTATE
 Safe state entered has been diagnosed.
 
@@ -891,7 +891,7 @@ Safe state entered has been diagnosed.
 
 ----
 
-## <a name="type67"></a>Type=67 (0x43) - Signal implausible
+## <a name="type67">Type=67 (0x43) - Signal implausible</a>
     VSCP_TYPE_DIAGNOSTIC_SIGNAL_IMPLAUSIBLE
 Signal implausible has been diagnosed.
 
@@ -904,7 +904,7 @@ Signal implausible has been diagnosed.
 
 ----
 
-## <a name="type68"></a>Type=68 (0x44) - Storage fail
+## <a name="type68">Type=68 (0x44) - Storage fail</a>
     VSCP_TYPE_DIAGNOSTIC_STORAGE_FAIL
 Storage fail has been diagnosed.
 
@@ -917,7 +917,7 @@ Storage fail has been diagnosed.
 
 ----
 
-## <a name="type69"></a>Type=69 (0x45) - Self test OK
+## <a name="type69">Type=69 (0x45) - Self test OK</a>
     VSCP_TYPE_DIAGNOSTIC_SELFTEST_FAIL
 Self test OK has been diagnosed.
 
@@ -930,7 +930,7 @@ Self test OK has been diagnosed.
 
 ----
 
-## <a name="type70"></a>Type=70 (0x46) - ESD/EMC/EMI failure
+## <a name="type70">Type=70 (0x46) - ESD/EMC/EMI failure</a>
     VSCP_TYPE_DIAGNOSTIC_ESD_EMC_EMI
 ESD/EMC/EMI failure has been diagnosed.
 
@@ -943,7 +943,7 @@ ESD/EMC/EMI failure has been diagnosed.
 
 ----
 
-## <a name="type71"></a>Type=71 (0x47) - Timeout
+## <a name="type71">Type=71 (0x47) - Timeout</a>
     VSCP_TYPE_DIAGNOSTIC_TIMEOUT
 Timeout has been diagnosed.
 
@@ -956,7 +956,7 @@ Timeout has been diagnosed.
 
 ----
 
-## <a name="type72"></a>Type=72 (0x48) - LCD failure
+## <a name="type72">Type=72 (0x48) - LCD failure</a>
     VSCP_TYPE_DIAGNOSTIC_LCD_FAIL
 LCD failure has been diagnosed.
 
@@ -969,7 +969,7 @@ LCD failure has been diagnosed.
 
 ----
 
-## <a name="type73"></a>Type=73 (0x49) - Touch panel failure
+## <a name="type73">Type=73 (0x49) - Touch panel failure</a>
     VSCP_TYPE_DIAGNOSTIC_TOUCHPANEL_FAIL
 Touch panel failure has been diagnosed.
 
@@ -982,7 +982,7 @@ Touch panel failure has been diagnosed.
 
 ----
 
-## <a name="type74"></a>Type=74 (0x4A) - No load
+## <a name="type74">Type=74 (0x4A) - No load</a>
     VSCP_TYPE_DIAGNOSTIC_NOLOAD
 No load has been diagnosed.
 
@@ -995,7 +995,7 @@ No load has been diagnosed.
 
 ----
 
-## <a name="type75"></a>Type=75 (0x4B) - Cooling failure
+## <a name="type75">Type=75 (0x4B) - Cooling failure</a>
     VSCP_TYPE_DIAGNOSTIC_COOLING_FAIL
 Cooling failure has been diagnosed.
 
@@ -1008,7 +1008,7 @@ Cooling failure has been diagnosed.
 
 ----
 
-## <a name="type76"></a>Type=76 (0x4C) - Heating failure
+## <a name="type76">Type=76 (0x4C) - Heating failure</a>
     VSCP_TYPE_DIAGNOSTIC_HEATING_FAIL
 Heating failure has been diagnosed.
 
@@ -1021,7 +1021,7 @@ Heating failure has been diagnosed.
 
 ----
 
-## <a name="type77"></a>Type=77 (0x4D) - Transmission failure
+## <a name="type77">Type=77 (0x4D) - Transmission failure</a>
     VSCP_TYPE_DIAGNOSTIC_TX_FAIL
 Transmission failure has been diagnosed.
 
@@ -1034,7 +1034,7 @@ Transmission failure has been diagnosed.
 
 ----
 
-## <a name="type78"></a>Type=78 (0x4E) - Receiption failure
+## <a name="type78">Type=78 (0x4E) - Receiption failure</a>
     VSCP_TYPE_DIAGNOSTIC_RX_FAIL
 Receiption failure has been diagnosed.
 
@@ -1047,7 +1047,7 @@ Receiption failure has been diagnosed.
 
 ----
 
-## <a name="type79"></a>Type=79 (0x4F) - External IC failure
+## <a name="type79">Type=79 (0x4F) - External IC failure</a>
     VSCP_TYPE_DIAGNOSTIC_EXT_IC_FAIL
 A failure in an external IC circuit has been detected.
 

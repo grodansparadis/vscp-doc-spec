@@ -6,7 +6,7 @@
 
 This class is intended for lab usage. No production device should use this event type. 
 
-## <a name="type0"></a>Type=0 (0x00) - General event
+## <a name="type0">Type=0 (0x00) - General event</a>
     VSCP_TYPE_LABORATORY_GENERAL
 General Event.
 ----
