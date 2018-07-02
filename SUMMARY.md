@@ -37,9 +37,9 @@
     *  [VSCP over MQTT](vscp_over_mqtt.md)
     *  [VSCP Text](vscp_text.md)
 
-----
+
 {% include "./sidebar.md" %}
-----
+
 
 
 ## Level I events
