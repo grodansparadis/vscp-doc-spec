@@ -7,11 +7,11 @@
 This class mirrors the [CLASS1.INFORMATION](./class1.information.md) class but use a different data format with a GUID stored in the first 16 bytes of the data followed by the standard data thus offset with 16-bytes.
 
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
-## <a name="type0">Type=0 (0x00) - General event</a>
+## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_INFORMATION_GENERALGeneral Event.
 ----
 
-## <a name="type1">Type=1 (0x01) - Button</a>
+## Type=1 (0x01) - Button {#type1}
     VSCP_TYPE_INFORMATION_BUTTONA button has been pressed/released. 
 
  | Data byte | Description                                                                                                                                                        | 
@@ -26,7 +26,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type2">Type=2 (0x02) - Mouse</a>
+## Type=2 (0x02) - Mouse {#type2}
     VSCP_TYPE_INFORMATION_MOUSEA mouse movement has occurred. 
 
  | Data byte | Description                                                                       | 
@@ -41,7 +41,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type3">Type=3 (0x03) - On</a>
+## Type=3 (0x03) - On {#type3}
     VSCP_TYPE_INFORMATION_ONA node indicates that a condition is in its on state. Heater on, lights on are two examples. 
 
  | Data byte | Description                                                        | 
@@ -52,7 +52,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type4">Type=4 (0x04) - Off</a>
+## Type=4 (0x04) - Off {#type4}
     VSCP_TYPE_INFORMATION_OFFA node indicates that a condition is in its off state. Heater off, lights off are two examples. 
 
  | Data byte | Description                                                        | 
@@ -63,7 +63,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type5">Type=5 (0x05) - Alive</a>
+## Type=5 (0x05) - Alive {#type5}
     VSCP_TYPE_INFORMATION_ALIVEA node tells the world that it is alive. 
 
  | Data byte | Description                                                        | 
@@ -74,7 +74,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type6">Type=6 (0x06) - Terminating</a>
+## Type=6 (0x06) - Terminating {#type6}
     VSCP_TYPE_INFORMATION_TERMINATINGA node tells the world that it is terminating. 
 
  | Data byte | Description                                                        | 
@@ -87,7 +87,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type7">Type=7 (0x07) - Opened</a>
+## Type=7 (0x07) - Opened {#type7}
     VSCP_TYPE_INFORMATION_OPENEDA node indicates that an open has occurred. This can be a door/window open, a modem line open etc. 
 
  | Data byte | Description                                                        | 
@@ -98,7 +98,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type8">Type=8 (0x08) - Closed</a>
+## Type=8 (0x08) - Closed {#type8}
     VSCP_TYPE_INFORMATION_CLOSEDA node indicates that a close has occurred. This can be a door/window close, a modem line closure etc. 
 
  | Data byte | Description                                                        | 
@@ -109,7 +109,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type9">Type=9 (0x09) - Node Heartbeat</a>
+## Type=9 (0x09) - Node Heartbeat {#type9}
     VSCP_TYPE_INFORMATION_NODE_HEARTBEATHeartbeats can be used to indicate that a unit is alive or to send periodic data. This can be sent out at predefined intervals to indicate that the node is alive, however, it does not necessarily mean the node is functioning as it should. It simply states that the node is connected to the network. To check if a node is functioning, other properties such as a measurement event or registry should be used. This event should be sent as a response to a “Segment Status Heartbeat” (CLASS1.PROTOCOL, Type=1) in order to provide a method of finding out what is connected to the network. The data bytes from byte 3 and forward can be used to send a descriptive/user friendly name if desired.
 
 **Mandatory.** All nodes should send this event at least once each minute. A Level II node should normally not send this event but instead send [Level II node heartbeat](./class2.information.md#type2). Recommended interval is 30-60 seconds but in a node that need to sleep longer to save resources a longer interval can be used.
@@ -122,7 +122,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type10">Type=10 (0x0A) - Below limit</a>
+## Type=10 (0x0A) - Below limit {#type10}
     VSCP_TYPE_INFORMATION_BELOW_LIMITThis indicates that the node has a condition that is below a configurable limit. 
 
  | Data byte | Description                                                        | 
@@ -133,7 +133,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type11">Type=11 (0x0B) - Above limit</a>
+## Type=11 (0x0B) - Above limit {#type11}
     VSCP_TYPE_INFORMATION_ABOVE_LIMITThis indicates that the node has a condition that is above a configurable limit. 
 
  | Data byte | Description                                                        | 
@@ -144,7 +144,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type12">Type=12 (0x0C) - Pulse</a>
+## Type=12 (0x0C) - Pulse {#type12}
     VSCP_TYPE_INFORMATION_PULSEThis can be used for slow pulse counts. This can be an S0-pulse interface or something similar. 
 
  | Data byte | Description                                                        | 
@@ -155,7 +155,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type13">Type=13 (0x0D) - Error</a>
+## Type=13 (0x0D) - Error {#type13}
     VSCP_TYPE_INFORMATION_ERRORA node indicates that an error occurred. 
 
  | Data byte | Description                                                        | 
@@ -166,7 +166,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type14">Type=14 (0x0E) - Resumed</a>
+## Type=14 (0x0E) - Resumed {#type14}
     VSCP_TYPE_INFORMATION_RESUMEDA node indicates that it has resumed operation. 
 
  | Data byte | Description                                                        | 
@@ -177,7 +177,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type15">Type=15 (0x0F) - Paused</a>
+## Type=15 (0x0F) - Paused {#type15}
     VSCP_TYPE_INFORMATION_PAUSEDA node indicates that it has paused. 
 
  | Data byte | Description                                                        | 
@@ -188,7 +188,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type16">Type=16 (0x10) - Sleeping</a>
+## Type=16 (0x10) - Sleeping {#type16}
     VSCP_TYPE_INFORMATION_SLEEPA node indicates that it entered a sleeping state. 
 
  | Data byte | Description                                                        | 
@@ -199,7 +199,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type17">Type=17 (0x11) - Good morning</a>
+## Type=17 (0x11) - Good morning {#type17}
     VSCP_TYPE_INFORMATION_GOOD_MORNINGThe system should enter its morning state. This can be a user pressing a button to set his/her house to its morning state. 
 
  | Data byte | Description                                                        | 
@@ -210,7 +210,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type18">Type=18 (0x12) - Good day</a>
+## Type=18 (0x12) - Good day {#type18}
     VSCP_TYPE_INFORMATION_GOOD_DAYThe system should enter its day state. This can be a user pressing a button to set his/her house to its day state. 
 
  | Data byte | Description                                                        | 
@@ -221,7 +221,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type19">Type=19 (0x13) - Good afternoon</a>
+## Type=19 (0x13) - Good afternoon {#type19}
     VSCP_TYPE_INFORMATION_GOOD_AFTERNOONThe system should enter its afternoon state. This can be a user pressing a button to set his/her house to its afternoon state. 
 
  | Data byte | Description                                                        | 
@@ -232,7 +232,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type20">Type=20 (0x14) - Good evening</a>
+## Type=20 (0x14) - Good evening {#type20}
     VSCP_TYPE_INFORMATION_GOOD_EVENINGThe system should enter its evening state. This can be a user pressing a button to set his/her house to its evening state. 
 
  | Data byte | Description                                                        | 
@@ -243,7 +243,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type21">Type=21 (0x15) - Good night</a>
+## Type=21 (0x15) - Good night {#type21}
     VSCP_TYPE_INFORMATION_GOOD_NIGHTThe system should enter its night state. This can be a user pressing a button to set his/her house to its night state. 
 
  | Data byte | Description                                                        | 
@@ -254,7 +254,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type22">Type=22 (0x16) - See you soon</a>
+## Type=22 (0x16) - See you soon {#type22}
     VSCP_TYPE_INFORMATION_SEE_YOU_SOONThe system should be on a temporary alert. This can be a user locking the door to go out to the waste bin or similar situation. An alarm system should not be activated in this situation. 
 
  | Data byte | Description                                                        | 
@@ -265,7 +265,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type23">Type=23 (0x17) - Goodbye</a>
+## Type=23 (0x17) - Goodbye {#type23}
     VSCP_TYPE_INFORMATION_GOODBYEThe system should be on a goodbye alert. This can be a user locking the door to go out for a days work or similar situation. All alarm systems should be activated in this situation. 
 
  | Data byte | Description                                                        | 
@@ -276,7 +276,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type24">Type=24 (0x18) - Stop</a>
+## Type=24 (0x18) - Stop {#type24}
     VSCP_TYPE_INFORMATION_STOPA node indicates that a stop event occurred. This can for example be a motor stopping. 
 
  | Data byte | Description                                                        | 
@@ -287,7 +287,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type25">Type=25 (0x19) - Start</a>
+## Type=25 (0x19) - Start {#type25}
     VSCP_TYPE_INFORMATION_STARTA node indicates that a start event occurred. This can be a motor starting. 
 
  | Data byte | Description                                                        | 
@@ -298,7 +298,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type26">Type=26 (0x1A) - ResetCompleted</a>
+## Type=26 (0x1A) - ResetCompleted {#type26}
     VSCP_TYPE_INFORMATION_RESET_COMPLETEDA node indicates that a reset occurred. This can be a node doing a warm start. 
 
  | Data byte | Description                                                        | 
@@ -309,7 +309,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type27">Type=27 (0x1B) - Interrupted</a>
+## Type=27 (0x1B) - Interrupted {#type27}
     VSCP_TYPE_INFORMATION_INTERRUPTEDA node indicates that a reset occurred. This can also be a node doing a warm start. 
 
  | Data byte | Description                                                        | 
@@ -320,7 +320,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type28">Type=28 (0x1C) - PreparingToSleep</a>
+## Type=28 (0x1C) - PreparingToSleep {#type28}
     VSCP_TYPE_INFORMATION_PREPARING_TO_SLEEPA node indicates that a sleep event occurred. This can be a node going to its inactive state. 
 
  | Data byte | Description                                                        | 
@@ -331,7 +331,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type29">Type=29 (0x1D) - WokenUp</a>
+## Type=29 (0x1D) - WokenUp {#type29}
     VSCP_TYPE_INFORMATION_WOKEN_UPA node indicates that a wakeup event occurred. This can be a node going to it awake state. 
 
  | Data byte | Description                                                        | 
@@ -342,7 +342,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type30">Type=30 (0x1E) - Dusk</a>
+## Type=30 (0x1E) - Dusk {#type30}
     VSCP_TYPE_INFORMATION_DUSKA node indicates that the system should enter its dusk state. 
 
  | Data byte | Description                                                        | 
@@ -353,7 +353,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type31">Type=31 (0x1F) - Dawn</a>
+## Type=31 (0x1F) - Dawn {#type31}
     VSCP_TYPE_INFORMATION_DAWNA node indicates that the system should enter its dawn state. 
 
  | Data byte | Description                                                        | 
@@ -364,7 +364,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type32">Type=32 (0x20) - Active</a>
+## Type=32 (0x20) - Active {#type32}
     VSCP_TYPE_INFORMATION_ACTIVEA node indicates that its active. 
 
  | Data byte | Description                                                        | 
@@ -375,7 +375,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type33">Type=33 (0x21) - Inactive</a>
+## Type=33 (0x21) - Inactive {#type33}
     VSCP_TYPE_INFORMATION_INACTIVEA node indicates that its inactive. 
 
  | Data byte | Description                                                        | 
@@ -386,7 +386,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type34">Type=34 (0x22) - Busy</a>
+## Type=34 (0x22) - Busy {#type34}
     VSCP_TYPE_INFORMATION_BUSYA node indicates that its busy. 
 
  | Data byte | Description                                                        | 
@@ -397,7 +397,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type35">Type=35 (0x23) - Idle</a>
+## Type=35 (0x23) - Idle {#type35}
     VSCP_TYPE_INFORMATION_IDLEA node indicates that its idle. 
 
  | Data byte | Description                                                        | 
@@ -408,7 +408,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type36">Type=36 (0x24) - Stream Data</a>
+## Type=36 (0x24) - Stream Data {#type36}
     VSCP_TYPE_INFORMATION_STREAM_DATAA steam of information from a node can be reported with this event. This can be a serial RS-232 channel or some other sequential stream. 
 
  | Data byte | Description                                                                                                                                                                                                                                  | 
@@ -418,7 +418,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
 ----
 
-## <a name="type37">Type=37 (0x25) - Token Activity</a>
+## Type=37 (0x25) - Token Activity {#type37}
     VSCP_TYPE_INFORMATION_TOKEN_ACTIVITYThis event is used for cards, RFID's, iButtons, GSM phones and other identification devices. The event is generated when the token device is attached/detached to/from the system. Level II has a counterpart to this event that can take more data. CLASS2.INFORMATION Type=1
 
 Depending on the Token device type a number of this event are sent on the segment with frame index increase for each event. The total expected number can be deduced from the type. 
@@ -465,7 +465,7 @@ Depending on the Token device type a number of this event are sent on the segmen
  | 26-63 | Reserved.                         |          | 
 ----
 
-## <a name="type38">Type=38 (0x26) - Stream Data with zone</a>
+## Type=38 (0x26) - Stream Data with zone {#type38}
     VSCP_TYPE_INFORMATION_STREAM_DATA_WITH_ZONEA steam of information from a node can be reported with this event. This can be a serial RS-232 channel or some other sequential stream. 
 
  | Data byte | Description                                                                                                                                                                                                                                  | 
@@ -477,7 +477,7 @@ Depending on the Token device type a number of this event are sent on the segmen
 
 ----
 
-## <a name="type39">Type=39 (0x27) - Confirm</a>
+## Type=39 (0x27) - Confirm {#type39}
     VSCP_TYPE_INFORMATION_CONFIRMThis event can be used as a general confirm event for zoned and stream data. 
 
  | Data byte | Description                       | 
@@ -491,7 +491,7 @@ Depending on the Token device type a number of this event are sent on the segmen
 
 ----
 
-## <a name="type40">Type=40 (0x28) - Level Changed</a>
+## Type=40 (0x28) - Level Changed {#type40}
     VSCP_TYPE_INFORMATION_LEVEL_CHANGEDResponse/confirmation from ex. a dimmer control after a dimmer command or some other unit that change a level. 
 
  | Data byte | Description                                                        | 
@@ -502,7 +502,7 @@ Depending on the Token device type a number of this event are sent on the segmen
 
 ----
 
-## <a name="type41">Type=41 (0x29) - Warning</a>
+## Type=41 (0x29) - Warning {#type41}
     VSCP_TYPE_INFORMATION_WARNING A node indicates that a warning condition occurred. 
 
  | Data byte | Description                                                        | 
@@ -513,7 +513,7 @@ Depending on the Token device type a number of this event are sent on the segmen
 
 ----
 
-## <a name="type42">Type=42 (0x2A) - State</a>
+## Type=42 (0x2A) - State {#type42}
     VSCP_TYPE_INFORMATION_STATEA node indicates that a state change has occurred. Th numerical ID for the current state and the state that is about to become active is supplied. 
 
  | Data byte | Description                                                        | 
@@ -526,7 +526,7 @@ Depending on the Token device type a number of this event are sent on the segmen
 
 ----
 
-## <a name="type43">Type=43 (0x2B) - Action Trigger</a>
+## Type=43 (0x2B) - Action Trigger {#type43}
     VSCP_TYPE_INFORMATION_ACTION_TRIGGERA node indicates that an action has been triggered by this event. 
 
  | Data byte | Description                                                        | 
@@ -537,7 +537,7 @@ Depending on the Token device type a number of this event are sent on the segmen
 
 ----
 
-## <a name="type44">Type=44 (0x2C) - Sunrise</a>
+## Type=44 (0x2C) - Sunrise {#type44}
     VSCP_TYPE_INFORMATION_SUNRISEA node indicates that sunrise is detected/calculated. 
 
  | Data byte | Description                                                        | 
@@ -548,7 +548,7 @@ Depending on the Token device type a number of this event are sent on the segmen
 
 ----
 
-## <a name="type45">Type=45 (0x2D) - Sunset</a>
+## Type=45 (0x2D) - Sunset {#type45}
     VSCP_TYPE_INFORMATION_SUNSETA node indicates that sunset is detected/calculated. 
 
  | Data byte | Description                                                        | 
@@ -559,7 +559,7 @@ Depending on the Token device type a number of this event are sent on the segmen
 
 ----
 
-## <a name="type46">Type=46 (0x2E) - Start of record</a>
+## Type=46 (0x2E) - Start of record {#type46}
     VSCP_TYPE_INFORMATION_START_OF_RECORDThis event is used to mark the start of a multi-frame data transfer. This can typically be a GPS received which sends a train of events from one GPS record. The index byte can be used to distinguish record between each other. 
 
  | Data byte | Description                                                        | 
@@ -571,7 +571,7 @@ Depending on the Token device type a number of this event are sent on the segmen
 
 ----
 
-## <a name="type47">Type=47 (0x2F) - End of record</a>
+## Type=47 (0x2F) - End of record {#type47}
     VSCP_TYPE_INFORMATION_END_OF_RECORDThis event is used to mark the end of a multi-frame data transfer. The index byte can be used to distinguish record between each other. 
 
  | Data byte | Description                                                        | 
@@ -582,7 +582,7 @@ Depending on the Token device type a number of this event are sent on the segmen
 
 ----
 
-## <a name="type48">Type=48 (0x30) - Pre-set active</a>
+## Type=48 (0x30) - Pre-set active {#type48}
     VSCP_TYPE_INFORMATION_PRESET_ACTIVEThis event is used to tell the system that a pre-set configuration is active. Usually a response from a node after a CLASS1.CONTROL, Type=28 has been received by a node.
 
  | Data byte | Description                                                        | 
@@ -594,7 +594,7 @@ Depending on the Token device type a number of this event are sent on the segmen
 
 ----
 
-## <a name="type49">Type=49 (0x31) - Detect</a>
+## Type=49 (0x31) - Detect {#type49}
     VSCP_TYPE_INFORMATION_DETECTThis event is used to tell the system that a detection of some kind has occurred. 
 
  | Data byte | Description                                                        | 
@@ -607,7 +607,7 @@ The first byte is used as an index if a module have several channels or detector
 
 ----
 
-## <a name="type50">Type=50 (0x32) - Overflow</a>
+## Type=50 (0x32) - Overflow {#type50}
     VSCP_TYPE_INFORMATION_OVERFLOWThis event is used to tell the system that an overflow of some kind has occurred. 
 
  | Data byte | Description                                                        | 
@@ -620,7 +620,7 @@ The first byte is used as an index if a module have several channels or detector
 
 ----
 
-## <a name="type51">Type=51 (0x33) - Big level changed</a>
+## Type=51 (0x33) - Big level changed {#type51}
     VSCP_TYPE_INFORMATION_BIG_LEVEL_CHANGEDThis is meant to be used as a confirmation event for CLASS1.CONTROL, Type=33 events.
 
  | Data byte | Description                                                                                               | 
@@ -632,7 +632,7 @@ The first byte is used as an index if a module have several channels or detector
 
 ----
 
-## <a name="type52">Type=52 (0x34) - Civil sunrise twilight time</a>
+## Type=52 (0x34) - Civil sunrise twilight time {#type52}
     VSCP_TYPE_INFORMATION_SUNRISE_TWILIGHT_STARTCivil twilight is the period when the Sun is below the horizon but its center is less than 6 degrees below. The "Civil Twilight Starts" time is the dawn or civil dawn, with the center of the Sun at exactly 6 degrees below the horizon. Equally, the "Civil Twilight Ends" time is dusk or civil dusk, when the Sun is 6 degrees below the horizon in the evening.
 
 During civil twilight, the sky is still illuminated, and with clear weather it is brightest in the direction of the Sun. The Moon and the brightest stars and planets may be visible. It is usually bright enough for outdoor activities without additional lighting.
@@ -651,7 +651,7 @@ A node indicates that sunrise twilight time is detected/calculated.
 
 ----
 
-## <a name="type53">Type=53 (0x35) - Civil sunset twilight time</a>
+## Type=53 (0x35) - Civil sunset twilight time {#type53}
     VSCP_TYPE_INFORMATION_SUNSET_TWILIGHT_STARTA node indicates that sunset twilight time is detected/calculated.
 
 Civil twilight is the period when the Sun is below the horizon but its center is less than 6 degrees below. The "Civil Twilight Starts" time is the dawn or civil dawn, with the center of the Sun at exactly 6 degrees below the horizon. Equally, the "Civil Twilight Ends" time is dusk or civil dusk, when the Sun is 6 degrees below the horizon in the evening.
@@ -670,7 +670,7 @@ Technically, the start and end times are when the true geocentric position of th
 
 ----
 
-## <a name="type54">Type=54 (0x36) - Nautical sunrise twilight time</a>
+## Type=54 (0x36) - Nautical sunrise twilight time {#type54}
     VSCP_TYPE_INFORMATION_NAUTICAL_SUNRISE_TWILIGHT_STARTA node indicates that nautical sunrise twilight time is detected/calculated. 
 
 Nautical twilight is the period when the center of the Sun is between 6 and 12 degrees below the horizon, when bright stars are still visible in clear weather and the horizon is becoming visible. It is too dark to do outdoor activities without additional lighting.
@@ -689,7 +689,7 @@ Technically, the start and end times are when the true geocentric position of th
 
 ----
 
-## <a name="type55">Type=55 (0x37) - Nautical sunset twilight time</a>
+## Type=55 (0x37) - Nautical sunset twilight time {#type55}
     VSCP_TYPE_INFORMATION_NAUTICAL_SUNSET_TWILIGHT_STARTA node indicates that nautical sunset twilight time is detected/calculated.
 
 Nautical twilight is the period when the center of the Sun is between 6 and 12 degrees below the horizon, when bright stars are still visible in clear weather and the horizon is becoming visible. It is too dark to do outdoor activities without additional lighting.
@@ -708,7 +708,7 @@ Technically, the start and end times are when the true geocentric position of th
 
 ----
 
-## <a name="type56">Type=56 (0x38) - Astronomical sunrise twilight time</a>
+## Type=56 (0x38) - Astronomical sunrise twilight time {#type56}
     VSCP_TYPE_INFORMATION_ASTRONOMICAL_SUNRISE_TWILIGHT_STARTA node indicates that astronomical sunrise twilight time is detected/calculated. 
 
 Astronomical twilight is the period when the center of the Sun is between 12 and 18 degrees below the horizon. It starts at astronomical dawn, early in the morning when the Sun is higher than 18 degrees below the horizon. From this point, it will be difficult to observe certain faint stars, galaxies, and other objects because the Sun starts to illuminate the sky. Astronomical twilight ends at astronomical dusk in the late evening, when those faint objects again can be visible because the Sun is lower than 18 degrees below the horizon. In locations north of 48°24' N or south of 48°24', it never gets darker than this near the middle of the summer solstice (June or December).
@@ -725,7 +725,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
 
 ----
 
-## <a name="type57">Type=57 (0x39) - Astronomical sunset twilight time</a>
+## Type=57 (0x39) - Astronomical sunset twilight time {#type57}
     VSCP_TYPE_INFORMATION_ASTRONOMICAL_SUNSET_TWILIGHT_STARTA node indicates that astronomical sunset twilight time is detected/calculated.
 
 Astronomical twilight is the period when the center of the Sun is between 12 and 18 degrees below the horizon. It starts at astronomical dawn, early in the morning when the Sun is higher than 18 degrees below the horizon. From this point, it will be difficult to observe certain faint stars, galaxies, and other objects because the Sun starts to illuminate the sky. Astronomical twilight ends at astronomical dusk in the late evening, when those faint objects again can be visible because the Sun is lower than 18 degrees below the horizon. In locations north of 48°24' N or south of 48°24', it never gets darker than this near the middle of the summer solstice (June or December).
@@ -742,7 +742,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
 
 ----
 
-## <a name="type58">Type=58 (0x3A) - Calculated Noon</a>
+## Type=58 (0x3A) - Calculated Noon {#type58}
     VSCP_TYPE_INFORMATION_CALCULATED_NOONThis event is used for reporting of a calculated noon (real noon).
 
  | Data byte | Description                                                        | 
@@ -753,7 +753,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
 
 ----
 
-## <a name="type59">Type=59 (0x3B) - Shutter up</a>
+## Type=59 (0x3B) - Shutter up {#type59}
     VSCP_TYPE_INFORMATION_SHUTTER_UPShutter is moving up.
 
  | Data byte | Description                                                        | 
@@ -764,7 +764,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
 
 ----
 
-## <a name="type60">Type=60 (0x3C) - Shutter down</a>
+## Type=60 (0x3C) - Shutter down {#type60}
     VSCP_TYPE_INFORMATION_SHUTTER_DOWNShutter is moving down.
 
  | Data byte | Description                                                        | 
@@ -775,7 +775,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
 
 ----
 
-## <a name="type61">Type=61 (0x3D) - Shutter left</a>
+## Type=61 (0x3D) - Shutter left {#type61}
     VSCP_TYPE_INFORMATION_SHUTTER_LEFTShutter is moving left.
 
  | Data byte | Description                                                        | 
@@ -786,7 +786,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
 
 ----
 
-## <a name="type62">Type=62 (0x3E) - Shutter right</a>
+## Type=62 (0x3E) - Shutter right {#type62}
     VSCP_TYPE_INFORMATION_SHUTTER_RIGHTShutter is moving right.
 
  | Data byte | Description                                                        | 
@@ -797,7 +797,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
 
 ----
 
-## <a name="type63">Type=63 (0x3F) - Shutter reached top end</a>
+## Type=63 (0x3F) - Shutter reached top end {#type63}
     VSCP_TYPE_INFORMATION_SHUTTER_END_TOPShutter reached top end.
 
  | Data byte | Description                                                        | 
@@ -809,7 +809,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
 
 ----
 
-## <a name="type64">Type=64 (0x40) - Shutter reached bottom end</a>
+## Type=64 (0x40) - Shutter reached bottom end {#type64}
     VSCP_TYPE_INFORMATION_SHUTTER_END_BOTTOMShutter reached bottom end.
 
  | Data byte | Description                                                        | 
@@ -820,7 +820,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
 
 ----
 
-## <a name="type65">Type=65 (0x41) - Shutter reached middle end</a>
+## Type=65 (0x41) - Shutter reached middle end {#type65}
     VSCP_TYPE_INFORMATION_SHUTTER_END_MIDDLEShutter reached middle end.
 
  | Data byte | Description                                                        | 
@@ -831,7 +831,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
 
 ----
 
-## <a name="type66">Type=66 (0x42) - Shutter reached preset end</a>
+## Type=66 (0x42) - Shutter reached preset end {#type66}
     VSCP_TYPE_INFORMATION_SHUTTER_END_PRESETShutter reached preset end.
 
  | Data byte | Description                                                        | 
@@ -842,7 +842,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
 
 ----
 
-## <a name="type67">Type=67 (0x43) - Shutter reached preset left</a>
+## Type=67 (0x43) - Shutter reached preset left {#type67}
     VSCP_TYPE_INFORMATION_SHUTTER_END_LEFTShutter reached preset left.
 
  | Data byte | Description                                                        | 
@@ -853,7 +853,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
 
 ----
 
-## <a name="type68">Type=68 (0x44) - Shutter reached preset right</a>
+## Type=68 (0x44) - Shutter reached preset right {#type68}
     VSCP_TYPE_INFORMATION_SHUTTER_END_RIGHTShutter reached preset right.
 
  | Data byte | Description                                                        | 
@@ -864,7 +864,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
 
 ----
 
-## <a name="type69">Type=69 (0x45) - Long click</a>
+## Type=69 (0x45) - Long click {#type69}
     VSCP_TYPE_INFORMATION_LONG_CLICKLong click detected.
 
  | Data byte | Description                                                        | 
@@ -875,7 +875,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
 
 ----
 
-## <a name="type70">Type=70 (0x46) - Single click</a>
+## Type=70 (0x46) - Single click {#type70}
     VSCP_TYPE_INFORMATION_SINGLE_CLICKSingle click detected.
 
  | Data byte | Description                                                        | 
@@ -886,7 +886,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
 
 ----
 
-## <a name="type71">Type=71 (0x47) - Double click</a>
+## Type=71 (0x47) - Double click {#type71}
     VSCP_TYPE_INFORMATION_DOUBLE_CLICKDouble click detected.
 
  | Data byte | Description                                                        | 
@@ -897,7 +897,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
 
 ----
 
-## <a name="type72">Type=72 (0x48) - Date</a>
+## Type=72 (0x48) - Date {#type72}
     VSCP_TYPE_INFORMATION_DATEA device generated a date event. Time is UTC. 
 
  | Data byte | Description                                                        | 
@@ -914,7 +914,7 @@ See also [CLASS1.INFORMATION, Type=77](./class1.information.md#type77) which com
 
 ----
 
-## <a name="type73">Type=73 (0x49) - Time</a>
+## Type=73 (0x49) - Time {#type73}
     VSCP_TYPE_INFORMATION_TIMEA device generated a time event. Time is UTC. 
 
  | Data byte | Description                                                        | 
@@ -932,7 +932,7 @@ See also [CLASS1.INFORMATION, Type=77](./class1.information.md#type77) which com
 
 ----
 
-## <a name="type74">Type=74 (0x4A) - Weekday</a>
+## Type=74 (0x4A) - Weekday {#type74}
     VSCP_TYPE_INFORMATION_WEEKDAYA device generated a weekday event.
 
  | Data byte | Description                                                        | 
@@ -944,7 +944,7 @@ See also [CLASS1.INFORMATION, Type=77](./class1.information.md#type77) which com
 
 ----
 
-## <a name="type75">Type=75 (0x4B) - Lock</a>
+## Type=75 (0x4B) - Lock {#type75}
     VSCP_TYPE_INFORMATION_LOCKA device got locked.
 
  | Data byte | Description                                                        | 
@@ -955,7 +955,7 @@ See also [CLASS1.INFORMATION, Type=77](./class1.information.md#type77) which com
 
 ----
 
-## <a name="type76">Type=76 (0x4C) - Unlock</a>
+## Type=76 (0x4C) - Unlock {#type76}
     VSCP_TYPE_INFORMATION_UNLOCKA device got unlocked.
 
  | Data byte | Description                                                        | 
@@ -966,7 +966,7 @@ See also [CLASS1.INFORMATION, Type=77](./class1.information.md#type77) which com
 
 ----
 
-## <a name="type77">Type=77 (0x4D) - DateTime</a>
+## Type=77 (0x4D) - DateTime {#type77}
     VSCP_TYPE_INFORMATION_DATETIMEA device generated a date/time event. Time is UTC. 
 
  | Data byte | Description                                                        | 

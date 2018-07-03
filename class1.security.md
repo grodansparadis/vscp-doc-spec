@@ -6,12 +6,12 @@
 
 Security related events for alarms and similar devices. 
 
-## <a name="type0">Type=0 (0x00) - General event</a>
+## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_SECURITY_GENERAL
 General Event.
 ----
 
-## <a name="type1">Type=1 (0x01) - Motion Detect</a>
+## Type=1 (0x01) - Motion Detect {#type1}
     VSCP_TYPE_SECURITY_MOTION
 A motion has been detected. 
 
@@ -25,7 +25,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## <a name="type2">Type=2 (0x02) - Glass break</a>
+## Type=2 (0x02) - Glass break {#type2}
     VSCP_TYPE_SECURITY_GLASS_BREAK
 A glass break event has been detected. 
 
@@ -39,7 +39,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## <a name="type3">Type=3 (0x03) - Beam break</a>
+## Type=3 (0x03) - Beam break {#type3}
     VSCP_TYPE_SECURITY_BEAM_BREAK
 A beam break event has been detected. 
 
@@ -53,7 +53,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## <a name="type4">Type=4 (0x04) - Sensor tamper</a>
+## Type=4 (0x04) - Sensor tamper {#type4}
     VSCP_TYPE_SECURITY_SENSOR_TAMPER
 A sensor tamper has been detected. 
 
@@ -67,7 +67,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## <a name="type5">Type=5 (0x05) - Shock sensor</a>
+## Type=5 (0x05) - Shock sensor {#type5}
     VSCP_TYPE_SECURITY_SHOCK_SENSOR
 A shock sensor event has been detected. 
 
@@ -81,7 +81,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## <a name="type6">Type=6 (0x06) - Smoke sensor</a>
+## Type=6 (0x06) - Smoke sensor {#type6}
     VSCP_TYPE_SECURITY_SMOKE_SENSOR
 A smoke sensor event has been detected. 
 
@@ -95,7 +95,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## <a name="type7">Type=7 (0x07) - Heat sensor</a>
+## Type=7 (0x07) - Heat sensor {#type7}
     VSCP_TYPE_SECURITY_HEAT_SENSOR
 A heat sensor event has been detected. 
 
@@ -109,7 +109,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## <a name="type8">Type=8 (0x08) - Panic switch</a>
+## Type=8 (0x08) - Panic switch {#type8}
     VSCP_TYPE_SECURITY_PANIC_SWITCH
 A panic switch event has been detected. 
 
@@ -123,7 +123,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## <a name="type9">Type=9 (0x09) - Door Contact</a>
+## Type=9 (0x09) - Door Contact {#type9}
     VSCP_TYPE_SECURITY_DOOR_OPEN
 Indicates a door sensor reports that a door is open. 
 
@@ -137,7 +137,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## <a name="type10">Type=10 (0x0A) - Window Contact</a>
+## Type=10 (0x0A) - Window Contact {#type10}
     VSCP_TYPE_SECURITY_WINDOW_OPEN
 Indicates a window sensor reports that a window is open.
 
@@ -151,7 +151,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## <a name="type11">Type=11 (0x0B) - CO Sensor</a>
+## Type=11 (0x0B) - CO Sensor {#type11}
     VSCP_TYPE_SECURITY_CO_SENSOR
 CO sensor has detected CO at non secure level
 
@@ -165,7 +165,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## <a name="type12">Type=12 (0x0C) - Frost detected</a>
+## Type=12 (0x0C) - Frost detected {#type12}
     VSCP_TYPE_SECURITY_FROST_DETECTED
 A frost sensor condition is detected
 
@@ -179,7 +179,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## <a name="type13">Type=13 (0x0D) - Flame detected</a>
+## Type=13 (0x0D) - Flame detected {#type13}
     VSCP_TYPE_SECURITY_FLAME_DETECTED
 Flame is detected.
 
@@ -193,7 +193,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## <a name="type14">Type=14 (0x0E) - Oxygen Low</a>
+## Type=14 (0x0E) - Oxygen Low {#type14}
     VSCP_TYPE_SECURITY_OXYGEN_LOW
 Low oxygen level detected.
 
@@ -207,7 +207,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## <a name="type15">Type=15 (0x0F) - Weight detected.</a>
+## Type=15 (0x0F) - Weight detected. {#type15}
     VSCP_TYPE_SECURITY_WEIGHT_DETECTED
 Weight-detector triggered.
 
@@ -221,7 +221,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## <a name="type16">Type=16 (0x10) - Water detected.</a>
+## Type=16 (0x10) - Water detected. {#type16}
     VSCP_TYPE_SECURITY_WATER_DETECTED
 Water has been detected.
 
@@ -235,7 +235,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## <a name="type17">Type=17 (0x11) - Condensation detected.</a>
+## Type=17 (0x11) - Condensation detected. {#type17}
     VSCP_TYPE_SECURITY_CONDENSATION_DETECTED
 Condensation (humidity) detected.
 
@@ -249,7 +249,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## <a name="type18">Type=18 (0x12) - Noise (sound) detected.</a>
+## Type=18 (0x12) - Noise (sound) detected. {#type18}
     VSCP_TYPE_SECURITY_SOUND_DETECTED
 Noise (sound) has been detected.
 
@@ -263,7 +263,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## <a name="type19">Type=19 (0x13) - Harmful sound levels detected.</a>
+## Type=19 (0x13) - Harmful sound levels detected. {#type19}
     VSCP_TYPE_SECURITY_HARMFUL_SOUND_LEVEL
 Harmful sound levels detected.
 
@@ -277,7 +277,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## <a name="type20">Type=20 (0x14) - Tamper detected.</a>
+## Type=20 (0x14) - Tamper detected. {#type20}
     VSCP_TYPE_SECURITY_TAMPER
 Tamper detected.
 

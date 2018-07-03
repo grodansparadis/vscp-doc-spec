@@ -7,11 +7,11 @@
 This class mirrors the [CLASS1.PHONE](./class1.phone.md) class but use a different data format with a GUID stored in the first 16 bytes of the data followed by the standard data thus offset with 16-bytes.
 
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
-## <a name="type0">Type=0 (0x00) - General event</a>
+## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_PHONE_GENERALGeneral Event.
 ----
 
-## <a name="type1">Type=1 (0x01) - Incoming call</a>
+## Type=1 (0x01) - Incoming call {#type1}
     VSCP_TYPE_PHONE_INCOMING_CALLThere is an incoming phone call. Usually a caller ID node just sends out numerical information. A database event can follow (later) that contains the real text information.
 
 Phone calls are reported in the following form
@@ -47,7 +47,7 @@ Calls from unlisted numbers are presented as
 
 ----
 
-## <a name="type2">Type=2 (0x02) - Outgoing call</a>
+## Type=2 (0x02) - Outgoing call {#type2}
     VSCP_TYPE_PHONE_OUTGOING_CALLThere is an outgoing phone call. 
 
  | Byte | Description | 
@@ -59,7 +59,7 @@ Calls from unlisted numbers are presented as
 
 ----
 
-## <a name="type3">Type=3 (0x03) - Ring</a>
+## Type=3 (0x03) - Ring {#type3}
     VSCP_TYPE_PHONE_RINGThis is a event indicating that there is a “ring” for this call. 
 
  | Byte | Description | 
@@ -68,7 +68,7 @@ Calls from unlisted numbers are presented as
 
 ----
 
-## <a name="type4">Type=4 (0x04) - Answer</a>
+## Type=4 (0x04) - Answer {#type4}
     VSCP_TYPE_PHONE_ANSWERThe call has been answered. 
 
  | Byte | Description | 
@@ -79,7 +79,7 @@ Calls from unlisted numbers are presented as
 
 ----
 
-## <a name="type5">Type=5 (0x05) - Hangup</a>
+## Type=5 (0x05) - Hangup {#type5}
     VSCP_TYPE_PHONE_HANGUPThe call has been terminated by the receiving end. 
 
  | Byte | Description | 
@@ -89,7 +89,7 @@ Calls from unlisted numbers are presented as
 
 ----
 
-## <a name="type6">Type=6 (0x06) - Giveup</a>
+## Type=6 (0x06) - Giveup {#type6}
     VSCP_TYPE_PHONE_GIVEUPThe call has been terminated by the originating end. byte 
 
 | Byte | Description | 
@@ -99,7 +99,7 @@ Calls from unlisted numbers are presented as
 
 ----
 
-## <a name="type7">Type=7 (0x07) - Transfer</a>
+## Type=7 (0x07) - Transfer {#type7}
     VSCP_TYPE_PHONE_TRANSFERThe call has been transferred. byte 
 
  | Byte | Description | 
@@ -109,7 +109,7 @@ Calls from unlisted numbers are presented as
 
 ----
 
-## <a name="type8">Type=8 (0x08) - Database Info</a>
+## Type=8 (0x08) - Database Info {#type8}
     VSCP_TYPE_PHONE_DATABASE_INFO Call database info.
  
  | Byte | Description | 

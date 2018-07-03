@@ -7,7 +7,7 @@
 This class mirrors the [CLASS1.DIAGNOSTIC](./class1.diagnostic.md) class but use a different data format with a GUID stored in the first 16 bytes of the data followed by the standard data thus offset with 16-bytes.
 
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
-## <a name="type0">Type=0 (0x00) - General event</a>
+## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_DIAGNOSTIC_GENERALGeneral Event. 
 
 
@@ -20,7 +20,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
         
 ----
 
-## <a name="type1">Type=1 (0x01) - Overvoltage</a>
+## Type=1 (0x01) - Overvoltage {#type1}
     VSCP_TYPE_DIAGNOSTIC_OVERVOLTAGEOver voltage has been diagnosed. 
 
  | Data byte | Description                                                                                       | 
@@ -32,7 +32,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type2">Type=2 (0x02) - Undervoltage</a>
+## Type=2 (0x02) - Undervoltage {#type2}
     VSCP_TYPE_DIAGNOSTIC_UNDERVOLTAGEUnder voltage has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -44,7 +44,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type3">Type=3 (0x03) - USB VBUS low</a>
+## Type=3 (0x03) - USB VBUS low {#type3}
     VSCP_TYPE_DIAGNOSTIC_VBUS_LOWLow voltage on USB VBUS has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -56,7 +56,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type4">Type=4 (0x04) - Battery voltage low</a>
+## Type=4 (0x04) - Battery voltage low {#type4}
     VSCP_TYPE_DIAGNOSTIC_BATTERY_LOWLow battery voltage has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -69,7 +69,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type5">Type=5 (0x05) - Battery full voltage</a>
+## Type=5 (0x05) - Battery full voltage {#type5}
     VSCP_TYPE_DIAGNOSTIC_BATTERY_FULLBattery full voltage has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -81,7 +81,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type6">Type=6 (0x06) - Battery error</a>
+## Type=6 (0x06) - Battery error {#type6}
     VSCP_TYPE_DIAGNOSTIC_BATTERY_ERRORBattery error has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -93,7 +93,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type7">Type=7 (0x07) - Battery OK</a>
+## Type=7 (0x07) - Battery OK {#type7}
     VSCP_TYPE_DIAGNOSTIC_BATTERY_OKFunctional battery has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -106,7 +106,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type8">Type=8 (0x08) - Over current</a>
+## Type=8 (0x08) - Over current {#type8}
     VSCP_TYPE_DIAGNOSTIC_OVERCURRENTOver current has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -119,7 +119,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type9">Type=9 (0x09) - Circuit error</a>
+## Type=9 (0x09) - Circuit error {#type9}
     VSCP_TYPE_DIAGNOSTIC_CIRCUIT_ERRORCircuit error has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -132,7 +132,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type10">Type=10 (0x0A) - Short circuit</a>
+## Type=10 (0x0A) - Short circuit {#type10}
     VSCP_TYPE_DIAGNOSTIC_SHORT_CIRCUITShort circuit has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -144,7 +144,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type11">Type=11 (0x0B) - Open Circuit</a>
+## Type=11 (0x0B) - Open Circuit {#type11}
     VSCP_TYPE_DIAGNOSTIC_OPEN_CIRCUITOpen Circuit has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -156,7 +156,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type12">Type=12 (0x0C) - Moist</a>
+## Type=12 (0x0C) - Moist {#type12}
     VSCP_TYPE_DIAGNOSTIC_MOISTMoist has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -168,7 +168,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type13">Type=13 (0x0D) - Wire failure</a>
+## Type=13 (0x0D) - Wire failure {#type13}
     VSCP_TYPE_DIAGNOSTIC_WIRE_FAILWire failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -180,7 +180,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type14">Type=14 (0x0E) - Wireless faliure</a>
+## Type=14 (0x0E) - Wireless faliure {#type14}
     VSCP_TYPE_DIAGNOSTIC_WIRELESS_FAILWireless faliure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -192,7 +192,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type15">Type=15 (0x0F) - IR failure</a>
+## Type=15 (0x0F) - IR failure {#type15}
     VSCP_TYPE_DIAGNOSTIC_IR_FAILIR failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -204,7 +204,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type16">Type=16 (0x10) - 1-wire failure</a>
+## Type=16 (0x10) - 1-wire failure {#type16}
     VSCP_TYPE_DIAGNOSTIC_1WIRE_FAIL1-wire failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -216,7 +216,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type17">Type=17 (0x11) - RS-222 failure</a>
+## Type=17 (0x11) - RS-222 failure {#type17}
     VSCP_TYPE_DIAGNOSTIC_RS222_FAILRS-222 failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -228,7 +228,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type18">Type=18 (0x12) - RS-232 failure</a>
+## Type=18 (0x12) - RS-232 failure {#type18}
     VSCP_TYPE_DIAGNOSTIC_RS232_FAILRS-232 failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -240,7 +240,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type19">Type=19 (0x13) - RS-423 failure</a>
+## Type=19 (0x13) - RS-423 failure {#type19}
     VSCP_TYPE_DIAGNOSTIC_RS423_FAILRS-423 failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -253,7 +253,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type20">Type=20 (0x14) - RS-485 failure</a>
+## Type=20 (0x14) - RS-485 failure {#type20}
     VSCP_TYPE_DIAGNOSTIC_RS485_FAILRS-485 failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -265,7 +265,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type21">Type=21 (0x15) - CAN failure</a>
+## Type=21 (0x15) - CAN failure {#type21}
     VSCP_TYPE_DIAGNOSTIC_CAN_FAILCAN failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -278,7 +278,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type22">Type=22 (0x16) - LAN failure</a>
+## Type=22 (0x16) - LAN failure {#type22}
     VSCP_TYPE_DIAGNOSTIC_LAN_FAILLAN failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -290,7 +290,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type23">Type=23 (0x17) - USB failure</a>
+## Type=23 (0x17) - USB failure {#type23}
     VSCP_TYPE_DIAGNOSTIC_USB_FAILUSB failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -302,7 +302,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type24">Type=24 (0x18) - Wifi failure</a>
+## Type=24 (0x18) - Wifi failure {#type24}
     VSCP_TYPE_DIAGNOSTIC_WIFI_FAILWifi failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -314,7 +314,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type25">Type=25 (0x19) - NFC/RFID failure</a>
+## Type=25 (0x19) - NFC/RFID failure {#type25}
     VSCP_TYPE_DIAGNOSTIC_NFC_RFID_FAILNFC/RFID failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -326,7 +326,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type26">Type=26 (0x1A) - Low signal</a>
+## Type=26 (0x1A) - Low signal {#type26}
     VSCP_TYPE_DIAGNOSTIC_LOW_SIGNALLow signal has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -338,7 +338,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type27">Type=27 (0x1B) - High signal</a>
+## Type=27 (0x1B) - High signal {#type27}
     VSCP_TYPE_DIAGNOSTIC_HIGH_SIGNALHigh signal has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -351,7 +351,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type28">Type=28 (0x1C) - ADC failure</a>
+## Type=28 (0x1C) - ADC failure {#type28}
     VSCP_TYPE_DIAGNOSTIC_ADC_FAILADC failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -363,7 +363,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type29">Type=29 (0x1D) - ALU failure</a>
+## Type=29 (0x1D) - ALU failure {#type29}
     VSCP_TYPE_DIAGNOSTIC_ALU_FAILALU failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -375,7 +375,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type30">Type=30 (0x1E) - Assert</a>
+## Type=30 (0x1E) - Assert {#type30}
     VSCP_TYPE_DIAGNOSTIC_ASSERTAn assert has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -387,7 +387,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type31">Type=31 (0x1F) - DAC failure</a>
+## Type=31 (0x1F) - DAC failure {#type31}
     VSCP_TYPE_DIAGNOSTIC_DAC_FAILDAC failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -399,7 +399,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type32">Type=32 (0x20) - DMA failure</a>
+## Type=32 (0x20) - DMA failure {#type32}
     VSCP_TYPE_DIAGNOSTIC_DMA_FAILDMA failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -411,7 +411,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type33">Type=33 (0x21) - Ethernet failure</a>
+## Type=33 (0x21) - Ethernet failure {#type33}
     VSCP_TYPE_DIAGNOSTIC_ETH_FAILEthernet failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -424,7 +424,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type34">Type=34 (0x22) - Exception</a>
+## Type=34 (0x22) - Exception {#type34}
     VSCP_TYPE_DIAGNOSTIC_EXCEPTIONException has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -436,7 +436,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type35">Type=35 (0x23) - FPU failure</a>
+## Type=35 (0x23) - FPU failure {#type35}
     VSCP_TYPE_DIAGNOSTIC_FPU_FAILFloating point unit (FPU) failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -448,7 +448,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type36">Type=36 (0x24) - GPIO failure</a>
+## Type=36 (0x24) - GPIO failure {#type36}
     VSCP_TYPE_DIAGNOSTIC_GPIO_FAILGeneral purpose I/O (GPIO) failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -460,7 +460,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type37">Type=37 (0x25) - I2C failure</a>
+## Type=37 (0x25) - I2C failure {#type37}
     VSCP_TYPE_DIAGNOSTIC_I2C_FAILI2C failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -472,7 +472,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type38">Type=38 (0x26) - I2S failure</a>
+## Type=38 (0x26) - I2S failure {#type38}
     VSCP_TYPE_DIAGNOSTIC_I2S_FAILI2C failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -484,7 +484,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type39">Type=39 (0x27) - Invalid configuration</a>
+## Type=39 (0x27) - Invalid configuration {#type39}
     VSCP_TYPE_DIAGNOSTIC_INVALID_CONFIGInvalid configuration has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -496,7 +496,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type40">Type=40 (0x28) - MMU failure</a>
+## Type=40 (0x28) - MMU failure {#type40}
     VSCP_TYPE_DIAGNOSTIC_MMU_FAILMemory Management Unit (MMU) failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -508,7 +508,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type41">Type=41 (0x29) - NMI failure</a>
+## Type=41 (0x29) - NMI failure {#type41}
     VSCP_TYPE_DIAGNOSTIC_NMINon mask-able interrupt (NMI) failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -520,7 +520,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type42">Type=42 (0x2A) - Overheat</a>
+## Type=42 (0x2A) - Overheat {#type42}
     VSCP_TYPE_DIAGNOSTIC_OVERHEATOverheat has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -532,7 +532,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type43">Type=43 (0x2B) - PLL fail</a>
+## Type=43 (0x2B) - PLL fail {#type43}
     VSCP_TYPE_DIAGNOSTIC_PLL_FAILPhased Locked Loop (PLL) fail has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -544,7 +544,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type44">Type=44 (0x2C) - POR failure</a>
+## Type=44 (0x2C) - POR failure {#type44}
     VSCP_TYPE_DIAGNOSTIC_POR_FAILPower ON Reset (POR) fail has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -556,7 +556,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type45">Type=45 (0x2D) - PWM failure</a>
+## Type=45 (0x2D) - PWM failure {#type45}
     VSCP_TYPE_DIAGNOSTIC_PWM_FAILPulse Width Modulation (PWM) failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -568,7 +568,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type46">Type=46 (0x2E) - RAM failure</a>
+## Type=46 (0x2E) - RAM failure {#type46}
     VSCP_TYPE_DIAGNOSTIC_RAM_FAILRandom Access Memory (RAM) failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -580,7 +580,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type47">Type=47 (0x2F) - ROM failure</a>
+## Type=47 (0x2F) - ROM failure {#type47}
     VSCP_TYPE_DIAGNOSTIC_ROM_FAILRead only memory (ROM) failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -592,7 +592,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type48">Type=48 (0x30) - SPI failure</a>
+## Type=48 (0x30) - SPI failure {#type48}
     VSCP_TYPE_DIAGNOSTIC_SPI_FAILSerial peripheral interface (SPI) failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -604,7 +604,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type49">Type=49 (0x31) - Stack failure</a>
+## Type=49 (0x31) - Stack failure {#type49}
     VSCP_TYPE_DIAGNOSTIC_STACK_FAILStack failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -617,7 +617,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type50">Type=50 (0x32) - LIN bus failure</a>
+## Type=50 (0x32) - LIN bus failure {#type50}
     VSCP_TYPE_DIAGNOSTIC_LIN_FAILLIN bus failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -630,7 +630,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type51">Type=51 (0x33) - UART failure</a>
+## Type=51 (0x33) - UART failure {#type51}
     VSCP_TYPE_DIAGNOSTIC_UART_FAILUART failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -642,7 +642,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type52">Type=52 (0x34) - Unhandled interrupt</a>
+## Type=52 (0x34) - Unhandled interrupt {#type52}
     VSCP_TYPE_DIAGNOSTIC_UNHANDLED_INTUnhandled interrupt has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -654,7 +654,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type53">Type=53 (0x35) - Memory failure</a>
+## Type=53 (0x35) - Memory failure {#type53}
     VSCP_TYPE_DIAGNOSTIC_MEMORY_FAILMemory failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -666,7 +666,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type54">Type=54 (0x36) - Variable range failure</a>
+## Type=54 (0x36) - Variable range failure {#type54}
     VSCP_TYPE_DIAGNOSTIC_VARIABLE_RANGEVariable range failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -678,7 +678,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type55">Type=55 (0x37) - WDT failure</a>
+## Type=55 (0x37) - WDT failure {#type55}
     VSCP_TYPE_DIAGNOSTIC_WDTWatch Dog Timer (WDT) failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -690,7 +690,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type56">Type=56 (0x38) - EEPROM failure</a>
+## Type=56 (0x38) - EEPROM failure {#type56}
     VSCP_TYPE_DIAGNOSTIC_EEPROM_FAILEEPROM failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -702,7 +702,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type57">Type=57 (0x39) - Encryption failure</a>
+## Type=57 (0x39) - Encryption failure {#type57}
     VSCP_TYPE_DIAGNOSTIC_ENCRYPTION_FAILEncryption failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -714,7 +714,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type58">Type=58 (0x3A) - Bad user input failure</a>
+## Type=58 (0x3A) - Bad user input failure {#type58}
     VSCP_TYPE_DIAGNOSTIC_BAD_USER_INPUTBad user input failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -726,7 +726,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type59">Type=59 (0x3B) - Decryption failure</a>
+## Type=59 (0x3B) - Decryption failure {#type59}
     VSCP_TYPE_DIAGNOSTIC_DECRYPTION_FAILDecryption failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -738,7 +738,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type60">Type=60 (0x3C) - Noise</a>
+## Type=60 (0x3C) - Noise {#type60}
     VSCP_TYPE_DIAGNOSTIC_NOISENoise has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -750,7 +750,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type61">Type=61 (0x3D) - Boot loader failure</a>
+## Type=61 (0x3D) - Boot loader failure {#type61}
     VSCP_TYPE_DIAGNOSTIC_BOOTLOADER_FAILBoot loader failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -763,7 +763,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type62">Type=62 (0x3E) - Program flow failure</a>
+## Type=62 (0x3E) - Program flow failure {#type62}
     VSCP_TYPE_DIAGNOSTIC_PROGRAMFLOW_FAILProgram flow failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -775,7 +775,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type63">Type=63 (0x3F) - RTC faiure</a>
+## Type=63 (0x3F) - RTC faiure {#type63}
     VSCP_TYPE_DIAGNOSTIC_RTC_FAILReal Time Clock (RTC) failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -787,7 +787,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type64">Type=64 (0x40) - System test failure</a>
+## Type=64 (0x40) - System test failure {#type64}
     VSCP_TYPE_DIAGNOSTIC_SYSTEM_TEST_FAILSystem test failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -799,7 +799,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type65">Type=65 (0x41) - Sensor failure</a>
+## Type=65 (0x41) - Sensor failure {#type65}
     VSCP_TYPE_DIAGNOSTIC_SENSOR_FAILSensor failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -811,7 +811,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type66">Type=66 (0x42) - Safe state entered</a>
+## Type=66 (0x42) - Safe state entered {#type66}
     VSCP_TYPE_DIAGNOSTIC_SAFESTATESafe state entered has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -823,7 +823,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type67">Type=67 (0x43) - Signal implausible</a>
+## Type=67 (0x43) - Signal implausible {#type67}
     VSCP_TYPE_DIAGNOSTIC_SIGNAL_IMPLAUSIBLESignal implausible has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -835,7 +835,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type68">Type=68 (0x44) - Storage fail</a>
+## Type=68 (0x44) - Storage fail {#type68}
     VSCP_TYPE_DIAGNOSTIC_STORAGE_FAILStorage fail has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -847,7 +847,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type69">Type=69 (0x45) - Self test OK</a>
+## Type=69 (0x45) - Self test OK {#type69}
     VSCP_TYPE_DIAGNOSTIC_SELFTEST_FAILSelf test OK has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -859,7 +859,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type70">Type=70 (0x46) - ESD/EMC/EMI failure</a>
+## Type=70 (0x46) - ESD/EMC/EMI failure {#type70}
     VSCP_TYPE_DIAGNOSTIC_ESD_EMC_EMIESD/EMC/EMI failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -871,7 +871,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type71">Type=71 (0x47) - Timeout</a>
+## Type=71 (0x47) - Timeout {#type71}
     VSCP_TYPE_DIAGNOSTIC_TIMEOUTTimeout has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -883,7 +883,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type72">Type=72 (0x48) - LCD failure</a>
+## Type=72 (0x48) - LCD failure {#type72}
     VSCP_TYPE_DIAGNOSTIC_LCD_FAILLCD failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -895,7 +895,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type73">Type=73 (0x49) - Touch panel failure</a>
+## Type=73 (0x49) - Touch panel failure {#type73}
     VSCP_TYPE_DIAGNOSTIC_TOUCHPANEL_FAILTouch panel failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -907,7 +907,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type74">Type=74 (0x4A) - No load</a>
+## Type=74 (0x4A) - No load {#type74}
     VSCP_TYPE_DIAGNOSTIC_NOLOADNo load has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -919,7 +919,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type75">Type=75 (0x4B) - Cooling failure</a>
+## Type=75 (0x4B) - Cooling failure {#type75}
     VSCP_TYPE_DIAGNOSTIC_COOLING_FAILCooling failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -931,7 +931,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type76">Type=76 (0x4C) - Heating failure</a>
+## Type=76 (0x4C) - Heating failure {#type76}
     VSCP_TYPE_DIAGNOSTIC_HEATING_FAILHeating failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -943,7 +943,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type77">Type=77 (0x4D) - Transmission failure</a>
+## Type=77 (0x4D) - Transmission failure {#type77}
     VSCP_TYPE_DIAGNOSTIC_TX_FAILTransmission failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -955,7 +955,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type78">Type=78 (0x4E) - Receiption failure</a>
+## Type=78 (0x4E) - Receiption failure {#type78}
     VSCP_TYPE_DIAGNOSTIC_RX_FAILReceiption failure has been diagnosed.
 
  | Data byte | Description                                                                                       | 
@@ -967,7 +967,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type79">Type=79 (0x4F) - External IC failure</a>
+## Type=79 (0x4F) - External IC failure {#type79}
     VSCP_TYPE_DIAGNOSTIC_EXT_IC_FAILA failure in an external IC circuit has been detected.
 
  | Data byte | Description                                                                                       | 

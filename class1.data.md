@@ -6,12 +6,12 @@
 
 Representation for different general data types. **Byte 0** is the data coding byte described [here](./data_coding.md). Unit may not have meaning for some of the types and should be set to zero in that case.
 
-## <a name="type0">Type=0 (0x00) - General event</a>
+## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_DATA_GENERAL
 General event.
 ----
 
-## <a name="type1">Type=1 (0x01) - I/O value</a>
+## Type=1 (0x01) - I/O value {#type1}
     VSCP_TYPE_DATA_IO
 General I/O value. First data byte defines format. 
 
@@ -22,7 +22,7 @@ General I/O value. First data byte defines format.
 
 ----
 
-## <a name="type2">Type=2 (0x02) - A/D value</a>
+## Type=2 (0x02) - A/D value {#type2}
     VSCP_TYPE_DATA_AD
 General A/D value. First data byte defines format. 
 
@@ -33,7 +33,7 @@ General A/D value. First data byte defines format.
 
 ----
 
-## <a name="type3">Type=3 (0x03) - D/A value</a>
+## Type=3 (0x03) - D/A value {#type3}
     VSCP_TYPE_DATA_DA
 General D/A value. First data byte defines format. 
 
@@ -44,7 +44,7 @@ General D/A value. First data byte defines format.
 
 ----
 
-## <a name="type4">Type=4 (0x04) - Relative strength</a>
+## Type=4 (0x04) - Relative strength {#type4}
     VSCP_TYPE_DATA_RELATIVE_STRENGTH
 Relative strength.  
 
@@ -66,7 +66,7 @@ Units for Level II are the same as for Level I for the first four units.
 
 ----
 
-## <a name="type5">Type=5 (0x05) - Signal Level</a>
+## Type=5 (0x05) - Signal Level {#type5}
     VSCP_TYPE_DATA_SIGNAL_LEVEL
 Signal Level is a relative strength value that (as default) has its maximum at 100 and minimum at 0 interpreted as a percentage. For a digital transmission Signal Level it can be used to give an indication of the analogue signal and [CLASS1.DATA, Type = 6, Signal Quality](./class1.data.md#type6) can be used to give an indication of the quality of the digital part as BER (Bit Error Ratio) for example.
 
@@ -86,7 +86,7 @@ Units for Level II are the same as for Level I for the first four units.
 
 ----
 
-## <a name="type6">Type=6 (0x06) - Signal Quality</a>
+## Type=6 (0x06) - Signal Quality {#type6}
     VSCP_TYPE_DATA_SIGNAL_QUALITY
 Signal Quality be used to give an indication of the quality of the digital part as BER (Bit Error Ratio) for example. 
 
@@ -107,7 +107,7 @@ Units for Level II are the same as for Level I for the first four units.
 
 ----
 
-## <a name="type7">Type=7 (0x07) - Count value</a>
+## Type=7 (0x07) - Count value {#type7}
     VSCP_TYPE_DATA_COUNT
 General counter value. First data byte defines format. 
 

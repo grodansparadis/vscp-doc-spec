@@ -36,12 +36,12 @@ The first character after the % is the escape-type. This character is case sensi
  | **e**       | **Event data:** Event data escapes. The format is <br>**%eclass,type,r**<br> where class and type tells which event is of interest and r have the same format as the r escape | 
 
 The above is just a recommendation. Anyone can of course use any format they like.
-## <a name="type0">Type=0 (0x00) - General event</a>
+## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_DISPLAY_GENERAL
 General Event.
 ----
 
-## <a name="type1">Type=1 (0x01) - Clear Display</a>
+## Type=1 (0x01) - Clear Display {#type1}
     VSCP_TYPE_DISPLAY_CLEAR_DISPLAY
 Clear the display on displays in a certain zone,sub-zone. 
 
@@ -53,7 +53,7 @@ Clear the display on displays in a certain zone,sub-zone.
 
 ----
 
-## <a name="type2">Type=2 (0x02) - Position cursor</a>
+## Type=2 (0x02) - Position cursor {#type2}
     VSCP_TYPE_DISPLAY_POSITION_CURSOR
 Move the cursor to a specific position on displays in a certain zone,sub-zone. 
 
@@ -68,7 +68,7 @@ Move the cursor to a specific position on displays in a certain zone,sub-zone.
 
 ----
 
-## <a name="type3">Type=3 (0x03) - Write Display</a>
+## Type=3 (0x03) - Write Display {#type3}
     VSCP_TYPE_DISPLAY_WRITE_DISPLAY
 Write to display(s) in a certain zone,sub-zone. The update of the display is immediate. 
 
@@ -83,7 +83,7 @@ Index is increased by one for each event that builds up a specific event. If nee
 
 ----
 
-## <a name="type4">Type=4 (0x04) - Write Display buffer</a>
+## Type=4 (0x04) - Write Display buffer {#type4}
     VSCP_TYPE_DISPLAY_WRITE_DISPLAY_BUFFER
 Write to the buffers of displays in a certain zone,sub-zone. The update of the display is is not done right away but is instead done when the Show Buffer event is received by the display unit. 
 
@@ -100,7 +100,7 @@ Many LCD displays allow definition of special characters. Use this event to defi
 
 ----
 
-## <a name="type5">Type=5 (0x05) - Show Display Buffer</a>
+## Type=5 (0x05) - Show Display Buffer {#type5}
     VSCP_TYPE_DISPLAY_SHOW_DISPLAY_BUFFER
 Tells displays in a certain zone,sub-zone to display the content in their display buffers. The update of the display is immediate. 
 
@@ -112,7 +112,7 @@ Tells displays in a certain zone,sub-zone to display the content in their displa
 
 ----
 
-## <a name="type6">Type=6 (0x06) - Set Display Buffer Parameter</a>
+## Type=6 (0x06) - Set Display Buffer Parameter {#type6}
     VSCP_TYPE_DISPLAY_SET_DISPLAY_BUFFER_PARAM
 With this call a display buffer parameter can be sent to a display. This parameter is inserted at the escape position %pn in the string in the buffer *when the buffer is transferred to the display*.
 
@@ -128,7 +128,7 @@ Note that the event have one byte less then standard measurement events so all c
 
 ----
 
-## <a name="type32">Type=32 (0x20) - Show Text</a>
+## Type=32 (0x20) - Show Text {#type32}
     VSCP_TYPE_DISPLAY_SHOW_TEXT
 This event contains information that should be displayed on displays pointed out by zone/sub-zone.
 
@@ -149,7 +149,7 @@ For a multi line display one can use different sub-zones o address different lin
 
 ----
 
-## <a name="type48">Type=48 (0x30) - Set LED</a>
+## Type=48 (0x30) - Set LED {#type48}
     VSCP_TYPE_DISPLAY_SHOW_LED
 This event contains information that should be displayed on LED(s) pointed out by zone/sub-zone. 
 
@@ -168,7 +168,7 @@ Blink period can be omitted if not used or if blink period is defined hard.
 
 ----
 
-## <a name="type49">Type=49 (0x31) - Set RGB Color</a>
+## Type=49 (0x31) - Set RGB Color {#type49}
     VSCP_TYPE_DISPLAY_SHOW_LED_COLOR
 This event set the color for LED(s) pointed out by zone/sub-zone. 
 

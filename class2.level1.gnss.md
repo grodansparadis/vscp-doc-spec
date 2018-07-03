@@ -7,11 +7,11 @@
 This class mirrors the [CLASS1.GNSS](./class1.gnss.md) class but use a different data format with a GUID stored in the first 16 bytes of the data followed by the standard data thus offset with 16-bytes.
 
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
-## <a name="type0">Type=0 (0x00) - General event</a>
+## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_GNSS_GENERALGeneral Event.
 ----
 
-## <a name="type1">Type=1 (0x01) - Position</a>
+## Type=1 (0x01) - Position {#type1}
     VSCP_TYPE_GNSS_POSITIONPosition information as decimal Latitude + Longitude. 
 
  | Byte | Description                        | 
@@ -21,7 +21,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
-## <a name="type2">Type=2 (0x02) - Satellites</a>
+## Type=2 (0x02) - Satellites {#type2}
     VSCP_TYPE_GNSS_SATELLITESNumber of satellites used. 
 
  | Byte | Description                | 
