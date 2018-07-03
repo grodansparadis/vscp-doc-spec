@@ -16,875 +16,728 @@ Measurements with zone information. This class mirrors the standard measurement 
 
 
 
-## Type=0 (0x00) - General event. {#type0}
-    VSCP_TYPE_PROTOCOL_GENERALGeneral Event.
+## Type=0 (0x00) - General event {#type0}
+    VSCP_TYPE_MEASUREMENT_GENERALGeneral Event.
 ----
 
-## Type=1 (0x01) - Segment Controller Heartbeat. {#type1}
-    VSCP_TYPE_PROTOCOL_SEGCTRL_HEARTBEAT**Not mandatory.** Implement in device if needed by application. 
-
-A segment controller sends this event once a second on the segment that it controls. The data field contains the 8-bit CRC of the segment controller GUID and the time since the epoch (00:00:00 UTC, January 1, 1970) as a 32-bit value. A node that receive (and recognize) this event could respond with a CLASS1.INFORMATION, Type=9 event (HEARTBEAT) and should do so if it does not send out a regular heartbeat event.
-
-Other nodes can originate this event on the segment. For these nodes the data part, as specified below, should be omitted. A better choice for periodic heartbeat events from a node may be [CLASS1.INFORMATION, Type=9 (HEARTBEAT)](./class1.information.md#type9)
-
-All nodes that recognize this event should save the 8-bit CRC in non-volatile storage and use it on power up. When a node starts up on a segment it should begin to listen for the Segment controller heartbeat. When/if it is received the node compares it with the stored value and if equal and the node is assigned a nickname-ID it continues to its working mode. If different, the node has detected that it has been moved to a new segment and therefore must drop its nickname-ID and enters the configuration mode to obtain a new nickname-ID from the segment controller.
-
-If the node is in working mode and its nickname-ID changes, the node should do a complete restart after first setting all controls to their default state.
-
-As a segment can be without a segment controller this event is not available on all segments and is not mandatory. 
+## Type=1 (0x01) - Count {#type1}
+    VSCP_TYPE_MEASUREMENT_COUNTThis is a discrete value typical for a count. There is no unit for this measurement just a discrete value. 
 
  | Data byte | Description | 
  | :---------: | ----------- | 
- | 0 | 8-bit CRC of the segment controller GUID. | 
- | 1 | MSB of time since epoch (optional). |
- | 2  | Time since epoch (optional). | 
- | 3         | Time since epoch (optional).|
- | 4         | LSB of time since epoch | 
-
-Uninitiated nodes have the CRC of the segment controller set to 0xFF.
-
-A node that is initialized on a segment and does not receive a Heartbeat can take the role of segment controller if it wishes to do so. Only one node one a segment are allowed to do this fully by setting its nickname=0 and therefore a standard node should not have this feature built in. Any node can however behave like a segment controller but use a nickname other then zero. 
-
-Time is UTC.
+ | 0         | Data coding. | 
+ | 1-7       | Data with format defined by byte 0. |
 ----
 
-## Type=2 (0x02) - New node on line / Probe. {#type2}
-    VSCP_TYPE_PROTOCOL_NEW_NODE_ONLINE**Mandatory.** Must be implemented by all devices.
+## Type=2 (0x02) - Length/Distance {#type2}
+    VSCP_TYPE_MEASUREMENT_LENGTH**Default unit:** Meter. 
 
-This is intended for nodes that have been initiated, is part of the segment and is powered up. All nodes that have a nickname-ID that is not set to 0xFF should send this event before they go on line to do their “day to day” work.
+This is a measurement of a length or a distance.
 
-Normally all nodes should save their assigned nickname-ID in non-volatile memory and use this assigned ID when powered up. A segment controller can however keep track of nodes that it controls and reassign the ID to a node that it did not get a new node on-line event from. This is the method a segment controller uses to detect nodes that have been removed from the segment.
-
-For the nickname discovery procedure this event is used as the probe. The difference between a probe and a new node on line is that the later has the same originating nickname as value in byte 0.
-
-If a node send this event with the unassigned ID 0xFF and byte 0 set to 0xFF it has given up the search for a free ID.
-
-It is recommended that also level II nodes send this event when they come alive. In this case the target address is the 16-byte data GUID of the node with MSB in the first byte. 
-
- | Data | Description | 
- | :----: | ----------- | 
- | 0    | **Target address**. This is the probe nickname that the new node is using to test if this is a valid target node. If there is a node with this nickname address it should answer with probe ACK. A probe always has 0xff as it's own temporary nickname while a new node on line use a non 0xff nickname. | 
-
-On a Level II system.
-
- | Data | Description | 
- | :----: | ----------- | 
- | 0-15 | **GUID**. This is the GUID of the node. MSB in byte 0. | 
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 ----
 
-## Type=3 (0x03) - Probe ACK. {#type3}
-    VSCP_TYPE_PROTOCOL_PROBE_ACK**Mandatory.** Must be implemented by all devices.
+## Type=3 (0x03) - Mass {#type3}
+    VSCP_TYPE_MEASUREMENT_MASS**Default unit:** Kilogram.
 
-This event is sent from a node as a response to a probe. There are no arguments.
+This is a measurement of a mass. 
 
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=4 (0x04) - Reserved for future use. {#type4}
-    VSCP_TYPE_PROTOCOL_RESERVED4Reserved for future use.
-----
+## Type=4 (0x04) - Time {#type4}
+    VSCP_TYPE_MEASUREMENT_TIMEA time measurement.
 
-## Type=5 (0x05) - Reserved for future use. {#type5}
-    VSCP_TYPE_PROTOCOL_RESERVED5Reserved for future use.
-----
+**Default unit:** Seconds.  
+**Opt. unit:** (1) Milliseconds. Absolute: (2) y-y-m-d-h-m-s (binary). String: (3) "HHMMSS". 
 
-## Type=6 (0x06) - Set nickname-ID for node. {#type6}
-    VSCP_TYPE_PROTOCOL_SET_NICKNAME**Mandatory.** Must be implemented by all devices.
-
-This event can be used to change the nickname for a node. The node just uses the new nickname and don't start nickname discovery or similar.
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0  | Old nickname for node. | 
- | 1  | The new nickname for the node. | 
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=7 (0x07) - Nickname-ID accepted. {#type7}
-    VSCP_TYPE_PROTOCOL_NICKNAME_ACCEPTED**Mandatory.** Must be implemented by all devices.
+## Type=5 (0x05) - Electric Current {#type5}
+    VSCP_TYPE_MEASUREMENT_ELECTRIC_CURRENT**Default unit:** Ampere.
 
-A node sends this event to confirm that it accepts its assigned nickname-ID. When sending this event the node uses its newly assigned nickname address.
+This is a measurement of an electric current. 
 
-----
-
-## Type=8 (0x08) - Drop nickname-ID / Reset Device. {#type8}
-    VSCP_TYPE_PROTOCOL_DROP_NICKNAME**Mandatory.** Must be implemented by all devices.
-
-Request a node to drop its nickname. The node should drop its nickname and then behave in the same manner as when it was first powered up on the segment. 
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0  | The current nickname for the node. |
- | 1  | **Optional:** Flags. | 
- | 2  | **Optional:** Time the node should wait before it starts a nickname discovery or starts the device. The time is in seconds. | 
-
-**Optional byte 1 flags**
-
- | Bit | Description | 
- | :---: | ----------- | 
- | 0   | Reserved. | 
- | 1   | Reserved. | 
- | 2   | Reserved. | 
- | 3   | Reserved. | 
- | 4   | Reserved. | 
- | 5   | Reset device. Keep nickname. | 
- | 6   | Set persistent storage to default.| 
- | 7   | Go idle. Do not start up again. | 
-
-So if byte 1 and 2 is not in event restart device, set default parameters and do a nickname discovery. If byte 1 and 2 are present and bit 5 is set load defaults into device, restart but keep nickname. In all cases byte 2 delays before the node is restarted.
-
- 1.  With just one byte as an argument. The node should do a standard node discovery in the same way as if the status button of the node is pressed. Preserve initiated data,
- 2.  If byte 1 is present bit 5: Just restart. Don't change any data. not even nickname. bit 6: Restart write default to persistent storage. bit 7: die die my darling. If both bit 5 and 6 is set, do 5 and then 6 == 6 or do 6 and then 5 == 6
- 3.  Byte 1 + byte 2 Wait this amount of seconds after the above operation has been carried out.
-
-There is a variant of this where the GUID is used instead of the nickname to identify the device, [CLASS1.PROTOCOL, Type=23 (GUID drop nickname-ID / reset device.)](./class1.protocol.md#type23).
-
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=9 (0x09) - Read register. {#type9}
-    VSCP_TYPE_PROTOCOL_READ_REGISTER**Mandatory.** Must be implemented by all devices.
+## Type=6 (0x06) - Temperature {#type6}
+    VSCP_TYPE_MEASUREMENT_TEMPERATURE**Default unit:** Kelvin.  
+**Opt. unit:** Degree Celsius (1), Fahrenheit (2)
 
-Read a register from a node. 
+This is a measurement of a temperature. 
 
-*If a node have several pages with user defined registers Extended Register Read is a better choice to choose for reading as the page also is set when reading register using that type. The standard registers can always be read without setting a page though as they are always mapped into the upper 128 bytes.*
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | Node address. | 
- | 1 | Register to read. | 
-
-A read/write response event is returned on success.
-
-The following format can be used for nodes on a Level II segment as a midway between a full Level II handling as specified in Class=1024 and Level I.
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0-15 | GUID (MSB -> LSB). | 
- | 16 | Reserved. | 
- | 17 | Register to read. | 
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=10 (0x0A) - Read/Write response. {#type10}
-    VSCP_TYPE_PROTOCOL_RW_RESPONSE**Mandatory.** Must be implemented by all devices.
+## Type=7 (0x07) - Amount of substance {#type7}
+    VSCP_TYPE_MEASUREMENT_AMOUNT_OF_SUBSTANCE**Default unit:** Mole.
 
-Response for a read/write event. . Note that the data is returned for both a read and a write and can and probably should be checked for validity. 
+This is a measurement of an amount of a substance. 
 
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | Register read/written. | 
- | 1 | Content of register.   | 
-
-
+ | Data byte | Description                         | 
+ | --------- | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=11 (0x0B) - Write register. {#type11}
-    VSCP_TYPE_PROTOCOL_WRITE_REGISTER**Mandatory.** Must be implemented by all devices.
+## Type=8 (0x08) - Luminous Intensity (Intensity of light) {#type8}
+    VSCP_TYPE_MEASUREMENT_INTENSITY_OF_LIGHT**Default unit:** Candela.
 
-Write register content to a node. 
+This is a measurement of luminous intensity. 
 
-*If a node have several pages with user defined registers Extended Register Write is a better choice to choose for writing as the page is also set when writing a register using that type. The standard registers can always be read without setting a page though as they are always mapped into the upper 128 bytes.*
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | Node address.         | 
- | 1 | Register to write.    | 
- | 2 | Content for register. | 
-
-A read/write response event is returned on success.
-
-The following format can be used for nodes on a Level II segment as a midway between a full Level II handling as specified in Class=1024 and Level I. 
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0-15 | GUID (MSB -> LSB). | 
- | 16 | Reserved. | 
- | 17 | Register to write.   | 
- | 18 | Content of register. | 
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=12 (0x0C) - Enter boot loader mode. {#type12}
-    VSCP_TYPE_PROTOCOL_ENTER_BOOT_LOADER
-**Mandatory.** Must be implemented by all devices.
+## Type=9 (0x09) - Frequency {#type9}
+    VSCP_TYPE_MEASUREMENT_FREQUENCY
+**Default unit:** Hertz.
 
-Send NACK (Class=0,Type=14 if no boot-loader implemented)
+This is a measurement of regular events during a second. 
 
-This is the first event in the boot loader sequence. The node should stop all other activities when in boot loader mode. This also means that the node should not react on other events (commands) then the boot loader related.
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | The nickname for the node. | 
- | 1 | Code that select boot loader algorithm to use. | 
- | 2 | GUID byte 0 (MSB) | 
- | 3 | GUID byte 3 (MSB + 3) | 
- | 4 | GUID byte 5 (MSB + 5) | 
- | 5 | GUID byte 7 (MSB + 7) | 
- | 6 | Content of register 0x92, Page select MSB. | 
- | 7 | Content of register 0x93, Page select LSB. | 
-
-The following format can be used for nodes on a Level II segment as a midway between a full Level II handling as specified in Class=1024 and Level I. 
-
- | Data byte | Description |
- | :---------: | ----------- | 
- | 0-15 | GUID. | 
- | 16   | Boot-loader algorithm code. | 
-
-**Boot-loader Codes**
- | Code | Algorithm               | 
- | :----: | ---------               | 
- | 0x00 | VSCP algorithm.         | 
- | 0x01 | Microchip PIC algorithm | 
- | 0x10 | Atmel AVR algorithm 0   | 
- | 0x20 | NXP ARM algorithm 0     | 
- | 0x30 | ST ARM algorithm 0      | 
-
-All other codes reserved.
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=13 (0x0D) - ACK boot loader mode. {#type13}
-    VSCP_TYPE_PROTOCOL_ACK_BOOT_LOADER**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
+## Type=10 (0x0A) - Radioactivity and other random events {#type10}
+    VSCP_TYPE_MEASUREMENT_RADIOACTIVITY**Default unit:** becquerel.
+**Optional unit:** curie (1)
 
-This event has no meaning for any node that is not in boot mode and should be disregarded.
+This is a measurement of rates of things, which happen randomly, or are unpredictable. 
 
-The node confirms that it has entered boot loader mode. This is only sent for the VSCP boot loader algorithm. 
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | MSB of flash block size.            | 
- | 1 | Flash block size.                   | 
- | 2 | Flash block size.                   | 
- | 3 | LSB of flash block size.            | 
- | 4 | MSB of number of block s available. | 
- | 5 | Number of block s available.        | 
- | 6 | Number of block s available.        | 
- | 7 | LSB of number of blocks available.  |
-
- 
-----
-
-## Type=14 (0x0E) - NACK boot loader mode. {#type14}
-    VSCP_TYPE_PROTOCOL_NACK_BOOT_LOADER**Mandatory.** Should be implemented by all devices.
-
-The node was unable to enter boot loader mode. The reason is given by a user specified error code byte. This event has no meaning for any node that is not in boot mode and should be disregarded.
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | Optional user defined error code. | 
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=15 (0x0F) - Start block data transfer. {#type15}
-    VSCP_TYPE_PROTOCOL_START_BLOCK**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
+## Type=11 (0x0B) - Force {#type11}
+    VSCP_TYPE_MEASUREMENT_FORCE**Default unit:** newton.
 
-Begin transfer of data for a block of memory. This event has no meaning for any node that is not in boot mode and should be disregarded.
+This is a measurement of force. 
 
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0         | MSB of block number. | 
- | 1         | Block number. | 
- | 2         | Block number. | 
- | 3         | LSB of block number. | 
- | 4         | (optional) Type of Memory we want to write. See table below | 
- | 5         | (optional) Bank/Image to be written Used together with byte 4 to specify either separate Flash or EEPROM/MRAM spaces. If absent or set to zero normally, means first memory from the view of the node creator, e.g. internal Flash, internal EEPROM etc. Useful for projects that have internal as well as external EEPROMs so the external one could be addressed with byte5=1. Also with byte4=0 and byte5=1 an SD-Card as well as a second firmware image inside the flash could be addressed. | 
-
-**Type of memory to write (byte 4)**
- | Memory type | Description | 
- | :-----------: | ----------- | 
- | 0 or byte absent | PROGRAM Flash (status quo for old nodes) | 
- | 1 | DATA (EEPROM, MRAM, FRAM) | 
- | 2 | CONFIG (Fuses, CPU configuration) | 
- | 3 | RAM | 
- | 4-255  | Currently undefined - send a NACK as response | 
-
-Response can be 
-
-   [CLASS1.PROTOCOL, Type=50 (Start block data transfer ACK)](./class1.protocol.md#type50) 
-   
-   or 
-   
-   [CLASS1.PROTOCOL, Type=51 (Start block data transfer NACK)](./class1.protocol.md#type51).
-----
-
-## Type=16 (0x10) - Block data. {#type16}
-    VSCP_TYPE_PROTOCOL_BLOCK_DATA**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
-
-Data for a block of memory. This event has no meaning for any node that is not in boot mode and should be disregarded.
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0         | Data.       | 
- | 1         | Data.       | 
- | 2         | Data.       | 
- | 3         | Data.       | 
- | 4         | Data.       | 
- | 5         | Data.       | 
- | 6         | Data.       | 
- | 7         | Data.       | 
-
-A [CLASS1.PROTOCOL, Type=50 (Block Data ACK)](./class1.protocol.md#type50)
-is sent as a response for each event received.
-
-A [CLASS1.PROTOCOL, Type=51 (Block Data NACK)](./class1.protocol.md#type51)
-is sent on failure.
-
-**Note** If the block to fill is not a multiple of eight the receiving node should handle and discard any excess data. This is true also if more block data frames are received than the block can hold.
-
-**Level II** The size of the block is 1-max data.
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=17 (0x11) - ACK data block. {#type17}
-    VSCP_TYPE_PROTOCOL_BLOCK_DATA_ACK**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
+## Type=12 (0x0C) - Pressure {#type12}
+    VSCP_TYPE_MEASUREMENT_PRESSURE**Default unit:** pascal.  
+**Opt. unit:** bar (1), psi (2)
 
-Confirm the reception of a complete data block. This event has no meaning for any node that is not in boot mode and should be disregarded.
+This is a measurement of pressure. 
 
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | MSB of 16-bit CRC for block. | 
- | 1 | LSB for 16-bit CRC for block. | 
- | 2 | MSB of write pointer.         | 
- | 3 | write pointer.                | 
- | 4 | write pointer.                | 
- | 5 | LSB of write pointer.         | 
-
-The write pointer is the actual pointer after the last data has been written i,e the next position on which data will be written. 
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=18 (0x12) - NACK data block. {#type18}
-    VSCP_TYPE_PROTOCOL_BLOCK_DATA_NACK
-**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
+## Type=13 (0x0D) - Energy {#type13}
+    VSCP_TYPE_MEASUREMENT_ENERGY**Default unit:** Joule.  
+**Optional unit:** KWh (1)
 
-NACK the reception of data block. This event has no meaning for any node that is not in boot mode and should be disregarded.
+This is a measurement of energy. 
 
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | User defined error code. | 
- | 1 | MSB of write pointer.    | 
- | 2 | write pointer.           | 
- | 3 | write pointer.           | 
- | 4 | LSB of write pointer.    | 
-
-The write pointer is the actual pointer after the last data has been written i,e the next position on which data will be written. 
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=19 (0x13) - Program data block. {#type19}
-    VSCP_TYPE_PROTOCOL_PROGRAM_BLOCK_DATA**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
+## Type=14 (0x0E) - Power {#type14}
+    VSCP_TYPE_MEASUREMENT_POWER**Default unit:** watt.  
+**Optional unit:** Horse power (1).
 
-Request from a node to program a data block that has been uploaded and confirmed. This event has no meaning for any node that is not in boot mode and should be disregarded.
+This is a measurement of power. 
 
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | MSB of block number. | 
- | 1 | Block number.        | 
- | 2 | Block number.        | 
- | 3 | LSB of block number. | 
-
-----
-
-## Type=20 (0x14) - ACK program data block. {#type20}
-    VSCP_TYPE_PROTOCOL_PROGRAM_BLOCK_DATA_ACK**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
-
-A node confirms the successful programming of a block. This event has no meaning for any node that is not in boot mode and should be disregarded.
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | MSB of block number. | 
- | 1 | Block number.        | 
- | 2 | Block number.        | 
- | 3 | LSB of block number. | 
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=21 (0x15) - NACK program data block. {#type21}
-    VSCP_TYPE_PROTOCOL_PROGRAM_BLOCK_DATA_NACK**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
+## Type=15 (0x0F) - Electrical Charge {#type15}
+    VSCP_TYPE_MEASUREMENT_ELECTRICAL_CHARGE**Default unit:** coulomb.
 
-A node failed to program a data block. This event has no meaning for any node that is not in boot mode and should be disregarded.
+This is a measurement electrical charge. 
 
- | Data byte | Description              | 
- | :---------: | -----------              | 
- | 0         | User defined error code. | 
- | 1         | MSB of block number.     | 
- | 2         | Block number.            | 
- | 3         | Block number.            | 
- | 4         | LSB of block number.     | 
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=22 (0x16) - Activate new image. {#type22}
-    VSCP_TYPE_PROTOCOL_ACTIVATE_NEW_IMAGE**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
+## Type=16 (0x10) - Electrical Potential (Voltage) {#type16}
+    VSCP_TYPE_MEASUREMENT_ELECTRICAL_POTENTIAL**Default unit:** volt.
 
-This command is sent as the last command during the boot-loader sequence. It resets the device and starts it up using the newly loaded code. The 16-bit CRC for the entire program block is sent as an argument. This must be correct for the reset/activation to be performed. NACK boot loader mode will be sent if the CRC is not correct and the node will not leave boot loader mode. 
+This is a measurement of electrical potential. 
 
- | Data byte | Description | 
- | :-------: | ----------- | 
- | 0 | 16 bit CRC of full flash data block, MSB | 
- | 1 | 16 bit CRC of full flash data block LSB  | 
-
-To leave boot mode just send this event and a dummy CRC. Other methods could have been used to load the code but it can still be activated with this event as long as the CRC is correct. This event has no meaning for any node that is not in boot mode and should be disregarded. 
-
-Response can be 
-
-[CLASS1.PROTOCOL, Type=48 (Activate new image ACK)](./class1.protocol.md#type48)
-
-or
-
-[CLASS1.PROTOCOL, Type=49 (Activate new image NACK)](./class1.protocol.md#type49). 
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=23 (0x17) - GUID drop nickname-ID / reset device. {#type23}
-    VSCP_TYPE_PROTOCOL_RESET_DEVICE**Mandatory.** Should be implemented by all devices.
+## Type=17 (0x11) - Electrical Capacitance {#type17}
+    VSCP_TYPE_MEASUREMENT_ELECTRICAL_CAPACITANCE**Default unit:** farad (F).
 
-> Added in version 1.4.0
+This is a measurement of electric capacitance.
 
-This is a variant of Class=0, Type=8 but here the full GUID is used instead of the nickname to identify the node that should drop its current nickname and enter the node-name discovery procedure.
-
-As the GUID is 16 bytes this is a multi-frame event. To ease the storage requirements on the nodes only four GUID bytes are send in each frame. The frames must be sent out within one second interval. 
-
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0         | index.      | 
- | 1         | GUID byte.  | 
- | 2         | GUID byte.  | 
- | 3         | GUID byte.  | 
- | 4         | GUID byte.  | 
-
-where index goes from 0-3 and GUID bytes are sent MSB first, like
-
- | Index = Byte 0 | Byte 1 | Byte 2 | Byte 3 | Byte 4 | 
- | -------------- | ------       | ------       | ------       | ------       | 
- | Index = 0      | GUID byte 15 | GUID byte 14 | GUID byte 13 | GUID byte 12 | 
- | Index = 1      | GUID byte 11 | GUID byte 10 | GUID byte 9  | GUID byte 8  | 
- | Index = 2      | GUID byte 7  | GUID byte 6  | GUID byte 5  | GUID byte 4  | 
- | Index = 3      | GUID byte 3  | GUID byte 2  | GUID byte 1  | GUID byte 0  | 
-
-A device can use just one byte to detect this. This byte is initialized to zero and holds four bits that match correct frames. That is, when this register is equal to 0x0f the nickname should be dropped and the nickname discovery sequence started. The node must also have a timer that reset this byte one second after any of the above frames have been received or when the nickname discovery sequence is started.
-
-Hi-level software must take this one second interval into account when more then one node should be initialized. This event can be used to assign nickname-IDs to silent nodes. This is nodes that does not start the nickname discovery process on startup and instead just sits and wait until they are assigned an ID with this event. 
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=24 (0x18) - Page read. {#type24}
-    VSCP_TYPE_PROTOCOL_PAGE_READ**Mandatory.** Should be implemented by all devices.
+## Type=18 (0x12) - Electrical Resistance {#type18}
+    VSCP_TYPE_MEASUREMENT_ELECTRICAL_RESISTANCE**Default unit:** ohm (Ω).
 
-The page read is implemented to make it possible to read/write larger blocks of data. Two register positions are reserved to select a base into this storage. This is a 16-bit number pointing to a 256-byte page. This means that a total of 65535 * 256 bytes are accessible with this method (page 0 is the standard registers).
+This is a measurement of resistance. 
 
-To read a block of data from the storage, first write the base registers then issue this event and n events will be sent out from the node containing the data from the specified area. If the count pass the border it of the page ( > 0xFF) the transfer will end there.
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+----
 
-Note that the page select registers only selects a virtual page that can be accessed with page read/write and not with the ordinary read/write.
+## Type=19 (0x13) - Electrical Conductance {#type19}
+    VSCP_TYPE_MEASUREMENT_ELECTRICAL_CONDUCTANCE**Default unit:** siemens.
 
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | Node-ID which registers should be read. | 
- | 1 | Index into page. | 
- | 2 | Number of bytes to read (1-255). | 
+This is a measurement of electrical conductance. 
 
-Response is 
-
-[CLASS1.PROTOCOL, Type=26 (Read page response)](./class1.protocol.md#type26)
-
-
-The following format can be used for nodes on a Level II segment as a midway between a full Level II handling as specified in Class=1024 and Level I. 
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0-15 | GUID. |
- | 16 | Index into page. | 
- | 17 | Number of bytes to read (1-255). | 
-
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=25 (0x19) - Page write. {#type25}
-    VSCP_TYPE_PROTOCOL_PAGE_WRITE**Mandatory.** Should be implemented by all devices.
+## Type=20 (0x14) - Magnetic Field Strength {#type20}
+    VSCP_TYPE_MEASUREMENT_MAGNETIC_FIELD_STRENGTH**Default unit:** amperes per meter (H).  
+**Optional units:** teslas (B) (1)
 
-The write page is implemented to make it possible to write larger blocks of data. One data-space positions is reserved to select a base into this storage. See Page read for a full description.
+This is a measurement of magnetic field strength. 
 
-It is only possible to write one 6-byte chunk at a time in contrast to reading several. This is because VSCP at Level I is aimed at low end devices with limited resources meaning little room for buffers. 
-
- | Data byte | Description  | 
- | :---------: | ----------- |
- | 0 | Node-ID         |
- | 1 | Register start. |
- | 2-7 | Data. |
-
-Response is 
-
-[CLASS1.PROTOCOL, Type=26 (Read Page Response)](./class1.protocol.md#type26)
-
-The following format can be used for nodes on a Level II segment as a midway between a full Level II handling as specified in Class=1024 and Level I. 
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0-15      | GUID.       | 
- | 16        | Base index. | 
- | 17-…    | Data.       | 
-
-Data count can be as many as the buffer of the Level II node accepts. 
-
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=26 (0x1A) - Read/Write page response. {#type26}
-    VSCP_TYPE_PROTOCOL_RW_PAGE_RESPONSE**Mandatory.** Should be implemented by all devices.
+## Type=21 (0x15) - Magnetic Flux {#type21}
+    VSCP_TYPE_MEASUREMENT_MAGNETIC_FLUX**Default unit:** weber (Wb).
 
-This is a response frame for the read/write page command. The Sequence number goes from 0 up to the last sent frame for a read page request. 
+This is a measurement of magnetic flux. 
 
- | Data byte | Description      | 
- | :---------: | -----------      | 
- | 0         | Sequence number. | 
- | 1-7       | Data.            | 
-
-The following format can be used for nodes on a Level II segment as a midway between a full Level II handling as specified in Class=1024 and Level I. 
-
- | Data byte | Description      | 
- | :---------: | -----------      | 
- | 0-15      | GUID.            | 
- | 16        | Sequence number. | 
- | 17-…    | Data.            | 
-
-Data count can be as many as the buffer of the Level II node accepts. 
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=27 (0x1B) - High end server/service probe. {#type27}
-    VSCP_TYPE_PROTOCOL_HIGH_END_SERVER_PROBEShould be implemented by all devices that work over 802.15.4/Ethernet/Internet or other high end protocols.This event can be broadcasted on a segment by a node to get information about available servers. 
+## Type=22 (0x16) - Magnetic Flux Density {#type22}
+    VSCP_TYPE_MEASUREMENT_MAGNETIC_FLUX_DENSITY**Default unit:** tesla (B).
 
-The [VSCP daemon documentation](https://grodansparadis.gitbooks.io/the-vscp-daemon) have a description on how server/service discovery works. 
+This is a measurement of flux density or field strength for magnetic fields (also called the magnetic induction). 
 
-----
-
-## Type=28 (0x1C) - High end server/service response. {#type28}
-    VSCP_TYPE_PROTOCOL_HIGH_END_SERVER_RESPONSEShould be implemented by all devices that work on 802.15.4/Ethernet/Internet and have a Level I link. This is because a Level II device can be present on a Level I bus. A typical example is a Bluetooth gateway. A user find the bud/segment by the Bluetooth device and can then discover other parts of the system through it.
-
-A Level II node respond with [CLASS2.PROTOCOL, Type=32 Level II who is response](./class2.protocol.md#type32) to this event. It is also possible to listen for  [CLASS2.PROTOCOL, Type=20 (0x14) High end server capabilities](./class2.protocol.md#type20) to discover Level II nodes.
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | VSCP server low 16-bit capability code MSB | 
- | 1 | VSCP server low 16-bit capability code LSB | 
- | 2 | Server IP address MSB - or other relevant data as of server capabilities (Network byte order) | 
- | 3 | Server IP address - or other relevant data as of server capabilities (Network byte order)     | 
- | 4 | Server IP address - or other relevant data as of server capabilities (Network byte order)     | 
- | 5 | Server IP address LSB - or other relevant data as of server capabilities (Network byte order) | 
- | 6 | Server Port MSB - or other relevant data as of server capabilities | 
- | 7 | Server Port LSB - or other relevant data as of server capabilities | 
-
-Bit codes for capabilities is the same as for the lower 16 bits of [CLASS2.PROTOCOL, Type=20 (0x14) High end server capabilities](class2.protocol.md#type20).
-
-**For programmers:** Bits are defined in [vscp.h](https://github.com/grodansparadis/vscp/blob/master/src/vscp/common/vscp.h).
-
-A node that need a TCP connection to a host. Broadcast HIGH END SERVER PROBE on the segment and waits for HIGH END SERVER RESPONSE from one or more servers to connect to. If a suitable server has responded it can decide to connect to that server. Note that one server can reply with **none, one or many** HIGH END SERVER RESPONSE events.
-
-A server like the VSCP server can span multiple segments and a reply can therefore be received from a remote segment as well. This can be an advantage in some cases and unwanted in some cases. The server configuration should have control on how it is handled. 
-
-The [VSCP daemon documentation](https://grodansparadis.gitbooks.io/the-vscp-daemon) have a description on how server/service discovery works. 
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=29 (0x1D) - Increment register. {#type29}
-    VSCP_TYPE_PROTOCOL_INCREMENT_REGISTER**Mandatory.** Should be implemented by all devices.
+## Type=23 (0x17) - Inductance {#type23}
+    VSCP_TYPE_MEASUREMENT_INDUCTANCE**Default unit:** henry (H).
 
-Increment a register content by one with no risk of it changing in between 
+This is a measurement of inductance. 
 
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | Node-ID | 
- | 1 | Register to increment. | 
-
-Node should answer with [CLASS1.PROTOCOL, Type=10 (Read/Write register response)](./class1.protocol.md#type10).
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=30 (0x1E) - Decrement register. {#type30}
-    VSCP_TYPE_PROTOCOL_DECREMENT_REGISTER**Mandatory.** Should be implemented by all devices.
+## Type=24 (0x18) - Luminous Flux {#type24}
+    VSCP_TYPE_MEASUREMENT_FLUX_OF_LIGHT**Default unit:** Lumen (lm= cd * sr)
 
-Decrement a register content by one with no risk of it changing in between 
+This is a measurement of luminous Flux. 
 
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | Node-ID                | 
- | 1 | Register to decrement. | 
-
-Node should answer with [CLASS1.PROTOCOL, Type=10 (Read/Write register response)](./class1.protocol.md#type10).
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=31 (0x1F) - Who is there? {#type31}
-    VSCP_TYPE_PROTOCOL_WHO_IS_THERE**Mandatory.** Must be implemented by all devices.
+## Type=25 (0x19) - Illuminance {#type25}
+    VSCP_TYPE_MEASUREMENT_ILLUMINANCE**Default unit:** lux (lx) ( lx = lm / m² )
 
-This event can be used as a fast way to find out which nodes there is on a segment. All nodes receiving it should respond. 
+This is used to express both Illuminance (incidence of light) and Luminous Emittance (emission of light). 
 
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | Node-ID or 0xFF for all nodes. | 
-
-Response for a Level I node is [CLASS1.PROTOCOL, Type=32 (Who is there response)](./class1.prototocol.md#type32).
-    
-A Level II node respond with [CLASS2.PROTOCOL, Type=32 (Level II who is response)](./class2.protocol.md#type32) to this event.
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=32 (0x20) - Who is there response. {#type32}
-    VSCP_TYPE_PROTOCOL_WHO_IS_THERE_RESPONSE**Mandatory.** Must be implemented by all devices.
+## Type=26 (0x1A) - Radiation dose {#type26}
+    VSCP_TYPE_MEASUREMENT_RADIATION_DOSE**Default unit:** gray (Gy).   
+**Opt unit:** sievert (Sv) (1).
 
-Response from node(s) looks like this 
+This is a measurement of a radiation dose (Absorbed dose of ionizing radiation). 
 
- | byte 0 | byte 1 | byte 2 | byte 3 | byte 4 | byte 5 | byte 6 | byte 7 | 
- | :------: | ------ | ------ | ------ | ------ | ------ | ------ | ------ | 
- | 0      | GUID15 | GUID14 | GUID13 | GUID12 | GUID11 | GUID10 | GUID9  | 
- | 1      | GUID8  | GUID7  | GUID6  | GUID5  | GUID4  | GUID3  | GUID2  | 
- | 2      | GUID1  | GUID0  | MDF0   | MDF1   | MDF2   | MDF3   | MDF4   | 
- | 3      | MDF5   | MDF6   | MDF7   | MD8    | MDF9   | MDF10  | MDF11  | 
- | 4      | MDF12  | MDF13  | MDF14  | MDF15  | MDF16  | MDF17  | MDF18  | 
- | 5      | MDF19  | MDF20  | MDF21  | MDF22  | MDF23  | MDF24  | MDF25  | 
- | 6      | MDF26  | MDF27  | MDF28  | MDF29  | MDF30  | MDF31  | 0      | 
-
-
-All seven frames should be sent also if the MDF URL is shorter than 32 characters,
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=33 (0x21) - Get decision matrix info. {#type33}
-    VSCP_TYPE_PROTOCOL_WHO_IS_THERE_RESPONSE**Mandatory**
+## Type=27 (0x1B) - Catalytic activity {#type27}
+    VSCP_TYPE_MEASUREMENT_CATALYTIC_ACITIVITY**Default unit:** katal (z).
 
-Request a node to report size and offset for its decision matrix. 
+This is a measurement of catalytic activity used in biochemistry. 
 
- | Data byte | Description   | 
- | :---------: | -----------   | 
- | 0 | Node address. | 
-
-The following format can be used for nodes on a Level II segment as a midway between a full Level II handling as specified in Class=1024 and Level I. 
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0-15 | GUID.       | 
-
-A node that does not have a decision matrix should return zero rows.
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=34 (0x22) - Decision matrix info response. {#type34}
-    VSCP_TYPE_PROTOCOL_GET_MATRIX_INFO_RESPONSE**Mandatory** for nodes with a decision matrix
+## Type=28 (0x1C) - Volume {#type28}
+    VSCP_TYPE_MEASUREMENT_VOLUME**Default unit:** cubic meter (m³)   
+**Opt. unit:** Liter (dm³) (1), decilitre (100 cm³) (2), centilitre (10 cm³) (3), millilitre (cm³) (4) where unit 4 is only available for Level II measurement events where units can hold this value.
 
-Report the size for the decision matrix and the offset to its storage. The reported size is the number of decision matrix lines. The offset is the offset in the register address counter from 0x00 (See the register model in this document). If the size returned is zero the node does not have a decision matrix. A node without a decision matrix can also skip to implement this event but it's better if it returns a decision matrix size of zero. 
+This is a measurement of volume. 
 
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0  | Matrix size (number of rows). Zero for a device with no decision matrix. | 
- | 1 | Offset in register space. | 
- | 2 | Optional page start MSB ( Interpret as zero if not sent ) | 
- | 3 | Optional page start LSB ( Interpret as zero if not sent ) | 
- | 4 | Optional page end MSB ( Interpret as zero if not sent ) Deprecated. Set to zero. | 
- | 5 | Optional page end LSB ( Interpret as zero if not sent ) Deprecated. Set to zero. | 
- | 6 | For a Level II node this is the size of a decision matrix row. | 
-
-The decision matrix can as noted be stored in paged registers and if so it must be accessed with the paged read/write. The decision matrix can also be stored indexed. In that case the first byte is the index and the second is the data. If the index is in location 0x7f then an indexed matrix is assumed. 
-
- | Register position | Description | 
- | :-----------------: | -----------  | 
- | 0x77 | Index for row in decision matrix. | 
- | 0x78-0x7F | Level I decision matrix row. | 
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=35 (0x23) - Get embedded MDF. {#type35}
-    VSCP_TYPE_PROTOCOL_GET_EMBEDDED_MDF**Not mandatory.**
+## Type=29 (0x1D) - Sound intensity {#type29}
+    VSCP_TYPE_MEASUREMENT_SOUND_INTENSITY**Default unit:** W/m2, watt per square meter. 
 
-A node that get this event and has an embedded MDF description in flash or similar respond with the description . 
+This is a measurement of sound intensity (acoustic intensity). 
 
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | Node-ID.    | 
-
-----
-
-## Type=36 (0x24) - Embedded MDF response. {#type36}
-    VSCP_TYPE_PROTOCOL_GET_EMBEDDED_MDF_RESPONSE**Not mandatory.** 
-
-This is the response from a Get embedded MDF. The response consist of several frames where an index in byte0/1 is incremented for each frame and MDF data is in byte 2-7.
-
-If an embedded MDF is not available a response on the form
-
-     byte 0 = 0 
-     byte 1 = 0 
-     byte 2 = 0
-
-should be sent. 
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | High byte of MDF description index. |
- | 1 | Low byte of MDF description index.  |
- | 2-7 | MDF data. | 
-
-Note that if sending the events back to back some devices will not be able to cope with the data stream. It is therefor advisable to have a short delay between each mdf data frame sent out.
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=37 (0x25) - Extended page read register. {#type37}
-    VSCP_TYPE_PROTOCOL_EXTENDED_PAGE_READ**Mandatory.** Must be implemented by all devices.
+## Type=30 (0x1E) - Angle {#type30}
+    VSCP_TYPE_MEASUREMENT_ANGLE* **Default unit:** radian (rad) (Plane angles).   
+* **Opt Unit:** degree (1).
+* **Opt Unit:** arcminute (2).
+* **Opt Unit:** arcseconds (3).
 
-Read a register from a node with page information.
+This is a measurement of an angle. 
 
-Implementation must take care so all page register change done by these routines must restore the content of the page registers to there original content when they are done. 
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | Node address. | 
- | 1 | MSB of page where the register is located. | 
- | 2 | LSB of page where the register is located. | 
- | 3 | Register to read (offset into page). | 
- | 4 | Optional: Number of registers to read.     | 
-
-If the number of registers to read is set to zero 256 registers will be read. __Some nodes my have small buffers so this bursts of messages may be a problem.__
-
-An extended read/write response event is returned on success.
-
-This means that a register (or a maximum of 256 consecutive registers) located on any page can be read in a single operation.
-
-The following format can be used for nodes on a Level II segment as a midway between a full Level II handling as specified in Class=1024 and Level I. 
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0-15 | GUID. | 
- | 16 | MSB of page where the register is located. | 
- | 17 | LSB of page where the register is located. | 
- | 18  | Register to read. | 
- | 19   | Optional: bytes to read (1-255). |
- 
-----
-
-## Type=38 (0x26) - Extended page write register. {#type38}
-    VSCP_TYPE_PROTOCOL_EXTENDED_PAGE_WRITE**Mandatory.** Must be implemented by all devices.
-
-Write register content to a node.
-
-Implementation must take care so all page register change done by these routines must restore the content of the page registers to there original content when they are done. 
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | Node address. | 
- | 1 | MSB of page where the register is located. | 
- | 2 | LSB of page where the register is located. | 
- | 3 | Register to write. | 
- | 4 | Content for register. | 
- | 5,6,7 | Optional extra data bytes to write. | 
-
-A read/write response event is returned on success.
-
-Event allows a register (or a maximum of four consecutive registers) located on any page can be written in a single operation.
-
-The following format can be used for nodes on a Level II segment as a midway between a full Level II handling as specified in Class=1024 and Level I.
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0-15 | GUID. | 
- | 16 | MSB of page where the register is located. | 
- | 17 | LSB of page where the register is located. | 
- | 18 | Register to write. | 
- | 19  | Content of register. byte 20-buffer-size Optional extra data bytes to write. | 
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=39 (0x27) - Extended page read/write response. {#type39}
-    VSCP_TYPE_PROTOCOL_EXTENDED_PAGE_RESPONSE**Mandatory.** Must be implemented by all devices.
+## Type=31 (0x1F) - Position WGS 84 {#type31}
+    VSCP_TYPE_MEASUREMENT_POSITION**Default unit:** Longitude.  
+**Opt. unit:** Latitude.
 
-This is the replay sent for events CLASS1.PROTOCOL, Type=40,41. 
+This is a measurement of a position as of WGS 84. Normally given as a floating point value. See [./class1.gps.md](CLASS1.GPS) for a better candidate to use for position data.
 
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | Index (starts at zero). | 
- | 1 | MSB of page where the register is located. | 
- | 2 | LSB of page where the register is located. | 
- | 3 | Register read/written. | 
- | 4 | Content of register. | 
- | 5-7 | Content of register if multi register read/write. | 
-
-A multi. register read/write can generate up to 256 events of this type. Index will then be increased by one for each event sent. __Some nodes my have small buffers so this bursts of messages may be a problem. Therefore send them with a low priority.__
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=40 (0x28) - Get event interest. {#type40}
-    VSCP_TYPE_PROTOCOL_GET_EVENT_INTEREST**Not Mandatory.** Implemented if needed.
+## Type=32 (0x20) - Speed {#type32}
+    VSCP_TYPE_MEASUREMENT_SPEED**Default unit:** Meters per second.   
+**Optional unit:** Kilometers per hour (1) Miles per hour (2)
 
-It is possible to ask a node which event(s) it is interested in with this event. If not implemented the node is supposed to be interested in all events.
+This is a measurement of a speed. 
 
-All nodes are by default interested in **CLASS1.PROTOCOL**.
-
-The event is intended for very low bandwidth nodes like low power wireless nodes where it saves a lot of bandwidth if only events that really concerns the node is sent to them. 
-
-----
-
-## Type=41 (0x29) - Get event interest response. {#type41}
-    VSCP_TYPE_PROTOCOL_GET_EVENT_INTEREST_RESPONSE**Not mandatory.** Implemented if needed.
-
-Response for event [CLASS1.PROTOCOL, Type=40 (Get event interest)](./class1.protocol.md#type40). The node report all events it is interested in. 
-
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | Index | 
- | 1 | class bit 9 (see table) | 
- | 2 | class 1 | 
- | 3 | type 1 | 
- | 4 | class 2 | 
- | 5 | type 2 | 
- | 6 | class 3 | 
- | 7 | type 3 | 
-
- | Bit | Description | 
- | :---: | ----------- | 
- | 0 | Bit 9 for class 1 | 
- | 1 | Bit 9 for class 2 | 
- | 2 | Bit 9 for class 3 | 
- | 3 | All Type 1 is recognized (set type to zero). | 
- | 4 | All Type 2 is recognized (set type to zero). | 
- | 5 | All Type 3 is recognized (set type to zero). | 
- | 6 | 0  | 
- | 7 | 0  | 
-
-A node that is interested in everything just send a [CLASS1.PROTOCOL, Type=41 (Get event interest response)](./class1.protocol.md#type41) with no data.
-
-Nodes that want to specify events of interest fill them in. If all types of a class should be recognized set the corresponding bit in byte 1 and the related type to zero.
-
-A maximum of 255 frames (index = 0-254) may be sent. 
-
-Fill unused pairs with zero.
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=48 (0x30) - Activate new image ACK. {#type48}
-    VSCP_TYPE_PROTOCOL_ACTIVATE_NEW_IMAGE_ACK**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
+## Type=33 (0x21) - Acceleration {#type33}
+    VSCP_TYPE_MEASUREMENT_ACCELERATION**Default unit:** Meters per second/second (m/s2).
 
-Part of the VSCP boot-loader functionality. This is the positive response after a node received a [CLASS1.PROTOCOL, Type=22 (Activate new image)](./class1.protocol.md#type22). It is sent by the node before the new firmware is booted into.
+This is a measurement of acceleration. 
 
-----
-
-## Type=49 (0x31) - Activate new image NACK. {#type49}
-    VSCP_TYPE_PROTOCOL_ACTIVATE_NEW_IMAGE_NACK**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
-
-Part of the VSCP boot-loader functionality. This is the negative response after a node received a [CLASS1.PROTOCOL, Type=22 (Activate new image)](./class1.protocol.md#type22). It is sent by the node to inform it that it will (or can not) switch to the new firmware image. 
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=50 (0x32) - Block data transfer ACK. {#type50}
-    VSCP_TYPE_PROTOCOL_START_BLOCK_ACK**Not mandatory** Only needed if a VSCP boot loader algorithm is used.
+## Type=34 (0x22) - Tension {#type34}
+    VSCP_TYPE_MEASUREMENT_TENSION**Default unit:** N/m.
 
-Part of the VSCP boot-loader functionality. This is the positive response after a node received a [CLASS1.PROTOCOL, Type=16 (Block data)](./class1.protocol.md#type16) event. It is sent by the node as a validation that it can handle the block data transfer. 
+This is a measurement of tension. 
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
-## Type=51 (0x33) - Block data transfer NACK. {#type51}
-    VSCP_TYPE_PROTOCOL_START_BLOCK_NACK**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
+## Type=35 (0x23) - Damp/moist (Hygrometer reading) {#type35}
+    VSCP_TYPE_MEASUREMENT_HUMIDITY**Default unit:** Relative percentage 0-100%.
 
-Part of the VSCP boot-loader functionality. This is the negative response after a node received a [CLASS1.PROTOCOL, Type=16 (Block data)](./class1.protocol.md#type16) event. It is sent by the node as an indication that it can NOT handle the block data transfer. 
+This is a measurement of relative moistness (Humidity). 
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=36 (0x24) - Flow {#type36}
+    VSCP_TYPE_MEASUREMENT_FLOW**Default unit:** Cubic meters/second.   
+**Opt Unit:** Liters/Second.
+
+This is a measurement of flow. 
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=37 (0x25) - Thermal resistance {#type37}
+    VSCP_TYPE_MEASUREMENT_THERMAL_RESISTANCE**Default unit:** Thermal ohm K/W.
+
+This is a measurement of thermal resistance. 
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=38 (0x26) - Refractive (optical) power {#type38}
+    VSCP_TYPE_MEASUREMENT_REFRACTIVE_POWER**Default unit:** dioptre (dpt) m-1.
+
+This is a measurement of refractive (optical) power. 
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=39 (0x27) - Dynamic viscosity {#type39}
+    VSCP_TYPE_MEASUREMENT_DYNAMIC_VISCOSITY**Default unit:** poiseuille (Pl) 
+
+This is a measurement of dynamic viscosity. 
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=40 (0x28) - Sound impedance {#type40}
+    VSCP_TYPE_MEASUREMENT_SOUND_IMPEDANCE**Default unit:** rayl (Pa·s/m)
+
+This is a measurement of sound impedance. 
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=41 (0x29) - Sound resistance {#type41}
+    VSCP_TYPE_MEASUREMENT_SOUND_RESISTANCE**Default unit:** Acoustic ohm Pa · s/ m³.
+
+This is a measurement of sound resistance.
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=42 (0x2A) - Electric elastance {#type42}
+    VSCP_TYPE_MEASUREMENT_ELECTRIC_ELASTANCE**Default unit:** daraf (f-1).
+
+This is a measurement of electric elasticity. 
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=43 (0x2B) - Luminous energy {#type43}
+    VSCP_TYPE_MEASUREMENT_LUMINOUS_ENERGY**Default unit:** talbot ( tb = lm * s) 
+
+This is a measurement of luminous energy.
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=44 (0x2C) - Luminance {#type44}
+    VSCP_TYPE_MEASUREMENT_LUMINANCE**Default unit:** cd / m²) (non SI unit = nit)
+
+This is a measurement of luminance.
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=45 (0x2D) - Chemical concentration {#type45}
+    VSCP_TYPE_MEASUREMENT_CHEMICAL_CONCENTRATION**Default unit:** molal (mol/kg).
+
+This is a measurement of chemical concentration. 
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=46 (0x2E) - Reserved {#type46}
+    VSCP_TYPE_MEASUREMENT_RESERVED46Reserved (previously was doublet of Type= 26, don't use any longer!) 
+
+----
+
+## Type=47 (0x2F) - Dose equivalent {#type47}
+    VSCP_TYPE_MEASUREMENT_DOSE_EQVIVALENT**Default unit:** sievert (J/Kg).
+
+This is a measurement of dose equivalent. 
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=48 (0x30) - Reserved {#type48}
+    VSCP_TYPE_MEASUREMENT_RESERVED48Reserved (was doublet of Type= 24, do not use any longer!)
+
+----
+
+## Type=49 (0x31) - Dew Point {#type49}
+    VSCP_TYPE_MEASUREMENT_DEWPOINT**Default unit:** Kelvin.  
+**Opt. unit:** Degree Celsius (1), Fahrenheit (2)
+
+This is a measurement of the Dew Point. 
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=50 (0x32) - Relative Level {#type50}
+    VSCP_TYPE_MEASUREMENT_RELATIVE_LEVEL**Default unit:** Relative value.
+
+This is a relative value for a level measurement without a unit. It is just relative to the min/max value for the selected data representation, typically percentage or per mille or similar. 
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=51 (0x33) - Altitude {#type51}
+    VSCP_TYPE_MEASUREMENT_ALTITUDE**Default unit:** Meter.  
+**Opt. unit:** Feet(1), inches (2)
+
+Altitude in meters. 
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=52 (0x34) - Area {#type52}
+    VSCP_TYPE_MEASUREMENT_AREA**Default unit:** square meter (m²)
+
+Area in square meter. 
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=53 (0x35) - Radiant intensity {#type53}
+    VSCP_TYPE_MEASUREMENT_RADIANT_INTENSITY**Default unit:** watt per steradian ( W / sr )
+
+Radiated power per room angle. 
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=54 (0x36) - Radiance {#type54}
+    VSCP_TYPE_MEASUREMENT_RADIANCE**Default unit:** watt per steradian per square metre ( W / (sr * m²) )
+
+This is the radiant flux emitted, reflected, transmitted or received by a surface.
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=55 (0x37) - Irradiance, Exitance, Radiosity {#type55}
+    VSCP_TYPE_MEASUREMENT_IRRADIANCE**Default unit:** watt per square metre ( W / m² )
+
+Power emitted from or striking onto a surface or area. 
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=56 (0x38) - Spectral radiance {#type56}
+    VSCP_TYPE_MEASUREMENT_SPECTRAL_RADIANCE**Default unit:** watt per steradian per square metre per nm (W·sr-1·m-2·nm-1)    
+**Opt. unit:** watt per steradian per meter3 (W·sr-1·m-3) (1), watt per steradian per square metre per hertz (W·sr-1·m-3) (2)
+
+Radiance of a surface per unit frequency or wavelength.
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=57 (0x39) - Spectral irradiance {#type57}
+    VSCP_TYPE_MEASUREMENT_SPECTRAL_IRRADIANCE**Default unit:** watt per square metre per nm (W·m-2·nm-1)   
+**Opt. unit:** watt per metre3 (W·m-3) (1), watt per square metre per hertz (W·m-2·Hz-1) (2)
+
+Irradiance of a surface per unit frequency or wavelength.
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=58 (0x3A) - Sound pressure (acoustic pressure) {#type58}
+    VSCP_TYPE_MEASUREMENT_SOUND_PRESSURE**Default unit:** pascal (Pa) 
+
+This is a measurement of sound pressure (acoustic pressure). 
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=59 (0x3B) - Sound energy density {#type59}
+    VSCP_TYPE_MEASUREMENT_SOUND_DENSITY**Default unit:** pascal (Pa) 
+
+Sound energy density or sound density is the sound energy per unit volume.
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
+
+----
+
+## Type=60 (0x3C) - Sound level {#type60}
+    VSCP_TYPE_MEASUREMENT_SOUND_LEVEL**Default unit:** decibel (dB) 
+
+Sound level expressed in decibel. This event is supplied for convenience.
+
+ | Data byte | Description                         | 
+ | :---------: | -----------                         | 
+ | 0         | Data coding.                        | 
+ | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
