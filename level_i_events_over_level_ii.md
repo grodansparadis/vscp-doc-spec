@@ -1,8 +1,10 @@
-# Level I Events
+# Level I events over level II
 
-Here you can find all the level I events defined by VSCP. A level I event is classes described by a number between 0-511.
+A class in level II is classes described by a number between 512-65535. However classes between 512-1023 is a mirror of the level I classes. This space is called *level I classes over level ii* and is described here
 
-Instead of writing numbere a class can be described as **CLASS1.XXXX** indicate a specific (*XXXX* in this case) Level II class. Also the form **CLASS2.XXXX=yy** can be seen where *yy* is the numerical form.
+Instead of writing numbere a class can be described as **CLASS2.level1.XXXX** indicate a specific (*XXXX* in this case) Level II class. Also the form **CLASS2.level1.XXXX=yy** can be seen where *yy* is the numerical form. 
+
+This type of classes have the same data content as level I classes except that the data is shifted 16-bytes. The first 16 bytes are instead used for the destination GUID. This is typically the GUID for a specific node or a GUID for an interface on a node or at the [VSCP Daemon](https://grodansparadis.gitbooks.io/the-vscp-daemon).
 
 ----
 
