@@ -2013,3 +2013,6 @@
 *  [VSCP Javascript lib.](https://grodansparadis.gitbooks.io/the-vscp-javascript-library/)
 *  [VSCP HTML demo](https://www.vscp.org/docs/html5/doku.php)
 *  [General VSCP wiki](https://www.vscp.org/wiki/doku.php)
+
+{{gitbook.version}} - {{gitbook.time}}
+{{ ./sidebar.md }}
