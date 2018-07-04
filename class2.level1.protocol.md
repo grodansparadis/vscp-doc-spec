@@ -700,7 +700,7 @@ All seven frames should be sent also if the MDF URL is shorter than 32 character
 ----
 
 ## Type=33 (0x21) - Get decision matrix info. {#type33}
-    VSCP_TYPE_PROTOCOL_WHO_IS_THERE_RESPONSE**Mandatory**
+    VSCP_TYPE_PROTOCOL_GET_MATRIX_INFO**Mandatory**
 
 Request a node to report size and offset for its decision matrix. 
 
