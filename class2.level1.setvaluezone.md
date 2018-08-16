@@ -86,9 +86,9 @@ This is a measurement of a temperature.
 
 This is a measurement of an amount of a substance. 
 
- | Data byte | Description                         | 
- | --------- | -----------                         | 
- | 0         | Data coding.                        | 
+ | Data byte | Description | 
+ | :---------: | -----------  | 
+ |  0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
 ----

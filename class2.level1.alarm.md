@@ -27,7 +27,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=2 (0x02) - Alarm occurred {#type2}
-    VSCP_TYPE_ALARM_ALARM Indicates an alarm condition. 
+    VSCP_TYPE_ALARM_ALARMIndicates an alarm condition. 
 
  | Data byte | Description | 
  | :---------: | ----------- | 
@@ -66,7 +66,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=5 (0x05) - Power on/off {#type5}
-    VSCP_TYPE_ALARM_POWER Power has been lost or is available again. 
+    VSCP_TYPE_ALARM_POWERPower has been lost or is available again. 
 
  | Data byte | Description | 
  | :---------: | -----------  | 
@@ -131,7 +131,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 ----
 
 ## Type=10 (0x0A) - Arm {#type10}
-    VSCP_TYPE_ALARM_ARM Issued after an alarm system has been armed. 
+    VSCP_TYPE_ALARM_ARMIssued after an alarm system has been armed. 
 
  | Data byte | Description | 
  | :---------: | ----------- | 
