@@ -66,7 +66,7 @@
    * [CLASS2.VSCPD = 65535 (0xffff)](./class2.vscpd.md)
     
 ## Defined events
-*Generated: 2018-08-16 11:34:55.150597*
+*Generated: 2018-09-21 18:24:23.208745*
     
 * **[Level I events](./level_i_events.md)**
    * [CLASS1.PROTOCOL = 0 (0x0)](./class1.protocol.md)
@@ -301,6 +301,8 @@
       * [Type=75 (0x4b) - Lock](./class1.information.md#type75)
       * [Type=76 (0x4c) - Unlock](./class1.information.md#type76)
       * [Type=77 (0x4d) - DateTime](./class1.information.md#type77)
+      * [Type=78 (0x4e) - Rising](./class1.information.md#type78)
+      * [Type=79 (0x4f) - Falling](./class1.information.md#type79)
    * [CLASS1.CONTROL = 30 (0x1e)](./class1.control.md)
       * [Type=0 (0x0) - General event](./class1.control.md#type0)
       * [Type=1 (0x1) - Mute on/off](./class1.control.md#type1)
@@ -1155,6 +1157,8 @@
       * [Type=75 (0x4b) - Lock](./class1.information.md#type75)
       * [Type=76 (0x4c) - Unlock](./class1.information.md#type76)
       * [Type=77 (0x4d) - DateTime](./class1.information.md#type77)
+      * [Type=78 (0x4e) - Rising](./class1.information.md#type78)
+      * [Type=79 (0x4f) - Falling](./class1.information.md#type79)
    * [CLASS2.LEVEL1.CONTROL = 542 (0x21e)](./class2.level1.control.md)
       * [Type=0 (0x0) - General event](./class1.control.md#type0)
       * [Type=1 (0x1) - Mute on/off](./class1.control.md#type1)

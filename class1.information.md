@@ -1074,4 +1074,26 @@ Bit 39 is bit 7 of data byte 4. Bit 0 is bit 0 of data byte 7.
 
 ----
 
+## Type=78 (0x4E) - Rising {#type78}
+    VSCP_TYPE_INFORMATION_RISING
+A rising (edge) is detected.
+
+ | Data byte | Description                                                        | 
+ | :---------: | -----------                                                        | 
+ | 0         | Index for device. Set to zero if not used.                         | 
+ | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+----
+
+## Type=79 (0x4F) - Falling {#type79}
+    VSCP_TYPE_INFORMATION_FALLING
+A falling (edge) is detected.
+
+ | Data byte | Description                                                        | 
+ | :---------: | -----------                                                        | 
+ | 0         | Index for device. Set to zero if not used.                         | 
+ | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+----
+
 {% include "./bottom_copyright.md" %}
