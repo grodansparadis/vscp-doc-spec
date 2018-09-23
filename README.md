@@ -27,5 +27,3 @@ Collected in a package described as **VSCP & friends** a complete solution frame
  
 {% include "./bottom_copyright.md" %}
 
-
-
