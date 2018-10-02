@@ -2003,7 +2003,7 @@
 
 ## Other documentation
 
-*  [VSCP Daemon](https://grodansparadis.gitbooks.io/the-vscp-specification)
+*  [VSCP Daemon](https://grodansparadis.gitbooks.io/the-vscp-daemon/)
 *  [VSCP Helper lib](https://grodansparadis.gitbooks.io/the-vscp-helper-library/)
 *  [VSCP Works](https://www.vscp.org/docs/vscpworks/doku.php?id=start)
 *  [VSCP Firmware](https://grodansparadis.gitbooks.io/vscp-firmware/)
