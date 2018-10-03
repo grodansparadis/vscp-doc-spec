@@ -2,6 +2,7 @@
 
  | Date       | By   | Description | 
  | ----       | --   | ----------- | 
+ | 2018-10-03 | AKHE | CLASS1.INFORMATION, Type=77 Date/time bitfields corrected. |
  | 2018-09-21 | AKHE | Added CLASS1.INFORMATION, Type=78/70 RISING/FALLING. |
  | 2018-05-18 | AKHE | Added reserved GUID for groups (16-bits). | 
  | 2018-04-17 | AKHE | Added [CLASS1.INFORMATION, Type=77](./class1.information.md#type_77_0x4d_datetime) which combines date and time in one event.                                                                                                                                                                                                                                                                                                                              | 
