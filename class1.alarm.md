@@ -165,4 +165,17 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
+## Type=12 (0x0C) - Watchdog {#type12}
+    VSCP_TYPE_ALARM_WATCHDOG
+Issued when a watchdog has been triggered. 
+
+ | Data byte | Description | 
+ | :---------: | ----------- | 
+ | 0 | index. | 
+ | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
+If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
+----
+
 {% include "./bottom_copyright.md" %}

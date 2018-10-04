@@ -66,7 +66,7 @@
    * [CLASS2.VSCPD = 65535 (0xffff)](./class2.vscpd.md)
     
 ## Defined events
-*Generated: 2018-10-03 18:17:29.430031*
+*Generated: 2018-10-04 22:07:59.759181*
     
 * **[Level I events](./level_i_events.md)**
    * [CLASS1.PROTOCOL = 0 (0x0)](./class1.protocol.md)
@@ -129,6 +129,7 @@
       * [Type=9 (0x9) - Emergency Resume](./class1.alarm.md#type9)
       * [Type=10 (0xa) - Arm](./class1.alarm.md#type10)
       * [Type=11 (0xb) - Disarm](./class1.alarm.md#type11)
+      * [Type=12 (0xc) - Watchdog](./class1.alarm.md#type12)
    * [CLASS1.SECURITY = 2 (0x2)](./class1.security.md)
       * [Type=0 (0x0) - General event](./class1.security.md#type0)
       * [Type=1 (0x1) - Motion Detect](./class1.security.md#type1)
@@ -985,6 +986,7 @@
       * [Type=9 (0x9) - Emergency Resume](./class1.alarm.md#type9)
       * [Type=10 (0xa) - Arm](./class1.alarm.md#type10)
       * [Type=11 (0xb) - Disarm](./class1.alarm.md#type11)
+      * [Type=12 (0xc) - Watchdog](./class1.alarm.md#type12)
    * [CLASS2.LEVEL1.SECURITY = 514 (0x202)](./class2.level1.security.md)
       * [Type=0 (0x0) - General event](./class1.security.md#type0)
       * [Type=1 (0x1) - Motion Detect](./class1.security.md#type1)

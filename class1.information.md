@@ -519,15 +519,15 @@ A steam of information from a node can be reported with this event. This can be 
     VSCP_TYPE_INFORMATION_CONFIRM
 This event can be used as a general confirm event for zoned and stream data. 
 
- | Data byte | Description                       | 
- | :---------: | -----------                       | 
- | 0         | Zone.                             | 
- | 1         | Sub-zone.                         | 
- | 2         | Sequence number.                  | 
- | 3         | Class MSB.                        | 
- | 4         | Class LSB.                        | 
- | 5         | Type MSB.                         | 
- | 6         | Type LSB.                         | 
+ | Data byte | Description             | 
+ | :---------: | -----------           | 
+ | 0         | Zone.                   | 
+ | 1         | Sub-zone.               | 
+ | 2         | Sequence number byte    |
+ | 3         | Class MSB.              | 
+ | 4         | Class LSB.              | 
+ | 5         | Type MSB.               | 
+ | 6         | Type LSB.               | 
 
 ----
 

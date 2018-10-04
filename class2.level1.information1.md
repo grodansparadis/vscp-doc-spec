@@ -480,14 +480,15 @@ Depending on the Token device type a number of this event are sent on the segmen
 ## Type=39 (0x27) - Confirm {#type39}
     VSCP_TYPE_INFORMATION_CONFIRMThis event can be used as a general confirm event for zoned and stream data. 
 
- | Data byte | Description                       | 
- | :---------: | -----------                       | 
- | 0         | Zone.                             | 
- | 1         | Sub-zone.                         | 
- | 2         | Sequence number byte 3 Class MSB. | 
- | 4         | Class LSB.                        | 
- | 5         | Type MSB.                         | 
- | 6         | Type LSB.                         | 
+ | Data byte | Description             | 
+ | :---------: | -----------           | 
+ | 0         | Zone.                   | 
+ | 1         | Sub-zone.               | 
+ | 2         | Sequence number byte    |
+ | 3         | Class MSB.              | 
+ | 4         | Class LSB.              | 
+ | 5         | Type MSB.               | 
+ | 6         | Type LSB.               | 
 
 ----
 
