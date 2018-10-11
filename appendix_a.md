@@ -84,12 +84,12 @@ If you want your own GUID series you can ask for one by sending an email to [gui
 #### 10:00:00:00:00:00:00:00:00:00:00:00:XX:XX:XX:XX
 
     Marcelo Poma Av. José Sorrento 439 S2013SOC – Rosario ARGENTINA 
-
-## 11:00:00:00:00:00:00:00:00:00:00:00:XX:XX:XX:XX
+    
+#### 11:00:00:00:00:00:00:00:00:00:00:00:XX:XX:XX:XX
 
     Jiri Kubias, Addat s.r.o. U krematoria 24 Liberec 1 46001 Czech republic email:   
     addat (at) addat.cz 
-
+    
 #### 12:00:00:00:00:00:00:00:00:00:00:00:XX:XX:XX:XX
 
     Werner & Associates, LLC, P. O. Box 620, Finksburg, Maryland, 
