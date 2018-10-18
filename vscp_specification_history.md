@@ -2,6 +2,7 @@
 
  | Date       | By   | Description | 
  | ----       | --   | ----------- |
+ | 2018-10-18 | AKHE | Added CLASS1.INFORMATION, Type=80, "Updated" |
  | 2018-10-04 | AKHE | Added CLASS1.ALARM, Type = 12, VSCP_TYPE_ALARM_WATCHDOG. Fixed reported typo. | 
  | 2018-10-03 | AKHE | CLASS1.INFORMATION, Type=77 Date/time bitfields corrected. |
  | 2018-09-21 | AKHE | Added CLASS1.INFORMATION, Type=78/70 RISING/FALLING. |

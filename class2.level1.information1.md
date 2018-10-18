@@ -1020,4 +1020,14 @@ Bit 39 and bit 38 is reserved.
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 ----
 
+## Type=80 (0x50) - Updated {#type80}
+    VSCP_TYPE_INFORMATION_UPDATEDSomething has been updated.
+
+ | Data byte | Description                                                        | 
+ | :---------: | -----------                                                        | 
+ | 0         | Index for device. Set to zero if not used.                         | 
+ | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+----
+
 {% include "./bottom_copyright.md" %}
