@@ -9,6 +9,7 @@ This class mirrors the [CLASS1.WEATHER](./class1.weather.md) class but use a dif
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_WEATHER_GENERALGeneral Event.
+
 ----
 
 ## Type=1 (0x01) - Season winter {#type1}
@@ -19,6 +20,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 
 ----
@@ -32,6 +34,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=3 (0x03) - Season summer {#type3}
@@ -42,6 +45,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -54,6 +58,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=5 (0x05) - No wind {#type5}
@@ -64,6 +69,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -76,6 +82,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=7 (0x07) - Medium wind {#type7}
@@ -86,6 +93,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -98,6 +106,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=9 (0x09) - Very high wind {#type9}
@@ -108,6 +117,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -120,6 +130,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=11 (0x0B) - Air freezing {#type11}
@@ -130,6 +141,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -142,6 +154,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=13 (0x0D) - Air cold {#type13}
@@ -152,6 +165,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -164,6 +178,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=15 (0x0F) - Air hot {#type15}
@@ -174,6 +189,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -186,6 +202,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=17 (0x11) - Pollution low {#type17}
@@ -196,6 +213,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -208,6 +226,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=19 (0x13) - Pollution high {#type19}
@@ -218,6 +237,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -230,6 +250,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=21 (0x15) - Air dry {#type21}
@@ -240,6 +261,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -252,6 +274,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=23 (0x17) - Soil dry {#type23}
@@ -262,6 +285,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -274,6 +298,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=25 (0x19) - Rain light {#type25}
@@ -284,6 +309,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -296,6 +322,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=27 (0x1B) - Rain very heavy {#type27}
@@ -306,6 +333,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -318,6 +346,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=29 (0x1D) - Sun light {#type29}
@@ -328,6 +357,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -340,6 +370,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=31 (0x1F) - Snow none {#type31}
@@ -350,6 +381,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -362,6 +394,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=33 (0x21) - Snow heavy {#type33}
@@ -372,6 +405,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -384,6 +418,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=35 (0x23) - Storm {#type35}
@@ -394,6 +429,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -406,6 +442,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=37 (0x25) - Earthquake {#type37}
@@ -416,6 +453,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -428,6 +466,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=39 (0x27) - Fire {#type39}
@@ -438,6 +477,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -450,6 +490,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=41 (0x29) - UV Radiation low {#type41}
@@ -460,6 +501,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -472,6 +514,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=43 (0x2B) - UV Radiation normal {#type43}
@@ -482,6 +525,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -494,6 +538,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=45 (0x2D) - UV Radiation very high {#type45}
@@ -504,6 +549,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -516,6 +562,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=47 (0x2F) - Warning level 2 {#type47}
@@ -527,6 +574,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  
+
 ----
 
 ## Type=48 (0x30) - Warning level 3 {#type48}
@@ -537,6 +585,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -549,6 +598,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=50 (0x32) - Warning level 5 {#type50}
@@ -560,6 +610,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=51 (0x33) - Armageddon {#type51}
@@ -570,6 +621,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Index.                                                             | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 

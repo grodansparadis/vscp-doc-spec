@@ -9,6 +9,7 @@ This class mirrors the [CLASS1.PHONE](./class1.phone.md) class but use a differe
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_PHONE_GENERALGeneral Event.
+
 ----
 
 ## Type=1 (0x01) - Incoming call {#type1}
@@ -45,6 +46,7 @@ Calls from unlisted numbers are presented as
  | 2    | Total number of events (fragments) for this call information. | 
  | 3-7  | Caller information. Number or real text information. | 
 
+
 ----
 
 ## Type=2 (0x02) - Outgoing call {#type2}
@@ -57,6 +59,7 @@ Calls from unlisted numbers are presented as
  | 2    | Total number of events (fragments) for this call information. | 
  | 3-7  | Caller information. Number or real text information. | 
 
+
 ----
 
 ## Type=3 (0x03) - Ring {#type3}
@@ -65,6 +68,7 @@ Calls from unlisted numbers are presented as
  | Byte | Description | 
  | :----: | ----------- | 
  | 0    | An ID for the call. This can for instance be a number that increases by one for each call. | 
+
 
 ----
 
@@ -77,6 +81,7 @@ Calls from unlisted numbers are presented as
  | 1    | Zone for answer location. | 
  | 2    | Sub-zone for answer location. | 
 
+
 ----
 
 ## Type=5 (0x05) - Hangup {#type5}
@@ -86,6 +91,7 @@ Calls from unlisted numbers are presented as
  | :----: | ----------- | 
  | 0 | An ID for the call. This can for instance be a number that increases by one for each call. | 
  
+
 
 ----
 
@@ -97,6 +103,7 @@ Calls from unlisted numbers are presented as
  | 0 | An ID for the call. This can for instance be a number that increases by one for each call. | 
 
 
+
 ----
 
 ## Type=7 (0x07) - Transfer {#type7}
@@ -105,6 +112,7 @@ Calls from unlisted numbers are presented as
  | Byte | Description | 
  | :----: | ----------- | 
  | 0 | An ID for the call. This can for instance be a number that increases by one for each call. | 
+
 
 
 ----
@@ -118,6 +126,7 @@ Calls from unlisted numbers are presented as
  | 1   | Index of phone event (base=0). Each call can be broken up into fragments. This is the fragment number. | 
  | 2   | Total number of events (fragments) for this call information. | 
  | 3-7 | Caller information. Real text information.  | 
+
 
 ----
 

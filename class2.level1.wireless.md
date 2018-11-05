@@ -9,6 +9,7 @@ This class mirrors the [CLASS1.WIRELESS](./class1.wireless.md) class but use a d
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_WIRELESS_GENERALGeneral Event.
+
 ----
 
 ## Type=1 (0x01) - GSM Cell {#type1}
@@ -17,6 +18,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | Byte | Description  | 
  | :----: | -----------  | 
  | 0-3  | GSM Cell ID. | 
+
 ----
 
 {% include "./bottom_copyright.md" %}

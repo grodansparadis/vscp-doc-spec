@@ -65,6 +65,7 @@ Response is
 
 ## Type=0 (0x00) - General event. {#type0}
     VSCP_TYPE_PROTOCOL_GENERALGeneral Event.
+
 ----
 
 ## Type=1 (0x01) - Segment Controller Heartbeat. {#type1}
@@ -93,6 +94,7 @@ Uninitiated nodes have the CRC of the segment controller set to 0xFF.
 A node that is initialized on a segment and does not receive a Heartbeat can take the role of segment controller if it wishes to do so. Only one node one a segment are allowed to do this fully by setting its nickname=0 and therefore a standard node should not have this feature built in. Any node can however behave like a segment controller but use a nickname other then zero. 
 
 Time is UTC.
+
 ----
 
 ## Type=2 (0x02) - New node on line / Probe. {#type2}
@@ -117,6 +119,7 @@ On a Level II system.
  | Data | Description | 
  | :----: | ----------- | 
  | 0-15 | **GUID**. This is the GUID of the node. MSB in byte 0. | 
+
 ----
 
 ## Type=3 (0x03) - Probe ACK. {#type3}
@@ -125,14 +128,17 @@ On a Level II system.
 This event is sent from a node as a response to a probe. There are no arguments.
 
 
+
 ----
 
 ## Type=4 (0x04) - Reserved for future use. {#type4}
     VSCP_TYPE_PROTOCOL_RESERVED4Reserved for future use.
+
 ----
 
 ## Type=5 (0x05) - Reserved for future use. {#type5}
     VSCP_TYPE_PROTOCOL_RESERVED5Reserved for future use.
+
 ----
 
 ## Type=6 (0x06) - Set nickname-ID for node. {#type6}
@@ -145,12 +151,14 @@ This event can be used to change the nickname for a node. The node just uses the
  | 0  | Old nickname for node. | 
  | 1  | The new nickname for the node. | 
 
+
 ----
 
 ## Type=7 (0x07) - Nickname-ID accepted. {#type7}
     VSCP_TYPE_PROTOCOL_NICKNAME_ACCEPTED**Mandatory.** Must be implemented by all devices.
 
 A node sends this event to confirm that it accepts its assigned nickname-ID. When sending this event the node uses its newly assigned nickname address.
+
 
 ----
 
@@ -187,6 +195,7 @@ So if byte 1 and 2 is not in event restart device, set default parameters and do
 There is a variant of this where the GUID is used instead of the nickname to identify the device, [CLASS1.PROTOCOL, Type=23 (GUID drop nickname-ID / reset device.)](./class1.protocol.md#type23).
 
 
+
 ----
 
 ## Type=9 (0x09) - Read register. {#type9}
@@ -211,6 +220,7 @@ The following format can be used for nodes on a Level II segment as a midway bet
  | 16 | Reserved. | 
  | 17 | Register to read. | 
 
+
 ----
 
 ## Type=10 (0x0A) - Read/Write response. {#type10}
@@ -222,6 +232,7 @@ Response for a read/write event. . Note that the data is returned for both a rea
  | :---------: | ----------- | 
  | 0 | Register read/written. | 
  | 1 | Content of register.   | 
+
 
 
 
@@ -250,6 +261,7 @@ The following format can be used for nodes on a Level II segment as a midway bet
  | 16 | Reserved. | 
  | 17 | Register to write.   | 
  | 18 | Content of register. | 
+
 
 ----
 
@@ -293,6 +305,7 @@ The following format can be used for nodes on a Level II segment as a midway bet
 
 All other codes reserved.
 
+
 ----
 
 ## Type=13 (0x0D) - ACK boot loader mode. {#type13}
@@ -314,6 +327,7 @@ The node confirms that it has entered boot loader mode. This is only sent for th
  | 7 | LSB of number of blocks available.  |
 
  
+
 ----
 
 ## Type=14 (0x0E) - NACK boot loader mode. {#type14}
@@ -324,6 +338,7 @@ The node was unable to enter boot loader mode. The reason is given by a user spe
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | Optional user defined error code. | 
+
 
 ----
 
@@ -359,6 +374,7 @@ Response can be
    or 
    
    [CLASS1.PROTOCOL, Type=51 (Start block data transfer NACK)](./class1.protocol.md#type51).
+
 ----
 
 ## Type=16 (0x10) - Block data. {#type16}
@@ -387,6 +403,7 @@ is sent on failure.
 
 **Level II** The size of the block is 1-max data.
 
+
 ----
 
 ## Type=17 (0x11) - ACK data block. {#type17}
@@ -404,6 +421,7 @@ Confirm the reception of a complete data block. This event has no meaning for an
  | 5 | LSB of write pointer.         | 
 
 The write pointer is the actual pointer after the last data has been written i,e the next position on which data will be written. 
+
 
 ----
 
@@ -423,6 +441,7 @@ NACK the reception of data block. This event has no meaning for any node that is
 
 The write pointer is the actual pointer after the last data has been written i,e the next position on which data will be written. 
 
+
 ----
 
 ## Type=19 (0x13) - Program data block. {#type19}
@@ -436,6 +455,7 @@ Request from a node to program a data block that has been uploaded and confirmed
  | 1 | Block number.        | 
  | 2 | Block number.        | 
  | 3 | LSB of block number. | 
+
 
 ----
 
@@ -451,6 +471,7 @@ A node confirms the successful programming of a block. This event has no meaning
  | 2 | Block number.        | 
  | 3 | LSB of block number. | 
 
+
 ----
 
 ## Type=21 (0x15) - NACK program data block. {#type21}
@@ -465,6 +486,7 @@ A node failed to program a data block. This event has no meaning for any node th
  | 2         | Block number.            | 
  | 3         | Block number.            | 
  | 4         | LSB of block number.     | 
+
 
 ----
 
@@ -487,6 +509,7 @@ Response can be
 or
 
 [CLASS1.PROTOCOL, Type=49 (Activate new image NACK)](./class1.protocol.md#type49). 
+
 
 ----
 
@@ -521,6 +544,7 @@ A device can use just one byte to detect this. This byte is initialized to zero 
 
 Hi-level software must take this one second interval into account when more then one node should be initialized. This event can be used to assign nickname-IDs to silent nodes. This is nodes that does not start the nickname discovery process on startup and instead just sits and wait until they are assigned an ID with this event. 
 
+
 ----
 
 ## Type=24 (0x18) - Page read. {#type24}
@@ -550,6 +574,7 @@ The following format can be used for nodes on a Level II segment as a midway bet
  | 0-15 | GUID. |
  | 16 | Index into page. | 
  | 17 | Number of bytes to read (1-255). | 
+
 
 
 ----
@@ -582,6 +607,7 @@ The following format can be used for nodes on a Level II segment as a midway bet
 Data count can be as many as the buffer of the Level II node accepts. 
 
 
+
 ----
 
 ## Type=26 (0x1A) - Read/Write page response. {#type26}
@@ -604,12 +630,14 @@ The following format can be used for nodes on a Level II segment as a midway bet
 
 Data count can be as many as the buffer of the Level II node accepts. 
 
+
 ----
 
 ## Type=27 (0x1B) - High end server/service probe. {#type27}
     VSCP_TYPE_PROTOCOL_HIGH_END_SERVER_PROBEShould be implemented by all devices that work over 802.15.4/Ethernet/Internet or other high end protocols.This event can be broadcasted on a segment by a node to get information about available servers. 
 
 The [VSCP daemon documentation](https://grodansparadis.gitbooks.io/the-vscp-daemon) have a description on how server/service discovery works. 
+
 
 ----
 
@@ -639,6 +667,7 @@ A server like the VSCP server can span multiple segments and a reply can therefo
 
 The [VSCP daemon documentation](https://grodansparadis.gitbooks.io/the-vscp-daemon) have a description on how server/service discovery works. 
 
+
 ----
 
 ## Type=29 (0x1D) - Increment register. {#type29}
@@ -652,6 +681,7 @@ Increment a register content by one with no risk of it changing in between
  | 1 | Register to increment. | 
 
 Node should answer with [CLASS1.PROTOCOL, Type=10 (Read/Write register response)](./class1.protocol.md#type10).
+
 
 ----
 
@@ -667,6 +697,7 @@ Decrement a register content by one with no risk of it changing in between
 
 Node should answer with [CLASS1.PROTOCOL, Type=10 (Read/Write register response)](./class1.protocol.md#type10).
 
+
 ----
 
 ## Type=31 (0x1F) - Who is there? {#type31}
@@ -681,6 +712,7 @@ This event can be used as a fast way to find out which nodes there is on a segme
 Response for a Level I node is [CLASS1.PROTOCOL, Type=32 (Who is there response)](./class1.prototocol.md#type32).
     
 A Level II node respond with [CLASS2.PROTOCOL, Type=32 (Level II who is response)](./class2.protocol.md#type32) to this event.
+
 
 ----
 
@@ -702,6 +734,7 @@ Response from node(s) looks like this
 
 All seven frames should be sent also if the MDF URL is shorter than 32 characters,
 
+
 ----
 
 ## Type=33 (0x21) - Get decision matrix info. {#type33}
@@ -720,6 +753,7 @@ The following format can be used for nodes on a Level II segment as a midway bet
  | 0-15 | GUID.       | 
 
 A node that does not have a decision matrix should return zero rows.
+
 
 ----
 
@@ -745,6 +779,7 @@ The decision matrix can as noted be stored in paged registers and if so it must 
  | 0x77 | Index for row in decision matrix. | 
  | 0x78-0x7F | Level I decision matrix row. | 
 
+
 ----
 
 ## Type=35 (0x23) - Get embedded MDF. {#type35}
@@ -755,6 +790,7 @@ A node that get this event and has an embedded MDF description in flash or simil
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | Node-ID.    | 
+
 
 ----
 
@@ -778,6 +814,7 @@ should be sent.
  | 2-7 | MDF data. | 
 
 Note that if sending the events back to back some devices will not be able to cope with the data stream. It is therefor advisable to have a short delay between each mdf data frame sent out.
+
 
 ----
 
@@ -812,6 +849,7 @@ The following format can be used for nodes on a Level II segment as a midway bet
  | 18  | Register to read. | 
  | 19   | Optional: bytes to read (1-255). |
  
+
 ----
 
 ## Type=38 (0x26) - Extended page write register. {#type38}
@@ -844,6 +882,7 @@ The following format can be used for nodes on a Level II segment as a midway bet
  | 18 | Register to write. | 
  | 19  | Content of register. byte 20-buffer-size Optional extra data bytes to write. | 
 
+
 ----
 
 ## Type=39 (0x27) - Extended page read/write response. {#type39}
@@ -862,6 +901,7 @@ This is the replay sent for events CLASS1.PROTOCOL, Type=40,41.
 
 A multi. register read/write can generate up to 256 events of this type. Index will then be increased by one for each event sent. __Some nodes my have small buffers so this bursts of messages may be a problem. Therefore send them with a low priority.__
 
+
 ----
 
 ## Type=40 (0x28) - Get event interest. {#type40}
@@ -872,6 +912,7 @@ It is possible to ask a node which event(s) it is interested in with this event.
 All nodes are by default interested in **CLASS1.PROTOCOL**.
 
 The event is intended for very low bandwidth nodes like low power wireless nodes where it saves a lot of bandwidth if only events that really concerns the node is sent to them. 
+
 
 ----
 
@@ -910,12 +951,14 @@ A maximum of 255 frames (index = 0-254) may be sent.
 
 Fill unused pairs with zero.
 
+
 ----
 
 ## Type=48 (0x30) - Activate new image ACK. {#type48}
     VSCP_TYPE_PROTOCOL_ACTIVATE_NEW_IMAGE_ACK**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
 
 Part of the VSCP boot-loader functionality. This is the positive response after a node received a [CLASS1.PROTOCOL, Type=22 (Activate new image)](./class1.protocol.md#type22). It is sent by the node before the new firmware is booted into.
+
 
 ----
 
@@ -924,6 +967,7 @@ Part of the VSCP boot-loader functionality. This is the positive response after 
 
 Part of the VSCP boot-loader functionality. This is the negative response after a node received a [CLASS1.PROTOCOL, Type=22 (Activate new image)](./class1.protocol.md#type22). It is sent by the node to inform it that it will (or can not) switch to the new firmware image. 
 
+
 ----
 
 ## Type=50 (0x32) - Block data transfer ACK. {#type50}
@@ -931,12 +975,14 @@ Part of the VSCP boot-loader functionality. This is the negative response after 
 
 Part of the VSCP boot-loader functionality. This is the positive response after a node received a [CLASS1.PROTOCOL, Type=16 (Block data)](./class1.protocol.md#type16) event. It is sent by the node as a validation that it can handle the block data transfer. 
 
+
 ----
 
 ## Type=51 (0x33) - Block data transfer NACK. {#type51}
     VSCP_TYPE_PROTOCOL_START_BLOCK_NACK**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
 
 Part of the VSCP boot-loader functionality. This is the negative response after a node received a [CLASS1.PROTOCOL, Type=16 (Block data)](./class1.protocol.md#type16) event. It is sent by the node as an indication that it can NOT handle the block data transfer. 
+
 
 ----
 

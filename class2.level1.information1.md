@@ -9,6 +9,7 @@ This class mirrors the [CLASS1.INFORMATION](./class1.information.md) class but u
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_INFORMATION_GENERALGeneral Event.
+
 ----
 
 ## Type=1 (0x01) - Button {#type1}
@@ -23,6 +24,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 4         | LSB of code for button.                                                                                                                                            | 
  | 5         | MSB of optional code-page.                                                                                                                                         | 
  | 6         | LSB of optional code-page.                                                                                                                                         | 
+
 
 ----
 
@@ -39,6 +41,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 5         | MSB of normalized Y-coordinate.                                                   | 
  | 6         | LSB of normalized Y-coordinate.                                                   | 
 
+
 ----
 
 ## Type=3 (0x03) - On {#type3}
@@ -49,6 +52,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0         | index. Often used as an index for channels within a module.        | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -61,6 +65,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=5 (0x05) - Alive {#type5}
@@ -71,6 +76,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0         | User specified.                                                    | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -85,6 +91,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
 
+
 ----
 
 ## Type=7 (0x07) - Opened {#type7}
@@ -96,6 +103,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=8 (0x08) - Closed {#type8}
@@ -106,6 +114,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 0         | User specified.                                                    | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -120,6 +129,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=10 (0x0A) - Below limit {#type10}
@@ -130,6 +140,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 0         | Reserved.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -142,6 +153,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=12 (0x0C) - Pulse {#type12}
@@ -152,6 +164,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 0         | Reserved.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -164,6 +177,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=14 (0x0E) - Resumed {#type14}
@@ -174,6 +188,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 0         | Reserved.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -186,6 +201,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=16 (0x10) - Sleeping {#type16}
@@ -196,6 +212,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 0         | Reserved.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -208,6 +225,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=18 (0x12) - Good day {#type18}
@@ -218,6 +236,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 0         | Reserved.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -230,6 +249,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=20 (0x14) - Good evening {#type20}
@@ -240,6 +260,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 0         | Reserved.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -252,6 +273,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=22 (0x16) - See you soon {#type22}
@@ -262,6 +284,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 0         | Reserved.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -274,6 +297,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=24 (0x18) - Stop {#type24}
@@ -284,6 +308,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 0         | Reserved.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -296,6 +321,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=26 (0x1A) - ResetCompleted {#type26}
@@ -306,6 +332,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 0         | Reserved.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -318,6 +345,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=28 (0x1C) - PreparingToSleep {#type28}
@@ -328,6 +356,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 0         | Reserved.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -340,6 +369,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=30 (0x1E) - Dusk {#type30}
@@ -350,6 +380,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 0         | Reserved.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -362,6 +393,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=32 (0x20) - Active {#type32}
@@ -372,6 +404,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 0         | Reserved.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -384,6 +417,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=34 (0x22) - Busy {#type34}
@@ -394,6 +428,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 0         | Reserved.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -406,6 +441,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=36 (0x24) - Stream Data {#type36}
@@ -415,6 +451,7 @@ Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
  | :---------: | -----------                                                                                                                                                                                                                                  | 
  | 0         | Sequence number which is increased by one for every new event with stream data. The sequence number is increased for every frame sent going from 0 - 255 and back to 0 and so on if needed. A new stream starts with a sequence number of 0. | 
  | 1-7       | Stream data.                                                                                                                                                                                                                                 | 
+
 
 ----
 
@@ -463,6 +500,7 @@ Depending on the Token device type a number of this event are sent on the segmen
  | 24    | RFID Token.                                                                                                                     | 16-bits  | 
  | 25    | RFID Token.                                                                                                                     | 8-bits   | 
  | 26-63 | Reserved.                         |          | 
+
 ----
 
 ## Type=38 (0x26) - Stream Data with zone {#type38}
@@ -474,6 +512,7 @@ Depending on the Token device type a number of this event are sent on the segmen
  | 1         | Sub-zone.                                                                                                                                                                                                                                    | 
  | 2         | Sequence number which is increased by one for every new event with stream data. The sequence number is increased for every frame sent going from 0 - 255 and back to 0 and so on if needed. A new stream starts with a sequence number of 0. | 
  | 3-7       | Stream data.                                                                                                                                                                                                                                | 
+
 
 ----
 
@@ -490,6 +529,7 @@ Depending on the Token device type a number of this event are sent on the segmen
  | 5         | Type MSB.               | 
  | 6         | Type LSB.               | 
 
+
 ----
 
 ## Type=40 (0x28) - Level Changed {#type40}
@@ -501,6 +541,7 @@ Depending on the Token device type a number of this event are sent on the segmen
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=41 (0x29) - Warning {#type41}
@@ -511,6 +552,7 @@ Depending on the Token device type a number of this event are sent on the segmen
  | 0         | Relative or absolute level.                                        | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -525,6 +567,7 @@ Depending on the Token device type a number of this event are sent on the segmen
  | 3         | State changed from.                                                | 
  | 4         | New State.                                                         | 
 
+
 ----
 
 ## Type=43 (0x2B) - Action Trigger {#type43}
@@ -535,6 +578,7 @@ Depending on the Token device type a number of this event are sent on the segmen
  | 0         | Action ID.                                                         | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -547,6 +591,7 @@ Depending on the Token device type a number of this event are sent on the segmen
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=45 (0x2D) - Sunset {#type45}
@@ -557,6 +602,7 @@ Depending on the Token device type a number of this event are sent on the segmen
  | 0         | User specified.                                                    | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -570,6 +616,7 @@ Depending on the Token device type a number of this event are sent on the segmen
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3         | Number of frames to follow or zero for not used.                   | 
 
+
 ----
 
 ## Type=47 (0x2F) - End of record {#type47}
@@ -580,6 +627,7 @@ Depending on the Token device type a number of this event are sent on the segmen
  | 0         | Index for record.                                                  | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -592,6 +640,7 @@ Depending on the Token device type a number of this event are sent on the segmen
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3         | Code for pre-set that has been set.                                | 
+
 
 ----
 
@@ -606,6 +655,7 @@ Depending on the Token device type a number of this event are sent on the segmen
 
 The first byte is used as an index if a module have several channels or detectors. 
 
+
 ----
 
 ## Type=50 (0x32) - Overflow {#type50}
@@ -619,6 +669,7 @@ The first byte is used as an index if a module have several channels or detector
 
 The first byte is used as an index if a module have several channels or detectors.
 
+
 ----
 
 ## Type=51 (0x33) - Big level changed {#type51}
@@ -630,6 +681,7 @@ The first byte is used as an index if a module have several channels or detector
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                        | 
  | 3,4,5,6,7 | Level as signed Integer. The range can be adjusted by the user by sending the needed number of bytes 1-5. | 
+
 
 ----
 
@@ -650,6 +702,7 @@ A node indicates that sunrise twilight time is detected/calculated.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=53 (0x35) - Civil sunset twilight time {#type53}
@@ -668,6 +721,7 @@ Technically, the start and end times are when the true geocentric position of th
  | 0         | User specified.                                                    | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -688,6 +742,7 @@ Technically, the start and end times are when the true geocentric position of th
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=55 (0x37) - Nautical sunset twilight time {#type55}
@@ -707,6 +762,7 @@ Technically, the start and end times are when the true geocentric position of th
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=56 (0x38) - Astronomical sunrise twilight time {#type56}
@@ -723,6 +779,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
  | 0         | User specified.                                                    | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -741,6 +798,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=58 (0x3A) - Calculated Noon {#type58}
@@ -751,6 +809,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
  | 0         | Reserved.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -763,6 +822,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=60 (0x3C) - Shutter down {#type60}
@@ -773,6 +833,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
  | 0         | Reserved.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -785,6 +846,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=62 (0x3E) - Shutter right {#type62}
@@ -795,6 +857,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
  | 0         | Reserved.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -808,6 +871,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
 ## Type=64 (0x40) - Shutter reached bottom end {#type64}
@@ -818,6 +882,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
  | 0         | Reserved.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -830,6 +895,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=66 (0x42) - Shutter reached preset end {#type66}
@@ -840,6 +906,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
  | 0         | Reserved.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -852,6 +919,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=68 (0x44) - Shutter reached preset right {#type68}
@@ -862,6 +930,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
  | 0         | Reserved.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -874,6 +943,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=70 (0x46) - Single click {#type70}
@@ -885,6 +955,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=71 (0x47) - Double click {#type71}
@@ -895,6 +966,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
  | 0         | Index for device generating double click. Set to zero if not used. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -912,6 +984,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
  | 6         | day (1-31)                                                         | 
 
 See also [CLASS1.INFORMATION, Type=77](./class1.information.md#type77) which combines date and time in one event.
+
 
 ----
 
@@ -931,6 +1004,7 @@ See also [CLASS1.INFORMATION, Type=77](./class1.information.md#type77) which com
 
 See also [CLASS1.INFORMATION, Type=77](./class1.information.md#type77) which combines date and time in one event.
 
+
 ----
 
 ## Type=74 (0x4A) - Weekday {#type74}
@@ -943,6 +1017,7 @@ See also [CLASS1.INFORMATION, Type=77](./class1.information.md#type77) which com
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3         | Weekday ( 0 (Monday) - 6 (Sunday))                                 | 
 
+
 ----
 
 ## Type=75 (0x4B) - Lock {#type75}
@@ -954,6 +1029,7 @@ See also [CLASS1.INFORMATION, Type=77](./class1.information.md#type77) which com
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=76 (0x4C) - Unlock {#type76}
@@ -964,6 +1040,7 @@ See also [CLASS1.INFORMATION, Type=77](./class1.information.md#type77) which com
  | 0         | Index for device. Set to zero if not used.                         | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -998,6 +1075,7 @@ Bit 39 and bit 38 is reserved.
  | Minute  | 0-59        | 
  | Seconds | 0-59        | 
 
+
 ----
 
 ## Type=78 (0x4E) - Rising {#type78}
@@ -1008,6 +1086,7 @@ Bit 39 and bit 38 is reserved.
  | 0         | Index for device. Set to zero if not used.                         | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 ----
 
 ## Type=79 (0x4F) - Falling {#type79}
@@ -1018,6 +1097,7 @@ Bit 39 and bit 38 is reserved.
  | 0         | Index for device. Set to zero if not used.                         | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 ----
 
 ## Type=80 (0x50) - Updated {#type80}
@@ -1028,6 +1108,7 @@ Bit 39 and bit 38 is reserved.
  | 0         | Index for device. Set to zero if not used.                         | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 ----
 
 {% include "./bottom_copyright.md" %}

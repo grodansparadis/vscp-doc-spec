@@ -9,6 +9,7 @@ This class mirrors the [CLASS1.LOCAL](./class1.local.md) class but use a differe
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_LOCAL_GENERALGeneral Event.
+
 ----
 
 {% include "./bottom_copyright.md" %}

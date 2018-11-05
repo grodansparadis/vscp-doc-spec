@@ -9,6 +9,7 @@ This class is reserved for internal events used by the decision matrix mechanism
 ## Type=0 (0x00) - General event {#type0}
     VSCP2_TYPE_VSCPD_GENERAL
 General Event.
+
 ----
 
 ## Type=1 (0x01) - Loop {#type1}
@@ -128,6 +129,7 @@ Event is from calculated dusk. No data is defined.
 ## Type=22 (0x16) - Dawn {#type22}
     VSCP2_TYPE_VSCPD_DAWN
 Event is from calculated dawn. No data is defined.
+
 ----
 
 ## Type=23 (0x17) - Starting up {#type23}
@@ -160,6 +162,8 @@ Argument is timer ID and start time for the timer.
  | 7    | Start time in milliseconds as a 32-bit value. LSB. | 
 
 Max timer value is about 49 days. 
+
+
 ----
 
 ## Type=26 (0x1A) - Timer paused {#type26}
@@ -178,6 +182,7 @@ Argument is timer ID and time when timer was paused.
  | 5    | Start time in milliseconds as a 32-bit value.      | 
  | 6    | Start time in milliseconds as a 32-bit value.      | 
  | 7    | Start time in milliseconds as a 32-bit value. LSB  | 
+ 
 
 ----
 

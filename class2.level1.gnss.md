@@ -9,6 +9,7 @@ This class mirrors the [CLASS1.GNSS](./class1.gnss.md) class but use a different
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_GNSS_GENERALGeneral Event.
+
 ----
 
 ## Type=1 (0x01) - Position {#type1}
@@ -19,6 +20,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0-3  | Latitude as floating point value.  | 
  | 4-7  | Longitude as floating point value. | 
 
+
 ----
 
 ## Type=2 (0x02) - Satellites {#type2}
@@ -27,6 +29,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | Byte | Description                | 
  | :----: | -----------                | 
  | 0    | Number of satellites used. | 
+
 
 ----
 

@@ -9,6 +9,7 @@ This class mirrors the [CLASS1.CONTROL](./class1.control.md) class but use a dif
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_CONTROL_GENERALGeneral Event.
+
 ----
 
 ## Type=1 (0x01) - Mute on/off {#type1}
@@ -19,6 +20,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0         | If equal to zero no mute else mute.                                | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -33,6 +35,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTROL, Type=42](./class1.control.md#type41) which don't use byte 0 but instead are separated in two distinct events.
 
+
 ----
 
 ## Type=3 (0x03) - Open {#type3}
@@ -43,6 +46,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
  | 0         | Optional byte that have a meaning given by the issuer of the event. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
+
 
 
 ----
@@ -57,6 +61,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 
+
 ----
 
 ## Type=5 (0x05) - TurnOn {#type5}
@@ -67,6 +72,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
  | 0         | Optional byte that have a meaning given by the issuer of the event. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
+
 
 
 ----
@@ -81,6 +87,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 
+
 ----
 
 ## Type=7 (0x07) - Start {#type7}
@@ -92,6 +99,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
  | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
+
 ----
 
 ## Type=8 (0x08) - Stop {#type8}
@@ -102,6 +110,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
  | 0         | Optional byte that have a meaning given by the issuer of the event. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
+
 
 
 ----
@@ -116,6 +125,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 
+
 ----
 
 ## Type=10 (0x0A) - Interrupt {#type10}
@@ -126,6 +136,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
  | 0         | Interrupt level. (0 – 255 , zero is lowest interrupt level. ).   | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 
 ----
@@ -140,6 +151,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 
+
 ----
 
 ## Type=12 (0x0C) - Wakeup {#type12}
@@ -150,6 +162,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
  | 0         | Optional byte that have a meaning given by the issuer of the event. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
+
 
 
 ----
@@ -164,6 +177,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 
+
 ----
 
 ## Type=14 (0x0E) - Pause {#type14}
@@ -174,6 +188,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
  | 0         | Optional byte that have a meaning given by the issuer of the event. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
+
 
 
 ----
@@ -188,6 +203,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 
+
 ----
 
 ## Type=16 (0x10) - Deactivate {#type16}
@@ -200,18 +216,22 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 
+
 ----
 
 ## Type=17 (0x11) - Reserved for future use {#type17}
     VSCP_TYPE_CONTROL_RESERVED17Reserved. 
+
 ----
 
 ## Type=18 (0x12) - Reserved for future use {#type18}
     VSCP_TYPE_CONTROL_RESERVED18Reserved. 
+
 ----
 
 ## Type=19 (0x13) - Reserved for future use {#type19}
     VSCP_TYPE_CONTROL_RESERVED19Reserved.
+
 ----
 
 ## Type=20 (0x14) - Dim lamp(s) {#type20}
@@ -222,6 +242,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
  | 0         | Value (0 – 100) . 0 = off, 100 = full on. 254 dim down one step. 255 dim up one step. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                              | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                      | 
+
 
 ----
 
@@ -234,6 +255,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                        | 
 
+
 ----
 
 ## Type=22 (0x16) - Change Level {#type22}
@@ -244,6 +266,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
  | 0         | Absolute level.                                                    | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -257,6 +280,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=24 (0x18) - Measurement Request {#type24}
@@ -267,6 +291,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
  | 0         | Zero indicates all measurements supported by node should be sent (as separate events). Non-zero indicates a node specific index specifying which measurement to send. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                            | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                    | 
+
 
 ----
 
@@ -279,6 +304,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
  | 1-7       | Stream data.                                                              | 
 
 Use this event for streamed data out from a node. The source is then given by the nickname. If a specific received is needed use Zoned Stream. 
+
 
 ----
 
@@ -293,6 +319,7 @@ Use this event for streamed data out from a node. The source is then given by th
 
 The sensor index can be used to index units within a module also or used as some other indexing schema. 
 
+
 ----
 
 ## Type=27 (0x1B) - Zoned Stream Data {#type27}
@@ -304,6 +331,7 @@ The sensor index can be used to index units within a module also or used as some
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.        | 
  | 3-7       | Stream data.                                                              | 
+
 
 ----
 
@@ -320,6 +348,7 @@ Type=48 as a response event.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=29 (0x1D) - Toggle state {#type29}
@@ -332,6 +361,7 @@ Note: This may be a bad design option as it often demands that the state should 
  | 0         | Optional byte that have a meaning given by the issuer of the event. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
+
 
 ----
 
@@ -368,6 +398,7 @@ The control byte have the following bits defined
  | 3    | Time specified in minutes.      | 
  | 4    | Time specified in hours.        | 
  | 5    | Time specified in days.         | 
+
 
 
 ----
@@ -407,6 +438,7 @@ The control byte have the following bits defined
  | 5    | Time specified in days.         | 
 
 
+
 ----
 
 ## Type=32 (0x20) - Set country/language {#type32}
@@ -431,6 +463,7 @@ The control byte have the following bits defined
 
 ISO codes can be found [here](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
+
 ----
 
 ## Type=33 (0x21) - Big Change level {#type33}
@@ -443,6 +476,7 @@ ISO codes can be found [here](https://en.wikipedia.org/wiki/List_of_ISO_639-1_co
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                        | 
  | 3-7       | Level as signed Integer. The range can be adjusted by the user by sending the needed number of bytes 1-5. | 
 
+
 ----
 
 ## Type=34 (0x22) - Move shutter up {#type34}
@@ -454,6 +488,7 @@ ISO codes can be found [here](https://en.wikipedia.org/wiki/List_of_ISO_639-1_co
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=35 (0x23) - Move shutter down {#type35}
@@ -464,6 +499,7 @@ ISO codes can be found [here](https://en.wikipedia.org/wiki/List_of_ISO_639-1_co
  | 0         | Index.                                                             | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -477,6 +513,7 @@ ISO codes can be found [here](https://en.wikipedia.org/wiki/List_of_ISO_639-1_co
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
 ## Type=37 (0x25) - Move shutter right {#type37}
@@ -487,6 +524,7 @@ ISO codes can be found [here](https://en.wikipedia.org/wiki/List_of_ISO_639-1_co
  | 0         | Index.                                                             | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -499,6 +537,7 @@ ISO codes can be found [here](https://en.wikipedia.org/wiki/List_of_ISO_639-1_co
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=39 (0x27) - Move shutter to preset position {#type39}
@@ -510,6 +549,7 @@ ISO codes can be found [here](https://en.wikipedia.org/wiki/List_of_ISO_639-1_co
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3         | Position 0-100.                                                    | 
+
 
 ----
 
@@ -524,6 +564,7 @@ ISO codes can be found [here](https://en.wikipedia.org/wiki/List_of_ISO_639-1_co
 
 See also [CLASS1.CONTROL, Type=2](./class1.control.md#type2)
 
+
 ----
 
 ## Type=41 (0x29) - (All) Lamp(s) off {#type41}
@@ -537,6 +578,7 @@ See also [CLASS1.CONTROL, Type=2](./class1.control.md#type2)
 
 See also [CLASS1.CONTROL, Type=2](./class1.control.md#type2)
 
+
 ----
 
 ## Type=42 (0x2A) - Lock {#type42}
@@ -549,6 +591,7 @@ See also [CLASS1.CONTROL, Type=2](./class1.control.md#type2)
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
 ## Type=43 (0x2B) - Unlock {#type43}
@@ -559,6 +602,7 @@ See also [CLASS1.CONTROL, Type=2](./class1.control.md#type2)
  | 0         | Not used.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 
 ----

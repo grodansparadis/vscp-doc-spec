@@ -9,6 +9,7 @@ This class mirrors the [CLASS1.LOG](./class1.log.md) class but use a different d
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_LOG_GENERALGeneral Event.
+
 ----
 
 ## Type=1 (0x01) - Log event {#type1}
@@ -20,6 +21,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | Log level for message. | 
  | 2    | Idx for this message.  | 
  | 3-7  | Message.               |
+
 ----
 
 ## Type=2 (0x02) - Log Start {#type2}
@@ -28,6 +30,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | Byte | Description | 
  | :----: | ----------- | 
  | 0    | ID for log. | 
+
 ----
 
 ## Type=3 (0x03) - Log Stop {#type3}
@@ -36,6 +39,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | Byte | Description | 
  | :----: | ----------- | 
  | 0    | ID for log. | 
+
 ----
 
 ## Type=4 (0x04) - Log Level {#type4}
@@ -44,6 +48,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | Byte | Description                  | 
  | :----: | -----------                  | 
  | 0    | ID for log byte 0 Log level. | 
+
 
 ----
 

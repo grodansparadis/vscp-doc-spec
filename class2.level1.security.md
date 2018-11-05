@@ -9,6 +9,7 @@ This class mirrors the [CLASS1.SECURITY](./class1.security.md) class but use a d
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_SECURITY_GENERALGeneral Event.
+
 ----
 
 ## Type=1 (0x01) - Motion Detect {#type1}
@@ -21,6 +22,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
+
 
 ----
 
@@ -35,6 +37,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
 
+
 ----
 
 ## Type=3 (0x03) - Beam break {#type3}
@@ -47,6 +50,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
+
 
 ----
 
@@ -61,6 +65,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
 
+
 ----
 
 ## Type=5 (0x05) - Shock sensor {#type5}
@@ -73,6 +78,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
+
 
 ----
 
@@ -87,6 +93,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
 
+
 ----
 
 ## Type=7 (0x07) - Heat sensor {#type7}
@@ -99,6 +106,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
+
 
 ----
 
@@ -113,6 +121,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
 
+
 ----
 
 ## Type=9 (0x09) - Door Contact {#type9}
@@ -125,6 +134,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
+
 
 ----
 
@@ -139,6 +149,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
 
+
 ----
 
 ## Type=11 (0x0B) - CO Sensor {#type11}
@@ -151,6 +162,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
+
 
 ----
 
@@ -165,6 +177,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
 
+
 ----
 
 ## Type=13 (0x0D) - Flame detected {#type13}
@@ -177,6 +190,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
+
 
 ----
 
@@ -191,6 +205,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
 
+
 ----
 
 ## Type=15 (0x0F) - Weight detected. {#type15}
@@ -203,6 +218,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
+
 
 ----
 
@@ -217,6 +233,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
 
+
 ----
 
 ## Type=17 (0x11) - Condensation detected. {#type17}
@@ -229,6 +246,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
+
 
 ----
 
@@ -243,6 +261,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
 
+
 ----
 
 ## Type=19 (0x13) - Harmful sound levels detected. {#type19}
@@ -256,6 +275,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
 
+
 ----
 
 ## Type=20 (0x14) - Tamper detected. {#type20}
@@ -266,6 +286,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
  | 0 | User defined data. | 
  | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 

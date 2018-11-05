@@ -9,6 +9,7 @@ This class mirrors the [CLASS1.IR](./class1.ir.md) class but use a different dat
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_REMOTE_GENERALGeneral Event.
+
 ----
 
 ## Type=1 (0x01) - RC5 Send/Receive {#type1}
@@ -19,6 +20,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | RC5 code.            | 
  | 1    | RC5 Address.         | 
  | 2    | Repeat count if any. | 
+
 ----
 
 ## Type=3 (0x03) - SONY 12-bit Send/Receive {#type3}
@@ -29,6 +31,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | SONY code.           | 
  | 1    | SONY address.        | 
  | 2    | Repeat count if any. | 
+
 
 ----
 
@@ -46,6 +49,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 6    | LIRC Code. LSB.      | 
  | 7    | Repeat count if any. | 
 
+
 ----
 
 ## Type=48 (0x30) - VSCP Abstract Remote Format {#type48}
@@ -58,6 +62,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2    | Zone for which event applies to (0-255). 255 is all zones.             | 
  | 3    | Sub-zone for which the event applies to (0-255). 255 is all sub-zones. | 
  | 4    | Repeat count if any.                                                   | 
+
 
 ----
 
@@ -74,6 +79,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 5    | Control address.                                                       | 
  | 6    | Control address LSB.                                                   | 
  | 7    | Key Code.                                                              | 
+
 
 ----
 

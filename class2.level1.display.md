@@ -9,6 +9,7 @@ This class mirrors the [CLASS1.DISPLAY](./class1.display.md) class but use a dif
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_DISPLAY_GENERALGeneral Event.
+
 ----
 
 ## Type=1 (0x01) - Clear Display {#type1}
@@ -19,6 +20,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0    | Code - not yet defined.                                            | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -34,6 +36,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 4    | Column to move to (first column is 0).                             | 
  
 
+
 ----
 
 ## Type=3 (0x03) - Write Display {#type3}
@@ -47,6 +50,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 3-7  | Display data.                                                             | 
 
 Index is increased by one for each event that builds up a specific event. If needed an empty (no data) can be sent as the last event else sending data to fill the display buffer will give the end automatically. 
+
 
 ----
 
@@ -64,6 +68,7 @@ Index is increased by one for each event that builds up a specific event. If nee
 
 Many LCD displays allow definition of special characters. Use this event to define custom matrices buy defining a sub-zone for the user defined matrix(es). 
 
+
 ----
 
 ## Type=5 (0x05) - Show Display Buffer {#type5}
@@ -74,6 +79,7 @@ Many LCD displays allow definition of special characters. Use this event to defi
  | 0    | index - Increase by one for each event sent for specific text to display. | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.                | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones.        | 
+
 
 ----
 
@@ -89,6 +95,7 @@ Note that there are no zone and sub-zone defined for this event and the escapes 
  | 2-7  | Data as of coding.                         | 
 
 Note that the event have one byte less then standard measurement events so all coding types can not be used. 
+
 
 ----
 
@@ -110,6 +117,7 @@ The text sent to a node can contain escape characters that themselves display da
 
 For a multi line display one can use different sub-zones o address different lines. One can also us macro characters to map display events to a line. 
 
+
 ----
 
 ## Type=48 (0x30) - Set LED {#type48}
@@ -128,6 +136,7 @@ For a multi line display one can use different sub-zones o address different lin
 
 Blink period can be omitted if not used or if blink period is defined hard. 
 
+
 ----
 
 ## Type=49 (0x31) - Set RGB Color {#type49}
@@ -143,6 +152,7 @@ Blink period can be omitted if not used or if blink period is defined hard.
  | 5    | Color B to display 0-255.                                          | 
 
 If multi-byte resolution for the colors is needed use index to address the byte where 0 means the MSB byte, 1 MSB+1 byte etc (Big endian).
+
 
 ----
 

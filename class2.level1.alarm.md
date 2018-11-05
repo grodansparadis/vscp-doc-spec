@@ -11,6 +11,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_ALARM_GENERALGeneral Event. 
+
 ----
 
 ## Type=1 (0x01) - Warning {#type1}
@@ -23,6 +24,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
+
 
 ----
 
@@ -37,6 +39,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
 
+
 ----
 
 ## Type=3 (0x03) - Alarm sound on/off {#type3}
@@ -49,6 +52,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
+
 
 ----
 
@@ -63,6 +67,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
 
+
 ----
 
 ## Type=5 (0x05) - Power on/off {#type5}
@@ -75,6 +80,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones.| 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
+
 
 ----
 
@@ -89,6 +95,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
 
+
 ----
 
 ## Type=7 (0x07) - Emergency Pause {#type7}
@@ -101,6 +108,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
  | 2 | Sub-zone for which event applies to (0-255). 255 is all subzones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
+
 
 ----
 
@@ -115,6 +123,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
 
+
 ----
 
 ## Type=9 (0x09) - Emergency Resume {#type9}
@@ -127,6 +136,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
+
 
 ----
 
@@ -141,6 +151,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
 
+
 ----
 
 ## Type=11 (0x0B) - Disarm {#type11}
@@ -154,6 +165,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
 
+
 ----
 
 ## Type=12 (0x0C) - Watchdog {#type12}
@@ -166,6 +178,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
+
 
 
 

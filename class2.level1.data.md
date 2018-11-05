@@ -9,6 +9,7 @@ This class mirrors the [CLASS1.DATA](./class1.data.md) class but use a different
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_DATA_GENERALGeneral event.
+
 ----
 
 ## Type=1 (0x01) - I/O value {#type1}
@@ -18,6 +19,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | :---------: | -----------                       | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -29,6 +31,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=3 (0x03) - D/A value {#type3}
@@ -38,6 +41,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | :---------: | -----------                       | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -60,6 +64,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 Units for Level II are the same as for Level I for the first four units.
 
+
 ----
 
 ## Type=5 (0x05) - Signal Level {#type5}
@@ -78,6 +83,7 @@ Units for Level II are the same as for Level I for the first four units.
 
 
 Units for Level II are the same as for Level I for the first four units.
+
 
 ----
 
@@ -99,6 +105,7 @@ Units for Level II are the same as for Level I for the first four units.
 
 Units for Level II are the same as for Level I for the first four units.
 
+
 ----
 
 ## Type=7 (0x07) - Count value {#type7}
@@ -108,6 +115,7 @@ Units for Level II are the same as for Level I for the first four units.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 
 ----

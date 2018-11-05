@@ -9,6 +9,7 @@ This class mirrors the [CLASS1.MULTIMEDIA](./class1.multimedia.md) class but use
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_MULTIMEDIA_GENERALGeneral Event.
+
 ----
 
 ## Type=1 (0x01) - Playback {#type1}
@@ -44,6 +45,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 Appropriate **CLASS1.INFORMATION** events should be sent from the controlled device as response to this event. 
 
+
 ----
 
 ## Type=2 (0x02) - NavigatorKey English {#type2}
@@ -71,6 +73,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 65—90 | A..Z Keys                                                                              | 
  | 97..122 | a-z keys (can't use ASCII hex as numbers are too large so this is the next best thing) | 
 
+
 ----
 
 ## Type=3 (0x03) - Adjust Contrast {#type3}
@@ -81,6 +84,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 0         | A value between 0 and 127 indicates the specific contrast level to set. A value between 128 and 159 is change down by the specified number of contrast levels. A value between 160 and 191 is change up by the specified number of contrast levels. A value of 255 means that this is and extended event and that the specific contrast level is sent in byte 3 and after. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                                 | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                         | 
+
 
 ----
 
@@ -93,6 +97,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                     | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                             | 
 
+
 ----
 
 ## Type=5 (0x05) - Adjust Tint {#type5}
@@ -103,6 +108,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 0         | A value between 0 and 127 indicates the specific tint level to set. A value between 128 and 159 is change down by the specified number of tint levels. A value between 160 and 191 is change up by the specified number of tint levels. A value of 255 means that this is and extended event and that the specific tint level is sent in byte 3 and after. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                 | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                         | 
+
 
 ----
 
@@ -115,6 +121,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=7 (0x07) - Adjust Brightness {#type7}
@@ -125,6 +132,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 0         | A value between 0 and 127 indicates the specific brightness level to set. A value between 128 and 159 is change down by the specified number of brightness levels. A value between 160 and 191 is change up by the specified number of brightness levels. A value of 255 means that this is and extended event and that the specific brightness level is sent in byte 3 and after. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                                         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                                 | 
+
 
 ----
 
@@ -137,6 +145,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=9 (0x09) - Adjust Bass {#type9}
@@ -147,6 +156,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 0         | A value between 0 and 127 indicates the specific bass level to set. A value between 128 and 159 is change down by the specified number of bass levels. A value between 160 and 191 is change up by the specified number of bass levels. A value of 255 means that this is and extended event and that the specific bass level is sent in byte 3 and after. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                 | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                         | 
+
 
 ----
 
@@ -159,6 +169,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                           | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                   | 
 
+
 ----
 
 ## Type=11 (0x0B) - Adjust Master Volume {#type11}
@@ -169,6 +180,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 0         | A value between 0 and 127 indicates the specific volume level to set. A value between 128 and 159 is change down by the specified number of volume levels. A value between 160 and 191 is change up by the specified number of volume levels. A value of 255 means that this is and extended event and that the specific volume level is sent in byte 3 and after. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                 | 
+
 
 ----
 
@@ -181,6 +193,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                 | 
 
+
 ----
 
 ## Type=13 (0x0D) - Adjust Center Volume {#type13}
@@ -191,6 +204,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 0         | A value between 0 and 127 indicates the specific volume level to set. A value between 128 and 159 is change down by the specified number of volume levels. A value between 160 and 191 is change up by the specified number of volume levels. A value of 255 means that this is and extended event and that the specific volume level is sent in byte 3 and after. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                 | 
+
 
 ----
 
@@ -203,6 +217,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                 | 
 
+
 ----
 
 ## Type=15 (0x0F) - Adjust Side Volume {#type15}
@@ -214,22 +229,27 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                 | 
 
+
 ----
 
 ## Type=16 (0x10) - Reserved {#type16}
     VSCP_TYPE_MULTIMEDIA_RESERVED16These are reserved for other future speaker combinations
+
 ----
 
 ## Type=17 (0x11) - Reserved {#type17}
     VSCP_TYPE_MULTIMEDIA_RESERVED17These are reserved for other future speaker combinations
+
 ----
 
 ## Type=18 (0x12) - Reserved {#type18}
     VSCP_TYPE_MULTIMEDIA_RESERVED18These are reserved for other future speaker combinations
+
 ----
 
 ## Type=19 (0x13) - Reserved {#type19}
     VSCP_TYPE_MULTIMEDIA_RESERVED19These are reserved for other future speaker combinations
+
 ----
 
 ## Type=20 (0x14) - Select Disk {#type20}
@@ -240,6 +260,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 0         | A value between 0 and 127 indicates the specific disk number. A value between 128 and 159 is change down by the specified number of disks. A value between 160 and 191 is change up by the specified number of disks. A value of 200 means select a random disk. A value of 255 means that this is and extended event and that the disk number is sent in byte 3 and after. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                                  | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                          | 
+
 
 ----
 
@@ -252,6 +273,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                              | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                      | 
 
+
 ----
 
 ## Type=22 (0x16) - Select Album/Play list {#type22}
@@ -262,6 +284,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 0         | A value between 0 and 127 indicates the album/play-list number. A value between 128 and 159 is change down by the specified number of albums/play-lists. A value between 160 and 191 is change up by the specified number of albums. A value of 200 means select a random album. A value of 255 means that this is and extended event and that the album number is sent in byte 3 and after. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                                                   | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                                           | 
+
 
 ----
 
@@ -274,6 +297,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                                | 
 
+
 ----
 
 ## Type=24 (0x18) - Select Page {#type24}
@@ -284,6 +308,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 0         | A value between 0 and 127 indicates the page number. A value between 128 and 159 is change down by the specified number of pages. A value between 160 and 191 is change up by the specified number of pages. A value of 200 means select a random page. A value of 255 means that this is and extended event and that the page number is sent in byte 3 and after. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                 | 
+
 
 ----
 
@@ -296,6 +321,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                                | 
 
+
 ----
 
 ## Type=26 (0x1A) - Select Screen Format {#type26}
@@ -306,6 +332,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 0         | 0 = Auto, 1 = Just, 2 = Norma,l 3 = Zoom.                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -346,6 +373,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 25   | mp3 source                         | 
  | 26   | mpeg source                        | 
 
+
 ----
 
 ## Type=28 (0x1C) - Select Output {#type28}
@@ -372,6 +400,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 32   | HDMI2       | 
  | 32   | HDMI3       | 
 
+
 ----
 
 ## Type=29 (0x1D) - Record {#type29}
@@ -383,6 +412,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 1         | Zone for which event applies to (0-255). 255 is all zones.             | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.     | 
 
+
 ----
 
 ## Type=30 (0x1E) - Set Recording Volume {#type30}
@@ -393,6 +423,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 0         | A value between 0 and 127 indicates the specific contrast level to set. A value between 128 and 159 is change down by the specified number of contrast levels. A value between 160 and 191 is change up by the specified number of contrast levels. A value of 255 means that this is and extended event and that the specific contrast level is sent in byte 3 and after. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                                 | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                         | 
+
 
 ----
 
@@ -423,6 +454,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 24   | White key     | 
  | 25   | Black key     | 
 
+
 ----
 
 ## Type=50 (0x32) - Get Current Title {#type50}
@@ -433,6 +465,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 0         | Reserved.                                                          | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+
 
 ----
 
@@ -445,6 +478,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                  | 
  | 3-7       | Position in milliseconds, This is an integer with a size specified by the event size. This 0xFF, 0xFFFF, 0xFFFFFF, 0xFFFFFFFF and 0xFFFFFFFFFF is the maximum that can be sent for different sizes. | 
+
 
 ----
 
@@ -459,6 +493,7 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
 
 If a device does not support the requested type of media information its sends a CLASS1.INFORMATION error event or does not response. 
 
+
 ----
 
 ## Type=53 (0x35) - Remove Item from Album {#type53}
@@ -469,6 +504,7 @@ If a device does not support the requested type of media information its sends a
  | 0         | 0-128 - Pos to remove from album/play-list A value of 255 means that this is and extended event and that the specific contrast level is sent in byte 3 and after. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                | 
+
 
 ----
 
@@ -481,6 +517,7 @@ If a device does not support the requested type of media information its sends a
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
 ----
 
 ## Type=55 (0x37) - Save Album/Play list {#type55}
@@ -491,6 +528,7 @@ If a device does not support the requested type of media information its sends a
  | 0         | 0 - Do not overwrite if it already exists 1 - Overwrite if it exist. | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.           | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.   | 
+
 
 ----
 
@@ -562,10 +600,12 @@ Lists in string form have list items separated with a zero (0x00).
 
 Album can be looked upon as a play-list which is a term used for many other multimedia products. 
 
+
 ----
 
 ## Type=61 (0x3D) - Multimedia Control response {#type61}
     VSCP_TYPE_MULTIMEDIA_CONTROL_RESPONSEResponse for multimedia control.
+
 ----
 
 {% include "./bottom_copyright.md" %}

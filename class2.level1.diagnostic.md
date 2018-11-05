@@ -18,6 +18,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
         
+
 ----
 
 ## Type=1 (0x01) - Overvoltage {#type1}
@@ -29,6 +30,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -42,6 +44,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=3 (0x03) - USB VBUS low {#type3}
@@ -53,6 +56,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -67,6 +71,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
+
 ----
 
 ## Type=5 (0x05) - Battery full voltage {#type5}
@@ -78,6 +83,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -91,6 +97,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=7 (0x07) - Battery OK {#type7}
@@ -102,6 +109,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 
 ----
@@ -117,6 +125,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
+
 ----
 
 ## Type=9 (0x09) - Circuit error {#type9}
@@ -128,6 +137,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 
 ----
@@ -142,6 +152,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=11 (0x0B) - Open Circuit {#type11}
@@ -153,6 +164,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -166,6 +178,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=13 (0x0D) - Wire failure {#type13}
@@ -177,6 +190,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -190,6 +204,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=15 (0x0F) - IR failure {#type15}
@@ -201,6 +216,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -214,6 +230,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=17 (0x11) - RS-222 failure {#type17}
@@ -226,6 +243,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=18 (0x12) - RS-232 failure {#type18}
@@ -237,6 +255,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -251,6 +270,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
+
 ----
 
 ## Type=20 (0x14) - RS-485 failure {#type20}
@@ -262,6 +282,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -276,6 +297,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
+
 ----
 
 ## Type=22 (0x16) - LAN failure {#type22}
@@ -287,6 +309,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -300,6 +323,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=24 (0x18) - Wifi failure {#type24}
@@ -311,6 +335,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -324,6 +349,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=26 (0x1A) - Low signal {#type26}
@@ -335,6 +361,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -349,6 +376,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
+
 ----
 
 ## Type=28 (0x1C) - ADC failure {#type28}
@@ -360,6 +388,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -373,6 +402,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=30 (0x1E) - Assert {#type30}
@@ -384,6 +414,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -397,6 +428,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=32 (0x20) - DMA failure {#type32}
@@ -408,6 +440,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -422,6 +455,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
+
 ----
 
 ## Type=34 (0x22) - Exception {#type34}
@@ -433,6 +467,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -446,6 +481,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=36 (0x24) - GPIO failure {#type36}
@@ -457,6 +493,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -470,6 +507,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=38 (0x26) - I2S failure {#type38}
@@ -481,6 +519,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -494,6 +533,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=40 (0x28) - MMU failure {#type40}
@@ -505,6 +545,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -518,6 +559,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=42 (0x2A) - Overheat {#type42}
@@ -529,6 +571,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -542,6 +585,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=44 (0x2C) - POR failure {#type44}
@@ -553,6 +597,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -566,6 +611,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=46 (0x2E) - RAM failure {#type46}
@@ -577,6 +623,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -590,6 +637,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=48 (0x30) - SPI failure {#type48}
@@ -602,6 +650,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=49 (0x31) - Stack failure {#type49}
@@ -613,6 +662,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 
 ----
@@ -628,6 +678,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
+
 ----
 
 ## Type=51 (0x33) - UART failure {#type51}
@@ -639,6 +690,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -652,6 +704,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=53 (0x35) - Memory failure {#type53}
@@ -663,6 +716,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -676,6 +730,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=55 (0x37) - WDT failure {#type55}
@@ -687,6 +742,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -700,6 +756,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=57 (0x39) - Encryption failure {#type57}
@@ -711,6 +768,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -724,6 +782,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=59 (0x3B) - Decryption failure {#type59}
@@ -736,6 +795,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=60 (0x3C) - Noise {#type60}
@@ -747,6 +807,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -761,6 +822,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
 
+
 ----
 
 ## Type=62 (0x3E) - Program flow failure {#type62}
@@ -772,6 +834,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -785,6 +848,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=64 (0x40) - System test failure {#type64}
@@ -796,6 +860,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -809,6 +874,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=66 (0x42) - Safe state entered {#type66}
@@ -820,6 +886,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -833,6 +900,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=68 (0x44) - Storage fail {#type68}
@@ -844,6 +912,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -857,6 +926,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=70 (0x46) - ESD/EMC/EMI failure {#type70}
@@ -868,6 +938,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -881,6 +952,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=72 (0x48) - LCD failure {#type72}
@@ -892,6 +964,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -905,6 +978,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=74 (0x4A) - No load {#type74}
@@ -916,6 +990,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -929,6 +1004,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=76 (0x4C) - Heating failure {#type76}
@@ -940,6 +1016,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 
@@ -953,6 +1030,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=78 (0x4E) - Receiption failure {#type78}
@@ -965,6 +1043,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
+
 ----
 
 ## Type=79 (0x4F) - External IC failure {#type79}
@@ -976,6 +1055,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
 
 ----
 

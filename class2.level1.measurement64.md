@@ -9,6 +9,7 @@ This class mirrors the [CLASS1.MEASUREMENT64](./class1.measurement64.md) class b
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_MEASUREMENT_GENERALGeneral Event.
+
 ----
 
 ## Type=1 (0x01) - Count {#type1}
@@ -18,6 +19,7 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | :---------: | ----------- | 
  | 0         | Data coding. | 
  | 1-7       | Data with format defined by byte 0. |
+
 ----
 
 ## Type=2 (0x02) - Length/Distance {#type2}
@@ -29,6 +31,7 @@ This is a measurement of a length or a distance.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 ----
 
 ## Type=3 (0x03) - Mass {#type3}
@@ -40,6 +43,7 @@ This is a measurement of a mass.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -54,6 +58,7 @@ This is a measurement of a mass.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=5 (0x05) - Electric Current {#type5}
@@ -65,6 +70,7 @@ This is a measurement of an electric current.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -79,6 +85,7 @@ This is a measurement of a temperature.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=7 (0x07) - Amount of substance {#type7}
@@ -91,6 +98,7 @@ This is a measurement of an amount of a substance.
  |  0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=8 (0x08) - Luminous Intensity (Intensity of light) {#type8}
@@ -102,6 +110,7 @@ This is a measurement of luminous intensity.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -116,6 +125,7 @@ This is a measurement of regular events during a second.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=10 (0x0A) - Radioactivity and other random events {#type10}
@@ -129,6 +139,7 @@ This is a measurement of rates of things, which happen randomly, or are unpredic
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=11 (0x0B) - Force {#type11}
@@ -140,6 +151,7 @@ This is a measurement of force.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -154,6 +166,7 @@ This is a measurement of pressure.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=13 (0x0D) - Energy {#type13}
@@ -166,6 +179,7 @@ This is a measurement of energy.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -180,6 +194,7 @@ This is a measurement of power.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=15 (0x0F) - Electrical Charge {#type15}
@@ -191,6 +206,7 @@ This is a measurement electrical charge.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -204,6 +220,7 @@ This is a measurement of electrical potential.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=17 (0x11) - Electrical Capacitance {#type17}
@@ -216,6 +233,7 @@ This is a measurement of electric capacitance.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=18 (0x12) - Electrical Resistance {#type18}
@@ -227,6 +245,7 @@ This is a measurement of resistance.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 ----
 
 ## Type=19 (0x13) - Electrical Conductance {#type19}
@@ -238,6 +257,7 @@ This is a measurement of electrical conductance.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -252,6 +272,7 @@ This is a measurement of magnetic field strength.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=21 (0x15) - Magnetic Flux {#type21}
@@ -263,6 +284,7 @@ This is a measurement of magnetic flux.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -276,6 +298,7 @@ This is a measurement of flux density or field strength for magnetic fields (als
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=23 (0x17) - Inductance {#type23}
@@ -287,6 +310,7 @@ This is a measurement of inductance.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -300,6 +324,7 @@ This is a measurement of luminous Flux.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=25 (0x19) - Illuminance {#type25}
@@ -311,6 +336,7 @@ This is used to express both Illuminance (incidence of light) and Luminous Emitt
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -325,6 +351,7 @@ This is a measurement of a radiation dose (Absorbed dose of ionizing radiation).
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=27 (0x1B) - Catalytic activity {#type27}
@@ -336,6 +363,7 @@ This is a measurement of catalytic activity used in biochemistry.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -350,6 +378,7 @@ This is a measurement of volume.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=29 (0x1D) - Sound intensity {#type29}
@@ -361,6 +390,7 @@ This is a measurement of sound intensity (acoustic intensity).
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -377,6 +407,7 @@ This is a measurement of an angle.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=31 (0x1F) - Position WGS 84 {#type31}
@@ -389,6 +420,7 @@ This is a measurement of a position as of WGS 84. Normally given as a floating p
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -403,6 +435,7 @@ This is a measurement of a speed.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=33 (0x21) - Acceleration {#type33}
@@ -414,6 +447,7 @@ This is a measurement of acceleration.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -427,6 +461,7 @@ This is a measurement of tension.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=35 (0x23) - Damp/moist (Hygrometer reading) {#type35}
@@ -438,6 +473,7 @@ This is a measurement of relative moistness (Humidity).
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -452,6 +488,7 @@ This is a measurement of flow.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=37 (0x25) - Thermal resistance {#type37}
@@ -463,6 +500,7 @@ This is a measurement of thermal resistance.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -476,6 +514,7 @@ This is a measurement of refractive (optical) power.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=39 (0x27) - Dynamic viscosity {#type39}
@@ -487,6 +526,7 @@ This is a measurement of dynamic viscosity.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -500,6 +540,7 @@ This is a measurement of sound impedance.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=41 (0x29) - Sound resistance {#type41}
@@ -511,6 +552,7 @@ This is a measurement of sound resistance.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -524,6 +566,7 @@ This is a measurement of electric elasticity.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=43 (0x2B) - Luminous energy {#type43}
@@ -535,6 +578,7 @@ This is a measurement of luminous energy.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -548,6 +592,7 @@ This is a measurement of luminance.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=45 (0x2D) - Chemical concentration {#type45}
@@ -560,10 +605,12 @@ This is a measurement of chemical concentration.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=46 (0x2E) - Reserved {#type46}
     VSCP_TYPE_MEASUREMENT_RESERVED46Reserved (previously was doublet of Type= 26, don't use any longer!) 
+
 
 ----
 
@@ -577,10 +624,12 @@ This is a measurement of dose equivalent.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=48 (0x30) - Reserved {#type48}
     VSCP_TYPE_MEASUREMENT_RESERVED48Reserved (was doublet of Type= 24, do not use any longer!)
+
 
 ----
 
@@ -595,6 +644,7 @@ This is a measurement of the Dew Point.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=50 (0x32) - Relative Level {#type50}
@@ -606,6 +656,7 @@ This is a relative value for a level measurement without a unit. It is just rela
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -620,6 +671,7 @@ Altitude in meters.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=52 (0x34) - Area {#type52}
@@ -631,6 +683,7 @@ Area in square meter.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -644,6 +697,7 @@ Radiated power per room angle.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=54 (0x36) - Radiance {#type54}
@@ -656,6 +710,7 @@ This is the radiant flux emitted, reflected, transmitted or received by a surfac
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=55 (0x37) - Irradiance, Exitance, Radiosity {#type55}
@@ -667,6 +722,7 @@ Power emitted from or striking onto a surface or area.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -681,6 +737,7 @@ Radiance of a surface per unit frequency or wavelength.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=57 (0x39) - Spectral irradiance {#type57}
@@ -694,6 +751,7 @@ Irradiance of a surface per unit frequency or wavelength.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=58 (0x3A) - Sound pressure (acoustic pressure) {#type58}
@@ -705,6 +763,7 @@ This is a measurement of sound pressure (acoustic pressure).
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -718,6 +777,7 @@ Sound energy density or sound density is the sound energy per unit volume.
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
 
+
 ----
 
 ## Type=60 (0x3C) - Sound level {#type60}
@@ -729,6 +789,7 @@ Sound level expressed in decibel. This event is supplied for convenience.
  | :---------: | -----------                         | 
  | 0         | Data coding.                        | 
  | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
