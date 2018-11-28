@@ -66,7 +66,7 @@
    * [CLASS2.VSCPD = 65535 (0xffff)](./class2.vscpd.md)
     
 ## Defined events
-*Generated: 2018-11-05 09:40:55.301280*
+*Generated: 2018-11-27 23:40:35.055062*
     
 * **[Level I events](./level_i_events.md)**
    * [CLASS1.PROTOCOL = 0 (0x0)](./class1.protocol.md)
@@ -915,6 +915,9 @@
       * [Type=43 (0x2b) - Supplied buffer is to small to fit content](./class1.error.md#type43)
       * [Type=44 (0x2c) - Requested item is unknown](./class1.error.md#type44)
       * [Type=45 (0x2d) - Name is already in use](./class1.error.md#type45)
+      * [Type=46 (0x2e) - Error when writing data](./class1.error.md#type46)
+      * [Type=47 (0x2f) - Operation stopped or aborted](./class1.error.md#type47)
+      * [Type=48 (0x30) - Pointer with invalid value](./class1.error.md#type48)
    * [CLASS1.LOG = 509 (0x1fd)](./class1.log.md)
       * [Type=0 (0x0) - General event](./class1.log.md#type0)
       * [Type=1 (0x1) - Log event](./class1.log.md#type1)
@@ -1773,6 +1776,9 @@
       * [Type=43 (0x2b) - Supplied buffer is to small to fit content](./class1.error.md#type43)
       * [Type=44 (0x2c) - Requested item is unknown](./class1.error.md#type44)
       * [Type=45 (0x2d) - Name is already in use](./class1.error.md#type45)
+      * [Type=46 (0x2e) - Error when writing data](./class1.error.md#type46)
+      * [Type=47 (0x2f) - Operation stopped or aborted](./class1.error.md#type47)
+      * [Type=48 (0x30) - Pointer with invalid value](./class1.error.md#type48)
    * [CLASS2.LEVEL1.LOG = 1021 (0x3fd)](./class2.level1.log.md)
       * [Type=0 (0x0) - General event](./class1.log.md#type0)
       * [Type=1 (0x1) - Log event](./class1.log.md#type1)

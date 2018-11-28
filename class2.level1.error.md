@@ -462,4 +462,41 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
+## Type=46 (0x2E) - Error when writing data {#type46}
+    VSCP_TYPE_ERROR_DATA_WRITEThis error message is used to indicate an error when writing data.
+
+ | Data byte | Description                                                                                       | 
+ | :---------: | -----------                                                                                       | 
+ | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
+ | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
+ | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
+
+----
+
+## Type=47 (0x2F) - Operation stopped or aborted {#type47}
+    VSCP_TYPE_ERROR_ABORTEDThis error message is used to indicate a stopped or an aborted operation.
+
+ | Data byte | Description                                                                                       | 
+ | :---------: | -----------                                                                                       | 
+ | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
+ | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
+ | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. |
+
+----
+
+## Type=48 (0x30) - Pointer with invalid value {#type48}
+    VSCP_TYPE_ERROR_INVALID_POINTERThis error message is used to indicate a pointer with an invalid value.
+
+ | Data byte | Description                                                                                       | 
+ | :---------: | -----------                                                                                       | 
+ | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
+ | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
+ | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
+
+----
+
 {% include "./bottom_copyright.md" %}
