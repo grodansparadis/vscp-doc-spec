@@ -66,7 +66,7 @@
    * [CLASS2.VSCPD = 65535 (0xffff)](./class2.vscpd.md)
     
 ## Defined events
-*Generated: 2018-11-27 23:40:35.055062*
+*Generated: 2019-01-11 18:21:34.500778*
     
 * **[Level I events](./level_i_events.md)**
    * [CLASS1.PROTOCOL = 0 (0x0)](./class1.protocol.md)
