@@ -11,7 +11,7 @@ Apart from going through this document You can read all about and download VSCP 
 
 **VSCP is free.** Free to use. Free to change. Free to do whatever you want to do with it. VSCP is not owned by anyone. VSCP will stay free and gratis forever.
 
-Author 2000-2018 Åke Hedman, [Grodans Paradis AB](https://www.grodansparadis.com), [akhe@grodansparadis.com](akhe@grodansparadis.com)  
+Author 2000-2019 Åke Hedman, [Grodans Paradis AB](https://www.grodansparadis.com), [akhe@grodansparadis.com](akhe@grodansparadis.com)  
 
 This document is licensed under [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/) and can be freely copied, redistributed, remixed, transformed, built upon as long as you give credits to the author.
 
