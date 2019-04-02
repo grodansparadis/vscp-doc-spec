@@ -2,7 +2,7 @@
 
 Also check VSCP over TCP/IP which have more Level II specifics for the lower levels.
 
-Level II nodes are intended for media with higher bandwidth then Level I nodes and no nickname procedure is therefore implemented on Level II. As result of this the full GUID is sent in each packet. 
+Level II nodes are intended for media with higher bandwidth then Level I nodes and no nickname procedure is therefore implemented on Level II. As result of this the full GUID is sent in each packet.
 
 ## Level II events
 
@@ -12,22 +12,22 @@ The header for a level II event is defined as
 typedef struct {
         uint16_t crc;           /* crc checksum (calculated from here to end) */
                                 /* Used for UDP/Ethernet etc */
-       
+
         uint32_t obid;          /* Used by driver for channel info etc. */
-        
+
         /* Time block - Always UTC time */
-        uint16_t year; 
+        uint16_t year;
         uint8_t month;          /* 1-12 */
         uint8_t day;            /* 1-31 */
         uint8_t hour;           /* 0-23 */
         uint8_t minute;         /* 0-59 */
         uint8_t second;         /* 0-59 */
-        
+
         uint32_t timestamp;     /* Relative time stamp for package in microseconds */
                                 /* ~71 minutes before roll over */
-        
+
         /* ----- CRC should be calculated from here to end + data block ----  */
-        
+
         uint16_t head;          /* Bit 15   GUID is IP v.6 address. */
 	                            /* Bit 14   This is a dumb node. No MDF, register, nothing. */
                                 /* Bit 8-13 = Reserved */
@@ -44,9 +44,9 @@ typedef struct {
         uint16_t vscp_type;     /* VSCP type */
         uint8_t GUID[ 16 ];     /* Node globally unique id MSB(0) -> LSB(15) */
         uint16_t sizeData;      /* Number of valid data bytes */
-        
+
         uint8_t *pdata;         /* Pointer to data. Max 512 bytes */
-        
+
     } vscpEvent;
 ```
 
@@ -54,7 +54,7 @@ The biggest differences is that the GUID is sent in each event and that both cla
 
 The CRC is calculated using the CCITT polynomial
 
- The format in a stream is 
+ The format in a stream is
 
 
 ## VSCP LEVEL II UDP datagram offsets
@@ -106,33 +106,33 @@ A event from a node on a Level I that is transferred out on a Level II can have 
 
 For interfaces the machine MAC address, if available, is a good base for a GUID which easily can map to real physical nodes that are handled by the interface. By using this method each MAC address gives 65536 unique GUID's.
 
-Other methods to generate GUID's s also available form more information see Appendix A. 
+Other methods to generate GUID's s also available form more information see Appendix A.
 
 ## XML Representation
 
 VSCP level II events can be presented as XML data. Format is
 
 ```xml
-`<?xml version = "1.0" encoding = "UTF-8" ?>` 
-`<!-- Version 0.0.1 2007-09-27 -->` 
-`<event>` 
+`<?xml version = "1.0" encoding = "UTF-8" ?>`
+`<!-- Version 0.0.1 2007-09-27 -->`
+`<event>`
     `<head>`flags for event`</head>`
     `<class>`Eventclass is numerical form or CLASSx:numerical form`</class>`
     `<type>`Event type in numerical form.`</type>`
     `<!-- GUID of sending node -->`
-    `<guid>`ff:ee:dd:cc:bb:aa:99:88:77:66:55:44:33:22:11:00`</guid>` 
-    `<timestamp>`YYYY-MM-DD HH:MM:SS|millieconds since epoch`</timestamp>` 
+    `<guid>`ff:ee:dd:cc:bb:aa:99:88:77:66:55:44:33:22:11:00`</guid>`
+    `<timestamp>`YYYY-MM-DD HH:MM:SS|millieconds since epoch`</timestamp>`
     `<!-- UTC time -->`
     `<datetime>`2018-03-03T12:01:40`</datetime>`
     `<data>`
-    Comma separated list with event data. 
+    Comma separated list with event data.
     Hex values (preceded with '0x')and decimal values allowed.
     `</data>`
     `<!-- Optional for use with measurements -->`
     `<unit>`Code for unit data is presented in`</unit>`
     `<sensorindex>`Index for sensor`</sensorindex>`
     `<coding>`How value is codes`</coding>`
-    `<value>`Measurement value`</value>` 
+    `<value>`Measurement value`</value>`
 `</event>`
 ```
 
@@ -141,19 +141,18 @@ VSCP level II events can be presented as XML data. Format is
 VSCP level II events can be presented as JSON data. Format is
 
 ```json
-{ 
-    “measurement”: {
-         “head”:flags,
-         “class”: vscp class,
-         “type”: vscp type,
-         "guid": "ff:ee:dd:cc:bb:aa:99:88:77:66:55:44:33:22:11:00",
-         "timestamp": "YYYY-MM-DD HH:MM:SS|millieconds since epoch",
-         "datetime": "2018-03-03T12:01:40",
-         “unit”: 0,        /* optional for measurements */
-         “sensorindex”: 0  /* optional for measurements */ 
-         “coding”: 0       /* optional for measurements */
-         “value”: 0,       /* optional for measurements */
-    }
+{
+    “head”:0,
+    “vscpclass”: 10,
+    “vscptype”: 6,
+    "guid": "ff:ee:dd:cc:bb:aa:99:88:77:66:55:44:33:22:11:00",
+    "timestamp": 1234567,
+    "datetime": "2018-03-03T12:01:40",
+    "data":[1,2,3,4],
+    “unit”: 0,        /* optional for measurements */
+    “sensorindex”: 0, /* optional for measurements */
+    “coding”: 0,      /* optional for measurements */
+    “value”: 1.2345,  /* optional for measurements */
 }
 ```
 
@@ -185,15 +184,15 @@ Current predefined GUID series is listed in [appendix A](./appendix_a.md). You c
 
 Note that there is a convenient shorthand notation :: used for IPV6 that can be used as a place holder for zeros. For example
 
-    ::1 
+    ::1
 
-really means 
+really means
 
     00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:01
 
-and 
+and
 
-    FF:21::22:32 
+    FF:21::22:32
 
 is the same as
 
@@ -201,10 +200,10 @@ is the same as
 
 we use *: in the same way for FFs so that
 
-*:1 really means 
+*:1 really means
 
     FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:01
 
-These short cut notations makes it much easier to write GUID's. 
+These short cut notations makes it much easier to write GUID's.
 
 {% include "./bottom_copyright.md" %}
