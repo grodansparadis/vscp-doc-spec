@@ -626,4 +626,15 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 
 ----
 
+## Type=52 (0x34) - UV Index {#type52}
+    VSCP_TYPE_WEATHER_UV_INDEX
+UV Index is an international scale for UV intensity which can have the range of 1-15 where 1 is very low radiation and a value over 10 is extremely high radiation.
+
+ | Data byte | Description                         |
+ | :-------: | ----------------------------------- |
+ |     0     | UV index (0-15)                        |
+
+
+----
+
 {% include "./bottom_copyright.md" %}

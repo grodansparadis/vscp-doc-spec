@@ -66,7 +66,7 @@
    * [CLASS2.VSCPD = 65535 (0xffff)](./class2.vscpd.md)
     
 ## Defined events
-*Generated: 2019-05-27 16:04:04.193406*
+*Generated: 2019-08-16 15:27:56.604007*
     
 * **[Level I events](./level_i_events.md)**
    * [CLASS1.PROTOCOL = 0 (0x0)](./class1.protocol.md)
@@ -710,6 +710,7 @@
       * [Type=49 (0x31) - Warning level 4](./class1.weather.md#type49)
       * [Type=50 (0x32) - Warning level 5](./class1.weather.md#type50)
       * [Type=51 (0x33) - Armageddon](./class1.weather.md#type51)
+      * [Type=52 (0x34) - UV Index](./class1.weather.md#type52)
    * [CLASS1.WEATHER_FORECAST = 95 (0x5f)](./class1.weather_forecast.md)
       * [Type=0 (0x0) - General event](./class1.weather.md#type0)
       * [Type=1 (0x1) - Season winter](./class1.weather.md#type1)
@@ -763,6 +764,7 @@
       * [Type=49 (0x31) - Warning level 4](./class1.weather.md#type49)
       * [Type=50 (0x32) - Warning level 5](./class1.weather.md#type50)
       * [Type=51 (0x33) - Armageddon](./class1.weather.md#type51)
+      * [Type=52 (0x34) - UV Index](./class1.weather.md#type52)
    * [CLASS1.PHONE = 100 (0x64)](./class1.phone.md)
       * [Type=0 (0x0) - General event](./class1.phone.md#type0)
       * [Type=1 (0x1) - Incoming call](./class1.phone.md#type1)
@@ -1571,6 +1573,7 @@
       * [Type=49 (0x31) - Warning level 4](./class1.weather.md#type49)
       * [Type=50 (0x32) - Warning level 5](./class1.weather.md#type50)
       * [Type=51 (0x33) - Armageddon](./class1.weather.md#type51)
+      * [Type=52 (0x34) - UV Index](./class1.weather.md#type52)
    * [CLASS2.LEVEL1.WEATHERFORECAST = 607 (0x25f)](./class2.level1.weatherforecast.md)
       * [Type=0 (0x0) - General event](./class1.weather.md#type0)
       * [Type=1 (0x1) - Season winter](./class1.weather.md#type1)
@@ -1624,6 +1627,7 @@
       * [Type=49 (0x31) - Warning level 4](./class1.weather.md#type49)
       * [Type=50 (0x32) - Warning level 5](./class1.weather.md#type50)
       * [Type=51 (0x33) - Armageddon](./class1.weather.md#type51)
+      * [Type=52 (0x34) - UV Index](./class1.weather.md#type52)
    * [CLASS2.LEVEL1.PHONE = 612 (0x264)](./class2.level1.phone.md)
       * [Type=0 (0x0) - General event](./class1.phone.md#type0)
       * [Type=1 (0x1) - Incoming call](./class1.phone.md#type1)
