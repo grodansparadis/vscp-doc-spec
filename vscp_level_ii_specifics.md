@@ -121,7 +121,7 @@ VSCP level II events can be presented as XML data. Format is
     `<type>`Event type in numerical form.`</type>`
     `<!-- GUID of sending node -->`
     `<guid>`ff:ee:dd:cc:bb:aa:99:88:77:66:55:44:33:22:11:00`</guid>`
-    `<timestamp>`YYYY-MM-DD HH:MM:SS|millieconds since epoch`</timestamp>`
+    `<timestamp>`Relative microsecond value.`</timestamp>`
     `<!-- UTC time -->`
     `<datetime>`2018-03-03T12:01:40`</datetime>`
     `<data>`
@@ -135,6 +135,12 @@ VSCP level II events can be presented as XML data. Format is
     `<value>`Measurement value`</value>`
 `</event>`
 ```
+
+If timestamp and or datetime is absent it should be treated as 'now'.
+
+timestamp is a sender relative value expressed in microseconds that can be used for more precise timing calculations
+
+datetime is date + time in UTC
 
 ## JSON Representation
 
@@ -155,6 +161,12 @@ VSCP level II events can be presented as JSON data. Format is
     “value”: 1.2345,  /* optional for measurements */
 }
 ```
+
+If timestamp and or datetime is absent it should be treated as 'now'.
+
+timestamp is a sender relative value expressed in microseconds that can be used for more precise timing calculations
+
+datetime is date + time in UTC
 
 ## Globally Unique Identifiers
 

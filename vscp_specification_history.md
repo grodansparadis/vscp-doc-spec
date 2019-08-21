@@ -2,6 +2,7 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+ | 2019-08-21 | AKHE | Added note about JSON/XML packed events and corrected info about XML timestamp. |
 | 2019-08-19 | AKHE | CLASS1.WEATHER/CLASS1.WEATHER_FORECAST Type=52 index/zone/subzone added for consistency |
  | 2019-08-16 | AKHE | CLASS1.WEATHER/CLASS1.WEATHER_FORECAST Type=52 UV Index added |
  | 2019-05-27 | AKHE | Server capabilities code now include 'variables', 'DM' and 'interfaces'. CLASS1024, Type=20 and WCYD command for tcp/ip link. |
