@@ -108,16 +108,4 @@ Units for Level II are the same as for Level I for the first four units.
 
 ----
 
-## Type=7 (0x07) - Count value {#type7}
-    VSCP_TYPE_DATA_COUNT
-General counter value. First data byte defines format. 
-
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
-
-
-----
-
 {% include "./bottom_copyright.md" %}

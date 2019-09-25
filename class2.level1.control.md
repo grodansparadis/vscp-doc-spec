@@ -368,37 +368,36 @@ Note: This may be a bad design option as it often demands that the state should 
 ## Type=30 (0x1E) - Timed pulse on {#type30}
     VSCP_TYPE_CONTROL_TIMED_PULSE_ONWith this event it is possible to generate a timed pulse that is on for a specified time.
 
- | Data byte | Description                                                         | 
- | :---------: | -----------                                                         | 
- | 0         | Optional byte that have a meaning given by the issuer of the event. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
- | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
- | 3         | Control byte.                                                       | 
- | 4-7       | Set time as a long with MSB in the first byte.                      | 
+ | Data byte | Description                                                         |
+ | :---------: | ----------- |
+ | 0         | Optional byte that have a meaning given by the issuer of the event. |
+ | 1         | Zone for which event applies to (0-255). 255 is all zones.      |
+ | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  |
+ | 3         | Control byte.                                                       |
+ | 4-7       | Set time as a long with MSB in the first byte.                      |
 
 ##### Control Byte
 
 The control byte have the following bits defined
 
- | Bit | Description                                                          | 
- | :---: | -----------                                                          | 
- | 0-3 | Time code (see table below)                                          | 
- | 4   | Reserved                                                             | 
- | 5   | Reserved                                                             | 
- | 6   | Send on event ( Class=20 Type = 3 (0x03) On ) when pulse goes on.    | 
- | 7   | Send off event ( Class=20 Type = 4 (0x04) Off ) when pulse goes off. | 
+ | Bit | Description                                                          |
+ | :---: | -----------                                                          |
+ | 0-3 | Time code (see table below)                                          |
+ | 4   | Reserved                                                             |
+ | 5   | Reserved                                                             |
+ | 6   | Send on event ( Class=20 Type = 3 (0x03) On ) when pulse goes on.    |
+ | 7   | Send off event ( Class=20 Type = 4 (0x04) Off ) when pulse goes off. |
 
 ##### Time code
 
- | Code | Description                     | 
- | :----: | -----------                     | 
- | 0    | Time specified in microseconds. | 
- | 1    | Time specified in milliseconds. | 
- | 2    | Time specified in seconds.      | 
- | 3    | Time specified in minutes.      | 
- | 4    | Time specified in hours.        | 
- | 5    | Time specified in days.         | 
-
+ | Code | Description                     |
+ | :----: | -----------                     |
+ | 0    | Time specified in microseconds. |
+ | 1    | Time specified in milliseconds. |
+ | 2    | Time specified in seconds.      |
+ | 3    | Time specified in minutes.      |
+ | 4    | Time specified in hours.        |
+ | 5    | Time specified in days.         |
 
 
 ----
@@ -603,6 +602,46 @@ See also [CLASS1.CONTROL, Type=2](./class1.control.md#type2)
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
+
+
+----
+
+## Type=44 (0x2C) - PWM set {#type44}
+    VSCP_TYPE_CONTROL_PWMWith this event it is possible to set duty cycle output such as PWM.
+
+ | Data byte | Description   |
+ | :---------: | ----------- |
+ | 0         | Repeat/counter: 0=repeat forever, >0 number of repeats |
+ | 1         | Zone for which event applies to (0-255). 255 is all zones.      |
+ | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  |
+ | 3         | Control byte.  |
+ | 4         | Time-On MSB |
+ | 5         | Time-On LSB |
+ | 6         | Time-Off MSB |
+ | 7         | Time-Off LSB |
+
+##### Control Byte
+
+The control byte have the following bits defined
+
+ | Bit | Description |
+ | :---: | ----------- |
+ | 0-3 | Time code (see table below) |
+ | 4   | Reserved  |
+ | 5   | Reserved  |
+ | 6   | Reserved  |
+ | 7   | Reserved  |
+
+##### Time code
+
+ | Code | Description                     |
+ | :----: | -----------                   |
+ | 0    | Time specified in microseconds. |
+ | 1    | Time specified in milliseconds. |
+ | 2    | Time specified in seconds.      |
+ | 3    | Time specified in minutes.      |
+ | 4    | Time specified in hours.        |
+ | 5    | Time specified in days.         |
 
 
 ----

@@ -66,7 +66,7 @@
    * [CLASS2.VSCPD = 65535 (0xffff)](./class2.vscpd.md)
     
 ## Defined events
-*Generated: 2019-08-29 14:30:17.705448*
+*Generated: 2019-09-25 15:47:55.495124*
     
 * **[Level I events](./level_i_events.md)**
    * [CLASS1.PROTOCOL = 0 (0x0)](./class1.protocol.md)
@@ -222,7 +222,6 @@
       * [Type=4 (0x4) - Relative strength](./class1.data.md#type4)
       * [Type=5 (0x5) - Signal Level](./class1.data.md#type5)
       * [Type=6 (0x6) - Signal Quality](./class1.data.md#type6)
-      * [Type=7 (0x7) - Count value](./class1.data.md#type7)
    * [CLASS1.INFORMATION = 20 (0x14)](./class1.information.md)
       * [Type=0 (0x0) - General event](./class1.information.md#type0)
       * [Type=1 (0x1) - Button](./class1.information.md#type1)
@@ -350,6 +349,7 @@
       * [Type=41 (0x29) - (All) Lamp(s) off](./class1.control.md#type41)
       * [Type=42 (0x2a) - Lock](./class1.control.md#type42)
       * [Type=43 (0x2b) - Unlock](./class1.control.md#type43)
+      * [Type=44 (0x2c) - PWM set](./class1.control.md#type44)
    * [CLASS1.MULTIMEDIA = 40 (0x28)](./class1.multimedia.md)
       * [Type=0 (0x0) - General event](./class1.multimedia.md#type0)
       * [Type=1 (0x1) - Playback](./class1.multimedia.md#type1)
@@ -1085,7 +1085,6 @@
       * [Type=4 (0x4) - Relative strength](./class1.data.md#type4)
       * [Type=5 (0x5) - Signal Level](./class1.data.md#type5)
       * [Type=6 (0x6) - Signal Quality](./class1.data.md#type6)
-      * [Type=7 (0x7) - Count value](./class1.data.md#type7)
    * [CLASS2.LEVEL1.INFORMATION1 = 532 (0x214)](./class2.level1.information1.md)
       * [Type=0 (0x0) - General event](./class1.information.md#type0)
       * [Type=1 (0x1) - Button](./class1.information.md#type1)
@@ -1213,6 +1212,7 @@
       * [Type=41 (0x29) - (All) Lamp(s) off](./class1.control.md#type41)
       * [Type=42 (0x2a) - Lock](./class1.control.md#type42)
       * [Type=43 (0x2b) - Unlock](./class1.control.md#type43)
+      * [Type=44 (0x2c) - PWM set](./class1.control.md#type44)
    * [CLASS2.LEVEL1.MULTIMEDIA = 552 (0x228)](./class2.level1.multimedia.md)
       * [Type=0 (0x0) - General event](./class1.multimedia.md#type0)
       * [Type=1 (0x1) - Playback](./class1.multimedia.md#type1)
