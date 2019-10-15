@@ -583,25 +583,23 @@ See also [CLASS1.CONTROL, Type=2](./class1.control.md#type2)
 ## Type=42 (0x2A) - Lock {#type42}
     VSCP_TYPE_CONTROL_LOCKLock devices in a zone.
 
- | Data byte | Description                                                        | 
- | :---------: | -----------                                                        | 
- | 0         | Not used.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
- | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
-
+ | Data byte | Description                                                        |
+ | :---------: | -----------                                                      |
+ | 0         | Not used.                                                          |
+ | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
 
 ----
 
 ## Type=43 (0x2B) - Unlock {#type43}
-    VSCP_TYPE_CONTROL_UNLOCKUnock devices in a zone.
+    VSCP_TYPE_CONTROL_UNLOCKUnlock devices in a zone.
 
- | Data byte | Description                                                        | 
- | :---------: | -----------                                                        | 
- | 0         | Not used.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
- | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
-
+ | Data byte | Description                                                        |
+ | :---------: | -----------                                                        |
+ | 0         | Not used.                                                          |
+ | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
 
 ----
@@ -643,6 +641,90 @@ The control byte have the following bits defined
  | 4    | Time specified in hours.        |
  | 5    | Time specified in days.         |
 
+
+----
+
+## Type=45 (0x2D) - Lock with token {#type45}
+    VSCP_TYPE_CONTROL_TOKEN_LOCKLock devices with token.
+
+ | Data byte | Description                                                        |
+ | :---------: | -----------                                                      |
+ | 0         | Not used.                                                          |
+ | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+ | 3-4 | Token. This token can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775 |
+
+----
+
+## Type=46 (0x2E) - Unlock with token {#type46}
+    VSCP_TYPE_CONTROL_TOKEN_UNLOCKUnlock devices with token.
+
+ | Data byte | Description                                                        |
+ | :---------: | -----------                                                      |
+ | 0         | Not used.                                                          |
+ | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+ | 3-4 | Token. This token can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775 |
+
+----
+
+## Type=47 (0x2F) - Set security level {#type47}
+    VSCP_TYPE_CONTROL_SET_SECURITY_LEVELSet security level.
+
+ | Data byte | Description                                                        |
+ | :---------: | -----------                                                      |
+ | 0         | Security level to set. 0-255 (Higher value is higher security level).  |
+ | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+
+
+----
+
+## Type=48 (0x30) - Set security pin {#type48}
+    VSCP_TYPE_CONTROL_SET_SECURITY_PINSet security pin.
+
+ | Data byte | Description                                                        |
+ | :---------: | -----------                                                      |
+ | 0         | Not used.                                                          |
+ | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+ | 3-4 | Security pin. This pin can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775 |
+
+----
+
+## Type=49 (0x31) - Set security password {#type49}
+    VSCP_TYPE_CONTROL_SET_SECURITY_PASSWORDSet security password.
+
+ | Data byte | Description                                                        |
+ | :---------: | -----------                                                      |
+ | 0         | Not used.                                                          |
+ | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+ | 3-4 | Security password. This password can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an UTF-8 string with a length set bt event data length - 3 |
+
+----
+
+## Type=50 (0x32) - Set security token {#type50}
+    VSCP_TYPE_CONTROL_SET_SECURITY_TOKENSet security token.
+
+ | Data byte | Description                                                        |
+ | :---------: | -----------                                                      |
+ | 0         | Not used.                                                          |
+ | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+ | 3-4 | Token. This token can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775 |
+
+----
+
+## Type=51 (0x33) - Request new security token {#type51}
+    VSCP_TYPE_CONTROL_REQUEST_SECURITY_TOKENRequest new security token.
+
+ | Data byte | Description                                                        |
+ | :---------: | -----------                                                      |
+ | 0         | Not used.                                                          |
+ | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+ 
 
 ----
 

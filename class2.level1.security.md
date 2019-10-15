@@ -290,4 +290,154 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
+## Type=21 (0x15) - Authenticated {#type21}
+    VSCP_TYPE_SECURITY_AUTHENTICATEDAuthenticated. A user or a device has been authenticated.
+
+ | Data byte | Description |
+ | :---------: | ----------- |
+ | 0 | User defined data. |
+ | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+
+----
+
+## Type=22 (0x16) - Unauthenticated {#type22}
+    VSCP_TYPE_SECURITY_UNAUTHENTICATEDUnauthenticated. A user or a device has failed authentication.
+
+ | Data byte | Description |
+ | :---------: | ----------- |
+ | 0 | User defined data. |
+ | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+
+----
+
+## Type=23 (0x17) - Authorized {#type23}
+    VSCP_TYPE_SECURITY_AUTHORIZEDAuthorized. A user or a device has been authorized.
+
+ | Data byte | Description |
+ | :---------: | ----------- |
+ | 0 | User defined data. |
+ | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+
+----
+
+## Type=24 (0x18) - Unauthorized {#type24}
+    VSCP_TYPE_SECURITY_UNAUTHORIZEDUnauthorized. A user or a device has failed authorization.
+
+ | Data byte | Description |
+ | :---------: | ----------- |
+ | 0 | User defined data. |
+ | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+
+----
+
+## Type=25 (0x19) - ID check {#type25}
+    VSCP_TYPE_SECURITY_ID_CHECKID Check. A user or a device has gone through an identification test and is either allowed or not allowed access according to bits in byte 0.
+
+ | Data byte | Description |
+ | :---------: | ----------- |
+ | 0 | ID check bits. |
+ | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+
+ **ID Check bits**
+| Bit | Description |
+ | :---------: | ----------- |
+ | 0 | Authenticated if set to one. |
+ | 1 | Authorized if set to one. |
+
+----
+
+## Type=26 (0x1A) - Valid pin {#type26}
+    VSCP_TYPE_SECURITY_PIN_OKValid pin. A valid pin has been entered by a device or user.
+
+ | Data byte | Description |
+ | :---------: | ----------- |
+ | 0 | User defined data. |
+ | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+
+----
+
+## Type=27 (0x1B) - Invalid pin {#type27}
+    VSCP_TYPE_SECURITY_PIN_FAILInvalid pin. An invalid pin has been entered by a device or user.
+
+ | Data byte | Description |
+ | :---------: | ----------- |
+ | 0 | User defined data. |
+ | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+
+----
+
+## Type=28 (0x1C) - Pin warning {#type28}
+    VSCP_TYPE_SECURITY_PIN_WARNINGPin warning. An invalid pin has been entered by a device or user and a warning has been given. This warning is typically a warning that the pin will be unusable if further failures are detected.
+
+ | Data byte | Description |
+ | :---------: | ----------- |
+ | 0 | User defined data. |
+ | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+
+----
+
+## Type=29 (0x1D) - Pin error {#type29}
+    VSCP_TYPE_SECURITY_PIN_ERRORPin error. An invalid pin has been entered by a device or user and it has failed so many times that the pin is now locked and unusable.
+
+ | Data byte | Description |
+ | :---------: | ----------- |
+ | 0 | User defined data. |
+ | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+
+----
+
+## Type=30 (0x1E) - Valid password {#type30}
+    VSCP_TYPE_SECURITY_PASSWORD_OKValid password. A valid password has been entered by a device or user.
+
+ | Data byte | Description |
+ | :---------: | ----------- |
+ | 0 | User defined data. |
+ | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+
+----
+
+## Type=31 (0x1F) - Invalid password {#type31}
+    VSCP_TYPE_SECURITY_PASSWORD_FAILInvalid password. An invalid password has been entered by a device or user.
+
+ | Data byte | Description |
+ | :---------: | ----------- |
+ | 0 | User defined data. |
+ | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+
+----
+
+## Type=32 (0x20) - Password warning {#type32}
+    VSCP_TYPE_SECURITY_PASSWORD_WARNINGPassword warning. An invalid password has been entered by a device or user and a warning has been given. This warning is typically a warning that the password will be unusable if further failures are detected.
+
+ | Data byte | Description |
+ | :---------: | ----------- |
+ | 0 | User defined data. |
+ | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+
+----
+
+## Type=33 (0x21) - Password error {#type33}
+    VSCP_TYPE_SECURITY_PASSWORD_ERRORPassword error. An invalid password has been entered by a device or user and it has failed so many times that the password is now locked and unusable.
+
+ | Data byte | Description |
+ | :---------: | ----------- |
+ | 0 | User defined data. |
+ | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+
+
+----
+
 {% include "./bottom_copyright.md" %}
