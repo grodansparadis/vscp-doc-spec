@@ -652,7 +652,7 @@ The control byte have the following bits defined
  | 0         | Not used.                                                          |
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
- | 3-4 | Token. This token can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775 |
+ | 3-4 | Token. This token can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775. MSB byte is stored in first byte. |
 
 ----
 
@@ -664,7 +664,7 @@ The control byte have the following bits defined
  | 0         | Not used.                                                          |
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
- | 3-4 | Token. This token can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775 |
+ | 3-4 | Token. This token can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775. MSB byte is stored in first byte. |
 
 ----
 
@@ -688,7 +688,7 @@ The control byte have the following bits defined
  | 0         | Not used.                                                          |
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
- | 3-4 | Security pin. This pin can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775 |
+ | 3-4 | Security pin. This pin can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775. MSB byte is stored in first byte. |
 
 ----
 
@@ -712,7 +712,7 @@ The control byte have the following bits defined
  | 0         | Not used.                                                          |
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
- | 3-4 | Token. This token can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775 |
+ | 3-4 | Token. This token can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775. MSB byte is stored in first byte. |
 
 ----
 
