@@ -246,39 +246,40 @@ This event will be sent once each 24 hours when new astronomical calculations ha
 ----
 
 ## Type=31 (0x1F) - Start {#type31}
-    VSCP2_TYPE_VSCPD_START
+    VSCP2_TYPE_VSCPD_DRV3_START
 This event is used by the VSCP daemon to start a Level III driver.
 
 ----
 
 ## Type=32 (0x20) - Stop {#type32}
-    VSCP2_TYPE_VSCPD_STOP
+    VSCP2_TYPE_VSCPD_DRV3_STOP
 This event is used by the VSCP daemon to stop a Level III driver.
 
 ----
 
 ## Type=33 (0x21) - Pause {#type33}
-    VSCP2_TYPE_VSCPD_PAUSE
+    VSCP2_TYPE_VSCPD_DRV3_PAUSE
 This event is used by the VSCP daemon to pause execution of a Level III driver.
 
 ----
 
 ## Type=34 (0x22) - Resume {#type34}
-    VSCP2_TYPE_VSCPD_RESUME
+    VSCP2_TYPE_VSCPD_DRV3_RESUME
 This event is used by the VSCP daemon to resume execution of a Level III driver.
 
 ----
 
 ## Type=35 (0x23) - Restart {#type35}
-    VSCP2_TYPE_VSCPD_RESTART
+    VSCP2_TYPE_VSCPD_DRV3_RESTART
 This event is used by the VSCP daemon to restart a Level III driver.
 
 ----
 
 ## Type=36 (0x24) - Config {#type36}
-    VSCP2_TYPE_VSCPD_CONFIG
+    VSCP2_TYPE_VSCPD_DRV3_CONFIG
 This event is used by the VSCP daemon to (re)configure a Level III driver.
 
+Event data is a null terminated UTF8 string that is the path to a XML configuration strring.
 ----
 
 {% include "./bottom_copyright.md" %}
