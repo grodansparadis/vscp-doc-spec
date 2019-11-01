@@ -18,13 +18,21 @@ All events in this class are mirrored in [CLASS1.SETVALUEZONE=85 (0x55)](./class
 
 All of the above is also available as [LEVEL I events over Level II](./class2.protocol1.md).
 
-All events in this class are mirrored in 
-[CLASS2.MEASUREMENT_STR=1040 (0x410)](./class2.measurement_str.md) which use decimal string values.
+All events in this class are mirrored in
+[CLASS2.MEASUREMENT_STR=1040 (0x410)](./class2.measurement_str.md) as the events, in the range 0-255, which use decimal string values.
 
-All events in this class are mirrored in 
-[CLASS2.MEASUREMENT_FLOAT=1060 (0x424)](./class2.measurement_float.md) which use decimal float values.
+All events in this class are mirrored in
+[CLASS2.MEASUREMENT_FLOAT=1060 (0x424)](./class2.measurement_float.md) as the events, in the range 0-255, which use decimal float values.
 
+The relationship between Level II measurement events and Level I measurement events is like this
 
+  - [CLASS1.MEASUREMENT=10 (0x0A)](./class1.measurement.md) which is mirrored as Level II measurements 0-255.
+  - [CLASS1.MEASUREMENT=11 (0x0B)](./class1.measurementx1.md) which is mirrored as Level II measurements 256-511.
+  - [CLASS1.MEASUREMENT=12 (0x0C)](./class1.measurementx2.md) which is mirrored as Level II measurements 512-767.
+  - [CLASS1.MEASUREMENT=13 (0x0D)](./class1.measurementx3.md) which is mirrored as Level II measurements 768-1023.
+  - [CLASS1.MEASUREMENT=14 (0x0E)](./class1.measurementx3.md) which is mirrored as Level II measurements 1024-1279.
+
+Level II measurement events with type >= 1280 have no relation to any Level I measurement events.
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_MEASUREMENT_GENERAL
 General Event.
