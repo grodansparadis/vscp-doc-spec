@@ -249,11 +249,18 @@ This event will be sent once each 24 hours when new astronomical calculations ha
     VSCP2_TYPE_VSCPD_DRV3_START
 This event is used by the VSCP daemon to start a Level III driver.
 
+| Data byte | Description |
+ | :----: | ----------- |
+ | 0-15 | GUID for driver (MSB->LSB). |
 ----
 
 ## Type=32 (0x20) - Stop {#type32}
     VSCP2_TYPE_VSCPD_DRV3_STOP
 This event is used by the VSCP daemon to stop a Level III driver.
+
+| Data byte | Description |
+ | :----: | ----------- |
+ | 0-15 | GUID for driver (MSB->LSB). |
 
 ----
 
@@ -261,11 +268,19 @@ This event is used by the VSCP daemon to stop a Level III driver.
     VSCP2_TYPE_VSCPD_DRV3_PAUSE
 This event is used by the VSCP daemon to pause execution of a Level III driver.
 
+| Data byte | Description |
+ | :----: | ----------- |
+ | 0-15 | GUID for driver (MSB->LSB). |
+
 ----
 
 ## Type=34 (0x22) - Resume {#type34}
     VSCP2_TYPE_VSCPD_DRV3_RESUME
 This event is used by the VSCP daemon to resume execution of a Level III driver.
+
+| Data byte | Description |
+ | :----: | ----------- |
+ | 0-15 | GUID for driver (MSB->LSB). |
 
 ----
 
@@ -273,13 +288,22 @@ This event is used by the VSCP daemon to resume execution of a Level III driver.
     VSCP2_TYPE_VSCPD_DRV3_RESTART
 This event is used by the VSCP daemon to restart a Level III driver.
 
+| Data byte | Description |
+ | :----: | ----------- |
+ | 0-15 | GUID for driver (MSB->LSB). |
+
 ----
 
 ## Type=36 (0x24) - Config {#type36}
     VSCP2_TYPE_VSCPD_DRV3_CONFIG
 This event is used by the VSCP daemon to (re)configure a Level III driver.
 
-Event data is a null terminated UTF8 string that is the path to a XML configuration strring.
+Event data is GUID for driver followed by a null terminated UTF8 string that is the path to a XML configuration string.
+
+| Data byte | Description |
+ | :----: | ----------- |
+ | 0-15 | GUID for driver (MSB->LSB). |
+ | 16 -| NULL terminated path to config file |
 ----
 
 {% include "./bottom_copyright.md" %}

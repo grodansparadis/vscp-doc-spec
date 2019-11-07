@@ -86,7 +86,7 @@
    * [CLASS2.VSCPD = 65535 (0xffff)](./class2.vscpd.md)
     
 ## Defined events
-*Generated: 2019-11-01 15:10:47.827904*
+*Generated: 2019-11-07 22:12:18.158822*
     
 * **[Level I events](./level_i_events.md)**
    * [CLASS1.PROTOCOL = 0 (0x0)](./class1.protocol.md)
@@ -1902,6 +1902,7 @@
       * [Type=3 (0x3) - Read Write Response](./class2.protocol.md#type3)
       * [Type=20 (0x14) - High end server/service capabilities](./class2.protocol.md#type20)
       * [Type=32 (0x20) - Level II who is there response](./class2.protocol.md#type32)
+      * [Type=42 (0x2a) - High Level Object](./class2.protocol.md#type42)
    * [CLASS2.CONTROL = 1025 (0x401)](./class2.control.md)
       * [Type=0 (0x0) - General event](./class2.control.md#type0)
    * [CLASS2.INFORMATION = 1026 (0x402)](./class2.information.md)
