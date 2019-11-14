@@ -39,21 +39,37 @@
 
 
 ## Defined classes
-    
+
 * **[Level I events](./level_i_events.md)**
    * [CLASS1.PROTOCOL = 0 (0x0)](./class1.protocol.md)
    * [CLASS1.ALARM = 1 (0x1)](./class1.alarm.md)
    * [CLASS1.SECURITY = 2 (0x2)](./class1.security.md)
    * [CLASS1.MEASUREMENT = 10 (0xa)](./class1.measurement.md)
+   * [CLASS1.MEASUREMENTX1 = 11 (0xa)](./class1.measurementx1.md)
+   * [CLASS1.MEASUREMENTX2 = 12 (0xb)](./class1.measurementx2.md)
+   * [CLASS1.MEASUREMENTX3 = 13 (0xc)](./class1.measurementx3.md)
+   * [CLASS1.MEASUREMENTX4 = 14 (0xd)](./class1.measurementx4.md)
    * [CLASS1.DATA = 15 (0xf)](./class1.data.md)
    * [CLASS1.INFORMATION = 20 (0x14)](./class1.information.md)
    * [CLASS1.CONTROL = 30 (0x1e)](./class1.control.md)
    * [CLASS1.MULTIMEDIA = 40 (0x28)](./class1.multimedia.md)
    * [CLASS1.AOL = 50 (0x32)](./class1.aol.md)
    * [CLASS1.MEASUREMENT64 = 60 (0x3c)](./class1.measurement64.md)
+   * [CLASS1.MEASUREMENT64X1 = 61 (0x3d)](./class1.measurement64x1.md)
+   * [CLASS1.MEASUREMENT64X2 = 62 (0x3e)](./class1.measurement64x2.md)
+   * [CLASS1.MEASUREMENT64X3 = 63 (0x3f)](./class1.measurement64x3.md)
+   * [CLASS1.MEASUREMENT64X4 = 64 (0x40)](./class1.measurement64x3.md)
    * [CLASS1.MEASUREZONE = 65 (0x41)](./class1.measurezone.md)
+   * [CLASS1.MEASUREZONEX1 = 66 (0x42)](./class1.measurezonex1.md)
+   * [CLASS1.MEASUREZONEX2 = 67 (0x43)](./class1.measurezonex2.md)
+   * [CLASS1.MEASUREZONEX3 = 68 (0x44)](./class1.measurezonex3.md)
+   * [CLASS1.MEASUREZONEX4 = 69 (0x45)](./class1.measurezonex4.md)
    * [CLASS1.MEASUREMENT32 = 70 (0x46)](./class1.measurement32.md)
    * [CLASS1.SETVALUEZONE = 85 (0x55)](./class1.setvaluezone.md)
+   * [CLASS1.SETVALUEZONEX1 = 86 (0x56)](./class1.setvaluezonex1.md)
+   * [CLASS1.SETVALUEZONEX2 = 87 (0x57)](./class1.setvaluezonex2.md)
+   * [CLASS1.SETVALUEZONEX3 = 88 (0x58)](./class1.setvaluezonex3.md)
+   * [CLASS1.SETVALUEZONEX4 = 89 (0x59)](./class1.setvaluezonex4.md)
    * [CLASS1.WEATHER = 90 (0x5a)](./class1.weather.md)
    * [CLASS1.WEATHER_FORECAST = 95 (0x5f)](./class1.weather_forecast.md)
    * [CLASS1.PHONE = 100 (0x64)](./class1.phone.md)
@@ -66,7 +82,7 @@
    * [CLASS1.LOG = 509 (0x1fd)](./class1.log.md)
    * [CLASS1.LABORATORY = 510 (0x1fe)](./class1.laboratory.md)
    * [CLASS1.LOCAL = 511 (0x1ff)](./class1.local.md)
-    
+
 * **[Level I events over level II](./level_i_events_over_level_ii.md)**
    * [CLASS2.LEVEL1.PROTOCOL = 512 (0x200)](./class2.level1.protocol.md)
    * [CLASS2.LEVEL1.ALARM = 513 (0x201)](./class2.level1.alarm.md)
@@ -93,7 +109,7 @@
    * [CLASS2.LEVEL1.LOG = 1021 (0x3fd)](./class2.level1.log.md)
    * [CLASS2.LEVEL1.LABORATORY = 1022 (0x3fe)](./class2.level1.laboratory.md)
    * [CLASS2.LEVEL1.LOCAL = 1023 (0x3ff)](./class2.level1.local.md)
-    
+
 * **[Level II events](./level_ii_events.md)**
    * [CLASS2.PROTOCOL = 1024 (0x400)](./class2.protocol.md)
    * [CLASS2.CONTROL = 1025 (0x401)](./class2.control.md)
@@ -104,10 +120,10 @@
    * [CLASS2.MEASUREMENT_STR = 1040 (0x410)](./class2.measurement_str.md)
    * [CLASS2.MEASUREMENT_FLOAT = 1060 (0x424)](./class2.measurement_float.md)
    * [CLASS2.VSCPD = 65535 (0xffff)](./class2.vscpd.md)
-    
+
 ## Defined events
 *Generated: 2018-07-03 16:42:45.889172*
-    
+
 * **[Level I events](./level_i_events.md)**
    * [CLASS1.PROTOCOL = 0 (0x0)](./class1.protocol.md)
       * [Type=0 (0x0) - General event.](./class1.protocol.md#type0)
@@ -961,7 +977,7 @@
       * [Type=0 (0x0) - General event](./class1.laboratory.md#type0)
    * [CLASS1.LOCAL = 511 (0x1ff)](./class1.local.md)
       * [Type=0 (0x0) - General event](./class1.local.md#type0)
-    
+
 * **[Level I events over level II](./level_i_events_over_level_ii.md)**
    * [CLASS2.LEVEL1.PROTOCOL = 512 (0x200)](./class2.level1.protocol.md)
       * [Type=0 (0x0) - General event.](./class1.protocol.md#type0)
@@ -1815,7 +1831,7 @@
       * [Type=0 (0x0) - General event](./class1.laboratory.md#type0)
    * [CLASS2.LEVEL1.LOCAL = 1023 (0x3ff)](./class2.level1.local.md)
       * [Type=0 (0x0) - General event](./class1.local.md#type0)
-    
+
 * **[Level II events](./level_ii_events.md)**
    * [CLASS2.PROTOCOL = 1024 (0x400)](./class2.protocol.md)
       * [Type=0 (0x0) - General event](./class2.protocol.md#type0)
@@ -1993,7 +2009,7 @@
       * [Type=28 (0x1c) - Timer stopped](./class2.vscpd.md#type28)
       * [Type=29 (0x1d) - Timer Elapsed](./class2.vscpd.md#type29)
       * [Type=30 (0x1e) - New Calculations](./class2.vscpd.md#type30)
- 
+
 
 
 ## Appendix
@@ -2012,9 +2028,3 @@
 *  [VSCP Javascript lib.](https://grodansparadis.gitbooks.io/the-vscp-javascript-library/)
 *  [VSCP HTML demo](https://www.vscp.org/docs/html5/doku.php)
 *  [General VSCP wiki](https://www.vscp.org/wiki/doku.php)
-
-
-
-
-
-
