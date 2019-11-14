@@ -1,6 +1,6 @@
 ## Defined classes
-    
-* **[Level I events](./level_i_events.md)**
+
+* **[ Level I events](./level_i_events.md)**
    * [CLASS1.PROTOCOL = 0 (0x0)](./class1.protocol.md)
    * [CLASS1.ALARM = 1 (0x1)](./class1.alarm.md)
    * [CLASS1.SECURITY = 2 (0x2)](./class1.security.md)
@@ -46,7 +46,7 @@
    * [CLASS1.LOG = 509 (0x1fd)](./class1.log.md)
    * [CLASS1.LABORATORY = 510 (0x1fe)](./class1.laboratory.md)
    * [CLASS1.LOCAL = 511 (0x1ff)](./class1.local.md)
-    
+
 * **[Level I events over level II](./level_i_events_over_level_ii.md)**
    * [CLASS2.LEVEL1.PROTOCOL = 512 (0x200)](./class2.level1.protocol.md)
    * [CLASS2.LEVEL1.ALARM = 513 (0x201)](./class2.level1.alarm.md)
@@ -73,7 +73,7 @@
    * [CLASS2.LEVEL1.LOG = 1021 (0x3fd)](./class2.level1.log.md)
    * [CLASS2.LEVEL1.LABORATORY = 1022 (0x3fe)](./class2.level1.laboratory.md)
    * [CLASS2.LEVEL1.LOCAL = 1023 (0x3ff)](./class2.level1.local.md)
-    
+
 * **[Level II events](./level_ii_events.md)**
    * [CLASS2.PROTOCOL = 1024 (0x400)](./class2.protocol.md)
    * [CLASS2.CONTROL = 1025 (0x401)](./class2.control.md)
@@ -84,10 +84,10 @@
    * [CLASS2.MEASUREMENT_STR = 1040 (0x410)](./class2.measurement_str.md)
    * [CLASS2.MEASUREMENT_FLOAT = 1060 (0x424)](./class2.measurement_float.md)
    * [CLASS2.VSCPD = 65535 (0xffff)](./class2.vscpd.md)
-    
+
 ## Defined events
 *Generated: 2019-11-07 22:12:18.158822*
-    
+
 * **[Level I events](./level_i_events.md)**
    * [CLASS1.PROTOCOL = 0 (0x0)](./class1.protocol.md)
       * [Type=0 (0x0) - General event.](./class1.protocol.md#type0)
@@ -1010,7 +1010,7 @@
       * [Type=0 (0x0) - General event](./class1.laboratory.md#type0)
    * [CLASS1.LOCAL = 511 (0x1ff)](./class1.local.md)
       * [Type=0 (0x0) - General event](./class1.local.md#type0)
-    
+
 * **[Level I events over level II](./level_i_events_over_level_ii.md)**
    * [CLASS2.LEVEL1.PROTOCOL = 512 (0x200)](./class2.level1.protocol.md)
       * [Type=0 (0x0) - General event.](./class1.protocol.md#type0)
@@ -1893,7 +1893,7 @@
       * [Type=0 (0x0) - General event](./class1.laboratory.md#type0)
    * [CLASS2.LEVEL1.LOCAL = 1023 (0x3ff)](./class2.level1.local.md)
       * [Type=0 (0x0) - General event](./class1.local.md#type0)
-    
+
 * **[Level II events](./level_ii_events.md)**
    * [CLASS2.PROTOCOL = 1024 (0x400)](./class2.protocol.md)
       * [Type=0 (0x0) - General event](./class2.protocol.md#type0)
@@ -2078,4 +2078,3 @@
       * [Type=34 (0x22) - Resume](./class2.vscpd.md#type34)
       * [Type=35 (0x23) - Restart](./class2.vscpd.md#type35)
       * [Type=36 (0x24) - Config](./class2.vscpd.md#type36)
- 
