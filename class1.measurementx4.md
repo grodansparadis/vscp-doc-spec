@@ -37,6 +37,9 @@ Level II measurement events with type >= 1280 have no relation to any Level I me
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_MEASUREMENTX4_GENERAL
 General Event.
+
+
+
 ----
 
 {% include "./bottom_copyright.md" %}

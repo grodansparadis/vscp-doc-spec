@@ -17,6 +17,10 @@ Measurements with zone information. This class mirrors the standard measurement 
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_MEASUREMENTX3_GENERALGeneral Event.
 
+
+
+
+
 ----
 
 {% include "./bottom_copyright.md" %}

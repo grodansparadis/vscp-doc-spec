@@ -10,6 +10,8 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_DATA_GENERALGeneral event.
 
+
+
 ----
 
 ## Type=1 (0x01) - I/O value {#type1}

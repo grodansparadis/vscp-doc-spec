@@ -25,6 +25,10 @@ That is a total of 32-bits. The most significant byte is stored in byte 0.
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_MEASUREMENTX3_GENERALGeneral Event.
 
+
+
+
+
 ----
 
 {% include "./bottom_copyright.md" %}

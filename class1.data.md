@@ -9,6 +9,8 @@ Representation for different general data types. **Byte 0** is the data coding b
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_DATA_GENERAL
 General event.
+
+
 ----
 
 ## Type=1 (0x01) - I/O value {#type1}

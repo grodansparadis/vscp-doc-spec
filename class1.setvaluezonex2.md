@@ -17,6 +17,9 @@ This class mirrors the standard measurement events is [CLASS1.MEASUREMENT=12](./
 ## Type=0 (0x00) - General event {#type0}
     VSCP_TYPE_MEASUREMENTX2_GENERALGeneral Event.
 
+
+
+
 ----
 
 {% include "./bottom_copyright.md" %}
