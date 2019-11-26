@@ -688,7 +688,7 @@ Set security pin.
  | 0         | Not used.                                                          |
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
- | 3-4 | Security pin. This pin can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775. MSB byte is stored in first byte. |
+ | 3-7 | Security pin. This pin can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775. MSB byte is stored in first byte. |
 ----
 
 ## Type=49 (0x31) - Set security password {#type49}
@@ -700,7 +700,7 @@ Set security password.
  | 0         | Not used.                                                          |
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
- | 3-4 | Security password. This password can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an UTF-8 string with a length set bt event data length - 3 |
+ | 3-7 | Security password. This password can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an UTF-8 string with a length set bt event data length - 3 |
 ----
 
 ## Type=50 (0x32) - Set security token {#type50}
@@ -712,7 +712,7 @@ Set security token.
  | 0         | Not used.                                                          |
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
- | 3-4 | Token. This token can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775. MSB byte is stored in first byte. |
+ | 3-7 | Token. This token can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775. MSB byte is stored in first byte. |
 ----
 
 ## Type=51 (0x33) - Request new security token {#type51}
