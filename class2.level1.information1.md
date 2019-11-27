@@ -636,7 +636,7 @@ Depending on the Token device type a number of this event are sent on the segmen
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
- | 0         | 0                                                                  | 
+ | 0         | User specified.                                                    | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3         | Code for pre-set that has been set.                                | 
