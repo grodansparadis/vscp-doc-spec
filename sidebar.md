@@ -345,7 +345,7 @@
       * [Type=78 (0x4e) - Rising](./class1.information.md#type78)
       * [Type=79 (0x4f) - Falling](./class1.information.md#type79)
       * [Type=80 (0x50) - Updated](./class1.information.md#type80)
-   * [CLASS1.CONTROL = 30 (0x1e)](./class1.control.md)
+   * [CLASS1.CONTROL = 30 (0x1e)](./class1.control.md)   
       * [Type=0 (0x0) - General event](./class1.control.md#type0)
       * [Type=1 (0x1) - Mute on/off](./class1.control.md#type1)
       * [Type=2 (0x2) - (All) Lamp(s) on/off](./class1.control.md#type2)
