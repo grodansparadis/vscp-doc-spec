@@ -653,6 +653,7 @@ Lock devices with token.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  | 3-7 | Token. This token can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775. MSB byte is stored in first byte. |
+ 
 ----
 
 ## Type=46 (0x2E) - Unlock with token {#type46}
@@ -665,6 +666,7 @@ Unlock devices with token.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  | 3-7 | Token. This token can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775. MSB byte is stored in first byte. |
+ 
 ----
 
 ## Type=47 (0x2F) - Set security level {#type47}
@@ -676,6 +678,7 @@ Set security level.
  | 0         | Security level to set. 0-255 (Higher value is higher security level).  |
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+ 
 
 ----
 
@@ -689,6 +692,7 @@ Set security pin.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  | 3-7 | Security pin. This pin can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775. MSB byte is stored in first byte. |
+ 
 ----
 
 ## Type=49 (0x31) - Set security password {#type49}
@@ -701,6 +705,7 @@ Set security password.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  | 3-7 | Security password. This password can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an UTF-8 string with a length set bt event data length - 3 |
+ 
 ----
 
 ## Type=50 (0x32) - Set security token {#type50}
@@ -713,6 +718,7 @@ Set security token.
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  | 3-7 | Token. This token can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775. MSB byte is stored in first byte. |
+ 
 ----
 
 ## Type=51 (0x33) - Request new security token {#type51}
@@ -724,6 +730,7 @@ Request new security token.
  | 0         | Not used.                                                          |
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+ 
  
 ----
 

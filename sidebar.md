@@ -86,7 +86,7 @@
    * [CLASS2.VSCPD = 65535 (0xffff)](./class2.vscpd.md)
     
 ## Defined events
-*Generated: 2019-11-27 10:24:51.398198*
+*Generated: 2019-12-05 16:35:06.444107*
     
 * **[Level I events](./level_i_events.md)**
    * [CLASS1.PROTOCOL = 0 (0x0)](./class1.protocol.md)
@@ -345,7 +345,10 @@
       * [Type=78 (0x4e) - Rising](./class1.information.md#type78)
       * [Type=79 (0x4f) - Falling](./class1.information.md#type79)
       * [Type=80 (0x50) - Updated](./class1.information.md#type80)
-   * [CLASS1.CONTROL = 30 (0x1e)](./class1.control.md)   
+      * [Type=81 (0x51) - Connect](./class1.information.md#type81)
+      * [Type=82 (0x52) - Disconnect](./class1.information.md#type82)
+      * [Type=83 (0x53) - Reconnect](./class1.information.md#type83)
+   * [CLASS1.CONTROL = 30 (0x1e)](./class1.control.md)
       * [Type=0 (0x0) - General event](./class1.control.md#type0)
       * [Type=1 (0x1) - Mute on/off](./class1.control.md#type1)
       * [Type=2 (0x2) - (All) Lamp(s) on/off](./class1.control.md#type2)
@@ -1260,6 +1263,9 @@
       * [Type=78 (0x4e) - Rising](./class1.information.md#type78)
       * [Type=79 (0x4f) - Falling](./class1.information.md#type79)
       * [Type=80 (0x50) - Updated](./class1.information.md#type80)
+      * [Type=81 (0x51) - Connect](./class1.information.md#type81)
+      * [Type=82 (0x52) - Disconnect](./class1.information.md#type82)
+      * [Type=83 (0x53) - Reconnect](./class1.information.md#type83)
    * [CLASS2.LEVEL1.CONTROL = 542 (0x21e)](./class2.level1.control.md)
       * [Type=0 (0x0) - General event](./class1.control.md#type0)
       * [Type=1 (0x1) - Mute on/off](./class1.control.md#type1)

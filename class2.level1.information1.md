@@ -1086,6 +1086,7 @@ Bit 39 and bit 38 is reserved.
  | 0         | Index for device. Set to zero if not used.                         | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+ 
 
 ----
 
@@ -1097,6 +1098,7 @@ Bit 39 and bit 38 is reserved.
  | 0         | Index for device. Set to zero if not used.                         | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+ 
 
 ----
 
@@ -1108,6 +1110,43 @@ Bit 39 and bit 38 is reserved.
  | 0         | Index for device. Set to zero if not used.                         | 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+ 
+
+----
+
+## Type=81 (0x51) - Connect {#type81}
+    VSCP_TYPE_INFORMATION_CONNECTSomething has been connected.
+
+ | Data byte | Description                                                        | 
+ | :---------: | -----------                                                        | 
+ | 0         | Index for device. Set to zero if not used.                         | 
+ | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+ 
+
+----
+
+## Type=82 (0x52) - Disconnect {#type82}
+    VSCP_TYPE_INFORMATION_DISCONNECTSomething has been disconnected.
+
+ | Data byte | Description                                                        | 
+ | :---------: | -----------                                                        | 
+ | 0         | Index for device. Set to zero if not used.                         | 
+ | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+ 
+
+----
+
+## Type=83 (0x53) - Reconnect {#type83}
+    VSCP_TYPE_INFORMATION_RECONNECTSomething has been reconnected.
+
+ | Data byte | Description                                                        | 
+ | :---------: | -----------                                                        | 
+ | 0         | Index for device. Set to zero if not used.                         | 
+ | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+ 
 
 ----
 
