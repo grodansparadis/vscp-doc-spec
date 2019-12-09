@@ -33,17 +33,11 @@ Data is coded as a signed integer. The integer is coded in the bytes that follow
 
 
 *  If total event length=2 the data is a 8-bit integer or 1 byte. 
-
 *  If total event length=3 the data is a 16-bit integer or 2 bytes. 
-
 *  If total event length=4 the data is a 24-bit integer or 3 bytes. 
-
 *  If total event length=5 the data is a 32-bit integer or 4 bytes.
-
 *  If total event length=6 the data is a 40-bit integer or 5 bytes. 
-
 *  If total event length=7 the data is a 48-bit integer or 6 bytes. 
-
 *  If total event length=8 the data is a 56-bit integer or 7 bytes. 
 
 #### 100b Normalized integer format( 0x80 )

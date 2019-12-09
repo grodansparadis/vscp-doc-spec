@@ -1,9 +1,10 @@
+
 # The VSCP Specification
 
 ![VSCP logo](./images/logo_100.png)
 
-**Specification reversion:** 1.10.18 - ${/var/creation-time}
-[HISTORY](vscp_specification_history.md)
+**Specification reversion:** ${/var/document-version} - ${/var/creation-time}
+[HISTORY](./vscp_specification_history.md)
 
 This document is the official VSCP (Very Simple Control Protocol) specification. VSCP is an IoT framework mainly built for resource limited devices.
 

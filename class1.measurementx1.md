@@ -34,7 +34,7 @@ The relationship between Level II measurement events and Level I measurement eve
 
 Level II measurement events with type >= 1280 have no relation to any Level I measurement events.
 
-## Type=0 (0x00) - General event {#type0}
+## Type=0 (0x00) - General event
     VSCP_TYPE_MEASUREMENTX1_GENERAL
 General Event.
 

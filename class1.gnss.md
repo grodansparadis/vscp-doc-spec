@@ -25,12 +25,12 @@ Typically one NMEA, SIRF etc frame with information needs to be translated to ma
 *  CLASS1.INFORMATION, Type=47 (0x2F) End of record
 
 if preferred to hold the events together. 
-## Type=0 (0x00) - General event {#type0}
+## Type=0 (0x00) - General event
     VSCP_TYPE_GNSS_GENERAL
 General Event.
 ----
 
-## Type=1 (0x01) - Position {#type1}
+## Type=1 (0x01) - Position
     VSCP_TYPE_GNSS_POSITION
 Position information as decimal Latitude + Longitude. 
 
@@ -41,7 +41,7 @@ Position information as decimal Latitude + Longitude.
 
 ----
 
-## Type=2 (0x02) - Satellites {#type2}
+## Type=2 (0x02) - Satellites
     VSCP_TYPE_GNSS_SATELLITES
 Number of satellites used. 
 

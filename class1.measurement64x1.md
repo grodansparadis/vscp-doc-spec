@@ -24,7 +24,7 @@ The value is a "double"	- IEEE-754, 64 Bits, double precision.
  | 6    | m15 m14 m13 m12 m11 m10 m9 m8   |
  | 7    | m7 m6 m5 m4 m3 m2 m1 m0         |
 
-## Type=0 (0x00) - General event {#type0}
+## Type=0 (0x00) - General event
     VSCP_TYPE_MEASUREMENTX1_GENERALGeneral Event.
 
 

@@ -14,7 +14,7 @@ Measurements with zone information. This class mirrors the standard measurement 
  | 3    | Data coding.                                                       |
  | 4-7  | Data with format defined by byte 0.                                |
 
-## Type=0 (0x00) - General event {#type0}
+## Type=0 (0x00) - General event
     VSCP_TYPE_MEASUREMENTX4_GENERALGeneral Event.
 
 

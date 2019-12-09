@@ -6,12 +6,12 @@
 
 Security related events for alarms and similar devices. 
 
-## Type=0 (0x00) - General event {#type0}
+## Type=0 (0x00) - General event
     VSCP_TYPE_SECURITY_GENERAL
 General Event.
 ----
 
-## Type=1 (0x01) - Motion Detect {#type1}
+## Type=1 (0x01) - Motion Detect
     VSCP_TYPE_SECURITY_MOTION
 A motion has been detected. 
 
@@ -25,7 +25,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## Type=2 (0x02) - Glass break {#type2}
+## Type=2 (0x02) - Glass break
     VSCP_TYPE_SECURITY_GLASS_BREAK
 A glass break event has been detected. 
 
@@ -39,7 +39,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## Type=3 (0x03) - Beam break {#type3}
+## Type=3 (0x03) - Beam break
     VSCP_TYPE_SECURITY_BEAM_BREAK
 A beam break event has been detected. 
 
@@ -53,7 +53,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## Type=4 (0x04) - Sensor tamper {#type4}
+## Type=4 (0x04) - Sensor tamper
     VSCP_TYPE_SECURITY_SENSOR_TAMPER
 A sensor tamper has been detected. 
 
@@ -67,7 +67,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## Type=5 (0x05) - Shock sensor {#type5}
+## Type=5 (0x05) - Shock sensor
     VSCP_TYPE_SECURITY_SHOCK_SENSOR
 A shock sensor event has been detected. 
 
@@ -81,7 +81,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## Type=6 (0x06) - Smoke sensor {#type6}
+## Type=6 (0x06) - Smoke sensor
     VSCP_TYPE_SECURITY_SMOKE_SENSOR
 A smoke sensor event has been detected. 
 
@@ -95,7 +95,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## Type=7 (0x07) - Heat sensor {#type7}
+## Type=7 (0x07) - Heat sensor
     VSCP_TYPE_SECURITY_HEAT_SENSOR
 A heat sensor event has been detected. 
 
@@ -109,7 +109,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## Type=8 (0x08) - Panic switch {#type8}
+## Type=8 (0x08) - Panic switch
     VSCP_TYPE_SECURITY_PANIC_SWITCH
 A panic switch event has been detected. 
 
@@ -123,7 +123,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## Type=9 (0x09) - Door Contact {#type9}
+## Type=9 (0x09) - Door Contact
     VSCP_TYPE_SECURITY_DOOR_OPEN
 Indicates a door sensor reports that a door is open. 
 
@@ -137,7 +137,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## Type=10 (0x0A) - Window Contact {#type10}
+## Type=10 (0x0A) - Window Contact
     VSCP_TYPE_SECURITY_WINDOW_OPEN
 Indicates a window sensor reports that a window is open.
 
@@ -151,7 +151,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## Type=11 (0x0B) - CO Sensor {#type11}
+## Type=11 (0x0B) - CO Sensor
     VSCP_TYPE_SECURITY_CO_SENSOR
 CO sensor has detected CO at non secure level
 
@@ -165,7 +165,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## Type=12 (0x0C) - Frost detected {#type12}
+## Type=12 (0x0C) - Frost detected
     VSCP_TYPE_SECURITY_FROST_DETECTED
 A frost sensor condition is detected
 
@@ -179,7 +179,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## Type=13 (0x0D) - Flame detected {#type13}
+## Type=13 (0x0D) - Flame detected
     VSCP_TYPE_SECURITY_FLAME_DETECTED
 Flame is detected.
 
@@ -193,7 +193,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## Type=14 (0x0E) - Oxygen Low {#type14}
+## Type=14 (0x0E) - Oxygen Low
     VSCP_TYPE_SECURITY_OXYGEN_LOW
 Low oxygen level detected.
 
@@ -207,7 +207,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## Type=15 (0x0F) - Weight detected. {#type15}
+## Type=15 (0x0F) - Weight detected.
     VSCP_TYPE_SECURITY_WEIGHT_DETECTED
 Weight-detector triggered.
 
@@ -221,7 +221,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## Type=16 (0x10) - Water detected. {#type16}
+## Type=16 (0x10) - Water detected.
     VSCP_TYPE_SECURITY_WATER_DETECTED
 Water has been detected.
 
@@ -235,7 +235,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## Type=17 (0x11) - Condensation detected. {#type17}
+## Type=17 (0x11) - Condensation detected.
     VSCP_TYPE_SECURITY_CONDENSATION_DETECTED
 Condensation (humidity) detected.
 
@@ -249,7 +249,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## Type=18 (0x12) - Noise (sound) detected. {#type18}
+## Type=18 (0x12) - Noise (sound) detected.
     VSCP_TYPE_SECURITY_SOUND_DETECTED
 Noise (sound) has been detected.
 
@@ -263,7 +263,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## Type=19 (0x13) - Harmful sound levels detected. {#type19}
+## Type=19 (0x13) - Harmful sound levels detected.
     VSCP_TYPE_SECURITY_HARMFUL_SOUND_LEVEL
 Harmful sound levels detected.
 
@@ -277,7 +277,7 @@ If both or one of zone/sub-zone are omitted they should be interpreted as if the
 
 ----
 
-## Type=20 (0x14) - Tamper detected. {#type20}
+## Type=20 (0x14) - Tamper detected.
     VSCP_TYPE_SECURITY_TAMPER
 Tamper detected.
 
@@ -289,7 +289,7 @@ Tamper detected.
 
 ----
 
-## Type=21 (0x15) - Authenticated {#type21}
+## Type=21 (0x15) - Authenticated
     VSCP_TYPE_SECURITY_AUTHENTICATED
 Authenticated. A user or a device has been authenticated.
 
@@ -300,7 +300,7 @@ Authenticated. A user or a device has been authenticated.
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 ----
 
-## Type=22 (0x16) - Unauthenticated {#type22}
+## Type=22 (0x16) - Unauthenticated
     VSCP_TYPE_SECURITY_UNAUTHENTICATED
 Unauthenticated. A user or a device has failed authentication.
 
@@ -311,7 +311,7 @@ Unauthenticated. A user or a device has failed authentication.
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 ----
 
-## Type=23 (0x17) - Authorized {#type23}
+## Type=23 (0x17) - Authorized
     VSCP_TYPE_SECURITY_AUTHORIZED
 Authorized. A user or a device has been authorized.
 
@@ -322,7 +322,7 @@ Authorized. A user or a device has been authorized.
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 ----
 
-## Type=24 (0x18) - Unauthorized {#type24}
+## Type=24 (0x18) - Unauthorized
     VSCP_TYPE_SECURITY_UNAUTHORIZED
 Unauthorized. A user or a device has failed authorization.
 
@@ -333,7 +333,7 @@ Unauthorized. A user or a device has failed authorization.
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 ----
 
-## Type=25 (0x19) - ID check {#type25}
+## Type=25 (0x19) - ID check
     VSCP_TYPE_SECURITY_ID_CHECK
 ID Check. A user or a device has gone through an identification test and is either allowed or not allowed access according to bits in byte 0.
 
@@ -352,7 +352,7 @@ ID Check. A user or a device has gone through an identification test and is eith
 
 ----
 
-## Type=26 (0x1A) - Valid pin {#type26}
+## Type=26 (0x1A) - Valid pin
     VSCP_TYPE_SECURITY_PIN_OK
 Valid pin. A valid pin has been entered by a device or user.
 
@@ -363,7 +363,7 @@ Valid pin. A valid pin has been entered by a device or user.
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 ----
 
-## Type=27 (0x1B) - Invalid pin {#type27}
+## Type=27 (0x1B) - Invalid pin
     VSCP_TYPE_SECURITY_PIN_FAIL
 Invalid pin. An invalid pin has been entered by a device or user.
 
@@ -374,7 +374,7 @@ Invalid pin. An invalid pin has been entered by a device or user.
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 ----
 
-## Type=28 (0x1C) - Pin warning {#type28}
+## Type=28 (0x1C) - Pin warning
     VSCP_TYPE_SECURITY_PIN_WARNING
 Pin warning. An invalid pin has been entered by a device or user and a warning has been given. This warning is typically a warning that the pin will be unusable if further failures are detected.
 
@@ -385,7 +385,7 @@ Pin warning. An invalid pin has been entered by a device or user and a warning h
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 ----
 
-## Type=29 (0x1D) - Pin error {#type29}
+## Type=29 (0x1D) - Pin error
     VSCP_TYPE_SECURITY_PIN_ERROR
 Pin error. An invalid pin has been entered by a device or user and it has failed so many times that the pin is now locked and unusable.
 
@@ -396,7 +396,7 @@ Pin error. An invalid pin has been entered by a device or user and it has failed
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 ----
 
-## Type=30 (0x1E) - Valid password {#type30}
+## Type=30 (0x1E) - Valid password
     VSCP_TYPE_SECURITY_PASSWORD_OK
 Valid password. A valid password has been entered by a device or user.
 
@@ -407,7 +407,7 @@ Valid password. A valid password has been entered by a device or user.
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 ----
 
-## Type=31 (0x1F) - Invalid password {#type31}
+## Type=31 (0x1F) - Invalid password
     VSCP_TYPE_SECURITY_PASSWORD_FAIL
 Invalid password. An invalid password has been entered by a device or user.
 
@@ -418,7 +418,7 @@ Invalid password. An invalid password has been entered by a device or user.
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 ----
 
-## Type=32 (0x20) - Password warning {#type32}
+## Type=32 (0x20) - Password warning
     VSCP_TYPE_SECURITY_PASSWORD_WARNING
 Password warning. An invalid password has been entered by a device or user and a warning has been given. This warning is typically a warning that the password will be unusable if further failures are detected.
 
@@ -429,7 +429,7 @@ Password warning. An invalid password has been entered by a device or user and a
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 ----
 
-## Type=33 (0x21) - Password error {#type33}
+## Type=33 (0x21) - Password error
     VSCP_TYPE_SECURITY_PASSWORD_ERROR
 Password error. An invalid password has been entered by a device or user and it has failed so many times that the password is now locked and unusable.
 

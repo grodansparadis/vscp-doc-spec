@@ -6,9 +6,7 @@ Another resource for information is the VSCP wiki [http://www.vscp.org/wiki/doku
 
 
 *  The VSCP Daemon is documented [here](http://www.vscp.org/docs/vscpd/doku.php).
-
 *  The helper library is documented [here](http://www.vscp.org/docs/vscphelper/doku.php)
-
 *  The VSCP Works is documented [here](http://www.vscp.org/docs/vscpworks/doku.php).
 
 ## Introduction
@@ -22,37 +20,24 @@ Most of them are proprietary, some are somehow “open”, meaning you can parti
 VSCP was designed with the following goals in mind:
 
 
-*  Free and Open. No usage, patent or other costs for its implementation and usage. 
-
-*  Low cost. 
-
-*  K.I.S.S. (Keep it simple stupid.) Simplicity usually rules. 
-
+* Free and Open. No usage, patent or other costs for its implementation and usage. 
+* Low cost == No Cost. 
+* K.I.S.S. (Keep it simple stupid.) Simplicity usually rules. 
 * Discovery and identification. Installed devices should be possible to discover and be identified in an uniform way.
-
-*  Uniform device configuration. Devices should be able to be configured in a uniform way.
-
-*  Autonomous/distributed device functionality.
-
-*  Uniform way to update/maintain device firmware.
+* Uniform device configuration. Devices should be able to be configured in a uniform way.
+* Autonomous/distributed device functionality.
+* Uniform way to update/maintain device firmware.
 
 Some features: 
 
 
 *  Free and open for commercial and other use. 
-
 *  Have two levels. Level I and Level II where level I is designed with CAN as the least common denominator. Can be used for TCP, UDP, RF, Mains communication, etc etc. 
-
 *  Has globally unique IDs for each node. 
-
 *  Has a mechanism to automatically assign a unique ID to a newly installed node and inform other nodes and possible hosts that a new node is available and ready. 
-
 *  Use “registers” as a uniform way to configure nodes. 
-
 *  Can use a “decision matrix” to program nodes with dynamic functionality. 
-
 *  Has a common specification language “MDF” that describe a module in a uniform way that can be used by set up software and such. 
-
 *  Has software and drivers for Windows and Linux. More added all the time. 
 
 The VSCP Protocol was initially used in CAN networks. CAN is very reliable and cheap today and allow us to manufacture low cost nodes that can work reliably, efficiently and can be trusted in their day-to-day use. But VSCP can be used equally well in other environments than CAN.
@@ -63,7 +48,6 @@ Furthermore, VSCP:
 
 
 *  uses standard components and cables. 
-
 *  is easy to configure.
 
 ## Open? What does that mean?

@@ -21,25 +21,25 @@ Some GUID's are reserved and unavailable for assignment. [This page](./appendix_
 It is possible to create your own GUID without requesting a series and still get a valid VSCP GUID.
 
 
- | Assigned Global Unique IDs                                                                          | IDs Series Reserved to/for                                                                                                                                                                                                                                                                                                            | 
- | --------------------------                                                                          | --------------------------                                                                                                                                                                                                                                                                                                            | 
- | FF:FF:FF:FF:FF:FF:FF:FF:YY:YY:YY:YY:YY:YY:YY:YY                                                     | Dallas Semiconductor GUID's. This is the 1-wire/iButton 64-bit ID. The device code is in the MSB byte and CRC in the LSB byte.                                                                                                                                                                                                        | 
- | FF:FF:FF:FF:FF:FF:FF:FE:YY:YY:YY:YY:YY:YY:XX:XX                                                     | Ethernet Device GUID's. The holder of the address can freely use the two least significant bytes of the GUID. MAC address in MSB - LSB order. Also called MAC-48 or EUI-48 by IEEE                                                                                                                                                    | 
- | FF:FF:FF:FF:FF:FF:FF:FD:YY:YY:YY:YY:XX:XX:XX:XX                                                     | Internet version 4 GUID's. This is a 32-bit ID so the holder of the address can freely use the four least significant bytes of the GUID. IP V4 address in MSB - LSB order.                                                                                                                                                            | 
- | FF:FF:FF:FF:FF:FF:FF:FC:XX:XX:XX:XX:XX:XX:XX:XX                                                     | Private. Use for in-house local use. The GUID should never appear outside your local segments.                                                                                                                                                                                                                                        | 
- | FF:FF:FF:FF:FF:FF:FF:FB:YY:YY:YY:XX:XX:XX:XX:XX                                                     | ISO ID. This is a three byte ID so the holder of the ISO ID can freely use the five least significant bytes of the GUID.                                                                                                                                                                                                              | 
- | FF:FF:FF:FF:FF:FF:FF:FA:YY:YY:YY:YY:XX:XX:XX:XX                                                     | CiA (CAN in Automation) vendor ID. This is a 32-bit ID so the holder of the vendor ID can freely use the four least significant bytes of the GUID.                                                                                                                                                                                    | 
- | FF:FF:FF:FF:FF:FF:FF:F9:YY:YY:YY:XX:XX:XX:XX:XX                                                     | ZigBee 802.15.4 OID. This is a 24-bit ID so the holder of the OID can freely use the five least significant bytes of the GUID.                                                                                                                                                                                                        | 
- | FF:FF:FF:FF:FF:FF:FF:F8:YY:YY:YY:YY:YY:YY:XX:XX                                                     | Bluetooth MAC. This is a 48-bit ID so the holder of the OID can freely use the two least significant bytes of the GUID.                                                                                                                                                                                                               | 
- | FF:FF:FF:FF:FF:FF:FF:F7:YY:YY:YY:YY:YY:YY:YY:YY                                                     | IEEE EUI-64. This is a 64-bit ID. The upper three bytes are purchased from IEEE by the company that releases the product. The lower five bytes are assigned by the device and must be unique.                                                                                                                                         | 
- | FF:FF:FF:FF:FF:FF:FF:F6:00:YY:YY:YY:YY:YY:YY:YY                                                     | Reserved for RAMTRON MRAM (and compatible), seven byte IDs.                                                                                                                                                                                                                                                                           | 
- | FF:FF:FF:FF:FF:FF:FF:F6:01:YY:YY:YY:YY:YY:YY:YY- \\ FF:FF:FF:FF:FF:FF:FF:F6:FF:YY:YY:YY:YY:YY:YY:YY | Reserved for other future seven bit ID (memory devices) that may have ID, such as PRAM etc.                                                                                                                                                                                                                                           | 
- | FF:FF:FF:FF:FF:FF:FF:F5:XX:XX:XX:XX:XX:XX:XX:XX                                                     | Reserved for VSCP & Friends demo and example usage.                                                                                                                                                                                                                                                                                   | 
- | FF:FF:FF:FF:FF:FF:FF:F4:XX:XX:XX:XX:XX:XX:YY:YY                                                     | Reserved for VSCP grouping where YY defines the group id. XX is not currently used.                                                                                                                                                                                                                                                   | 
- | FF:FF:FF:FF:FF:FF:FF:00:00:00:00:00:00:00:00:00- \\ FF:FF:FF:FF:FF:FF:FF:F3:FF:FF:FF:FF:FF:FF:FF:FF | Reserved                                                                                                                                                                                                                                                                                                                              | 
- | 00:00:00:00:00:00:00:00:00:00:00:00:xx:xx:xx:xx                                                     | Lab usage. You can use this range for your own development or for in-house local use. The GUID should never appear outside your local segments.                                                                                                                                                                                       | 
- | FE:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY                                                     | Reserved for a generated 128 bit GUID where the most significant byte is replaced by FE Only use for Level II and on internal net. [http://hegel.ittc.ku.edu/topics/internet/internet-drafts/draft-l/draft-leach-uuids-guids-01.txt](http://hegel.ittc.ku.edu/topics/internet/internet-drafts/draft-l/draft-leach-uuids-guids-01.txt) | 
- | FD:AA:BB:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY                                                     | Reserved for MCU internal id's provided by some manufacturers. AA is manufacturer id. BB is circuit family. There is room for a 13-byte id. If the particular CPU have a an id that is shorter than put used bits to the right and set unused MSB bytes to zero. See information below.                                               | 
+ | Assigned Global Unique IDs | IDs Series Reserved to/for | 
+ | :-------------------------- | -------------------------- | 
+ | <pre>FF:FF:FF:FF:FF:FF:FF:FF:YY:YY:YY:YY:YY:YY:YY:YY</pre> | Dallas Semiconductor GUID's. This is the 1-wire/iButton 64-bit ID. The device code is in the MSB byte and CRC in the LSB byte. | 
+ | <pre>FF:FF:FF:FF:FF:FF:FF:FE:YY:YY:YY:YY:YY:YY:XX:XX</pre>  | Ethernet Device GUID's. The holder of the address can freely use the two least significant bytes of the GUID. MAC address in MSB - LSB order. Also called MAC-48 or EUI-48 by IEEE | 
+ | <pre>FF:FF:FF:FF:FF:FF:FF:FD:YY:YY:YY:YY:XX:XX:XX:XX</pre> | Internet version 4 GUID's. This is a 32-bit ID so the holder of the address can freely use the four least significant bytes of the GUID. IP V4 address in MSB - LSB order. | 
+ | <pre>FF:FF:FF:FF:FF:FF:FF:FC:XX:XX:XX:XX:XX:XX:XX:XX</pre> | Private. Use for in-house local use. The GUID should never appear outside your local segments. | 
+ | <pre>FF:FF:FF:FF:FF:FF:FF:FB:YY:YY:YY:XX:XX:XX:XX:XX</pre> | ISO ID. This is a three byte ID so the holder of the ISO ID can freely use the five least significant bytes of the GUID. | 
+ | <pre>FF:FF:FF:FF:FF:FF:FF:FA:YY:YY:YY:YY:XX:XX:XX:XX</pre> | CiA (CAN in Automation) vendor ID. This is a 32-bit ID so the holder of the vendor ID can freely use the four least significant bytes of the GUID. | 
+ | <pre>FF:FF:FF:FF:FF:FF:FF:F9:YY:YY:YY:XX:XX:XX:XX:XX</pre> | ZigBee 802.15.4 OID. This is a 24-bit ID so the holder of the OID can freely use the five least significant bytes of the GUID. | 
+ | <pre>FF:FF:FF:FF:FF:FF:FF:F8:YY:YY:YY:YY:YY:YY:XX:XX</pre>  | Bluetooth MAC. This is a 48-bit ID so the holder of the OID can freely use the two least significant bytes of the GUID. | 
+ | <pre>FF:FF:FF:FF:FF:FF:FF:F7:YY:YY:YY:YY:YY:YY:YY:YY</pre> | IEEE EUI-64. This is a 64-bit ID. The upper three bytes are purchased from IEEE by the company that releases the product. The lower five bytes are assigned by the device and must be unique. | 
+ | <pre>FF:FF:FF:FF:FF:FF:FF:F6:00:YY:YY:YY:YY:YY:YY:YY</pre> | Reserved for RAMTRON MRAM (and compatible), seven byte IDs. | 
+ | <pre>FF:FF:FF:FF:FF:FF:FF:F6:01:YY:YY:YY:YY:YY:YY:YY - </pre><pre>FF:FF:FF:FF:FF:FF:FF:F6:FF:YY:YY:YY:YY:YY:YY:YY</pre> | Reserved for other future seven bit ID (memory devices) that may have ID, such as PRAM etc. | 
+ | <pre>FF:FF:FF:FF:FF:FF:FF:F5:XX:XX:XX:XX:XX:XX:XX:XX</pre> | Reserved for VSCP & Friends demo and example usage. | 
+ | <pre>FF:FF:FF:FF:FF:FF:FF:F4:XX:XX:XX:XX:XX:XX:YY:YY</pre> | Reserved for VSCP grouping where YY defines the group id. XX is not currently used. | 
+ | <pre>FF:FF:FF:FF:FF:FF:FF:00:00:00:00:00:00:00:00:00 - </pre><pre>FF:FF:FF:FF:FF:FF:FF:F3:FF:FF:FF:FF:FF:FF:FF:FF</pre> | Reserved  | 
+ | <pre>00:00:00:00:00:00:00:00:00:00:00:00:xx:xx:xx:xx</pre> | Lab usage. You can use this range for your own development or for in-house local use. The GUID should never appear outside your local segments. | 
+ | <pre>FE:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY</pre> | Reserved for a generated 128 bit GUID where the most significant byte is replaced by FE Only use for Level II and on internal net. [http://hegel.ittc.ku.edu/topics/internet/internet-drafts/draft-l/draft-leach-uuids-guids-01.txt](http://hegel.ittc.ku.edu/topics/internet/internet-drafts/draft-l/draft-leach-uuids-guids-01.txt) | 
+ | <pre>FD:AA:BB:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY</pre> | Reserved for MCU internal id's provided by some manufacturers. AA is manufacturer id. BB is circuit family. There is room for a 13-byte id. If the particular CPU have a an id that is shorter than put used bits to the right and set unused MSB bytes to zero. See information below. | 
 
 ## MCU stored GUID's
 
@@ -48,7 +48,7 @@ As explained above GUID's with 0xFD in the most significant byte is reserved for
 ### Manufacturer code
 
  | Code | Description                         | 
- | ---- | -----------                         | 
+ | :----: | :-----------                         | 
  | 0    | Microchip                           | 
  | 1    | Atmel                               | 
  | 2    | ST                                  | 
@@ -66,28 +66,24 @@ As explained above GUID's with 0xFD in the most significant byte is reserved for
 
 #### Atmel
 
- | Code  | Description                                                                                                                                                                                                                                        | 
- | ----  | -----------                                                                                                                                                                                                                                        | 
+ | Code  | Description | 
+ | :----: | :-----------  | 
  | 0     | Xmega Family, use [DEVID2:1][LOTNUM5:4:3:2:1:0]:[WAFNUM]:[COORDX1:0][COORDY1:0] as bytes 13::0 of the GUID. DEVID0 not used because it is always a constant. DEVIDx is from *"MCU Control registers"*, rest from *"Production Signature Row"*. | 
- | 1-255 | t.b.d                                                                                                                                                                                                                                              | 
+ | 1-255 | t.b.d  | 
+
 Notes on other families:
 
 *  No serial number: ATiny, AtMega, AT91SAM, SAM7 S/SE/X/XC, SAM9 XE n/M/N/CN/R/G/X, complete 8051 architecture
-
 *  AT32 UC3 = 120 Bit
-
 *  SAM C/D/E/G/L/S/V = 128 Bit
-
 *  SAM3 A/N/S/U/X have 128 Bit
-
 *  SAM4 L = 120 Bit, SAM4E/S/N = 128 Bit
-
 *  SAMA5 = 128 Bit
 
 ####  ST Microelectronics
 
- | Code | Description                                                                                                                                                                                      | 
- | ---- | -----------                                                                                                                                                                                      | 
+ | Code | Description | 
+ | :----: | ----------- | 
  | 0    | STM8 AL/L/S/T but not STM8AF, use the *"MCU device ID"* (which is 12 bit) as byte 13:12 (bits 7::4 of byte 13=0) and the *"Unique device ID"* (96 Bit = 12 Byte) as bytes 11::0 of the GUID. | 
  | 1    | STM32 F/L/T/W, use the *"MCU device ID"* (which is 12 bit) as byte 13:12 (bits 7::4 of byte 13=0) and the *"Unique device ID"* (96 Bit = 12 Byte) as bytes 11::0 of the GUID.                | 
 
@@ -135,7 +131,7 @@ really means
 
     FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:01
 
-These short cut notations makes it much easier to write GUID's. 
+These short cut notations makes it much easier to write long GUID's. 
 
 
 [filename](./bottom_copyright.md ':include')

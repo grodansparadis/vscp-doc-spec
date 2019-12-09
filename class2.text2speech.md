@@ -6,13 +6,13 @@
 
 This is an interface that translates text to speech 
 
-## Type=0 (0x00) - General event {#type0}
+## Type=0 (0x00) - General event
     VSCP2_TYPE_TEXT2SPEECH_GENERAL
 General Event.
 
 ----
 
-## Type=1 (0x01) - Talk {#type1}
+## Type=1 (0x01) - Talk
     VSCP2_TYPE_TEXT2SPEECH_TALK
 Talk some text out on a device.
 

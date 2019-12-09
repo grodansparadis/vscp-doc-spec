@@ -22,7 +22,7 @@ A master on a RS-485 segment must check for new nodes on regular intervals. With
 ##### Frame format
 
  | Byte | Content                                              | 
- | ---- | -------                                              | 
+ | :----: | :-------                                              | 
  | 0    | Nine bit destination address                         | 
  | 1    | Originating address (master=0)                       | 
  | 2    | Operation (see below)                                | 
@@ -44,7 +44,7 @@ The DOW checksum is used. [https://www.vscp.org/wiki/doku.php?id=vscp_specificat
 ##### Operations
 
  | Operation code | Description                                            | 
- | -------------- | -----------                                            | 
+ | :--------------: | :-----------                                            | 
  | 0              | No operation                                           | 
  | 1              | Level I event to/from node.                            | 
  | 2              | Poll for event. (No data content follows, just CRC).   | 
@@ -53,7 +53,7 @@ The DOW checksum is used. [https://www.vscp.org/wiki/doku.php?id=vscp_specificat
 ##### Flags
 
  | Bit | Description                      | 
- | --- | -----------                      | 
+ | :---: | :-----------                   | 
  | 0-3 | Number of data-bytes             | 
  | 4   | Bit nine of Class.               | 
  | 5-7 | reserved and should be set to 0. | 

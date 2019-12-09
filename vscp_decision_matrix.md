@@ -125,9 +125,7 @@ The decision matrix structure gives us the freedom to implement events that perf
 
 
 *  Exactly one action. 
-
 *  Several actions. 
-
 *  Several actions in a sequence.
 
 ## Decision matrix for Level II nodes.

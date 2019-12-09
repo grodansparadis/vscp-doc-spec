@@ -8,9 +8,7 @@ The boot loader sequence is as follows:
 
 
 *  **master** - device that initiate boot loading process and uploads firmware
-
 *  **node** - Device that will get it's firmware updated.
-
  1.  The master instructs the node to enter boot loader mode by sending an [enter boot loader mode](./class1.protocol.md#type_12_0x0c_enter_boot_loader_mode) event to the node. This event have information on which boot loader method that is expected by the master. This can be the VSCP boot loader which is described here or another boot loader. __If this event is received in an stage below the boot loading process should be restarted.__
  2.  The node confirms that it is ready for code loading with the requested boot loader algorithm by sending the [ACK boot loader mode](./class1.protocol.md#type_13_0x0d_ack_boot_loader_mode) event. Block size and number of blocks are sent as arguments in the acknowledge event. The node respond with [NACK boot loader mode event](./class1.protocol.md#type_14_0x0e_nack_boot_loader_mode) if it can't handle the requested boot loader algorithm or because of some other reason cant initiate the boot loading process.
  3.  The master sends a [start block data transfer](./class1.protocol.md#type_15_0x0f_start_block_data_transfer) event to specify which block should be programmed and by that initiating the transfer of data for the block. 
@@ -28,7 +26,9 @@ The boot-loader is built to direct control flash if other methods such as interm
 Diagram by **Andreas Merkle**
 
 
-# Microchip custom algorithm for PIC18 devices, Boot loader code = 0x01
+# Microchip custom algorithm for PIC18 devices
+
+## Boot loader code = 0x01
 
     rev 0.3: 2004-09-22
 
@@ -49,19 +49,12 @@ To enter boot loader mode a class=0, Type=12, Enter boot loader mode should be s
 
 
 *  **Byte 0:** The nickname-ID for the node. 
-
 *  **Byte 1:** 0x01 – Bootloader for Microchip devices type 1 (this bootloader). 
-
 *  **Byte 2:** GUID byte 0 for node (register 0xDF). 
-
 *  **Byte 3:** GUID byte 3 for node (register 0xDC). 
-
 *  **Byte 4:** GUID byte 5 for node (register 0xDA). 
-
 *  **Byte 5:** GUID byte 7 for node (register 0xD7). 
-
 *  **Byte 6:** Content of node register 0x92, Page Select Register MSB 
-
 *  **Byte 7:** Content of node register 0x93, Page Select Register LSB
 
 If the supplied data is correct and this bootloader type is supported on the device, a message class=0, type=13, ACK Boot Loader Mode will be sent from the node.
@@ -115,49 +108,31 @@ The PUT_BASE_INFO command sets address and flags for a device.
 
 
 *  **Byte 0:** ADDR_LOW - Low address bits 0-7 
-
 *  **Byte 1:** ADDR_HIGH - High address bits 8-15 
-
 *  **Byte 2:** ADDR_UPPER - Upper address bits 16 - 23 
-
 *  **Byte 3:** reserved 
-
 *  **Byte 4:** CONTROL - Control byte 
-
 *  **Byte 5:** COMMAND - Command 
-
 *  **Byte 6:** CMD_DATA_LOW - Command data 0-7 
-
 *  **Byte 7:** CMD_DATA_HIGH - Command data 8-15
 
 CONTROL is defined as follows
 
 
 *  **Bit 0:** MODE_WRT_UNLCK Set this to allow memory write and erase. 
-
 *  **Bit 1:** MODE_ERASE_ONLY Set this to only erase program memory on a put command. Must be on a 64-bit boundary. 
-
 *  **Bit 2:** MODE_AUTO_ERASE Set this to automatically erase program memory while writing data. 
-
 *  **Bit 3:** MODE_AUTO_INC Set this to automatically increment the pointer after a write. 
-
 *  **Bit 4:** MODE_ACK Set to get acknowledge. 
-
 *  **Bit 5:** undefined. 
-
 *  **Bit 6:** undefined. 
-
 *  **Bit 7:** undefined. 
 
 COMMAND is defined as follows
 
-
 *  **0x00:** CMD_NOP No operation – Do nothing 
-
 *  **0x01:** CMD_RESET Reset the device. 
-
 *  **0x02:** CMD_RST_CHKSM Reset the checksum counter and verify. 
-
 *  **0x03:** CMD_CHK_RUN Add checksum to CMD_DATA_LOW and CMD_DATA_HIGH, if verify and zero checksum then clear the last location of EEDATA.
 
 Send this command first with the base address and MODE_WRT_UNLCK to be able to write to memory.
@@ -183,22 +158,14 @@ This command writes data to memory.
 
 The PUT_DATA command sets address and flags for a device.
 
-
-*  Byte 0: D0 - Data byte 0 
-
-*  Byte 1: D1 - Data byte 1 
-
-*  Byte 2: D2 - Data byte 2 
-
-*  Byte 3: D3 - Data byte 3 
-
-*  Byte 4: D4 - Data byte 4 
-
-*  Byte 5: D5 - Data byte 5 
-
-*  Byte 6: D6 - Data byte 6 
-
-*  Byte 7: D7 - Data byte 7
+* **Byte 0**: D0 - Data byte 0 
+* **Byte 1**: D1 - Data byte 1 
+* **Byte 2**: D2 - Data byte 2 
+* **Byte 3**: D3 - Data byte 3 
+* **Byte 4**: D4 - Data byte 4 
+* **Byte 5**: D5 - Data byte 5 
+* **Byte 6**: D6 - Data byte 6 
+* **Byte 7**: D7 - Data byte 7
 
 If MODE_ACK is set then ack messages will be sent from the node after the write. Response messages has the form 0x000015nn where nn is node nickname-ID.
 
@@ -219,15 +186,10 @@ The response is:
 
 
 *  **Byte 0:** ADDR_LOW - Low address bits 0-7 
-
 *  **Byte 1:** ADDR_HIGH - High address bits 8-15 
-
 *  **Byte 2:** ADDR_UPPER - Upper address bits 16 - 23 Byte 3: reserved
-
 *  **Byte 4:** CONTROL - Control byte Byte 5: reserved 
-
 *  **Byte 6:** reserved 
-
 *  **Byte 7:** reserved
 
 with ID 0x000010nn where nn is nickname. 
@@ -247,19 +209,12 @@ The response is:
 
 
 *  **Byte 0:** D0 - Data byte 0 
-
 *  **Byte 1:** D1 - Data byte 1 
-
 *  **Byte 2:** D2 - Data byte 2 
-
 *  **Byte 3:** D3 - Data byte 3 
-
 *  **Byte 4:** D4 - Data byte 4 
-
 *  **Byte 5:** D5 - Data byte 5 
-
 *  **Byte 6:** D6 - Data byte 6 
-
 *  **Byte 7:** D7 - Data byte 7
 
 The ID has the form 0x000011nn where nn is node nickname-ID.

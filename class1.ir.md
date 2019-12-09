@@ -6,12 +6,12 @@
 
 This is the IR code sent/received from common remote controls. 
 
-## Type=0 (0x00) - General event {#type0}
+## Type=0 (0x00) - General event
     VSCP_TYPE_REMOTE_GENERAL
 General Event.
 ----
 
-## Type=1 (0x01) - RC5 Send/Receive {#type1}
+## Type=1 (0x01) - RC5 Send/Receive
     VSCP_TYPE_REMOTE_RC5
 A RC5 remote code. [http://www.xs4all.nl/~sbp/knowledge/ir/sirc.htm ]Use the VSCP abstract remote format if possible.
 
@@ -22,7 +22,7 @@ A RC5 remote code. [http://www.xs4all.nl/~sbp/knowledge/ir/sirc.htm ]Use the VSC
  | 2    | Repeat count if any. | 
 ----
 
-## Type=3 (0x03) - SONY 12-bit Send/Receive {#type3}
+## Type=3 (0x03) - SONY 12-bit Send/Receive
     VSCP_TYPE_REMOTE_SONY12
 A SONY remote code. [http://www.xs4all.nl/~sbp/knowledge/ir/sirc.htm] Use the VSCP abstract remote format if possible.
 
@@ -34,7 +34,7 @@ A SONY remote code. [http://www.xs4all.nl/~sbp/knowledge/ir/sirc.htm] Use the VS
 
 ----
 
-## Type=32 (0x20) - LIRC (Linux Infrared Remote Control) {#type32}
+## Type=32 (0x20) - LIRC (Linux Infrared Remote Control)
     VSCP_TYPE_REMOTE_LIRC
 Packed LIRC codes code. LRC Codes are normally sent as 64-bit codes or even larger codes. Only codes with a length less then 56 bits (7-bytes) are supported by VSCP and the most significant byte of the LIRC code is not transferred. [http://www.lirc.org/](http://www.lirc.org/) 
 
@@ -51,7 +51,7 @@ Packed LIRC codes code. LRC Codes are normally sent as 64-bit codes or even larg
 
 ----
 
-## Type=48 (0x30) - VSCP Abstract Remote Format {#type48}
+## Type=48 (0x30) - VSCP Abstract Remote Format
     VSCP_TYPE_REMOTE_VSCP
 Instead of sending codes that relates to a certain remote this format is general. And therefore more flexible 
 
@@ -65,7 +65,7 @@ Instead of sending codes that relates to a certain remote this format is general
 
 ----
 
-## Type=49 (0x31) - MAPito Remote Format {#type49}
+## Type=49 (0x31) - MAPito Remote Format
     VSCP_TYPE_REMOTE_MAPITO
 Instead of sending codes that relates to a certain remote this format is general. And therefore more flexible. 
 

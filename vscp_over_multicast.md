@@ -15,7 +15,7 @@ General multicast information can be found [here](https://www.juniper.net/techpu
 ## Packet format
 
  | Byte  | Description                                                            | Encrypted           | 
- | ----  | -----------                                                            | ---------           | 
+ | :----:  | :-----------                                                         | ---------           | 
  | 0     | Packet type & encryption settings.                                     | **Never encrypted** | 
  | 1     | VSCP Level II Head MSB                                                 | Yes                 | 
  | 2     | VSCP Level II Head LSB                                                 | Yes                 | 
@@ -91,9 +91,7 @@ Announcements is an important part of the traffic on the multicast channel.  The
 
 
 *  VSCP daemon announcements. Announce the availability of a VSCP daemon (or other server with exported interfaces) and tell its capabilities.
-
 *  High end device announce. Announce the availability of the device and its capability. All Level II nodes should have this functionality. At the bottom line they just look to the system as a VSCP daemon with less capabilities.
-
 *  Heart beats: Heart beats come in the form of heartbeats from VSCP daemons and from high end nodes. Both send them out each minute. Also heartbeats are available form devices connected to a daemon or through a high end node. 
 
 ## Events

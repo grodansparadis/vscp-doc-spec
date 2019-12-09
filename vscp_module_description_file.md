@@ -762,7 +762,7 @@ The access tag is used to tell if a cell is readable or writable or both. **r** 
 ### Attributes
 
  | Name        | Description                                                                                                                                                                                                        | 
- | ----        | -----------                                                                                                                                                                                                        | 
+ | :----      | :-----------                                                                                                                                                                                                        | 
  | **offset**  | Offset (Level I: 0-127) on page this  register is located on.                                                                                                                                                      | 
  | **page**    | The page the register is located on. 0-65535 can be set. Default is 0.                                                                                                                                             | 
  | **width**   | Width expressed as number of bits for register, 0-8. Default is 8.                                                                                                                                                 | 
@@ -779,7 +779,7 @@ The access tag is used to tell if a cell is readable or writable or both. **r** 
 For a register tag it is possible to define an optional type attribute. Current possible types is listed in the table below
 
  | Type         | Description                                                                                                                                                                                                                                                                                                                                                            | 
- | ----         | -----------                                                                                                                                                                                                                                                                                                                                                            | 
+ | :----         | -----------                                                                                                                                                                                                                                                                                                                                                            | 
  | **std**      | This is a standard register byte. If a type attribute is not present this is what the type will be set as.                                                                                                                                                                                                                                                             | 
  | **dmatrix1** | This is a level I decision matrix defined a register space. A size attribute is needed which should be set to a value dividable by eight which is the number of rows the decision matrix consist of. *Bitfields and value lists will be ignored.* Se sample below.                                                                                                   | 
  | **block**    | This is a block of registers. A size attribute is needed that specifies the size of the block in bytes. When read a block should be interpreted as **size** register defines with names starting with **name0** to **namen** where n is size-1. The entire block should fit on the same register page. *Bitfields and value lists will be ignored.* Se sample below. | 
@@ -875,12 +875,12 @@ This sets a bit in a specified register.
 
 Allowed attributes are
 
- | Attributes | Description                                                                                                                                                                                                     | 
- | ---------- | -----------                                                                                                                                                                                                     | 
- | pos        | Position in register from low to high (0-7)                                                                                                                                                                     | 
- | page       | Page where register is located                                                                                                                                                                                  | 
- | offset     | Offset in page where register is located                                                                                                                                                                        | 
- | width      | Number of bits if this is a bit array. Default = 1 no bitarray.                                                                                                                                                 | 
+ | Attributes | Description | 
+ | ---------- | ----------- | 
+ | pos        | Position in register from low to high (0-7) | 
+ | page       | Page where register is located  | 
+ | offset     | Offset in page where register is located | 
+ | width      | Number of bits if this is a bit array. Default = 1 no bitarray. | 
  | value      | Value for bit. Can either be true/false or 0/1. The value can also be a variable and if so should be preceded with a dollar sign '$'. If width > 1 the value can have a numerical value that fits in width ^ 2. | 
 
     <write-bit-in-abstraction>
@@ -889,30 +889,30 @@ This sets a bit in a specified abstraction
  
 Allowed attributes are
 
- | Attributes | Description                                                                                                                           | 
- | ---------- | -----------                                                                                                                           | 
- | name       | Name of abstraction                                                                                                                   | 
- | pos        | Position in register from low to high.                                                                                                | 
- | width      | Number of bits if this is a bit array. Default = 1 no bitarray.                                                                       | 
+ | Attributes | Description | 
+ | ---------- | -----------  | 
+ | name       | Name of abstraction | 
+ | pos        | Position in register from low to high. | 
+ | width      | Number of bits if this is a bit array. Default = 1 no bitarray. | 
  | value      | Value for bit. Can either be true/false or 0/1. The value can also be a variable and if so should be preceded with a dollar sign '$'. | 
 
     <write-register>
     
 This sets a value in a register
 
- | Attributes | Description                                                                                                                           | 
- | ---------- | -----------                                                                                                                           | 
- | page       | Page where register is located                                                                                                        | 
- | offset     | Offset in page where register is located                                                                                              | 
+ | Attributes | Description  | 
+ | ---------- | ----------- | 
+ | page       | Page where register is located | 
+ | offset     | Offset in page where register is located  | 
  | value      | Value for bit. Can either be true/false or 0/1. The value can also be a variable and if so should be preceded with a dollar sign '$'. | 
 
     <write-abstraction>
     
 This sets a value of an abstraction
 
- | Attributes | Description                                                                                                                                | 
- | ---------- | -----------                                                                                                                                | 
- | name       | Name of abstraction                                                                                                                        | 
+ | Attributes | Description | 
+ | ---------- | ----------- | 
+ | name       | Name of abstraction  | 
  | value      | Value that is valid for the type of the abstraction. The value can also be a variable and if so should be preceded with a dollar sign '$'. | 
 
     <messagebox>
@@ -921,20 +921,20 @@ This displays a message box which can be of several types. It can be used to inf
 
 The following messagebox types are defined.
 
- | Type        | function textual identifier | function numerical identifier | Description                                                                                                                                                      | 
- | ----        | --------------------------- | ----------------------------- | -----------                                                                                                                                                      | 
- | Information | "info"                      | 0                             | Give some textual information with an OK button                                                                                                                  | 
- | Input       | "input"                     | 1                             | Input a string into a variable                                                                                                                                   | 
- | Valuelist   | "list"                      | 2                             | Let a user selects an item from a list setting a variable to a value related to the list item                                                                    | 
+ | Type        | function textual identifier | function numerical identifier | Description | 
+ | ----        | --------------------------- | ----------------------------- | -----------  | 
+ | Information | "info"                      | 0                             | Give some textual information with an OK button  | 
+ | Input       | "input"                     | 1                             | Input a string into a variable  | 
+ | Valuelist   | "list"                      | 2                             | Let a user selects an item from a list setting a variable to a value related to the list item  | 
  | Checkbox    | "checkbox"                  | 3                             | Let the user select among a couple of options in check boxes and returns named variables that are set or not set for each option. Many can be selected.          | 
  | Radiobox    | "radiobox"                  | 4                             | Let the user select among a couple of options in radio boxes and returns one named variable that have a value specified by the option. Only one can be selected. | 
 
- | Attributes  | Description                                                                                                                                                                       | 
- | ----------  | -----------                                                                                                                                                                       | 
- | function    | Either a textual function or a numerical function identifier which selects what messagebox to display                                                                             | 
- | head        | Text to display in header of message box. Can have **lang** attribute to specify language.                                                                                        | 
- | description | Text to display as description in message box. \n can be used as a new line. Can have **lang** attribute to specify language.                                                     | 
- | icon        | Select icon to be used                                                                                                                                                            | 
+ | Attributes  | Description | 
+ | ----------  | -----------  | 
+ | function    | Either a textual function or a numerical function identifier which selects what messagebox to display | 
+ | head        | Text to display in header of message box. Can have **lang** attribute to specify language. | 
+ | description | Text to display as description in message box. \n can be used as a new line. Can have **lang** attribute to specify language. | 
+ | icon        | Select icon to be used | 
  | variable    | Select a variablename that is coupled to messagebox and which will receve input. Can have a **type** attribute and value checking will occure if so. A string is always returned. | 
 
 ## Setup screens

@@ -7,12 +7,12 @@
 Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./class1.weather.md)
 
 
-## Type=0 (0x00) - General event {#type0}
+## Type=0 (0x00) - General event
     VSCP_TYPE_WEATHER_GENERALGeneral Event.
 
 ----
 
-## Type=1 (0x01) - Season winter {#type1}
+## Type=1 (0x01) - Season winter
     VSCP_TYPE_WEATHER_SEASONS_WINTERThe winter season has started.
 
  | Byte | Description                                                        | 
@@ -25,7 +25,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=2 (0x02) - Season spring {#type2}
+## Type=2 (0x02) - Season spring
     VSCP_TYPE_WEATHER_SEASONS_SPRINGThe spring season has started.
 
  | Byte | Description                                                        | 
@@ -37,7 +37,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=3 (0x03) - Season summer {#type3}
+## Type=3 (0x03) - Season summer
     VSCP_TYPE_WEATHER_SEASONS_SUMMERThe summer season has started.
 
  | Byte | Description                                                        | 
@@ -49,7 +49,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=4 (0x04) - Autumn summer {#type4}
+## Type=4 (0x04) - Autumn summer
     VSCP_TYPE_WEATHER_SEASONS_AUTUMNThe autumn season has started.
 
  | Byte | Description                                                        | 
@@ -61,7 +61,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=5 (0x05) - No wind {#type5}
+## Type=5 (0x05) - No wind
     VSCP_TYPE_WEATHER_WIND_NONENo wind
 
  | Byte | Description                                                        | 
@@ -73,7 +73,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=6 (0x06) - Low wind {#type6}
+## Type=6 (0x06) - Low wind
     VSCP_TYPE_WEATHER_WIND_LOWLow wind speed conditions.
 
  | Byte | Description                                                        | 
@@ -85,7 +85,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=7 (0x07) - Medium wind {#type7}
+## Type=7 (0x07) - Medium wind
     VSCP_TYPE_WEATHER_WIND_MEDIUMMedium wind speed conditions.
 
  | Byte | Description                                                        | 
@@ -97,7 +97,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=8 (0x08) - High wind {#type8}
+## Type=8 (0x08) - High wind
     VSCP_TYPE_WEATHER_WIND_HIGHHigh wind speed conditions.
 
  | Byte | Description                                                        | 
@@ -109,7 +109,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=9 (0x09) - Very high wind {#type9}
+## Type=9 (0x09) - Very high wind
     VSCP_TYPE_WEATHER_WIND_VERY_HIGHVery high wind speed conditions.
 
  | Byte | Description                                                        | 
@@ -121,7 +121,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=10 (0x0A) - Air foggy {#type10}
+## Type=10 (0x0A) - Air foggy
     VSCP_TYPE_WEATHER_AIR_FOGGYFogg.
 
  | Byte | Description                                                        | 
@@ -133,7 +133,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=11 (0x0B) - Air freezing {#type11}
+## Type=11 (0x0B) - Air freezing
     VSCP_TYPE_WEATHER_AIR_FREEZINGFreezing.
 
  | Byte | Description                                                        | 
@@ -145,7 +145,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=12 (0x0C) - Air Very cold {#type12}
+## Type=12 (0x0C) - Air Very cold
     VSCP_TYPE_WEATHER_AIR_VERY_COLDCold
 
  | Byte | Description                                                        | 
@@ -157,7 +157,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=13 (0x0D) - Air cold {#type13}
+## Type=13 (0x0D) - Air cold
     VSCP_TYPE_WEATHER_AIR_COLDVery cold
 
  | Byte | Description                                                        | 
@@ -169,7 +169,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=14 (0x0E) - Air normal {#type14}
+## Type=14 (0x0E) - Air normal
     VSCP_TYPE_WEATHER_AIR_NORMALAir normal
 
  | Byte | Description                                                        | 
@@ -181,7 +181,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=15 (0x0F) - Air hot {#type15}
+## Type=15 (0x0F) - Air hot
     VSCP_TYPE_WEATHER_AIR_HOTAir hot
 
  | Byte | Description                                                        | 
@@ -193,7 +193,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=16 (0x10) - Air very hot {#type16}
+## Type=16 (0x10) - Air very hot
     VSCP_TYPE_WEATHER_AIR_VERY_HOTAir very hot
 
  | Byte | Description                                                        | 
@@ -205,7 +205,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=17 (0x11) - Pollution low {#type17}
+## Type=17 (0x11) - Pollution low
     VSCP_TYPE_WEATHER_AIR_POLLUTION_LOWPollution low
 
  | Byte | Description                                                        | 
@@ -217,7 +217,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=18 (0x12) - Pollution medium {#type18}
+## Type=18 (0x12) - Pollution medium
     VSCP_TYPE_WEATHER_AIR_POLLUTION_MEDIUMPollution medium
 
  | Byte | Description                                                        | 
@@ -229,7 +229,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=19 (0x13) - Pollution high {#type19}
+## Type=19 (0x13) - Pollution high
     VSCP_TYPE_WEATHER_AIR_POLLUTION_HIGHPollution high
 
  | Byte | Description                                                        | 
@@ -241,7 +241,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=20 (0x14) - Air humid {#type20}
+## Type=20 (0x14) - Air humid
     VSCP_TYPE_WEATHER_AIR_HUMIDAir humid
 
  | Byte | Description                                                        | 
@@ -253,7 +253,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=21 (0x15) - Air dry {#type21}
+## Type=21 (0x15) - Air dry
     VSCP_TYPE_WEATHER_AIR_DRYAir dry
 
  | Byte | Description                                                        | 
@@ -265,7 +265,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=22 (0x16) - Soil humid {#type22}
+## Type=22 (0x16) - Soil humid
     VSCP_TYPE_WEATHER_SOIL_HUMIDsoil humid
 
  | Byte | Description                                                        | 
@@ -277,7 +277,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=23 (0x17) - Soil dry {#type23}
+## Type=23 (0x17) - Soil dry
     VSCP_TYPE_WEATHER_SOIL_DRYsoil dry
 
  | Byte | Description                                                        | 
@@ -289,7 +289,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=24 (0x18) - Rain none {#type24}
+## Type=24 (0x18) - Rain none
     VSCP_TYPE_WEATHER_RAIN_NONERain none
 
  | Byte | Description                                                        | 
@@ -301,7 +301,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=25 (0x19) - Rain light {#type25}
+## Type=25 (0x19) - Rain light
     VSCP_TYPE_WEATHER_RAIN_LIGHTRain light
 
  | Byte | Description                                                        | 
@@ -313,7 +313,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=26 (0x1A) - Rain heavy {#type26}
+## Type=26 (0x1A) - Rain heavy
     VSCP_TYPE_WEATHER_RAIN_HEAVYRain heavy
 
  | Byte | Description                                                        | 
@@ -325,7 +325,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=27 (0x1B) - Rain very heavy {#type27}
+## Type=27 (0x1B) - Rain very heavy
     VSCP_TYPE_WEATHER_RAIN_VERY_HEAVYRain very heavy
 
  | Byte | Description                                                        | 
@@ -337,7 +337,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=28 (0x1C) - Sun none {#type28}
+## Type=28 (0x1C) - Sun none
     VSCP_TYPE_WEATHER_SUN_NONESun none
 
  | Byte | Description                                                        | 
@@ -349,7 +349,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=29 (0x1D) - Sun light {#type29}
+## Type=29 (0x1D) - Sun light
     VSCP_TYPE_WEATHER_SUN_LIGHTSun light
 
  | Byte | Description                                                        | 
@@ -361,7 +361,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=30 (0x1E) - Sun heavy {#type30}
+## Type=30 (0x1E) - Sun heavy
     VSCP_TYPE_WEATHER_SUN_HEAVYSun heavy
 
  | Byte | Description                                                        | 
@@ -373,7 +373,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=31 (0x1F) - Snow none {#type31}
+## Type=31 (0x1F) - Snow none
     VSCP_TYPE_WEATHER_SNOW_NONESnow none.
 
  | Byte | Description                                                        | 
@@ -385,7 +385,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=32 (0x20) - Snow light {#type32}
+## Type=32 (0x20) - Snow light
     VSCP_TYPE_WEATHER_SNOW_LIGHTSnow light.
 
  | Byte | Description                                                        | 
@@ -397,7 +397,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=33 (0x21) - Snow heavy {#type33}
+## Type=33 (0x21) - Snow heavy
     VSCP_TYPE_WEATHER_SNOW_HEAVYSnow heavy.
 
  | Byte | Description                                                        | 
@@ -409,7 +409,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=34 (0x22) - Dew point {#type34}
+## Type=34 (0x22) - Dew point
     VSCP_TYPE_WEATHER_DEW_POINTDew point.
 
  | Byte | Description                                                        | 
@@ -421,7 +421,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=35 (0x23) - Storm {#type35}
+## Type=35 (0x23) - Storm
     VSCP_TYPE_WEATHER_STORMStorm.
 
  | Byte | Description                                                        | 
@@ -433,7 +433,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=36 (0x24) - Flood {#type36}
+## Type=36 (0x24) - Flood
     VSCP_TYPE_WEATHER_FLOODFlood.
 
  | Byte | Description                                                        | 
@@ -445,7 +445,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=37 (0x25) - Earthquake {#type37}
+## Type=37 (0x25) - Earthquake
     VSCP_TYPE_WEATHER_EARTHQUAKEEarthquake
 
  | Byte | Description                                                        | 
@@ -457,7 +457,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=38 (0x26) - Nuclear disaster {#type38}
+## Type=38 (0x26) - Nuclear disaster
     VSCP_TYPE_WEATHER_NUCLEAR_DISASTERNuclera disaster
 
  | Byte | Description                                                        | 
@@ -469,7 +469,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=39 (0x27) - Fire {#type39}
+## Type=39 (0x27) - Fire
     VSCP_TYPE_WEATHER_FIREFire.
 
  | Byte | Description                                                        | 
@@ -481,7 +481,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=40 (0x28) - Lightning {#type40}
+## Type=40 (0x28) - Lightning
     VSCP_TYPE_WEATHER_LIGHTNINGLightning.
 
  | Byte | Description                                                        | 
@@ -493,7 +493,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=41 (0x29) - UV Radiation low {#type41}
+## Type=41 (0x29) - UV Radiation low
     VSCP_TYPE_WEATHER_UV_RADIATION_LOWRadiation low.
 
  | Byte | Description                                                        | 
@@ -505,7 +505,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=42 (0x2A) - UV Radiation medium {#type42}
+## Type=42 (0x2A) - UV Radiation medium
     VSCP_TYPE_WEATHER_UV_RADIATION_MEDIUMRadiation medium.
 
  | Byte | Description                                                        | 
@@ -517,7 +517,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=43 (0x2B) - UV Radiation normal {#type43}
+## Type=43 (0x2B) - UV Radiation normal
     VSCP_TYPE_WEATHER_UV_RADIATION_NORMALRadiation normal.
 
  | Byte | Description                                                        | 
@@ -529,7 +529,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=44 (0x2C) - UV Radiation high {#type44}
+## Type=44 (0x2C) - UV Radiation high
     VSCP_TYPE_WEATHER_UV_RADIATION_HIGHRadiation high.
 
  | Byte | Description                                                        | 
@@ -541,7 +541,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=45 (0x2D) - UV Radiation very high {#type45}
+## Type=45 (0x2D) - UV Radiation very high
     VSCP_TYPE_WEATHER_UV_RADIATION_VERY_HIGHRadiation very high.
 
  | Byte | Description                                                        | 
@@ -553,7 +553,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=46 (0x2E) - Warning level 1 {#type46}
+## Type=46 (0x2E) - Warning level 1
     VSCP_TYPE_WEATHER_WARNING_LEVEL1Warning level 1. This is the lowest varning level.
 
  | Byte | Description                                                        | 
@@ -565,7 +565,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=47 (0x2F) - Warning level 2 {#type47}
+## Type=47 (0x2F) - Warning level 2
     VSCP_TYPE_WEATHER_WARNING_LEVEL2Warninglevel 2.
 
  | Byte | Description                                                        | 
@@ -577,7 +577,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=48 (0x30) - Warning level 3 {#type48}
+## Type=48 (0x30) - Warning level 3
     VSCP_TYPE_WEATHER_WARNING_LEVEL3Warninglevel 3.
 
  | Byte | Description                                                        | 
@@ -589,7 +589,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=49 (0x31) - Warning level 4 {#type49}
+## Type=49 (0x31) - Warning level 4
     VSCP_TYPE_WEATHER_WARNING_LEVEL4Warning level 4.
 
  | Byte | Description                                                        | 
@@ -601,7 +601,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=50 (0x32) - Warning level 5 {#type50}
+## Type=50 (0x32) - Warning level 5
     VSCP_TYPE_WEATHER_WARNING_LEVEL5Warning level 5. This is the highest warning level.
 
  | Byte | Description                                                        | 
@@ -613,7 +613,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=51 (0x33) - Armageddon {#type51}
+## Type=51 (0x33) - Armageddon
     VSCP_TYPE_WEATHER_ARMAGEDONThe final warning level not seen by humans.
 
  | Byte | Description                                                        | 
@@ -625,7 +625,7 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 ----
 
-## Type=52 (0x34) - UV Index {#type52}
+## Type=52 (0x34) - UV Index
     VSCP_TYPE_WEATHER_UV_INDEX
 UV Index is an international scale for UV intensity which can have the range of 1-15 where 1 is very low radiation and a value over 10 is extremely high radiation.
 

@@ -10,13 +10,9 @@ This is the most common node type. Dynamic nodes are VSCP nodes that confirm ful
 
 
 *  a GUID. 
-
 *  the register model implemented. 
-
 *  all or most control events of class zero implemented. As a minimum register read/write should be implemented in addition to the events related to the nickname discovery. 
-
 *  Have the hard coded bit in the ID is set to zero. 
-
 *  Must react on PROBE event on its assigned address with a probe ACK and should send out the ACK with the hard coded bit set.
 
 Sample implementations are available at [https://www.vscp.org ]
@@ -104,14 +100,12 @@ You have two nodes and assign unique IDs from there serial numbers
 
 
 *  Node 1 have serial number 0001 
-
 *  Node 2 have serial number 0002
 
 Combined with your GUID this will be
 
 
 *  Node 1 have GUID aa bb cc dd 00 00 00 00 00 00 00 00 00 00 00 01 
-
 *  Node 2 have GUID aa bb cc dd 00 00 00 00 00 00 00 00 00 00 00 02
 
 When you start up your nodes they see they don't have assigned nickname-ID (= 0xFF) so they just sit back and listen.
@@ -120,11 +114,8 @@ When your PC app. want to initialize the new nodes it sends
 
 
 *  CLASS1.PROTOCOL Type 23 Data 00 aa bb cc dd
-
 *  CLASS1.PROTOCOL Type 23 Data 01 00 00 00 00
-
 *  CLASS1.PROTOCOL Type 23 Data 02 00 00 00 00
-
 *  CLASS1.PROTOCOL Type 23 Data 03 00 00 00 01
 
 At this stage your node knows it should enter the initialization phase and it will try to discover a new nickname using 0xFF as its nickname.
@@ -137,11 +128,8 @@ The PC now continue with the other node sending
 
 
 *  CLASS1.PROTOCOL Type 23 Data 00 aa bb cc dd
-
 *  CLASS1.PROTOCOL Type 23 Data 01 00 00 00 00
-
 *  CLASS1.PROTOCOL Type 23 Data 02 00 00 00 00
-
 *  CLASS1.PROTOCOL Type 23 Data 03 00 00 00 02
 
 and this node will start its initialization procedure and find a free ID.
@@ -164,18 +152,14 @@ We do this by entering some elements in the decision matrix of the relay nodes.
 
 
 *  If on-event is received from node with nickname n1 set relay on. 
-
 *  If on-event is received from node with nickname n2 set relay on. 
-
 *  If on-event is received from node with nickname n3 set relay on.
 
 etc and the same for off-event
 
 
 *  If off-event is received from node with nickname n1 set relay off. 
-
 *  If off-event is received from node with nickname n2 set relay off. 
-
 *  If off-event is received from node with nickname n3 set relay off.
 
 As the decision matrix also is stored in the nodes non volatile storage, the system is now coupled together in this way until changed sometime in the future.
@@ -184,16 +168,13 @@ To have switches in this way that send on and off events is not so smart when yo
 
 
 *  If on-event is received from node with nickname n1 toggle relay state. 
-
 *  If on-event is received from node with nickname n2 toggle relay state. 
-
 *  If on-event is received from node with nickname n3 toggle relay state.
 
 But how about a situation when we need a visual indication on the switch for instance? This can be typical when we turn a boiler or something like that off. The answer is simple. We just look for a event from the device we control. In the decision matrix of the switches we just enter
 
 
 *  If on-event is received from node with nickname s1 - status light on. 
-
 *  If off-event is received from node with nickname s1 - status light off.
 
 It's very easy to add a switch to the scenario above and it can be even easier if the zone concepts are used. In this concept each switch on/off event add information on which zone it controls and the same change is done in the decision matrix we get something like:
