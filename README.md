@@ -6,6 +6,8 @@
 **Specification reversion:** ${/var/document-version} - ${/var/creation-time}
 [HISTORY](./vscp_specification_history.md)
 
+Specification is [here](http://docs.vscp.org) 
+
 This document is the official VSCP (Very Simple Control Protocol) specification. VSCP is an IoT framework mainly built for resource limited devices.
 
 Apart from going through this document You can read all about and download VSCP from [the VSCP site](https://www.vscp.org "The VSCP site").
