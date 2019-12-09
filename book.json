@@ -1,7 +1,0 @@
-{
-    "title":"The VSCP Specification",
-    "description":"This is the official specification for the Very Simple Control Protocol (VSCP).",
-    "author":"Ake Hedman, Grodans Paradis AB",
-    "language":"en",
-    "plugins" : ["anchors"]
-}
