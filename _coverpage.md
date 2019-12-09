@@ -4,7 +4,7 @@
 
 # The VSCP Specification
 
-Scroll down to view docs
+Scroll down to view docs.
 
 [Homepage](https://www.vscp.org)
 [Docs](https://www.vscp.org/#documentation)
