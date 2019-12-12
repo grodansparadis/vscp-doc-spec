@@ -22,7 +22,7 @@ C header files are are here for [event classes (vscp_class.h)](https://www.vscp.
 
 The [vscp_hashclass.h](https://www.vscp.org/events/vscp_hashclass.h) and [vscp_hashtype.h](https://www.vscp.org/events/vscp_hashtype.h) files are headers for the vscp helper class.
 
-For **JavaScript** VSCP events are available in [JSON format (vscp_events.json)](https://www.vscp.org/events/vscp_events.json) and in [JSONP format (vscp_events.jsonp)](http://vscp_events.json/). Furthermore [vscp_class.js](https://www.vscp.org/events/vscp_class.js) and [vscp_type.js](https://www.vscp.org/events/vscp_type.js) holds VSCP class and VSCP type information suitable for JavaScript.
+For **JavaScript** VSCP events are available in [JSON format (vscp_events.json)](https://www.vscp.org/events/vscp_events.json) and in [JSONP format (vscp_events.jsonp)](https://www.vscp.org/events/version.jsonp). Furthermore [vscp_class.js](https://www.vscp.org/events/vscp_class.js) and [vscp_type.js](https://www.vscp.org/events/vscp_type.js) holds VSCP class and VSCP type information suitable for JavaScript.
 
 **XML** format is available here ([vscp_events.xml](https://www.vscp.org/events/vscp_events.xml)).
 

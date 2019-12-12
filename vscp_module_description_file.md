@@ -721,7 +721,7 @@ As seen the register at position 26 and 27 is used. Both on page 0. A user that 
 		failed to deactivate the relay.   			
 	</description>
 	<help type="url"  lang="en">
-		http://www.vscp.org/wiki/doku.php/modules/nova#output_protection_time_registers
+		https://www.vscp.org/wiki/doku.php/modules/nova#output_protection_time_registers
 	</help>
 	<access>rw</access>
 </abstraction>

@@ -6,7 +6,7 @@
 **Specification reversion:** ${/var/document-version} - ${/var/creation-time}
 [HISTORY](./vscp_specification_history.md)
 
-Specification is [here](http://docs.vscp.org) 
+Specification is [here](https://docs.vscp.org) 
 
 This document is the official VSCP (Very Simple Control Protocol) specification. VSCP is an IoT framework mainly built for resource limited devices.
 
@@ -20,7 +20,7 @@ This document is licensed under [Creative Commons BY 4.0](https://creativecommon
 
 Many people has helped to create and evolve this protocol: *Behzad Ardakani, Marcus Rejås, Charles Tewiah, Mark Marooth, Gediminas Simanskis, Henk Hofstra, Stefan Langer, Kurt Herremans, Jiri Kubias, Frank Sautter, Dinesh Guleria, David Steeman, Andreas Merkle, Arpad Toth, Anders Forsgren, Stuart O'Reilly, Troky* are all valued contributors.
 
-If you use VSCP please consider contributing resources or time to the project ([http://vscp.org/support.php](http://vscp.org/support.php)).
+If you use VSCP please consider contributing resources or time to the project ([https://vscp.org/support.php](https://vscp.org/support.php)).
 
 # Abstract
 

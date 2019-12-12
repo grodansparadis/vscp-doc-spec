@@ -2,12 +2,12 @@
 
 This specification is a reference document. With +500000 characters written by someone that is not native in English it may be a pain to read for many. If you just want to use VSCP & Friends skip to section 2. Go back to the specification when you are in doubt about usage or just need a deeper understanding of whats going on. VSCP is designed to make complex systems simple to use and not necessarily easy to build such complex systems. We expect a greater technical knowledge and at least the ability to read from people that build and maintain such systems. 
 
-Another resource for information is the VSCP wiki [http://www.vscp.org/wiki/doku.php](http://www.vscp.org/wiki/doku.php) it holds a lot of useful information and howto's. 
+Another resource for information is the VSCP wiki [https://www.vscp.org/wiki/doku.php](https://www.vscp.org/wiki/doku.php) it holds a lot of useful information and howto's. 
 
 
-*  The VSCP Daemon is documented [here](http://www.vscp.org/docs/vscpd/doku.php).
-*  The helper library is documented [here](http://www.vscp.org/docs/vscphelper/doku.php)
-*  The VSCP Works is documented [here](http://www.vscp.org/docs/vscpworks/doku.php).
+*  The VSCP Daemon is documented [here](https://docs.vscp.org/#vscpd).
+*  The helper library is documented [here](https://docs.vscp.org/#vscphelper)
+*  The VSCP Works is documented [here](https://docs.vscp.org/#vscpworks).
 
 ## Introduction
 
@@ -64,7 +64,7 @@ Alternative licenses for VSCP & Friends may be arranged by contacting **Grodans 
 ## Where is the project located?
 
 Current information about VSCP (Very Simple Control Protocol) can be found at:
-[https://www.vscp.org](http://www.vscp.org)
+[https://www.vscp.org](httpd://www.vscp.org)
 
 There is a forum/mailing lists available [here](https///groups.google.com/forum/#!forum/vscp) where you an ask for help or discuss VSCP development.
 
