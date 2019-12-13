@@ -5,12 +5,12 @@
 ## Description
 
 Level II Information events.
-## Type=0 (0x00) - General event
+## Type=0 (0x00) - General event :id=type0
     VSCP2_TYPE_INFORMATION_GENERAL
 General Event.
 ----
 
-## Type=1 (0x01) - Token Activity
+## Type=1 (0x01) - Token Activity :id=type1
     VSCP2_TYPE_INFORMATION_TOKEN_ACTIVITY
 This event is used for cards, RFID's, iButtons and other identification devices. The event is generated when the token device is attached/detached to/from the system. 
 
@@ -52,7 +52,7 @@ This event is used for cards, RFID's, iButtons and other identification devices.
  | 21-255      | Reserved.                                                                                                                                                          | 
 ----
 
-## Type=2 (0x02) - Level II Node Heartbeat
+## Type=2 (0x02) - Level II Node Heartbeat :id=type2
     VSCP2_TYPE_INFORMATION_HEART_BEAT
 A level II node should send this event at least once a minute to indicate that it is live and well. The implementation **is mandatory**. Recommended interval is 30-60 seconds but in a node that need to sleep longer to save resources a longer interval can be used.
 
@@ -64,7 +64,7 @@ This event is sent by all level nodes even if they are just a client which can c
 
 ----
 
-## Type=3 (0x03) - Level II Proxy Node Heartbeat
+## Type=3 (0x03) - Level II Proxy Node Heartbeat :id=type3
     VSCP2_TYPE_INFORMATION_PROXY_HEART_BEAT
 This event, which it is advised that all nodes should implement, can be sent by a server that have lower end nodes connected to it at different interfaces. This can be level II or level I nodes. 
 
@@ -82,7 +82,7 @@ If the real GUID for a node is not known (for example discovery is in progress o
 
 ----
 
-## Type=4 (0x04) - Level II Multicast channel announce
+## Type=4 (0x04) - Level II Multicast channel announce :id=type4
     VSCP2_TYPE_INFORMATION_CHANNEL_ANNOUNCE
 This event is used by multicast nodes to announce which port(=channel) they communicate on. This may be something they want or not want to share with the rest of the world for security reasons. Therefore this is an optional event. 
 

@@ -7,12 +7,14 @@
 Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./class1.weather.md)
 
 
-## Type=0 (0x00) - General event
+## Type=0 (0x00) - General event :id=type0
     VSCP_TYPE_WEATHER_GENERALGeneral Event.
+
 
 ----
 
-## Type=1 (0x01) - Season winter
+
+## Type=1 (0x01) - Season winter :id=type1
     VSCP_TYPE_WEATHER_SEASONS_WINTERThe winter season has started.
 
  | Byte | Description                                                        | 
@@ -23,9 +25,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
 
 
 
+
 ----
 
-## Type=2 (0x02) - Season spring
+
+## Type=2 (0x02) - Season spring :id=type2
     VSCP_TYPE_WEATHER_SEASONS_SPRINGThe spring season has started.
 
  | Byte | Description                                                        | 
@@ -35,9 +39,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=3 (0x03) - Season summer
+
+## Type=3 (0x03) - Season summer :id=type3
     VSCP_TYPE_WEATHER_SEASONS_SUMMERThe summer season has started.
 
  | Byte | Description                                                        | 
@@ -47,9 +53,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=4 (0x04) - Autumn summer
+
+## Type=4 (0x04) - Autumn summer :id=type4
     VSCP_TYPE_WEATHER_SEASONS_AUTUMNThe autumn season has started.
 
  | Byte | Description                                                        | 
@@ -59,9 +67,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=5 (0x05) - No wind
+
+## Type=5 (0x05) - No wind :id=type5
     VSCP_TYPE_WEATHER_WIND_NONENo wind
 
  | Byte | Description                                                        | 
@@ -71,9 +81,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=6 (0x06) - Low wind
+
+## Type=6 (0x06) - Low wind :id=type6
     VSCP_TYPE_WEATHER_WIND_LOWLow wind speed conditions.
 
  | Byte | Description                                                        | 
@@ -83,9 +95,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=7 (0x07) - Medium wind
+
+## Type=7 (0x07) - Medium wind :id=type7
     VSCP_TYPE_WEATHER_WIND_MEDIUMMedium wind speed conditions.
 
  | Byte | Description                                                        | 
@@ -95,9 +109,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=8 (0x08) - High wind
+
+## Type=8 (0x08) - High wind :id=type8
     VSCP_TYPE_WEATHER_WIND_HIGHHigh wind speed conditions.
 
  | Byte | Description                                                        | 
@@ -107,9 +123,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=9 (0x09) - Very high wind
+
+## Type=9 (0x09) - Very high wind :id=type9
     VSCP_TYPE_WEATHER_WIND_VERY_HIGHVery high wind speed conditions.
 
  | Byte | Description                                                        | 
@@ -119,9 +137,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=10 (0x0A) - Air foggy
+
+## Type=10 (0x0A) - Air foggy :id=type10
     VSCP_TYPE_WEATHER_AIR_FOGGYFogg.
 
  | Byte | Description                                                        | 
@@ -131,9 +151,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=11 (0x0B) - Air freezing
+
+## Type=11 (0x0B) - Air freezing :id=type11
     VSCP_TYPE_WEATHER_AIR_FREEZINGFreezing.
 
  | Byte | Description                                                        | 
@@ -143,9 +165,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=12 (0x0C) - Air Very cold
+
+## Type=12 (0x0C) - Air Very cold :id=type12
     VSCP_TYPE_WEATHER_AIR_VERY_COLDCold
 
  | Byte | Description                                                        | 
@@ -155,9 +179,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=13 (0x0D) - Air cold
+
+## Type=13 (0x0D) - Air cold :id=type13
     VSCP_TYPE_WEATHER_AIR_COLDVery cold
 
  | Byte | Description                                                        | 
@@ -167,9 +193,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=14 (0x0E) - Air normal
+
+## Type=14 (0x0E) - Air normal :id=type14
     VSCP_TYPE_WEATHER_AIR_NORMALAir normal
 
  | Byte | Description                                                        | 
@@ -179,9 +207,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=15 (0x0F) - Air hot
+
+## Type=15 (0x0F) - Air hot :id=type15
     VSCP_TYPE_WEATHER_AIR_HOTAir hot
 
  | Byte | Description                                                        | 
@@ -191,9 +221,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=16 (0x10) - Air very hot
+
+## Type=16 (0x10) - Air very hot :id=type16
     VSCP_TYPE_WEATHER_AIR_VERY_HOTAir very hot
 
  | Byte | Description                                                        | 
@@ -203,9 +235,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=17 (0x11) - Pollution low
+
+## Type=17 (0x11) - Pollution low :id=type17
     VSCP_TYPE_WEATHER_AIR_POLLUTION_LOWPollution low
 
  | Byte | Description                                                        | 
@@ -215,9 +249,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=18 (0x12) - Pollution medium
+
+## Type=18 (0x12) - Pollution medium :id=type18
     VSCP_TYPE_WEATHER_AIR_POLLUTION_MEDIUMPollution medium
 
  | Byte | Description                                                        | 
@@ -227,9 +263,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=19 (0x13) - Pollution high
+
+## Type=19 (0x13) - Pollution high :id=type19
     VSCP_TYPE_WEATHER_AIR_POLLUTION_HIGHPollution high
 
  | Byte | Description                                                        | 
@@ -239,9 +277,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=20 (0x14) - Air humid
+
+## Type=20 (0x14) - Air humid :id=type20
     VSCP_TYPE_WEATHER_AIR_HUMIDAir humid
 
  | Byte | Description                                                        | 
@@ -251,9 +291,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=21 (0x15) - Air dry
+
+## Type=21 (0x15) - Air dry :id=type21
     VSCP_TYPE_WEATHER_AIR_DRYAir dry
 
  | Byte | Description                                                        | 
@@ -263,9 +305,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=22 (0x16) - Soil humid
+
+## Type=22 (0x16) - Soil humid :id=type22
     VSCP_TYPE_WEATHER_SOIL_HUMIDsoil humid
 
  | Byte | Description                                                        | 
@@ -275,9 +319,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=23 (0x17) - Soil dry
+
+## Type=23 (0x17) - Soil dry :id=type23
     VSCP_TYPE_WEATHER_SOIL_DRYsoil dry
 
  | Byte | Description                                                        | 
@@ -287,9 +333,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=24 (0x18) - Rain none
+
+## Type=24 (0x18) - Rain none :id=type24
     VSCP_TYPE_WEATHER_RAIN_NONERain none
 
  | Byte | Description                                                        | 
@@ -299,9 +347,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=25 (0x19) - Rain light
+
+## Type=25 (0x19) - Rain light :id=type25
     VSCP_TYPE_WEATHER_RAIN_LIGHTRain light
 
  | Byte | Description                                                        | 
@@ -311,9 +361,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=26 (0x1A) - Rain heavy
+
+## Type=26 (0x1A) - Rain heavy :id=type26
     VSCP_TYPE_WEATHER_RAIN_HEAVYRain heavy
 
  | Byte | Description                                                        | 
@@ -323,9 +375,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=27 (0x1B) - Rain very heavy
+
+## Type=27 (0x1B) - Rain very heavy :id=type27
     VSCP_TYPE_WEATHER_RAIN_VERY_HEAVYRain very heavy
 
  | Byte | Description                                                        | 
@@ -335,9 +389,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=28 (0x1C) - Sun none
+
+## Type=28 (0x1C) - Sun none :id=type28
     VSCP_TYPE_WEATHER_SUN_NONESun none
 
  | Byte | Description                                                        | 
@@ -347,9 +403,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=29 (0x1D) - Sun light
+
+## Type=29 (0x1D) - Sun light :id=type29
     VSCP_TYPE_WEATHER_SUN_LIGHTSun light
 
  | Byte | Description                                                        | 
@@ -359,9 +417,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=30 (0x1E) - Sun heavy
+
+## Type=30 (0x1E) - Sun heavy :id=type30
     VSCP_TYPE_WEATHER_SUN_HEAVYSun heavy
 
  | Byte | Description                                                        | 
@@ -371,9 +431,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=31 (0x1F) - Snow none
+
+## Type=31 (0x1F) - Snow none :id=type31
     VSCP_TYPE_WEATHER_SNOW_NONESnow none.
 
  | Byte | Description                                                        | 
@@ -383,9 +445,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=32 (0x20) - Snow light
+
+## Type=32 (0x20) - Snow light :id=type32
     VSCP_TYPE_WEATHER_SNOW_LIGHTSnow light.
 
  | Byte | Description                                                        | 
@@ -395,9 +459,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=33 (0x21) - Snow heavy
+
+## Type=33 (0x21) - Snow heavy :id=type33
     VSCP_TYPE_WEATHER_SNOW_HEAVYSnow heavy.
 
  | Byte | Description                                                        | 
@@ -407,9 +473,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=34 (0x22) - Dew point
+
+## Type=34 (0x22) - Dew point :id=type34
     VSCP_TYPE_WEATHER_DEW_POINTDew point.
 
  | Byte | Description                                                        | 
@@ -419,9 +487,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=35 (0x23) - Storm
+
+## Type=35 (0x23) - Storm :id=type35
     VSCP_TYPE_WEATHER_STORMStorm.
 
  | Byte | Description                                                        | 
@@ -431,9 +501,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=36 (0x24) - Flood
+
+## Type=36 (0x24) - Flood :id=type36
     VSCP_TYPE_WEATHER_FLOODFlood.
 
  | Byte | Description                                                        | 
@@ -443,9 +515,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=37 (0x25) - Earthquake
+
+## Type=37 (0x25) - Earthquake :id=type37
     VSCP_TYPE_WEATHER_EARTHQUAKEEarthquake
 
  | Byte | Description                                                        | 
@@ -455,9 +529,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=38 (0x26) - Nuclear disaster
+
+## Type=38 (0x26) - Nuclear disaster :id=type38
     VSCP_TYPE_WEATHER_NUCLEAR_DISASTERNuclera disaster
 
  | Byte | Description                                                        | 
@@ -467,9 +543,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=39 (0x27) - Fire
+
+## Type=39 (0x27) - Fire :id=type39
     VSCP_TYPE_WEATHER_FIREFire.
 
  | Byte | Description                                                        | 
@@ -479,9 +557,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=40 (0x28) - Lightning
+
+## Type=40 (0x28) - Lightning :id=type40
     VSCP_TYPE_WEATHER_LIGHTNINGLightning.
 
  | Byte | Description                                                        | 
@@ -491,9 +571,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=41 (0x29) - UV Radiation low
+
+## Type=41 (0x29) - UV Radiation low :id=type41
     VSCP_TYPE_WEATHER_UV_RADIATION_LOWRadiation low.
 
  | Byte | Description                                                        | 
@@ -503,9 +585,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=42 (0x2A) - UV Radiation medium
+
+## Type=42 (0x2A) - UV Radiation medium :id=type42
     VSCP_TYPE_WEATHER_UV_RADIATION_MEDIUMRadiation medium.
 
  | Byte | Description                                                        | 
@@ -515,9 +599,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=43 (0x2B) - UV Radiation normal
+
+## Type=43 (0x2B) - UV Radiation normal :id=type43
     VSCP_TYPE_WEATHER_UV_RADIATION_NORMALRadiation normal.
 
  | Byte | Description                                                        | 
@@ -527,9 +613,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=44 (0x2C) - UV Radiation high
+
+## Type=44 (0x2C) - UV Radiation high :id=type44
     VSCP_TYPE_WEATHER_UV_RADIATION_HIGHRadiation high.
 
  | Byte | Description                                                        | 
@@ -539,9 +627,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=45 (0x2D) - UV Radiation very high
+
+## Type=45 (0x2D) - UV Radiation very high :id=type45
     VSCP_TYPE_WEATHER_UV_RADIATION_VERY_HIGHRadiation very high.
 
  | Byte | Description                                                        | 
@@ -551,9 +641,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=46 (0x2E) - Warning level 1
+
+## Type=46 (0x2E) - Warning level 1 :id=type46
     VSCP_TYPE_WEATHER_WARNING_LEVEL1Warning level 1. This is the lowest varning level.
 
  | Byte | Description                                                        | 
@@ -563,9 +655,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=47 (0x2F) - Warning level 2
+
+## Type=47 (0x2F) - Warning level 2 :id=type47
     VSCP_TYPE_WEATHER_WARNING_LEVEL2Warninglevel 2.
 
  | Byte | Description                                                        | 
@@ -575,9 +669,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  
 
+
 ----
 
-## Type=48 (0x30) - Warning level 3
+
+## Type=48 (0x30) - Warning level 3 :id=type48
     VSCP_TYPE_WEATHER_WARNING_LEVEL3Warninglevel 3.
 
  | Byte | Description                                                        | 
@@ -587,9 +683,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=49 (0x31) - Warning level 4
+
+## Type=49 (0x31) - Warning level 4 :id=type49
     VSCP_TYPE_WEATHER_WARNING_LEVEL4Warning level 4.
 
  | Byte | Description                                                        | 
@@ -599,9 +697,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=50 (0x32) - Warning level 5
+
+## Type=50 (0x32) - Warning level 5 :id=type50
     VSCP_TYPE_WEATHER_WARNING_LEVEL5Warning level 5. This is the highest warning level.
 
  | Byte | Description                                                        | 
@@ -611,9 +711,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=51 (0x33) - Armageddon
+
+## Type=51 (0x33) - Armageddon :id=type51
     VSCP_TYPE_WEATHER_ARMAGEDONThe final warning level not seen by humans.
 
  | Byte | Description                                                        | 
@@ -623,9 +725,11 @@ Weather reporting forecast. The class have the same types as [CLASS1.WEATHER](./
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=52 (0x34) - UV Index
+
+## Type=52 (0x34) - UV Index :id=type52
     VSCP_TYPE_WEATHER_UV_INDEX
 UV Index is an international scale for UV intensity which can have the range of 1-15 where 1 is very low radiation and a value over 10 is extremely high radiation.
 
@@ -637,6 +741,8 @@ UV Index is an international scale for UV intensity which can have the range of 
  | 3    | UV index (0-15)                        |
 
 
+
 ----
+
 
 [filename](./bottom_copyright.md ':include')

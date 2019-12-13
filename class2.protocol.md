@@ -8,12 +8,12 @@ For Level I events class=0 defines protocol control functionality. All events of
 
 This class defines protocol functionality for Level II. To simplify the handling of level II events, the data portion of the VSCP event can be considered as being made up of two parts. An 8-byte code portion (size of long integer) followed by a data portion if required. This is simply done to make processing level II events a little easier. The following events have been added to the level II control events to support configuration management. 
 
-## Type=0 (0x00) - General event
+## Type=0 (0x00) - General event :id=type0
     VSCP2_TYPE_PROTOCOL_GENERAL
 General Event.
 ----
 
-## Type=1 (0x01) - Read Register
+## Type=1 (0x01) - Read Register :id=type1
     VSCP2_TYPE_PROTOCOL_READ_REGISTER
 Read a Level II register 
 
@@ -29,7 +29,7 @@ This means that buffer_size - 8 is maximum data bytes read.
 
 ----
 
-## Type=2 (0x02) - Write Register
+## Type=2 (0x02) - Write Register :id=type2
     VSCP2_TYPE_PROTOCOL_WRITE_REGISTER
  | Byte       | Description                                      | 
  | ----       | -----------                                      | 
@@ -41,7 +41,7 @@ Number of registers to write can also be restricted by the buffer size on the bo
 
 ----
 
-## Type=3 (0x03) - Read Write Response
+## Type=3 (0x03) - Read Write Response :id=type3
     VSCP2_TYPE_PROTOCOL_READ_WRITE_RESPONSE
 This is the response from a read and a write. Note that the data is returned in both cases and can be checked for validity. 
 
@@ -52,7 +52,7 @@ This is the response from a read and a write. Note that the data is returned in 
 
 ----
 
-## Type=20 (0x14) - High end server/service capabilities
+## Type=20 (0x14) - High end server/service capabilities :id=type20
     VSCP2_TYPE_PROTOCOL_HIGH_END_SERVER_CAPS
 Should be implemented by all Level II devices and be sent out at least once every 60 second.
 
@@ -121,7 +121,7 @@ Non standard port definitions. Each consist of three bytes.
 
 ----
 
-## Type=32 (0x20) - Level II who is there response
+## Type=32 (0x20) - Level II who is there response :id=type32
     VSCP2_TYPE_PROTOCOL_WHO_IS_THERE_RESPONSE
 This defines the response from a Level II node for a [CLASS1.PROTOCOL, Type=32, Who is there?](./class1.protocol.md#type31) event.
 
@@ -133,7 +133,7 @@ This defines the response from a Level II node for a [CLASS1.PROTOCOL, Type=32, 
 
 ----
 
-## Type=42 (0x2A) - High Level Object
+## Type=42 (0x2A) - High Level Object :id=type42
     VSCP2_TYPE_PROTOCOL_HIGH_LEVEL_OBJECT
 High Level Object (HLO) event is a command/response or other packed object sent to a device or sent as a response from a device. Content can be XML, JSON, character separated, BASE64, etc.
 

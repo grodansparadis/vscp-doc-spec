@@ -7,12 +7,14 @@
 This class mirrors the [CLASS1.IR](./class1.ir.md) class but use a different data format with a GUID stored in the first 16 bytes of the data followed by the standard data thus offset with 16-bytes.
 
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
-## Type=0 (0x00) - General event
+## Type=0 (0x00) - General event :id=type0
     VSCP_TYPE_REMOTE_GENERALGeneral Event.
+
 
 ----
 
-## Type=1 (0x01) - RC5 Send/Receive
+
+## Type=1 (0x01) - RC5 Send/Receive :id=type1
     VSCP_TYPE_REMOTE_RC5A RC5 remote code. [http://www.xs4all.nl/~sbp/knowledge/ir/sirc.htm ]Use the VSCP abstract remote format if possible.
 
  | Byte | Description          | 
@@ -21,9 +23,11 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 1    | RC5 Address.         | 
  | 2    | Repeat count if any. | 
 
+
 ----
 
-## Type=3 (0x03) - SONY 12-bit Send/Receive
+
+## Type=3 (0x03) - SONY 12-bit Send/Receive :id=type3
     VSCP_TYPE_REMOTE_SONY12A SONY remote code. [http://www.xs4all.nl/~sbp/knowledge/ir/sirc.htm] Use the VSCP abstract remote format if possible.
 
  | Byte | Description          | 
@@ -33,9 +37,11 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2    | Repeat count if any. | 
 
 
+
 ----
 
-## Type=32 (0x20) - LIRC (Linux Infrared Remote Control)
+
+## Type=32 (0x20) - LIRC (Linux Infrared Remote Control) :id=type32
     VSCP_TYPE_REMOTE_LIRCPacked LIRC codes code. LRC Codes are normally sent as 64-bit codes or even larger codes. Only codes with a length less then 56 bits (7-bytes) are supported by VSCP and the most significant byte of the LIRC code is not transferred. [http://www.lirc.org/](http://www.lirc.org/) 
 
  | Byte | Description          | 
@@ -50,9 +56,11 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 7    | Repeat count if any. | 
 
 
+
 ----
 
-## Type=48 (0x30) - VSCP Abstract Remote Format
+
+## Type=48 (0x30) - VSCP Abstract Remote Format :id=type48
     VSCP_TYPE_REMOTE_VSCPInstead of sending codes that relates to a certain remote this format is general. And therefore more flexible 
 
  | Byte | Description                                                            | 
@@ -64,9 +72,11 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 4    | Repeat count if any.                                                   | 
 
 
+
 ----
 
-## Type=49 (0x31) - MAPito Remote Format
+
+## Type=49 (0x31) - MAPito Remote Format :id=type49
     VSCP_TYPE_REMOTE_MAPITOInstead of sending codes that relates to a certain remote this format is general. And therefore more flexible. 
 
  | Byte | Description                                                            | 
@@ -81,6 +91,8 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 7    | Key Code.                                                              | 
 
 
+
 ----
+
 
 [filename](./bottom_copyright.md ':include')

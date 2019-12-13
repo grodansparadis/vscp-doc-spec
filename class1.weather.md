@@ -8,12 +8,12 @@ Fuzzy values for weather indications. Intended for warning and information signs
 
 Weather reporting. Used to report current weather conditions. 
 
-## Type=0 (0x00) - General event
+## Type=0 (0x00) - General event :id=type0
     VSCP_TYPE_WEATHER_GENERAL
 General Event.
 ----
 
-## Type=1 (0x01) - Season winter
+## Type=1 (0x01) - Season winter :id=type1
     VSCP_TYPE_WEATHER_SEASONS_WINTER
 The winter season has started.
 
@@ -26,7 +26,7 @@ The winter season has started.
 
 ----
 
-## Type=2 (0x02) - Season spring
+## Type=2 (0x02) - Season spring :id=type2
     VSCP_TYPE_WEATHER_SEASONS_SPRING
 The spring season has started.
 
@@ -38,7 +38,7 @@ The spring season has started.
 
 ----
 
-## Type=3 (0x03) - Season summer
+## Type=3 (0x03) - Season summer :id=type3
     VSCP_TYPE_WEATHER_SEASONS_SUMMER
 The summer season has started.
 
@@ -50,7 +50,7 @@ The summer season has started.
 
 ----
 
-## Type=4 (0x04) - Autumn summer
+## Type=4 (0x04) - Autumn summer :id=type4
     VSCP_TYPE_WEATHER_SEASONS_AUTUMN
 The autumn season has started.
 
@@ -62,7 +62,7 @@ The autumn season has started.
 
 ----
 
-## Type=5 (0x05) - No wind
+## Type=5 (0x05) - No wind :id=type5
     VSCP_TYPE_WEATHER_WIND_NONE
 No wind
 
@@ -74,7 +74,7 @@ No wind
 
 ----
 
-## Type=6 (0x06) - Low wind
+## Type=6 (0x06) - Low wind :id=type6
     VSCP_TYPE_WEATHER_WIND_LOW
 Low wind speed conditions.
 
@@ -86,7 +86,7 @@ Low wind speed conditions.
 
 ----
 
-## Type=7 (0x07) - Medium wind
+## Type=7 (0x07) - Medium wind :id=type7
     VSCP_TYPE_WEATHER_WIND_MEDIUM
 Medium wind speed conditions.
 
@@ -98,7 +98,7 @@ Medium wind speed conditions.
 
 ----
 
-## Type=8 (0x08) - High wind
+## Type=8 (0x08) - High wind :id=type8
     VSCP_TYPE_WEATHER_WIND_HIGH
 High wind speed conditions.
 
@@ -110,7 +110,7 @@ High wind speed conditions.
 
 ----
 
-## Type=9 (0x09) - Very high wind
+## Type=9 (0x09) - Very high wind :id=type9
     VSCP_TYPE_WEATHER_WIND_VERY_HIGH
 Very high wind speed conditions.
 
@@ -122,7 +122,7 @@ Very high wind speed conditions.
 
 ----
 
-## Type=10 (0x0A) - Air foggy
+## Type=10 (0x0A) - Air foggy :id=type10
     VSCP_TYPE_WEATHER_AIR_FOGGY
 Fogg.
 
@@ -134,7 +134,7 @@ Fogg.
 
 ----
 
-## Type=11 (0x0B) - Air freezing
+## Type=11 (0x0B) - Air freezing :id=type11
     VSCP_TYPE_WEATHER_AIR_FREEZING
 Freezing.
 
@@ -146,7 +146,7 @@ Freezing.
 
 ----
 
-## Type=12 (0x0C) - Air Very cold
+## Type=12 (0x0C) - Air Very cold :id=type12
     VSCP_TYPE_WEATHER_AIR_VERY_COLD
 Cold
 
@@ -158,7 +158,7 @@ Cold
 
 ----
 
-## Type=13 (0x0D) - Air cold
+## Type=13 (0x0D) - Air cold :id=type13
     VSCP_TYPE_WEATHER_AIR_COLD
 Very cold
 
@@ -170,7 +170,7 @@ Very cold
 
 ----
 
-## Type=14 (0x0E) - Air normal
+## Type=14 (0x0E) - Air normal :id=type14
     VSCP_TYPE_WEATHER_AIR_NORMAL
 Air normal
 
@@ -182,7 +182,7 @@ Air normal
 
 ----
 
-## Type=15 (0x0F) - Air hot
+## Type=15 (0x0F) - Air hot :id=type15
     VSCP_TYPE_WEATHER_AIR_HOT
 Air hot
 
@@ -194,7 +194,7 @@ Air hot
 
 ----
 
-## Type=16 (0x10) - Air very hot
+## Type=16 (0x10) - Air very hot :id=type16
     VSCP_TYPE_WEATHER_AIR_VERY_HOT
 Air very hot
 
@@ -206,7 +206,7 @@ Air very hot
 
 ----
 
-## Type=17 (0x11) - Pollution low
+## Type=17 (0x11) - Pollution low :id=type17
     VSCP_TYPE_WEATHER_AIR_POLLUTION_LOW
 Pollution low
 
@@ -218,7 +218,7 @@ Pollution low
 
 ----
 
-## Type=18 (0x12) - Pollution medium
+## Type=18 (0x12) - Pollution medium :id=type18
     VSCP_TYPE_WEATHER_AIR_POLLUTION_MEDIUM
 Pollution medium
 
@@ -230,7 +230,7 @@ Pollution medium
 
 ----
 
-## Type=19 (0x13) - Pollution high
+## Type=19 (0x13) - Pollution high :id=type19
     VSCP_TYPE_WEATHER_AIR_POLLUTION_HIGH
 Pollution high
 
@@ -242,7 +242,7 @@ Pollution high
 
 ----
 
-## Type=20 (0x14) - Air humid
+## Type=20 (0x14) - Air humid :id=type20
     VSCP_TYPE_WEATHER_AIR_HUMID
 Air humid
 
@@ -254,7 +254,7 @@ Air humid
 
 ----
 
-## Type=21 (0x15) - Air dry
+## Type=21 (0x15) - Air dry :id=type21
     VSCP_TYPE_WEATHER_AIR_DRY
 Air dry
 
@@ -266,7 +266,7 @@ Air dry
 
 ----
 
-## Type=22 (0x16) - Soil humid
+## Type=22 (0x16) - Soil humid :id=type22
     VSCP_TYPE_WEATHER_SOIL_HUMID
 soil humid
 
@@ -278,7 +278,7 @@ soil humid
 
 ----
 
-## Type=23 (0x17) - Soil dry
+## Type=23 (0x17) - Soil dry :id=type23
     VSCP_TYPE_WEATHER_SOIL_DRY
 soil dry
 
@@ -290,7 +290,7 @@ soil dry
 
 ----
 
-## Type=24 (0x18) - Rain none
+## Type=24 (0x18) - Rain none :id=type24
     VSCP_TYPE_WEATHER_RAIN_NONE
 Rain none
 
@@ -302,7 +302,7 @@ Rain none
 
 ----
 
-## Type=25 (0x19) - Rain light
+## Type=25 (0x19) - Rain light :id=type25
     VSCP_TYPE_WEATHER_RAIN_LIGHT
 Rain light
 
@@ -314,7 +314,7 @@ Rain light
 
 ----
 
-## Type=26 (0x1A) - Rain heavy
+## Type=26 (0x1A) - Rain heavy :id=type26
     VSCP_TYPE_WEATHER_RAIN_HEAVY
 Rain heavy
 
@@ -326,7 +326,7 @@ Rain heavy
 
 ----
 
-## Type=27 (0x1B) - Rain very heavy
+## Type=27 (0x1B) - Rain very heavy :id=type27
     VSCP_TYPE_WEATHER_RAIN_VERY_HEAVY
 Rain very heavy
 
@@ -338,7 +338,7 @@ Rain very heavy
 
 ----
 
-## Type=28 (0x1C) - Sun none
+## Type=28 (0x1C) - Sun none :id=type28
     VSCP_TYPE_WEATHER_SUN_NONE
 Sun none
 
@@ -350,7 +350,7 @@ Sun none
 
 ----
 
-## Type=29 (0x1D) - Sun light
+## Type=29 (0x1D) - Sun light :id=type29
     VSCP_TYPE_WEATHER_SUN_LIGHT
 Sun light
 
@@ -362,7 +362,7 @@ Sun light
 
 ----
 
-## Type=30 (0x1E) - Sun heavy
+## Type=30 (0x1E) - Sun heavy :id=type30
     VSCP_TYPE_WEATHER_SUN_HEAVY
 Sun heavy
 
@@ -374,7 +374,7 @@ Sun heavy
 
 ----
 
-## Type=31 (0x1F) - Snow none
+## Type=31 (0x1F) - Snow none :id=type31
     VSCP_TYPE_WEATHER_SNOW_NONE
 Snow none.
 
@@ -386,7 +386,7 @@ Snow none.
 
 ----
 
-## Type=32 (0x20) - Snow light
+## Type=32 (0x20) - Snow light :id=type32
     VSCP_TYPE_WEATHER_SNOW_LIGHT
 Snow light.
 
@@ -398,7 +398,7 @@ Snow light.
 
 ----
 
-## Type=33 (0x21) - Snow heavy
+## Type=33 (0x21) - Snow heavy :id=type33
     VSCP_TYPE_WEATHER_SNOW_HEAVY
 Snow heavy.
 
@@ -410,7 +410,7 @@ Snow heavy.
 
 ----
 
-## Type=34 (0x22) - Dew point
+## Type=34 (0x22) - Dew point :id=type34
     VSCP_TYPE_WEATHER_DEW_POINT
 Dew point.
 
@@ -422,7 +422,7 @@ Dew point.
 
 ----
 
-## Type=35 (0x23) - Storm
+## Type=35 (0x23) - Storm :id=type35
     VSCP_TYPE_WEATHER_STORM
 Storm.
 
@@ -434,7 +434,7 @@ Storm.
 
 ----
 
-## Type=36 (0x24) - Flood
+## Type=36 (0x24) - Flood :id=type36
     VSCP_TYPE_WEATHER_FLOOD
 Flood.
 
@@ -446,7 +446,7 @@ Flood.
 
 ----
 
-## Type=37 (0x25) - Earthquake
+## Type=37 (0x25) - Earthquake :id=type37
     VSCP_TYPE_WEATHER_EARTHQUAKE
 Earthquake
 
@@ -458,7 +458,7 @@ Earthquake
 
 ----
 
-## Type=38 (0x26) - Nuclear disaster
+## Type=38 (0x26) - Nuclear disaster :id=type38
     VSCP_TYPE_WEATHER_NUCLEAR_DISASTER
 Nuclera disaster
 
@@ -470,7 +470,7 @@ Nuclera disaster
 
 ----
 
-## Type=39 (0x27) - Fire
+## Type=39 (0x27) - Fire :id=type39
     VSCP_TYPE_WEATHER_FIRE
 Fire.
 
@@ -482,7 +482,7 @@ Fire.
 
 ----
 
-## Type=40 (0x28) - Lightning
+## Type=40 (0x28) - Lightning :id=type40
     VSCP_TYPE_WEATHER_LIGHTNING
 Lightning.
 
@@ -494,7 +494,7 @@ Lightning.
 
 ----
 
-## Type=41 (0x29) - UV Radiation low
+## Type=41 (0x29) - UV Radiation low :id=type41
     VSCP_TYPE_WEATHER_UV_RADIATION_LOW
 Radiation low.
 
@@ -506,7 +506,7 @@ Radiation low.
 
 ----
 
-## Type=42 (0x2A) - UV Radiation medium
+## Type=42 (0x2A) - UV Radiation medium :id=type42
     VSCP_TYPE_WEATHER_UV_RADIATION_MEDIUM
 Radiation medium.
 
@@ -518,7 +518,7 @@ Radiation medium.
 
 ----
 
-## Type=43 (0x2B) - UV Radiation normal
+## Type=43 (0x2B) - UV Radiation normal :id=type43
     VSCP_TYPE_WEATHER_UV_RADIATION_NORMAL
 Radiation normal.
 
@@ -530,7 +530,7 @@ Radiation normal.
 
 ----
 
-## Type=44 (0x2C) - UV Radiation high
+## Type=44 (0x2C) - UV Radiation high :id=type44
     VSCP_TYPE_WEATHER_UV_RADIATION_HIGH
 Radiation high.
 
@@ -542,7 +542,7 @@ Radiation high.
 
 ----
 
-## Type=45 (0x2D) - UV Radiation very high
+## Type=45 (0x2D) - UV Radiation very high :id=type45
     VSCP_TYPE_WEATHER_UV_RADIATION_VERY_HIGH
 Radiation very high.
 
@@ -554,7 +554,7 @@ Radiation very high.
 
 ----
 
-## Type=46 (0x2E) - Warning level 1
+## Type=46 (0x2E) - Warning level 1 :id=type46
     VSCP_TYPE_WEATHER_WARNING_LEVEL1
 Warning level 1. This is the lowest varning level.
 
@@ -566,7 +566,7 @@ Warning level 1. This is the lowest varning level.
 
 ----
 
-## Type=47 (0x2F) - Warning level 2
+## Type=47 (0x2F) - Warning level 2 :id=type47
     VSCP_TYPE_WEATHER_WARNING_LEVEL2
 Warninglevel 2.
 
@@ -578,7 +578,7 @@ Warninglevel 2.
  
 ----
 
-## Type=48 (0x30) - Warning level 3
+## Type=48 (0x30) - Warning level 3 :id=type48
     VSCP_TYPE_WEATHER_WARNING_LEVEL3
 Warninglevel 3.
 
@@ -590,7 +590,7 @@ Warninglevel 3.
 
 ----
 
-## Type=49 (0x31) - Warning level 4
+## Type=49 (0x31) - Warning level 4 :id=type49
     VSCP_TYPE_WEATHER_WARNING_LEVEL4
 Warning level 4.
 
@@ -602,7 +602,7 @@ Warning level 4.
 
 ----
 
-## Type=50 (0x32) - Warning level 5
+## Type=50 (0x32) - Warning level 5 :id=type50
     VSCP_TYPE_WEATHER_WARNING_LEVEL5
 Warning level 5. This is the highest warning level.
 
@@ -614,7 +614,7 @@ Warning level 5. This is the highest warning level.
 
 ----
 
-## Type=51 (0x33) - Armageddon
+## Type=51 (0x33) - Armageddon :id=type51
     VSCP_TYPE_WEATHER_ARMAGEDON
 The final warning level not seen by humans.
 
@@ -626,7 +626,7 @@ The final warning level not seen by humans.
 
 ----
 
-## Type=52 (0x34) - UV Index
+## Type=52 (0x34) - UV Index :id=type52
     VSCP_TYPE_WEATHER_UV_INDEX
 
 UV Index is an international scale for UV intensity which can have the range of 1-15 where 1 is very low radiation and a value over 10 is extremely high radiation.

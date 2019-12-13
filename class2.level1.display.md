@@ -7,12 +7,14 @@
 This class mirrors the [CLASS1.DISPLAY](./class1.display.md) class but use a different data format with a GUID stored in the first 16 bytes of the data followed by the standard data thus offset with 16-bytes.
 
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
-## Type=0 (0x00) - General event
+## Type=0 (0x00) - General event :id=type0
     VSCP_TYPE_DISPLAY_GENERALGeneral Event.
+
 
 ----
 
-## Type=1 (0x01) - Clear Display
+
+## Type=1 (0x01) - Clear Display :id=type1
     VSCP_TYPE_DISPLAY_CLEAR_DISPLAYClear the display on displays in a certain zone,sub-zone. 
 
  | Byte | Description                                                        | 
@@ -22,9 +24,11 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=2 (0x02) - Position cursor
+
+## Type=2 (0x02) - Position cursor :id=type2
     VSCP_TYPE_DISPLAY_POSITION_CURSORMove the cursor to a specific position on displays in a certain zone,sub-zone. 
 
  | Byte | Description                                                        | 
@@ -37,9 +41,11 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
  
 
 
+
 ----
 
-## Type=3 (0x03) - Write Display
+
+## Type=3 (0x03) - Write Display :id=type3
     VSCP_TYPE_DISPLAY_WRITE_DISPLAYWrite to display(s) in a certain zone,sub-zone. The update of the display is immediate. 
 
  | Byte | Description                                                               | 
@@ -52,9 +58,11 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 Index is increased by one for each event that builds up a specific event. If needed an empty (no data) can be sent as the last event else sending data to fill the display buffer will give the end automatically. 
 
 
+
 ----
 
-## Type=4 (0x04) - Write Display buffer
+
+## Type=4 (0x04) - Write Display buffer :id=type4
     VSCP_TYPE_DISPLAY_WRITE_DISPLAY_BUFFERWrite to the buffers of displays in a certain zone,sub-zone. The update of the display is is not done right away but is instead done when the Show Buffer event is received by the display unit. 
 
  | Byte | Description                                                               | 
@@ -69,9 +77,11 @@ Index is increased by one for each event that builds up a specific event. If nee
 Many LCD displays allow definition of special characters. Use this event to define custom matrices buy defining a sub-zone for the user defined matrix(es). 
 
 
+
 ----
 
-## Type=5 (0x05) - Show Display Buffer
+
+## Type=5 (0x05) - Show Display Buffer :id=type5
     VSCP_TYPE_DISPLAY_SHOW_DISPLAY_BUFFERTells displays in a certain zone,sub-zone to display the content in their display buffers. The update of the display is immediate. 
 
  | Byte | Description                                                               | 
@@ -81,9 +91,11 @@ Many LCD displays allow definition of special characters. Use this event to defi
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones.        | 
 
 
+
 ----
 
-## Type=6 (0x06) - Set Display Buffer Parameter
+
+## Type=6 (0x06) - Set Display Buffer Parameter :id=type6
     VSCP_TYPE_DISPLAY_SET_DISPLAY_BUFFER_PARAMWith this call a display buffer parameter can be sent to a display. This parameter is inserted at the escape position %pn in the string in the buffer *when the buffer is transferred to the display*.
 
 Note that there are no zone and sub-zone defined for this event and the escapes must instead be chosen to be distinct in a system. This means that &p1 will be unique within a system and updating this parameter will update on all displays that has it defined. 
@@ -97,9 +109,11 @@ Note that there are no zone and sub-zone defined for this event and the escapes 
 Note that the event have one byte less then standard measurement events so all coding types can not be used. 
 
 
+
 ----
 
-## Type=32 (0x20) - Show Text
+
+## Type=32 (0x20) - Show Text :id=type32
     VSCP_TYPE_DISPLAY_SHOW_TEXTThis event contains information that should be displayed on displays pointed out by zone/sub-zone.
 
 This event can have the same functionality as Write Display or be set on an higher abstraction level. 
@@ -118,9 +132,11 @@ The text sent to a node can contain escape characters that themselves display da
 For a multi line display one can use different sub-zones o address different lines. One can also us macro characters to map display events to a line. 
 
 
+
 ----
 
-## Type=48 (0x30) - Set LED
+
+## Type=48 (0x30) - Set LED :id=type48
     VSCP_TYPE_DISPLAY_SHOW_LEDThis event contains information that should be displayed on LED(s) pointed out by zone/sub-zone. 
 
  | Byte | Description                                                        | 
@@ -137,9 +153,11 @@ For a multi line display one can use different sub-zones o address different lin
 Blink period can be omitted if not used or if blink period is defined hard. 
 
 
+
 ----
 
-## Type=49 (0x31) - Set RGB Color
+
+## Type=49 (0x31) - Set RGB Color :id=type49
     VSCP_TYPE_DISPLAY_SHOW_LED_COLORThis event set the color for LED(s) pointed out by zone/sub-zone. 
 
  | Byte | Description                                                        | 
@@ -154,6 +172,8 @@ Blink period can be omitted if not used or if blink period is defined hard.
 If multi-byte resolution for the colors is needed use index to address the byte where 0 means the MSB byte, 1 MSB+1 byte etc (Big endian).
 
 
+
 ----
+
 
 [filename](./bottom_copyright.md ':include')

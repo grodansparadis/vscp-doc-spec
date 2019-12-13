@@ -6,12 +6,12 @@
 
 Control functionality. One of the main concepts of VSCP is that it is an event driven protocol. Commands are sent out as events to the network not as events to specific devices. A device can belong to a zone which select limit events of interest for the particular node.. If there is a need to control a specific device the registry model should be used. This is the only way to directly control a device. 
 
-## Type=0 (0x00) - General event
+## Type=0 (0x00) - General event :id=type0
     VSCP_TYPE_CONTROL_GENERAL
 General Event.
 ----
 
-## Type=1 (0x01) - Mute on/off
+## Type=1 (0x01) - Mute on/off :id=type1
     VSCP_TYPE_CONTROL_MUTE
 Mute/Un-mute all sound generating nodes in a zone 
 
@@ -23,7 +23,7 @@ Mute/Un-mute all sound generating nodes in a zone
 
 ----
 
-## Type=2 (0x02) - (All) Lamp(s) on/off
+## Type=2 (0x02) - (All) Lamp(s) on/off :id=type2
     VSCP_TYPE_CONTROL_ALL_LAMPS
 Turn on/off lamps on nodes in zone.
 
@@ -37,7 +37,7 @@ See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTR
 
 ----
 
-## Type=3 (0x03) - Open
+## Type=3 (0x03) - Open :id=type3
     VSCP_TYPE_CONTROL_OPEN
 Perform open on all nodes in zone. 
 
@@ -50,7 +50,7 @@ Perform open on all nodes in zone.
 
 ----
 
-## Type=4 (0x04) - Close
+## Type=4 (0x04) - Close :id=type4
     VSCP_TYPE_CONTROL_CLOSE
 Perform close on all nodes in zone. 
 
@@ -63,7 +63,7 @@ Perform close on all nodes in zone.
 
 ----
 
-## Type=5 (0x05) - TurnOn
+## Type=5 (0x05) - TurnOn :id=type5
     VSCP_TYPE_CONTROL_TURNON
 Turn On a nodes in a zone/subzone. 
 
@@ -76,7 +76,7 @@ Turn On a nodes in a zone/subzone.
 
 ----
 
-## Type=6 (0x06) - TurnOff
+## Type=6 (0x06) - TurnOff :id=type6
     VSCP_TYPE_CONTROL_TURNOFF
 Turn Off a nodes in a zone/subzone. 
 
@@ -89,7 +89,7 @@ Turn Off a nodes in a zone/subzone.
 
 ----
 
-## Type=7 (0x07) - Start
+## Type=7 (0x07) - Start :id=type7
     VSCP_TYPE_CONTROL_START
 Start all nodes in a zone.
 
@@ -101,7 +101,7 @@ Start all nodes in a zone.
 
 ----
 
-## Type=8 (0x08) - Stop
+## Type=8 (0x08) - Stop :id=type8
     VSCP_TYPE_CONTROL_STOP
 Stop all nodes in zone. 
 
@@ -114,7 +114,7 @@ Stop all nodes in zone.
 
 ----
 
-## Type=9 (0x09) - Reset
+## Type=9 (0x09) - Reset :id=type9
     VSCP_TYPE_CONTROL_RESET
 Perform Reset on all nodes in zone. 
 
@@ -127,7 +127,7 @@ Perform Reset on all nodes in zone.
 
 ----
 
-## Type=10 (0x0A) - Interrupt
+## Type=10 (0x0A) - Interrupt :id=type10
     VSCP_TYPE_CONTROL_INTERRUPT
 Perform Interrupt on all nodes in zone. 
 
@@ -140,7 +140,7 @@ Perform Interrupt on all nodes in zone.
 
 ----
 
-## Type=11 (0x0B) - Sleep
+## Type=11 (0x0B) - Sleep :id=type11
     VSCP_TYPE_CONTROL_SLEEP
 Perform Sleep on all nodes in zone. 
 
@@ -153,7 +153,7 @@ Perform Sleep on all nodes in zone.
 
 ----
 
-## Type=12 (0x0C) - Wakeup
+## Type=12 (0x0C) - Wakeup :id=type12
     VSCP_TYPE_CONTROL_WAKEUP
 Wakeup all nodes in zone. 
 
@@ -166,7 +166,7 @@ Wakeup all nodes in zone.
 
 ----
 
-## Type=13 (0x0D) - Resume
+## Type=13 (0x0D) - Resume :id=type13
     VSCP_TYPE_CONTROL_RESUME
 Resume all nodes in zone. 
 
@@ -179,7 +179,7 @@ Resume all nodes in zone.
 
 ----
 
-## Type=14 (0x0E) - Pause
+## Type=14 (0x0E) - Pause :id=type14
     VSCP_TYPE_CONTROL_PAUSE
 Pause all nodes in zone. 
 
@@ -192,7 +192,7 @@ Pause all nodes in zone.
 
 ----
 
-## Type=15 (0x0F) - Activate
+## Type=15 (0x0F) - Activate :id=type15
     VSCP_TYPE_CONTROL_ACTIVATE
 Activate all nodes in zone. 
 
@@ -205,7 +205,7 @@ Activate all nodes in zone.
 
 ----
 
-## Type=16 (0x10) - Deactivate
+## Type=16 (0x10) - Deactivate :id=type16
     VSCP_TYPE_CONTROL_DEACTIVATE
 Deactivate all nodes in zone. 
 
@@ -218,22 +218,22 @@ Deactivate all nodes in zone.
 
 ----
 
-## Type=17 (0x11) - Reserved for future use
+## Type=17 (0x11) - Reserved for future use :id=type17
     VSCP_TYPE_CONTROL_RESERVED17
 Reserved. 
 ----
 
-## Type=18 (0x12) - Reserved for future use
+## Type=18 (0x12) - Reserved for future use :id=type18
     VSCP_TYPE_CONTROL_RESERVED18
 Reserved. 
 ----
 
-## Type=19 (0x13) - Reserved for future use
+## Type=19 (0x13) - Reserved for future use :id=type19
     VSCP_TYPE_CONTROL_RESERVED19
 Reserved.
 ----
 
-## Type=20 (0x14) - Dim lamp(s)
+## Type=20 (0x14) - Dim lamp(s) :id=type20
     VSCP_TYPE_CONTROL_DIM_LAMPS
 Dim all dimmer devices on a segment to a specified dim value. 
 
@@ -245,7 +245,7 @@ Dim all dimmer devices on a segment to a specified dim value.
 
 ----
 
-## Type=21 (0x15) - Change Channel
+## Type=21 (0x15) - Change Channel :id=type21
     VSCP_TYPE_CONTROL_CHANGE_CHANNEL
 This is typical for changing TV channels or for changing AV amp input source etc. 
 
@@ -257,7 +257,7 @@ This is typical for changing TV channels or for changing AV amp input source etc
 
 ----
 
-## Type=22 (0x16) - Change Level
+## Type=22 (0x16) - Change Level :id=type22
     VSCP_TYPE_CONTROL_CHANGE_LEVEL
 Change an absolute level. 
 
@@ -269,7 +269,7 @@ Change an absolute level.
 
 ----
 
-## Type=23 (0x17) - Relative Change Level
+## Type=23 (0x17) - Relative Change Level :id=type23
     VSCP_TYPE_CONTROL_RELATIVE_CHANGE_LEVEL
 
  Relative Change Level request
@@ -282,7 +282,7 @@ Change an absolute level.
 
 ----
 
-## Type=24 (0x18) - Measurement Request
+## Type=24 (0x18) - Measurement Request :id=type24
     VSCP_TYPE_CONTROL_MEASUREMENT_REQUEST
 Measurement Request
 
@@ -294,7 +294,7 @@ Measurement Request
 
 ----
 
-## Type=25 (0x19) - Stream Data
+## Type=25 (0x19) - Stream Data :id=type25
     VSCP_TYPE_CONTROL_STREAM_DATA
 Request to stream data
 
@@ -307,7 +307,7 @@ Use this event for streamed data out from a node. The source is then given by th
 
 ----
 
-## Type=26 (0x1A) - Sync
+## Type=26 (0x1A) - Sync :id=type26
     VSCP_TYPE_CONTROL_SYNC
 Synchronize events on a segment. 
 
@@ -321,7 +321,7 @@ The sensor index can be used to index units within a module also or used as some
 
 ----
 
-## Type=27 (0x1B) - Zoned Stream Data
+## Type=27 (0x1B) - Zoned Stream Data :id=type27
     VSCP_TYPE_CONTROL_ZONED_STREAM_DATA
 Request streamed data from nodes identified by zone/subzone.
 
@@ -334,7 +334,7 @@ Request streamed data from nodes identified by zone/subzone.
 
 ----
 
-## Type=28 (0x1C) - Set Pre-set
+## Type=28 (0x1C) - Set Pre-set :id=type28
     VSCP_TYPE_CONTROL_SET_PRESET
 Some nodes may have pre-set configurations to choose from. With this event a pre-set can be set for a zone/sub-zone.
 
@@ -350,7 +350,7 @@ Type=48 as a response event.
 
 ----
 
-## Type=29 (0x1D) - Toggle state
+## Type=29 (0x1D) - Toggle state :id=type29
     VSCP_TYPE_CONTROL_TOGGLE_STATE
 Toggle the state of a node.
 
@@ -364,7 +364,7 @@ Note: This may be a bad design option as it often demands that the state should 
 
 ----
 
-## Type=30 (0x1E) - Timed pulse on
+## Type=30 (0x1E) - Timed pulse on :id=type30
     VSCP_TYPE_CONTROL_TIMED_PULSE_ON
 With this event it is possible to generate a timed pulse that is on for a specified time.
 
@@ -401,7 +401,7 @@ The control byte have the following bits defined
 
 ----
 
-## Type=31 (0x1F) - Timed pulse off
+## Type=31 (0x1F) - Timed pulse off :id=type31
     VSCP_TYPE_CONTROL_TIMED_PULSE_OFF
 With this event it is possible to generate a timed pulse that is off for a specified time.
 
@@ -439,7 +439,7 @@ The control byte have the following bits defined
 
 ----
 
-## Type=32 (0x20) - Set country/language
+## Type=32 (0x20) - Set country/language :id=type32
     VSCP_TYPE_CONTROL_SET_COUNTRY_LANGUAGE
 Set country and language.
 
@@ -464,7 +464,7 @@ ISO codes can be found [here](https://en.wikipedia.org/wiki/List_of_ISO_639-1_co
 
 ----
 
-## Type=33 (0x21) - Big Change level
+## Type=33 (0x21) - Big Change level :id=type33
     VSCP_TYPE_CONTROL_BIG_CHANGE_LEVEL
 Big Change level can be used in situations when the one byte level of CLASS1.CONTROL, Type=22 is not enough.
 
@@ -477,7 +477,7 @@ Big Change level can be used in situations when the one byte level of CLASS1.CON
 
 ----
 
-## Type=34 (0x22) - Move shutter up
+## Type=34 (0x22) - Move shutter up :id=type34
     VSCP_TYPE_CONTROL_SHUTTER_UP
 Move shutter up.
 
@@ -489,7 +489,7 @@ Move shutter up.
 
 ----
 
-## Type=35 (0x23) - Move shutter down
+## Type=35 (0x23) - Move shutter down :id=type35
     VSCP_TYPE_CONTROL_SHUTTER_DOWN
 Move shutter down.
 
@@ -501,7 +501,7 @@ Move shutter down.
 
 ----
 
-## Type=36 (0x24) - Move shutter left
+## Type=36 (0x24) - Move shutter left :id=type36
     VSCP_TYPE_CONTROL_SHUTTER_LEFT
 Move shutter left.
 
@@ -514,7 +514,7 @@ Move shutter left.
 
 ----
 
-## Type=37 (0x25) - Move shutter right
+## Type=37 (0x25) - Move shutter right :id=type37
     VSCP_TYPE_CONTROL_SHUTTER_RIGHT
 Move shutter right.
 
@@ -526,7 +526,7 @@ Move shutter right.
 
 ----
 
-## Type=38 (0x26) - Move shutter to middle position
+## Type=38 (0x26) - Move shutter to middle position :id=type38
     VSCP_TYPE_CONTROL_SHUTTER_MIDDLE
 Move shutter to middle position.
 
@@ -538,7 +538,7 @@ Move shutter to middle position.
 
 ----
 
-## Type=39 (0x27) - Move shutter to preset position
+## Type=39 (0x27) - Move shutter to preset position :id=type39
     VSCP_TYPE_CONTROL_SHUTTER_PRESET
 Move shutter to preset position.
 
@@ -551,7 +551,7 @@ Move shutter to preset position.
 
 ----
 
-## Type=40 (0x28) - (All) Lamp(s) on
+## Type=40 (0x28) - (All) Lamp(s) on :id=type40
     VSCP_TYPE_CONTROL_ALL_LAMPS_ON
 Turn on all lamps in a zone.
 
@@ -565,7 +565,7 @@ See also [CLASS1.CONTROL, Type=2](./class1.control.md#type2)
 
 ----
 
-## Type=41 (0x29) - (All) Lamp(s) off
+## Type=41 (0x29) - (All) Lamp(s) off :id=type41
     VSCP_TYPE_CONTROL_ALL_LAMPS_OFF
 Turn off all lamps in a zone.
 
@@ -579,7 +579,7 @@ See also [CLASS1.CONTROL, Type=2](./class1.control.md#type2)
 
 ----
 
-## Type=42 (0x2A) - Lock
+## Type=42 (0x2A) - Lock :id=type42
     VSCP_TYPE_CONTROL_LOCK
 Lock devices in a zone.
 
@@ -591,7 +591,7 @@ Lock devices in a zone.
 
 ----
 
-## Type=43 (0x2B) - Unlock
+## Type=43 (0x2B) - Unlock :id=type43
     VSCP_TYPE_CONTROL_UNLOCK
 Unlock devices in a zone.
 
@@ -603,7 +603,7 @@ Unlock devices in a zone.
 
 ----
 
-## Type=44 (0x2C) - PWM set
+## Type=44 (0x2C) - PWM set :id=type44
     VSCP_TYPE_CONTROL_PWM
 With this event it is possible to set duty cycle output such as PWM.
 
@@ -643,7 +643,7 @@ The control byte have the following bits defined
 
 ----
 
-## Type=45 (0x2D) - Lock with token
+## Type=45 (0x2D) - Lock with token :id=type45
     VSCP_TYPE_CONTROL_TOKEN_LOCK
 Lock devices with token.
 
@@ -656,7 +656,7 @@ Lock devices with token.
  
 ----
 
-## Type=46 (0x2E) - Unlock with token
+## Type=46 (0x2E) - Unlock with token :id=type46
     VSCP_TYPE_CONTROL_TOKEN_UNLOCK
 Unlock devices with token.
 
@@ -669,7 +669,7 @@ Unlock devices with token.
  
 ----
 
-## Type=47 (0x2F) - Set security level
+## Type=47 (0x2F) - Set security level :id=type47
     VSCP_TYPE_CONTROL_SET_SECURITY_LEVEL
 Set security level.
 
@@ -682,7 +682,7 @@ Set security level.
 
 ----
 
-## Type=48 (0x30) - Set security pin
+## Type=48 (0x30) - Set security pin :id=type48
     VSCP_TYPE_CONTROL_SET_SECURITY_PIN
 Set security pin.
 
@@ -695,7 +695,7 @@ Set security pin.
  
 ----
 
-## Type=49 (0x31) - Set security password
+## Type=49 (0x31) - Set security password :id=type49
     VSCP_TYPE_CONTROL_SET_SECURITY_PASSWORD
 Set security password.
 
@@ -708,7 +708,7 @@ Set security password.
  
 ----
 
-## Type=50 (0x32) - Set security token
+## Type=50 (0x32) - Set security token :id=type50
     VSCP_TYPE_CONTROL_SET_SECURITY_TOKEN
 Set security token.
 
@@ -721,7 +721,7 @@ Set security token.
  
 ----
 
-## Type=51 (0x33) - Request new security token
+## Type=51 (0x33) - Request new security token :id=type51
     VSCP_TYPE_CONTROL_REQUEST_SECURITY_TOKEN
 Request new security token.
 

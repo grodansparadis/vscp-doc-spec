@@ -22,12 +22,14 @@ That is a total of 32-bits. The most significant byte is stored in byte 0.
  | 2    | m15 m14 m13 m12 m11 m19 m9 m8  |
  | 3    | m7 m6 m5 m4 m3 m2 m1 m0        |
 
-## Type=0 (0x00) - General event
+## Type=0 (0x00) - General event :id=type0
     VSCP_TYPE_MEASUREMENTX2_GENERALGeneral Event.
 
 
 
 
+
 ----
+
 
 [filename](./bottom_copyright.md ':include')

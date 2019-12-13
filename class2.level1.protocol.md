@@ -63,14 +63,14 @@ Response is
 
 
 
-## Type=0 (0x00) - General event.
+## Type=0 (0x00) - General event. :id=type0
     VSCP_TYPE_PROTOCOL_GENERALGeneral Event.
-
 
 
 ----
 
-## Type=1 (0x01) - Segment Controller Heartbeat.
+
+## Type=1 (0x01) - Segment Controller Heartbeat. :id=type1
     VSCP_TYPE_PROTOCOL_SEGCTRL_HEARTBEAT**Not mandatory.** Implement in device if needed by application. 
 
 A segment controller sends this event once a second on the segment that it controls. The data field contains the 8-bit CRC of the segment controller GUID and the time since the epoch (00:00:00 UTC, January 1, 1970) as a 32-bit value. A node that receive (and recognize) this event could respond with a CLASS1.INFORMATION, Type=9 event (HEARTBEAT) and should do so if it does not send out a regular heartbeat event.
@@ -98,9 +98,11 @@ A node that is initialized on a segment and does not receive a Heartbeat can tak
 Time is UTC.
 
 
+
 ----
 
-## Type=2 (0x02) - New node on line / Probe.
+
+## Type=2 (0x02) - New node on line / Probe. :id=type2
     VSCP_TYPE_PROTOCOL_NEW_NODE_ONLINE**Mandatory.** Must be implemented by all devices.
 
 This is intended for nodes that have been initiated, is part of the segment and is powered up. All nodes that have a nickname-ID that is not set to 0xFF should send this event before they go on line to do their “day to day” work.
@@ -125,31 +127,39 @@ On a Level II system.
 
  
 
+
 ----
 
-## Type=3 (0x03) - Probe ACK.
+
+## Type=3 (0x03) - Probe ACK. :id=type3
     VSCP_TYPE_PROTOCOL_PROBE_ACK**Mandatory.** Must be implemented by all devices.
 
 This event is sent from a node as a response to a probe. There are no arguments.
 
 
 
+
 ----
 
-## Type=4 (0x04) - Reserved for future use.
+
+## Type=4 (0x04) - Reserved for future use. :id=type4
     VSCP_TYPE_PROTOCOL_RESERVED4Reserved for future use.
 
 
 
+
 ----
 
-## Type=5 (0x05) - Reserved for future use.
+
+## Type=5 (0x05) - Reserved for future use. :id=type5
     VSCP_TYPE_PROTOCOL_RESERVED5Reserved for future use.
 
 
+
 ----
 
-## Type=6 (0x06) - Set nickname-ID for node.
+
+## Type=6 (0x06) - Set nickname-ID for node. :id=type6
     VSCP_TYPE_PROTOCOL_SET_NICKNAME**Mandatory.** Must be implemented by all devices.
 
 This event can be used to change the nickname for a node. The node just uses the new nickname and don't start nickname discovery or similar.
@@ -160,17 +170,21 @@ This event can be used to change the nickname for a node. The node just uses the
  | 1  | The new nickname for the node. | 
 
 
+
 ----
 
-## Type=7 (0x07) - Nickname-ID accepted.
+
+## Type=7 (0x07) - Nickname-ID accepted. :id=type7
     VSCP_TYPE_PROTOCOL_NICKNAME_ACCEPTED**Mandatory.** Must be implemented by all devices.
 
 A node sends this event to confirm that it accepts its assigned nickname-ID. When sending this event the node uses its newly assigned nickname address.
 
 
+
 ----
 
-## Type=8 (0x08) - Drop nickname-ID / Reset Device.
+
+## Type=8 (0x08) - Drop nickname-ID / Reset Device. :id=type8
     VSCP_TYPE_PROTOCOL_DROP_NICKNAME**Mandatory.** Must be implemented by all devices.
 
 Request a node to drop its nickname. The node should drop its nickname and then behave in the same manner as when it was first powered up on the segment. 
@@ -204,9 +218,11 @@ There is a variant of this where the GUID is used instead of the nickname to ide
 
 
 
+
 ----
 
-## Type=9 (0x09) - Read register.
+
+## Type=9 (0x09) - Read register. :id=type9
     VSCP_TYPE_PROTOCOL_READ_REGISTER**Mandatory.** Must be implemented by all devices.
 
 Read a register from a node. 
@@ -229,9 +245,11 @@ The following format can be used for nodes on a Level II segment as a midway bet
  | 17 | Register to read. | 
 
 
+
 ----
 
-## Type=10 (0x0A) - Read/Write response.
+
+## Type=10 (0x0A) - Read/Write response. :id=type10
     VSCP_TYPE_PROTOCOL_RW_RESPONSE**Mandatory.** Must be implemented by all devices.
 
 Response for a read/write event. . Note that the data is returned for both a read and a write and can and probably should be checked for validity. 
@@ -244,9 +262,11 @@ Response for a read/write event. . Note that the data is returned for both a rea
 
 
 
+
 ----
 
-## Type=11 (0x0B) - Write register.
+
+## Type=11 (0x0B) - Write register. :id=type11
     VSCP_TYPE_PROTOCOL_WRITE_REGISTER**Mandatory.** Must be implemented by all devices.
 
 Write register content to a node. 
@@ -271,9 +291,11 @@ The following format can be used for nodes on a Level II segment as a midway bet
  | 18 | Content of register. | 
 
 
+
 ----
 
-## Type=12 (0x0C) - Enter boot loader mode.
+
+## Type=12 (0x0C) - Enter boot loader mode. :id=type12
     VSCP_TYPE_PROTOCOL_ENTER_BOOT_LOADER
 **Mandatory.** Must be implemented by all devices.
 
@@ -314,9 +336,11 @@ The following format can be used for nodes on a Level II segment as a midway bet
 All other codes reserved.
 
 
+
 ----
 
-## Type=13 (0x0D) - ACK boot loader mode.
+
+## Type=13 (0x0D) - ACK boot loader mode. :id=type13
     VSCP_TYPE_PROTOCOL_ACK_BOOT_LOADER**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
 
 This event has no meaning for any node that is not in boot mode and should be disregarded.
@@ -336,9 +360,11 @@ The node confirms that it has entered boot loader mode. This is only sent for th
 
  
 
+
 ----
 
-## Type=14 (0x0E) - NACK boot loader mode.
+
+## Type=14 (0x0E) - NACK boot loader mode. :id=type14
     VSCP_TYPE_PROTOCOL_NACK_BOOT_LOADER**Mandatory.** Should be implemented by all devices.
 
 The node was unable to enter boot loader mode. The reason is given by a user specified error code byte. This event has no meaning for any node that is not in boot mode and should be disregarded.
@@ -348,9 +374,11 @@ The node was unable to enter boot loader mode. The reason is given by a user spe
  | 0 | Optional user defined error code. | 
 
 
+
 ----
 
-## Type=15 (0x0F) - Start block data transfer.
+
+## Type=15 (0x0F) - Start block data transfer. :id=type15
     VSCP_TYPE_PROTOCOL_START_BLOCK**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
 
 Begin transfer of data for a block of memory. This event has no meaning for any node that is not in boot mode and should be disregarded.
@@ -385,9 +413,11 @@ Response can be
 
    
 
+
 ----
 
-## Type=16 (0x10) - Block data.
+
+## Type=16 (0x10) - Block data. :id=type16
     VSCP_TYPE_PROTOCOL_BLOCK_DATA**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
 
 Data for a block of memory. This event has no meaning for any node that is not in boot mode and should be disregarded.
@@ -414,9 +444,11 @@ is sent on failure.
 **Level II** The size of the block is 1-max data.
 
 
+
 ----
 
-## Type=17 (0x11) - ACK data block.
+
+## Type=17 (0x11) - ACK data block. :id=type17
     VSCP_TYPE_PROTOCOL_BLOCK_DATA_ACK**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
 
 Confirm the reception of a complete data block. This event has no meaning for any node that is not in boot mode and should be disregarded.
@@ -433,9 +465,11 @@ Confirm the reception of a complete data block. This event has no meaning for an
 The write pointer is the actual pointer after the last data has been written i,e the next position on which data will be written. 
 
 
+
 ----
 
-## Type=18 (0x12) - NACK data block.
+
+## Type=18 (0x12) - NACK data block. :id=type18
     VSCP_TYPE_PROTOCOL_BLOCK_DATA_NACK
 **Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
 
@@ -452,9 +486,11 @@ NACK the reception of data block. This event has no meaning for any node that is
 The write pointer is the actual pointer after the last data has been written i,e the next position on which data will be written. 
 
 
+
 ----
 
-## Type=19 (0x13) - Program data block.
+
+## Type=19 (0x13) - Program data block. :id=type19
     VSCP_TYPE_PROTOCOL_PROGRAM_BLOCK_DATA**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
 
 Request from a node to program a data block that has been uploaded and confirmed. This event has no meaning for any node that is not in boot mode and should be disregarded.
@@ -467,9 +503,11 @@ Request from a node to program a data block that has been uploaded and confirmed
  | 3 | LSB of block number. | 
 
 
+
 ----
 
-## Type=20 (0x14) - ACK program data block.
+
+## Type=20 (0x14) - ACK program data block. :id=type20
     VSCP_TYPE_PROTOCOL_PROGRAM_BLOCK_DATA_ACK**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
 
 A node confirms the successful programming of a block. This event has no meaning for any node that is not in boot mode and should be disregarded.
@@ -482,9 +520,11 @@ A node confirms the successful programming of a block. This event has no meaning
  | 3 | LSB of block number. | 
 
 
+
 ----
 
-## Type=21 (0x15) - NACK program data block.
+
+## Type=21 (0x15) - NACK program data block. :id=type21
     VSCP_TYPE_PROTOCOL_PROGRAM_BLOCK_DATA_NACK**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
 
 A node failed to program a data block. This event has no meaning for any node that is not in boot mode and should be disregarded.
@@ -498,9 +538,11 @@ A node failed to program a data block. This event has no meaning for any node th
  | 4         | LSB of block number.     | 
 
 
+
 ----
 
-## Type=22 (0x16) - Activate new image.
+
+## Type=22 (0x16) - Activate new image. :id=type22
     VSCP_TYPE_PROTOCOL_ACTIVATE_NEW_IMAGE**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
 
 This command is sent as the last command during the boot-loader sequence. It resets the device and starts it up using the newly loaded code. The 16-bit CRC for the entire program block is sent as an argument. This must be correct for the reset/activation to be performed. NACK boot loader mode will be sent if the CRC is not correct and the node will not leave boot loader mode. 
@@ -521,9 +563,11 @@ or
 [CLASS1.PROTOCOL, Type=49 (Activate new image NACK)](./class1.protocol.md#type49). 
 
 
+
 ----
 
-## Type=23 (0x17) - GUID drop nickname-ID / reset device.
+
+## Type=23 (0x17) - GUID drop nickname-ID / reset device. :id=type23
     VSCP_TYPE_PROTOCOL_RESET_DEVICE**Mandatory.** Should be implemented by all devices.
 
 > Added in version 1.4.0
@@ -555,9 +599,11 @@ A device can use just one byte to detect this. This byte is initialized to zero 
 Hi-level software must take this one second interval into account when more then one node should be initialized. This event can be used to assign nickname-IDs to silent nodes. This is nodes that does not start the nickname discovery process on startup and instead just sits and wait until they are assigned an ID with this event. 
 
 
+
 ----
 
-## Type=24 (0x18) - Page read.
+
+## Type=24 (0x18) - Page read. :id=type24
     VSCP_TYPE_PROTOCOL_PAGE_READ**Mandatory.** Should be implemented by all devices.
 
 The page read is implemented to make it possible to read/write larger blocks of data. Two register positions are reserved to select a base into this storage. This is a 16-bit number pointing to a 256-byte page. This means that a total of 65535 * 256 bytes are accessible with this method (page 0 is the standard registers).
@@ -587,9 +633,11 @@ The following format can be used for nodes on a Level II segment as a midway bet
 
 
 
+
 ----
 
-## Type=25 (0x19) - Page write.
+
+## Type=25 (0x19) - Page write. :id=type25
     VSCP_TYPE_PROTOCOL_PAGE_WRITE**Mandatory.** Should be implemented by all devices.
 
 The write page is implemented to make it possible to write larger blocks of data. One data-space positions is reserved to select a base into this storage. See Page read for a full description.
@@ -618,9 +666,11 @@ Data count can be as many as the buffer of the Level II node accepts.
 
 
 
+
 ----
 
-## Type=26 (0x1A) - Read/Write page response.
+
+## Type=26 (0x1A) - Read/Write page response. :id=type26
     VSCP_TYPE_PROTOCOL_RW_PAGE_RESPONSE**Mandatory.** Should be implemented by all devices.
 
 This is a response frame for the read/write page command. The Sequence number goes from 0 up to the last sent frame for a read page request. 
@@ -641,17 +691,21 @@ The following format can be used for nodes on a Level II segment as a midway bet
 Data count can be as many as the buffer of the Level II node accepts. 
 
 
+
 ----
 
-## Type=27 (0x1B) - High end server/service probe.
+
+## Type=27 (0x1B) - High end server/service probe. :id=type27
     VSCP_TYPE_PROTOCOL_HIGH_END_SERVER_PROBEShould be implemented by all devices that work over 802.15.4/Ethernet/Internet or other high end protocols.This event can be broadcasted on a segment by a node to get information about available servers. 
 
 The [VSCP daemon documentation](https://grodansparadis.gitbooks.io/the-vscp-daemon) have a description on how server/service discovery works. 
 
 
+
 ----
 
-## Type=28 (0x1C) - High end server/service response.
+
+## Type=28 (0x1C) - High end server/service response. :id=type28
     VSCP_TYPE_PROTOCOL_HIGH_END_SERVER_RESPONSEShould be implemented by all devices that work on 802.15.4/Ethernet/Internet and have a Level I link. This is because a Level II device can be present on a Level I bus. A typical example is a Bluetooth gateway. A user find the bud/segment by the Bluetooth device and can then discover other parts of the system through it.
 
 A Level II node respond with [CLASS2.PROTOCOL, Type=32 Level II who is response](./class2.protocol.md#type32) to this event. It is also possible to listen for  [CLASS2.PROTOCOL, Type=20 (0x14) High end server capabilities](./class2.protocol.md#type20) to discover Level II nodes.
@@ -678,9 +732,11 @@ A server like the VSCP server can span multiple segments and a reply can therefo
 The [VSCP daemon documentation](https://grodansparadis.gitbooks.io/the-vscp-daemon) have a description on how server/service discovery works. 
 
 
+
 ----
 
-## Type=29 (0x1D) - Increment register.
+
+## Type=29 (0x1D) - Increment register. :id=type29
     VSCP_TYPE_PROTOCOL_INCREMENT_REGISTER**Mandatory.** Should be implemented by all devices.
 
 Increment a register content by one with no risk of it changing in between 
@@ -693,9 +749,11 @@ Increment a register content by one with no risk of it changing in between
 Node should answer with [CLASS1.PROTOCOL, Type=10 (Read/Write register response)](./class1.protocol.md#type10).
 
 
+
 ----
 
-## Type=30 (0x1E) - Decrement register.
+
+## Type=30 (0x1E) - Decrement register. :id=type30
     VSCP_TYPE_PROTOCOL_DECREMENT_REGISTER**Mandatory.** Should be implemented by all devices.
 
 Decrement a register content by one with no risk of it changing in between 
@@ -708,9 +766,11 @@ Decrement a register content by one with no risk of it changing in between
 Node should answer with [CLASS1.PROTOCOL, Type=10 (Read/Write register response)](./class1.protocol.md#type10).
 
 
+
 ----
 
-## Type=31 (0x1F) - Who is there?
+
+## Type=31 (0x1F) - Who is there? :id=type31
     VSCP_TYPE_PROTOCOL_WHO_IS_THERE**Mandatory.** Must be implemented by all devices.
 
 This event can be used as a fast way to find out which nodes there is on a segment. All nodes receiving it should respond. 
@@ -724,9 +784,11 @@ Response for a Level I node is [CLASS1.PROTOCOL, Type=32 (Who is there response)
 A Level II node respond with [CLASS2.PROTOCOL, Type=32 (Level II who is response)](./class2.protocol.md#type32) to this event.
 
 
+
 ----
 
-## Type=32 (0x20) - Who is there response.
+
+## Type=32 (0x20) - Who is there response. :id=type32
     VSCP_TYPE_PROTOCOL_WHO_IS_THERE_RESPONSE**Mandatory.** Must be implemented by all devices.
 
 Response from node(s) looks like this 
@@ -745,9 +807,11 @@ Response from node(s) looks like this
 All seven frames should be sent also if the MDF URL is shorter than 32 characters,
 
 
+
 ----
 
-## Type=33 (0x21) - Get decision matrix info.
+
+## Type=33 (0x21) - Get decision matrix info. :id=type33
     VSCP_TYPE_PROTOCOL_GET_MATRIX_INFO**Mandatory**
 
 Request a node to report size and offset for its decision matrix. 
@@ -765,9 +829,11 @@ The following format can be used for nodes on a Level II segment as a midway bet
 A node that does not have a decision matrix should return zero rows.
 
 
+
 ----
 
-## Type=34 (0x22) - Decision matrix info response.
+
+## Type=34 (0x22) - Decision matrix info response. :id=type34
     VSCP_TYPE_PROTOCOL_GET_MATRIX_INFO_RESPONSE**Mandatory** for nodes with a decision matrix
 
 Report the size for the decision matrix and the offset to its storage. The reported size is the number of decision matrix lines. The offset is the offset in the register address counter from 0x00 (See the register model in this document). If the size returned is zero the node does not have a decision matrix. A node without a decision matrix can also skip to implement this event but it's better if it returns a decision matrix size of zero. 
@@ -790,9 +856,11 @@ The decision matrix can as noted be stored in paged registers and if so it must 
  | 0x78-0x7F | Level I decision matrix row. | 
 
 
+
 ----
 
-## Type=35 (0x23) - Get embedded MDF.
+
+## Type=35 (0x23) - Get embedded MDF. :id=type35
     VSCP_TYPE_PROTOCOL_GET_EMBEDDED_MDF**Not mandatory.**
 
 A node that get this event and has an embedded MDF description in flash or similar respond with the description . 
@@ -802,9 +870,11 @@ A node that get this event and has an embedded MDF description in flash or simil
  | 0 | Node-ID.    | 
 
 
+
 ----
 
-## Type=36 (0x24) - Embedded MDF response.
+
+## Type=36 (0x24) - Embedded MDF response. :id=type36
     VSCP_TYPE_PROTOCOL_GET_EMBEDDED_MDF_RESPONSE**Not mandatory.** 
 
 This is the response from a Get embedded MDF. The response consist of several frames where an index in byte0/1 is incremented for each frame and MDF data is in byte 2-7.
@@ -826,9 +896,11 @@ should be sent.
 Note that if sending the events back to back some devices will not be able to cope with the data stream. It is therefor advisable to have a short delay between each mdf data frame sent out.
 
 
+
 ----
 
-## Type=37 (0x25) - Extended page read register.
+
+## Type=37 (0x25) - Extended page read register. :id=type37
     VSCP_TYPE_PROTOCOL_EXTENDED_PAGE_READ**Mandatory.** Must be implemented by all devices.
 
 Read a register from a node with page information.
@@ -860,9 +932,11 @@ The following format can be used for nodes on a Level II segment as a midway bet
  | 19   | Optional: bytes to read (1-255). |
  
 
+
 ----
 
-## Type=38 (0x26) - Extended page write register.
+
+## Type=38 (0x26) - Extended page write register. :id=type38
     VSCP_TYPE_PROTOCOL_EXTENDED_PAGE_WRITE**Mandatory.** Must be implemented by all devices.
 
 Write register content to a node.
@@ -893,9 +967,11 @@ The following format can be used for nodes on a Level II segment as a midway bet
  | 19  | Content of register. byte 20-buffer-size Optional extra data bytes to write. | 
 
 
+
 ----
 
-## Type=39 (0x27) - Extended page read/write response.
+
+## Type=39 (0x27) - Extended page read/write response. :id=type39
     VSCP_TYPE_PROTOCOL_EXTENDED_PAGE_RESPONSE**Mandatory.** Must be implemented by all devices.
 
 This is the replay sent for events CLASS1.PROTOCOL, Type=40,41. 
@@ -912,9 +988,11 @@ This is the replay sent for events CLASS1.PROTOCOL, Type=40,41.
 A multi. register read/write can generate up to 256 events of this type. Index will then be increased by one for each event sent. __Some nodes my have small buffers so this bursts of messages may be a problem. Therefore send them with a low priority.__
 
 
+
 ----
 
-## Type=40 (0x28) - Get event interest.
+
+## Type=40 (0x28) - Get event interest. :id=type40
     VSCP_TYPE_PROTOCOL_GET_EVENT_INTEREST**Not Mandatory.** Implemented if needed.
 
 It is possible to ask a node which event(s) it is interested in with this event. If not implemented the node is supposed to be interested in all events.
@@ -924,9 +1002,11 @@ All nodes are by default interested in **CLASS1.PROTOCOL**.
 The event is intended for very low bandwidth nodes like low power wireless nodes where it saves a lot of bandwidth if only events that really concerns the node is sent to them. 
 
 
+
 ----
 
-## Type=41 (0x29) - Get event interest response.
+
+## Type=41 (0x29) - Get event interest response. :id=type41
     VSCP_TYPE_PROTOCOL_GET_EVENT_INTEREST_RESPONSE**Not mandatory.** Implemented if needed.
 
 Response for event [CLASS1.PROTOCOL, Type=40 (Get event interest)](./class1.protocol.md#type40). The node report all events it is interested in. 
@@ -962,38 +1042,48 @@ A maximum of 255 frames (index = 0-254) may be sent.
 Fill unused pairs with zero.
 
 
+
 ----
 
-## Type=48 (0x30) - Activate new image ACK.
+
+## Type=48 (0x30) - Activate new image ACK. :id=type48
     VSCP_TYPE_PROTOCOL_ACTIVATE_NEW_IMAGE_ACK**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
 
 Part of the VSCP boot-loader functionality. This is the positive response after a node received a [CLASS1.PROTOCOL, Type=22 (Activate new image)](./class1.protocol.md#type22). It is sent by the node before the new firmware is booted into.
 
 
+
 ----
 
-## Type=49 (0x31) - Activate new image NACK.
+
+## Type=49 (0x31) - Activate new image NACK. :id=type49
     VSCP_TYPE_PROTOCOL_ACTIVATE_NEW_IMAGE_NACK**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
 
 Part of the VSCP boot-loader functionality. This is the negative response after a node received a [CLASS1.PROTOCOL, Type=22 (Activate new image)](./class1.protocol.md#type22). It is sent by the node to inform it that it will (or can not) switch to the new firmware image. 
 
 
+
 ----
 
-## Type=50 (0x32) - Block data transfer ACK.
+
+## Type=50 (0x32) - Block data transfer ACK. :id=type50
     VSCP_TYPE_PROTOCOL_START_BLOCK_ACK**Not mandatory** Only needed if a VSCP boot loader algorithm is used.
 
 Part of the VSCP boot-loader functionality. This is the positive response after a node received a [CLASS1.PROTOCOL, Type=16 (Block data)](./class1.protocol.md#type16) event. It is sent by the node as a validation that it can handle the block data transfer. 
 
 
+
 ----
 
-## Type=51 (0x33) - Block data transfer NACK.
+
+## Type=51 (0x33) - Block data transfer NACK. :id=type51
     VSCP_TYPE_PROTOCOL_START_BLOCK_NACK**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
 
 Part of the VSCP boot-loader functionality. This is the negative response after a node received a [CLASS1.PROTOCOL, Type=16 (Block data)](./class1.protocol.md#type16) event. It is sent by the node as an indication that it can NOT handle the block data transfer. 
 
 
+
 ----
+
 
 [filename](./bottom_copyright.md ':include')

@@ -14,12 +14,14 @@ This class mirrors the standard measurement events is [CLASS1.MEASUREMENT=11](./
  | 3    | Data coding.                                                       |
  | 4-7  | Data with format defined by byte 0.                                |
 
-## Type=0 (0x00) - General event
+## Type=0 (0x00) - General event :id=type0
     VSCP_TYPE_MEASUREMENTX1_GENERALGeneral Event.
 
 
 
 
+
 ----
+
 
 [filename](./bottom_copyright.md ':include')

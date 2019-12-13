@@ -7,12 +7,14 @@
 This class mirrors the [CLASS1.MULTIMEDIA](./class1.multimedia.md) class but use a different data format with a GUID stored in the first 16 bytes of the data followed by the standard data thus offset with 16-bytes.
 
 See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data format.
-## Type=0 (0x00) - General event
+## Type=0 (0x00) - General event :id=type0
     VSCP_TYPE_MULTIMEDIA_GENERALGeneral Event.
+
 
 ----
 
-## Type=1 (0x01) - Playback
+
+## Type=1 (0x01) - Playback :id=type1
     VSCP_TYPE_MULTIMEDIA_PLAYBACKThis is for controlling playback functionality 
 
  | Data byte | Description                                                        | 
@@ -46,9 +48,11 @@ See [CLASS2.PROTOCOL1](./class2.protocol1.md) for more information on the data f
 Appropriate **CLASS1.INFORMATION** events should be sent from the controlled device as response to this event. 
 
 
+
 ----
 
-## Type=2 (0x02) - NavigatorKey English
+
+## Type=2 (0x02) - NavigatorKey English :id=type2
     VSCP_TYPE_MULTIMEDIA_NAVIGATOR_KEY_ENGThis is typically for navigation functions or DVD controls 
 
  | Data byte | Description                                                        | 
@@ -74,9 +78,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 97..122 | a-z keys (can't use ASCII hex as numbers are too large so this is the next best thing) | 
 
 
+
 ----
 
-## Type=3 (0x03) - Adjust Contrast
+
+## Type=3 (0x03) - Adjust Contrast :id=type3
     VSCP_TYPE_MULTIMEDIA_ADJUST_CONTRASTThis is typically for adjusting the contrast level of a display device 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                | 
@@ -86,9 +92,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                         | 
 
 
+
 ----
 
-## Type=4 (0x04) - Adjust Focus
+
+## Type=4 (0x04) - Adjust Focus :id=type4
     VSCP_TYPE_MULTIMEDIA_ADJUST_FOCUSThis is typically for adjusting the focus settings of a display device 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                    | 
@@ -98,9 +106,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                             | 
 
 
+
 ----
 
-## Type=5 (0x05) - Adjust Tint
+
+## Type=5 (0x05) - Adjust Tint :id=type5
     VSCP_TYPE_MULTIMEDIA_ADJUST_TINTThis is typically for adjusting the tint settings of a display device 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                | 
@@ -110,9 +120,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                         | 
 
 
+
 ----
 
-## Type=6 (0x06) - Adjust Color Balance
+
+## Type=6 (0x06) - Adjust Color Balance :id=type6
     VSCP_TYPE_MULTIMEDIA_ADJUST_COLOUR_BALANCEThis is typically for adjusting the color balance settings of a display device. 
 
  | Data byte | Description                                                        | 
@@ -122,9 +134,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=7 (0x07) - Adjust Brightness
+
+## Type=7 (0x07) - Adjust Brightness :id=type7
     VSCP_TYPE_MULTIMEDIA_ADJUST_BRIGHTNESSThis is typically for adjusting the tint settings of a display device 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                        | 
@@ -134,9 +148,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                                 | 
 
 
+
 ----
 
-## Type=8 (0x08) - Adjust Hue
+
+## Type=8 (0x08) - Adjust Hue :id=type8
     VSCP_TYPE_MULTIMEDIA_ADJUST_HUEThis is typically for adjusting the hue settings of a display device 
 
  | Data byte | Description                                                        | 
@@ -146,9 +162,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=9 (0x09) - Adjust Bass
+
+## Type=9 (0x09) - Adjust Bass :id=type9
     VSCP_TYPE_MULTIMEDIA_ADJUST_BASSThis is typically for adjusting the bass level settings of a sound device. Depending on the implementation, this could automatically adjust the treble level. To adjust left and right bass levels, a node would have to use separate zones or sub-zones for left and right. 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                | 
@@ -158,9 +176,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                         | 
 
 
+
 ----
 
-## Type=10 (0x0A) - Adjust Treble
+
+## Type=10 (0x0A) - Adjust Treble :id=type10
     VSCP_TYPE_MULTIMEDIA_ADJUST_TREBLEThis is typically for adjusting the treble level settings of a sound device. Depending on the implementation, this could automatically adjust the bass level. To adjust left and right treble levels, a node would have to use separate zones or sub-zones for left and right. 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                          | 
@@ -170,9 +190,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                   | 
 
 
+
 ----
 
-## Type=11 (0x0B) - Adjust Master Volume
+
+## Type=11 (0x0B) - Adjust Master Volume :id=type11
     VSCP_TYPE_MULTIMEDIA_ADJUST_MASTER_VOLUMEThis is typically for adjusting the master volume level. This could be used for adjusting the level for all speakers. 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                        | 
@@ -182,9 +204,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                 | 
 
 
+
 ----
 
-## Type=12 (0x0C) - Adjust Front Volume
+
+## Type=12 (0x0C) - Adjust Front Volume :id=type12
     VSCP_TYPE_MULTIMEDIA_ADJUST_FRONT_VOLUMEThis is typically for adjusting the front speaker volume level. This usually means the two front speakers as opposed to the single center speaker. 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                        | 
@@ -194,9 +218,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                 | 
 
 
+
 ----
 
-## Type=13 (0x0D) - Adjust Center Volume
+
+## Type=13 (0x0D) - Adjust Center Volume :id=type13
     VSCP_TYPE_MULTIMEDIA_ADJUST_CENTRE_VOLUMEThis is typically for adjusting the front speaker volume level. This usually means the single center speaker as opposed to the two front speakers. 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                        | 
@@ -206,9 +232,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                 | 
 
 
+
 ----
 
-## Type=14 (0x0E) - Adjust Rear Volume
+
+## Type=14 (0x0E) - Adjust Rear Volume :id=type14
     VSCP_TYPE_MULTIMEDIA_ADJUST_REAR_VOLUMEThis is typically for adjusting the rear speaker volume level. 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                        | 
@@ -218,9 +246,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                 | 
 
 
+
 ----
 
-## Type=15 (0x0F) - Adjust Side Volume
+
+## Type=15 (0x0F) - Adjust Side Volume :id=type15
     VSCP_TYPE_MULTIMEDIA_ADJUST_SIDE_VOLUMEThis is typically for adjusting the side speaker volume level. 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                        | 
@@ -230,29 +260,39 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                 | 
 
 
+
 ----
 
-## Type=16 (0x10) - Reserved
+
+## Type=16 (0x10) - Reserved :id=type16
     VSCP_TYPE_MULTIMEDIA_RESERVED16These are reserved for other future speaker combinations
 
+
 ----
 
-## Type=17 (0x11) - Reserved
+
+## Type=17 (0x11) - Reserved :id=type17
     VSCP_TYPE_MULTIMEDIA_RESERVED17These are reserved for other future speaker combinations
 
+
 ----
 
-## Type=18 (0x12) - Reserved
+
+## Type=18 (0x12) - Reserved :id=type18
     VSCP_TYPE_MULTIMEDIA_RESERVED18These are reserved for other future speaker combinations
 
+
 ----
 
-## Type=19 (0x13) - Reserved
+
+## Type=19 (0x13) - Reserved :id=type19
     VSCP_TYPE_MULTIMEDIA_RESERVED19These are reserved for other future speaker combinations
 
+
 ----
 
-## Type=20 (0x14) - Select Disk
+
+## Type=20 (0x14) - Select Disk :id=type20
     VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_DISKThis is typically for selecting a disk for playback 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                 | 
@@ -262,9 +302,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                          | 
 
 
+
 ----
 
-## Type=21 (0x15) - Select Track
+
+## Type=21 (0x15) - Select Track :id=type21
     VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_TRACKThis is typically for selecting a track for playback 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                             | 
@@ -274,9 +316,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                      | 
 
 
+
 ----
 
-## Type=22 (0x16) - Select Album/Play list
+
+## Type=22 (0x16) - Select Album/Play list :id=type22
     VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_ALBUMThis is typically for selecting an album or play-list for playback 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                                  | 
@@ -286,9 +330,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                                           | 
 
 
+
 ----
 
-## Type=23 (0x17) - Select Channel
+
+## Type=23 (0x17) - Select Channel :id=type23
     VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_CHANNELThis is typically for selecting a TV Channel 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                       | 
@@ -298,9 +344,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                                | 
 
 
+
 ----
 
-## Type=24 (0x18) - Select Page
+
+## Type=24 (0x18) - Select Page :id=type24
     VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_PAGEThis is typically for selecting a page of a film 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                        | 
@@ -310,9 +358,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                 | 
 
 
+
 ----
 
-## Type=25 (0x19) - Select Chapter
+
+## Type=25 (0x19) - Select Chapter :id=type25
     VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_CHAPTERThis is typically for selecting a chapter of a film 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                       | 
@@ -322,9 +372,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                                | 
 
 
+
 ----
 
-## Type=26 (0x1A) - Select Screen Format
+
+## Type=26 (0x1A) - Select Screen Format :id=type26
     VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_SCREEN_FORMATThis is for controlling screen format of a display device 
 
  | Data byte | Description                                                        | 
@@ -334,9 +386,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=27 (0x1B) - Select Input Source
+
+## Type=27 (0x1B) - Select Input Source :id=type27
     VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_INPUT_SOURCEThis is for controlling the input source of a playback device 
 
  | Data byte | Description                                                        | 
@@ -374,9 +428,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 26   | mpeg source                        | 
 
 
+
 ----
 
-## Type=28 (0x1C) - Select Output
+
+## Type=28 (0x1C) - Select Output :id=type28
     VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_OUTPUTThis is for controlling the output of a playback device 
 
  | Data byte | Description                                                        | 
@@ -401,9 +457,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 32   | HDMI3       | 
 
 
+
 ----
 
-## Type=29 (0x1D) - Record
+
+## Type=29 (0x1D) - Record :id=type29
     VSCP_TYPE_MULTIMEDIA_RECORDControl a recording device. 
 
  | Data byte | Description                                                            | 
@@ -413,9 +471,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.     | 
 
 
+
 ----
 
-## Type=30 (0x1E) - Set Recording Volume
+
+## Type=30 (0x1E) - Set Recording Volume :id=type30
     VSCP_TYPE_MULTIMEDIA_SET_RECORDING_VOLUMEControl a recording device. 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                | 
@@ -425,9 +485,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                         | 
 
 
+
 ----
 
-## Type=40 (0x28) - Tivo Function
+
+## Type=40 (0x28) - Tivo Function :id=type40
     VSCP_TYPE_MULTIMEDIA_TIVO_FUNCTIONThis is typically for accessing TIVO functions 
 
  | Data byte | Description                                                        | 
@@ -455,9 +517,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 25   | Black key     | 
 
 
+
 ----
 
-## Type=50 (0x32) - Get Current Title
+
+## Type=50 (0x32) - Get Current Title :id=type50
     VSCP_TYPE_MULTIMEDIA_GET_CURRENT_TITLEGet the title for the current active media. 
 
  | Data byte | Description                                                        | 
@@ -467,9 +531,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=51 (0x33) - Set media position in milliseconds
+
+## Type=51 (0x33) - Set media position in milliseconds :id=type51
     VSCP_TYPE_MULTIMEDIA_SET_POSITIONThis is for controlling the position in the stream/file of a playback device 
 
  | Data byte | Description                                                                                                                                                                                         | 
@@ -480,9 +546,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
  | 3-7       | Position in milliseconds, This is an integer with a size specified by the event size. This 0xFF, 0xFFFF, 0xFFFFFF, 0xFFFFFFFF and 0xFFFFFFFFFF is the maximum that can be sent for different sizes. | 
 
 
+
 ----
 
-## Type=52 (0x34) - Get media information
+
+## Type=52 (0x34) - Get media information :id=type52
     VSCP_TYPE_MULTIMEDIA_GET_MEDIA_INFOGet various media information from a device. 
 
  | Data byte | Description                                                                                                                                                                          | 
@@ -494,9 +562,11 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
 If a device does not support the requested type of media information its sends a CLASS1.INFORMATION error event or does not response. 
 
 
+
 ----
 
-## Type=53 (0x35) - Remove Item from Album
+
+## Type=53 (0x35) - Remove Item from Album :id=type53
     VSCP_TYPE_MULTIMEDIA_REMOVE_ITEMRemove an item from an album. 
 
  | Data byte | Description                                                                                                                                                       | 
@@ -506,9 +576,11 @@ If a device does not support the requested type of media information its sends a
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                | 
 
 
+
 ----
 
-## Type=54 (0x36) - Remove all Items from Album
+
+## Type=54 (0x36) - Remove all Items from Album :id=type54
     VSCP_TYPE_MULTIMEDIA_REMOVE_ALL_ITEMSRemove all items from an album. 
 
  | Data byte | Description                                                        | 
@@ -518,9 +590,11 @@ If a device does not support the requested type of media information its sends a
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
+
 ----
 
-## Type=55 (0x37) - Save Album/Play list
+
+## Type=55 (0x37) - Save Album/Play list :id=type55
     VSCP_TYPE_MULTIMEDIA_SAVE_ALBUMSave album/play-list to permanent storage. 
 
  | Data byte | Description                                                          | 
@@ -530,9 +604,11 @@ If a device does not support the requested type of media information its sends a
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.   | 
 
 
+
 ----
 
-## Type=60 (0x3C) - Multimedia Control
+
+## Type=60 (0x3C) - Multimedia Control :id=type60
     VSCP_TYPE_MULTIMEDIA_CONTROLSend multimedia information. This can be the title for the current active media. It can be sent as a response to a “Get Title” or similar event or by its own when a new title is playing or other multimedia information has changed.
 
 Response should be Type=61 
@@ -601,11 +677,15 @@ Lists in string form have list items separated with a zero (0x00).
 Album can be looked upon as a play-list which is a term used for many other multimedia products. 
 
 
+
 ----
 
-## Type=61 (0x3D) - Multimedia Control response
+
+## Type=61 (0x3D) - Multimedia Control response :id=type61
     VSCP_TYPE_MULTIMEDIA_CONTROL_RESPONSEResponse for multimedia control.
 
+
 ----
+
 
 [filename](./bottom_copyright.md ':include')
