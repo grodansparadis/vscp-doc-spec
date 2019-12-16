@@ -6,8 +6,6 @@ UDP be used to send and receive VSCP frames, non encrypted or encrypted and with
 
 ### The packet format
 
-## Packet format
-
  | Byte  | Description | Encrypted | 
  | :----:  | ----------- | :---------: | 
  | 0     | Packet type & encryption settings. | _Never encrypted_ | 
