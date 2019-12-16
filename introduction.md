@@ -66,7 +66,7 @@ Alternative licenses for VSCP & Friends may be arranged by contacting **Grodans 
 Current information about VSCP (Very Simple Control Protocol) can be found at:
 [https://www.vscp.org](httpd://www.vscp.org)
 
-There is a forum/mailing lists available [here](https///groups.google.com/forum/#!forum/vscp) where you an ask for help or discuss VSCP development.
+There is a forum/mailing lists available [here](https:///groups.google.com/forum/#!forum/vscp) where you an ask for help or discuss VSCP development.
 
 
 ## When was the project started?

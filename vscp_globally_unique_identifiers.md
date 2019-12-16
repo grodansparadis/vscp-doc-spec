@@ -8,7 +8,7 @@ The GUID address is not normally used during communication with a node. Instead 
 
 Besides the GUID it is recommended that all nodes should have a node description string in the firmware that points to a URL that can give full information about the node and its family of devices. As well as providing information about the node, this address can point at drivers for various operating systems or segment controller environments. Reserved GUID's 
 
-A general discussion of UUID's/GUID's is [here](https///en.wikipedia.org/wiki/Universally_unique_identifier).
+A general discussion of UUID's/GUID's is [here](https:///en.wikipedia.org/wiki/Universally_unique_identifier).
 
 Some GUID's are reserved and unavailable for assignment. [This page](./appendix_a.md) list these and also assigned IDs.
 

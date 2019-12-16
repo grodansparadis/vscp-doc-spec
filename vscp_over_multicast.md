@@ -63,7 +63,7 @@ Time should always be UTC time. If the time block is set to all zero the current
  | 3    | AES256 CBC encryption. 16-byte IV is appended to each frame. | 
  | 4-15 | Reserved                                                     | 
 
-For encryption/decryption code using OpenSSL see [this link](https///wiki.openssl.org/index.php/EVP_Authenticated_Encryption_and_Decryption). Note that byte 0 of the frame is never encrypted. The encryption/decryption is instead carried out over byte 1 to the CRC.
+For encryption/decryption code using OpenSSL see [this link](https:///wiki.openssl.org/index.php/EVP_Authenticated_Encryption_and_Decryption). Note that byte 0 of the frame is never encrypted. The encryption/decryption is instead carried out over byte 1 to the CRC.
 
 On the VSCP Server the md5 of the [vscptoken](https://www.vscp.org/docs/vscpd/doku.php?id=configuring_the_vscp_daemon#security) is used as the key for AES128.
 

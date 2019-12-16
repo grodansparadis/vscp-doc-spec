@@ -288,7 +288,7 @@ For a node that comes from the VSCP domain, that is preserve it's nickname, VSCP
 
 ## References
 
-Bootloader source code is available on [GitHUB](https///github.com/grodansparadis/vscp_pic1_bootloader). 
+Bootloader source code is available on [GitHUB](https:///github.com/grodansparadis/vscp_pic1_bootloader). 
 
 The Microchip application note AN247 is the base work for this application. It and its accompanying source can be found at [http://ww1.microchip.com/downloads/en/AppNotes/00247a.pdf](https://ww1.microchip.com/downloads/en/AppNotes/00247a.pdf)
 
