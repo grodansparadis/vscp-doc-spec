@@ -9,27 +9,27 @@ UDP be used to send and receive VSCP frames, non encrypted or encrypted and with
  | Byte  | Description | Encrypted | 
  | :----:  | ----------- | :---------: | 
  | 0     | Packet type & encryption settings. | _Never encrypted_ | 
- | 1     | VSCP Level II Head MSB             | Yes                 | 
- | 2     | VSCP Level II Head LSB             | Yes                 | 
- | 3     | Timestamp microseconds MSB         | Yes                 | 
- | 4     | Timestamp microseconds             | Yes                 | 
- | 5     | Timestamp microseconds             | Yes                 | 
- | 6     | Timestamp microseconds LSB         | Yes                 | 
- | 7     | Year MSB                           | Yes                 | 
- | 9     | Year LSB                           | Yes                 | 
- | 9     | Month                              | Yes                 | 
- | 10    | Day                                | Yes                 | 
- | 11    | Hour                               | Yes                 | 
- | 12    | Minute                             | Yes                 | 
- | 13    | Second                             | Yes                 | 
- | 14    | CLASS MSB                          | Yes                 | 
- | 15    | CLASS LSB                          | Yes                 | 
- | 16    | TYPE MSB                           | Yes                 | 
- | 17    | TYPE LSB                           | Yes                 | 
- | 18-33 | ORIGINATING GUID                   | Yes                 | 
- | 34    | DATA SIZE MSB                      | Yes                 | 
- | 35    | DATA SIZE LSB                      | Yes                 | 
- | 36-n  | data ... limited to max 512-25 = 487 bytes  | Yes        | 
+ | 1     | VSCP Level II Head MSB             | Yes | 
+ | 2     | VSCP Level II Head LSB             | Yes | 
+ | 3     | Timestamp microseconds MSB         | Yes | 
+ | 4     | Timestamp microseconds             | Yes | 
+ | 5     | Timestamp microseconds             | Yes | 
+ | 6     | Timestamp microseconds LSB         | Yes | 
+ | 7     | Year MSB                           | Yes | 
+ | 9     | Year LSB                           | Yes | 
+ | 9     | Month                              | Yes | 
+ | 10    | Day                                | Yes | 
+ | 11    | Hour                               | Yes | 
+ | 12    | Minute                             | Yes | 
+ | 13    | Second                             | Yes | 
+ | 14    | CLASS MSB                          | Yes | 
+ | 15    | CLASS LSB                          | Yes | 
+ | 16    | TYPE MSB                           | Yes | 
+ | 17    | TYPE LSB                           | Yes | 
+ | 18-33 | ORIGINATING GUID                   | Yes | 
+ | 34    | DATA SIZE MSB                      | Yes | 
+ | 35    | DATA SIZE LSB                      | Yes | 
+ | 36-n  | data ... limited to max 512-25 = 487 bytes  | Yes | 
  | len-2 | CRC MSB (Calculated on HEAD + CLASS + TYPE + ADDRESS + SIZE + DATA…) | Yes | 
  | len-1 | CRC LSB  | yes | 
  | opt   | Optional encryption data such as a 16-byte IV for AES follow here | No | 
