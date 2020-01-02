@@ -47,6 +47,7 @@
 
 
     
+    
 * Level I events
  * [Description](./level_i_events.md)
  * [CLASS1.PROTOCOL = 0 (0x0)](./class1.protocol.md)
@@ -129,10 +130,14 @@
  * [CLASS2.CONTROL = 1025 (0x401)](./class2.control.md)
  * [CLASS2.INFORMATION = 1026 (0x402)](./class2.information.md)
  * [CLASS2.TEXT2SPEECH = 1027 (0x403)](./class2.text2speech.md)
+ * [CLASS2.HLO = 1028 (0x404)](./class2.hlo.md)
  * [CLASS2.CUSTOM = 1029 (0x405)](./class2.custom.md)
  * [CLASS2.DISPLAY = 1030 (0x406)](./class2.display.md)
  * [CLASS2.MEASUREMENT_STR = 1040 (0x410)](./class2.measurement_str.md)
  * [CLASS2.MEASUREMENT_FLOAT = 1060 (0x424)](./class2.measurement_float.md)
  * [CLASS2.VSCPD = 65535 (0xffff)](./class2.vscpd.md)
+    
+ 
+
     
  
