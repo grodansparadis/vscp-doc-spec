@@ -89,7 +89,7 @@ For JSON the restriction does not apply for sub object.
 
 This event is not mandatory to implement by a device.
 
-##### Payload content ===
+##### Payload content
 
  | Byte  | Description |
  | :----:  | ----------- |
@@ -99,7 +99,7 @@ This event is not mandatory to implement by a device.
  | 18 | Index for multi frame HLO events. Index starts at zero and increase for every sub part of a high level payload. |
  | 19-511 | Variable length high level payload. For type=0 first byte is separation character. |
 
-##### Type ===
+##### Type
 
  | Type  | Description |
  | :----:  | ----------- |
