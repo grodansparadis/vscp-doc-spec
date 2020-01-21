@@ -13,8 +13,6 @@ General HLO Event.
 
 ## Type=1 (0x01) - HLO Command :id=type1
     VSCP2_TYPE_HLO_COMMAND
-HLO command. 
-
 High Level Object (HLO) event is a command/response or other packed object sent to a device or sent as a response from a device. Content can be XML, JSON, character separated, BASE64, etc.
 
 Command and response packages are separated into different VSCP types to be easier to filter even if this is not strictly needed. 
@@ -37,7 +35,7 @@ For JSON the restriction does not apply for sub object.
 
 This event is not mandatory to implement by a device.
 
-=== Payload content ===
+##### Payload content 
 
  | Byte   | Description |
  | :----: | ----------- |
@@ -47,7 +45,7 @@ This event is not mandatory to implement by a device.
  | 18     | Index for multi-frame HLO events. Index starts at zero and increase for every sub part of a high level payload. |
  | 19-511 | Variable length high level payload. For type=0 first byte is separation character. |
 
-=== Type ===
+##### Type 
 
  | Type  | Description |
  | :----:  | ----------- |
@@ -69,8 +67,6 @@ Multi frame commands is first collected (all events that make up the command is 
 
 ## Type=2 (0x02) - HLO Response :id=type2
     VSCP2_TYPE_HLO_RESPONSE
-HLO response. 
-
 High Level Object (HLO) event is a command/response or other packed object sent to a device or sent as a response from a device. Content can be XML, JSON, character separated, BASE64, etc.
 
 Command and response packages are separated into different VSCP types to be easier to filter even if this is not strictly needed.  
@@ -93,7 +89,7 @@ For JSON the restriction does not apply for sub object.
 
 This event is not mandatory to implement by a device.
 
-=== Payload content ===
+##### Payload content ===
 
  | Byte  | Description |
  | :----:  | ----------- |
@@ -103,7 +99,7 @@ This event is not mandatory to implement by a device.
  | 18 | Index for multi frame HLO events. Index starts at zero and increase for every sub part of a high level payload. |
  | 19-511 | Variable length high level payload. For type=0 first byte is separation character. |
 
-=== Type ===
+##### Type ===
 
  | Type  | Description |
  | :----:  | ----------- |

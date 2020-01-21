@@ -8,7 +8,7 @@ This class is reserved for internal events used by the damon to communicate with
 
 ## Type=0 (0x00) - General event :id=type0
     VSCP2_TYPE_VSCPD_GENERAL
-General Event.
+## General Event.
 
 | Data byte | Description |
 | :----: | ----------- |
