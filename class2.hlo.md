@@ -59,9 +59,12 @@ This event is not mandatory to implement by a device.
 | 127 | User specified content |
 | 128-255 | Encrypted content (see below) |
 
+
 Encrypted content is encrypted with AES256 CBC and a 256-bit key. The encrypted content is sent with a 16-byte IV appended to it meaning that the actual payload can be max 477 bytes (512-16 (GUID)-3 (size, type, index)-16 (IV)).
 
 Multi frame commands is first collected (all events that make up the command is read) then the IV is extracted from the last 16-bytes and after that the decryption of the rest of the data is carried out.
+
+
 ----
 
 ## Type=2 (0x02) - HLO Response :id=type2
