@@ -46,7 +46,6 @@
  * [General VSCP wiki](https://www.vscp.org/wiki/doku.php)
 
 
-
     
 * Level I events
  * [Description](./level_i_events.md)
@@ -136,8 +135,5 @@
  * [CLASS2.MEASUREMENT_STR = 1040 (0x410)](./class2.measurement_str.md)
  * [CLASS2.MEASUREMENT_FLOAT = 1060 (0x424)](./class2.measurement_float.md)
  * [CLASS2.VSCPD = 65535 (0xffff)](./class2.vscpd.md)
-    
- 
-
     
  
