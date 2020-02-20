@@ -113,34 +113,31 @@ Other methods to generate GUID's s also available form more information see Appe
 VSCP level II events can be presented as XML data. Format is
 
 ```xml
-`<?xml version = "1.0" encoding = "UTF-8" ?>`
-`<!-- Version 0.0.1 2007-09-27 -->`
-`<event>`
-    `<head>`flags for event`</head>`
-    `<class>`Eventclass is numerical form or CLASSx:numerical form`</class>`
-    `<type>`Event type in numerical form.`</type>`
-    `<!-- GUID of sending node -->`
-    `<guid>`ff:ee:dd:cc:bb:aa:99:88:77:66:55:44:33:22:11:00`</guid>`
-    `<timestamp>`Relative microsecond value.`</timestamp>`
-    `<!-- UTC time -->`
-    `<datetime>`2018-03-03T12:01:40`</datetime>`
-    `<data>`
-    Comma separated list with event data.
-    Hex values (preceded with '0x')and decimal values allowed.
-    `</data>`
-    `<!-- Optional for use with measurements -->`
-    `<unit>`Code for unit data is presented in`</unit>`
-    `<sensorindex>`Index for sensor`</sensorindex>`
-    `<coding>`How value is codes`</coding>`
-    `<value>`Measurement value`</value>`
-`</event>`
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!-- Version 0.0.2 2020-02-20 -->
+<event 
+    vscpHead="flags for event"
+    vscpClass="Eventclass is numerical form or CLASSx:numerical form"
+    vscpType="Event type in numerical form."
+    vscpGuid="ff:ee:dd:cc:bb:aa:99:88:77:66:55:44:33:22:11:00"
+    vscpTimeStamp="Relative microsecond value."
+    datetime="2018-03-03T12:01:40Z"
+    vscpData="
+    Comma separated list with event data. Hex values (preceded with '0x')and decimal values allowed."
+    unit="Code for unit data is presented in"
+    sensorindex="Index for sensor"
+    coding="How value is codes"
+    value="Measurement value"
+/>
 ```
 
-If timestamp and or datetime is absent it should be treated as 'now'.
+__unit__, __sensorindex__, __coding__ and __value__ is extra information used by event decoding logic. __note__ is used by analytic software__
 
-timestamp is a sender relative value expressed in microseconds that can be used for more precise timing calculations
+If vscpTimeStamp and or vscpDateTime is absent they should be treated as 'now'.
 
-datetime is date + time in UTC
+vscpTimeStamp is a sender relative value expressed in microseconds that can be used for more precise timing calculations
+
+vscpDateTime is date + time in UTC on ISO format
 
 ## JSON Representation
 
@@ -148,13 +145,15 @@ VSCP level II events can be presented as JSON data. Format is
 
 ```json
 {
-    “head”:0,
-    “vscpclass”: 10,
-    “vscptype”: 6,
-    "guid": "ff:ee:dd:cc:bb:aa:99:88:77:66:55:44:33:22:11:00",
-    "timestamp": 1234567,
-    "datetime": "2018-03-03T12:01:40",
-    "data":[1,2,3,4],
+    vscpHead:0,
+    vscpObId:0,
+    vscpClass: 10,
+    vscpType: 6,
+    "vscpGuid": "ff:ee:dd:cc:bb:aa:99:88:77:66:55:44:33:22:11:00",
+    "vscpTimeStamp": 1234567,
+    "vscpDateTime": "2018-03-03T12:01:40Z",
+    "vscpData":[1,2,3,4],
+    "note":"Some note about event",
     “unit”: 0,        /* optional for measurements */
     “sensorindex”: 0, /* optional for measurements */
     “coding”: 0,      /* optional for measurements */
@@ -162,11 +161,14 @@ VSCP level II events can be presented as JSON data. Format is
 }
 ```
 
-If timestamp and or datetime is absent it should be treated as 'now'.
+__unit__, __sensorindex__, __coding__ and __value__ is extra information used by event decoding logic. __note__ is used by analytic software__
 
-timestamp is a sender relative value expressed in microseconds that can be used for more precise timing calculations
 
-datetime is date + time in UTC
+If vscpTimeStamp and or vscpDateTime is absent it should be treated as 'now'.
+
+vscpTimeStamp is a sender relative value expressed in microseconds that can be used for more precise timing calculations
+
+vscpDateTime is date + time in UTC on ISO format
 
 ## Globally Unique Identifiers
 
