@@ -144,22 +144,24 @@ vscpDateTime is date + time in UTC on ISO format
 VSCP level II events can be presented as JSON data. Format is
 
 ```json
-{
-    vscpHead:0,
-    vscpObId:0,
-    vscpClass: 10,
-    vscpType: 6,
-    "vscpGuid": "ff:ee:dd:cc:bb:aa:99:88:77:66:55:44:33:22:11:00",
-    "vscpTimeStamp": 1234567,
-    "vscpDateTime": "2018-03-03T12:01:40Z",
-    "vscpData":[1,2,3,4],
-    "note":"Some note about event",
-    “unit”: 0,        /* optional for measurements */
-    “sensorindex”: 0, /* optional for measurements */
-    “coding”: 0,      /* optional for measurements */
-    “value”: 1.2345,  /* optional for measurements */
+{   "vscpHead":0,
+   "vscpObId":0,
+   "vscpClass":10,
+   "vscpType":6,
+   "vscpGuid":"ff:ee:dd:cc:bb:aa:99:88:77:66:55:44:33:22:11:00",
+   "vscpTimeStamp":1234567,
+   "vscpDateTime":"2018-03-03T12:01:40Z",
+   "vscpData":[1,2,3,4],
+   "note":"Some optional note about event",
+   "unit":0,
+   "sensorindex":0,
+   "coding":0,
+   "value":1.2345
 }
 ```
+**note** is used by analytic software like VSCP Works.
+
+**unit**, **sensorindex**,**coding** and **value** are optional for measurements event conversions.
 
 __unit__, __sensorindex__, __coding__ and __value__ is extra information used by event decoding logic. __note__ is used by analytic software__
 

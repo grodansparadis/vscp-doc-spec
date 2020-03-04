@@ -34,18 +34,8 @@
   * [VSCP over MQTT](./vscp_over_mqtt.md)
   * [VSCP Text](./vscp_text.md)
 
-* Other VSCP documents
- * [VSCP Daemon](https://grodansparadis.gitbooks.io/the-vscp-daemon/)
- * [VSCP Helper lib](https://grodansparadis.gitbooks.io/the-vscp-helper-library/)
- * [VSCP Works](https://www.vscp.org/docs/vscpworks/doku.php?id=start)
- * [VSCP Firmware](https://grodansparadis.gitbooks.io/vscp-firmware/)
- * [VSCP L1 Framework](https://github.com/BlueAndi/vscp-framework/blob/master/README.md)
- * [VSCP Arduino](https://github.com/BlueAndi/vscp-arduino)
- * [VSCP Javascript lib.](https://grodansparadis.gitbooks.io/the-vscp-javascript-library/)
- * [VSCP HTML demo](https://www.vscp.org/docs/html5/doku.php)
- * [General VSCP wiki](https://www.vscp.org/wiki/doku.php)
-
-
+* Other VSCP documentation
+ * [Documentation site](https://docs.vscp.org)
     
 * Level I events
  * [Description](./level_i_events.md)
