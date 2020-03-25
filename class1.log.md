@@ -22,12 +22,16 @@ The id is something you set that have meaning for you. Typically it can be used 
 Remember that the receiving side also have the originating id (GUID) as an identification from where a logging event originates.
 
 ## Type=0 (0x00) - General event :id=type0
-    VSCP_TYPE_LOG_GENERAL
+```
+VSCP_TYPE_LOG_GENERAL
+```
 General Event.
 ----
 
 ## Type=1 (0x01) - Log event :id=type1
-    VSCP_TYPE_LOG_MESSAGE
+```
+VSCP_TYPE_LOG_MESSAGE
+```
 Message for Log. Several frames have to be sent for a event that take up more the five bytes which is the maximum for each frame. In this case the zero based index (byte 2) should be increased for each frame. 
 
  | Byte | Description            | 
@@ -39,7 +43,9 @@ Message for Log. Several frames have to be sent for a event that take up more th
 ----
 
 ## Type=2 (0x02) - Log Start :id=type2
-    VSCP_TYPE_LOG_START
+```
+VSCP_TYPE_LOG_START
+```
 Start logging. 
 
  | Byte | Description | 
@@ -48,7 +54,9 @@ Start logging.
 ----
 
 ## Type=3 (0x03) - Log Stop :id=type3
-    VSCP_TYPE_LOG_STOP
+```
+VSCP_TYPE_LOG_STOP
+```
 Stop logging. 
 
  | Byte | Description | 
@@ -57,7 +65,9 @@ Stop logging.
 ----
 
 ## Type=4 (0x04) - Log Level :id=type4
-    VSCP_TYPE_LOG_LEVEL
+```
+VSCP_TYPE_LOG_LEVEL
+```
 Set level for logging. 
 
  | Byte | Description                  | 

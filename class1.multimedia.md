@@ -10,12 +10,16 @@ The Play/Pause/Stop etc. events in the CLASS1.CONTROL class can also be used for
 
 
 ## Type=0 (0x00) - General event :id=type0
-    VSCP_TYPE_MULTIMEDIA_GENERAL
+```
+VSCP_TYPE_MULTIMEDIA_GENERAL
+```
 General Event.
 ----
 
 ## Type=1 (0x01) - Playback :id=type1
-    VSCP_TYPE_MULTIMEDIA_PLAYBACK
+```
+VSCP_TYPE_MULTIMEDIA_PLAYBACK
+```
 This is for controlling playback functionality 
 
  | Data byte | Description                                                        | 
@@ -51,7 +55,9 @@ Appropriate **CLASS1.INFORMATION** events should be sent from the controlled dev
 ----
 
 ## Type=2 (0x02) - NavigatorKey English :id=type2
-    VSCP_TYPE_MULTIMEDIA_NAVIGATOR_KEY_ENG
+```
+VSCP_TYPE_MULTIMEDIA_NAVIGATOR_KEY_ENG
+```
 This is typically for navigation functions or DVD controls 
 
  | Data byte | Description                                                        | 
@@ -79,7 +85,9 @@ This is typically for navigation functions or DVD controls
 ----
 
 ## Type=3 (0x03) - Adjust Contrast :id=type3
-    VSCP_TYPE_MULTIMEDIA_ADJUST_CONTRAST
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_CONTRAST
+```
 This is typically for adjusting the contrast level of a display device 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                | 
@@ -91,7 +99,9 @@ This is typically for adjusting the contrast level of a display device
 ----
 
 ## Type=4 (0x04) - Adjust Focus :id=type4
-    VSCP_TYPE_MULTIMEDIA_ADJUST_FOCUS
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_FOCUS
+```
 This is typically for adjusting the focus settings of a display device 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                    | 
@@ -103,7 +113,9 @@ This is typically for adjusting the focus settings of a display device
 ----
 
 ## Type=5 (0x05) - Adjust Tint :id=type5
-    VSCP_TYPE_MULTIMEDIA_ADJUST_TINT
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_TINT
+```
 This is typically for adjusting the tint settings of a display device 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                | 
@@ -115,7 +127,9 @@ This is typically for adjusting the tint settings of a display device
 ----
 
 ## Type=6 (0x06) - Adjust Color Balance :id=type6
-    VSCP_TYPE_MULTIMEDIA_ADJUST_COLOUR_BALANCE
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_COLOUR_BALANCE
+```
 This is typically for adjusting the color balance settings of a display device. 
 
  | Data byte | Description                                                        | 
@@ -127,7 +141,9 @@ This is typically for adjusting the color balance settings of a display device.
 ----
 
 ## Type=7 (0x07) - Adjust Brightness :id=type7
-    VSCP_TYPE_MULTIMEDIA_ADJUST_BRIGHTNESS
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_BRIGHTNESS
+```
 This is typically for adjusting the tint settings of a display device 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                        | 
@@ -139,7 +155,9 @@ This is typically for adjusting the tint settings of a display device
 ----
 
 ## Type=8 (0x08) - Adjust Hue :id=type8
-    VSCP_TYPE_MULTIMEDIA_ADJUST_HUE
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_HUE
+```
 This is typically for adjusting the hue settings of a display device 
 
  | Data byte | Description                                                        | 
@@ -151,7 +169,9 @@ This is typically for adjusting the hue settings of a display device
 ----
 
 ## Type=9 (0x09) - Adjust Bass :id=type9
-    VSCP_TYPE_MULTIMEDIA_ADJUST_BASS
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_BASS
+```
 This is typically for adjusting the bass level settings of a sound device. Depending on the implementation, this could automatically adjust the treble level. To adjust left and right bass levels, a node would have to use separate zones or sub-zones for left and right. 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                | 
@@ -163,7 +183,9 @@ This is typically for adjusting the bass level settings of a sound device. Depen
 ----
 
 ## Type=10 (0x0A) - Adjust Treble :id=type10
-    VSCP_TYPE_MULTIMEDIA_ADJUST_TREBLE
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_TREBLE
+```
 This is typically for adjusting the treble level settings of a sound device. Depending on the implementation, this could automatically adjust the bass level. To adjust left and right treble levels, a node would have to use separate zones or sub-zones for left and right. 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                          | 
@@ -175,7 +197,9 @@ This is typically for adjusting the treble level settings of a sound device. Dep
 ----
 
 ## Type=11 (0x0B) - Adjust Master Volume :id=type11
-    VSCP_TYPE_MULTIMEDIA_ADJUST_MASTER_VOLUME
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_MASTER_VOLUME
+```
 This is typically for adjusting the master volume level. This could be used for adjusting the level for all speakers. 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                        | 
@@ -187,7 +211,9 @@ This is typically for adjusting the master volume level. This could be used for 
 ----
 
 ## Type=12 (0x0C) - Adjust Front Volume :id=type12
-    VSCP_TYPE_MULTIMEDIA_ADJUST_FRONT_VOLUME
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_FRONT_VOLUME
+```
 This is typically for adjusting the front speaker volume level. This usually means the two front speakers as opposed to the single center speaker. 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                        | 
@@ -199,7 +225,9 @@ This is typically for adjusting the front speaker volume level. This usually mea
 ----
 
 ## Type=13 (0x0D) - Adjust Center Volume :id=type13
-    VSCP_TYPE_MULTIMEDIA_ADJUST_CENTRE_VOLUME
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_CENTRE_VOLUME
+```
 This is typically for adjusting the front speaker volume level. This usually means the single center speaker as opposed to the two front speakers. 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                        | 
@@ -211,7 +239,9 @@ This is typically for adjusting the front speaker volume level. This usually mea
 ----
 
 ## Type=14 (0x0E) - Adjust Rear Volume :id=type14
-    VSCP_TYPE_MULTIMEDIA_ADJUST_REAR_VOLUME
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_REAR_VOLUME
+```
 This is typically for adjusting the rear speaker volume level. 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                        | 
@@ -223,7 +253,9 @@ This is typically for adjusting the rear speaker volume level.
 ----
 
 ## Type=15 (0x0F) - Adjust Side Volume :id=type15
-    VSCP_TYPE_MULTIMEDIA_ADJUST_SIDE_VOLUME
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_SIDE_VOLUME
+```
 This is typically for adjusting the side speaker volume level. 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                        | 
@@ -235,27 +267,37 @@ This is typically for adjusting the side speaker volume level.
 ----
 
 ## Type=16 (0x10) - Reserved :id=type16
-    VSCP_TYPE_MULTIMEDIA_RESERVED16
+```
+VSCP_TYPE_MULTIMEDIA_RESERVED16
+```
 These are reserved for other future speaker combinations
 ----
 
 ## Type=17 (0x11) - Reserved :id=type17
-    VSCP_TYPE_MULTIMEDIA_RESERVED17
+```
+VSCP_TYPE_MULTIMEDIA_RESERVED17
+```
 These are reserved for other future speaker combinations
 ----
 
 ## Type=18 (0x12) - Reserved :id=type18
-    VSCP_TYPE_MULTIMEDIA_RESERVED18
+```
+VSCP_TYPE_MULTIMEDIA_RESERVED18
+```
 These are reserved for other future speaker combinations
 ----
 
 ## Type=19 (0x13) - Reserved :id=type19
-    VSCP_TYPE_MULTIMEDIA_RESERVED19
+```
+VSCP_TYPE_MULTIMEDIA_RESERVED19
+```
 These are reserved for other future speaker combinations
 ----
 
 ## Type=20 (0x14) - Select Disk :id=type20
-    VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_DISK
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_DISK
+```
 This is typically for selecting a disk for playback 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                 | 
@@ -267,7 +309,9 @@ This is typically for selecting a disk for playback
 ----
 
 ## Type=21 (0x15) - Select Track :id=type21
-    VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_TRACK
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_TRACK
+```
 This is typically for selecting a track for playback 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                             | 
@@ -279,7 +323,9 @@ This is typically for selecting a track for playback
 ----
 
 ## Type=22 (0x16) - Select Album/Play list :id=type22
-    VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_ALBUM
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_ALBUM
+```
 This is typically for selecting an album or play-list for playback 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                                  | 
@@ -291,7 +337,9 @@ This is typically for selecting an album or play-list for playback
 ----
 
 ## Type=23 (0x17) - Select Channel :id=type23
-    VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_CHANNEL
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_CHANNEL
+```
 This is typically for selecting a TV Channel 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                       | 
@@ -303,7 +351,9 @@ This is typically for selecting a TV Channel
 ----
 
 ## Type=24 (0x18) - Select Page :id=type24
-    VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_PAGE
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_PAGE
+```
 This is typically for selecting a page of a film 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                        | 
@@ -315,7 +365,9 @@ This is typically for selecting a page of a film
 ----
 
 ## Type=25 (0x19) - Select Chapter :id=type25
-    VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_CHAPTER
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_CHAPTER
+```
 This is typically for selecting a chapter of a film 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                       | 
@@ -327,7 +379,9 @@ This is typically for selecting a chapter of a film
 ----
 
 ## Type=26 (0x1A) - Select Screen Format :id=type26
-    VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_SCREEN_FORMAT
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_SCREEN_FORMAT
+```
 This is for controlling screen format of a display device 
 
  | Data byte | Description                                                        | 
@@ -339,7 +393,9 @@ This is for controlling screen format of a display device
 ----
 
 ## Type=27 (0x1B) - Select Input Source :id=type27
-    VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_INPUT_SOURCE
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_INPUT_SOURCE
+```
 This is for controlling the input source of a playback device 
 
  | Data byte | Description                                                        | 
@@ -379,7 +435,9 @@ This is for controlling the input source of a playback device
 ----
 
 ## Type=28 (0x1C) - Select Output :id=type28
-    VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_OUTPUT
+```
+VSCP_TYPE_MULTIMEDIA_ADJUST_SELECT_OUTPUT
+```
 This is for controlling the output of a playback device 
 
  | Data byte | Description                                                        | 
@@ -406,7 +464,9 @@ This is for controlling the output of a playback device
 ----
 
 ## Type=29 (0x1D) - Record :id=type29
-    VSCP_TYPE_MULTIMEDIA_RECORD
+```
+VSCP_TYPE_MULTIMEDIA_RECORD
+```
 Control a recording device. 
 
  | Data byte | Description                                                            | 
@@ -418,7 +478,9 @@ Control a recording device.
 ----
 
 ## Type=30 (0x1E) - Set Recording Volume :id=type30
-    VSCP_TYPE_MULTIMEDIA_SET_RECORDING_VOLUME
+```
+VSCP_TYPE_MULTIMEDIA_SET_RECORDING_VOLUME
+```
 Control a recording device. 
 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                | 
@@ -430,7 +492,9 @@ Control a recording device.
 ----
 
 ## Type=40 (0x28) - Tivo Function :id=type40
-    VSCP_TYPE_MULTIMEDIA_TIVO_FUNCTION
+```
+VSCP_TYPE_MULTIMEDIA_TIVO_FUNCTION
+```
 This is typically for accessing TIVO functions 
 
  | Data byte | Description                                                        | 
@@ -460,7 +524,9 @@ This is typically for accessing TIVO functions
 ----
 
 ## Type=50 (0x32) - Get Current Title :id=type50
-    VSCP_TYPE_MULTIMEDIA_GET_CURRENT_TITLE
+```
+VSCP_TYPE_MULTIMEDIA_GET_CURRENT_TITLE
+```
 Get the title for the current active media. 
 
  | Data byte | Description                                                        | 
@@ -472,7 +538,9 @@ Get the title for the current active media.
 ----
 
 ## Type=51 (0x33) - Set media position in milliseconds :id=type51
-    VSCP_TYPE_MULTIMEDIA_SET_POSITION
+```
+VSCP_TYPE_MULTIMEDIA_SET_POSITION
+```
 This is for controlling the position in the stream/file of a playback device 
 
  | Data byte | Description                                                                                                                                                                                         | 
@@ -485,7 +553,9 @@ This is for controlling the position in the stream/file of a playback device
 ----
 
 ## Type=52 (0x34) - Get media information :id=type52
-    VSCP_TYPE_MULTIMEDIA_GET_MEDIA_INFO
+```
+VSCP_TYPE_MULTIMEDIA_GET_MEDIA_INFO
+```
 Get various media information from a device. 
 
  | Data byte | Description                                                                                                                                                                          | 
@@ -499,7 +569,9 @@ If a device does not support the requested type of media information its sends a
 ----
 
 ## Type=53 (0x35) - Remove Item from Album :id=type53
-    VSCP_TYPE_MULTIMEDIA_REMOVE_ITEM
+```
+VSCP_TYPE_MULTIMEDIA_REMOVE_ITEM
+```
 Remove an item from an album. 
 
  | Data byte | Description                                                                                                                                                       | 
@@ -511,7 +583,9 @@ Remove an item from an album.
 ----
 
 ## Type=54 (0x36) - Remove all Items from Album :id=type54
-    VSCP_TYPE_MULTIMEDIA_REMOVE_ALL_ITEMS
+```
+VSCP_TYPE_MULTIMEDIA_REMOVE_ALL_ITEMS
+```
 Remove all items from an album. 
 
  | Data byte | Description                                                        | 
@@ -523,7 +597,9 @@ Remove all items from an album.
 ----
 
 ## Type=55 (0x37) - Save Album/Play list :id=type55
-    VSCP_TYPE_MULTIMEDIA_SAVE_ALBUM
+```
+VSCP_TYPE_MULTIMEDIA_SAVE_ALBUM
+```
 Save album/play-list to permanent storage. 
 
  | Data byte | Description                                                          | 
@@ -535,7 +611,9 @@ Save album/play-list to permanent storage.
 ----
 
 ## Type=60 (0x3C) - Multimedia Control :id=type60
-    VSCP_TYPE_MULTIMEDIA_CONTROL
+```
+VSCP_TYPE_MULTIMEDIA_CONTROL
+```
 Send multimedia information. This can be the title for the current active media. It can be sent as a response to a “Get Title” or similar event or by its own when a new title is playing or other multimedia information has changed.
 
 Response should be Type=61 
@@ -606,7 +684,9 @@ Album can be looked upon as a play-list which is a term used for many other mult
 ----
 
 ## Type=61 (0x3D) - Multimedia Control response :id=type61
-    VSCP_TYPE_MULTIMEDIA_CONTROL_RESPONSE
+```
+VSCP_TYPE_MULTIMEDIA_CONTROL_RESPONSE
+```
 Response for multimedia control.
 ----
 

@@ -13,12 +13,16 @@ This class of events is used for wireless equipment such as cellular phones etc.
 *  For Time-stamp use CLASS1.MEASUREMENT, Type = 4 (0x04) Time
 
 ## Type=0 (0x00) - General event :id=type0
-    VSCP_TYPE_WIRELESS_GENERAL
+```
+VSCP_TYPE_WIRELESS_GENERAL
+```
 General Event.
 ----
 
 ## Type=1 (0x01) - GSM Cell :id=type1
-    VSCP_TYPE_WIRELESS_GSM_CELL
+```
+VSCP_TYPE_WIRELESS_GSM_CELL
+```
 Event with ID for the GSM cell. Normally this is a 16-bit value but a 32-bit value is used in VSCP. 
 
  | Byte | Description  | 

@@ -7,12 +7,16 @@
 This is the IR code sent/received from common remote controls. 
 
 ## Type=0 (0x00) - General event :id=type0
-    VSCP_TYPE_REMOTE_GENERAL
+```
+VSCP_TYPE_REMOTE_GENERAL
+```
 General Event.
 ----
 
 ## Type=1 (0x01) - RC5 Send/Receive :id=type1
-    VSCP_TYPE_REMOTE_RC5
+```
+VSCP_TYPE_REMOTE_RC5
+```
 A RC5 remote code. [http://www.xs4all.nl/~sbp/knowledge/ir/sirc.htm ]Use the VSCP abstract remote format if possible.
 
  | Byte | Description          | 
@@ -23,7 +27,9 @@ A RC5 remote code. [http://www.xs4all.nl/~sbp/knowledge/ir/sirc.htm ]Use the VSC
 ----
 
 ## Type=3 (0x03) - SONY 12-bit Send/Receive :id=type3
-    VSCP_TYPE_REMOTE_SONY12
+```
+VSCP_TYPE_REMOTE_SONY12
+```
 A SONY remote code. [http://www.xs4all.nl/~sbp/knowledge/ir/sirc.htm] Use the VSCP abstract remote format if possible.
 
  | Byte | Description          | 
@@ -35,7 +41,9 @@ A SONY remote code. [http://www.xs4all.nl/~sbp/knowledge/ir/sirc.htm] Use the VS
 ----
 
 ## Type=32 (0x20) - LIRC (Linux Infrared Remote Control) :id=type32
-    VSCP_TYPE_REMOTE_LIRC
+```
+VSCP_TYPE_REMOTE_LIRC
+```
 Packed LIRC codes code. LRC Codes are normally sent as 64-bit codes or even larger codes. Only codes with a length less then 56 bits (7-bytes) are supported by VSCP and the most significant byte of the LIRC code is not transferred. [http://www.lirc.org/](http://www.lirc.org/) 
 
  | Byte | Description          | 
@@ -52,7 +60,9 @@ Packed LIRC codes code. LRC Codes are normally sent as 64-bit codes or even larg
 ----
 
 ## Type=48 (0x30) - VSCP Abstract Remote Format :id=type48
-    VSCP_TYPE_REMOTE_VSCP
+```
+VSCP_TYPE_REMOTE_VSCP
+```
 Instead of sending codes that relates to a certain remote this format is general. And therefore more flexible 
 
  | Byte | Description                                                            | 
@@ -66,7 +76,9 @@ Instead of sending codes that relates to a certain remote this format is general
 ----
 
 ## Type=49 (0x31) - MAPito Remote Format :id=type49
-    VSCP_TYPE_REMOTE_MAPITO
+```
+VSCP_TYPE_REMOTE_MAPITO
+```
 Instead of sending codes that relates to a certain remote this format is general. And therefore more flexible. 
 
  | Byte | Description                                                            | 

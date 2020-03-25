@@ -1318,4 +1318,32 @@ Bit 39 and bit 38 is reserved.
 ----
 
 
+## Type=84 (0x54) - Enter :id=type84
+    VSCP_TYPE_INFORMATION_ENTEREnter, something has been entered.
+
+ | Data byte | Description | 
+ | :---------: | ----------- | 
+ | 0 | Index for device. Set to zero if not used. | 
+ | 1 | Zone for which event applies to (0-255). 255 is all zones. | 
+ | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+ 
+
+
+----
+
+
+## Type=85 (0x55) - Exit :id=type85
+    VSCP_TYPE_INFORMATION_EXITExit, something has been exited.
+
+ | Data byte | Description | 
+ | :---------: | ----------- | 
+ | 0 | Index for device. Set to zero if not used.| 
+ | 1 | Zone for which event applies to (0-255). 255 is all zones. | 
+ | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
+ 
+
+
+----
+
+
 [filename](./bottom_copyright.md ':include')

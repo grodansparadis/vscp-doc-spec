@@ -9,12 +9,16 @@ For Level I events class=0 defines protocol control functionality. All events of
 This class defines protocol functionality for Level II. To simplify the handling of level II events, the data portion of the VSCP event can be considered as being made up of two parts. An 8-byte code portion (size of long integer) followed by a data portion if required. This is simply done to make processing level II events a little easier. The following events have been added to the level II control events to support configuration management. 
 
 ## Type=0 (0x00) - General event :id=type0
-    VSCP2_TYPE_PROTOCOL_GENERAL
+```
+VSCP2_TYPE_PROTOCOL_GENERAL
+```
 General Event.
 ----
 
 ## Type=1 (0x01) - Read Register :id=type1
-    VSCP2_TYPE_PROTOCOL_READ_REGISTER
+```
+VSCP2_TYPE_PROTOCOL_READ_REGISTER
+```
 Read a Level II register 
 
  | Byte       | Description                                      | 
@@ -30,7 +34,9 @@ This means that buffer_size - 8 is maximum data bytes read.
 ----
 
 ## Type=2 (0x02) - Write Register :id=type2
-    VSCP2_TYPE_PROTOCOL_WRITE_REGISTER
+```
+VSCP2_TYPE_PROTOCOL_WRITE_REGISTER
+```
  | Byte       | Description                                      | 
  | ----       | -----------                                      | 
  | Byte 0-15  | Contains the GUID of the target node (MSB->LSB). | 
@@ -42,7 +48,9 @@ Number of registers to write can also be restricted by the buffer size on the bo
 ----
 
 ## Type=3 (0x03) - Read Write Response :id=type3
-    VSCP2_TYPE_PROTOCOL_READ_WRITE_RESPONSE
+```
+VSCP2_TYPE_PROTOCOL_READ_WRITE_RESPONSE
+```
 This is the response from a read and a write. Note that the data is returned in both cases and can be checked for validity. 
 
  | Byte      | Description                               | 
@@ -53,7 +61,9 @@ This is the response from a read and a write. Note that the data is returned in 
 ----
 
 ## Type=20 (0x14) - High end server/service capabilities :id=type20
-    VSCP2_TYPE_PROTOCOL_HIGH_END_SERVER_CAPS
+```
+VSCP2_TYPE_PROTOCOL_HIGH_END_SERVER_CAPS
+```
 Should be implemented by all Level II devices and be sent out at least once every 60 second.
 
  | Data byte | Description                                                                                                                      |
@@ -122,7 +132,9 @@ Non standard port definitions. Each consist of three bytes.
 ----
 
 ## Type=32 (0x20) - Level II who is there response :id=type32
-    VSCP2_TYPE_PROTOCOL_WHO_IS_THERE_RESPONSE
+```
+VSCP2_TYPE_PROTOCOL_WHO_IS_THERE_RESPONSE
+```
 This defines the response from a Level II node for a [CLASS1.PROTOCOL, Type=32, Who is there?](./class1.protocol.md#type31) event.
 
  | Byte  | Description                                       |

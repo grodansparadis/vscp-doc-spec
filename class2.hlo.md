@@ -6,13 +6,17 @@
 
 HLO (High Level Object) class. This class is used to talk to drivers and nodes using XML or JSON or other higher level formats. 
 ## Type=0 (0x00) - General event :id=type0
-    VSCP2_TYPE_HLO_GENERAL
+```
+VSCP2_TYPE_HLO_GENERAL
+```
 General HLO Event.
 
 ----
 
 ## Type=1 (0x01) - HLO Command :id=type1
-    VSCP2_TYPE_HLO_COMMAND
+```
+VSCP2_TYPE_HLO_COMMAND
+```
 High Level Object (HLO) event is a command/response or other packed object sent to a device or sent as a response from a device. Content can be XML, JSON, character separated, BASE64, etc.
 
 Command and response packages are separated into different VSCP types to be easier to filter even if this is not strictly needed. 
@@ -72,7 +76,9 @@ Multi frame commands is first collected (all events that make up the command is 
 ----
 
 ## Type=2 (0x02) - HLO Response :id=type2
-    VSCP2_TYPE_HLO_RESPONSE
+```
+VSCP2_TYPE_HLO_RESPONSE
+```
 High Level Object (HLO) event is a command/response or other packed object sent to a device or sent as a response from a device. Content can be XML, JSON, character separated, BASE64, etc.
 
 Command and response packages are separated into different VSCP types to be easier to filter even if this is not strictly needed.  

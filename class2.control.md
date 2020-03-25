@@ -6,7 +6,9 @@
 
 Level II Control functionality.
 ## Type=0 (0x00) - General event :id=type0
-    VSCP2_TYPE_CONTROL_GENERAL
+```
+VSCP2_TYPE_CONTROL_GENERAL
+```
 General Event.
 ----
 

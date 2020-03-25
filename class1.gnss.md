@@ -26,12 +26,16 @@ Typically one NMEA, SIRF etc frame with information needs to be translated to ma
 
 if preferred to hold the events together. 
 ## Type=0 (0x00) - General event :id=type0
-    VSCP_TYPE_GNSS_GENERAL
+```
+VSCP_TYPE_GNSS_GENERAL
+```
 General Event.
 ----
 
 ## Type=1 (0x01) - Position :id=type1
-    VSCP_TYPE_GNSS_POSITION
+```
+VSCP_TYPE_GNSS_POSITION
+```
 Position information as decimal Latitude + Longitude. 
 
  | Byte | Description                        | 
@@ -42,7 +46,9 @@ Position information as decimal Latitude + Longitude.
 ----
 
 ## Type=2 (0x02) - Satellites :id=type2
-    VSCP_TYPE_GNSS_SATELLITES
+```
+VSCP_TYPE_GNSS_SATELLITES
+```
 Number of satellites used. 
 
  | Byte | Description                | 

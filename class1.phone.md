@@ -7,12 +7,16 @@
 This class is for phone related functionality. 
 
 ## Type=0 (0x00) - General event :id=type0
-    VSCP_TYPE_PHONE_GENERAL
+```
+VSCP_TYPE_PHONE_GENERAL
+```
 General Event.
 ----
 
 ## Type=1 (0x01) - Incoming call :id=type1
-    VSCP_TYPE_PHONE_INCOMING_CALL
+```
+VSCP_TYPE_PHONE_INCOMING_CALL
+```
 There is an incoming phone call. Usually a caller ID node just sends out numerical information. A database event can follow (later) that contains the real text information.
 
 Phone calls are reported in the following form
@@ -49,7 +53,9 @@ Calls from unlisted numbers are presented as
 ----
 
 ## Type=2 (0x02) - Outgoing call :id=type2
-    VSCP_TYPE_PHONE_OUTGOING_CALL
+```
+VSCP_TYPE_PHONE_OUTGOING_CALL
+```
 There is an outgoing phone call. 
 
  | Byte | Description | 
@@ -62,7 +68,9 @@ There is an outgoing phone call.
 ----
 
 ## Type=3 (0x03) - Ring :id=type3
-    VSCP_TYPE_PHONE_RING
+```
+VSCP_TYPE_PHONE_RING
+```
 This is a event indicating that there is a “ring” for this call. 
 
  | Byte | Description | 
@@ -72,7 +80,9 @@ This is a event indicating that there is a “ring” for this call.
 ----
 
 ## Type=4 (0x04) - Answer :id=type4
-    VSCP_TYPE_PHONE_ANSWER
+```
+VSCP_TYPE_PHONE_ANSWER
+```
 The call has been answered. 
 
  | Byte | Description | 
@@ -84,7 +94,9 @@ The call has been answered.
 ----
 
 ## Type=5 (0x05) - Hangup :id=type5
-    VSCP_TYPE_PHONE_HANGUP
+```
+VSCP_TYPE_PHONE_HANGUP
+```
 The call has been terminated by the receiving end. 
 
  | Byte | Description | 
@@ -95,7 +107,9 @@ The call has been terminated by the receiving end.
 ----
 
 ## Type=6 (0x06) - Giveup :id=type6
-    VSCP_TYPE_PHONE_GIVEUP
+```
+VSCP_TYPE_PHONE_GIVEUP
+```
 The call has been terminated by the originating end. byte 
 
 | Byte | Description | 
@@ -106,7 +120,9 @@ The call has been terminated by the originating end. byte
 ----
 
 ## Type=7 (0x07) - Transfer :id=type7
-    VSCP_TYPE_PHONE_TRANSFER
+```
+VSCP_TYPE_PHONE_TRANSFER
+```
 The call has been transferred. byte 
 
  | Byte | Description | 
@@ -117,7 +133,9 @@ The call has been transferred. byte
 ----
 
 ## Type=8 (0x08) - Database Info :id=type8
-    VSCP_TYPE_PHONE_DATABASE_INFO
+```
+VSCP_TYPE_PHONE_DATABASE_INFO
+```
  Call database info.
  
  | Byte | Description | 
