@@ -33,11 +33,21 @@ The relationship between Level II measurement events and Level I measurement eve
   - [CLASS1.MEASUREMENT=14 (0x0E)](./class1.measurementx3.md) which is mirrored as Level II measurements 1024-1279.
 
 Level II measurement events with type >= 1280 have no relation to any Level I measurement events.
+
+## Data format
+| Data byte | Description | 
+ | :---------: | ----------- | 
+ | 0 | [Data coding]((./vscp_measurements.md)).  | 
+ | 1-7 | Data with format defined by byte 0. | 
+
+ 
 ## Type=0 (0x00) - General event :id=type0
 ```
 VSCP_TYPE_MEASUREMENT_GENERAL
 ```
-General Event.
+This is a general (custom) measurement event that can be used if no other event is suitable. 
+
+
 ----
 
 ## Type=1 (0x01) - Count :id=type1
@@ -46,10 +56,7 @@ VSCP_TYPE_MEASUREMENT_COUNT
 ```
 This is a discrete value typical for a count. There is no unit for this measurement just a discrete value. 
 
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0         | Data coding. | 
- | 1-7       | Data with format defined by byte 0. |
+
 ----
 
 ## Type=2 (0x02) - Length/Distance :id=type2
@@ -60,10 +67,7 @@ VSCP_TYPE_MEASUREMENT_LENGTH
 
 This is a measurement of a length or a distance.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 ----
 
 ## Type=3 (0x03) - Mass :id=type3
@@ -74,10 +78,7 @@ VSCP_TYPE_MEASUREMENT_MASS
 
 This is a measurement of a mass. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -90,10 +91,7 @@ A time measurement.
 **Default unit:** Seconds.  
 **Opt. unit:** (1) Milliseconds. Absolute: (2) y-y-m-d-h-m-s (binary). String: (3) "HHMMSS". 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -105,10 +103,7 @@ VSCP_TYPE_MEASUREMENT_ELECTRIC_CURRENT
 
 This is a measurement of an electric current. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -121,10 +116,7 @@ VSCP_TYPE_MEASUREMENT_TEMPERATURE
 
 This is a measurement of a temperature. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -136,10 +128,7 @@ VSCP_TYPE_MEASUREMENT_AMOUNT_OF_SUBSTANCE
 
 This is a measurement of an amount of a substance. 
 
- | Data byte | Description | 
- | :---------: | -----------  | 
- |  0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -151,10 +140,7 @@ VSCP_TYPE_MEASUREMENT_INTENSITY_OF_LIGHT
 
 This is a measurement of luminous intensity. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -167,10 +153,7 @@ VSCP_TYPE_MEASUREMENT_FREQUENCY
 
 This is a measurement of regular events during a second. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -183,10 +166,7 @@ VSCP_TYPE_MEASUREMENT_RADIOACTIVITY
 
 This is a measurement of rates of things, which happen randomly, or are unpredictable. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -198,10 +178,7 @@ VSCP_TYPE_MEASUREMENT_FORCE
 
 This is a measurement of force. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -214,10 +191,7 @@ VSCP_TYPE_MEASUREMENT_PRESSURE
 
 This is a measurement of pressure. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+  
 
 ----
 
@@ -230,10 +204,7 @@ VSCP_TYPE_MEASUREMENT_ENERGY
 
 This is a measurement of energy. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -246,10 +217,6 @@ VSCP_TYPE_MEASUREMENT_POWER
 
 This is a measurement of power. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
 
 ----
 
@@ -261,10 +228,7 @@ VSCP_TYPE_MEASUREMENT_ELECTRICAL_CHARGE
 
 This is a measurement electrical charge. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -276,10 +240,7 @@ VSCP_TYPE_MEASUREMENT_ELECTRICAL_POTENTIAL
 
 This is a measurement of electrical potential. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+  
 
 ----
 
@@ -291,10 +252,7 @@ VSCP_TYPE_MEASUREMENT_ELECTRICAL_CAPACITANCE
 
 This is a measurement of electric capacitance.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -306,10 +264,7 @@ VSCP_TYPE_MEASUREMENT_ELECTRICAL_RESISTANCE
 
 This is a measurement of resistance. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 ----
 
 ## Type=19 (0x13) - Electrical Conductance :id=type19
@@ -320,10 +275,7 @@ VSCP_TYPE_MEASUREMENT_ELECTRICAL_CONDUCTANCE
 
 This is a measurement of electrical conductance. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+  
 
 ----
 
@@ -336,10 +288,7 @@ VSCP_TYPE_MEASUREMENT_MAGNETIC_FIELD_STRENGTH
 
 This is a measurement of magnetic field strength. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -351,10 +300,7 @@ VSCP_TYPE_MEASUREMENT_MAGNETIC_FLUX
 
 This is a measurement of magnetic flux. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -366,10 +312,7 @@ VSCP_TYPE_MEASUREMENT_MAGNETIC_FLUX_DENSITY
 
 This is a measurement of flux density or field strength for magnetic fields (also called the magnetic induction). 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -381,10 +324,7 @@ VSCP_TYPE_MEASUREMENT_INDUCTANCE
 
 This is a measurement of inductance. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -396,10 +336,7 @@ VSCP_TYPE_MEASUREMENT_FLUX_OF_LIGHT
 
 This is a measurement of luminous Flux. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -411,10 +348,7 @@ VSCP_TYPE_MEASUREMENT_ILLUMINANCE
 
 This is used to express both Illuminance (incidence of light) and Luminous Emittance (emission of light). 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -427,10 +361,7 @@ VSCP_TYPE_MEASUREMENT_RADIATION_DOSE
 
 This is a measurement of a radiation dose (Absorbed dose of ionizing radiation). 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -442,10 +373,7 @@ VSCP_TYPE_MEASUREMENT_CATALYTIC_ACITIVITY
 
 This is a measurement of catalytic activity used in biochemistry. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -458,10 +386,7 @@ VSCP_TYPE_MEASUREMENT_VOLUME
 
 This is a measurement of volume. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -473,10 +398,7 @@ VSCP_TYPE_MEASUREMENT_SOUND_INTENSITY
 
 This is a measurement of sound intensity (acoustic intensity). 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -491,10 +413,7 @@ VSCP_TYPE_MEASUREMENT_ANGLE
 
 This is a measurement of an angle. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+  
 
 ----
 
@@ -507,10 +426,7 @@ VSCP_TYPE_MEASUREMENT_POSITION
 
 This is a measurement of a position as of WGS 84. Normally given as a floating point value. See [./class1.gps.md](CLASS1.GPS) for a better candidate to use for position data.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -523,10 +439,7 @@ VSCP_TYPE_MEASUREMENT_SPEED
 
 This is a measurement of a speed. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -538,10 +451,7 @@ VSCP_TYPE_MEASUREMENT_ACCELERATION
 
 This is a measurement of acceleration. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -553,10 +463,7 @@ VSCP_TYPE_MEASUREMENT_TENSION
 
 This is a measurement of tension. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -568,10 +475,7 @@ VSCP_TYPE_MEASUREMENT_HUMIDITY
 
 This is a measurement of relative moistness (Humidity). 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -584,10 +488,7 @@ VSCP_TYPE_MEASUREMENT_FLOW
 
 This is a measurement of flow. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -599,10 +500,7 @@ VSCP_TYPE_MEASUREMENT_THERMAL_RESISTANCE
 
 This is a measurement of thermal resistance. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -614,10 +512,7 @@ VSCP_TYPE_MEASUREMENT_REFRACTIVE_POWER
 
 This is a measurement of refractive (optical) power. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -629,10 +524,7 @@ VSCP_TYPE_MEASUREMENT_DYNAMIC_VISCOSITY
 
 This is a measurement of dynamic viscosity. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -644,10 +536,7 @@ VSCP_TYPE_MEASUREMENT_SOUND_IMPEDANCE
 
 This is a measurement of sound impedance. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -659,10 +548,7 @@ VSCP_TYPE_MEASUREMENT_SOUND_RESISTANCE
 
 This is a measurement of sound resistance.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -674,10 +560,7 @@ VSCP_TYPE_MEASUREMENT_ELECTRIC_ELASTANCE
 
 This is a measurement of electric elasticity. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+  
 
 ----
 
@@ -689,10 +572,7 @@ VSCP_TYPE_MEASUREMENT_LUMINOUS_ENERGY
 
 This is a measurement of luminous energy.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -704,10 +584,7 @@ VSCP_TYPE_MEASUREMENT_LUMINANCE
 
 This is a measurement of luminance.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 ----
 
@@ -719,10 +596,7 @@ VSCP_TYPE_MEASUREMENT_CHEMICAL_CONCENTRATION
 
 This is a measurement of chemical concentration. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -742,10 +616,7 @@ VSCP_TYPE_MEASUREMENT_DOSE_EQVIVALENT
 
 This is a measurement of dose equivalent. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -766,10 +637,7 @@ VSCP_TYPE_MEASUREMENT_DEWPOINT
 
 This is a measurement of the Dew Point. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -781,10 +649,7 @@ VSCP_TYPE_MEASUREMENT_RELATIVE_LEVEL
 
 This is a relative value for a level measurement without a unit. It is just relative to the min/max value for the selected data representation, typically percentage or per mille or similar. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -797,10 +662,7 @@ VSCP_TYPE_MEASUREMENT_ALTITUDE
 
 Altitude in meters. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -812,10 +674,7 @@ VSCP_TYPE_MEASUREMENT_AREA
 
 Area in square meter. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -827,11 +686,7 @@ VSCP_TYPE_MEASUREMENT_RADIANT_INTENSITY
 
 Radiated power per room angle. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
-
+ 
 ----
 
 ## Type=54 (0x36) - Radiance :id=type54
@@ -842,10 +697,7 @@ VSCP_TYPE_MEASUREMENT_RADIANCE
 
 This is the radiant flux emitted, reflected, transmitted or received by a surface.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+  
 
 ----
 
@@ -857,10 +709,7 @@ VSCP_TYPE_MEASUREMENT_IRRADIANCE
 
 Power emitted from or striking onto a surface or area. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -873,10 +722,7 @@ VSCP_TYPE_MEASUREMENT_SPECTRAL_RADIANCE
 
 Radiance of a surface per unit frequency or wavelength.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+                        
 
 ----
 
@@ -889,10 +735,7 @@ VSCP_TYPE_MEASUREMENT_SPECTRAL_IRRADIANCE
 
 Irradiance of a surface per unit frequency or wavelength.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -904,10 +747,7 @@ VSCP_TYPE_MEASUREMENT_SOUND_PRESSURE
 
 This is a measurement of sound pressure (acoustic pressure). 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 
@@ -919,11 +759,7 @@ VSCP_TYPE_MEASUREMENT_SOUND_DENSITY
 
 Sound energy density or sound density is the sound energy per unit volume.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
-
+                        
 ----
 
 ## Type=60 (0x3C) - Sound level :id=type60
@@ -934,10 +770,7 @@ VSCP_TYPE_MEASUREMENT_SOUND_LEVEL
 
 Sound level expressed in decibel. This event is supplied for convenience.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 ----
 

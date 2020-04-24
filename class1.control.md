@@ -639,7 +639,7 @@ Turn on all lamps in a zone.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
- | 0         | Not used.                                                          | 
+ | 0         |	Optional byte that have a meaning given by the issuer of the event.| 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
@@ -655,7 +655,7 @@ Turn off all lamps in a zone.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
- | 0         | Not used.                                                          | 
+ | 0         |	Optional byte that have a meaning given by the issuer of the event.| 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
@@ -671,7 +671,7 @@ Lock devices in a zone.
 
  | Data byte | Description                                                        |
  | :---------: | -----------                                                      |
- | 0         | Not used.                                                          |
+ | 0         |	Optional byte that have a meaning given by the issuer of the event.| 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
@@ -685,7 +685,7 @@ Unlock devices in a zone.
 
  | Data byte | Description                                                        |
  | :---------: | -----------                                                        |
- | 0         | Not used.                                                          |
+ | 0         |	Optional byte that have a meaning given by the issuer of the event.| 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
@@ -741,11 +741,12 @@ Lock devices with token.
 
  | Data byte | Description                                                        |
  | :---------: | -----------                                                      |
- | 0         | Not used.                                                          |
+ | 0         |	Optional byte that have a meaning given by the issuer of the event.| 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  | 3-7 | Token. This token can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775. MSB byte is stored in first byte. |
  
+
 ----
 
 ## Type=46 (0x2E) - Unlock with token :id=type46
@@ -756,11 +757,12 @@ Unlock devices with token.
 
  | Data byte | Description                                                        |
  | :---------: | -----------                                                      |
- | 0         | Not used.                                                          |
+ | 0         |	Optional byte that have a meaning given by the issuer of the event.| 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  | 3-7 | Token. This token can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775. MSB byte is stored in first byte. |
  
+
 ----
 
 ## Type=47 (0x2F) - Set security level :id=type47
@@ -786,11 +788,12 @@ Set security pin.
 
  | Data byte | Description                                                        |
  | :---------: | -----------                                                      |
- | 0         | Not used.                                                          |
+ | 0         |	Optional byte that have a meaning given by the issuer of the event.| 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  | 3-7 | Security pin. This pin can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775. MSB byte is stored in first byte. |
  
+
 ----
 
 ## Type=49 (0x31) - Set security password :id=type49
@@ -801,11 +804,12 @@ Set security password.
 
  | Data byte | Description                                                        |
  | :---------: | -----------                                                      |
- | 0         | Not used.                                                          |
+ | 0         |	Optional byte that have a meaning given by the issuer of the event.| 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  | 3-7 | Security password. This password can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an UTF-8 string with a length set bt event data length - 3 |
  
+
 ----
 
 ## Type=50 (0x32) - Set security token :id=type50
@@ -816,11 +820,12 @@ Set security token.
 
  | Data byte | Description                                                        |
  | :---------: | -----------                                                      |
- | 0         | Not used.                                                          |
+ | 0         |	Optional byte that have a meaning given by the issuer of the event.| 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  | 3-7 | Token. This token can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775. MSB byte is stored in first byte. |
  
+
 ----
 
 ## Type=51 (0x33) - Request new security token :id=type51
@@ -831,11 +836,12 @@ Request new security token.
 
  | Data byte | Description                                                        |
  | :---------: | -----------                                                      |
- | 0         | Not used.                                                          |
+ | 0         |	Optional byte that have a meaning given by the issuer of the event.| 
  | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  
  
+
 ----
 
 [filename](./bottom_copyright.md ':include')

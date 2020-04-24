@@ -23,7 +23,9 @@ That is a total of 32-bits. The most significant byte is stored in byte 0.
  | 3    | m7 m6 m5 m4 m3 m2 m1 m0        | 
 
 ## Type=0 (0x00) - General event :id=type0
-    VSCP_TYPE_MEASUREMENT_GENERALGeneral Event.
+    VSCP_TYPE_MEASUREMENT_GENERALThis is a general (custom) measurement event that can be used if no other event is suitable. 
+
+
 
 
 ----
@@ -32,10 +34,7 @@ That is a total of 32-bits. The most significant byte is stored in byte 0.
 ## Type=1 (0x01) - Count :id=type1
     VSCP_TYPE_MEASUREMENT_COUNTThis is a discrete value typical for a count. There is no unit for this measurement just a discrete value. 
 
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0         | Data coding. | 
- | 1-7       | Data with format defined by byte 0. |
+
 
 
 ----
@@ -46,10 +45,7 @@ That is a total of 32-bits. The most significant byte is stored in byte 0.
 
 This is a measurement of a length or a distance.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 
 ----
@@ -60,10 +56,7 @@ This is a measurement of a length or a distance.
 
 This is a measurement of a mass. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -76,10 +69,7 @@ This is a measurement of a mass.
 **Default unit:** Seconds.  
 **Opt. unit:** (1) Milliseconds. Absolute: (2) y-y-m-d-h-m-s (binary). String: (3) "HHMMSS". 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -91,10 +81,7 @@ This is a measurement of a mass.
 
 This is a measurement of an electric current. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -107,10 +94,7 @@ This is a measurement of an electric current.
 
 This is a measurement of a temperature. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 
 
@@ -122,10 +106,7 @@ This is a measurement of a temperature.
 
 This is a measurement of an amount of a substance. 
 
- | Data byte | Description | 
- | :---------: | -----------  | 
- |  0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -137,10 +118,7 @@ This is a measurement of an amount of a substance.
 
 This is a measurement of luminous intensity. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 
 
@@ -153,10 +131,7 @@ This is a measurement of luminous intensity.
 
 This is a measurement of regular events during a second. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -169,10 +144,7 @@ This is a measurement of regular events during a second.
 
 This is a measurement of rates of things, which happen randomly, or are unpredictable. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 
 
@@ -184,10 +156,7 @@ This is a measurement of rates of things, which happen randomly, or are unpredic
 
 This is a measurement of force. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -200,10 +169,7 @@ This is a measurement of force.
 
 This is a measurement of pressure. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+  
 
 
 
@@ -216,10 +182,7 @@ This is a measurement of pressure.
 
 This is a measurement of energy. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -232,10 +195,6 @@ This is a measurement of energy.
 
 This is a measurement of power. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
 
 
 
@@ -247,10 +206,7 @@ This is a measurement of power.
 
 This is a measurement electrical charge. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 
 
@@ -262,10 +218,7 @@ This is a measurement electrical charge.
 
 This is a measurement of electrical potential. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+  
 
 
 
@@ -277,10 +230,7 @@ This is a measurement of electrical potential.
 
 This is a measurement of electric capacitance.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -292,10 +242,7 @@ This is a measurement of electric capacitance.
 
 This is a measurement of resistance. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 ----
@@ -306,10 +253,7 @@ This is a measurement of resistance.
 
 This is a measurement of electrical conductance. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+  
 
 
 
@@ -322,10 +266,7 @@ This is a measurement of electrical conductance.
 
 This is a measurement of magnetic field strength. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 
 
@@ -337,10 +278,7 @@ This is a measurement of magnetic field strength.
 
 This is a measurement of magnetic flux. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -352,10 +290,7 @@ This is a measurement of magnetic flux.
 
 This is a measurement of flux density or field strength for magnetic fields (also called the magnetic induction). 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -367,10 +302,7 @@ This is a measurement of flux density or field strength for magnetic fields (als
 
 This is a measurement of inductance. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -382,10 +314,7 @@ This is a measurement of inductance.
 
 This is a measurement of luminous Flux. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 
 
@@ -397,10 +326,7 @@ This is a measurement of luminous Flux.
 
 This is used to express both Illuminance (incidence of light) and Luminous Emittance (emission of light). 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 
 
@@ -413,10 +339,7 @@ This is used to express both Illuminance (incidence of light) and Luminous Emitt
 
 This is a measurement of a radiation dose (Absorbed dose of ionizing radiation). 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -428,10 +351,7 @@ This is a measurement of a radiation dose (Absorbed dose of ionizing radiation).
 
 This is a measurement of catalytic activity used in biochemistry. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 
 
@@ -444,10 +364,7 @@ This is a measurement of catalytic activity used in biochemistry.
 
 This is a measurement of volume. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 
 
@@ -459,10 +376,7 @@ This is a measurement of volume.
 
 This is a measurement of sound intensity (acoustic intensity). 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -477,10 +391,7 @@ This is a measurement of sound intensity (acoustic intensity).
 
 This is a measurement of an angle. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+  
 
 
 
@@ -493,10 +404,7 @@ This is a measurement of an angle.
 
 This is a measurement of a position as of WGS 84. Normally given as a floating point value. See [./class1.gps.md](CLASS1.GPS) for a better candidate to use for position data.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -509,10 +417,7 @@ This is a measurement of a position as of WGS 84. Normally given as a floating p
 
 This is a measurement of a speed. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -524,10 +429,7 @@ This is a measurement of a speed.
 
 This is a measurement of acceleration. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 
 
@@ -539,10 +441,7 @@ This is a measurement of acceleration.
 
 This is a measurement of tension. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 
 
@@ -554,10 +453,7 @@ This is a measurement of tension.
 
 This is a measurement of relative moistness (Humidity). 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -570,10 +466,7 @@ This is a measurement of relative moistness (Humidity).
 
 This is a measurement of flow. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -585,10 +478,7 @@ This is a measurement of flow.
 
 This is a measurement of thermal resistance. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -600,10 +490,7 @@ This is a measurement of thermal resistance.
 
 This is a measurement of refractive (optical) power. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 
 
@@ -615,10 +502,7 @@ This is a measurement of refractive (optical) power.
 
 This is a measurement of dynamic viscosity. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 
 
@@ -630,10 +514,7 @@ This is a measurement of dynamic viscosity.
 
 This is a measurement of sound impedance. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -645,10 +526,7 @@ This is a measurement of sound impedance.
 
 This is a measurement of sound resistance.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 
 
@@ -660,10 +538,7 @@ This is a measurement of sound resistance.
 
 This is a measurement of electric elasticity. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+  
 
 
 
@@ -675,10 +550,7 @@ This is a measurement of electric elasticity.
 
 This is a measurement of luminous energy.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -690,10 +562,7 @@ This is a measurement of luminous energy.
 
 This is a measurement of luminance.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+
 
 
 
@@ -705,10 +574,7 @@ This is a measurement of luminance.
 
 This is a measurement of chemical concentration. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -728,10 +594,7 @@ This is a measurement of chemical concentration.
 
 This is a measurement of dose equivalent. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -752,10 +615,7 @@ This is a measurement of dose equivalent.
 
 This is a measurement of the Dew Point. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -767,10 +627,7 @@ This is a measurement of the Dew Point.
 
 This is a relative value for a level measurement without a unit. It is just relative to the min/max value for the selected data representation, typically percentage or per mille or similar. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -783,10 +640,7 @@ This is a relative value for a level measurement without a unit. It is just rela
 
 Altitude in meters. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -798,10 +652,7 @@ Altitude in meters.
 
 Area in square meter. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -813,11 +664,7 @@ Area in square meter.
 
 Radiated power per room angle. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
-
+ 
 
 
 ----
@@ -828,10 +675,7 @@ Radiated power per room angle.
 
 This is the radiant flux emitted, reflected, transmitted or received by a surface.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+  
 
 
 
@@ -843,10 +687,7 @@ This is the radiant flux emitted, reflected, transmitted or received by a surfac
 
 Power emitted from or striking onto a surface or area. 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -859,10 +700,7 @@ Power emitted from or striking onto a surface or area.
 
 Radiance of a surface per unit frequency or wavelength.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+                        
 
 
 
@@ -875,10 +713,7 @@ Radiance of a surface per unit frequency or wavelength.
 
 Irradiance of a surface per unit frequency or wavelength.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -890,10 +725,7 @@ Irradiance of a surface per unit frequency or wavelength.
 
 This is a measurement of sound pressure (acoustic pressure). 
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 
@@ -905,11 +737,7 @@ This is a measurement of sound pressure (acoustic pressure).
 
 Sound energy density or sound density is the sound energy per unit volume.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
-
+                        
 
 
 ----
@@ -920,10 +748,7 @@ Sound energy density or sound density is the sound energy per unit volume.
 
 Sound level expressed in decibel. This event is supplied for convenience.
 
- | Data byte | Description                         | 
- | :---------: | -----------                         | 
- | 0         | Data coding.                        | 
- | 1-7       | Data with format defined by byte 0. | 
+ 
 
 
 

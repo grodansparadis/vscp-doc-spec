@@ -38,10 +38,10 @@ Level II measurement events with type >= 1280 have no relation to any Level I me
 ```
 VSCP_TYPE_MEASUREMENTX1_GENERAL
 ```
-General Event.
 
-
-
+This is a general (custom) event that can be used if no other event is suitable. 
+ 
+ 
 ----
 
 [filename](./bottom_copyright.md ':include')
