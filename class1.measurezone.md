@@ -8,7 +8,7 @@ Measurements with zone information. This class mirrors the standard measurement 
 
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
- | 0    | Index for sensor.                                                  | 
+ | 0    | Index for device (senorindex in datacoding).                                                  | 
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3    | Data coding.                                                       | 
