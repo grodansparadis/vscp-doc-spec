@@ -193,7 +193,47 @@ Data is coded as a IEEE-754 1985 floating point value
 
     s eeeeeeee mmmmmmmmmmmmmmmmmmmmmmm 
 
-That is a total of 32-bits. The most significant byte is stored first. The frame holds a total of five bytes. The full definition is at [https://www.psc.edu/general/software/packages/ieee/ieee.html] and further info at [https://en.wikipedia.org/wiki/IEEE_754-1985] 
+That is a total of 32-bits. The most significant byte is stored first. The frame holds a total of five bytes. The full definition is at [https://www.psc.edu/general/software/packages/ieee/ieee.html] and further info at [https://en.wikipedia.org/wiki/IEEE_754-1985]
+
+**Clarification**: A VSCP event use big endian for all numeric types (network byte order) and a PC usually little endian so the byte order should be shifter on such a machine before converting to a floating point value
+
+###### Example
+
+A measurement with this payload
+
+```
+0xAE 0x41,0x83,0x80,0x00
+```
+First byte (0xAE) is the data coding byte which is 
+
+```
+101 01 110
+```
+
+The left most bits **101** is the code for a floating point value. 
+
+**01** is the unit. In this case degrees Celsius.
+
+**110** is the sensor index. In this case sensor six.
+
+The bytes of the floating point value must be revered. Forming
+
+```
+0x00,0x80,0x83,0x41
+```
+which you can print out with something like this
+
+```
+float fvalue;
+memcpy( (uint8_t *)&fvalue, (uint8_t *)&iv4, 4 );
+printf("Measurement: %f\n", fvalue);
+```
+
+which in this case will print
+
+```
+16.437500
+```
 
 ##### 110b Reserved.( 0xC0 )
 
