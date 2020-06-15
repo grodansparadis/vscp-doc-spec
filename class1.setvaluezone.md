@@ -8,7 +8,7 @@ This class mirrors the standard measurement events is [CLASS1.MEASUREMENT=10](./
 
  | Byte | Description                                                        |
  | ---- | -----------                                                        |
- | 0    | Index for device (senorindex is in data coding byte).                                                  |
+ | 0    | Index for device (This is NOT the same as senorindex is in data coding byte). |
  | 1    | Zone for which event applies to (0-255). 255 is all zones.         |
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  | 3    | Data coding.                                                       |
@@ -281,6 +281,8 @@ This is a measurement of magnetic flux.
 ## Type=22 (0x16) - Magnetic Flux Density :id=type22
     VSCP_TYPE_MEASUREMENT_MAGNETIC_FLUX_DENSITY**Default unit:** tesla (B).
 
+**Optional unit:** Gauss (1)
+
 This is a measurement of flux density or field strength for magnetic fields (also called the magnetic induction). 
 
  
@@ -326,9 +328,9 @@ This is used to express both Illuminance (incidence of light) and Luminous Emitt
 ----
 
 
-## Type=26 (0x1A) - Radiation dose :id=type26
-    VSCP_TYPE_MEASUREMENT_RADIATION_DOSE**Default unit:** gray (Gy).   
-**Opt unit:** sievert (Sv) (1).
+## Type=26 (0x1A) - Radiation dose (absorbed) :id=type26
+    VSCP_TYPE_MEASUREMENT_RADIATION_DOSE_ABSORBED**Default unit:** gray (Gy).   
+
 
 This is a measurement of a radiation dose (Absorbed dose of ionizing radiation). 
 
@@ -340,7 +342,7 @@ This is a measurement of a radiation dose (Absorbed dose of ionizing radiation).
 
 
 ## Type=27 (0x1B) - Catalytic activity :id=type27
-    VSCP_TYPE_MEASUREMENT_CATALYTIC_ACITIVITY**Default unit:** katal (z).
+    VSCP_TYPE_MEASUREMENT_CATALYTIC_ACITIVITY**Default unit:** katal (kat).
 
 This is a measurement of catalytic activity used in biochemistry. 
 
@@ -395,7 +397,7 @@ This is a measurement of an angle.
     VSCP_TYPE_MEASUREMENT_POSITION**Default unit:** Longitude.  
 **Opt. unit:** Latitude.
 
-This is a measurement of a position as of WGS 84. Normally given as a floating point value. See [./class1.gps.md](CLASS1.GPS) for a better candidate to use for position data.
+This is a (decimal) measurement of a position as of WGS 84. Normally given as a floating point value. See [./class1.gps.md](CLASS1.GPS) for a better candidate to use for position data.
 
  
 
@@ -491,7 +493,8 @@ This is a measurement of refractive (optical) power.
 
 
 ## Type=39 (0x27) - Dynamic viscosity :id=type39
-    VSCP_TYPE_MEASUREMENT_DYNAMIC_VISCOSITY**Default unit:** poiseuille (Pl) 
+    VSCP_TYPE_MEASUREMENT_DYNAMIC_VISCOSITY**Default unit:**  pascal second
+**optional units** poiseuille (Pl) = 1, poise (P) = 2
 
 This is a measurement of dynamic viscosity. 
 
@@ -562,10 +565,10 @@ This is a measurement of luminance.
 ----
 
 
-## Type=45 (0x2D) - Chemical concentration :id=type45
-    VSCP_TYPE_MEASUREMENT_CHEMICAL_CONCENTRATION**Default unit:** molal (mol/kg).
+## Type=45 (0x2D) - Chemical (molar) concentration :id=type45
+    VSCP_TYPE_MEASUREMENT_CHEMICAL_CONCENTRATION_MOLAR**Default unit:** mol/m3.
 
-This is a measurement of chemical concentration. 
+This is a measurement of chemical mol concentration. 
 
  
 
@@ -574,18 +577,19 @@ This is a measurement of chemical concentration.
 ----
 
 
-## Type=46 (0x2E) - Reserved :id=type46
-    VSCP_TYPE_MEASUREMENT_RESERVED46Reserved (previously was doublet of Type= 26, don't use any longer!) 
+## Type=46 (0x2E) - Chemical (mass) concentration :id=type46
+    VSCP_TYPE_MEASUREMENT_CHEMICAL_CONCENTRATION_MASS**Default unit:** kg/m3.
 
+This is a measurement of chemical mass concentration. 
 
 
 ----
 
 
-## Type=47 (0x2F) - Dose equivalent :id=type47
-    VSCP_TYPE_MEASUREMENT_DOSE_EQVIVALENT**Default unit:** sievert (J/Kg).
+## Type=47 (0x2F) - Reserved :id=type47
+    VSCP_TYPE_MEASUREMENT_DOSE_EQVIVALENTReserved
 
-This is a measurement of dose equivalent. 
+
 
  
 
@@ -595,7 +599,9 @@ This is a measurement of dose equivalent.
 
 
 ## Type=48 (0x30) - Reserved :id=type48
-    VSCP_TYPE_MEASUREMENT_RESERVED48Reserved (was doublet of Type= 24, do not use any longer!)
+    VSCP_TYPE_MEASUREMENT_RESERVED48Reserved 
+
+
 
 
 
@@ -742,6 +748,31 @@ Sound energy density or sound density is the sound energy per unit volume.
 Sound level expressed in decibel. This event is supplied for convenience.
 
  
+
+
+
+----
+
+
+## Type=61 (0x3D) - Radiation dose (equivalent) :id=type61
+    VSCP_TYPE_MEASUREMENT_RADIATION_DOSE_EQ**Default unit:** sievert (Sv).
+
+**Optional unit** rem (1)
+
+This is a measurement of a radiation dose (Equivalent dose of ionizing radiation). 
+
+ 
+
+
+
+----
+
+
+## Type=62 (0x3E) - Radiation dose (exposure) :id=type62
+    VSCP_TYPE_MEASUREMENT_RADIATION_DOSE_EXPOSURE**Default unit:** coulomb per kilogram (C/kg).   
+**Optional unit:** Röntgen/R (1)
+
+This is a measurement of a radiation dose (Exposed dose of ionizing radiation). 
 
 
 

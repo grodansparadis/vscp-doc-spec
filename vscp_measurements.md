@@ -235,9 +235,13 @@ which in this case will print
 16.437500
 ```
 
-##### 110b Reserved.( 0xC0 )
+##### 110b Double precision floating point value.( 0xC0 )
 
-The format is yet to be defined. 
+Can not be used in all level I measurement classes as it will not fit but is defined for completeness as there are classes that handle double precision floating point values but that just use the data coding implicitly.
+
+Storage is IEEE 754-2008 standard.
+
+![IEEE 754-2008 standard](./images/IEEE-754.jpg)
 
 ##### 111b Reserved( 0xE0 )
 
