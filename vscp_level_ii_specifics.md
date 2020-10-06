@@ -121,7 +121,7 @@ VSCP level II events can be presented as XML data. Format is
     vscpType="Event type in numerical form."
     vscpGuid="ff:ee:dd:cc:bb:aa:99:88:77:66:55:44:33:22:11:00"
     vscpTimeStamp="Relative microsecond value."
-    datetime="2018-03-03T12:01:40Z"
+    vscpDateTime="2018-03-03T12:01:40Z"
     vscpData="
     Comma separated list with event data. Hex values (preceded with '0x')and decimal values allowed."
     unit="Code for unit data is presented in"
@@ -144,7 +144,8 @@ vscpDateTime is date + time in UTC on ISO format
 VSCP level II events can be presented as JSON data. Format is
 
 ```json
-{   "vscpHead":0,
+{   
+   "vscpHead":0,
    "vscpObId":0,
    "vscpClass":10,
    "vscpType":6,
