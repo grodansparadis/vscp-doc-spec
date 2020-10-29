@@ -991,4 +991,10 @@ where the later points to a list with entries of the former type.
 
 the `<payload>` tag is for devices that have the capability to have large information on-board, and in this case the ui packet is delivered inside the mdf.
 
+## Resources
+
+  * [Howto: Get MDF content in JSON or JSONP format](https://grodansparadis.com/wordpress/?p=1492)
+  * [Howto: Read MDF content with node.js](https://grodansparadis.com/wordpress/?p=3984)
+
+
 [filename](./bottom_copyright.md ':include')
