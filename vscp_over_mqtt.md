@@ -37,7 +37,6 @@ As an option it is possible to add
     sensorindex = "1",
     zone = "11",
     subzone = "22"
-}
 ```
 
 to the XML object to send decoded measurement info. 
