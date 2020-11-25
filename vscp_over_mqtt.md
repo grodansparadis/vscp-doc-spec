@@ -4,9 +4,13 @@ VSCP is really the prefect match for MQTT. See [MQTT-driver](https://github.com/
 
 There is four different package formats available that a user can select from when working with VSCP over MQTT. 
 
+## String
+
 The string form where each event is on this form
 
     head,class,type,obid,datetime,timestamp,GUID,data1,data2,data3....
+
+## XML
 
 The XML format where each event is packed as
 
@@ -22,6 +26,25 @@ The XML format where each event is packed as
      sizedata="7"
      data="0x48,0x34,0x35,0x2E,0x34,0x36,0x34" />
 ```
+
+### Optional extra attributes
+
+As an option it is possible to add
+
+```xml
+    value = "1.23"
+    unit = "0",
+    sensorindex = "1",
+    zone = "11",
+    subzone = "22"
+}
+```
+
+to the XML object to send decoded measurement info. 
+
+**This is optional data and one should never rely on it to be present**
+
+## JSON
 
 The JSON format where each VSCP event is packed as
 
@@ -40,7 +63,26 @@ The JSON format where each VSCP event is packed as
 ```
 __Note the casing. The format is **not** case insensitive.__
 
-and last an optionally encrypted binary format that use the [VSCP over UDP format](./vscp_over_udp.md). Follow the link for more information
+### Optional extra fields
+
+As an option it is possible to add
+
+```json
+measurement {
+    "value" : 1.23,
+    "unit" : 0,
+    "sensorindex" : 1,
+    "zone" : 11,
+    "subzone" : 22
+}
+```
+
+to the JSON object to send decoded measurement info. 
+
+**This is optional data and one should never rely on it to be present**
+
+## Binary
+Encrypted binary format that use the [VSCP over UDP format](./vscp_over_udp.md). See the link for more information
 
 
 ## Topics
