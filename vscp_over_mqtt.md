@@ -92,11 +92,11 @@ One can use the topics and the structure that is suitable for the task ahead. Th
 
 The preferred topic for VSCP events published to a MQTT broker is
 
-    vscp/guid/miso/class/type
+    vscp/guid/->/class/type
 
 **guid** is the actual guid fo the node, typically something like FF:FF:FF:FF:FF:FF:FF:FE:5C:CF:7F:C4:1E:7B:00:00
 
-**miso** stands for master in/slave out and say that this is a flow of events from a remote node (slave) to a master (server).
+**->** stands for master in/slave out and say that this is a flow of events from a remote node (slave) to a master (server).
 
 **class** is the actual numerical VSCP class for the event.
 
@@ -108,11 +108,11 @@ A client can easily filter out events from a specific remote node and of a certa
 
 The topic for server published events is
 
-    vscp/guid/mosi/class/type
+    vscp/guid/<-/class/type
 
 **guid** is the actual guid for the node, typically something like FF:FF:FF:FF:FF:FF:FF:FE:5C:CF:7F:C4:1E:7B:00:00
 
-**mosi** stands for master out slave in. This is how the VSCP daemon (by default) will publish events on a MQTT broker.
+**<-** stands for master out slave in. This is how the VSCP daemon (by default) will publish events on a MQTT broker.
 
 **class** is the actual numerical VSCP class for the event.
 
@@ -120,13 +120,13 @@ The topic for server published events is
 
 A client subscribe topic is usually set as something like
 
-    vscp/FF:FF:FF:FF:FF:FF:FF:FE:5C:CF:7F:C4:1E:7B:00:00/mosi/#
+    vscp/FF:FF:FF:FF:FF:FF:FF:FE:5C:CF:7F:C4:1E:7B:00:00/<-/#
 
 in which case a remote node subscribes to all events sent **to** a specific node (itself).
 
 The node can of course be more general and subscribe to
 
- vscp/+/mosi/#
+ vscp/+/<-/#
 
 In whish case it will receive all events sent to all remote nodes.
 
