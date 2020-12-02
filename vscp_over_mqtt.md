@@ -92,11 +92,9 @@ One can use the topics and the structure that is suitable for the task ahead. Th
 
 The preferred topic for VSCP events published to a MQTT broker is
 
-    vscp/guid/->/class/type
+    vscp/{{guid}}/{{class}}/{{type}}
 
 **guid** is the actual guid fo the node, typically something like FF:FF:FF:FF:FF:FF:FF:FE:5C:CF:7F:C4:1E:7B:00:00
-
-**->** stands for master in/slave out and say that this is a flow of events from a remote node (slave) to a master (server).
 
 **class** is the actual numerical VSCP class for the event.
 
@@ -106,27 +104,55 @@ A client can easily filter out events from a specific remote node and of a certa
 
 ### Subscribe
 
-The topic for server published events is
+This can be
 
-    vscp/guid/<-/class/type
+```
+vscp/#
+```
 
-**guid** is the actual guid for the node, typically something like FF:FF:FF:FF:FF:FF:FF:FE:5C:CF:7F:C4:1E:7B:00:00
+whish will receive all vscp events published on a broker. Or it can be
 
-**<-** stands for master out slave in. This is how the VSCP daemon (by default) will publish events on a MQTT broker.
+```
+vscp/{{guid}}/#
+```
 
-**class** is the actual numerical VSCP class for the event.
+which will receive all events from a specific node defined by it's guid.
 
-**type** is the actual numerical VSCP type for the event.
+There is also a possibility to be more specific
+
+```
+vscp/+/10/6
+```
+
+which is all temperature measurements from all nodes. Or the same from a specific node
+
+```
+vscp/FF:FF:FF:FF:FF:FF:FF:FE:5C:CF:7F:C4:1E:7B:00:00/10/6
+```
+
+The topic for events published by nodes are typically
+
+```
+vscp/{{guid}}/{{class}}/{{type}}
+```
+
+**{{guid}}** is the actual guid for the node, typically something like _FF:FF:FF:FF:FF:FF:FF:FE:5C:CF:7F:C4:1E:7B:00:00_
+
+**{{class}}** is the actual numerical VSCP class for an event.
+
+**{{type}}** is the actual numerical VSCP type for an event.
 
 A client subscribe topic is usually set as something like
 
-    vscp/FF:FF:FF:FF:FF:FF:FF:FE:5C:CF:7F:C4:1E:7B:00:00/<-/#
+```
+vscp/FF:FF:FF:FF:FF:FF:FF:FE:5C:CF:7F:C4:1E:7B:00:00/#
+```
 
-in which case a remote node subscribes to all events sent **to** a specific node (itself).
+in which case a remote node subscribes to all events sent **to** a specific node.
 
 The node can of course be more general and subscribe to
 
- vscp/+/<-/#
+ vscp/#
 
 In whish case it will receive all events sent to all remote nodes.
 
