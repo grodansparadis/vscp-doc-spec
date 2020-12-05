@@ -104,7 +104,7 @@ A client can easily filter out events from a specific remote node and of a certa
 
 For level I drivers or level II drivers where it makes sense (vscpl2drv-tcpiplink is a good example) a topic on the form
 
-    vscp/{{guid}}/{{nickname}}/{{class}}/{{type}}
+    vscp/{{guid}}/{{class}}/{{type}}/{{nickname}}
 
 is recommended. Here nickname is _256*GUID[14] + GUID[15]_ that is the unsigned integer formed by the two lsb bytes of the GUID. With this setting it is easier to also filter on nickname.
 
