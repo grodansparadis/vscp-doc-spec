@@ -4,11 +4,14 @@ VSCP is really the prefect match for MQTT. See [MQTT-driver](https://github.com/
 
 There is four different package formats available that a user can select from when working with VSCP over MQTT. 
 
-## String
+## STRING
 
 The string form where each event is on this form
 
     head,class,type,obid,datetime,timestamp,GUID,data1,data2,data3....
+
+### MQTT auto detect string format 
+First non white space character not 0x00, "<" or "{" ==> string format
 
 ## XML
 
@@ -42,6 +45,9 @@ As an option it is possible to add
 to the XML object to send decoded measurement info. 
 
 **This is optional data and one should never rely on it to be present**
+
+### MQTT auto detect XML format
+First non white space character "<" ==> xml
 
 ## JSON
 
@@ -80,8 +86,14 @@ to the JSON object to send decoded measurement info.
 
 **This is optional data and one should never rely on it to be present**
 
-## Binary
+### MQTT auto detect JSON format
+First non white space character "{" ==> JSON
+
+## BINARY
 Encrypted binary format that use the [VSCP over UDP format](./vscp_over_udp.md). See the link for more information
+
+### MQTT auto detect BINARY format
+First character 0x00 and content len > 0  ==>  Binary   (UDP format)
 
 
 ## Topics
