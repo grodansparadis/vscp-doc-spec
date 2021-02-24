@@ -303,11 +303,20 @@ If you want your own GUID series you can ask for one by sending an email to [gui
 
 ----
 
+#### <pre>39:00:00:00:00:00:00:00:00:00:00:00:XX:XX:XX:XX</pre>
+
+    Dennis Loyer, DLoyer Designs, 2215 Muirhead Ave NW, Olympia WA,98502, USA 
+    Email: dennis.loyer(at)dloyerdesigns.com Phone: +1 (425) 406-0807
+    Web: http://www.grundwerk.info
+
+----
+
 #### <pre>DD:00:00:00:00:00:00:00:00:00:00:00:XX:XX:XX:XX</pre>
 
     GRUNDWERK, Ulrich Uhlig, Grundmuehlenstr. 11, Pirna, 01796, Germany
     Email: info(at)grundwerk.info Phone: +49 351 41722222
     Web: http://www.grundwerk.info
+
 
 ----
 

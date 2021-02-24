@@ -10,7 +10,6 @@ Besides the GUID it is recommended that all nodes should have a node description
 
 A general discussion of UUID's/GUID's is [here](https:///en.wikipedia.org/wiki/Universally_unique_identifier).
 
-Some GUID's are reserved and unavailable for assignment. [This page](./appendix_a.md) list these and also assigned IDs.
 
 [Grodans Paradis AB](https://www.grodansparadis.com) controls the rest of the addresses and will allocate addresses to individuals or companies by them sending a request to [guid_request@vscp.org](guid_request@vscp.org). You can request a series of 32-bits making it possible for you to manufacture 4294967295 nodes. If you need more (!**!!**) you can ask for another series. There is no cost for reserving a series. 
 
@@ -48,7 +47,7 @@ As explained above GUID's with 0xFD in the most significant byte is reserved for
 ### Manufacturer code
 
  | Code | Description                         | 
- | :----: | :-----------                         | 
+ | :----: | :-----------                      | 
  | 0    | Microchip                           | 
  | 1    | Atmel                               | 
  | 2    | ST                                  | 
