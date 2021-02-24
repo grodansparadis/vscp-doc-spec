@@ -13,7 +13,7 @@ A general discussion of UUID's/GUID's is [here](https:///en.wikipedia.org/wiki/U
 
 [Grodans Paradis AB](https://www.grodansparadis.com) controls the rest of the addresses and will allocate addresses to individuals or companies by them sending a request to [guid_request@vscp.org](guid_request@vscp.org). You can request a series of 32-bits making it possible for you to manufacture 4294967295 nodes. If you need more (!**!!**) you can ask for another series. There is no cost for reserving a series. 
 
-[This page](./appendix_a.md) contains a list of currently assigned guid's.
+[This page](./assigned_guids.md) contains a list of currently assigned guid's.
 
 ## Predefined VSCP GUID's
 
