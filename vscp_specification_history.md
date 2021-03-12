@@ -2,6 +2,7 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | 2021-03-12 | AKHE | Corrected header definition for Raw Ethernet/Muilticast and UDP. |
  | 2021-01-17 | AKHE | Added comments about detecting VSCP format when frame is sent over MQTT. |
  | 2020-12-14 | AKHE | Added CLASS2.LEVEL1.MEASUREMENT,VSCP_TYPE_MEASUREMENT_POWER_FACTOR.  Added Watt hours added as a convenience unit to energy. Added CLASS1.SECURTITY, VSCP_TYPE_SECURITY_GAS. Added CLASS1.SECURITY, VSCP_TYPE_SECURITY_VIBRATION, Added Added CLASS1.SECURITY,VSCP_TYPE_SECURITY_IN_MOTION and Added CLASS1.SECURITY,VSCP_TYPE_SECURITY_NOT IN_MOTION. As suggested by Maarten Zanders. |
  | 2020-12-02 | AKHE | Skipped the directional topic notation for MQTT as suggested by Maarten Zanders |

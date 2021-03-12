@@ -61,17 +61,19 @@ On the VSCP Server the md5 of the [vscptoken](https://docs.vscp.org/vscpd/13.1/#
 
 ##### Definition of head
 
-See [vscp.h](https:///github.com/grodansparadis/vscp/blob/master/src/vscp/common/vscp.h)
+See [vscp.h](https://github.com/grodansparadis/vscp/blob/master/src/vscp/common/vscp.h)
 
- | Bits  | Description | 
- | :----:  | ----------- | 
- | 15    | GUID is IP v.6 address. | 
- | 14    | Dumb node. No MDF. No registers. | 
- | 13-8  | Reserved (**Set to zero!**). | 
- | 7,6,5 | Priority. | 
- | 4     | Hard-coded. | 
+ | Bits  | Description                                                         | 
+ | ----  | -----------                                                         | 
+ | 15    | Set if this is a dumb node. No MDF, register, nothing.              | 
+ | 14    | GUID type                                                           |
+ | 13    | GUID type                                                           | 
+ | 12    | GUID type                                                           |  
+ | 11-8  | Reserved (**Set to zero!**).                                        | 
+ | 7,6,5 | Priority.                                                           | 
+ | 4     | Hard-coded.                                                         | 
  | 3     | Don't calculate CRC if bit set. CRC should be set to 0xAA55 if set. | 
- | 2,1,0 | Rolling index. | 
+ | 2,1,0 | Rolling index.                                                      |  
 
 Note also that the MSB is sent before the LSB (network byte order, Big Endian). So, for little endian machines such as a typical PC the byte order needs to be reversed for multi-byte types.
 

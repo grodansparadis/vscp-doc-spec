@@ -61,9 +61,11 @@ See [vscp.h](https://github.com/grodansparadis/vscp/blob/master/src/vscp/common/
 
  | Bits  | Description                                                         | 
  | ----  | -----------                                                         | 
- | 15    | GUID is IP v.6 address.                                             | 
- | 14    | Dumb node. No MDF. No registers.                                    | 
- | 13-8  | Reserved (**Set to zero!**).                                        | 
+ | 15    | Set if this is a dumb node. No MDF, register, nothing.              | 
+ | 14    | GUID type                                                           |
+ | 13    | GUID type                                                           | 
+ | 12    | GUID type                                                           |  
+ | 11-8  | Reserved (**Set to zero!**).                                        | 
  | 7,6,5 | Priority.                                                           | 
  | 4     | Hard-coded.                                                         | 
  | 3     | Don't calculate CRC if bit set. CRC should be set to 0xAA55 if set. | 
