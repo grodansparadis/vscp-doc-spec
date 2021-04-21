@@ -2,6 +2,10 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | 2021-04-21 | AKHE | Added VSCP_CLASS1_MEASUREMENT, VSCP_TYPE_MEASUREMENT_REACTIVE_POWER (64) |
+ | 2021-04-21 | AKHE | Added VSCP_CLASS1_MEASUREMENT, VSCP_TYPE_MEASUREMENT_REACTIVE_ENERGY (65) |
+ | 2021-04-21 | AKHE | Added VSCP_CLASS1_INFORMATION, VSCP_TYPE_INFORMATION_PROXIMITY_DETECTED (88) |
+ | 2021-04-21 | AKHE | Default uint for VSCP_CLASS1_MEASUREMENT, VSCP_TYPE_MEASUREMENT_POWER_FACTOR is changed to cos angel |
  | 2021-03-12 | AKHE | Added new section definitions. |
  | 2021-03-12 | AKHE | Corrected header definition for Raw Ethernet/Muilticast and UDP. |
  | 2021-01-17 | AKHE | Added comments about detecting VSCP format when frame is sent over MQTT. |

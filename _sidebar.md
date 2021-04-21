@@ -34,9 +34,6 @@
   * [VSCP over MQTT](./vscp_over_mqtt.md)
   * [VSCP Text](./vscp_text.md)
 
-* Definitions
-  * [VSCP header](./vscphead.md)
-
 * Other VSCP documents
  * [VSCP Daemon](https://grodansparadis.gitbooks.io/the-vscp-daemon/)
  * [VSCP Helper lib](https://grodansparadis.gitbooks.io/the-vscp-helper-library/)
