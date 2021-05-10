@@ -10,7 +10,9 @@ One important design goal when this interface was designed was to create an inte
 
 If you want to test this there is a simple [walkthrough](./new_system_install_test_ride.md#the_websocket_interface).  The Javascript library and samples can be found on [GitHub](https://github.com/grodansparadis/vscp_html5) 
 
-## VSCP websocket server security :id=websocket-security
+## ws1 - String based websocket interface :id=ws1-description
+
+### VSCP websocket server security :id=websocket-security
 
 The websocket interface is protected by a user/password pair. The username is sent a digest over the net but the password is a hash over "username:authdomain|raltext-password".((authdomain is described [here]( ./configuring_the_vscp_daemon.md#configuration))
 
@@ -44,7 +46,7 @@ There is also a [privilege system](./configuring_the_vscp_daemon.md#remote_user_
 
 Put together this makes the VSCP Daemon one of the safest systems to use for remote maintenance of IoT/m2m systems.
 
-## VSCP Daemon Websocket Protocol Description :id=websocket-protocol-description
+### VSCP Daemon Websocket Protocol Description :id=websocket-protocol-description
 
 From version 14.0.0 there is two versions of the VSCP daemon websocket interface. **ws1** which is the original implementation and **ws2** which is a JSON based implementation. The same set of command are available for both.
 
@@ -70,7 +72,7 @@ http[s]://server:port/ws2
 Server and port will be the same as configured as attribute to webserver. which also must be enabled for the websocket interfaces to work.
 
 
-### ws1 - String based websocket interface :id=ws1-description
+
 
 The protocol is a text based protocol that is simple and effective. Only **AUTH** and **NOOP** commands are valid in a system where the client has not been authenticated.
 
