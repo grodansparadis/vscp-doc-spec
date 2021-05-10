@@ -70,7 +70,7 @@ http[s]://server:port/ws2
 Server and port will be the same as configured as attribute to webserver. which also must be enabled for the websocket interfaces to work.
 
 
-### ws1 - websocket 1 interface :id=ws1-description
+### ws1 - String based websocket interface :id=ws1-description
 
 The protocol is a text based protocol that is simple and effective. Only **AUTH** and **NOOP** commands are valid in a system where the client has not been authenticated.
 
@@ -309,7 +309,7 @@ This table list the errors that currently is defined
  | 8 | Parse error, invalid format. |
  | 9 | Unknown type, only know "COMMAND" and "EVENT". |
 
-### ws2 - JSON baser websocket interface :id=ws2-description
+### ws2 - JSON based websocket interface :id=ws2-description
 
 The protocol is a JSON based protocol that is simple and effective. Only **AUTH** and **NOOP** commands are valid in a system where the client has not been authenticated.
 
