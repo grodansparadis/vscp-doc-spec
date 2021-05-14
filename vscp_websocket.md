@@ -32,8 +32,8 @@ There is also a [privilege system](./configuring_the_vscp_daemon.md#remote_user_
  | [CLOSE](#ws1-close)             | 0         | Close channel  | 
  | [SETFILTER](#ws1-sf)            | 6         | Set filter     | 
  | [CLRQUEUE](#ws1-clr)            | 1         | Clear input queue | 
- | [Send event](#ws-send-event)    | 6         | Send event | 
- | [Read event](#ws-receive-event) | 0         | Read event | 
+ | [Send event](#ws1-send-event)    | 6         | Send event | 
+ | [Read event](#ws1-receive-event) | 0         | Read event | 
 
 Put together this makes the VSCP Daemon one of the safest systems to use for remote maintenance of IoT/m2m systems.
 
