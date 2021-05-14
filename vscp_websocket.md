@@ -36,7 +36,7 @@ There is also a [privilege system](./configuring_the_vscp_daemon.md#remote_user_
 
 Put together this makes the VSCP Daemon one of the safest systems to use for remote maintenance of IoT/m2m systems.
 
-You may be missing a _receive event_ above but received events are automatically delivered asynchronously to you after a channel has been opened.
+You may be missing a _receive event_ above but received events are automatically delivered asynchronously to you after a channel has been opened. Very convenient when you want to keep a graphical element updated.
 
 ### VSCP Daemon Websocket Protocol Description :id=websocket-protocol-description
 
