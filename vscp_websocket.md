@@ -30,17 +30,8 @@ There is also a [privilege system](./configuring_the_vscp_daemon.md#remote_user_
  | [AUTH](#ws1-auth)               | 0         | Authentication | 
  | [OPEN](#ws1-open)               | 0         | Open channel   | 
  | [CLOSE](#ws1-close)             | 0         | Close channel  | 
- | [SETFILTER](#ws1-setfilter)     | 6         | Set filter     | 
- | [CLRQUEUE](#ws1-clrqueue)       | 1         | Clear input queue | 
- | [WRITEVAR](#ws1-writevar)       | 6         | Write variable | 
- | [CREATEVAR](#ws1-createvar)     | 6         | Create a new variable | 
- | [READVAR](#ws1-readvar)         | 4         | Read variable  | 
- | [RESETVAR](#ws1-resetvar)       | 6         | Reset variable to default value | 
- | [REMOVEVAR](#ws1-removevar)     | 6         | Remove (delete) variable | 
- | [LENGTHVAR](#ws1-lengthvar)     | 4         | Get length of variable   | 
- | [LASTCHANGEVAR](#ws1-lastchangevar) | 4         | Get last change date + time for variable | 
- | [LISTVAR](#ws1-listvar)         | 4         | List variables | 
- | [SAVEVAR](#ws1-savevar)         | 1         | Save variables | 
+ | [SETFILTER](#ws1-sf)            | 6         | Set filter     | 
+ | [CLRQUEUE](#ws1-clr)            | 1         | Clear input queue | 
  | [Send event](#ws-send-event)    | 6         | Send event | 
  | [Read event](#ws-receive-event) | 0         | Read event | 
 
@@ -140,8 +131,6 @@ E;0,30,5,0,2000-01-01T12:33:14,0,FF:FF:FF:FF:FF:FF:FF:FE:00:26:55:CA:00:06:00:00
 
 The following commands are currently available. **NOOP** is typically used to test if a connection is working. **OPEN**/**CLOSE** can be used to stop the stream from incoming events. Note that events still are collected at the server side and will be sent after a closed socket has been opened again. Use **CLRQUEUE** to clear the queue at the server before opening the stream if you don't want to receive collected events.
 
-Variables on the server is a powerful tool. Variables are used by Level II drivers and the internal decision matrix of the daemon. This means that driver parameters can be changes and complex setups can be accomplished together with the decision matrix functionality. As an example you can set a variable to true and have an action executed by the daemon that does something useful. The possibilities are endless. Variables can be persistent meaning they will live over time so it can also be a method to save states.
-
 ##### NOOP :id=ws1-noop
 
 No operation. Will always give a positive response.
@@ -206,7 +195,7 @@ The standard vscp password hash is calculated over _"username:authdomain:passwor
 
 *rights* a bit array presented as eight bytes separated with semicolon.
 
-##### OPEN :id=ws-open
+##### OPEN :id=ws1-open
 
 Start receiving events. Collected events in queue will be sent. Positive/negative response is returned.
 
@@ -222,7 +211,7 @@ positive response is
 “+;OPEN”
 ```
 
-#####  CLOSE :id=ws-close
+#####  CLOSE :id=ws1-close
 
 Stop receiving events. Events are still collected in queue on server side. Positive/negative response is returned.
 
@@ -238,7 +227,7 @@ positive response is
 “+;CLOSE”
 ```
 
-#####  CLRQUEUE / CLRQ  :id=ws-clrq
+#####  CLRQUEUE / CLRQ  :id=ws1-clrq
 
 Clear events in input queue. Positive/negative response is returned.
 
@@ -254,7 +243,7 @@ positive response is
 “+;CLRQ”
 ```
 
-#### SETFILTER / SF :id=ws-sf
+#### SETFILTER / SF :id=ws1-sf
 
 Set filter/mask for incoming data. Positive/negative response is returned.
 
@@ -275,7 +264,7 @@ positive response is
 Note that there is a semicolon between filter and mask information and commas between parts of each filter and mask.
 
 
-#### Send event :id=ws-send-event
+#### Send event :id=ws1-send-event
 
 The same format is used to send events as they are received.
 
