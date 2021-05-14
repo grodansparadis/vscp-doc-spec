@@ -26,16 +26,17 @@ There is also a [privilege system](./configuring_the_vscp_daemon.md#remote_user_
 
  | Command | Privilege | Description    | 
  | ------- | :---------: | -----------  | 
- | [NOOP](#ws1-noop)               | 0         | No operation   | 
- | [AUTH](#ws1-auth)               | 0         | Authentication | 
- | [OPEN](#ws1-open)               | 0         | Open channel   | 
- | [CLOSE](#ws1-close)             | 0         | Close channel  | 
- | [SETFILTER](#ws1-sf)            | 6         | Set filter     | 
- | [CLRQUEUE](#ws1-clr)            | 1         | Clear input queue | 
- | [Send event](#ws1-send-event)    | 6         | Send event | 
- | [Read event](#ws1-receive-event) | 0         | Read event | 
+ | [NOOP](#ws1-noop)               | 0 | No operation   | 
+ | [AUTH](#ws1-auth)               | 0 | Authentication | 
+ | [OPEN](#ws1-open)               | 0 | Open channel   | 
+ | [CLOSE](#ws1-close)             | 0 | Close channel  | 
+ | [SETFILTER](#ws1-sf)            | 6 | Set filter     | 
+ | [CLRQUEUE](#ws1-clr)            | 1 | Clear input queue | 
+ | [Send event](#ws1-send-event)   | 6 | Send event | 
 
 Put together this makes the VSCP Daemon one of the safest systems to use for remote maintenance of IoT/m2m systems.
+
+You may be missing a _receive event_ above but received events are automatically delivered asynchronously to you after a channel has been opened.
 
 ### VSCP Daemon Websocket Protocol Description :id=websocket-protocol-description
 
