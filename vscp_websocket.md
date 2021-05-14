@@ -24,25 +24,25 @@ Also a privilege based system is used to protect critical functionality. A user 
 
 There is also a [privilege system](./configuring_the_vscp_daemon.md#remote_user_settings) for the websocket interface just as it is for the TCP/IP interface
 
- | Command       | Privilege | Description    | 
- | -------       | :---------: | -----------  | 
- | NOOP          | 0         | No operation   | 
- | AUTH          | 0         | Authentication | 
- | OPEN          | 0         | Open channel   | 
- | CLOSE         | 0         | Close channel  | 
- | SETFILTER     | 6         | Set filter     | 
- | CLRQUEUE      | 1         | Clear input queue | 
- | WRITEVAR      | 6         | Write variable | 
- | CREATEVAR     | 6         | Create a new variable | 
- | READVAR       | 4         | Read variable  | 
- | RESETVAR      | 6         | Reset variable to default value | 
- | REMOVEVAR     | 6         | Remove (delete) variable | 
- | LENGTHVAR     | 4         | Get length of variable   | 
- | LASTCHANGEVAR | 4         | Get last change date + time for variable | 
- | LISTVAR       | 4         | List variables | 
- | SAVEVAR       | 1         | Save variables | 
- | Send event    | 6         | Send event | 
- | Read event    | 0         | Read event | 
+ | Command | Privilege | Description    | 
+ | ------- | :---------: | -----------  | 
+ | [NOOP](#ws1-noop)               | 0         | No operation   | 
+ | [AUTH](#ws1-auth)               | 0         | Authentication | 
+ | [OPEN](#ws1-open)               | 0         | Open channel   | 
+ | [CLOSE](#ws1-close)             | 0         | Close channel  | 
+ | [SETFILTER](#ws1-setfilter)     | 6         | Set filter     | 
+ | [CLRQUEUE](#ws1-clrqueue)       | 1         | Clear input queue | 
+ | [WRITEVAR](#ws1-writevar)       | 6         | Write variable | 
+ | [CREATEVAR](#ws1-createvar)     | 6         | Create a new variable | 
+ | [READVAR](#ws1-readvar)         | 4         | Read variable  | 
+ | [RESETVAR](#ws1-resetvar)       | 6         | Reset variable to default value | 
+ | [REMOVEVAR](#ws1-removevar)     | 6         | Remove (delete) variable | 
+ | [LENGTHVAR](#ws1-lengthvar)     | 4         | Get length of variable   | 
+ | [LASTCHANGEVAR](#ws1-lastchangevar) | 4         | Get last change date + time for variable | 
+ | [LISTVAR](#ws1-listvar)         | 4         | List variables | 
+ | [SAVEVAR](#ws1-savevar)         | 1         | Save variables | 
+ | [Send event](#ws-send-event)    | 6         | Send event | 
+ | [Read event](#ws-receive-event) | 0         | Read event | 
 
 Put together this makes the VSCP Daemon one of the safest systems to use for remote maintenance of IoT/m2m systems.
 
