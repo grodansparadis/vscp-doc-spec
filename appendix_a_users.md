@@ -16,14 +16,14 @@ The file have the following format
  {
 	"users" : [
 		{
-			"user" : "admin",
-            "fullname" : "Full name",
-            "note" : "note about user-item",
-			"credentials"  : "fastpbkdf2 over 'user:password' using 256 bit system key (stored: item:iv)",
-            "filter" : "outgoing filter",
-			"rights" : "comma separated list of rights",
-            "remotes" : "comma separated list of hosts First char: +=allow -deny",
-			"events" : "comma separated list of events "TX|RX|BOTH;vscp-class;vscp.type;priority"
+      "user" : "admin",
+      "fullname" : "Full name",
+      "note" : "note about user-item",
+      "credentials"  : "fastpbkdf2 over 'user:password' using 256 bit system key (stored: item:iv)",
+      "filter" : "outgoing filter",
+      "rights" : "comma separated list of rights",
+      "remotes" : "comma separated list of hosts First char: +=allow -deny",
+      "events" : "comma separated list of events "TX|RX|BOTH;vscp-class;vscp.type;priority"
 		}
 	]
 }
@@ -78,6 +78,19 @@ This is a comma separated list of rights for this user. This set what service th
  - "test"
  
  Instead of a tokens a 64-bit decimal value can be set or even a comma separated list of 64-bit values which will be OR'ed together.
+
+##### remotes
+This is a comma separated string of remote ip-addresses that this user is allowed to connect from. If the first character is a _'+'_ the user is allowed to connect from that ip-address. If the first character is a _'-'_ character the user is not allowed to connect from that ip-address. The ip-address can either be a ipv4 or a ipv6 address.
+
+Instead of a comma separated string the information can be given as a json list
+
+```json
+"remotes" :[
+    row1,
+    row2,
+    row3
+]
+```
 
 ##### events
 This is a list of events the user is allowed to send and/or receive. If empty all events can be sent and received by the users. The parameter is a comma separated list of items of the form

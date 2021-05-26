@@ -46,7 +46,7 @@
  * [General VSCP wiki](https://www.vscp.org/wiki/doku.php)
 
 * Appendixes
- * [Appendix A - User configuration file](-/appendix_a_users.md)
+ * [Appendix A - User configuration file](./appendix_a_users.md)
     
 * Level I events
  * [Description](./level_i_events.md)
