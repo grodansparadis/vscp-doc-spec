@@ -12,7 +12,7 @@ The [VSCP helper library c interface](https://grodansparadis.github.io/vscp-help
 
 A RFC-854 (telnet) based protocol is supported over TCP/IP. The protocol is implemented in an extended form in the VSCP Daemon [vscpl2drv-tcpipsrv](https://github.com/grodansparadis/vscpl2drv-tcpipsrv) driver and is described [here](https://www.vscp.org/docs/vscpfirmware/doku.php?id=start_l2#vcsp_link_interface_based_nodes_tcp_ip). The protocol is very easy to implement in low resource clients and a driver is available that make connecting to a client a turn-key experience. Source for this implementation on Arduino and others is available in the [firmware repository](https://github.com/grodansparadis/vscp_firmware). For high security SSL is available as an option together with other security measures.
 
-The VSCP Link Interface implemented in a node is described [here]([VSCP tcp/ip link protocol](./vscp_tcpiplink.md)).
+The VSCP Link Interface implemented in a node is described [here](./vscp_tcpiplink.md).
 
 
 [filename](./bottom_copyright.md ':include')
