@@ -2,7 +2,7 @@
 
 On all VSCP enabled devices you can read register [151/0x97](./vscp_register_abstraction_model#id=level-i-register-abstraction-model) to get the bootloader algorithm that the device support. Most devices support some boot loader algorithm but some rare devices does not and then this register will read back as 0xff.
 
-Defined bootloader codes are defined [here](./class1.protocol#id=type12).
+Defined bootloader codes are defined [here](./class1.protocol#type12).
 
 There is possible to implement your own bootloader algorithm and in that case you should return one of the user defined bootloader codes.
 
