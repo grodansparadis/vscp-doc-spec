@@ -1,6 +1,9 @@
 # Module Description File
 
-The VSCP registers 0xE0-0xFF specifies the Module Description File URL (without `<nowiki>`“http://”`</nowiki>` which is implied). The file is in XML format and defines a modules functionality, registers and events. The intended use is for application software to be able to get information about a node and its functionality in an automated way.
+The VSCP registers 0xE0-0xFF specifies the Module Description File URL (without `<nowiki>`“http://”`</nowiki>` or `<nowiki>`“https://”`</nowiki>` which is implied). The file is in XML or JSON format and defines a modules functionality, registers and events. The intended use is for application software to be able to get information about a node and its functionality in an automated way.
+
+ * A XML coded MDF file shall start with a '<'. It is allowed to have white space before this character.
+ * A JSON coded MDF file shall start with a '{'. It is allowed to have white space before this character.
 
 On Level II devices this information can be available in the configuration data and be locally stored on the node. If language tags are missing for a name or a description or in an other place where they are valid English should be assumed.
 
@@ -52,6 +55,8 @@ If you want to insert HTML as content use a construct like this
 this is especially useful for info, description and help items.
 
 ##### Format
+
+**XML**
 
 ```xml
 <?xml version = "1.0" encoding="UTF-8" ?>
@@ -185,14 +190,15 @@ this is especially useful for info, description and help items.
 						"windows-nt", "windows-xp", "windows-vista"   
 				[osver] is os version 
 		--> 
-		<driver id="xxx", type="yyy" os="zzz" osver="123">   
+		<driver id="xxx", type="yyy" os="zzz" osver="123" url="url to driver">   
 			<description lang="en">Main email address</description>   
 			<location>Where the driver can be fetched from 
                       (one or many)`</location>` 
 		</driver>
 
 		<!-- Picture of device --> 	
-		<picture path="url where picture can be found"  		
+		<picture path="url where picture can be found" 
+		  url="url where picture can be found" 		
 			format="bmp | jpg | png | ....... " 		
 			height="heigh for picture in pixels"
 			width="width of picture in pixels"  	
@@ -646,6 +652,507 @@ this is especially useful for info, description and help items.
 `</vscp>`
 
 
+```
+
+**JSON**
+
+Doublets below show different versions of the same tag. For example
+
+```json
+"name": "Name of module",
+"name" : {
+	"eng": "English name",
+	"swe": "Svensk namn",
+	"
+}
+```
+
+show two ways to enter a _name_, string and object.
+
+Language tags is two letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+
+---
+```json
+{
+	"vscp": {
+		
+		"redirect mdf-path": "url",
+
+		"modules": [
+			{
+				"name": "Name of module",
+				"name" : {
+					"gb": "English module name",
+					"se": "Svenskt modul namn",
+					"lt": "Lietuvos modulio pavadinimas"
+				},
+        "model": "bbbbb",
+        "version": "cccccc",
+        "description": "English description",
+				"description" : {
+					"gb": "English description",
+					"se": "Svensk beskrivning",
+					"lt": "Lietuvos aprašymas"
+				},
+
+				"infourl": "https://www.somewhere.com",
+				"buffersize": 9999
+
+
+				"manufacturer": {       
+        	"name": "Name of module",
+					"name" : {
+						"gb": "English module name",
+						"se": "Svenskt modul namn",
+						"lt": "Lietuvos modulio pavadinimas"
+					}, 
+          "address": [
+						{
+							"street": "ttttttttttttt",
+							"town": "llllllllll",
+							"city": "London",       
+							"postcode": "HH1234",
+							"state": "state",            
+							"region": "region",
+							"country": "ttttt"
+						}
+					]
+               
+          "telephone": [
+            "number": "123456789"
+            "description": "English description",
+						"description" : {
+							"gb": "English description",
+							"se": "Svensk beskrivning",
+							"lt": "Lietuvos aprašymas"
+						},        
+					]        
+        
+          "fax": [
+            "number": "123456789"
+            "description": "English description",
+						"description" : {
+							"gb": "English description",
+							"se": "Svensk beskrivning",
+							"lt": "Lietuvos aprašymas"
+						},        
+					]         
+
+          "email": [
+            "address": "someone@somwhere.com"
+            "description": "English description",
+						"description" : {
+							"gb": "English description",
+							"se": "Svensk beskrivning",
+							"lt": "Lietuvos aprašymas"
+						},        
+					]         
+        
+          "web": [
+            "address": "https://www.somewhere.com"
+            "description": "English description",
+						"description" : {
+							"gb": "English description",
+							"se": "Svensk beskrivning",
+							"lt": "Lietuvos aprašymas"
+						},        
+					]     
+				},
+
+				"driver": [
+					{
+					 "id": "xxx", 
+					 "type": "yyy", 
+					 "os": "zzz", 
+					 "osver": "123",
+					 "url": "Location for driver"
+           "description": "English description",
+						"description" : {
+							"gb": "English description",
+							"se": "Svensk beskrivning",
+							"lt": "Lietuvos aprašymas"
+						}						
+					}
+				],
+
+				"picture": [
+					{
+						"path": "url where picture can be found (alternative)",
+						"url": "url where picture can be found (alternative)",
+            "format": "ext | bmp | jpg | png | ....... ",        
+            "height": 12345,
+            "width": 12345,   
+            "size": 12345,
+            "description": "English description",
+						"description" : {
+							"gb": "English description",
+							"se": "Svensk beskrivning",
+							"lt": "Lietuvos aprašymas"
+						}						
+					}    
+				],
+
+				"firmware" : [
+					{
+						"path": "url where firmware can be found",
+						"url": "url where firmware can be found",
+            "format": "intelhex8|intelhex16",
+            "size": 123456,
+            "date": "ISO date/time when released.",
+            "version_major": 12345,
+            "version_minor": 12345,
+            "version_subminor": 12345,
+            "description": "English description",
+						"description" : {
+							"gb": "English description",
+							"se": "Svensk beskrivning",
+							"lt": "Lietuvos aprašymas"
+						}	
+					}
+				],
+
+				"manual": [
+					{
+						"path": "url where manual can be found",
+            "lang": "Two digit iso code for language",
+            "format": "txt | rtf | doc | pdf | html",
+            "description": "English description",
+						"description" : {
+							"gb": "English description",
+							"se": "Svensk beskrivning",
+							"lt": "Lietuvos aprašymas"
+						}	
+					}
+        ]
+
+				"abstractions": [
+					{
+						"id": "some name",
+            "type": "bool",
+            "default": "false",
+            "page": 12345,
+            "offset": 12345,
+            "bit": 12345,
+						"width": 12345,
+						"access": "rw",
+						"indexed": false,
+
+						"name": "Name of abstraction",
+						"name" : {
+							"gb": "English abstraction name",
+							"se": "Svenskt abstraktions namn",
+							"lt": "Lietuvos abstrakcija pavadinimas"
+						},
+						"description": "English description",
+						"description" : {
+							"gb": "English description",
+							"se": "Svensk beskrivning",
+							"lt": "Lietuvos aprašymas"
+						},
+						"help": "English text help",
+						"help" : {
+							"type": "test | url"
+							"gb": "English help",
+							"se": "Svensk hjälp",
+							"lt": "Lietuvos padeda"
+						},
+						"valuelist": [
+							{
+								"value": "value for item",							
+								"name": "Name of module",
+								"name" : {
+									"gb": "English module name",
+									"se": "Svenskt modul namn",
+									"lt": "Lietuvos modulio pavadinimas"
+								},
+								"description": "English description",
+								"description" : {
+									"gb": "English description",
+									"se": "Svensk beskrivning",
+									"lt": "Lietuvos aprašymas"
+								}
+							},
+							"help": "English text help",
+							"help" : {
+								"type": "test | url",
+								"gb": "English help",
+								"se": "Svensk hjälp",
+								"lt": "Lietuvos padeda"
+							},
+						]	
+					}
+				]
+
+				"reg": [
+					{
+						"page": 12345,
+						"offset": 12345,
+						"default": 12345,
+						"access": "rw",
+						"bit": [
+							{
+								"pos": 12345,
+								"width": 12345,
+								"default": false,
+								"name": "Name of bit or bitfield",
+								"name" : {
+									"gb": "English bit or bitfield name",
+									"se": "Svenskt namn för bit eller bitfält",
+									"lt": "Lietuva Bitų arba bitų lauko pavadinimas"
+								},
+								"description": "English description",
+								"description" : {
+									"gb": "English description",
+									"se": "Svensk beskrivning",
+									"lt": "Lietuvos aprašymas"
+								},
+								"help": "English text help",
+								"help" : {
+									"type": "test | url"
+									"gb": "English help",
+									"se": "Svensk hjälp",
+									"lt": "Lietuvos padeda"
+								},
+							}
+						],
+						"name": "Name of register",
+						"name" : {
+							"gb": "English register name",
+							"se": "Svenskt register namn",
+							"lt": "Lietuva registracijos pavadinimas"
+						},
+						"description": "English description",
+						"description" : {
+							"gb": "English description",
+							"se": "Svensk beskrivning",
+							"lt": "Lietuvos aprašymas"
+						},
+						"valuelist": [
+							{
+								"value": "value for item",							
+								"name": "Name of module",
+								"name" : {
+									"gb": "English module name",
+									"se": "Svenskt modul namn",
+									"lt": "Lietuvos modulio pavadinimas"
+								},
+								"description": "English description",
+								"description" : {
+									"gb": "English description",
+									"se": "Svensk beskrivning",
+									"lt": "Lietuvos aprašymas"
+								},
+								"help": "English text help",
+								"help" : {
+									"type": "test | url",
+									"gb": "English help",
+									"se": "Svensk hjälp",
+									"lt": "Lietuvos padeda"
+								},
+							},
+							"help": "English text help",
+							"help" : {
+								"type": "test | url",
+								"gb": "English help",
+								"se": "Svensk hjälp",
+								"lt": "Lietuvos padeda"
+							},
+						]
+					}
+				],
+
+				"dmatrix": {
+					"level": 12345,
+					"start": {
+						"page": 12345,
+						"offset": 12345,
+						"indexed": false,
+						"rowcount": 12345,
+						"rowsize": 12345,
+					},
+					"action": [
+						{
+							"name": "Name of module",
+							"name" : {
+								"gb": "English module name",
+								"se": "Svenskt modul namn",
+								"lt": "Lietuvos modulio pavadinimas"
+							},
+							"description": "English description",
+							"description" : {
+								"gb": "English description",
+								"se": "Svensk beskrivning",
+								"lt": "Lietuvos aprašymas"
+							},
+							"help": "English text help",
+							"help" : {
+								"type": "test | url",
+								"gb": "English help",
+								"se": "Svensk hjälp",
+								"lt": "Lietuvos padeda"
+							},
+							"data": [
+								"offset": 12345,
+								"name": "Name of module",
+								"name" : {
+									"gb": "English module name",
+									"se": "Svenskt modul namn",
+									"lt": "Lietuvos modulio pavadinimas"
+								},
+								"description": "English description",
+								"description" : {
+									"gb": "English description",
+									"se": "Svensk beskrivning",
+									"lt": "Lietuvos aprašymas"
+								},
+								"help": "English text help",
+								"help" : {
+									"type": "test | url",
+									"gb": "English help",
+									"se": "Svensk hjälp",
+									"lt": "Lietuvos padeda"
+								},
+								"bit": [
+									"pos": 1234,
+									"width": 12345,
+									"name": "Name of module",
+									"name" : {
+										"gb": "English module name",
+										"se": "Svenskt modul namn",
+										"lt": "Lietuvos modulio pavadinimas"
+									},
+									"description": "English description",
+									"description" : {
+										"gb": "English description",
+										"se": "Svensk beskrivning",
+										"lt": "Lietuvos aprašymas"
+									},
+									"help": "English text help",
+									"help" : {
+										"type": "test | url",
+										"gb": "English help",
+										"se": "Svensk hjälp",
+										"lt": "Lietuvos padeda"
+									},
+								]
+							]
+						}
+					],
+					"help": "English text help",
+					"help" : {
+						"type": "test | url",
+						"gb": "English help",
+						"se": "Svensk hjälp",
+						"lt": "Lietuvos padeda"
+					},
+				},
+
+				"events": [
+					{
+						"class": 12345,
+						"type": 12345,
+						"direction": "in|out",
+						"priority": 12345,
+						"name": "Name of module",
+						"name" : {
+							"gb": "English module name",
+							"se": "Svenskt modul namn",
+							"lt": "Lietuvos modulio pavadinimas"
+						},
+						"description": "English description",
+						"description" : {
+							"gb": "English description",
+							"se": "Svensk beskrivning",
+							"lt": "Lietuvos aprašymas"
+						},
+						"help": "English text help",
+						"help" : {
+							"type": "test | url",
+							"gb": "English help",
+							"se": "Svensk hjälp",
+							"lt": "Lietuvos padeda"
+						},
+						"data": [
+							"offset": 12345,
+							"name": "Name of module",
+							"name" : {
+								"gb": "English module name",
+								"se": "Svenskt modul namn",
+								"lt": "Lietuvos modulio pavadinimas"
+							},
+							"description": "English description",
+							"description" : {
+								"gb": "English description",
+								"se": "Svensk beskrivning",
+								"lt": "Lietuvos aprašymas"
+							},
+							"help": "English text help",
+							"help" : {
+								"type": "test | url",
+								"gb": "English help",
+								"se": "Svensk hjälp",
+								"lt": "Lietuvos padeda"
+							},
+							"bit": [
+								"pos": 1234,
+								"width": 12345,
+								"name": "Name of module",
+								"name" : {
+									"gb": "English module name",
+									"se": "Svenskt modul namn",
+									"lt": "Lietuvos modulio pavadinimas"
+								},
+								"description": "English description",
+								"description" : {
+									"gb": "English description",
+									"se": "Svensk beskrivning",
+									"lt": "Lietuvos aprašymas"
+								},
+								"help": "English text help",
+								"help" : {
+									"type": "test | url",
+									"gb": "English help",
+									"se": "Svensk hjälp",
+									"lt": "Lietuvos padeda"
+								},
+							]
+						]
+					}
+				],
+
+				"alarm": [
+					{
+						"pos": 12345,
+						"name" : {
+							"gb": "English module name",
+							"se": "Svenskt modul namn",
+							"lt": "Lietuvos modulio pavadinimas"
+						},
+						"description": "English description",
+						"description" : {
+							"gb": "English description",
+							"se": "Svensk beskrivning",
+							"lt": "Lietuvos aprašymas"
+						},
+						"help": "English text help",
+						"help" : {
+							"type": "test | url",
+							"gb": "English help",
+							"se": "Svensk hjälp",
+							"lt": "Lietuvos padeda"
+						},
+					}
+				],
+
+				"boot": {
+					"algorithm": 1,
+					"blocksize" : 20,
+					"blockcount": 66
+				}
+			}
+		]
+	} 
+}
 ```
 
 

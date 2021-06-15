@@ -1,4 +1,18 @@
-# VSCP boot loader algorithm
+# Bootloader
+
+On all VSCP enabled devices you can read register [151/0x97](./vscp_register_abstraction_model#id=level-i-register-abstraction-model) to get the bootloader algorithm that the device support. Most devices support some boot loader algorithm but some rare devices does not and then this register will read back as 0xff.
+
+Defined bootloader codes are defined [here](./class1.protocol#id=type12).
+
+There is possible to implement your own bootloader algorithm and in that case you should return one of the user defined bootloader codes.
+
+Bootloader code 0x00 is the VSCP defined bootloader. This bootloader is entirely VSCP event based while other just use VSCP events to enter bootloader mode.
+
+Bootloader code 0x01 for Microchip PIC1 devices (described below) is a typical example of a non VSCP bootloader. Designed for size constraint devices as it is.
+
+## VSCP boot loader algorithm
+
+### Boot loader code = 0x00
 
 This is the VSCP boot loader. Note that also several other low level boot loader mechanisms (such as PIC1 below) that are more suited for low memory footprint devices are available. Many devices  of today have the capability for in circuit programming and can have their firmware changed whilst still in the system. This is supported by VSCP with boot loader events.
 
@@ -26,15 +40,15 @@ The boot-loader is built to direct control flash if other methods such as interm
 Diagram by **Andreas Merkle**
 
 
-# Microchip custom algorithm for PIC18 devices
+## Microchip custom algorithm for PIC18 devices
 
-## Boot loader code = 0x01
+### Boot loader code = 0x01
 
     rev 0.3: 2004-09-22
 
 The CAN boot loader is a modified version of a boot loader that Microchip describes in there application note AN247. Source for the boot loader is available at vscp_firmware\pic\bootloader\Microchip\vscp_can_bootloader_18f in the source tree. 
 
-## Changes from Appnote 247
+### Changes from Appnote 247
 
 This boot loader is based on the Microchip CAN boot loader for 18F devices that is described in their application note 247 (see references at the end of this document for a pointer to original code and excellent documentation). This work remains much the same but some changes have been made to it to make it suitable for VSCP nodes.
 
@@ -65,7 +79,7 @@ To indicate that the node is in boot loader mode. It will send a message 0x15nn 
 
 Register 0x97 contains info (the code) about which bootloader algorithm a node support as documented in the VSCP specification for class=0, type=12.. 
 
-## Loading code to a node.
+### Loading code to a node.
 
  1.  Send a PUT_BASE_INFO command. The address pointer should be set. The control byte is typically set to 0x1D ( MODE_WRT_UNLOCK, MODE_AUTO_ERASE, MODE_AUTO_INC, MODE_ACK). If CMD_RESET is set the checksum will be tested. This is usually how the first command to the node is formatted. 
  2.  Write data to the device by sending multiple PUT_DATA commands to it. Each byte sent to the node must be summed in order to cater for the checksum. 
@@ -73,20 +87,20 @@ Register 0x97 contains info (the code) about which bootloader algorithm a node s
 
 The VSCP bootloader wizard handles this task. 
 
-## Filter and Mask settings
+### Filter and Mask settings
 
 If the filter allows messages for all nicknames to come in to the node it is possible to boot load many nodes at the same time. Each node will answer with its node-ID but will only react to packages for node 0xFF and its own ID. In this way it is possible to have part of the programming common for all nodes.
 
 accept only class=0(0x00) type=16(0x10),17(0x11),18(0x18),19(0x12) origin=all 
 
-##### Mask
+#### Mask
 
     EIDL = 0x00 All origins 
     EIDH = 0xFC 
     SIDL = 0xFF 
     SIDH = 0x0f All priorities, either hard coded or not.
 
-##### Filter
+#### Filter
 
     EIDL = 0x00 
     EIDH = 0x10 
@@ -95,7 +109,7 @@ accept only class=0(0x00) type=16(0x10),17(0x11),18(0x18),19(0x12) origin=all
 
 Responses are of type 20 and 21. 
 
-## PUT_BASE_INFO
+### PUT_BASE_INFO
 
     Priority = 0 
     Hard code = 0 
@@ -145,7 +159,7 @@ To only erase but not write set MODE_ERASE_ONLY
 
 if MODE_AUTO_INC is set, the memory pointer will increment automatically. 
 
-## PUT_DATA
+### PUT_DATA
 
     Priority = 0 
     Hardcode = 0 
@@ -171,7 +185,7 @@ If MODE_ACK is set then ack messages will be sent from the node after the write.
 
 If MODE_AUTO_INC is set the memory pointer will increase automatically and one can issue multiple PUT_DATA after each other until the flash is written. 
 
-## GET_BASE_INFO
+### GET_BASE_INFO
 
     Priority = 0 
     Hardcode = 0 
@@ -194,7 +208,7 @@ The response is:
 
 with ID 0x000010nn where nn is nickname. 
 
-## GET_DATA
+### GET_DATA
 
     Priority = 0 
     Hardcode = 0 
@@ -223,7 +237,7 @@ If MODE_AUTO_INC is set the memory pointer will increase automatically and one c
 
 A node that implements the bootloader but does not want to share memory content can report all data as 0xFF. 
 
-##### Memory Organization
+#### Memory Organization
 
 	
 	|-------------------------------| 
@@ -265,7 +279,7 @@ A node that implements the bootloader but does not want to share memory content 
 	|-------------------------------|
 
 
-##### VSCP Works
+#### VSCP Works
 
 VSCP will start the boot loading process for all algorithms by checking if the device is present. This is done by reading register 0xD0 which is the first byte of the GUID and for a valid VSCP device it should always return something. 
 

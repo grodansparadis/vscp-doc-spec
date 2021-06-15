@@ -2,7 +2,9 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | 2021-06-10 | AKHE | Added info about the tcp/ip link protocol. |
+ | 2021-06-15 | AKHE | Added JSON alternative for MDF. |
+ | 2021-06-15 | AKHE | Added link to bootloader codes and a short intro. |
+ | 2021-06-10 | AKHE | Added info about the tcp/ip link protocol. |
  | 2021-05-10 | AKHE Moved websocket def and rest def from vscpd docs to spec. |
  | 2021-04-21 | AKHE | Added VSCP_CLASS1_MEASUREMENT, VSCP_TYPE_MEASUREMENT_REACTIVE_POWER (64) |
  | 2021-04-21 | AKHE | Added VSCP_CLASS1_MEASUREMENT, VSCP_TYPE_MEASUREMENT_REACTIVE_ENERGY (65) |
