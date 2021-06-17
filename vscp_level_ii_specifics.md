@@ -145,19 +145,22 @@ VSCP level II events can be presented as JSON data. Format is
 
 ```json
 {   
-   "vscpHead":0,
-   "vscpObId":0,
-   "vscpClass":10,
-   "vscpType":6,
-   "vscpGuid":"ff:ee:dd:cc:bb:aa:99:88:77:66:55:44:33:22:11:00",
-   "vscpTimeStamp":1234567,
-   "vscpDateTime":"2018-03-03T12:01:40Z",
-   "vscpData":[1,2,3,4],
-   "note":"Some optional note about event",
-   "unit":0,
-   "sensorindex":0,
-   "coding":0,
-   "value":1.2345
+    "vscpHead":0,
+    "vscpObId":0,
+    "vscpClass":10,
+    "vscpType":6,
+    "vscpGuid":"ff:ee:dd:cc:bb:aa:99:88:77:66:55:44:33:22:11:00",
+    "vscpTimeStamp":1234567,
+    "vscpDateTime":"2018-03-03T12:01:40Z",
+    "vscpData":[1,2,3,4],
+    "note":"Some optional note about event",
+    "measurement": {
+        "value":1.2345
+        "unit":0,
+        "sensorindex":0,
+        "zone":0,
+        "subzone":0
+    }
 }
 ```
 **note** is used by analytic software like VSCP Works.
@@ -169,9 +172,13 @@ __unit__, __sensorindex__, __coding__ and __value__ is extra information used by
 
 If vscpTimeStamp and or vscpDateTime is absent it should be treated as 'now'.
 
-vscpTimeStamp is a sender relative value expressed in microseconds that can be used for more precise timing calculations
+vscpTimeStamp is a sender relative value expressed in microseconds that can be used for more precise timing calculations.
 
-vscpDateTime is date + time in UTC on ISO format
+vscpDateTime is date + time in UTC on ISO format.
+
+The measurement block is optional. It can be inserted by software for measurements but should not be expected to be available.
+
+If a tag is not present it should be interpreted as zero with the exception for vscpTimeStamp and vscpDateTime described above.
 
 ## Globally Unique Identifiers
 
