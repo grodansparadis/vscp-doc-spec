@@ -14,7 +14,7 @@ If you want to test this there is a simple [walkthrough](./new_system_install_te
 
 ### VSCP websocket server security :id=websocket-security
 
-The websocket interface is protected by a user/password pair. The username is sent a digest over the net but the password is a hash over "username:authdomain|raltext-password".((authdomain is described [here]( ./configuring_the_vscp_daemon.md#configuration))
+The websocket interface is protected by a user/password pair. The username is sent a digest over the net but the password is a hash over "username:authdomain|realtext-password".
 
 I addition to the username/password which also groups users in security levels it is possible to have table where the hosts allowed to connect to the system is stored.
 
