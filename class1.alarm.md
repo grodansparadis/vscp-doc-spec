@@ -42,6 +42,8 @@ Indicates an alarm condition.
  |     1     | Zone for which event applies to (0-255). 255 is all zones.         |
  |     2     | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
+If byte 0 is zero this event can be interpreted as alarm-reset.
+
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
 
 ----
@@ -205,6 +207,22 @@ Issued when a watchdog has been triggered.
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
 
 
+
+----
+
+## Type=13 (0x0D) - Alarm reset :id=type13
+```
+VSCP_TYPE_ALARM_RESET
+```
+Indicates an alarm reset condition.
+
+ | Data byte | Description                                                        |
+ | :-------: | ------------------------------------------------------------------ |
+ |     0     | Alarm byte from standard register 128/0x80.                             |
+ |     1     | Zone for which event applies to (0-255). 255 is all zones.         |
+ |     2     | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
+
+If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
 
 ----
 
