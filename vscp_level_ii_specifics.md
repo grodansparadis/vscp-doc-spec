@@ -108,6 +108,33 @@ For interfaces the machine MAC address, if available, is a good base for a GUID 
 
 Other methods to generate GUID's s also available form more information see Appendix A.
 
+## String Representation
+In some cases it is useful to have a compact string representation of the an Event. This is for instance used in the [VSCP tcp/ip link protocol](./vscp_over_tcp_ip.md). The format is
+
+```
+head,class,type,obid,datetime,timestamp,GUID,data1,data2,data3....
+```
+
+date time is in ISO 8601 format (_"YYYY-MM-DDTHH:MM:SS[.ssss[Z]]":).
+
+_obid_, _datetime_, and _timestamp_ can be left out. In this case a comma is used instead. If datetime is left out the first intelligent interface the event passes will set the datetime of the event to the current UTC time. If timestamp is left out the first interface the event passes will set the timestamp of the event to the current time in microseconds.
+
+The GUID can either be the full GUID on the form
+
+```
+25:00:00:00:00:00:00:00:00:00:00:00:0D:02:00:01
+```
+
+or a dash
+
+```
+-
+```
+
+or empty. If it is a dash or is empty the GUID of the interface is set for the event.
+
+All numbers except the numbers of the GUID (always in hex without a preciding '0x', can either be decimal or hexadecimal. Hexadecimal numbers should be preceded by '0x'.
+
 ## XML Representation
 
 VSCP level II events can be presented as XML data. Format is
@@ -117,7 +144,7 @@ VSCP level II events can be presented as XML data. Format is
 <!-- Version 0.0.2 2020-02-20 -->
 <event 
     vscpHead="flags for event"
-    vscpClass="Eventclass is numerical form or CLASSx:numerical form"
+    vscpClass="Event class is numerical form or CLASSx:numerical form"
     vscpType="Event type in numerical form."
     vscpGuid="ff:ee:dd:cc:bb:aa:99:88:77:66:55:44:33:22:11:00"
     vscpTimeStamp="Relative microsecond value."
@@ -170,7 +197,7 @@ VSCP level II events can be presented as JSON data. Format is
 __unit__, __sensorindex__, __coding__ and __value__ is extra information used by event decoding logic. __note__ is used by analytic software__
 
 
-If vscpTimeStamp and or vscpDateTime is absent it should be treated as 'now'.
+If vscpTimeStamp and or vscpDateTime is absent each should be treated as 'now'.
 
 vscpTimeStamp is a sender relative value expressed in microseconds that can be used for more precise timing calculations.
 
@@ -179,6 +206,15 @@ vscpDateTime is date + time in UTC on ISO format.
 The measurement block is optional. It can be inserted by software for measurements but should not be expected to be available.
 
 If a tag is not present it should be interpreted as zero with the exception for vscpTimeStamp and vscpDateTime described above.
+
+Higher level software may use
+
+```json
+vscpClassToken:"VSCP_CLASS1_MEASUREMENT",
+vscpTypeToken:"VSCP_TYPE_MEASUREMENT_ELECTRIC_CURRENT",
+```
+
+or similar for more user friendly class/type information. They should be give in addition to the numerical form, not instead of.
 
 ## Globally Unique Identifiers
 

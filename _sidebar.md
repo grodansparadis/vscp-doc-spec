@@ -4,6 +4,7 @@
  * [Specification history](vscp_specification_history.md)
 
 * Essential VSCP Parts
+ * [The VSCP Event](./event.md)
  * [VSCP Level I Specifics](./vscp_level_i_specifics.md)
  * [VSCP Level II Specifics](./vscp_level_ii_specifics.md)
  * [Globally Unique Identifiers GUID](./vscp_globally_unique_identifiers.md)
