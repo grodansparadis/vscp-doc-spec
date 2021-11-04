@@ -16,8 +16,6 @@ On Level II devices this information can be available in the configuration data 
 The Kelvin NTC10K is one of [Grodans Paradis AB's](https://www.grodansparadis.com/) modules and it has it's product page [here](https://www.grodansparadis.com/kelvinntc10k/kelvin_ntc10ka.html). The MDF file for this modules is [here](https://www.eurosource.se/ntc10KA_1.xml).
 
 
-*  Paris relay board - [https://www.eurosource.se/paris_010.xml](https://www.eurosource.se/paris_010.xml)
-
 ### Paris relay module
 
 The Paris module is another module from Grodans Paradis AB and it is documented [here](https://www.grodansparadis.com/paris/paris.html). The MDF file for this modules is [here](https://www.eurosource.se/paris_010.xml).

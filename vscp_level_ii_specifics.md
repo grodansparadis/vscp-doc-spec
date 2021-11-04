@@ -155,10 +155,11 @@ VSCP level II events can be presented as XML data. Format is
     sensorindex="Index for sensor"
     coding="How value is codes"
     value="Measurement value"
+    note="Some note about this event"
 />
 ```
 
-__unit__, __sensorindex__, __coding__ and __value__ is extra information used by event decoding logic. __note__ is used by analytic software__
+__unit__, __sensorindex__, __coding__ and __value__ is extra information used by event decoding logic. __note__ is used by analytic software like VSCP Works__
 
 If vscpTimeStamp and or vscpDateTime is absent they should be treated as 'now'.
 
@@ -180,7 +181,7 @@ VSCP level II events can be presented as JSON data. Format is
     "vscpTimeStamp":1234567,
     "vscpDateTime":"2018-03-03T12:01:40Z",
     "vscpData":[1,2,3,4],
-    "note":"Some optional note about event",
+    "vscpNote":"Some optional note about event",
     "measurement": {
         "value":1.2345
         "unit":0,
@@ -190,7 +191,7 @@ VSCP level II events can be presented as JSON data. Format is
     }
 }
 ```
-**note** is used by analytic software like VSCP Works.
+**vscpNote** is used by analytic software like VSCP Works for log files and other diagnostic event logs stored on disks or similar.
 
 **unit**, **sensorindex**,**coding** and **value** are optional for measurements event conversions.
 
