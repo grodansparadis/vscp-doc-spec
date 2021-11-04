@@ -1,6 +1,6 @@
 # Module Description File
 
-The VSCP registers 0xE0-0xFF specifies the Module Description File URL (without `<nowiki>`“http://”`</nowiki>` or `<nowiki>`“https://”`</nowiki>` which is implied). The file is in XML or JSON format and defines a modules functionality, registers and events. The intended use is for application software to be able to get information about a node and its functionality in an automated way.
+The VSCP registers 0xE0-0xFF specifies the Module Description File URL (without “http://”` or `“https://” which is implied). The file is in XML or JSON format and defines a modules functionality, registers and events. The intended use is for application software to be able to get information about a node and its functionality in an automated way.
 
  * A XML coded MDF file shall start with a '<'. It is allowed to have white space before this character.
  * A JSON coded MDF file shall start with a '{'. It is allowed to have white space before this character.
