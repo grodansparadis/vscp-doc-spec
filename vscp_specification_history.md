@@ -2,7 +2,10 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
- | 2021-10-05 | AKHE | Updated clas definitions to latest. |
+ | 2022-01-21 | AKHE | Added proper description of JSON formatted MDF files. |
+ | 2022-01-17 | AKHE | Two new standard register positions has been added for 'firmware code' |
+ | 2022-01-13 | AKHE | Updated MDF info. 'abstraction' has been changed to 'remotevar'. 'abstraction' can still be used. 'name' attribute is not language dependent anymore. |
+ | 2021-10-05 | AKHE | Updated class definitions to latest. |
  | 2021-09-06 | AKHE | Clarified CLASS1_MEASUREMENT, VSCP_TYPE_MEASUREMENT_ANGLE |
  | 2021-08-03 | AKHE | CLASS1.INFORMATION, Type=88, VSCP_TYPE_INFORMATION_PROXIMITY_DETECTED now have standard data content. |
  | 2021-06-21 | AKHE | Alarm reset event added. |
