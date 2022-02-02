@@ -100,7 +100,7 @@ The registers are laid out in an 32-bit address space with the standard Level I 
 
  
 
-## Remote variables (Abstractions):id=remote-variables
+## Remote variables:id=remote-variables
 
 **Note:** Remote variables where called *abstractions* in previous versions (1.13) of the specification.
 
