@@ -18,6 +18,8 @@ Bit 5 of the node control flags write protects all user registers if cleared ( =
 
 The page read/write, boot events etc can handle more then eight data bytes if the buffer is larger than eight and the implementer wishes to do so. This even if the event is a Level I event.
 
+Reading of an unimplemented register should return 0x00.  
+
 The VSCP registers are defined as follows: 
 
 ##### Register abstraction model:id=register_abstraction_model
@@ -64,7 +66,7 @@ The VSCP registers are defined as follows:
  | 164/0xA4  | Read Only  | Firmware device code LSB. *Added in version 1.13.0 of the specification* |
  | 165/0xA5-207/0xCF | —         | Reserved for future use. Return  | 
  | 208/0xD0-223/0xDF | Read Only   | 128-bit (16-byte) globally unique ID (GUID) identifier for the device. This identifier uniquely identifies the device throughout the world and can give additional information on where driver and driver information can be found for the device. MSB for the identifier is stored first (in 0xD0). | 
- | 224/0xE0-255/0xFF | Read Only   | Module Description File URL. A zero terminates the ASCII string if not exactly 32 bytes long. The URL points to a file that gives further information about where drivers for different environments are located. Can be returned as a zero string for devices with low memory. It is recommended that unimplemented registers read as 0xFF. For a node with an embedded MDF return a zero string. The CLASS1.PROTOCOL, Type=34/35 can then be used to get the information if available. | 
+ | 224/0xE0-255/0xFF | Read Only   | Module Description File URL. A zero terminates the ASCII string if not exactly 32 bytes long. The URL points to a file that gives further information about where drivers for different environments are located. Can be returned as a zero string for devices with low memory. For a node with an embedded MDF return a zero string. The CLASS1.PROTOCOL, Type=34/35 can then be used to get the information if available. | 
 
 ### User ID
 
