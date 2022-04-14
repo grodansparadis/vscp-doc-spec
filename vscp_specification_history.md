@@ -2,6 +2,7 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | 2022-04-14 | AKHE | VSCP protocol level added to manufacturer info. Default to 1 |
  | 2022-01-21 | AKHE | Added proper description of JSON formatted MDF files. |
  | 2022-01-17 | AKHE | Two new standard register positions has been added for 'firmware code' |
  | 2022-01-13 | AKHE | Updated MDF info. 'abstraction' has been changed to 'remotevar'. 'abstraction' can still be used. 'name' attribute is not language dependent anymore. |

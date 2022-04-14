@@ -69,6 +69,7 @@ Every module should have an initial block that describes the module. This block 
 ```xml
 <vscp>
 	<module>
+    <level>1/2</level>
     <name>aaaaaaaa</name>
 		<model>bbbbb</model>    
 		<version>cccccc</version>
@@ -79,6 +80,10 @@ Every module should have an initial block that describes the module. This block 
 		<buffersize>8</buffersize> 
 </module>    
 ```
+
+#### level
+VSCP level of protocol this module works with. Defaults to 1 if not present.
+
 #### name
 Name is the name of the module. A unique describing name is recommended. This name will be translated to lower case and is used as the name of the module when referring to it in software.
 
@@ -1520,6 +1525,7 @@ Every module should have an initial block that describes the module. This block 
 ```json
 {
   "module": {
+    "level": "1/2",
     "name": "Simple B test",
     "model": "Simple B model",
     "version": "B",
@@ -1611,6 +1617,8 @@ Every module should have an initial block that describes the module. This block 
 }
 ```
 
+#### level
+Level of the VSCP protocol this module works with. Can be 1 or 2 and defaults to 1 if not present.
 
 #### name
 Name is the name of the module. A unique describing name is recommended. This name will be translated to lower case and is used as the name of the module when referring to it in software.
