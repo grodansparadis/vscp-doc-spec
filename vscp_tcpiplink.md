@@ -527,15 +527,16 @@ type is
 
 ###  close :id=tcpip-interface-close
 
-Close interfaces.
+__Optional__
+
+Close interfaces. 
 
 Full format is
 
     interface close interface_GUID
 
-Unique access to an interface can only be queried once for one interface. So two unique operations after each other deselects the first chosen interface before acquire the second.
 
-Normally interfaces are always open. In this case just reply with a positive response (_+OK\r\n_).
+Normally interfaces are always open. If your interfaces can't be closed just reply with a positive response (_+OK\r\n_).
 
 
 [filename](./bottom_copyright.md ':include')
