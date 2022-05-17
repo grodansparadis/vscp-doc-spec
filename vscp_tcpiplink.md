@@ -1,11 +1,10 @@
-# VSCP tcp/ip link protocol
+# VSCP tcp/p link protocol
 
-This protocol can be used by tcp/ip based nodes to export an interface to it's VSCP functionality.
+This protocol can be used by tcp/p based nodes to export an interface to it's VSCP functionality.
 
-# VSCP Daemon TCP/IP Control Interface
-
+# VSCP Daemon tcp/p Control Interface
  
-The TCP/IP interface is a very powerful tool to control the VSCP daemon remotely as it allow for full control of the functionality of the daemon. Originally the TCP/IP interface was added to allow for a more secure way to send events over TCP/IP links. This interface will have a fair better chance to work over wireless and other links that are hard to get to work reliable with UDP.  
+The tcp/p interface is a very powerful tool to control the VSCP daemon remotely as it allow for full control of the functionality of the daemon. Originally the tcp/p interface was added to allow for a more secure way to send events over tcp/p links. This interface will have a fair better chance to work over wireless and other links that are hard to get to work reliable with UDP.  
 
 ## GUID assigned to the interface
 
@@ -27,9 +26,9 @@ Another possibility is to use the IP address of the computer
 
 where yy is the IP address and FF is decimal 255.
 
-The client_id is present in each VSCP event data structure and if a client uses more then one connection to the daemon this client_id can be used to detect events that it has sent itself when they arrive on the other open interfaces. This is typical used when the RCVLOOP command is issued where typically one interface is used to send events and another is used to receive events. By saving the client_id for the transmitting channel events that is sent on this channel can be detected on the receive channel.
+The client_id is present in each VSCP event data structure and if a client uses more then one connection to the daemon this client_id can be used to detect events that it has sent itself when they arrive on the other open interfaces. This is typical used when the [RCVLOOP](./vscp_tcpiplink.md.md#tcpip-rcvloop) command is issued where typically one interface is used to send events and another is used to receive events. By saving the client_id for the transmitting channel events that is sent on this channel can be detected on the receive channel.
 
-When an event is sent from the driver interface ( a CANAL event ) the nickname-ID is stored in the LSB GUID byte (GUID[0]). 
+When an event is sent from the driver interface (a CANAL event) the nickname-ID is stored in the LSB GUID byte (GUID[0]). 
 
 ## Server discovery
 
@@ -39,20 +38,20 @@ A daemon like the VSCP daemon can span multiple segments and a reply can therefo
 
 ![](./images/highenddiscovery.jpg)
 
-As an example: In this picture VSCP Works has been used to broadcast a High end server probe from the machine with IP address 192.168.1.8 - Data is 0,192,168,1,8 - The initial zero indicates that this is a TCP/IP based device. The server that in this case is on the same machine have answered with a High end server response with data set to
+As an example: In this picture VSCP Works has been used to broadcast a High end server probe from the machine with IP address 192.168.1.8 - Data is 0,192,168,1,8 - The initial zero indicates that this is a tcp/p based device. The server that in this case is on the same machine have answered with a High end server response with data set to
 
     80 00 08 01 A8 C0 25 7E
 
 The first two bytes is the bit-filed that tells the Code for server capabilities. After that follows the server IP address (192.168.1.8) followed by the VSCP default port 9598.
-In clear text, this server has a VSCP TCP/IP interface available at the standard port.
+In clear text, this server has a VSCP tcp/p interface available at the standard port.
 Other scenarios could be possible of course such as several servers responding and each of the servers supporting different capabilities.
 
 The High end server probe and High end server response is described here [Class=0 (0x00) VSCP Protocol Functionality - CLASS1.PROTOCOL](http://docs.vscp.org/spec/latest/#/./class1.protocol?id=type27-0x1b-high-end-serverservice-probe)
 
 A node can react in its own manner on the response. It can connect to the server itself or wait for the server to connect to the node.
 
-VSCP Daemon TCP/IP interface security
-The TCP/IP interface is protected by a user/password pair. The username is sent as clear text over the net but the password is a hash over "username:authdomain|raltext-password".((authdomain is described here )
+VSCP Daemon tcp/p interface security
+The tcp/p interface is protected by a user/password pair. The username is sent as clear text over the net but the password is a hash over "username:authdomain|raltext-password".((authdomain is described here )
 
 I addition to the username/password which also groups users in security levels it is possible to have table where the hosts allowed to connect to the system is stored.
 
@@ -67,7 +66,7 @@ Put together this makes the VSCP Daemon one of the safest systems to use for rem
 
 ## Secure the TCP link
 
-A very flexible security schema is available for the VSCP daemon TCP/IP inteface. Each user is defined with a list of parameters 
+A very flexible security schema is available for the VSCP daemon tcp/p inteface. Each user is defined with a list of parameters 
 
     username
 
@@ -87,16 +86,16 @@ This is the access level this user have. This is a 32-bit value where the lower 
 
 ## Username/password pairs for Level II drivers
 
-Level II drivers is started through the normal driver interface, but after the start it also do some of its communication through the TCP/IP interface. It can also use the variables defined in the system for its own configuration and state. A driver of this type needs a username/password pair and it could be defined for the driver in the configuration but an internal schema create these credentials automatically if they are not manually configured. The Host-list for the user drivers to be used, should always be the Localhost to increase security.
+Level II drivers is started through the normal driver interface, but after the start it also do some of its communication through the tcp/p interface. It can also use the variables defined in the system for its own configuration and state. A driver of this type needs a username/password pair and it could be defined for the driver in the configuration but an internal schema create these credentials automatically if they are not manually configured. The Host-list for the user drivers to be used, should always be the Localhost to increase security.
 
 
 [filename](./bottom_copyright.md ':include')
 
-# TCP/IP Link interface protocol description
+# tcp/p Link interface protocol description
 
 ## Port
 
-Default Port for the tcp/ip interface is 9598 but the interface can be available on several port and several interfaces on a specific hardware.
+Default Port for the tcp/p interface is 9598 but the interface can be available on several port and several interfaces on a specific hardware.
 
 ## Command and response format
 
@@ -114,42 +113,46 @@ For some commands there can be data in between the two lines. For instance the �
 
 ## VSCP Link Interfaces (VSCP-LI)
 
-The daemon interface can be visible also on lower end (typically TC/IP) nodes. A subset of the commands are required to be available on such a node. Commands marked with yes in the link column below are the ones that a link node must have. All others are not mandatory on this type of nodes.
+The daemon interface can be visible also on lower end (typically tcp/ip) nodes. A subset of the commands are required to be available on such a node. Commands marked with yes in the link column below are the ones that a link node should have. All others are not mandatory on this type of nodes.
 
 ## List of available commands
 
  | Command  | Privilege | Link | From version | Description  |
  | :------- | :--: | :----: | :------------: | -----------  |
  | +        | 0         | yes  | 0.0.2        | Repeat the last command  |
- | [NOOP](./tcp_ip_protocol_description.md#tcpip-noop) | 0  | yes  | 0.0.1 | No operation. |
- | [HELP](./tcp_ip_protocol_description.md#tcpip-help) | 0  | no   | 0.0.2 | Give command help. |
- | [QUIT](./tcp_ip_protocol_description.md#tcpip-quit) | 0  | yes  | 0.0.1 | Close the connection. |
- | [USER](./tcp_ip_protocol_description.md#tcpip-user) | 0  | yes  | 0.0.1 | Username for login. |
- | [PASS](./tcp_ip_protocol_description.md#tcpip-pass) | 0  | yes  | 0.0.1 | Password for login. |
- | [CHALLENGE](./tcp_ip_protocol_description.md#tcpip-challenge) | 0         | yes  | 1.12.14.4 | Get session id. |
- | [SEND](./tcp_ip_protocol_description.md#tcpip-send) | 4         | yes  | 0.0.1 | Send an event. |
- | [RETR](./tcp_ip_protocol_description.md#tcpip-retr) | 2         | yes  | 0.0.1 | Retrieve one or several event(s). |
- | [RCVLOOP](./tcp_ip_protocol_description.md#tcpip-rcvloop) | 2         | yes  | 0.0.2        | Will retrieve events in an endless loop until the connection is closed by the client.  |
- | [QUITLOOP](./tcp_ip_protocol_description.md#tcpip-quitloop) | 2         | yes  | 0.4.29 | Terminate RCVLOOP |
- | [CDTA/CHKDATA](./tcp_ip_protocol_description.md#tcpip-chkdata) ((Both versions of the command should be supported))    | 1    | yes  | 0.0.1 | Check if there are events to retrieve. |
- | [CLRA/CLRALL](./tcp_ip_protocol_description.md#tcpip-clrall) ((Both versions of the command should be supported)) | 1         | yes  | 0.0.1 | Clear all events in in-queue.                                                                      |
- | [STAT](./tcp_ip_protocol_description.md#tcpip-stat) | 1         | yes  | 0.0.1 | Get statistics information. |
- | [INFO](./tcp_ip_protocol_description.md#tcpip-info) | 1         | yes  | 0.0.1 | Get status information. |
- | [CHID/GETCHID](./tcp_ip_protocol_description.md#tcpip-chid) ((Both versions of the command should be supported)) | 1         | yes  | 0.0.1 | Get channel ID. |
- | [SGID/SETGUID](./tcp_ip_protocol_description.md#tcpip-setguid) ((Both versions of the command should be supported)) | 6         | yes  | 0.0.1 | Set GUID for channel. |
- | [GGID/GETGUID](./tcp_ip_protocol_description.md#tcpip-getguid) ((Both versions of the command should be supported)) | 1         | yes  | 0.0.1 | Get GUID for channel. |
- | [VERS/VERSION](./tcp_ip_protocol_description.md#tcpip-version) ((Both versions of the command should be supported)) | 0         | yes  | 0.0.1 | Get CANAL/VSCP daemon version. |
- | [SFLT/SETFILTER](./tcp_ip_protocol_description.md#tcpip-setfilter) ((Both versions of the command should be supported))            | 6 | yes  | 0.0.1 | Set incoming event filter. |
- | [SMSK/SETMASK](./tcp_ip_protocol_description.md#tcpip-setmask)  | 6         | yes  | 0.0.1 | Set incoming event mask.  |
- | TEST | 15 | no   | 0.0.2 | Do test sequence. Only used for debugging.  |
- | [SHUTDOWN](./tcp_ip_protocol_description.md#tcpip-shutdown) | 15        | no   | 0.0.2 | Shutdown the daemon. |
- | [RESTART](./tcp_ip_protocol_description.md#tcpip-restart) | 15        | no   | 0.0.2 | Restart the daemon.  |
- | [INTERFACE](./tcp_ip_protocol_description.md#tcpip-interface) | 15        | no   | 0.0.2 | Interface manipulation. Have secondary commands. |
- | [WCYD/WHATCANYOUDO](./tcp_ip_protocol_description.md#tcpip-whatcanyoudo) ((Both versions of the command should be supported)) | 0         | yes  | 0.4.29 | Request what this sever can do |
+ | [NOOP](./vscp_tcpiplink.md#tcpip-noop) | 0  | yes  | 0.0.1 | No operation. |
+ | [HELP](./vscp_tcpiplink.md.md#tcpip-help) | 0  | no   | 0.0.2 | Give command help. |
+ | [QUIT](./vscp_tcpiplink.md.md#tcpip-quit) | 0  | yes  | 0.0.1 | Close the connection. |
+ | [USER](./vscp_tcpiplink.md.md#tcpip-user) | 0  | yes  | 0.0.1 | Username for login. |
+ | [PASS](./vscp_tcpiplink.md.md#tcpip-pass) | 0  | yes  | 0.0.1 | Password for login. |
+ | [CHALLENGE](./vscp_tcpiplink.md.md#tcpip-challenge) | 0         | yes  | 1.12.14.4 | Get session id. |
+ | [SEND](./vscp_tcpiplink.md.md#tcpip-send) | 4         | yes  | 0.0.1 | Send an event. |
+ | [RETR](./vscp_tcpiplink.md.md#tcpip-retr) | 2         | yes  | 0.0.1 | Retrieve one or several event(s). |
+ | [RCVLOOP](./vscp_tcpiplink.md.md#tcpip-rcvloop) | 2         | yes  | 0.0.2        | Will retrieve events in an endless loop until the connection is closed by the client.  |
+ | [QUITLOOP](./vscp_tcpiplink.md.md#tcpip-quitloop) | 2         | yes  | 0.4.29 | Terminate RCVLOOP |
+ | [CDTA/CHKDATA](./vscp_tcpiplink.md.md#tcpip-chkdata) ((Both versions of the command should be supported))    | 1    | yes  | 0.0.1 | Check if there are events to retrieve. |
+ | [CLRA/CLRALL](./vscp_tcpiplink.md.md#tcpip-clrall) ((Both versions of the command should be supported)) | 1         | yes  | 0.0.1 | Clear all events in in-queue.                                                                      |
+ | [STAT](./vscp_tcpiplink.md.md#tcpip-stat) | 1         | yes  | 0.0.1 | Get statistics information. |
+ | [INFO](./vscp_tcpiplink.md.md#tcpip-info) | 1         | yes  | 0.0.1 | Get status information. |
+ | [CHID/GETCHID](./vscp_tcpiplink.md.md#tcpip-chid) ((Both versions of the command should be supported)) | 1         | yes  | 0.0.1 | Get channel ID. |
+ | [SGID/SETGUID](./vscp_tcpiplink.md.md#tcpip-setguid) ((Both versions of the command should be supported)) | 6         | yes  | 0.0.1 | Set GUID for channel. |
+ | [GGID/GETGUID](./vscp_tcpiplink.md.md#tcpip-getguid) ((Both versions of the command should be supported)) | 1         | yes  | 0.0.1 | Get GUID for channel. |
+ | [VERS/VERSION](./vscp_tcpiplink.md.md#tcpip-version) ((Both versions of the command should be supported)) | 0         | yes  | 0.0.1 | Get CANAL/VSCP daemon version. |
+ | [SFLT/SETFILTER](./vscp_tcpiplink.md.md#tcpip-setfilter) ((Both versions of the command should be supported))            | 6 | yes  | 0.0.1 | Set incoming event filter. |
+ | [SMSK/SETMASK](./vscp_tcpiplink.md.md#tcpip-setmask)  | 6         | yes  | 0.0.1 | Set incoming event mask.  |
+ | [TEST](./vscp_tcpiplink.md.md#tcpip-test) | 15 | no   | 0.0.2 | Do test sequence. Only used for debugging.  |
+ | [SHUTDOWN](./vscp_tcpiplink.md.md#tcpip-shutdown) | 15        | no   | 0.0.2 | Shutdown the device/daemon. |
+ | [RESTART](./vscp_tcpiplink.md.md#tcpip-restart) | 15        | no   | 0.0.2 | Restart the device/daemon.  |
+ | [INTERFACE](./vscp_tcpiplink.md.md#tcpip-interface) | 15        | yes   | 0.0.2 | Interface manipulation. Have secondary commands. |
+ | [WCYD/WHATCANYOUDO](./vscp_tcpiplink.md.md#tcpip-whatcanyoudo) ((Both versions of the command should be supported)) | 0         | yes  | 0.4.29 | Request what this sever can do |
 
 ## NOOP - No operation :id=tcpip-noop
 
- This operation does nothing. It just replies with ”**+OK**”.
+This operation does nothing. It just replies with ”**+OK**”.
+
+## TEST - Run tests :id=tcpip-test
+
+Run device specific tests. Command can have arguments. It replies with ”**+OK**” if test(s) is OK, error code otherwise. 
 
 ##  QUIT - Close the connection :id=tcpip-quit
 
@@ -475,42 +478,11 @@ This response was changed in version 14.0.0 from
     +OK - 00-00-00-00-00-00-00-00
 
 
-## MEASUREMENT - Send a measurement :id=tcpip-measurement
-
-Send a measurement. The measurement will be sent as either as a Level I event or a Level II event.
-
-
-**Format:**
-
-    measurement type,unit,sensorindex,value,[guid],[level],[eventformat],[zone],[subzone]
-
-Positive/negative response is returned.
-
-**Arguments:**
-
-
-*  **type** is the [VSCP type value](http://docs.vscp.org/spec/latest/#/./class1.measurement) specifying which type of measurement this is. Mandatory.
-
-*  **unit** is the measurement unit for this type of measurement. An be in the range 0-3 for a Level I event and 0-255 for a Level II event. Mandatory.
-
-*  **sensorindex** is the index for the sensor for the unit. Can be in the range 0-7 for a Level I event and 0-255 for a Level II event. Mandatory.
-
-*  **value** is a floating point value for the measurement.  Mandatory.
-
-*  **guid** is the GUID for the event. If not given it defaults to all zeros meaning the interface GUID will be used. Optional.
-
-*  **level** VSCP level (Level I or Level II) to send event as. Can be 1 or 2 and defaults to 2. Optional.
-
-*  **eventformat** is optional and can be *string* or *float* to generate a string based or a float based event. If not give the default value, float, will be used. Optional.
-
-*  **zone** zone value for Level II events. Defaults to zero. Optional.
-
-*  **subzone** zone value for Level II events. Defaults to zero. Optional.
-
-
 ## INTERFACE :id=tcpip-interface
 
-Handle the interfaces on the VSCP daemon.
+Handle the interfaces on the VSCP daemon. Given without an argument should do the same operation as 'interface list' below.
+
+Also low end devices that implement the vscp tcp/ip link protocol should implement this command. Typical for a devicve of this type is to have only one interface the device itself. Such a device list the full GUID of the device as the device as interface.
 
 ### list :id=tcpip-interface-list
 
@@ -530,10 +502,10 @@ type is
  | Type | Description |
  | :----: | ----------- |
  | 0    | Unknown (should not see this). |
- | 1    | Internal daemon client         |
+ | 1    | Internal device/daemon client  |
  | 2    | Level I driver                 |
  | 3    | Level II driver                |
- | 4    | TCP/IP interface client        |
+ | 4    | tcp/p interface client         |
  | 5    | UDP interface client           |
  | 5    | Webserver interface client     |
  | 6    | Websocket interface client     |
@@ -548,6 +520,8 @@ Full format is
     interface close interface_GUID
 
 Unique access to an interface can only be queried once for one interface. So two unique operations after each other deselects the first chosen interface before acquire the second.
+
+Normally interfaces are always open. In this case just reply with a positive response (_+OK\r\n_).
 
 
 [filename](./bottom_copyright.md ':include')

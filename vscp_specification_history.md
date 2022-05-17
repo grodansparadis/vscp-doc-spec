@@ -2,6 +2,7 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | 2022-05-17 | AKHE | Fixed links for vscp tcp/ip link protocol descriptions. VSCP tcp/ip link protocol command _'interface'_ is now marked as mandatory. |
  | 2022-04-14 | AKHE | VSCP protocol level added to manufacturer info. Default to 1 |
  | 2022-01-21 | AKHE | Added proper description of JSON formatted MDF files. |
  | 2022-01-17 | AKHE | Two new standard register positions has been added for 'firmware code' |
