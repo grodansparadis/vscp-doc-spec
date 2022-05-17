@@ -12,7 +12,7 @@ This document is the official VSCP (Very Simple Control Protocol) specification.
 
 Apart from going through this document You can read all about and download VSCP from [the VSCP site](https://www.vscp.org "The VSCP site").
 
-**VSCP is free.** Free to use. Free to change. Free to do whatever you want to do with it. VSCP is not owned by anyone. VSCP will stay free and gratis forever.
+**VSCP is free.** Placed in the **public domain**. Free to use. Free to change. Free to do whatever you want to do with it. VSCP is not owned by anyone. VSCP will stay free and gratis forever.
 
 Author 2000-2022 Åke Hedman, [Grodans Paradis AB](https://www.grodansparadis.com), [akhe@grodansparadis.com](akhe@grodansparadis.com)
 
