@@ -444,6 +444,12 @@ Set the incoming filter. The format is
 Note: The GUID values always is given as hexadecimal values without a preceding “0x”.
 Note: If you want to filter on nickname-ID you should filter on GUID LSB byte.
 
+For a device with more than one filter the filter can be specified as an added numeric parameter of the above list. So
+
+    1,0x0000,0x0006,ff:ff:ff:ff:ff:ff:ff:01:00:00:00:00:00:00:00:00,8
+
+will set filter eight and so on.
+
 ## SMSK/SETMASK - Set incoming event mask :id=tcpip-setmask
 
 Set the incoming mask. The format is
@@ -456,6 +462,14 @@ Set the incoming mask. The format is
 
 Note: that the GUID values always is given as hexadecimal values without a preceding “0x”.
 Note: If you want to mask on nickname-ID you should mask on GUID LSB byte.
+
+
+For a device with more than one filter the mask can be specified as an added numeric parameter of the above list. So
+
+    1,0x0000,0x0006,ff:ff:ff:ff:ff:ff:ff:01:00:00:00:00:00:00:00:00,8
+
+will set mask eight and so on.
+
 
 
 ## WCYD / WHATCANYOUDO - Ask the capabilities of this server :id=tcpip-whatcanyoudo
