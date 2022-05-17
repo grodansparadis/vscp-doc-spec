@@ -91,7 +91,7 @@ Level II drivers is started through the normal driver interface, but after the s
 
 [filename](./bottom_copyright.md ':include')
 
-# tcp/p Link interface protocol description
+# tcp/ip link interface protocol description
 
 ## Port
 
