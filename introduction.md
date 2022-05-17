@@ -58,8 +58,11 @@ The **VSCP server** and **VSCP Works** is released under GPL2 due to it's use of
 
 ## License
 
-Alternative licenses for VSCP & Friends may be arranged by contacting **Grodans Paradis AB/Paradise of the Frog** at [info@grodansparadis.com](info@grodansparadis.com), [https://www.grodansparadis.com]
+The VSCP protocol is placed in the public domain and is free to use in any way you like. Software around the protocol is mostly MIT licensed and  documentation is licensed under the Creative Commons BY 4.0 license.
 
+## Maintainers
+
+The VSCP protocol is currently maintained by [Ake Hedman](https://www.akehedman.se/wordpress/?page_id=2) and [the VSCP Foundation](https://www.vscp.org/) and contributors from around the world.
 
 ## Where is the project located?
 
