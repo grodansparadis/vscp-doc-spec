@@ -521,9 +521,9 @@ type is
  | 3    | Level II driver                |
  | 4    | tcp/p interface client         |
  | 5    | UDP interface client           |
- | 5    | Webserver interface client     |
- | 6    | Websocket interface client     |
- | 7    | REST interface client          |
+ | 6    | Webserver interface client     |
+ | 7    | Websocket interface client     |
+ | 8    | REST interface client          |
 
 ###  close :id=tcpip-interface-close
 
