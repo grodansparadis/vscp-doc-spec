@@ -113,8 +113,6 @@ The matrix information is read and written with the standard read/write control 
 
 Note that there is no demand that a node implements a decision matrix. If not implemented the Get Decision matrix info just returns a zero size.
 
-A special paged feature is available for the decision matrix to save register space. If the offset for the decision matrix is 0x7e the decision matrix is indexed. This means that 0x7e is the index and 0x7f is the data. Read a byte from the matrix by first setting the index to the position you want to read and reading the byte in 0x7f. Set index to the position you want to write and write data into 0x7f.
-
 Method [CLASS1.PROTOCOL TYPE=32](./class1.protocol.md#type_32_0x20_who_is_there_response) is used to fetch decision matrix information for a specific node. 
 
 It is important to note that the decision matrix can contain any number of lines for a specific event element. So one incoming event can trigger many actions.
@@ -130,23 +128,17 @@ The decision matrix structure gives us the freedom to implement events that perf
 
 ## Decision matrix for Level II nodes.
 
-There is a lot more freedom to set up a decision matrix structures on level II nodes due to less space constraints.One implementation is the decision matrix in the VSCP Daemon which is described [here](https://www.vscp.org/docs/vscpd/doku.php?id=vscp_daemon_decision_matrix).
+**Note**: The format for the decision matrix for level II devices was changed from version 1.14 of the specification.
 
-A general form is discussed here. To understand how this decision matrix is updated one needs to understand how it is set up. Each line of the matrix is built from a table of entries of the following form: 
+There is a lot more freedom to set up a decision matrix structures on level II nodes due to less space constraints. This allows for more data to be stored in the decision matrix. 
 
- | byte 0-3 | byte 4-7 | byte 8-11 | byte 12-13 | byte 14-n        | 
- | -------- | -------- | --------- | ---------- | ---------        | 
- | mask     | filter   | control   | action     | action-parameter | 
+To understand how the decision matrix works one needs to understand how the rows are constructed. Each row of the decision matrix consist of entries on the following form: 
 
-where the action-parameter has device specific length. 
+ | byte 0-3 | byte 4-5 | byte 6-7 | byte 8-23  | byte 24-25 | byte 26-n        | 
+ | -------- | -------- | ---------| ---------- | ---------- | ---------------- |
+ | control  | class    | type     |  origin    | action     | action-parameter | 
 
-## Mask (32-bit)
-
-This is a bit mask, which has ones at the bit positions of the event that is interesting. So 0xFFFFFFFF makes all events interesting. Class is in the high word. Type is in the low word. For a truth table see the class-mask for Level I decision matrices. 
-
-### Filter (32-bit)
-
-This is a bit mask, which tells the value for bits that is of interest. Class is in the high word. Type is in the low word. For a truth table see the class-mask for Level I decision matrices. 
+where the action-parameter has device specific length but defaults to 6 bytes to forma 32 byte decision matrix row. 
 
 ### Control(32-bit)
 
@@ -189,22 +181,31 @@ This is a bit mask, which tells the value for bits that is of interest. Class is
 
 Specific node implement ions decide how to interpret bits or not. Just some or none of the bits can be used if that suits the implement ion. 
 
+## Class (16-bit)
+
+The VSCP class to trigger to trigger the row on big endian format.
+
+### Type (16-bit)
+
+The VSCP type to trigger the row on big endian format.
+
+### Origin (128-bit)
+
+GUID for originating node that should trigger the decision matrix row if enabled in the control flags.
+
 ### Action (16-bit)
 
-This is the what should be carried out to make this action happen. This is a 16-bit cod that is application specific. 0x0000 is the only code that is predefined as no operation. 
+This is the operation that  should be carried out when the decision matrix row is triggered. This is a 16-bit code that is application specific. 0x0000 is the only code that is predefined to no operation (noop). 
 
 ### Action Parameters
 
-This is a variable length text-string/binary array that can contain parameters for the action. Format is application dependent. Can be omitted if no parameters are used.
+This is a variable length text-string/binary array that can contain parameters for the action. Format is application dependent.
 
-A decision matrix row is 14 bytes plus the size of the action parameters.
+A decision matrix row is 26 bytes plus the size of the action parameters. Default size for action parameters is 6 bytes to form 32-byte decision matrix row.
 
-A special paged feature is available for the decision matrix to save register space. If the offset for the decision matrix is 0x80 - dm-row-size (a DM row aligned to the upper register border) it is implied that the register position just below, 0x80 -dm-row-size - 1, contains a register that is an index to the row that has its first byte at 0x80 - dm-row-size.
+Method [CLASS1.PROTOCOL TYPE=34](./class1.protocol.md#type_34_0x22_decision_matrix_info_response) is used to fetch decision matrix information for a specific node. Byte six of the response tells the actual full size for a level II decision matrix row.
 
-The index byte is used to select rows and the selected row is available from the byte after the index byte to the 0x80 border.
 
-Method [CLASS1.PROTOCOL TYPE=32](./class1.protocol.md#type_32_0x20_who_is_there_response) is used to fetch decision matrix information for a specific node. Byte six of the response tells the actual size for a decision matrix row.
 
-The Level II Decision Matrix has no entry for originating address. The action parameter field can be used for this information if needed. 
 
 [filename](./bottom_copyright.md ':include')
