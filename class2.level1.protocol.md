@@ -115,7 +115,7 @@ Time is UTC.
 ```
 VSCP_TYPE_PROTOCOL_NEW_NODE_ONLINE
 ```
-**Mandatory.** Must be implemented by all devices.
+**Mandatory.** Must be implemented by all level I and Level II devices.
 
 This is intended for nodes that have been initiated, is part of the segment and is powered up. All nodes that have a nickname-ID that is not set to 0xFF should send this event before they go on line to do their “day to day” work.
 
@@ -148,7 +148,7 @@ On a Level II system.
 ```
 VSCP_TYPE_PROTOCOL_PROBE_ACK
 ```
-**Mandatory.** Must be implemented by all devices.
+**Mandatory.** Must be implemented by all level I and level II devices.
 
 This event is sent from a node as a response to a probe. There are no arguments.
 
@@ -188,7 +188,7 @@ Reserved for future use.
 ```
 VSCP_TYPE_PROTOCOL_SET_NICKNAME
 ```
-**Mandatory.** Must be implemented by all devices.
+**Mandatory.** Must be implemented by all level I devices.
 
 This event can be used to change the nickname for a node. The node just uses the new nickname and don't start nickname discovery or similar.
 
@@ -207,7 +207,7 @@ This event can be used to change the nickname for a node. The node just uses the
 ```
 VSCP_TYPE_PROTOCOL_NICKNAME_ACCEPTED
 ```
-**Mandatory.** Must be implemented by all devices.
+**Mandatory.** Must be implemented by all level I devices.
 
 A node sends this event to confirm that it accepts its assigned nickname-ID. When sending this event the node uses its newly assigned nickname address.
 
@@ -221,7 +221,7 @@ A node sends this event to confirm that it accepts its assigned nickname-ID. Whe
 ```
 VSCP_TYPE_PROTOCOL_DROP_NICKNAME
 ```
-**Mandatory.** Must be implemented by all devices.
+**Mandatory.** Must be implemented by all level I devices.
 
 Request a node to drop its nickname. The node should drop its nickname and then behave in the same manner as when it was first powered up on the segment. 
 
@@ -263,7 +263,7 @@ There is a variant of this where the GUID is used instead of the nickname to ide
 ```
 VSCP_TYPE_PROTOCOL_READ_REGISTER
 ```
-**Mandatory.** Must be implemented by all devices.
+**Mandatory.** Must be implemented by all level I devices.
 
 Read a register from a node. 
 
@@ -280,8 +280,8 @@ The following format can be used for nodes on a Level II segment as a midway bet
 
  | Data byte | Description | 
  | :---------: | ----------- | 
- | 0-15 | GUID (MSB -> LSB). | 
- | 16 | Reserved. | 
+ | 0-15 | GUID (MSB -> LSB) for interface. | 
+ | 16 | Node id for node to read | 
  | 17 | Register to read. | 
 
 
@@ -294,7 +294,7 @@ The following format can be used for nodes on a Level II segment as a midway bet
 ```
 VSCP_TYPE_PROTOCOL_RW_RESPONSE
 ```
-**Mandatory.** Must be implemented by all devices.
+**Mandatory.** Must be implemented by all level I devices.
 
 Response for a read/write event. . Note that the data is returned for both a read and a write and can and probably should be checked for validity. 
 
@@ -315,7 +315,7 @@ Response for a read/write event. . Note that the data is returned for both a rea
 ```
 VSCP_TYPE_PROTOCOL_WRITE_REGISTER
 ```
-**Mandatory.** Must be implemented by all devices.
+**Mandatory.** Must be implemented by all level I devices.
 
 Write register content to a node. 
 
@@ -666,7 +666,7 @@ or
 ```
 VSCP_TYPE_PROTOCOL_RESET_DEVICE
 ```
-**Mandatory.** Should be implemented by all devices.
+**Mandatory.** Should be implemented by all level I devices.
 
 > Added in version 1.4.0
 
@@ -706,7 +706,7 @@ Hi-level software must take this one second interval into account when more then
 ```
 VSCP_TYPE_PROTOCOL_PAGE_READ
 ```
-**Mandatory.** Should be implemented by all devices.
+**Mandatory.** Should be implemented by all level I devices.
 
 The page read is implemented to make it possible to read/write larger blocks of data. Two register positions are reserved to select a base into this storage. This is a 16-bit number pointing to a 256-byte page. This means that a total of 65535 * 256 bytes are accessible with this method (page 0 is the standard registers).
 
@@ -744,7 +744,7 @@ The following format can be used for nodes on a Level II segment as a midway bet
 ```
 VSCP_TYPE_PROTOCOL_PAGE_WRITE
 ```
-**Mandatory.** Should be implemented by all devices.
+**Mandatory.** Should be implemented by all level I devices.
 
 The write page is implemented to make it possible to write larger blocks of data. One data-space positions is reserved to select a base into this storage. See Page read for a full description.
 
@@ -781,7 +781,7 @@ Data count can be as many as the buffer of the Level II node accepts.
 ```
 VSCP_TYPE_PROTOCOL_RW_PAGE_RESPONSE
 ```
-**Mandatory.** Should be implemented by all devices.
+**Mandatory.** Should be implemented by all level I devices.
 
 This is a response frame for the read/write page command. The Sequence number goes from 0 up to the last sent frame for a read page request. 
 
@@ -824,7 +824,7 @@ The [VSCP daemon documentation](https://grodansparadis.gitbooks.io/the-vscp-daem
 ```
 VSCP_TYPE_PROTOCOL_HIGH_END_SERVER_RESPONSE
 ```
-Should be implemented by all devices that work on 802.15.4/Ethernet/Internet and have a Level I link. This is because a Level II device can be present on a Level I bus. A typical example is a Bluetooth gateway. A user find the bud/segment by the Bluetooth device and can then discover other parts of the system through it.
+Should be implemented by all devices that work on 802.15.4/Ethernet/Internet and have a Level I link. This is because a Level II device can be present on a Level I bus. A typical example is a Bluetooth gateway. A user find the bus/segment by the Bluetooth device and can then discover other parts of the system through it.
 
 A Level II node respond with [CLASS2.PROTOCOL, Type=32 Level II who is response](./class2.protocol.md#type32) to this event. It is also possible to listen for  [CLASS2.PROTOCOL, Type=20 (0x14) High end server capabilities](./class2.protocol.md#type20) to discover Level II nodes.
 
@@ -859,7 +859,7 @@ The [VSCP daemon documentation](https://grodansparadis.gitbooks.io/the-vscp-daem
 ```
 VSCP_TYPE_PROTOCOL_INCREMENT_REGISTER
 ```
-**Mandatory.** Should be implemented by all devices.
+**Mandatory.** Should be implemented by all level I devices.
 
 Increment a register content by one with no risk of it changing in between 
 
@@ -880,7 +880,7 @@ Node should answer with [CLASS1.PROTOCOL, Type=10 (Read/Write register response)
 ```
 VSCP_TYPE_PROTOCOL_DECREMENT_REGISTER
 ```
-**Mandatory.** Should be implemented by all devices.
+**Mandatory.** Should be implemented by all level I devices.
 
 Decrement a register content by one with no risk of it changing in between 
 
@@ -901,7 +901,7 @@ Node should answer with [CLASS1.PROTOCOL, Type=10 (Read/Write register response)
 ```
 VSCP_TYPE_PROTOCOL_WHO_IS_THERE
 ```
-**Mandatory.** Must be implemented by all devices.
+**Mandatory.** Must be implemented by all level I and level II devices.
 
 This event can be used as a fast way to find out which nodes there is on a segment. All nodes receiving it should respond. 
 
@@ -923,9 +923,9 @@ A Level II node respond with [CLASS2.PROTOCOL, Type=32 (Level II who is response
 ```
 VSCP_TYPE_PROTOCOL_WHO_IS_THERE_RESPONSE
 ```
-**Mandatory.** Must be implemented by all devices.
+**Mandatory.** Must be implemented by all devices. Note that the response form a level II device is different than from a level I device.
 
-Response from node(s) looks like this 
+Response from node(s) looks like this from a level I device:
 
  | byte 0 | byte 1 | byte 2 | byte 3 | byte 4 | byte 5 | byte 6 | byte 7 | 
  | :------: | ------ | ------ | ------ | ------ | ------ | ------ | ------ | 
@@ -937,8 +937,9 @@ Response from node(s) looks like this
  | 5      | MDF19  | MDF20  | MDF21  | MDF22  | MDF23  | MDF24  | MDF25  | 
  | 6      | MDF26  | MDF27  | MDF28  | MDF29  | MDF30  | MDF31  | 0      | 
 
-
 All seven frames should be sent also if the MDF URL is shorter than 32 characters,
+
+A level II device should respond with [CLASS2_PROTOCOL, TYPE=32](./class2.protocol.md#type20)
 
 
 
@@ -976,7 +977,7 @@ A node that does not have a decision matrix should return zero rows.
 ```
 VSCP_TYPE_PROTOCOL_GET_MATRIX_INFO_RESPONSE
 ```
-**Mandatory** for nodes with a decision matrix
+**Mandatory** for level I nodes with a decision matrix
 
 Report the size for the decision matrix and the offset to its storage. The reported size is the number of decision matrix lines. The offset is the offset in the register address counter from 0x00 (See the register model in this document). If the size returned is zero the node does not have a decision matrix. A node without a decision matrix can also skip to implement this event but it's better if it returns a decision matrix size of zero. 
 
@@ -988,15 +989,11 @@ Report the size for the decision matrix and the offset to its storage. The repor
  | 3 | Optional page start LSB ( Interpret as zero if not sent ) | 
  | 4 | Optional page end MSB ( Interpret as zero if not sent ) Deprecated. Set to zero. | 
  | 5 | Optional page end LSB ( Interpret as zero if not sent ) Deprecated. Set to zero. | 
- | 6 | For a Level II node this is the size of a decision matrix row. | 
+ | 6 | For a Level II node this is the size of a decision matrix row. **deprecated** See info below | 
 
-The decision matrix can as noted be stored in paged registers and if so it must be accessed with the paged read/write. The decision matrix can also be stored indexed. In that case the first byte is the index and the second is the data. If the index is in location 0x7f then an indexed matrix is assumed. 
+The decision matrix can as noted be stored in paged registers and if so it must be accessed with the paged read/write. 
 
- | Register position | Description | 
- | :-----------------: | -----------  | 
- | 0x77 | Index for row in decision matrix. | 
- | 0x78-0x7F | Level I decision matrix row. | 
-
+**Level II**: Level II nodes should respond with [CLASS2_PROTOCOL, TYPE=VSCP2_TYPE_PROTOCOL_GET_MATRIX_INFO_RESPONSE](./class2.protocol#type34)
 
 
 ----
@@ -1013,7 +1010,7 @@ A node that get this event and has an embedded MDF description in flash or simil
 
  | Data byte | Description | 
  | :---------: | ----------- | 
- | 0 | Node-ID.    | 
+ | 0 | Node-ID. | 
 
 
 
@@ -1045,6 +1042,7 @@ should be sent.
 
 Note that if sending the events back to back some devices will not be able to cope with the data stream. It is therefor advisable to have a short delay between each mdf data frame sent out.
 
+**Level II**: Level II nodes should respond with [CLASS2_PROTOCOL, TYPE=VSCP2_TYPE_PROTOCOL_GET_EMBEDDED_MDF_RESPONSE](./class2.protocol#type36)
 
 
 ----

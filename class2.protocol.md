@@ -19,7 +19,7 @@ General Event.
 ```
 VSCP2_TYPE_PROTOCOL_READ_REGISTER
 ```
-Read a Level II register 
+Read a Level II register from the 32-bit register space
 
  | Byte       | Description                                      | 
  | ----       | -----------                                      | 
@@ -27,7 +27,7 @@ Read a Level II register
  | Byte 16-19 | Register to read (or start index), (MSB->LSB).   | 
  | Byte 20-21 | Number of registers to read (max 487).           | 
 
-Number of registers to read can also be restricted by the buffer size on the board (register 0x98). If this register is set to something else then 0 (default) this is the max size for data.
+Number of registers to read can also be restricted by the buffer size on the board (register 0x98). If this register is set to something else than 0 (default) this is the max size for data.
 
 This means that buffer_size - 8 is maximum data bytes read. 
 
@@ -37,11 +37,13 @@ This means that buffer_size - 8 is maximum data bytes read.
 ```
 VSCP2_TYPE_PROTOCOL_WRITE_REGISTER
 ```
+ Write a Level II register to the 32.bit register space
+ 
  | Byte       | Description                                      | 
  | ----       | -----------                                      | 
  | Byte 0-15  | Contains the GUID of the target node (MSB->LSB). | 
  | Byte 16-19 | Register to write (or start index), (MSB->LSB).  | 
- | Byte 20… | Data to write to register(s).                    | 
+ | Byte 20…   | Data to write to register(s).                    | 
 
 Number of registers to write can also be restricted by the buffer size on the board (register 0x98). If this register is set to something else then 0 (default) this is the max size for data. This means that buffer_size - 24 is maximum data bytes written. 
 
@@ -51,12 +53,12 @@ Number of registers to write can also be restricted by the buffer size on the bo
 ```
 VSCP2_TYPE_PROTOCOL_READ_WRITE_RESPONSE
 ```
-This is the response from a read and a write. Note that the data is returned in both cases and can be checked for validity. 
+This is the response from a read or a write. Note that the data is returned in both cases and can be checked for validity. 
 
  | Byte      | Description                               | 
  | ----      | -----------                               | 
  | Byte 0-3  | Start register for register read/written. | 
- | Byte 4… | Data read/written.                        | 
+ | Byte 4…   | Data read/written.                        | 
 
 ----
 
@@ -66,20 +68,20 @@ VSCP2_TYPE_PROTOCOL_HIGH_END_SERVER_CAPS
 ```
 Should be implemented by all Level II devices and be sent out at least once every 60 second.
 
- | Data byte | Description                                                                                                                      |
- | :----: | -----------                                                                                                                      |
- | 0         | VSCP server 64-bit capability code MSB                                                                                           |
- | 1         | VSCP server 64-bit capability code                                                                                               |
- | 2         | VSCP server 64-bit capability code                                                                                               |
- | 3         | VSCP server 64-bit capability code                                                                                               |
- | 4         | VSCP server 64-bit capability code                                                                                               |
- | 5         | VSCP server 64-bit capability code                                                                                               |
- | 6         | VSCP server 64-bit capability code                                                                                               |
- | 7         | VSCP server 64-bit capability code LSB                                                                                           |
- | 8-23      | GUID for server                                                                                                                  |
+ | Data byte | Description                                 |
+ | :----: |-----------                                     |
+ | 0         | VSCP server 64-bit capability code MSB      |
+ | 1         | VSCP server 64-bit capability code          |
+ | 2         | VSCP server 64-bit capability code          |
+ | 3         | VSCP server 64-bit capability code          |
+ | 4         | VSCP server 64-bit capability code          |
+ | 5         | VSCP server 64-bit capability code          |
+ | 6         | VSCP server 64-bit capability code          |
+ | 7         | VSCP server 64-bit capability code LSB      |
+ | 8-23      | GUID for server                             |
  | 24-39     | For IPv4 or IPv6 IP address or other transport id identifier (MSB first). Note that this info is often already part of the GUID. |
- | 40-103    | 64 byte max zero terminated utf8 encoded name for this server. Blank if no name set.                                             |
- | 104..     | Non standard port info for services. Not needed if the standard port is used.                                                    |
+ | 40-103    | 64 byte max zero terminated utf8 encoded name for this server. Blank if no name set. |
+ | 104..     | Non standard port info for services. Not needed if the standard port is used.        |
 
 ### Capability code
 
@@ -114,7 +116,7 @@ Description of bit-usage for VSCP server 64-bit **capability code**. A bit shoul
 
 Non standard port definitions. Each consist of three bytes.
  | Byte | Description                                                                                                     |
- | :----: | -----------                                                                                                     |
+ | :----: | -----------                                                                                                   |
  | 0    | 0-63 Identify the service from the bit number (see bit usage). Offset zero. Bit 7 is set if encryption is used. |
  | 1    | Port MSB byte                                                                                                   |
  | 2    | Port LSB byte                                                                                                   |
@@ -124,7 +126,7 @@ Non standard port definitions. Each consist of three bytes.
 **Example:** The standard TCP/IP server is on port **9598** if it has been moved to port **32000** the three bytes will be
 
  | Byte | Description                                       |
- | :----: | -----------                                       |
+ | :----: | -----------                                     |
  | 0    | 15 for bit 15 which is the TCP/IP server          |
  | 1    | 0xD4 which is the most significant byte of 32000  |
  | 3    | 0x00 which is the least significant byte of 32000 |
@@ -141,7 +143,40 @@ This defines the response from a Level II node for a [CLASS1.PROTOCOL, Type=32, 
  | :----:  | -----------                                     |
  | 0-15  | GUID for node                                     |
  | 16-47 | MDF of node                                       |
- | 3     | 0x00 which is the least significant byte of 32000 |
+
+
+----
+
+## Type=34 (0x22) - Level II get DM info response :id=type34
+```
+VSCP2_TYPE_PROTOCOL_GET_MATRIX_INFO_RESPONSE
+```
+This defines the response from a Level II node for a [CLASS1.PROTOCOL, Type=33, VSCP2_TYPE_PROTOCOL_GET_MATRIX_INFO](./class1.protocol.md#type34) event.
+
+ | Byte   | Description    |
+ | :----: | -----------    |
+ | 0-15   | GUID for node  |
+ | 16     | DM row size    |
+ | 17     | DM number of rows |
+ | 18-21  | Register start for DM |
+
+ 
+----
+
+## Type=36 (0x24) - Level II get embedded MDF response :id=type36
+```
+VSCP2_TYPE_PROTOCOL_GET_EMBEDDED_MDF_RESPONSE
+```
+Get embedded MDF of device. This defines the response from a Level II node for a [CLASS1.PROTOCOL, Type=35, VSCP2_TYPE_PROTOCOL_GET_EMBEDDED_MDF](./class1.protocol.md#type35) event.
+
+ | Byte   | Description  |
+ | :----: | -----------  |
+ | 0,1    | Index        |
+ | 2,3    | Total number of frames |
+ | 4-...  | MDF data     |
+
+ Each packet can hold a maximum of 508 bytes. The first byte is the index of the MDF. The second byte is the total number of rows. The following bytes are the MDF data.
+
 
 ----
 
