@@ -14,10 +14,6 @@ With Node control flags (0x83) the node behavior can be controlled. The start up
 
 Bit 5 of the node control flags write protects all user registers if cleared ( == 1 is write enabled). The page select registers (0x92/0x93) can be used if more application specific registers are needed. The page is selected by writing a 16-bit page in these positions. This gives a theoretical user registry space of 128 * 65535 bytes (65535 pages of 128 bytes each). Note that the normal register read/write method can not be used to access this space. The page read/write methods are used instead.
 
-0x98 Buffer size for device is information for control nodes of limitations of the buffer space for a Level II node. Level I nodes should have eight (8) in this position. Level II nodes that can accept the normal Level II packet have 0 which indicates 512 bytes or can have some number that represent the actual buffer.
-
-The page read/write, boot events etc can handle more then eight data bytes if the buffer is larger than eight and the implementer wishes to do so. This even if the event is a Level I event.
-
 Reading of an unimplemented register should return 0x00.  
 
 The VSCP registers are defined as follows: 
@@ -51,7 +47,7 @@ The VSCP registers are defined as follows:
  | 149/0x95  | Read Only   | Firmware minor version number. | 
  | 150/0x96  | Read Only   | Firmware sub minor version number. | 
  | 151/0x97  | Read Only   | Boot loader algorithm used. 0xFF for no boot loader support. Codes for algorithms are specified here [CLASS1.PROTOCOL, Type=12](./class1.protocol#id=type12) | 
- | 152/0x98  | Read Only   | Buffer size. The value here gives an indication for clients that want to talk to this node if it can support the larger mid level Level I control events which has the full GUID. If set to 0 the default size should used. That is 8 bytes for Level I and 512 for Level II. | 
+ | 152/0x98  | Read Only   | Buffer size. **Deprecated from version 1.14.2**. Always return zero in new code when the register is read. The value here gives an indication for clients that want to talk to this node if it can support the larger mid level Level I control events which has the full GUID. If set to 0 the default size should used. That is 8 bytes for Level I and 512 for Level II. | 
  | 153/0x99  | Read Only   | Number of register pages used. If not implemented one page is assumed. Set to zero if your device have more then 255 pages. **Deprecated**: Use the MDF instead as the central place for information about actual number of pages.    | 
  | 154/0x9A  | Read Only   | Standard device family code (MSB) Devices can belong to a common register structure standard. For such devices this describes the family coded as a 32-bit integer. Set all bytes to zero if not used. Also 0xff is reserved and should be interpreted as zero was read. *Added in version 1.9.0 of the specification* | 
  | 155/0x9B  | Read Only   | Standard device family code *Added in version 1.9.0 of the specification* | 

@@ -60,13 +60,15 @@ This event is used for cards, RFID's, iButtons and other identification devices.
 ```
 VSCP2_TYPE_INFORMATION_HEART_BEAT
 ```
-A level II node should send this event at least once a minute to indicate that it is live and well. The implementation **is mandatory**. Recommended interval is 30-60 seconds but in a node that need to sleep longer to save resources a longer interval can be used.
+A level II node is recommended to send this event at least once a minute to indicate that it is live and well. The implementation **is mandatory**. Recommended interval is 30-60 seconds but in a node that need to sleep longer to save resources a longer interval can be used.
 
  | Byte | Description                 | 
  | :----: | -----------                 | 
- | 0-63 | Real text name of the node. | 
+ | 0-63 | Real text name of the node or no data meaning no name is available. | 
 
 This event is sent by all level nodes even if they are just a client which can connect to a server but not accept connections itself. 
+
+The name part is optional. If no name set datalength to zero.
 
 ----
 

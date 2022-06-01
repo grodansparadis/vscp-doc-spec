@@ -25,11 +25,9 @@ Read a Level II register from the 32-bit register space
  | ----       | -----------                                      | 
  | Byte 0-15  | Contains the GUID of the target node (MSB->LSB). | 
  | Byte 16-19 | Register to read (or start index), (MSB->LSB).   | 
- | Byte 20-21 | Number of registers to read (max 487).           | 
+ | Byte 20-21 | Number of registers to read (max 508).           | 
 
-Number of registers to read can also be restricted by the buffer size on the board (register 0x98). If this register is set to something else than 0 (default) this is the max size for data.
 
-This means that buffer_size - 8 is maximum data bytes read. 
 
 ----
 
@@ -43,9 +41,9 @@ VSCP2_TYPE_PROTOCOL_WRITE_REGISTER
  | ----       | -----------                                      | 
  | Byte 0-15  | Contains the GUID of the target node (MSB->LSB). | 
  | Byte 16-19 | Register to write (or start index), (MSB->LSB).  | 
- | Byte 20…   | Data to write to register(s).                    | 
+ | Byte 20…   | Data to write to register(s) (max 512-16-4 bytes).  | 
 
-Number of registers to write can also be restricted by the buffer size on the board (register 0x98). If this register is set to something else then 0 (default) this is the max size for data. This means that buffer_size - 24 is maximum data bytes written. 
+
 
 ----
 
@@ -59,6 +57,8 @@ This is the response from a read or a write. Note that the data is returned in b
  | ----      | -----------                               | 
  | Byte 0-3  | Start register for register read/written. | 
  | Byte 4…   | Data read/written.                        | 
+ 
+ Data read/written can be a maximum of 512-4 = 508 bytes for read and 512-16-4 = 492 bytes for a write response.
 
 ----
 
@@ -66,7 +66,7 @@ This is the response from a read or a write. Note that the data is returned in b
 ```
 VSCP2_TYPE_PROTOCOL_HIGH_END_SERVER_CAPS
 ```
-Should be implemented by all Level II devices and be sent out at least once every 60 second.
+Recommended to be implemented by all Level II devices and be sent out at least once every 60 second.
 
  | Data byte | Description                                 |
  | :----: |-----------                                     |
@@ -151,7 +151,7 @@ This defines the response from a Level II node for a [CLASS1.PROTOCOL, Type=32, 
 ```
 VSCP2_TYPE_PROTOCOL_GET_MATRIX_INFO_RESPONSE
 ```
-This defines the response from a Level II node for a [CLASS1.PROTOCOL, Type=33, VSCP2_TYPE_PROTOCOL_GET_MATRIX_INFO](./class1.protocol.md#type34) event.
+This defines the response from a Level II node for a [CLASS1.PROTOCOL, Type=33, VSCP_TYPE_PROTOCOL_GET_MATRIX_INFO](./class1.protocol.md#type34) event.
 
  | Byte   | Description    |
  | :----: | -----------    |
@@ -167,7 +167,7 @@ This defines the response from a Level II node for a [CLASS1.PROTOCOL, Type=33, 
 ```
 VSCP2_TYPE_PROTOCOL_GET_EMBEDDED_MDF_RESPONSE
 ```
-Get embedded MDF of device. This defines the response from a Level II node for a [CLASS1.PROTOCOL, Type=35, VSCP2_TYPE_PROTOCOL_GET_EMBEDDED_MDF](./class1.protocol.md#type35) event.
+Get embedded MDF of device. This defines the response from a Level II node for a [CLASS1.PROTOCOL, Type=35, VSCP_TYPE_PROTOCOL_GET_EMBEDDED_MDF](./class1.protocol.md#type35) event.
 
  | Byte   | Description  |
  | :----: | -----------  |
@@ -178,6 +178,27 @@ Get embedded MDF of device. This defines the response from a Level II node for a
  Each packet can hold a maximum of 508 bytes. The first byte is the index of the MDF. The second byte is the total number of rows. The following bytes are the MDF data.
 
 
+----
+
+## Type=41 (0x29) - Level II events of interest response :id=type41
+```
+VSCP2_TYPE_PROTOCOL_GET_EVENT_INTEREST_RESPONSE
+```
+Get events of interest. This defines the response from a Level II node for a [CLASS1.PROTOCOL, Type=40, VSCP2_TYPE_PROTOCOL_GET_EVENT_INTEREST](./class1.protocol.md#type40) event.
+
+ | Byte     | Description  |
+ | :----:   | -----------  |
+ | 0,1      | class 1      |
+ | 2,3      | type 1       |
+ | 4,5      | class 2      |
+ | 6,7      | type 2       |
+ | ....     | ....         |
+ | 508,509  | class n      |
+ | 510,511  | type n       |
+
+ The response is a packet with class/type pairs. One frame can hold a maximum of 256 pairs. If more is needed send multiple frames. Type can be set to zero to indicate ALL types of that class.
+
+ A node that is interested in everything just send a [CLASS2.PROTOCOL, Type=41 (Get event interest response)](./class2.protocol.md#type41) with no data if asked to provide that information.
 ----
 
 [filename](./bottom_copyright.md ':include')

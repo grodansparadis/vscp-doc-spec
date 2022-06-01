@@ -2,9 +2,10 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | 2022-06-01 | AKHE | Buffer size (standard register 152/0x98 ) is deprecated from version 1.14.2. Return 0 when th eregister is read. |
  | 2022-05-23 | AKHE | Added  CLASS2_PROTOCOL, Type=34,VSCP2_TYPE_PROTOCOL_GET_MATRIX_INFO_RESPONSE  and
  type=35, VSCP2_TYPE_PROTOCOL_GET_EMBEDDED_MDF_RESPONSE |
- | 2022-05-19 | AKHE | An indexed decsion matrix no longer an option |
+ forming a 512 byte event
  | 2022-05-19 | AKHE | Fixed error in interface types |
  | 2022-05-17 | AKHE | Added dark theme support |
  | 2022-05-17 | AKHE | Added option for multiple filters in the VSCP tcp/ip link protocol. |
