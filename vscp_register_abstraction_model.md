@@ -1,6 +1,6 @@
 # Register Abstraction Model
 
-Functionality of a device in VSCP is exposed to the world through 8-bit registers. Much like a IC circuit expose information to the world in electronic systems. This is useful only for the lowest level devices. Higher level devices and users usually get the information in the registers presented as higher level value. This low level information is something the VSCP systems can hide with the help of the MDF information (see [sec:Module-Description-File]). This is this why we talk about an abstraction model. 
+Functionality of a device in VSCP is exposed to the world through 8-bit registers. Much like a IC circuit expose information to the world in electronic systems. This is useful only for the lowest level devices. Higher level devices and users usually get the information in the registers presented as higher level value. This low level information is something the VSCP systems can hide with the help of the MDF information (see [Module-Description-File](./vscp_module_description_file.md)). This is this why we talk about an abstraction model. 
 
 Above the register model is **abstractions** (defined below) which describe the system in higher level terms.
 
