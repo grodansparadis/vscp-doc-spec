@@ -2,23 +2,25 @@
 
 Functionality of a device in VSCP is exposed to the world through 8-bit registers. Much like a IC circuit expose information to the world in electronic systems. This is useful only for the lowest level devices. Higher level devices and users usually get the information in the registers presented as higher level value. This low level information is something the VSCP systems can hide with the help of the MDF information (see [Module-Description-File](./vscp_module_description_file.md)). This is this why we talk about an abstraction model. 
 
-Above the register model is **abstractions** (defined below) which describe the system in higher level terms.
+The 'abstraction' comes from the fact that registers normally is not a real thing. Register abstractions only look at the world thrue byte-wide register glasses. So even if a variable for example is a 32-bit signed number some where in memory it will be presented as four registers in the register abstraction. Writing to the registers that abstracts the variable will actually write the 32-bit variable. Same for reading.
+
+Above the register abstraction model is **remote variables** (defined below) which describe the system in higher level terms such as int's strings and logical values. Remote variables maps directly to registers. 
+
+The end result is that only two methods is need to be implemented. Read and write a register. After thye are in place all remote configuration issues can be handled.
 
 ## Level I - Register Abstraction Model
 
-Byte wide bit registers are a central part of the VSCP specification. All nodes Level I as well as Level II should be possible to be configured by reading/writing these registers. Some of the register are the same for all nodes and are also the same between Level I and Level II nodes. The difference is that Level II can have a lot more registers defined.
+Byte wide bit registers are a central part of the VSCP specification. All nodes Level I as well as Level II should be possible to be configured by reading/writing these registers. Some of the register are the same for all nodes and are also the same between Level I and Level II nodes. The difference is that Level II can have a lot more registers defined in it's 32-bit abstracted register space.
 
 Registers 0x00 – 0x7F are application specific. Registers between 0x80 – 0xFF are reserved for VSCP usage. If the node has implemented the decision matrix it is stored in application register space.
-
-With Node control flags (0x83) the node behavior can be controlled. The start up control is two bits that can have two values, binary 10 and binary 01. All other values are invalid and are translated to binary 10. If set to binary 10 it will prevent the initialization routine of the node to start before the initialization button on the node has been pressed.
-
-Bit 5 of the node control flags write protects all user registers if cleared ( == 1 is write enabled). The page select registers (0x92/0x93) can be used if more application specific registers are needed. The page is selected by writing a 16-bit page in these positions. This gives a theoretical user registry space of 128 * 65535 bytes (65535 pages of 128 bytes each). Note that the normal register read/write method can not be used to access this space. The page read/write methods are used instead.
 
 Reading of an unimplemented register should return 0x00.  
 
 The VSCP registers are defined as follows: 
 
-##### Register abstraction model:id=register_abstraction_model
+### Register abstraction model:id=register_abstraction_model
+
+_Note:_ Add 0xFFFFFF80 to an address below to get the corresponding level II standard register abstraction address.
 
  | Address   | Access Mode | Description  | 
  | -------   | ----------- | -----------  | 
@@ -64,25 +66,25 @@ The VSCP registers are defined as follows:
  | 208/0xD0-223/0xDF | Read Only   | 128-bit (16-byte) globally unique ID (GUID) identifier for the device. This identifier uniquely identifies the device throughout the world and can give additional information on where driver and driver information can be found for the device. MSB for the identifier is stored first (in 0xD0). | 
  | 224/0xE0-255/0xFF | Read Only   | Module Description File URL. A zero terminates the ASCII string if not exactly 32 bytes long. The URL points to a file that gives further information about where drivers for different environments are located. Can be returned as a zero string for devices with low memory. For a node with an embedded MDF return a zero string. The CLASS1.PROTOCOL, Type=34/35 can then be used to get the information if available. | 
 
-### User ID
+#### User ID
 
 This is a register space that can be used to store installation values as for example a location code of where the unit is installed.
 
-### Manufacturer device ID/Manufacturer sub device ID
+#### Manufacturer device ID/Manufacturer sub device ID
 
 The manufacturer of the device can store whatever they like in thees registers. Typical use is for hardware version. Firmware version. Batch numbers. Serial numbers and such. 
 
-### Page select
+#### Page select
 
 The page select registers can be used to switch pages for the lower 128 byte. Its important that an application that uses the page functionality switch back to page 0x0000 when its ready. Applications can use the page registers as a mutex which is signaled when not zero. 
 
-### Standard device families and types
+#### Standard device families and types
 
 Added in version 1.9.0 of the specification
 
 Some devices has a need for a common register structure standard. This is defined by two 32-bit values in the standard register space. The family value defines the group of devices the module belongs to and the type value describes the specific device type in that family it belongs to. Families and device types are still to be defined.
 
-### Firmware device code
+#### Firmware device code
 
 Added in version 1.13.0 of the specification
 
@@ -92,10 +94,7 @@ Return zero if not used.
 
 ## Level II - Register Abstraction Model
 
-The level II abstraction model is the same as Level I but covers a much wider address space.
-
-The registers are laid out in an 32-bit address space with the standard Level I register map on the top (0xFFFFFF80 - 0xFFFFFFFF) and where 0xFFFF0000 - 0xFFFFFFFF is a reserved area.
-
+The level II abstraction model is the same as Level I but covers a much wider address space. For level II the register space from address 0xFFFF0000 to 0xFFFFFFFF is reserved for standard registers. The level I standard register space is present in this area at address 0xFFFFFF80 to 0xFFFFFFFF.
  
 
 ## Remote variables:id=remote-variables
