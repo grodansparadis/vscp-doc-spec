@@ -17,9 +17,12 @@ The log can be used by a device to send logging information to a central or dist
 
 The logging message can be a maximum of five byte for each event. If you need more space for logging data, send multiple log events and increase the index (starting at zero) for each event that is part of the logging message. Repeating this process next time you need to send logging data by again starting at index 0 and increasing for every part sent. 
 
+For **Level II** the logging message can use the full payload so a maximum message of 508 bytes can be sent.
+
 The id is something you set that have meaning for you. Typically it can be used as an index for a channel you send log messages on in a system where several subsystems needs to be logged and which log info need to be separated. 
 
 Remember that the receiving side also have the originating id (GUID) as an identification from where a logging event originates.
+
 
 ## Type=0 (0x00) - General event :id=type0
 ```
@@ -32,14 +35,32 @@ General Event.
 ```
 VSCP_TYPE_LOG_MESSAGE
 ```
-Message for Log. Several frames have to be sent for a event that take up more the five bytes which is the maximum for each frame. In this case the zero based index (byte 2) should be increased for each frame. 
+Message for Log. Several frames have to be sent for a event that take up more then the five bytes which is the maximum for each frame. In this case the zero based index (byte 2) should be increased for each frame. 
 
  | Byte | Description            | 
  | :----: | -----------            | 
  | 0    | ID for event.          | 
  | 1    | Log level for message. | 
  | 2    | Idx for this message.  | 
- | 3-7  | Message.               |
+ | 3-7 (511)  | Message.         |
+
+ A **level II** node can use the full 512 byte message body. 
+
+ Log levels are typically
+
+ | Byte | Description     | 
+ | :----: | -----------   | 
+ | 0    | Emergency.      | 
+ | 1    | Alert.          | 
+ | 2    | Critical.       | 
+ | 3    | Error.          | 
+ | 4    | Warning.        | 
+ | 5    | Notice.         | 
+ | 6    | Informational.  | 
+ | 7    | Debug.          | 
+ | 7    | Verbose.        | 
+
+ but one can use any schema that make sense (or not).
 ----
 
 ## Type=2 (0x02) - Log Start :id=type2
