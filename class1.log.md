@@ -60,7 +60,7 @@ Message for Log. Several frames have to be sent for a event that take up more th
  | 7    | Debug.          | 
  | 7    | Verbose.        | 
 
- but one can use any schema that make sense (or not).
+ but one can use any schema that makes sense (or not).
 ----
 
 ## Type=2 (0x02) - Log Start :id=type2

@@ -1,22 +1,22 @@
 * Introduction
- * [About this document](./README.md)
- * [VSCP - what is it?](./introduction.md)
- * [Specification history](vscp_specification_history.md)
+  * [About this document](./README.md)
+  * [VSCP - what is it?](./introduction.md)
+  * [Specification history](vscp_specification_history.md)
 
 * Essential VSCP Parts
- * [VSCP Level I Specifics](./vscp_level_i_specifics.md)
- * [VSCP Level II Specifics](./vscp_level_ii_specifics.md)
- * [Globally Unique Identifiers GUID](./vscp_globally_unique_identifiers.md)
- * [Assigned GUIDs](assigned_guids.md)
- * [Register Abstraction Model](./vscp_register_abstraction_model.md)
- * [Measurements](./vscp_measurements.md)
- * [Decision Matrix](./vscp_decision_matrix.md)
- * [Module Description File - MDF](./vscp_module_description_file.md)
- * [VSCP boot loader algorithm](./vscp_boot_loader_algorithm.md)
- * [VSCP Multicast](./vscp_multicast.md)
+  * [VSCP Level I Specifics](./vscp_level_i_specifics.md)
+  * [VSCP Level II Specifics](./vscp_level_ii_specifics.md)
+  * [Globally Unique Identifiers GUID](./vscp_globally_unique_identifiers.md)
+  * [Assigned GUIDs](assigned_guids.md)
+  * [Register Abstraction Model](./vscp_register_abstraction_model.md)
+  * [Measurements](./vscp_measurements.md)
+  * [Decision Matrix](./vscp_decision_matrix.md)
+  * [Module Description File - MDF](./vscp_module_description_file.md)
+  * [VSCP boot loader algorithm](./vscp_boot_loader_algorithm.md)
+  * [VSCP Multicast](./vscp_multicast.md)
 
 * Transport protocols
- * [Low level protocols](./physical_level_lower_level_protocols.md)
+  * [Low level protocols](./physical_level_lower_level_protocols.md)
   * [Dumb nodes](./vscp_dumb.md)
   * [VSCP over TCP/IP](./vscp_over_tcp_ip.md)
     * * [VSCP tcp/ip link protocol](./vscp_tcpiplink.md)
@@ -36,15 +36,15 @@
   * [VSCP Text](./vscp_text.md)
 
 * Other VSCP documents
- * [VSCP Daemon](https://grodansparadis.gitbooks.io/the-vscp-daemon/)
- * [VSCP Helper lib](https://grodansparadis.gitbooks.io/the-vscp-helper-library/)
- * [VSCP Works](https://www.vscp.org/docs/vscpworks/doku.php?id=start)
- * [VSCP Firmware](https://grodansparadis.gitbooks.io/vscp-firmware/)
- * [VSCP L1 Framework](https://github.com/BlueAndi/vscp-framework/blob/master/README.md)
- * [VSCP Arduino](https://github.com/BlueAndi/vscp-arduino)
- * [VSCP Javascript lib.](https://grodansparadis.gitbooks.io/the-vscp-javascript-library/)
- * [VSCP HTML demo](https://www.vscp.org/docs/html5/doku.php)
- * [General VSCP wiki](https://www.vscp.org/wiki/doku.php)
+  * [VSCP Daemon](https://grodansparadis.github.io/vscp/#/)
+  * [VSCP Helper lib](https://grodansparadis.github.io/vscp-helper-lib/#/)
+  * [VSCP Works](http://docs.vscp.org/vscpworks/latest/#/)
+  * [VSCP Firmware](http://docs.vscp.org/firmware/latest/#/)
+  * [VSCP L1 Framework](https://github.com/BlueAndi/vscp-framework/blob/master/README.md)
+  * [VSCP Arduino](https://github.com/BlueAndi/vscp-arduino)
+  * [VSCP Javascript lib.](https://docs.vscp.org/#development)
+  * [VSCP HTML demo](https://demo.vscp.org/)
+  * [General VSCP wiki](https://github.com/grodansparadis/vscp/wiki)
 
 
     
