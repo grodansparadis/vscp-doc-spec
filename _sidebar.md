@@ -35,15 +35,18 @@
    * [VSCP Text](./vscp_text.md)
 
 * **Other VSCP documents**
-  * [VSCP Daemon](https://grodansparadis.gitbooks.io/the-vscp-daemon/)
-  * [VSCP Helper lib](https://grodansparadis.gitbooks.io/the-vscp-helper-library/)
-  * [VSCP Works](https://www.vscp.org/docs/vscpworks/doku.php?id=start)
-  * [VSCP Firmware](https://grodansparadis.gitbooks.io/vscp-firmware/)
+  * [Home of all VSCP documentation](https://docs.vscp.org)
+  * [VSCP Daemon](https://grodansparadis.github.io/vscp/#/)
+  * [VSCP Helper lib](https://grodansparadis.github.io/vscp-helper-lib/#/)
+  * [VSCP Works](http://docs.vscp.org/vscpworks/latest/#/)
+  * [VSCP Firmware](http://docs.vscp.org/firmware/latest/#/)
   * [VSCP L1 Framework](https://github.com/BlueAndi/vscp-framework/blob/master/README.md)
   * [VSCP Arduino](https://github.com/BlueAndi/vscp-arduino)
-  * [VSCP Javascript lib.](https://grodansparadis.gitbooks.io/the-vscp-javascript-library/)
-  * [VSCP HTML demo](https://www.vscp.org/docs/html5/doku.php)
-  * [General VSCP wiki](https://www.vscp.org/wiki/doku.php)
+  * [VSCP Javascript lib.](https://docs.vscp.org/#development)
+  * [VSCP HTML demo](https://demo.vscp.org/)
+  * [General VSCP wiki](https://github.com/grodansparadis/vscp/wiki)
+  * [Home of all VSCP ducumentation](https://docs.vscp.org)
+
 
 ----
     
