@@ -1,6 +1,6 @@
 :root {
-  --sidebar-background: #b0a9a9;
-  --sidebar-nav-link-color: purple;  
+  --sidebar-background: #ccc7c7;
+  --sidebar-nav-link-color: rgb(13, 3, 84);  
   --sidebar-name-color: black;
   --sidebar-width: 30rem;
 };

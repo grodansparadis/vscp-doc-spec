@@ -105,6 +105,7 @@
  * [CLASS2.HLO = 1028 (0x404)](./class2.hlo.md)
  * [CLASS2.CUSTOM = 1029 (0x405)](./class2.custom.md)
  * [CLASS2.DISPLAY = 1030 (0x406)](./class2.display.md)
+ * [CLASS2.SECURITY = 1034 (0x40a)](./class2.security.md)
  * [CLASS2.MEASUREMENT_STR = 1040 (0x410)](./class2.measurement_str.md)
  * [CLASS2.MEASUREMENT_FLOAT = 1060 (0x424)](./class2.measurement_float.md)
  * [CLASS2.VSCPD = 65535 (0xffff)](./class2.vscpd.md)

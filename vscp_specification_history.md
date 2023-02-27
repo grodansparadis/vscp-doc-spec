@@ -2,6 +2,8 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | 2023-02-27 | AKHE | Added class.security 1034. |
+ | 2023-02-26 | AKHE | Fixed faulty links to documentation. |
  | 2022-06-02 | AKHE | Added explanation of level II register abstractions |
  | 2022-06-01 | AKHE | Buffer size (standard register 152/0x98 ) is deprecated from version 1.14.2. Return 0 when th eregister is read. |
  | 2022-05-23 | AKHE | Added  CLASS2_PROTOCOL, Type=34,VSCP2_TYPE_PROTOCOL_GET_MATRIX_INFO_RESPONSE  and

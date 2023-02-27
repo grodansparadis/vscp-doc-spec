@@ -45,6 +45,6 @@
   * [VSCP Javascript lib.](https://docs.vscp.org/#development)
   * [VSCP HTML demo](https://demo.vscp.org/)
   * [General VSCP wiki](https://github.com/grodansparadis/vscp/wiki)
-  * [Home of all VSCP ducumentation](https://docs.vscp.org)
+
 
 

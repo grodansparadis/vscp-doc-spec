@@ -5,6 +5,7 @@
 ## Description
 
 Level II Information events.
+
 ## Type=0 (0x00) - General event :id=type0
 ```
 VSCP2_TYPE_INFORMATION_GENERAL
