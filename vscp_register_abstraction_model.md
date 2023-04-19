@@ -2,7 +2,7 @@
 
 Functionality of a device in VSCP is exposed to the world through 8-bit registers. Much like a IC circuit expose information to the world in electronic systems. This is useful only for the lowest level devices. Higher level devices and users usually get the information in the registers presented as higher level value. This low level information is something the VSCP systems can hide with the help of the MDF information (see [Module-Description-File](./vscp_module_description_file.md)). This is this why we talk about an abstraction model. 
 
-The 'abstraction' comes from the fact that registers normally is not a real thing. Register abstractions only look at the world thrue byte-wide register glasses. So even if a variable for example is a 32-bit signed number some where in memory it will be presented as four registers in the register abstraction. Writing to the registers that abstracts the variable will actually write the 32-bit variable. Same for reading.
+The 'abstraction' comes from the fact that registers normally is not a real thing. Register abstractions only look at the world thru byte-wide register glasses. So even if a variable for example is a 32-bit signed number some where in memory it will be presented as four registers in the register abstraction. Writing to the registers that abstracts the variable will actually write the 32-bit variable. Same for reading.
 
 Above the register abstraction model is **remote variables** (defined below) which describe the system in higher level terms such as int's strings and logical values. Remote variables maps directly to registers. 
 

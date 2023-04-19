@@ -63,9 +63,18 @@ If a node send this event with the unassigned ID 0xFF and byte 0 set to 0xFF it 
 
 It is recommended that also level II nodes send this event when they come alive. In this case the target address is the 16-byte data GUID of the node with MSB in the first byte. 
 
+Standard form (Mandatory)
+
  | Data | Description | 
  | :----: | ----------- | 
  | 0    | **Target address**. This is the probe nickname that the new node is using to test if this is a valid target node. If there is a node with this nickname address it should answer with probe ACK. A probe always has 0xff as it's own temporary nickname while a new node on line use a non 0xff nickname. | 
+
+ Extended Form for node with 16-bit nickname. (Mandatory for nodes with 16-bit nickname)
+
+ | Data | Description | 
+ | :----: | ----------- | 
+ | 0    | **Target address**. This is the LSB of the probe nickname that the new node is using to test if this is a valid target node. If there is a node with this nickname address it should answer with probe ACK. A probe always has 0xff as it's own temporary nickname while a new node on line use a non 0xff nickname. | 
+ | 1 | MSB of probe nickname. |
 
 On a Level II system.
 
@@ -112,10 +121,22 @@ VSCP_TYPE_PROTOCOL_SET_NICKNAME
 
 This event can be used to change the nickname for a node. The node just uses the new nickname and don't start nickname discovery or similar.
 
+Standard form. (Mandatory).
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0  | Old nickname for node. | 
  | 1  | The new nickname for the node. | 
+
+ Extended form that can handle 16-bit nickname (not mandatory for devices with 8-bit nickname)
+
+  | Data byte | Description | 
+ | :---------: | ----------- | 
+ | 0  | LSB of old nickname for node. | 
+ | 1  | LSB of new nickname for the node. |
+ | 2  | MSB of old nickname for node. | 
+ | 3  | MSB of new nickname for the node. |
+
+ The 'strange' data layout is for compatibility.
 
 ----
 
@@ -137,11 +158,21 @@ VSCP_TYPE_PROTOCOL_DROP_NICKNAME
 
 Request a node to drop its nickname. The node should drop its nickname and then behave in the same manner as when it was first powered up on the segment. 
 
+Standard form (Mandatory)
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0  | The current nickname for the node. |
  | 1  | **Optional:** Flags. | 
  | 2  | **Optional:** Time the node should wait before it starts a nickname discovery or starts the device. The time is in seconds. | 
+
+ Extended Form for node with 16-bit nickname. (Mandatory for nodes with 16-bit nickname)
+
+ | Data byte | Description | 
+ | :---------: | ----------- | 
+ | 0  | MSB of current nickname for the node. |
+ | 1  | **Optional:** Flags. | 
+ | 2  | **Optional:** Time the node should wait before it starts a nickname discovery or starts the device. The time is in seconds. | 
+ | 3 | LSB of current nickname for node |
 
 **Optional byte 1 flags**
 
@@ -303,12 +334,13 @@ The node confirms that it has entered boot loader mode. This is only sent for th
  | 1 | Flash block size.                   | 
  | 2 | Flash block size.                   | 
  | 3 | LSB of flash block size.            | 
- | 4 | MSB of number of block s available. | 
+ | 4 | MSB of number of blocks available.  | 
  | 5 | Number of block s available.        | 
  | 6 | Number of block s available.        | 
  | 7 | LSB of number of blocks available.  |
 
  
+
 ----
 
 ## Type=14 (0x0E) - NACK boot loader mode. :id=type14
@@ -391,7 +423,7 @@ is sent on failure.
 
 **Note** If the block to fill is not a multiple of eight the receiving node should handle and discard any excess data. This is true also if more block data frames are received than the block can hold.
 
-**Level II** The size of the block is 1-max data.
+**Level II** The size of the block is level II max data (512 bytes) or a smaller block or a mix of both.
 
 ----
 

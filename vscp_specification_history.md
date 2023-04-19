@@ -2,6 +2,8 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | 2023-04-19 | AKHE | VSCP_CLASS1_PROTOCOL, VSCP_TYPE_PROTOCOL_SET_NICKNAME - Can now handle 16-bit nicknames for devices that need it. VSCP_CLASS1_PROTOCOL, VSCP_TYPE_PROTOCOL_NEW_NODE_ONLINE - Can now handle 16-bit nicknames for devices that need it. VSCP_CLASS1_PROTOCOL, VSCP_TYPE_PROTOCOL_DROP_NICKNAME - Can now handle 16-bit nicknames for devices that need it. |
+ | 2023-03-01 | AKHE | Corrected wiki address. |
  | 2023-02-27 | AKHE | Added class.security 1034. |
  | 2023-02-26 | AKHE | Fixed faulty links to documentation. |
  | 2022-06-02 | AKHE | Added explanation of level II register abstractions |

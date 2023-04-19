@@ -2,7 +2,7 @@
 
 This specification is a reference document. With +500000 characters written by someone that is not native in English it may be a pain to read for many. If you just want to use VSCP & Friends skip to section 2. Go back to the specification when you are in doubt about usage or just need a deeper understanding of whats going on. VSCP is designed to make complex systems simple to use and not necessarily easy to build such complex systems. We expect a greater technical knowledge and at least the ability to read from people that build and maintain such systems. 
 
-Another resource for information is the VSCP wiki [https://www.vscp.org/wiki/doku.php](https://www.vscp.org/wiki/doku.php) it holds a lot of useful information and howto's. 
+Another resource for information is the VSCP wiki [https://github.com/grodansparadis/vscp/wiki](https://github.com/grodansparadis/vscp/wiki) it holds a lot of useful information and howto's. 
 
 
 *  The VSCP Daemon is documented [here](https://docs.vscp.org/#vscpd).
@@ -13,12 +13,11 @@ Another resource for information is the VSCP wiki [https://www.vscp.org/wiki/dok
 
 VSCP is an open source standard protocol for m2m, IoT and other remote control and measurement applications. It enables simple, low-cost devices to be networked together with high-end computers and/or to work as an autonomous system, whatever the communication media is.
 
-There are a lot of technologies and protocols that claims to be the perfect solution for (home) automation and SOHO (Small Office/Home Office) control, IoT, M2M. More and more RF solutions are now available: Bluetooth, Zigbee, Z-wave, Wifi, etc. Other systems use a dedicated bus based on RS-485, CAN, LIN, LON, TCP/IP, etc. or can sometimes support different transport layers: CANopen, KNX (EIB), C-Bus, LonWorks, etc.
+There are a lot of technologies and protocols that claims to be the perfect solution for (home) automation and SOHO (Small Office/Home Office) control, IoT, M2M. More and more RF solutions are now available: Bluetooth, Zigbee, Matter, Z-wave, Wifi, etc. Other systems use a dedicated bus based on RS-485, CAN, LIN, LON, TCP/IP, etc. or can sometimes support different transport layers: CANopen, KNX (EIB), C-Bus, LonWorks, etc.
 
 Most of them are proprietary, some are somehow “open”, meaning you can participate if you are part of the alliance and pay your yearly fees, or similar. There also is small companies that have their own proprietary and completely closed protocols.
 
 VSCP was designed with the following goals in mind:
-
 
 * Free and Open. No usage, patent or other costs for its implementation and usage. 
 * Low cost == No Cost. 
@@ -29,7 +28,6 @@ VSCP was designed with the following goals in mind:
 * Uniform way to update/maintain device firmware.
 
 Some features: 
-
 
 *  Free and open for commercial and other use. 
 *  Have two levels. Level I and Level II where level I is designed with CAN as the least common denominator. Can be used for TCP, UDP, RF, Mains communication, etc etc. 
@@ -52,9 +50,8 @@ Furthermore, VSCP:
 
 ## Open? What does that mean?
 
-This protocol is open and free in all aspects that are possible. We want you to contribute work back to the project if you do your own work based on our code but we also like to make as much of this work useful also in commercial projects. The tool we have chosen to do this is the MIT license, the GNU public version 2 license. For firmware code we release is released under the MIT license.
+This protocol is open and free in all aspects that are possible. We want you to contribute work back to the project if you do your own work based on our code but we also like to make as much of this work useful also in commercial projects. The tool we have chosen to do this is the MIT license. Hardware designfiles is also released under an open license.
 
-The **VSCP server** and **VSCP Works** is released under GPL2 due to it's use of the Mongoose libraries which is released under this license. Helper libs and most drivers and other help programs are released under the MIT license.
 
 ## License
 
@@ -62,14 +59,14 @@ The VSCP protocol is placed in the public domain and is free to use in any way y
 
 ## Maintainers
 
-The VSCP protocol is currently maintained by [Ake Hedman](https://www.akehedman.se/wordpress/?page_id=2) and [the VSCP Foundation](https://www.vscp.org/) and contributors from around the world.
+The VSCP protocol is currently maintained by [Ake Hedman](https://www.akehedman.se/wordpress/) and the [the VSCP Project](https://www.vscp.org/) and contributors from around the world.
 
 ## Where is the project located?
 
 Current information about VSCP (Very Simple Control Protocol) can be found at:
 [https://www.vscp.org](httpd://www.vscp.org)
 
-There is a forum/mailing lists available [here](https:///groups.google.com/forum/#!forum/vscp) where you an ask for help or discuss VSCP development.
+There is a forum/mailing lists available [here](https://groups.google.com/g/vscp-very-simple-control-protocol) where you an ask for help or discuss VSCP development.
 
 
 ## When was the project started?
@@ -86,7 +83,7 @@ Most people don't remember the world looked like for PC developers before Window
 
 Windows changed this. The OS introduced abstraction for devices and from that point drivers was something the OS dealt with and the application developer could concentrate on creating the application. This was the big reason behind the boom in software that made Microsoft and others successful.
 
-VSCP does this for automation tasks. Look around and see how it looks today. We have applications that work for Zigbee, X10, KNX, LonWorks etc. Some try to combine them into one application but still it's a different thing to turn on a lamp using Zigbee, X10, KNX or whatever. In the best case the same user interface component can be used but still there is a need to differentiate between the technologies use also at that level and most important the knowledge about the technology is needed on the top level.
+VSCP does this for automation tasks. Look around and see how it looks today. We have applications that work for Matter, Zigbee, X10, KNX, LonWorks etc. Some try to combine them into one application but still it's a different thing to turn on a lamp using Matter, Zigbee, X10, KNX or whatever. In the best case the same user interface component can be used but still there is a need to differentiate between the technologies use also at that level and most important the knowledge about the technology is needed on the top level.
 
 VSCP try to hide this. Drivers implement the interface to the technology and they all talk to the system using the VSCP protocol and understand VSCP protocol events. Compare this with printing under a modern OS. It's no difference today if you print to a Laser printer or a ink jet printer. Also it all works the same if the printer use protocol x, y or z. You are also still able to configure and print with the printers. This is where the abstraction comes into place.
 
@@ -161,8 +158,6 @@ VSCP Works is a client application that is included in the package. This applica
 Server and client application is released under the GPL license. Libraries and classes is released under a modified LGPL license that make sure they can be used in proprietary projects.
 
 Maybe the most important aspect of the VSCP & Friends package is that it can be used as an abstraction for interfacing other technologies and protocols. One just need to build a driver that translate the systems functionality to/from VSCP events and then install this driver for the VSCP daemon and then remote control functionality, software interface etc is directly available. This way one application interface can be constructed to control several technologies using different protocols. One can compare this to the situation for printers before windows was announced. Each application needed to distribute a stack of disks with printer drivers. Windows ended this by introducing the printer API abstraction for printers. VSCP & Friends does the same for SECO (SEensor/COntrol) devices .
-
-A web interface named OHAS is under development that will make it possible to build dynamic control interfaces with drag and drop technology. 
 
 ### Summary
 
