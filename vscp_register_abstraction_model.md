@@ -42,7 +42,7 @@ _Note:_ Add 0xFFFFFF80 to an address below to get the corresponding level II sta
  | 142/0x8E  | Read only   | Manufacturer sub device ID byte 1. | 
  | 143/0x8F  | Read only   | Manufacturer sub device ID byte 2. | 
  | 144/0x90  | Read only   | Manufacturer sub device ID byte 3. | 
- | 145/0x91  | Read only   | Nickname-ID for node if assigned or 0xFF if no nickname-ID assigned. | 
+ | 145/0x91  | Read only   | Nickname-ID for node if assigned or 0xFF if no nickname-ID assigned. This is LSB for the nickname of nodes with 16-bit nikckname id. In this case the MSB is stored in register 0xA5. | 
  | 146/0x92  | Read/Write  | Page select register MSB | 
  | 147/0x93  | Read/Write  | Page Select register LSB | 
  | 148/0x94  | Read Only   | Firmware major version number. | 
@@ -62,6 +62,7 @@ _Note:_ Add 0xFFFFFF80 to an address below to get the corresponding level II sta
  | 162/0xA2  | Write Only  | Standard configuration should be restored for a unit if first 0x55 and then 0xAA is written to this location and is done so withing one second. *Added in version 1.10.0 of the specification* | 
  | 163/0xA3  | Read Only  | Firmware device code MSB. *Added in version 1.13.0 of the specification* |
  | 164/0xA4  | Read Only  | Firmware device code LSB. *Added in version 1.13.0 of the specification* |
+  | 165/0xA5  | Read Only | MSB of 16-bit nickname-ID for node if assigned or 0xFF if no nickname-ID assigned. ONLY if 16-bit nickname is used. Undefined if not. *Added in version 1.14.8 of the specification* |
  | 165/0xA5-207/0xCF | —         | Reserved for future use. Return  | 
  | 208/0xD0-223/0xDF | Read Only   | 128-bit (16-byte) globally unique ID (GUID) identifier for the device. This identifier uniquely identifies the device throughout the world and can give additional information on where driver and driver information can be found for the device. MSB for the identifier is stored first (in 0xD0). | 
  | 224/0xE0-255/0xFF | Read Only   | Module Description File URL. A zero terminates the ASCII string if not exactly 32 bytes long. The URL points to a file that gives further information about where drivers for different environments are located. Can be returned as a zero string for devices with low memory. For a node with an embedded MDF return a zero string. The CLASS1.PROTOCOL, Type=34/35 can then be used to get the information if available. | 
