@@ -95,8 +95,14 @@ Return zero if not used.
 
 ## Level II - Register Abstraction Model
 
-The level II abstraction model is the same as Level I but covers a much wider address space. For level II the register space from address 0xFFFF0000 to 0xFFFFFFFF is reserved for standard registers. The level I standard register space is present in this area at address 0xFFFFFF80 to 0xFFFFFFFF.
- 
+The level II abstraction model is the same as Level I but covers a much wider address space. For level II the register space from address 0xFFFF0000 to 0xFFFFFFFF is reserved for standard registers. 
+
+The level I standard register space is present in area at address 0xFFFFFF80 to 0xFFFFFFFF.
+
+ | Address   | Access Mode | Description  | 
+ | -------   | ----------- | -----------  | 
+ | 0xFFFF0000 | Read Only  | MSB of max frame size this device can or prefer to handle. A full frame of 512 bytes is default. | 
+ | 0xFFFF0001 | Read Only  | LSB of max frame size this device can or prefer to handle. A full frame of 512 bytes is default. | 
 
 ## Remote variables:id=remote-variables
 

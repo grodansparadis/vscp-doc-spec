@@ -680,7 +680,7 @@ VSCP_TYPE_PROTOCOL_HIGH_END_SERVER_PROBE
 ```
 Should be implemented by all devices that work over 802.15.4/Ethernet/Internet or other high end protocols.This event can be broadcasted on a segment by a node to get information about available servers. 
 
-The [VSCP daemon documentation](https://grodansparadis.gitbooks.io/the-vscp-daemon) have a description on how server/service discovery works. 
+The [VSCP daemon documentation](https://docs.vscp.org/#vscpd) have a description on how server/service discovery works. 
 
 ----
 
@@ -711,7 +711,7 @@ A node that need a TCP connection to a host. Broadcast HIGH END SERVER PROBE on 
 
 A server like the VSCP server can span multiple segments and a reply can therefore be received from a remote segment as well. This can be an advantage in some cases and unwanted in some cases. The server configuration should have control on how it is handled. 
 
-The [VSCP daemon documentation](https://grodansparadis.gitbooks.io/the-vscp-daemon) have a description on how server/service discovery works. 
+The [VSCP daemon documentation](https://docs.vscp.org/#vscpd) have a description on how server/service discovery works. 
 
 ----
 

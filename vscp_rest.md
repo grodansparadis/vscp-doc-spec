@@ -2878,7 +2878,7 @@ There is a a [demo app](https://github.com/grodansparadis/vscp-ux/tree/master/re
     
 Get and display MDF for a device. **Requires a valid session parameter**
 
-Intended for devices that can't download the MDF by themselves. Building a web-app. around this functionality is usually a bad idea. It is much better to use the functionality in the [VSCP JavaScript library](https://grodansparadis.gitbooks.io/the-vscp-javascript-library/). This is because the VSCP daemon can not always be expected to be available in every setup (typically wireless and Ethernet setups). If that is the case for you (it is available all the time) use this functionality by all means.
+Intended for devices that can't download the MDF by themselves. Building a web-app. around this functionality is usually a bad idea. It is much better to use the functionality in the [VSCP JavaScript library](https://docs.vscp.org/#development). This is because the VSCP daemon can not always be expected to be available in every setup (typically wireless and Ethernet setups). If that is the case for you (it is available all the time) use this functionality by all means.
 
 **General Format:**
 

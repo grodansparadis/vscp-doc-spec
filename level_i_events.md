@@ -12,7 +12,7 @@ Class definitions can be found in the header file **[vscp_class.h](https://githu
 
 VSCP event documentation and support files are auto generated.  The full documentation and source for the scripts that generate misc. files is [here](https://github.com/grodansparadis/vscp-classes) if you are interested.
 
-Current files is available here [https://www.vscp.org/events/](https://www.vscp.org/events/) The [docs](https://www.vscp.org/events/docs/) sub-folder here contains event documentation in markdown and also a [zip](https://www.vscp.org/events/docs/vscp_docs.zip) and a [tar](https://www.vscp.org/events/docs/vscp_docs.tgz) of all content. This information is used to generate the [VSCP specification document](https://grodansparadis.gitbooks.io/the-vscp-specification).
+Current files is available here [https://www.vscp.org/events/](https://www.vscp.org/events/) The [docs](https://www.vscp.org/events/docs/) sub-folder here contains event documentation in markdown and also a [zip](https://www.vscp.org/events/docs/vscp_docs.zip) and a [tar](https://www.vscp.org/events/docs/vscp_docs.tgz) of all content. This information is used to generate the [VSCP specification document](https://docs.vscp.org/#vscpspec).
 
 All files generated contains version information which is the date and time when the docs was generated. This information is embedded in the generated files (if possible) and is also available in [JSON form here (version.json)](https://www.vscp.org/events/version.json) and in [JSONP form here (version.jsonp)](https://www.vscp.org/events/version.jsonp). In automated processes compare the on-site version information in one of there file with the downloaded version and download a new version if a newer one is available.
 
