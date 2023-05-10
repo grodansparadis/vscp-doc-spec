@@ -501,6 +501,7 @@ All defined registers of a module is defined in the registers block. The format 
       bgcolor="VSCP Works specific: background color" >
   <description lang="en">Description of register</description>
   <infourl lang="en">Link to url that have language specific information about the register</infourl>
+  <remotevar>....</remotevar>
 </reg>
 ```
 An alternative (but deprecated) form is
@@ -522,6 +523,7 @@ An alternative (but deprecated) form is
   <description lang="en">Description of register</description>
   <infourl lang="en">Link to url that have language specific information about the register</infourl>
   <access>rw</access>
+  <remotevar>....</remotevar>
 </reg>
 ```
 
@@ -542,6 +544,8 @@ An alternative (but deprecated) form is
 | **default** | VSCP Works specific: Default value in string form. Default is 'UNDEF' Used by VSCP Works to restore default value to a register. |
 | **fgcolor** | VSCP Works specific: foreground color. Used as foreground color by VSCP Works when rendering this register row. |
 | **bgcolor** | VSCP Works specific: background color. Used as background color by VSCP Works rendering this register row. |
+| **remotevar** | You are able to define a remote variable embeded in a register definitition. All name/key values that are available for remotevar below is available here to. Absent name/key values will have defaults from the register defines. |
+
 
 Any number of language specific descriptions and/or infourl's can be set for each register item. If no language attribute is given "en" for English will be used. The language code should be a valid two letter code (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 
@@ -1424,7 +1428,7 @@ JSON is a file containing objects and arrays. Each item in an object is a key va
 	
 ```
 
-| block | Description |
+| JSON elements | Description |
 | ----- | ----------- |
 | **redirect** | Redirect URL for the module. If it's there the MDF file will not be parsed instead parsaing will be done on the file the redirect url points to. |
 | **module** | Module information. Th erest of thetags are inside the module object. |
@@ -1445,8 +1449,7 @@ Many keys can be defined both as string, number or object. The description key i
 Like this
 
 ```json
-"description": "description in english",
-}
+"description": "description in english"
 ```
 
 or multilingual as this
@@ -1465,8 +1468,7 @@ Info URL's point to a web page that contains information about the item where th
 
 
 ```json
-"infourl": "url to info in english ",
-}
+"infourl": "url to info in english "
 ```
 
 or multilingual as this
@@ -1488,7 +1490,7 @@ As JSON can only handle decimal numbers it is possible to define positive number
  - **0o7700** will be interpreted as an octal number.
  - **0b11010101** will be interpreted as a binary number.
 
-This is only valid for numbers taht is positive. Negative numbers are not supported in this way and must be of numeric type.
+This is only valid for numbers that is positive. Negative numbers are not supported in this way and must be of numeric type.
 
 ## Module
 In the **module**-object the module is described. Currently only one module can be defined in a mdf file. This may change in the future.
@@ -1502,7 +1504,7 @@ In the **module**-object the module is described. Currently only one module can 
 }
 ```
 
-| block | Description |
+| Name | Description |
 | ----- | ----------- |
 | **redirect** | Redirect URL for the module. If it's there the MDF file will not be parsed instead parsaing will be done on the file the redirect url points to. |
 | **module** | Module information. Th erest of thetags are inside the module object. |
@@ -2053,7 +2055,10 @@ All defined registers of a module is defined in the registers block. The format 
       ],
       "infourl" : [
         "en" : "Link to url that have language specific information about the register"
-      ]
+      ].
+      "remotevar" : {
+        ...
+      }
     }
   ]
 }
@@ -2076,6 +2081,7 @@ All defined registers of a module is defined in the registers block. The format 
 | **default** | VSCP Works specific: Default value in string form. Default is 'UNDEF' Used by VSCP Works to restore default value to a register. |
 | **fgcolor** | VSCP Works specific: foreground color. Used as foreground color by VSCP Works when rendering this register row. |
 | **bgcolor** | VSCP Works specific: background color. Used as background color by VSCP Works rendering this register row. |
+| **remotevar** | You are able to define a remote variable embeded in a register definitition. All name/key values that are available for remotevar below is available here to. Absent name/key values will have defaults from the register defines. |
 
 Any number of language specific descriptions and/or infourl's can be set for each register item. If no language attribute is given "en" for English will be used. The language code should be a valid two letter code (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 
