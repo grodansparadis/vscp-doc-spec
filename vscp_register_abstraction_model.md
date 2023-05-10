@@ -116,7 +116,8 @@ The following remote variables are currently defined
 
  | Remote variable | Description | 
  | ----------- | ----------- | 
- | string      | A text string (UTF8 coded). Can be indexed. See below.  | 
+ | string      | A text string (UTF8 coded). Can be indexed. See below. Must be linked to a register block. | 
+ | block       | Array of binary data. Must be linked to a register block. |
  | bool        | A 1 bit value specified as true or false.  | 
  | int8_t      | A 8 bit signed number. Hexadecimal if it starts with "0x" else decimal. | 
  | uint8_t     | An unsigned 8  bit number. Hexadecimal if it starts  with "0x" else decimal.  | 

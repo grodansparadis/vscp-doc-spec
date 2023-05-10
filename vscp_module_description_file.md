@@ -544,7 +544,7 @@ An alternative (but deprecated) form is
 | **default** | VSCP Works specific: Default value in string form. Default is 'UNDEF' Used by VSCP Works to restore default value to a register. |
 | **fgcolor** | VSCP Works specific: foreground color. Used as foreground color by VSCP Works when rendering this register row. |
 | **bgcolor** | VSCP Works specific: background color. Used as background color by VSCP Works rendering this register row. |
-| **remotevar** | You are able to define a remote variable embeded in a register definitition. All name/key values that are available for remotevar below is available here to. Absent name/key values will have defaults from the register defines. |
+| **remotevar** | You are able to define a remote variable embeded in a register definitition. All key/value values that are available for remotevar below is available here to. Absent key/value values will have defaults from the register defines. If left without content defaults will be used for all key/value pairs. |
 
 
 Any number of language specific descriptions and/or infourl's can be set for each register item. If no language attribute is given "en" for English will be used. The language code should be a valid two letter code (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
@@ -2081,7 +2081,7 @@ All defined registers of a module is defined in the registers block. The format 
 | **default** | VSCP Works specific: Default value in string form. Default is 'UNDEF' Used by VSCP Works to restore default value to a register. |
 | **fgcolor** | VSCP Works specific: foreground color. Used as foreground color by VSCP Works when rendering this register row. |
 | **bgcolor** | VSCP Works specific: background color. Used as background color by VSCP Works rendering this register row. |
-| **remotevar** | You are able to define a remote variable embeded in a register definitition. All name/key values that are available for remotevar below is available here to. Absent name/key values will have defaults from the register defines. |
+| **remotevar** | You are able to define a remote variable embeded in a register definitition. All key/value values that are available for remotevar below is available here to. Absent key/value values will have defaults from the register defines. If left without content defaults will be used for all key/value pairs. |
 
 Any number of language specific descriptions and/or infourl's can be set for each register item. If no language attribute is given "en" for English will be used. The language code should be a valid two letter code (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 

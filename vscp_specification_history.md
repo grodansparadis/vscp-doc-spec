@@ -2,7 +2,7 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
- | 2023-05-10 | AKHE | MDF: remote variable defines can now be embedded in register definitions. |
+ | 2023-05-10 | AKHE | MDF: remote variable defines can now be embedded in register definitions. 'block' added as remote variable type |
  | 2023-05-03 | AKHE | Fixed faulty links |
  | 2023-04-19 | AKHE | Standard register 0xA5 added |
  | 2023-04-19 | AKHE | VSCP_CLASS1_PROTOCOL, VSCP_TYPE_PROTOCOL_SET_NICKNAME - Can now handle 16-bit nicknames for devices that need it. VSCP_CLASS1_PROTOCOL, VSCP_TYPE_PROTOCOL_NEW_NODE_ONLINE - Can now handle 16-bit nicknames for devices that need it. VSCP_CLASS1_PROTOCOL, VSCP_TYPE_PROTOCOL_DROP_NICKNAME - Can now handle 16-bit nicknames for devices that need it. |
