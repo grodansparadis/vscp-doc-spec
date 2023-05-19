@@ -342,6 +342,7 @@ Any number of anguage specific descriptions and/or infourl's can be set for each
 | **url**   | The url from which the picture file can be fetched. |
 | **path**  | (Deprecated alternative to "url"). The url to the picture file. |
 | **format** | The format of the picture file. "png", "jpeg" and "jpg" is current valid values. |
+| **date** | Publish date in ISO format. |
 
 #### video:id=video_xml
 
@@ -367,6 +368,7 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 | **url**   | The url from which the video file can be fetched. |
 | **path**  | (Deprecated alternative to "url"). The url to the video file. |
 | **format** | The format of the video file. "mp4", "mov" and "avi" is current valid values. |
+| **date** | Publish date in ISO format. |
 
 #### manual:id=manual_xml
 
@@ -374,9 +376,9 @@ In the manual block you can specify a link to a manual file that in some way is 
 
 ```xml
 <files>
-  <model name="driver1" url="path" format="pdf">
-    <url>https://www.somewhere.com/driver.zip</url>
-    <description lang="en">Description of driver</description>
+  <model name="manual1" url="path" format="pdf">
+    <url>https://www.somewhere.com/manual.pdf</url>
+    <description lang="en">Description of manual</description>
     <infourl lang="en">https://www.somewhere.com</infourl>
   </model>
 </files>
@@ -393,6 +395,10 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 | **path**  | (Deprecated alternative to "url"). The url to the video file. |
 | **format** | The format of the video file. "txt", "md" (markdown), "html" and "pdf" is current valid values. |
 | **lang**  | The language of the manual. The language code should be a valid two letter code (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6]. |
+| **date** | Publish date in ISO format. |
+| **version_major** | Major version number for manual. |
+| **version_minor** | Minor version number for manual. |
+| **version_subminor** | Sub minor version number for manual. |
 
 #### driver:id=driver_xml
 
@@ -402,9 +408,10 @@ In the driver block you can specify a link to a driver for a specific version of
 <files>
   <driver name="driver1" 
           url="path" 
-          type="mp4" 
+          type="VSCP Daemon" 
           os="windows" 
           osver="10"
+          architecture="amd64"
           version_major="1" 
           version_minor="0" 
           version_subminor="0">
@@ -422,10 +429,12 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 | Name      | Description  | 
 | :----     | :----------- | 
 | **name**   | A name for the item. |
-| **url**   | The url from which the video file can be fetched. |
-| **path**  | (Deprecated alternative to "url"). The url to the video file. |
-| **os** | The operating system. Examples are "Debian Linux", "Microsoft Windows" etc |
+| **url**   | The url from which the driver file can be fetched. |
+| **path**  | (Deprecated alternative to "url"). The url to the driver file. |
+| **os** | The operating system. Examples are "Debian Linux", "Microsoft Windows", "Apple IOS" etc |
 | **osver** | The version of the operating system. Examples are "10", "8.1" etc |
+| **architecture** | OS architecture (amd64, arm64, x86 etc) |
+| **date** | Release date in ISO-format |
 | **version_major** | Major version number for driver. |
 | **version_minor** | Minor version number for driver. |
 | **version_subminor** | Sub minor version number for driver. |
@@ -437,7 +446,7 @@ In the setup block you can specify a link to a setup file that contain a VSCP se
 
 ```xml
 <files>
-  <setup name="setup1" url="path" format="pdf">
+  <setup name="setup1" url="path" format="vscpjs">
     <url>https://www.somewhere.com/setup.js</url>
     <description lang="en">Description of setup script</description>
     <infourl lang="en">https://www.somewhere.com</infourl>
@@ -455,6 +464,10 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 | **url**   | The url from which the video file can be fetched. |
 | **path**  | (Deprecated alternative to "url"). The url to the video file. |
 | **format** | The format of the setup file. "vscpjs" for VSCP javascript setup is the only current valid value. |
+| **date** | Publish date in ISO format. |
+| **version_major** | Major version number for setup. |
+| **version_minor** | Minor version number for setup. |
+| **version_subminor** | Sub minor version number for setup. |
 
 ### Bootloader block:id=bootloader_xml
 
@@ -797,6 +810,7 @@ _rv_<register_name>_
 So for example if you have a register named "Reg1" then the remote variable will be named "_rv_reg1_".
 
 Needless to say names with this pattern are reserved.
+
 #### Attributes
 
 | Name      | Description  | 
@@ -808,6 +822,9 @@ Needless to say names with this pattern are reserved.
 | **bitpos**  | The bit of a register used for a boolean. If not set and the type is boolean bit 0 will be used. No meaning for other types. |
 | **size**  | The size of a remote variable that is of type string. The size is the max size of the buffer. |
 | **access** | Specify the access rights for the remote variable. Can be 'r' (read), 'w' (write) or 'rw' (read/write. Default is 'rw' |
+| **default** | Default value for the bit field. 'true'/'false' or a numerical value. |
+| **min**   | Minimum value for register. Default = 0 |
+| **max**   | Maximum value for register. Default = max for type |
 
 In the same way as registers remote variables can also have valuelists and bit fields. See docs above.
 
@@ -2086,6 +2103,15 @@ All defined registers of a module is defined in the registers block. The format 
 Any number of language specific descriptions and/or infourl's can be set for each register item. If no language attribute is given "en" for English will be used. The language code should be a valid two letter code (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 
 Numeric values can be set as a numeric value or as a string. The string can be defined as a hexadecimal value (prefix: 0x, a decimal (no prefix), an octal value (prefix: 0o) or a binary value (prefix: 0b).
+
+Note that
+
+```
+"remotevar" : {
+}
+```
+
+is valid and will set all key/value pairs to defaults.
 
 #### Value lists
 
