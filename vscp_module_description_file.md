@@ -70,19 +70,23 @@ Every module should have an initial block that describes the module. This block 
 <vscp>
 	<module>
     <level>1/2</level>
+    <changed>1873-10-22</changed>
     <name>aaaaaaaa</name>
-		<model>bbbbb</model>    
-		<version>cccccc</version>
-		<description lang="en">yyyyyyyyyyyyyyyyyyyyyyyyyyyy</description>
+	<model>bbbbb</model>    
+	<version>cccccc</version>
+	<description lang="en">yyyyyyyyyyyyyyyyyyyyyyyyyyyy</description>
     <infourl lang="en">Main driver info help (web) page url</infourl>     
 		
-		<!-- Max package size a node can receive -->    
-		<buffersize>8</buffersize> 
+	<!-- Max package size a node can receive -->    
+	<buffersize>8</buffersize> 
 </module>    
 ```
 
 #### level
 VSCP level of protocol this module works with. Defaults to 1 if not present.
+
+#### changed
+Date on ISO format for last change of file.
 
 #### name
 Name is the name of the module. A unique describing name is recommended. This name will be translated to lower case and is used as the name of the module when referring to it in software.
@@ -376,11 +380,11 @@ In the manual block you can specify a link to a manual file that in some way is 
 
 ```xml
 <files>
-  <model name="manual1" url="path" format="pdf">
+  <manual name="manual1" url="path" format="pdf">
     <url>https://www.somewhere.com/manual.pdf</url>
     <description lang="en">Description of manual</description>
     <infourl lang="en">https://www.somewhere.com</infourl>
-  </model>
+  </manual>
 </files>
 ```
 
@@ -766,7 +770,8 @@ Any number of language specific descriptions and/or infourl's can be set for eac
                 type="uint16_t" 
                 default="1234" 
                 page="0" 
-                offset="19" 
+                offset="19"
+                bitpos="0" 
                 access="r"
                 fgcolor="0x112233" 
                 bgcolor="0xE0E0FF">
@@ -1260,9 +1265,12 @@ Event data can use value lists and bit fields. See description above for more in
 ```xml
 <events>
   <event name="Counter data" class="0x00f" type="0x06" priority="4" dir="out">
-    <description lang="en"> Count data steam event sent on regular intervals if activated. Coding: Integer. Unit: none. </description>
+    <description lang="en"> Count data steam event sent on regular intervals if activated. Coding: Integer. 
+      Unit: none. </description>
     <data name="Datacoding" offset="0">
-      <description lang="en"> Will contain 0b01100xxx where xxx is the counter (0-3/4-7) and where 0-3 is the counter 32-bit value and 4-7 is the 32-bits of the 64-bit counter value stored internally. </description>
+      <description lang="en"> Will contain 0b01100xxx where xxx is the counter (0-3/4-7) 
+      and where 0-3 is the counter 32-bit value and 4-7 is the 32-bits of the 64-bit counter 
+      value stored internally. </description>
       </data>
       <data name="MSB of counter value" offset="1">
         <description lang="en"> Byte 0 (MSB) of 32-bit counter value. </description>
@@ -1278,7 +1286,8 @@ Event data can use value lists and bit fields. See description above for more in
     </data>
   </event>
     <event name="Alarm occurred" class="0x001" type="0x01" priority="4" dir="out">
-      <description lang="en"> If an alarm is armed this event is sent when it occurs and the corresponding alarm bit is set in the alarm register. </description>
+      <description lang="en"> If an alarm is armed this event is sent when it occurs and the 
+        corresponding alarm bit is set in the alarm register. </description>
       <data name="" offset="0">
         <name lang="en">Index</name>
         <description lang="en"> Counter alarm has occured on (0-3). </description>
@@ -1293,7 +1302,8 @@ Event data can use value lists and bit fields. See description above for more in
       </data>
   </event>
   <event name="Frequency measurement" class="0x00A" type="0x09" priority="4" dir="out">
-    <description lang="en"> Frequency measurement event sent on regular intervals if activated. Coding: 32-bit integer. Unit: Hertz. </description>
+    <description lang="en"> Frequency measurement event sent on regular intervals if activated. 
+      Coding: 32-bit integer. Unit: Hertz. </description>
     <data name="Data coding" offset="0">
       <description lang="en"> Datacoding: 0b01100xxx where xxx is the counter (0-3) </description>
     </data>
@@ -1311,12 +1321,15 @@ Event data can use value lists and bit fields. See description above for more in
     </data>
   </event>
   <event name="Measurement Event" class="0x00A" type="-" priority="4" dir="out">
-    <description lang="en"> Measurement values of all kinds can be sent as a result of linearization. For example can an input counting S0 pulses be translated to KWh and watt </description>
+    <description lang="en"> Measurement values of all kinds can be sent as a result of linearization. 
+      For example can an input counting S0 pulses be translated to KWh and watt </description>
     <data name="Datacoding" offset="0">
-      <description lang="en"> Datacoding: Always as a 32-bit floating point value. 0b101yyxxx where yy is the unit and xxx is the counter (0-3) </description>
+      <description lang="en"> Datacoding: Always as a 32-bit floating point value. 
+        0b101yyxxx where yy is the unit and xxx is the counter (0-3) </description>
     </data>
     <data name="32-bit floating point value (MSB)" offset="1">
-      <description lang="en"> MSB of the 32-bit floating point value that has been calculated from the linearization equation. </description>
+      <description lang="en"> MSB of the 32-bit floating point value that has been calculated from the 
+        linearization equation. </description>
     </data>
     <data name="32-bit floating point value" offset="2">
       <description lang="en"> 32-bit floating point value that has been calculated from the linearization equation. </description>
