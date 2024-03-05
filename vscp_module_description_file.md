@@ -1265,12 +1265,12 @@ Event data can use value lists and bit fields. See description above for more in
 ```xml
 <events>
   <event name="Counter data" class="0x00f" type="0x06" priority="4" dir="out">
-    <description lang="en"> Count data steam event sent on regular intervals if activated. Coding: Integer. 
-      Unit: none. </description>
+    <description lang="en"> Count data steam event sent on regular intervals 
+      if activated. Coding: Integer. Unit: none. </description>
     <data name="Datacoding" offset="0">
-      <description lang="en"> Will contain 0b01100xxx where xxx is the counter (0-3/4-7) 
-      and where 0-3 is the counter 32-bit value and 4-7 is the 32-bits of the 64-bit counter 
-      value stored internally. </description>
+      <description lang="en"> Will contain 0b01100xxx where xxx is the counter 
+      (0-3/4-7) and where 0-3 is the counter 32-bit value and 4-7 is the 
+      32-bits of the 64-bit counter value stored internally. </description>
       </data>
       <data name="MSB of counter value" offset="1">
         <description lang="en"> Byte 0 (MSB) of 32-bit counter value. </description>
@@ -1286,8 +1286,9 @@ Event data can use value lists and bit fields. See description above for more in
     </data>
   </event>
     <event name="Alarm occurred" class="0x001" type="0x01" priority="4" dir="out">
-      <description lang="en"> If an alarm is armed this event is sent when it occurs and the 
-        corresponding alarm bit is set in the alarm register. </description>
+      <description lang="en"> If an alarm is armed this event is sent 
+        when it occurs and the corresponding alarm bit is set in the 
+        alarm register. </description>
       <data name="" offset="0">
         <name lang="en">Index</name>
         <description lang="en"> Counter alarm has occured on (0-3). </description>
@@ -1298,47 +1299,61 @@ Event data can use value lists and bit fields. See description above for more in
       </data>
       <data name="" offset="2">
         <name lang="en">Sub zone</name>
-        <description lang="en"> Sub zone for channel or sub zone for module if channel sub zone is zero. </description>
+        <description lang="en"> Sub zone for channel or sub zone for module if 
+        channel sub zone is zero. </description>
       </data>
   </event>
-  <event name="Frequency measurement" class="0x00A" type="0x09" priority="4" dir="out">
-    <description lang="en"> Frequency measurement event sent on regular intervals if activated. 
-      Coding: 32-bit integer. Unit: Hertz. </description>
+  <event name="Frequency measurement" class="0x00A" type="0x09" 
+    priority="4" dir="out">
+    <description lang="en"> Frequency measurement event sent on regular 
+      intervals if activated. Coding: 32-bit integer. Unit: Hertz. </description>
     <data name="Data coding" offset="0">
-      <description lang="en"> Datacoding: 0b01100xxx where xxx is the counter (0-3) </description>
+      <description lang="en"> Datacoding: 0b01100xxx where xxx is 
+        the counter (0-3) </description>
     </data>
     <data name="Frequency 32-bit value (MSB)" offset="1">
-      <description lang="en"> Frequency value as 32-bit floating point value with MSB in first byte. </description>
+      <description lang="en"> Frequency value as 32-bit floating point value 
+        with MSB in first byte. </description>
     </data>
     <data name="Frequency 32-bit value" offset="2">
-      <description lang="en"> Frequency value as 32-bit floating point value with MSB in first byte. </description>
+      <description lang="en"> Frequency value as 32-bit floating point value 
+        with MSB in first byte. </description>
     </data>
     <data name="Frequency 32-bit value" offset="3">
-      <description lang="en"> Frequency value as 32-bit floating point value with MSB in first byte. </description>
+      <description lang="en"> Frequency value as 32-bit floating point value 
+        with MSB in first byte. </description>
     </data>
     <data name="Frequency 32-bit value (LSB)" offset="4">
-      <description lang="en"> Frequency value as 32-bit floating point value with MSB in first byte. </description>
+      <description lang="en"> Frequency value as 32-bit floating point value 
+        with MSB in first byte. </description>
     </data>
   </event>
   <event name="Measurement Event" class="0x00A" type="-" priority="4" dir="out">
-    <description lang="en"> Measurement values of all kinds can be sent as a result of linearization. 
-      For example can an input counting S0 pulses be translated to KWh and watt </description>
+    <description lang="en"> Measurement values of all kinds can be sent 
+      as a result of linearization. 
+      For example can an input counting S0 pulses be translated 
+      to KWh and watt </description>
     <data name="Datacoding" offset="0">
-      <description lang="en"> Datacoding: Always as a 32-bit floating point value. 
+      <description lang="en"> Datacoding: Always as a 
+        32-bit floating point value. 
         0b101yyxxx where yy is the unit and xxx is the counter (0-3) </description>
     </data>
     <data name="32-bit floating point value (MSB)" offset="1">
-      <description lang="en"> MSB of the 32-bit floating point value that has been calculated from the 
+      <description lang="en"> MSB of the 32-bit floating point value 
+        that has been calculated from the 
         linearization equation. </description>
     </data>
     <data name="32-bit floating point value" offset="2">
-      <description lang="en"> 32-bit floating point value that has been calculated from the linearization equation. </description>
+      <description lang="en"> 32-bit floating point value that has been calculated 
+        from the linearization equation. </description>
     </data>
     <data name="32-bit floating point value" offset="3">
-      <description lang="en"> 32-bit floating point value that has been calculated from the linearization equation. </description>
+      <description lang="en"> 32-bit floating point value that has been calculated 
+        from the linearization equation. </description>
     </data>
     <data name="32-bit floating point value (LSB)" offset="4">
-      <description lang="en"> LSB of the 32-bit floating point value that has been calculated from the linearization equation. </description>
+      <description lang="en"> LSB of the 32-bit floating point value that has 
+        been calculated from the linearization equation. </description>
     </data>
   </event>
 </events>
