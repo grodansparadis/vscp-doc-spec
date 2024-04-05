@@ -53,7 +53,7 @@ VSCP_TYPE_PROTOCOL_NEW_NODE_ONLINE
 ```
 **Mandatory.** Must be implemented by all level I and Level II devices.
 
-This is intended for nodes that have been initiated, is part of the segment and is powered up. All nodes that have a nickname-ID that is not set to 0xFF should send this event before they go on line to do their “day to day” work.
+This is intended for nodes that have been initiated, is part of the segment and is powered up. All nodes that have a nickname-ID that is not set to 0xFF should send this event before they go on-line to do their “day to day” work.
 
 Normally all nodes should save their assigned nickname-ID in non-volatile memory and use this assigned ID when powered up. A segment controller can however keep track of nodes that it controls and reassign the ID to a node that it did not get a new node on-line event from. This is the method a segment controller uses to detect nodes that have been removed from the segment.
 
@@ -73,8 +73,8 @@ Standard form (Mandatory)
 
  | Data | Description | 
  | :----: | ----------- | 
- | 0    | **Target address**. This is the LSB of the probe nickname that the new node is using to test if this is a valid target node. If there is a node with this nickname address it should answer with probe ACK. A probe always has 0xff as it's own temporary nickname while a new node on line use a non 0xff nickname. | 
- | 1 | MSB of probe nickname. |
+ | 0    | **Target address**. This is the MSB of the probe nickname that the new node is using to test if this is a valid target node. If there is a node with this nickname address it should answer with probe ACK. A probe always has 0xffff as it's own temporary nickname while a new node on line use a non 0xffff nickname. | 
+ | 1 | LSB of probe nickname. |
 
 On a Level II system.
 
@@ -131,12 +131,13 @@ Standard form. (Mandatory).
 
   | Data byte | Description | 
  | :---------: | ----------- | 
- | 0  | LSB of old nickname for node. | 
- | 1  | LSB of new nickname for the node. |
- | 2  | MSB of old nickname for node. | 
- | 3  | MSB of new nickname for the node. |
+ | 0  | MSB of old nickname for node. | 
+ | 1  | LSB of old nickname for node. | 
+ | 2  | MSB of new nickname for the node. |
+ | 3  | LSB of new nickname for the node. |
 
- The 'strange' data layout is for compatibility.
+Use data size to determine between 8-bit and 16-bit node-id format. A 16-bit node should handle a 8-bit nickname as a 16-bit node id with MSB = 0. It should handle also the 8-bit node-id version of the event.
+
 
 ----
 
@@ -170,9 +171,11 @@ Standard form (Mandatory)
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0  | MSB of current nickname for the node. |
- | 1  | **Optional:** Flags. | 
- | 2  | **Optional:** Time the node should wait before it starts a nickname discovery or starts the device. The time is in seconds. | 
- | 3 | LSB of current nickname for node |
+ | 1  | LSB of current nickname for node |
+ | 2  | **Optional:** Flags. | 
+ | 3  | **Optional:** Time the node should wait before it starts a nickname discovery or starts the device. The time is in seconds. | 
+
+Use data size to determine between 8-bit and 16-bit node-id format. A 16-bit node should handle a 8-bit nickname as a 16-bit node id with MSB = 0. It should handle also the 8-bit node-id version of the event.
 
 **Optional byte 1 flags**
 
