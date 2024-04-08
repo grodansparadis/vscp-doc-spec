@@ -21,6 +21,8 @@ VSCP2_TYPE_PROTOCOL_READ_REGISTER
 ```
 Read a Level II register from the 32-bit register space
 
+Be aware that a node may send several read/write response events to fullfil a read request.
+
  | Byte       | Description                                      | 
  | ----       | -----------                                      | 
  | Byte 0-15  | Contains the GUID of the target node (MSB->LSB). | 
@@ -36,6 +38,12 @@ Read a Level II register from the 32-bit register space
 VSCP2_TYPE_PROTOCOL_WRITE_REGISTER
 ```
  Write a Level II register to the 32.bit register space
+
+ Care should be taken not to write to much data at the same time as there may be nodes
+ that can't handle a full 512 byte frame. Better to seperate srite requests in bunches
+ of 100 bytes or so.
+
+ Also be aware that a node may send several read/write response events to fullfil a write request.
  
  | Byte       | Description                                      | 
  | ----       | -----------                                      | 
@@ -52,6 +60,9 @@ VSCP2_TYPE_PROTOCOL_WRITE_REGISTER
 VSCP2_TYPE_PROTOCOL_READ_WRITE_RESPONSE
 ```
 This is the response from a read or a write. Note that the data is returned in both cases and can be checked for validity. 
+
+There may be nodes that can not send a full level II frame and therefore will reply with more than one of this
+event to fullfil the request.
 
  | Byte      | Description                               | 
  | ----      | -----------                               | 

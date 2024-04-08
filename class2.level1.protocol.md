@@ -137,8 +137,8 @@ Standard form (Mandatory)
 
  | Data | Description | 
  | :----: | ----------- | 
- | 0    | **Target address**. This is the LSB of the probe nickname that the new node is using to test if this is a valid target node. If there is a node with this nickname address it should answer with probe ACK. A probe always has 0xff as it's own temporary nickname while a new node on line use a non 0xff nickname. | 
- | 1 | MSB of probe nickname. |
+ | 0    | **Target address**. This is the MSB of the probe nickname that the new node is using to test if this is a valid target node. If there is a node with this nickname address it should answer with probe ACK. A probe always has 0xff as it's own temporary nickname while a new node on line use a non 0xff nickname. | 
+ | 1 | LSB of probe nickname. |
 
 On a Level II system.
 
@@ -202,6 +202,7 @@ VSCP_TYPE_PROTOCOL_SET_NICKNAME
 This event can be used to change the nickname for a node. The node just uses the new nickname and don't start nickname discovery or similar.
 
 Standard form. (Mandatory).
+
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0  | Old nickname for node. | 
@@ -211,12 +212,12 @@ Standard form. (Mandatory).
 
   | Data byte | Description | 
  | :---------: | ----------- | 
- | 0  | LSB of old nickname for node. | 
- | 1  | LSB of new nickname for the node. |
- | 2  | MSB of old nickname for node. | 
- | 3  | MSB of new nickname for the node. |
+ | 0  | MSB of old nickname for node. | 
+ | 1  | LSB of old nickname for the node. |
+ | 2  | MSB of new nickname for node. | 
+ | 3  | LSB of new nickname for the node. |
 
- The 'strange' data layout is for compatibility.
+Use data size to determine between 8-bit and 16-bit node-id format. A 16-bit node should handle a 8-bit nickname as a 16-bit node id with MSB = 0. It should handle also the 8-bit node-id version of the event.
 
 
 
@@ -258,9 +259,11 @@ Standard form (Mandatory)
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0  | MSB of current nickname for the node. |
- | 1  | **Optional:** Flags. | 
- | 2  | **Optional:** Time the node should wait before it starts a nickname discovery or starts the device. The time is in seconds. | 
- | 3 | LSB of current nickname for node |
+ | 1  | LSB of current nickname for node |
+ | 2  | **Optional:** Flags. | 
+ | 3  | **Optional:** Time the node should wait before it starts a nickname discovery or starts the device. The time is in seconds. | 
+
+Use data size to determine between 8-bit and 16-bit node-id format. A 16-bit node should handle a 8-bit nickname as a 16-bit node id with MSB = 0. It should handle also the 8-bit node-id version of the event.
 
 **Optional byte 1 flags**
 
@@ -415,6 +418,8 @@ The following format can be used for nodes on a Level II segment as a midway bet
  | 0x10 | Atmel AVR algorithm 0   | 
  | 0x20 | NXP ARM algorithm 0     | 
  | 0x30 | ST ARM algorithm 0      |
+ | 0x40 | Freescale algorithm 0   |
+ | 0x50 | Espressif algorithm 0   |
  | 0xF0-FE | User defined algorithms |
  | 0xFF | No bootloader available |
 
@@ -690,6 +695,7 @@ or
 
 
 
+
 ----
 
 
@@ -844,7 +850,7 @@ VSCP_TYPE_PROTOCOL_HIGH_END_SERVER_PROBE
 ```
 Should be implemented by all devices that work over 802.15.4/Ethernet/Internet or other high end protocols.This event can be broadcasted on a segment by a node to get information about available servers. 
 
-The [VSCP daemon documentation](https://docs.vscp.org/#vscpd) have a description on how server/service discovery works. 
+The [VSCP daemon documentation](https://grodansparadis.gitbooks.io/the-vscp-daemon) have a description on how server/service discovery works. 
 
 
 
@@ -879,7 +885,7 @@ A node that need a TCP connection to a host. Broadcast HIGH END SERVER PROBE on 
 
 A server like the VSCP server can span multiple segments and a reply can therefore be received from a remote segment as well. This can be an advantage in some cases and unwanted in some cases. The server configuration should have control on how it is handled. 
 
-The [VSCP daemon documentation](https://docs.vscp.org/#vscpd) have a description on how server/service discovery works. 
+The [VSCP daemon documentation](https://grodansparadis.gitbooks.io/the-vscp-daemon) have a description on how server/service discovery works. 
 
 
 
@@ -1028,6 +1034,8 @@ The decision matrix can as noted be stored in paged registers and if so it must 
 **Level II**: Level II nodes should respond with [CLASS2_PROTOCOL, TYPE=VSCP2_TYPE_PROTOCOL_GET_MATRIX_INFO_RESPONSE](./class2.protocol#type34)
 
 
+
+
 ----
 
 
@@ -1043,6 +1051,7 @@ A node that get this event and has an embedded MDF description in flash or simil
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | Node-ID. | 
+
 
 
 
@@ -1075,6 +1084,9 @@ should be sent.
 Note that if sending the events back to back some devices will not be able to cope with the data stream. It is therefor advisable to have a short delay between each mdf data frame sent out.
 
 **Level II**: Level II nodes should respond with [CLASS2_PROTOCOL, TYPE=VSCP2_TYPE_PROTOCOL_GET_EMBEDDED_MDF_RESPONSE](./class2.protocol#type36)
+
+
+
 
 
 ----
