@@ -13,9 +13,7 @@
  | 2023-02-26 | AKHE | Fixed faulty links to documentation. |
  | 2022-06-02 | AKHE | Added explanation of level II register abstractions |
  | 2022-06-01 | AKHE | Buffer size (standard register 152/0x98 ) is deprecated from version 1.14.2. Return 0 when th eregister is read. |
- | 2022-05-23 | AKHE | Added  CLASS2_PROTOCOL, Type=34,VSCP2_TYPE_PROTOCOL_GET_MATRIX_INFO_RESPONSE  and
- type=35, VSCP2_TYPE_PROTOCOL_GET_EMBEDDED_MDF_RESPONSE |
- forming a 512 byte event
+ | 2022-05-23 | AKHE | Added  CLASS2_PROTOCOL, Type=34,VSCP2_TYPE_PROTOCOL_GET_MATRIX_INFO_RESPONSE  and type=35, VSCP2_TYPE_PROTOCOL_GET_EMBEDDED_MDF_RESPONSE forming a 512 byte event |
  | 2022-05-19 | AKHE | Fixed error in interface types |
  | 2022-05-17 | AKHE | Added dark theme support |
  | 2022-05-17 | AKHE | Added option for multiple filters in the VSCP tcp/ip link protocol. |
@@ -31,7 +29,7 @@
  | 2021-06-15 | AKHE | Added JSON alternative for MDF. |
  | 2021-06-15 | AKHE | Added link to bootloader codes and a short intro. |
  | 2021-06-10 | AKHE | Added info about the tcp/ip link protocol. |
- | 2021-05-10 | AKHE Moved websocket def and rest def from vscpd docs to spec. |
+ | 2021-05-10 | AKHE | Moved websocket def and rest def from vscpd docs to spec. |
  | 2021-04-21 | AKHE | Added VSCP_CLASS1_MEASUREMENT, VSCP_TYPE_MEASUREMENT_REACTIVE_POWER (64) |
  | 2021-04-21 | AKHE | Added VSCP_CLASS1_MEASUREMENT, VSCP_TYPE_MEASUREMENT_REACTIVE_ENERGY (65) |
  | 2021-04-21 | AKHE | Added VSCP_CLASS1_INFORMATION, VSCP_TYPE_INFORMATION_PROXIMITY_DETECTED (88) |
@@ -49,8 +47,7 @@
  | 2020-10-06 | AKHE | Corrected MQTT format so it is valid. Added topic recommendations. |
  | 2020-06-15 | AKHE | Added data coding for 64-bit float. |
  | 2020-05-20 | AKHE | Added example to data coding description for 32-bit float. |
- | 2020-05-17 | AKHE | Some extended measurement events was missing in level I over level II space |
-  Measurement section added. 1.11.3 |
+ | 2020-05-17 | AKHE | Some extended measurement events was missing in level I over level II space Measurement section added. 1.11.3 |
  | 2020-03-25 | AKHE | VSCP_TYPE_INFORMATION_ENTER and VSCP_TYPE_INFORMATION_EXIT added after suggestion from Troky. 1.11.2 |
  | 2020-03-04 | AKHE  | Fixed format for JSON VSCP Event definition. Fixed links to other docs.  1.11.1 |
  | 2020-02-20 | AKHE  | XML and JSON format changed to be consistent with all code. |
