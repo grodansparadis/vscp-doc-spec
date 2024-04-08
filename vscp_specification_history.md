@@ -2,7 +2,8 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
- | 2023-05-19 | AKHE | Fixed copy & paste faults in MDF descriptions |
+| 2024-04-08 | AKHE | Changed data format for 16-bit node id events | 
+| 2023-05-19 | AKHE | Fixed copy & paste faults in MDF descriptions |
  | 2023-05-10 | AKHE | MDF: remote variable defines can now be embedded in register definitions. 'block' added as remote variable type |
  | 2023-05-03 | AKHE | Fixed faulty links |
  | 2023-04-19 | AKHE | Standard register 0xA5 added |
