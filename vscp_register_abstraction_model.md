@@ -25,47 +25,47 @@ _Note:_ Add 0xFFFFFF80 to an address below to get the corresponding level II sta
  | Address   | Access Mode | Description  | 
  | -------   | ----------- | -----------  | 
  | 0x00–0x7F |             | Device specific (a page). Unimplemented registers should return zero. | 
- | 128/0x80  | Read Only   | Alarm status register content (!= 0 indicates alarm). Condition is reset by a read operation. The bits represent different alarm conditions. |
- | 129/0x81  | Read Only   | VSCP Major version number this device is constructed for. | 
- | 130/0x82  | Read Only   | VSCP Minor version number this device is constructed for. | 
- | 131/0x83  | Read/Write  | VSCP error counter (was Node control flags prior to 1.6) | 
- | 132/0x84  | Read/Write  | User ID 0 – Client settable node-ID byte 0. | 
- | 133/0x85  | Read/Write  | User ID 1 – Client settable node-ID byte 1. | 
- | 134/0x86  | Read/Write  | User ID 2 – Client settable node-ID byte 2. | 
- | 135/0x87  | Read/Write  | User ID 3 – Client settable node-ID byte 3. | 
- | 136/0x88  | Read/Write  | User ID 4 – Client settable node-ID byte 4. | 
- | 137/0x89  | Read only   | Manufacturer device ID byte 0. | 
- | 138/0x8A  | Read only   | Manufacturer device ID byte 1. | 
- | 139/0x8B  | Read only   | Manufacturer device ID byte 2. | 
- | 140/0x8C  | Read only   | Manufacturer device ID byte 3. | 
- | 141/0x8D  | Read only   | Manufacturer sub device ID byte 0. | 
- | 142/0x8E  | Read only   | Manufacturer sub device ID byte 1. | 
- | 143/0x8F  | Read only   | Manufacturer sub device ID byte 2. | 
- | 144/0x90  | Read only   | Manufacturer sub device ID byte 3. | 
- | 145/0x91  | Read only   | Nickname-ID for node if assigned or 0xFF if no nickname-ID assigned. This is LSB for the nickname of nodes with 16-bit nikckname id. In this case the MSB is stored in register 0xA5. | 
- | 146/0x92  | Read/Write  | Page select register MSB | 
- | 147/0x93  | Read/Write  | Page Select register LSB | 
- | 148/0x94  | Read Only   | Firmware major version number. | 
- | 149/0x95  | Read Only   | Firmware minor version number. | 
- | 150/0x96  | Read Only   | Firmware sub minor version number. | 
- | 151/0x97  | Read Only   | Boot loader algorithm used. 0xFF for no boot loader support. Codes for algorithms are specified here [CLASS1.PROTOCOL, Type=12](./class1.protocol#id=type12) | 
- | 152/0x98  | Read Only   | Buffer size. **Deprecated from version 1.14.2**. Always return zero in new code when the register is read. The value here gives an indication for clients that want to talk to this node if it can support the larger mid level Level I control events which has the full GUID. If set to 0 the default size should used. That is 8 bytes for Level I and 512 for Level II. | 
- | 153/0x99  | Read Only   | Number of register pages used. If not implemented one page is assumed. Set to zero if your device have more then 255 pages. **Deprecated**: Use the MDF instead as the central place for information about actual number of pages.    | 
- | 154/0x9A  | Read Only   | Standard device family code (MSB) Devices can belong to a common register structure standard. For such devices this describes the family coded as a 32-bit integer. Set all bytes to zero if not used. Also 0xff is reserved and should be interpreted as zero was read. *Added in version 1.9.0 of the specification* | 
- | 155/0x9B  | Read Only   | Standard device family code *Added in version 1.9.0 of the specification* | 
- | 156/0x9C  | Read Only   | Standard device family code *Added in version 1.9.0 of the specification* | 
- | 157/0x9D  | Read Only   | Standard device family code (LSB) *Added in version 1.9.0 of the specification* | 
- | 158/0x9E  | Read Only   | Standard device type (MSB) This is part of the code that specifies a device that adopts to a common register standard. This is the type code represented by a 32-bit integer and defines the type belonging to a specific standard. *Added in version 1.9.0 of the specification* | 
- | 159/0x9F  | Read Only   | Standard device type *Added in version 1.9.0 of the specification*  | 
- | 160/0xA0  | Read Only   | Standard device type  *Added in version 1.9.0 of the specification* | 
- | 161/0xA1  | Read Only   | Standard device type (LSB) *Added in version 1.9.0 of the specification*  | 
- | 162/0xA2  | Write Only  | Standard configuration should be restored for a unit if first 0x55 and then 0xAA is written to this location and is done so withing one second. *Added in version 1.10.0 of the specification* | 
- | 163/0xA3  | Read Only  | Firmware device code MSB. *Added in version 1.13.0 of the specification* |
- | 164/0xA4  | Read Only  | Firmware device code LSB. *Added in version 1.13.0 of the specification* |
-  | 165/0xA5  | Read Only | MSB of 16-bit nickname-ID for node if assigned or 0xFF if no nickname-ID assigned. ONLY if 16-bit nickname is used. Undefined if not. *Added in version 1.14.8 of the specification* |
+ | 128/0x80  | Read Only   | VSCP_STD_REGISTER_ALARM_STATUS <br /> Alarm status register content (!= 0 indicates alarm). Condition is reset by a read operation. The bits represent different alarm conditions. |
+ | 129/0x81  | Read Only   | VSCP_STD_REGISTER_MAJOR_VERSION <br /> VSCP Major version number this device is constructed for. | 
+ | 130/0x82  | Read Only   | VSCP_STD_REGISTER_MINOR_VERSION <br /> VSCP Minor version number this device is constructed for. | 
+ | 131/0x83  | Read/Write  | VSCP_STD_REGISTER_ERROR_COUNTER <br /> VSCP error counter (was Node control flags prior to 1.6) | 
+ | 132/0x84  | Read/Write  | VSCP_STD_REGISTER_USER_ID <br /> User ID 0 – Client settable node-ID byte 0. | 
+ | 133/0x85  | Read/Write  | VSCP_STD_REGISTER_USER_ID+1 <br /> User ID 1 – Client settable node-ID byte 1. | 
+ | 134/0x86  | Read/Write  | VSCP_STD_REGISTER_USER_ID+2 <br /> User ID 2 – Client settable node-ID byte 2. | 
+ | 135/0x87  | Read/Write  | VSCP_STD_REGISTER_USER_ID+3 <br /> User ID 3 – Client settable node-ID byte 3. | 
+ | 136/0x88  | Read/Write  | VSCP_STD_REGISTER_USER_ID+4 <br /> User ID 4 – Client settable node-ID byte 4. | 
+ | 137/0x89  | Read only   | VSCP_STD_REGISTER_USER_MANDEV_ID <br />Manufacturer device ID byte 0. | 
+ | 138/0x8A  | Read only   | VSCP_STD_REGISTER_USER_MANDEV_ID+1 <br />Manufacturer device ID byte 1. | 
+ | 139/0x8B  | Read only   | VSCP_STD_REGISTER_USER_MANDEV_ID+2 <br />Manufacturer device ID byte 2. | 
+ | 140/0x8C  | Read only   | VSCP_STD_REGISTER_USER_MANDEV_ID+3 <br />Manufacturer device ID byte 3. | 
+ | 141/0x8D  | Read only   | VSCP_STD_REGISTER_USER_MANSUBDEV_ID <br />Manufacturer sub device ID byte 0. | 
+ | 142/0x8E  | Read only   | VSCP_STD_REGISTER_USER_MANSUBDEV_ID+1 <br />Manufacturer sub device ID byte 1. | 
+ | 143/0x8F  | Read only   | VSCP_STD_REGISTER_USER_MANSUBDEV_ID+2 <br />Manufacturer sub device ID byte 2. | 
+ | 144/0x90  | Read only   | VSCP_STD_REGISTER_USER_MANSUBDEV_ID+3 <br />Manufacturer sub device ID byte 3. | 
+ | 145/0x91  | Read only   | VSCP_STD_REGISTER_NICKNAME_ID <br />VSCP_STD_REGISTER_NICKNAME_ID_LSB <br />Nickname-ID for node if assigned or 0xFF if no nickname-ID assigned. This is LSB for the nickname of nodes with 16-bit nikckname id. In this case the MSB is stored in register 0xA5. | 
+ | 146/0x92  | Read/Write  | VSCP_STD_REGISTER_PAGE_SELECT_MSB <br /> Page select register MSB | 
+ | 147/0x93  | Read/Write  | VSCP_STD_REGISTER_PAGE_SELECT_LSB <br /> Page Select register LSB | 
+ | 148/0x94  | Read Only   | VSCP_STD_REGISTER_FIRMWARE_MAJOR<br /> Firmware major version number. This is the version for the firmware loaded on the devive. | 
+ | 149/0x95  | Read Only   | VSCP_STD_REGISTER_FIRMWARE_MINOR<br />Firmware minor version number. This is the version for the firmware loaded on the devive.| 
+ | 150/0x96  | Read Only   | VSCP_STD_REGISTER_FIRMWARE_SUBMINOR <br />VSCP_STD_REGISTER_FIRMWARE_RELEASE<br />Firmware sub minor version number. This is the version for the firmware loaded on the devive.| 
+ | 151/0x97  | Read Only   | VSCP_STD_REGISTER_BOOT_LOADER<br /> Boot loader algorithm used. 0xFF for no boot loader support. Codes for algorithms are specified here [CLASS1.PROTOCOL, Type=12](./class1.protocol#id=type12) | 
+ | 152/0x98  | Read Only   | VSCP_STD_REGISTER_BUFFER_SIZE<br /> Buffer size. **Deprecated from version 1.14.2**. Always return zero in new code when the register is read. The value here gives an indication for clients that want to talk to this node if it can support the larger mid level Level I control events which has the full GUID. If set to 0 the default size should used. That is 8 bytes for Level I and 512 for Level II. | 
+ | 153/0x99  | Read Only   | VSCP_STD_REGISTER_PAGES_COUNT<br />Number of register pages used. If not implemented one page is assumed. Set to zero if your device have more then 255 pages. **Deprecated**: Use the MDF instead as the central place for information about actual number of pages.    | 
+ | 154/0x9A  | Read Only   | VSCP_STD_REGISTER_FAMILY_CODE<br />Standard device family code (MSB) Devices can belong to a common register structure standard. For such devices this describes the family coded as a 32-bit integer. Set all bytes to zero if not used. Also 0xff is reserved and should be interpreted as zero was read. *Added in version 1.9.0 of the specification* | 
+ | 155/0x9B  | Read Only   | VSCP_STD_REGISTER_FAMILY_CODE+1<br />Standard device family code *Added in version 1.9.0 of the specification* | 
+ | 156/0x9C  | Read Only   | VSCP_STD_REGISTER_FAMILY_CODE+2<br />Standard device family code *Added in version 1.9.0 of the specification* | 
+ | 157/0x9D  | Read Only   | VSCP_STD_REGISTER_FAMILY_CODE+3<br />Standard device family code (LSB) *Added in version 1.9.0 of the specification* | 
+ | 158/0x9E  | Read Only   | VSCP_STD_REGISTER_DEVICE_TYPE<br />Standard device type (MSB) This is part of the code that specifies a device that adopts to a common register standard. This is the type code represented by a 32-bit integer and defines the type belonging to a specific standard. *Added in version 1.9.0 of the specification* | 
+ | 159/0x9F  | Read Only   | VSCP_STD_REGISTER_DEVICE_TYPE+1<br />Standard device type *Added in version 1.9.0 of the specification*  | 
+ | 160/0xA0  | Read Only   | VSCP_STD_REGISTER_DEVICE_TYPE+2<br />Standard device type  *Added in version 1.9.0 of the specification* | 
+ | 161/0xA1  | Read Only   | VSCP_STD_REGISTER_DEVICE_TYPE+3<br />Standard device type (LSB) *Added in version 1.9.0 of the specification*  | 
+ | 162/0xA2  | Write Only  | VSCP_STD_REGISTER_NODE_RESET<br /> Standard configuration should be restored for a unit if first 0x55 and then 0xAA is written to this location and is done so withing one second. *Added in version 1.10.0 of the specification* | 
+ | 163/0xA3  | Read Only  |  VSCP_STD_REGISTER_FIRMWARE_CODE_MSB<br />Firmware device code MSB. Used to inform bootloader software about which version of firmware that should be loaded on this particular hardware. *Added in version 1.13.0 of the specification* |
+ | 164/0xA4  | Read Only  |  VSCP_STD_REGISTER_FIRMWARE_CODE_LSB<br />Firmware device code LSB. Used to inform bootloader software about which version of firmware that should be loaded on this particular hardware. *Added in version 1.13.0 of the specification* |
+  | 165/0xA5  | Read Only | VSCP_STD_REGISTER_NICKNAME_ID_MSB<br /> MSB of 16-bit nickname-ID for node if assigned or 0xFF if no nickname-ID assigned. ONLY if 16-bit nickname is used. Undefined if not. *Added in version 1.14.8 of the specification* |
  | 165/0xA6-207/0xCF | —         | Reserved for future use. Return  | 
- | 208/0xD0-223/0xDF | Read Only   | 128-bit (16-byte) globally unique ID (GUID) identifier for the device. This identifier uniquely identifies the device throughout the world and can give additional information on where driver and driver information can be found for the device. MSB for the identifier is stored first (in 0xD0). | 
- | 224/0xE0-255/0xFF | Read Only   | Module Description File URL. A zero terminates the ASCII string if not exactly 32 bytes long. The URL points to a file that gives further information about where drivers for different environments are located. Can be returned as a zero string for devices with low memory. For a node with an embedded MDF return a zero string. The CLASS1.PROTOCOL, Type=34/35 can then be used to get the information if available. | 
+ | 208/0xD0-223/0xDF | Read Only   | VSCP_STD_REGISTER_GUID<br /> 128-bit (16-byte) globally unique ID (GUID) identifier for the device. This identifier uniquely identifies the device throughout the world and can give additional information on where driver and driver information can be found for the device. MSB for the identifier is stored first (in 0xD0). | 
+ | 224/0xE0-255/0xFF | Read Only   | VSCP_STD_REGISTER_DEVICE_URL<br />Module Description File URL. A zero terminates the ASCII string if not exactly 32 bytes long. The URL points to a file that gives further information about where drivers for different environments are located. Can be returned as a zero string for devices with low memory. For a node with an embedded MDF return a zero string. The CLASS1.PROTOCOL, Type=34/35 can then be used to get the information if available. | 
 
 #### User ID
 

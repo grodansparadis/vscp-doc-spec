@@ -2,6 +2,7 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|2024-05-16| AKHE | Added standard register constants to register abstraction description |
 | 2024-04-08 | AKHE | Changed data format for 16-bit node id events | 
 | 2023-05-19 | AKHE | Fixed copy & paste faults in MDF descriptions |
  | 2023-05-10 | AKHE | MDF: remote variable defines can now be embedded in register definitions. 'block' added as remote variable type |
