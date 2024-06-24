@@ -113,7 +113,7 @@ See level II classes above for how this maps into high level measurements.
 **VSCP_CLASS2_LEVEL1_SETVALUEZONE** is the same as CLASS1.SETVALUEZONE except that it's class is defined as 512 + 10 and that the first 16-byte of data is the interface GUID where the Level I event carried over Level II should be delivered as a Level I event again at the receiving ends interface defined by the interface GUID.
 
 
-## VSCP data coding
+## VSCP data coding :id=datacoding
 
 For the measurement class and the data class all data is sent in a form that is related to the default format of the data. The number of data bytes in the frame also reflects the size of the variable. In this definition there is a very important assumption. If two nodes should be able to talk to each other they have to know each others data formats. So our assumption is that if a node is interested in what another node has to say it must learn its data format. Also if a node needs to control another node it has to learn its data format to do so.
 

@@ -136,7 +136,7 @@ To understand how the decision matrix works one needs to understand how the rows
 
  | byte 0-3 | byte 4-5 | byte 6-7 | byte 8-23  | byte 24-25 | byte 26-n        | 
  | -------- | -------- | ---------| ---------- | ---------- | ---------------- |
- | control  | class    | type     |  origin    | action     | action-parameter | 
+ | control  | class    | type     |  oaddr    | action     | action-parameter | 
 
 where the action-parameter has device specific length but defaults to 6 bytes to forma 32 byte decision matrix row. 
 
@@ -147,7 +147,7 @@ where the action-parameter has device specific length but defaults to 6 bytes to
  | bit # | Description                                                                                           | 
  | ----- | -----------                                                                                           | 
  | 31    | Enabled if set to 1. If disabled the decision matrix element is ignored.                              | 
- | 30    | Reserved.                                                                                             | 
+ | 30    | oaddr should match GUID of received event.                                                                                            | 
  | 29    | Marks end of matrix. No more valid entries in the DM after this line. Used to save parsing resources. | 
  | 28    | Reserved.                                                                                             | 
  | 27    | Reserved.                                                                                             | 
@@ -179,7 +179,7 @@ where the action-parameter has device specific length but defaults to 6 bytes to
  | 1     | Reserved.                                                                                             | 
  | 0     | Reserved.                                                                                             | 
 
-Specific node implement ions decide how to interpret bits or not. Just some or none of the bits can be used if that suits the implement ion. 
+Specific node implementions decide how to interpret bits or not. Just some or none of the bits can be used if that suits the implement ion. 
 
 ## Class (16-bit)
 
@@ -195,7 +195,7 @@ GUID for originating node that should trigger the decision matrix row if enabled
 
 ### Action (16-bit)
 
-This is the operation that  should be carried out when the decision matrix row is triggered. This is a 16-bit code that is application specific. 0x0000 is the only code that is predefined to no operation (noop). 
+This is the operation that  should be carried out when the decision matrix row is triggered. This is a 16-bit code that is application specific. 0x0000 is the only code that is predefined to **no operation** (noop). 
 
 ### Action Parameters
 

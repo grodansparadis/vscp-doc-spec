@@ -8,7 +8,7 @@ Measurements are fetched from the [SI units and from SI derived units](https://e
 
 **Byte 0** is the data coding byte for all measurement packages. The default unit has bits 0,1,2 set to 000 and the first optional unit 001 and so on. It also have a field for the item ( if more than one sensor is controlled by the node) that the value belongs to. See [data-coding](./vscp_data_coding.md) for a full description on data coding used.
 
-All events in this class are mirrored in [CLASS1.MEASUREMENT32=70 (0x46)](./class1.measurement32.md_) as a single precision float. Default unit is used.
+All events in this class are mirrored in [CLASS1.MEASUREMENT32=70 (0x46)](./class1.measurement32.md) as a single precision float. Default unit is used.
 
 All events in this class are mirrored in [CLASS1.MEASUREMENT64=60 (0x3C)](./class1.measurement64.md) as floating point values using only the default unit .
 
@@ -37,7 +37,7 @@ Level II measurement events with type >= 1280 have no relation to any Level I me
 ## Data format
 | Data byte | Description | 
  | :---------: | ----------- | 
- | 0 | [Data coding]((./vscp_measurements.md)).  | 
+ | 0 | [Data coding](./vscp_measurements.md#datacoding).  | 
  | 1-7 | Data with format defined by byte 0. | 
 
  

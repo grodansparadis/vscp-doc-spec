@@ -1,10 +1,14 @@
 # Level I events over level II
 
-A class in level II is classes described by a number between 512-65535. However classes between 512-1023 is a mirror of the level I classes. This space is called *level I classes over level ii* and is described here
 
-Instead of writing numbere a class can be described as **CLASS2.level1.XXXX** indicate a specific (*XXXX* in this case) Level II class. Also the form **CLASS2.level1.XXXX=yy** can be seen where *yy* is the numerical form. 
+
+A class in level II is classes described by a number between 512-65535. However classes between 512-1023 is a mirror of the level I classes. This space is called *level I classes over level ii* or *proxy events* and is described here
+
+Instead of writing numbers a class can be described as **CLASS2.level1.XXXX** indicate a specific (*XXXX* in this case) Level II class. Also the form **CLASS2.level1.XXXX=yy** can be seen where *yy* is the numerical form. 
 
 This type of classes have the same data content as level I classes except that the data is shifted 16-bytes. The first 16 bytes are instead used for the destination GUID. This is typically the GUID for a specific node or a GUID for an interface on a node or at the [VSCP Daemon](https://docs.vscp.org/#vscpd).
+
+Naming events of this group **proxy events** is valid as the communication interface often act as a proxy. You talk to the interface and the interface do the actual talking to the device/node on your behalf.
 
 ----
 

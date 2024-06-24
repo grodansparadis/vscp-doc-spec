@@ -41,10 +41,10 @@ The process starts by pressing a button or similar on the node. If the node has 
 
 ##### Step 2
 
-The node sends a probe event (CLASS1.PROTOCOL, TYPE=2,[sub:CLASS1_PROTOCOL,TYPE=2, Probe]) to address 0 (the address reserved for the master of a segment) using 0xFF as its own address. The priority of this event is set to 0x07. The master (if available) now has a chance to assign a nickname to the node ((CLASS1.PROTOCOL, TYPE=2, [sub:CLASS1.PROTOCOL, TYPE=6, Set Nickname]). Five seconds may be a good interval for which this assignment should happen.
+The node sends a probe event [CLASS1.PROTOCOL, TYPE=2 Probe](./class1.protocol?id=type2) to address 0 (the address reserved for the master of a segment) using 0xFF as its own address. The priority of this event is set to 0x07. The master (if available) now has a chance to assign a nickname to the node [CLASS1.PROTOCOL, TYPE=6 Set Nickname](./class1.protocol?id=type6). One second may be a good interval for which this assignment should happen.
 
-If no nickname assignment occurs the node checks the other possible nicknames (1-254) in turn. The node listens for a response event, probe ACK (CLASS1.PROTOCOL, TYPE=2, [sub:CLASS1_PROTOCOL,TYPE=3, Probe Ack]), from a node (which may already have the nickname assigned) for five seconds before concluding that the ID is free and then uses the ID as its own nickname-ID. On slower medium increase this timeout at will.
-
+If no nickname assignment occurs the node checks the other possible nicknames (1-253) in turn. The node listens for a response event, probe ACK [CLASS1.PROTOCOL, TYPE=3 Probe Ack ](./class1.protocol?id=type3), from a node (which may already have the nickname assigned) for one second before concluding that the ID is free and then uses the ID as its own nickname-ID. On slower medium increase this timeout at will.
+one
 It is recommended that some visual indication is shown to indicate success. A blinking green led that turns steady green after a node has got its nickname is the recommended indication. If there is a response for all addresses a failure condition is set (segment full) and the node goes to sleep.
 
 On an insecure medium such as RF (good practice also for CAN) it is recommended that the Probe is sent several time in a row to make sure that the nickname actually is free. This is actually a good method on all low level protocols and at least three tests are recommended. 
