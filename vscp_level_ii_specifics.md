@@ -217,6 +217,41 @@ vscpTypeToken:"VSCP_TYPE_MEASUREMENT_ELECTRIC_CURRENT",
 
 or similar for more user friendly class/type information. They should be give in addition to the numerical form, not instead of.
 
+### Defaults for absent fields
+
+If bandwidth is constrained field can be omitted. If fileds are omitted the following is true
+
+  * vscpHead will default to zero.
+  * vscpObId will default to zero.
+  * vscpGuid will default to all zero. This can typically be omitted if the topic on a MQTT channel holds the GUID.
+  * vscpTimeStamp will defaults to the current microsecond timestamp on the client.
+  * vscpDateTime will default to 'today' and 'now' on the client.
+  * vscpClass and or vscpType willdefault to zero. This can typically be omitted if the topic on a MQTT channel holds one or both of them.
+  * vscpData is empty if omitted.
+  * vscpNote will default to an empty string
+
+As an example imagine that you have a device that you want to monitor for on/off. The VSCP event are 
+
+  * [CLASS1.INFORMATION, Type=3, On](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.information?id=type3) 
+  * [CLASS1.INFORMATION, Type=4, Off](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.information?id=type4)
+
+The data for each event contains 
+
+  * index
+  * zone
+  * subzone
+
+If you now construct a topic on the form
+
+   .../'GUID'/'class'/'type'/'index'/'zone'/'subzone'
+
+or typically
+
+    vscp/25:00:00:00:00:00:00:00:00:00:00:00:06:01:00:01/20/+/1/2/3/#
+
+you can easily construct the full event on the client side even if you only send minimal data.
+
+
 ## Globally Unique Identifiers
 
 To classify as a node in a VSCP net all nodes must be uniquely identified by a globally unique 16-byte (yes that is 16-byte (128 bits) not 16-bit) identifier. This number uniquely identifies all devices around the world and can be used as a means to obtain device descriptions as well as drivers for a specific platform and for a specific device.
