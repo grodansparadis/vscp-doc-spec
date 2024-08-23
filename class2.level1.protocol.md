@@ -248,20 +248,21 @@ VSCP_TYPE_PROTOCOL_DROP_NICKNAME
 Request a node to drop its nickname. The node should drop its nickname and then behave in the same manner as when it was first powered up on the segment. 
 
 Standard form (Mandatory)
- | Data byte | Description | 
- | :---------: | ----------- | 
+
+ | Data byte | Description |
+ | :---------: | ----------- |
  | 0  | The current nickname for the node. |
- | 1  | **Optional:** Flags. | 
- | 2  | **Optional:** Time the node should wait before it starts a nickname discovery or starts the device. The time is in seconds. | 
+ | 1  | **Optional:** Flags. |
+ | 2  | **Optional:** Time the node should wait before it starts a nickname discovery or starts the device. The time is in seconds. |
 
  Extended Form for node with 16-bit nickname. (Mandatory for nodes with 16-bit nickname)
 
- | Data byte | Description | 
+ | Data byte | Description |
  | :---------: | ----------- | 
  | 0  | MSB of current nickname for the node. |
  | 1  | LSB of current nickname for node |
- | 2  | **Optional:** Flags. | 
- | 3  | **Optional:** Time the node should wait before it starts a nickname discovery or starts the device. The time is in seconds. | 
+ | 2  | Flags. | 
+ | 3  | Time the node should wait before it starts a nickname discovery or starts the device. The time is in seconds. | 
 
 Use data size to determine between 8-bit and 16-bit node-id format. A 16-bit node should handle a 8-bit nickname as a 16-bit node id with MSB = 0. It should handle also the 8-bit node-id version of the event.
 
@@ -309,6 +310,14 @@ Read a register from a node.
  | 1 | Register to read. | 
 
 A read/write response event is returned on success.
+
+For 16-bit nickname id
+
+| Data byte | Description | 
+ | :---------: | ----------- | 
+ | 0 | Node address MSB. |
+ | 1 | Node address LSB. | 
+ | 2 | Register to read. | 
 
 The following format can be used for nodes on a Level II segment as a midway between a full Level II handling as specified in Class=1024 and Level I.
 
@@ -363,6 +372,15 @@ Write register content to a node.
 
 A read/write response event is returned on success.
 
+For 16-bit nickname id
+
+| Data byte | Description | 
+ | :---------: | ----------- | 
+ | 0 | Node address MSB.     | 
+ | 1 | Node address LSB.     | 
+ | 2 | Register to write.    | 
+ | 3 | Content for register. | 
+
 The following format can be used for nodes on a Level II segment as a midway between a full Level II handling as specified in Class=1024 and Level I. 
 
  | Data byte | Description | 
@@ -391,7 +409,7 @@ This is the first event in the boot loader sequence. The node should stop all ot
 
  | Data byte | Description | 
  | :---------: | ----------- | 
- | 0 | The nickname for the node. | 
+ | 0 | The nickname (LSB of 16-bit nickname) for the node. | 
  | 1 | Code that select boot loader algorithm to use. | 
  | 2 | GUID byte 0 (MSB) | 
  | 3 | GUID byte 3 (MSB + 3) | 
@@ -399,6 +417,11 @@ This is the first event in the boot loader sequence. The node should stop all ot
  | 5 | GUID byte 7 (MSB + 7) | 
  | 6 | Content of register 0x92, Page select MSB. | 
  | 7 | Content of register 0x93, Page select LSB. | 
+
+ For nodes with 16-bit id the same format is used as above. Byte 0, the nickname, is the
+ LSB of the 16-bit nickname in this case. The content of the page select registers and the
+ GUID bytes should be enough to make identify the device safely. But obiously it is very 
+ important to set unique values in the page select registers before sending this event.
 
 The following format can be used for nodes on a Level II segment as a midway between a full Level II handling as specified in Class=1024 and Level I. 
 
@@ -504,7 +527,11 @@ Begin transfer of data for a block of memory. This event has no meaning for any 
  | 1 | DATA (EEPROM, MRAM, FRAM) | 
  | 2 | CONFIG (Fuses, CPU configuration) | 
  | 3 | RAM | 
- | 4-255  | Currently undefined - send a NACK as response | 
+ | 4 | USERID/GUID etc | 
+ | 5-252  | Currently undefined - send a NACK as response | 
+ | 253 | User specified memory area 1 |
+ | 254 | User specified memory area 2 |
+ | 255 | User specified memory area 3 |
 
 Response can be 
 
@@ -758,18 +785,21 @@ Note that the page select registers only selects a virtual page that can be acce
  | 1 | Index into page. | 
  | 2 | Number of bytes to read (1-255). | 
 
+ for 16-bit id
+
+ | Data byte | Description | 
+ | :---------: | ----------- | 
+ | 0 | Node-ID MSB which registers should be read. | 
+ | 1 | Node-ID LSB which registers should be read. | 
+ | 2 | Index into page. | 
+ | 3 | Number of bytes to read (1-255). | 
+
 Response is 
 
 [CLASS1.PROTOCOL, Type=26 (Read page response)](./class1.protocol.md#type26)
 
 
-The following format can be used for nodes on a Level II segment as a midway between a full Level II handling as specified in Class=1024 and Level I. 
 
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0-15 | GUID. |
- | 16 | Index into page. | 
- | 17 | Number of bytes to read (1-255). | 
 
 
 
@@ -791,22 +821,16 @@ It is only possible to write one 6-byte chunk at a time in contrast to reading s
  | Data byte | Description  | 
  | :---------: | ----------- |
  | 0 | Node-ID         |
- | 1 | Register start. |
- | 2-7 | Data. |
+ | 1 | Register start |
+ | 2-7 | Data that should be written |
+
+ **Note** that this event is not available for 16-bit node id's 
 
 Response is 
 
 [CLASS1.PROTOCOL, Type=26 (Read Page Response)](./class1.protocol.md#type26)
 
-The following format can be used for nodes on a Level II segment as a midway between a full Level II handling as specified in Class=1024 and Level I. 
 
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0-15      | GUID.       | 
- | 16        | Base index. | 
- | 17-…    | Data.       | 
-
-Data count can be as many as the buffer of the Level II node accepts. 
 
 
 
@@ -850,7 +874,7 @@ VSCP_TYPE_PROTOCOL_HIGH_END_SERVER_PROBE
 ```
 Should be implemented by all devices that work over 802.15.4/Ethernet/Internet or other high end protocols.This event can be broadcasted on a segment by a node to get information about available servers. 
 
-The [VSCP daemon documentation](https://grodansparadis.gitbooks.io/the-vscp-daemon) have a description on how server/service discovery works. 
+
 
 
 
@@ -906,6 +930,14 @@ Increment a register content by one with no risk of it changing in between
  | 0 | Node-ID | 
  | 1 | Register to increment. | 
 
+ or for 16-bit id devices
+
+ | Data byte | Description | 
+ | :---------: | ----------- | 
+ | 0 | Node-ID MSB | 
+ | 1 | Node-ID MLSB | 
+ | 2 | Register to increment. | 
+
 Node should answer with [CLASS1.PROTOCOL, Type=10 (Read/Write register response)](./class1.protocol.md#type10).
 
 
@@ -927,6 +959,14 @@ Decrement a register content by one with no risk of it changing in between
  | 0 | Node-ID                | 
  | 1 | Register to decrement. | 
 
+ or for 16-bit id devices
+
+ | Data byte | Description | 
+ | :---------: | ----------- | 
+ | 0 | Node-ID MSB                | 
+ | 1 | Node-ID LSB                |
+ | 2 | Register to decrement. | 
+
 Node should answer with [CLASS1.PROTOCOL, Type=10 (Read/Write register response)](./class1.protocol.md#type10).
 
 
@@ -947,9 +987,20 @@ This event can be used as a fast way to find out which nodes there is on a segme
  | :---------: | ----------- | 
  | 0 | Node-ID or 0xFF for all nodes. | 
 
+ or for 16-bit node id devices
+
+ | Data byte | Description | 
+ | :---------: | ----------- | 
+ | 0 | Node-ID MSB or Nodeid set to 0xffff for all nodes. |
+ | 1 | Node-ID LSB |
+ 
+If data size is zero it should be interpreted as a request for all nodes on the segment and should be treated as data was set as 0xff or oxffff 
+
 Response for a Level I node is [CLASS1.PROTOCOL, Type=32 (Who is there response)](./class1.prototocol.md#type32).
     
 A Level II node respond with [CLASS2.PROTOCOL, Type=32 (Level II who is response)](./class2.protocol.md#type32) to this event.
+
+
 
 
 
@@ -1073,7 +1124,7 @@ If an embedded MDF is not available a response on the form
      byte 1 = 0 
      byte 2 = 0
 
-should be sent. 
+or a data size equal to zero should be sent. 
 
  | Data byte | Description | 
  | :---------: | ----------- | 
@@ -1109,9 +1160,20 @@ Implementation must take care so all page register change done by these routines
  | 1 | MSB of page where the register is located. | 
  | 2 | LSB of page where the register is located. | 
  | 3 | Register to read (offset into page). | 
- | 4 | Optional: Number of registers to read.     | 
+ | 4 | Optional: Number of registers to read. Read as 0 if absent. | 
 
-If the number of registers to read is set to zero 256 registers will be read. __Some nodes my have small buffers so this bursts of messages may be a problem.__
+If the number of registers to read is set to zero 256 - offset registers will be read. __Note that some nodes my have small buffers so this bursts of messages may be a problem.__
+
+For 16-bit nickname id devices
+
+ | Data byte | Description | 
+ | :---------: | ----------- | 
+ | 0 | Node address MSB. | 
+ | 1 | Node address LSB. | 
+ | 2 | MSB of page where the register is located. | 
+ | 3 | LSB of page where the register is located. | 
+ | 4 | Register to read (offset into page). | 
+ | 5 | Number of registers to read. Read as 0 if absent. __Note that this content must be available for 16-bit id devices__ | 
 
 An extended read/write response event is returned on success.
 
@@ -1151,6 +1213,8 @@ Implementation must take care so all page register change done by these routines
  | 3 | Register to write. | 
  | 4 | Content for register. | 
  | 5,6,7 | Optional extra data bytes to write. | 
+
+ Not available for nodes with 16-bit node id's.
 
 A read/write response event is returned on success.
 
@@ -1209,6 +1273,9 @@ All nodes are by default interested in **CLASS1.PROTOCOL**.
 
 The event is intended for very low bandwidth nodes like low power wireless nodes where it saves a lot of bandwidth if only events that really concerns the node is sent to them. 
 
+The response is [CLASS1_PROTOCOL, VSCP_TYPE_PROTOCOL_GET_EVENT_INTEREST_RESPONSE](./class1.protocol.md#type41) for a level I node and
+[CLASS2_PROTOCOL, VSCP2_TYPE_PROTOCOL_GET_EVENT_INTEREST_RESPONSE](./class2.protocol.md#type41) for a level II node.
+
 
 
 ----
@@ -1226,24 +1293,11 @@ Response for event [CLASS1.PROTOCOL, Type=40 (Get event interest)](./class1.prot
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | Index | 
- | 1 | class bit 9 (see table) | 
- | 2 | class 1 | 
- | 3 | type 1 | 
- | 4 | class 2 | 
- | 5 | type 2 | 
- | 6 | class 3 | 
- | 7 | type 3 | 
-
- | Bit | Description | 
- | :---: | ----------- | 
- | 0 | Bit 9 for class 1 | 
- | 1 | Bit 9 for class 2 | 
- | 2 | Bit 9 for class 3 | 
- | 3 | All Type 1 is recognized (set type to zero). | 
- | 4 | All Type 2 is recognized (set type to zero). | 
- | 5 | All Type 3 is recognized (set type to zero). | 
- | 6 | 0 | 
- | 7 | 0 | 
+ | 1 | class MSB | 
+ | 2 | class LSB | 
+ | 3 | type MSB | 
+ | 4 | type LSB | 
+ 
 
 A node that is interested in everything just send a [CLASS1.PROTOCOL, Type=41 (Get event interest response)](./class1.protocol.md#type41) with no data if asked to provide that information.
 
@@ -1254,6 +1308,8 @@ A maximum of 255 frames (index = 0-254) may be sent.
 Fill unused pairs with zero.
 
 A **level II node** respond by sending [CLASS2.PROTOCOL, Type=41 (Get event interest response)](./class2.protocol.md#type41)
+
+
 
 
 

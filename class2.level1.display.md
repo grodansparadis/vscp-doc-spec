@@ -171,7 +171,7 @@ For a multi line display one can use different sub-zones o address different lin
 ## Type=48 (0x30) - Set LED :id=type48
 
 ```
-VSCP_TYPE_DISPLAY_SHOW_LED
+VSCP_TYPE_DISPLAY_SET_LED
 ```
 This event contains information that should be displayed on LED(s) pointed out by zone/sub-zone. 
 
@@ -196,9 +196,9 @@ Blink period can be omitted if not used or if blink period is defined hard.
 ## Type=49 (0x31) - Set RGB Color :id=type49
 
 ```
-VSCP_TYPE_DISPLAY_SHOW_LED_COLOR
+VSCP_TYPE_DISPLAY_SET_COLOR
 ```
-This event set the color for LED(s) pointed out by zone/sub-zone. 
+This event set the color for LED(s) (or similar device) pointed out by zone/sub-zone. 
 
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 

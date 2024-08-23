@@ -187,6 +187,10 @@ Get embedded MDF of device. This defines the response from a Level II node for a
  | 4-...  | MDF data     |
 
  Each packet can hold a maximum of 508 bytes. The first byte is the index of the MDF. The second byte is the total number of rows. The following bytes are the MDF data.
+ 
+ If the device does not have an embedded MDF it should return a zero length frame.
+ 
+ 
 
 
 ----
@@ -209,7 +213,10 @@ Get events of interest. This defines the response from a Level II node for a [CL
 
  The response is a packet with class/type pairs. One frame can hold a maximum of 256 pairs. If more is needed send multiple frames. Type can be set to zero to indicate ALL types of that class.
 
- A node that is interested in everything just send a [CLASS2.PROTOCOL, Type=41 (Get event interest response)](./class2.protocol.md#type41) with no data if asked to provide that information.
+ A node that is interested in everything just send a [CLASS2.PROTOCOL, Type=41 (Get event interest response)](./class2.protocol.md#type41) with no data if asked to provide this information.
+
+
+
 ----
 
 [filename](./bottom_copyright.md ':include')
