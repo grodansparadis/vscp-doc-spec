@@ -2,7 +2,8 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|2024-05-22| AKHE | Chancged recommended nickname discovery timeout from five to one second. |
+|2024-10-09| AKHE | Added info about possibility to skip JSON/XML fields in MQTT events. |
+|2024-05-22| AKHE | Changed recommended nickname discovery timeout from five to one second. |
 |2024-05-16| AKHE | Added standard register constants to register abstraction description |
 | 2024-04-08 | AKHE | Changed data format for 16-bit node id events | 
 | 2023-05-19 | AKHE | Fixed copy & paste faults in MDF descriptions |
