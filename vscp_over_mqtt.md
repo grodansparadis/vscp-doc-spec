@@ -30,6 +30,8 @@ The XML format where each event is packed as
      data="0x48,0x34,0x35,0x2E,0x34,0x36,0x34" />
 ```
 
+See the JSON format for the possibility to skip (redundant) fields.
+
 ### Optional extra attributes
 
 As an option it is possible to add
@@ -85,6 +87,52 @@ measurement {
 to the JSON object to send decoded measurement info. 
 
 **This is optional data and one should never rely on it to be present**
+
+### Minimize transfer load
+
+Although a VSCP event on JSON format can look like
+
+```json
+{
+    "vscpHead": 2,
+    "vscpObId": 123,
+    "vscpDateTime": "2017-01-13T10:16:02",
+    "vscpTimeStamp":50817,
+    "vscpClass": 10,
+    "vscpType": 8,
+    "vscpGuid": "00:00:00:00:00:00:00:00:00:00:00:00:00:01:00:02",
+    "vscpData": [1,2,3,4,5,6,7],
+    "note": "This is some text"
+}
+```
+
+several of the fields can be skipped if the information is already known. 
+
+**note** is extra of course and is never needed.
+
+**vscpHead** Set to zero if absent.
+
+**vscpObId** Should be read as zero if not present,
+
+**vscpDateTime** Should be read as now and today if not present, that is todays date and time when the event was received.
+
+**vscpTimeStamp** Should be set to a microsecond timestamp on the receiving side or be set to zero to let other layers set it.
+
+**vscpData** If there is no data it can be left out.
+
+**vscpGuid** If known it can be left out. Typically it can bne decuced from the MQTT topic.
+
+So a minimum JSON formated MQTT event scan look like
+
+```json
+{
+  "vscpClass": 10,
+  "vscpType": 8,
+  "vscpData": [1,2,3,4,5,6,7],
+}
+```
+
+If the MQTT topic also contains the class and type they can also be skipped and only the date needs to be sent. In this case both the VSCP class and the VSCP type will be set to zero by the parser and need to be set by the application.
 
 ### MQTT auto detect JSON format
 First non white space character "{" ==> JSON
