@@ -56,12 +56,15 @@ As explained above GUID's with 0xFD in the most significant byte is reserved for
  | 5    | Renesas                             | 
  | 6    | Gecko                               | 
  | 7    | Texas Instrument (+ Luminary Micro) | 
+ | 8    | GigaDevice Semiconductor | 
+ | 9    | Raspberry Pi | 
+ | 10   | EspressIf | 
 
 ### Family codes
 
 #### Microchip
 
-*tbd*
+*tbd* Use zero.
 
 #### Atmel
 
@@ -90,16 +93,26 @@ Notes on other families:
 
 *  STR75xFxx have no UID
 
-
 #### NXP
 
+Use zero. 
 *tbd (LPCxxxx all have 128Bit ID (without description)*
 
 #### Freescale
 
-*tbd*
+Use zero. *tbd*
 
+#### GigaDevice Semiconductor.
 
+Use zero. *tbd*
+
+#### Raspberry Pi
+
+Use zero. *tbd*
+
+#### EspressIf 
+
+Use zero. *tbd*
 
 ## Shorthand GUID's
 
