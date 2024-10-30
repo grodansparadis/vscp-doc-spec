@@ -259,17 +259,19 @@ Any number of language specific _descriptions_ and/or _infourl_'s can be set for
 | Name       | Description  | 
 | :----      | :----------- | 
 | **name**   | A name for the item. |
-| **target** | Set the target for the file here. The target is typically processor and architecture specific. Examples are "PIC18F2558", "PIC18F26K50" and so on. It is up to the maker of the module to define unique values. | 
-| **targetcode** | Set the target code for the file here. The target code is typically a 16-bit unsigned value that is stored inte the nodes flash. If not null a firmware file that should be written to a node should have the same target code value as the the device registers have written to them. |
+| **target** | Set the target for the file here. The target is typically processor and architecture specific. Examples are "RP2040", "ESP32C3", "PIC18F2558", "PIC18F26K50" and so on. It is up to the maker of the module to define unique values. | 
+| **targetcode** | Set the target code for the file here. The target code is typically a 16-bit unsigned value that is stored in the nodes flash. If not null a firmware file that should be written to a node should have the same target code value as the the device registers have written to them. |
 | **url**   | The url from which the firmware file can be fetched. |
 | **path**  | (Deprecated alternative to "url"). The url to the firmware file. |
-| **format** | The format of the firmware file. "intelhex8" and "intelhex16" is current valid values. |
+| **format** | The format of the firmware file. "intelhex8", "intelhex16", "uf2" is current valid values. |
 | **size**  | The size of the firmware file in bytes. Zero if not set.|
 | **date**  | Release date for the firmware. |
 | **version_major** | Major version number for firmware. |
 | **version_minor** | Minor version number for firmware. |
 | **version_subminor** | Sub minor version number for firmware. |
 | **md5** | MD5 checksum for the firmware file as hexadecimal string. Empty if not used. |
+
+For "target" and "format" you can really use anything that your bootloader software understands. Values listed here are values recognized by vscp-works bootloader.
 
 #### Example
 
