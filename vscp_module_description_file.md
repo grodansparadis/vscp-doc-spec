@@ -2452,7 +2452,7 @@ Registers can have bit fields that define bits and groups of bits of the registe
 
 ```json
 {
-  "remotevar" : [
+  "remotevars" : [
     {
       ...
     }
