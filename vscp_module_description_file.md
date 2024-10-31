@@ -766,6 +766,8 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 
 ### Remote Variables (Abstractions):id=remote_variables_xml
 
+Types for remote varaibles are documented [here](./vscp_register_abstraction_model.md#remote-variables)
+
 ```xml
 <remotevars>
   <remotevar name="remotevariable1"
@@ -2449,6 +2451,8 @@ Registers can have bit fields that define bits and groups of bits of the registe
 ```
 
 ### Remote variables:id=remotevars_json
+
+Types for remote varaibles are documented [here](./vscp_register_abstraction_model.md#remote-variables)
 
 ```json
 {
