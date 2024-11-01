@@ -23,6 +23,8 @@ Read a Level II register from the 32-bit register space
 
 Be aware that a node may send several read/write response events to fullfil a read request.
 
+VSCP2_TYPE_PROTOCOL_READ_REGISTER_DIRECT is a variant of this event where the GUID is not needed
+
  | Byte       | Description                                      | 
  | ----       | -----------                                      | 
  | Byte 0-15  | Contains the GUID of the target node (MSB->LSB). | 
@@ -40,10 +42,12 @@ VSCP2_TYPE_PROTOCOL_WRITE_REGISTER
  Write a Level II register to the 32.bit register space
 
  Care should be taken not to write to much data at the same time as there may be nodes
- that can't handle a full 512 byte frame. Better to seperate srite requests in bunches
+ that can't handle a full 512 byte frame. Better to separate requests in bunches
  of 100 bytes or so.
 
  Also be aware that a node may send several read/write response events to fullfil a write request.
+
+ VSCP2_TYPE_PROTOCOL_WRITE_REGISTER_DIRECT is a variant of this event where the GUID is not needed
  
  | Byte       | Description                                      | 
  | ----       | -----------                                      | 
@@ -217,6 +221,43 @@ Get events of interest. This defines the response from a Level II node for a [CL
 
 
 
+----
+
+## Type=43 (0x2B) - Read a Level II register from the 32-bit register space direct :id=type43
+```
+VSCP2_TYPE_PROTOCOL_READ_REGISTER_DIRECT
+```
+Read a Level II register from the 32-bit register space directly
+
+This is a variant of the standard level II register read VSCP2_TYPE_PROTOCOL_READ_REGISTER but without the GUID that address the device. This is for situations where the client talking to the device has a direct channel to the device and the GUID is  not needed to select the device to read data from.
+
+
+Be aware that a node may send several read/write response events to fullfil a read request.
+
+ | Byte       | Description                                      | 
+ | ----       | -----------                                      | 
+ | Byte 0-3 | Register to read (or start index), (MSB->LSB).   | 
+ | Byte 4-5 | Number of registers to read (max 508).           | 
+----
+
+## Type=44 (0x2C) - Write a Level II register to the 32-bit register space direct :id=type44
+```
+VSCP2_TYPE_PROTOCOL_READ_REGISTER_DIRECT
+```
+ Write a Level II register to the 32-bit register space directly
+ 
+ This is a variant of the standard level II register write VSCP2_TYPE_PROTOCOL_WRITE_REGISTER but without the GUID that address the device. This is for situations where the client talking to the device has a direct channel to the device and the GUID is  not needed to select the device to read data from.
+
+ Care should be taken not to write to much data at the same time as there may be nodes
+ that can't handle a full 512 byte frame. Better to seperate requests in bunches
+ of 100 bytes or so.
+
+ Also be aware that a node may send several read/write response events to fullfil a write request.
+ 
+ | Byte       | Description                                      | 
+ | ----       | -----------                                      | 
+ | Byte 0-3 | Register to write (or start index), (MSB->LSB).  | 
+ | Byte 4…   | Data to write to register(s) (max 512-4 bytes).  |
 ----
 
 [filename](./bottom_copyright.md ':include')
