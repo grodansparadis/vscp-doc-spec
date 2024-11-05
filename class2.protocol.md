@@ -242,7 +242,7 @@ Be aware that a node may send several read/write response events to fullfil a re
 
 ## Type=44 (0x2C) - Write a Level II register to the 32-bit register space direct :id=type44
 ```
-VSCP2_TYPE_PROTOCOL_READ_REGISTER_DIRECT
+VSCP2_TYPE_PROTOCOL_WRITE_REGISTER_DIRECT
 ```
  Write a Level II register to the 32-bit register space directly
  
