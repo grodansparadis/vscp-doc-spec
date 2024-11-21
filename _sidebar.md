@@ -27,6 +27,7 @@
    * [VSCP over CAN (CAN4VSCP)](./vscp_over_can_can4vscp.md)
    * [VSCP over a serial channel (RS-232)](./vscp_over_a_serial_channel_rs-232.md)
    * [VSCP Level I over RS-485/RS-422](./vscp_level_i_over_rs-485_rs-422.md)
+   * [VSCP over Bluetooth BLE](./vscp_over_bt_ble.md)
    * [VSCP over Bluetooth mesh](./vscp_over_bt_mesh.md)
    * [VSCP over IEEE 802.15.4](./vscp_over_ieee_802.15.4.md)
    * [VSCP Droplet model](./vscp_droplet_model.md)
