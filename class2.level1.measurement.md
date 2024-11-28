@@ -743,8 +743,9 @@ This is a measurement of luminance.
 VSCP_TYPE_MEASUREMENT_CHEMICAL_CONCENTRATION_MOLAR
 ```
 **Default unit:** mol/m3.
+**Opt. unit:** ppm (1), percent (2) 
 
-This is a measurement of chemical mol concentration. 
+This is a measurement of chemical mol/ppm/percent concentration. 
 
  
 

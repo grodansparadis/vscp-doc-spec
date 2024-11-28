@@ -107,13 +107,13 @@ A numeric action can be set and its meaning is application specific.
 
 ### General
 
-The number of matrix rows are limited in a micro controller. The control class has an event defined that gets the number of elements in the matrix and the location of the matrix in the register model of the node (Get Decision matrix info, [CLASS1.PROTOCOL, Type=33](./class1.protocol.md#type_33_0x21_get_decision_matrix_info)).
+The number of matrix rows are limited in a micro controller. The control class has an event defined that gets the number of elements in the matrix and the location of the matrix in the register model of the node (Get Decision matrix info, [CLASS1.PROTOCOL, Type=33](./class1.protocol.md#type33)).
 
 The matrix information is read and written with the standard read/write control functions. And is placed in the standard low register range (<0x80) or in an optional page in this area.
 
 Note that there is no demand that a node implements a decision matrix. If not implemented the Get Decision matrix info just returns a zero size.
 
-Method [CLASS1.PROTOCOL TYPE=32](./class1.protocol.md#type_32_0x20_who_is_there_response) is used to fetch decision matrix information for a specific node. 
+Method [CLASS1.PROTOCOL TYPE=32](./class1.protocol.md#type32) is used to fetch decision matrix information for a specific node. 
 
 It is important to note that the decision matrix can contain any number of lines for a specific event element. So one incoming event can trigger many actions.
 
@@ -203,7 +203,7 @@ This is a variable length text-string/binary array that can contain parameters f
 
 A decision matrix row is 26 bytes plus the size of the action parameters. Default size for action parameters is 6 bytes to form 32-byte decision matrix row.
 
-Method [CLASS1.PROTOCOL TYPE=34](./class1.protocol.md#type_34_0x22_decision_matrix_info_response) is used to fetch decision matrix information for a specific node. Byte six of the response tells the actual full size for a level II decision matrix row.
+Method [CLASS1.PROTOCOL TYPE=34](./class1.protocol.md#type34) is used to fetch decision matrix information for a specific node. Byte six of the response tells the actual full size for a level II decision matrix row.
 
 
 

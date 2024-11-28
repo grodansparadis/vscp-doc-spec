@@ -2,6 +2,8 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|2024-11-28| AKHE | Fixed non working links | 
+|2024-11-28| AKHE | Changed name for tokens VSCP_TYPE_PROTOCOL_START_BLOCK_ACK, VSCP_TYPE_PROTOCOL_START_BLOCK_NACK rename to VSCP_TYPE_PROTOCOL_CHUNK_ACK, VSCP_TYPE_PROTOCOL_CHUNK_NACK | 
 |2024-11-21| AKHE | Added missing BLE transport frame format |
 |2024-11-05| AKHE | Fixed VSCP2_TYPE_PROTOCOL_WRITE_REGISTER_DIRECT |
 |2024-10-30| AKHE | Added "uf2" (RP2040 etc) as a valid firmware format. |
@@ -81,17 +83,17 @@
  | 2018-10-03 | AKHE | CLASS1.INFORMATION, Type=77 Date/time bitfields corrected. |
  | 2018-09-21 | AKHE | Added CLASS1.INFORMATION, Type=78/70 RISING/FALLING. |
  | 2018-05-18 | AKHE | Added reserved GUID for groups (16-bits). |
- | 2018-04-17 | AKHE | Added [CLASS1.INFORMATION, Type=77](./class1.information.md#type_77_0x4d_datetime) which combines date and time in one event. |
+ | 2018-04-17 | AKHE | Added [CLASS1.INFORMATION, Type=77](./class1.information.md#type77) which combines date and time in one event. |
  | 2018-04-16 | AKHE | Clarified that time is give in UTC. |
  | 2018-03-04 | AKHE | Max data size for Level II events is changed from 487 to 512 to make things simpler. |
  | 2018-02-18 | AKHE | New [raw ethernet frame](./vscp_over_ethernet_raw_ethernet.md) specified  |
  | 2018-02-09 | AKHE | Bit 14 in head is now a flag for a dumb node. A dumb node does not have registers, mdf etc. |
- | 2018-02-05 | AKHE | [CLASS1.CONTROL, Type=42, Lock](./class1.control.md#type_42_0x2a_lock) and  [CLASS1.CONTROL, Type=43, Unlock](./class1.control.md#type_43_0x2b_unlock) and [CLASS1.INFORMATION, Type=75, Lock](./class1.information.md#type_75_0x4b_lock) and [CLASS1.INFORMATION, Type=76, Unlock](./class1.information.md#type_76_0x4c_unlock) |
+ | 2018-02-05 | AKHE | [CLASS1.CONTROL, Type=42, Lock](./class1.control.md#type42) and  [CLASS1.CONTROL, Type=43, Unlock](./class1.control.md#type43) and [CLASS1.INFORMATION, Type=75, Lock](./class1.information.md#type75) and [CLASS1.INFORMATION, Type=76, Unlock](./class1.information.md#type76) |
  | 2017-12-07 | AKHE | Simplified license section. |
- | 2017-09-11 | AKHE | [ CLASS1.DATA Type=4](./class1.data.md#type_4_0x04_relative_strength ) units changed.                                                                                                                                                                                                                                                                                                                                                                                                            |
- | 2017-09-10 | AKHE | New coding units added for [CLASS1.DATA Type=4](./class1.data.md#type_4_0x04_relative_strength) - db (decibel), dbuv (decibel microvolts), dbmv   (decibel millivolts). Creds: Stuart O'Reilly |
+ | 2017-09-11 | AKHE | [ CLASS1.DATA Type=4](./class1.data.md#type4) units changed.                                                                                                                                                                                                                                                                                                                                                                                                            |
+ | 2017-09-10 | AKHE | New coding units added for [CLASS1.DATA Type=4](./class1.data.md#type4) - db (decibel), dbuv (decibel microvolts), dbmv   (decibel millivolts). Creds: Stuart O'Reilly |
  | 2017-07-28 | AKHE | [CLASS1.ALARM](./class1.alarm.md) now have byte 1 specified as "0=off. 1=on" in first byte. |
- | 2017-07-04 | AKHE | Added event [CLASS2.PROOCOL, Type=32, Level II who is there response](./class2.protocol.md#type_32_0x20_level_ii_who_is_there_response) |
+ | 2017-07-04 | AKHE | Added event [CLASS2.PROOCOL, Type=32, Level II who is there response](./class2.protocol.md#type32) |
  | 2017-07-04 | AKHE | Clarified CLASS1.PROTOCOL, Type=16 and fixed typo for CLASS1.PROTOCOL, Type=25   |
  | 2017-06-28 | AKHE | Clarified CLASS1.PROTOCOL, Type=2 New node online for Level II. |
  | 2017-06-14 | AKHE | UDP and Multicast frames was missing century byte. |
@@ -107,8 +109,8 @@
  | 2015-10-23 | AKHE | Allow for real text name to appear in heat beat data for a Level II node  |
  | 2015-10-21 | AKHE | Added CLASS2.INFORMATION, Type=3 (0x03) Proxy heart beat.  |
  | 2015-10-21 | AKHE | Added CLASS2.PROTOCOL, Type=20 (0x14) High end server capabilities  |
- | 2015-10-14 | AKHE | [ CLASS1_PROTOCOL, Type=28 High End Server Response](,/class1.protocol.md#type_28_0x1c_high_end_server_response ) have changed capabilities bit values. |
- | 2015-09-10 | AKHE | [ CLASS1_INFORMATION, Type = 9 (0x09) Node Heartbeat](./class1.information.md#type_9_0x09_node_heartbeat ) is now mandatory for all Level I nodes. For Level 2 nodes [ CLASS1_INFORMATION, Type=2 (0x0002) Level II Node Heartbeat](./class2.information.md#type_2_0x0002_level_ii_node_heartbeat ) is now  |
+ | 2015-10-14 | AKHE | [ CLASS1_PROTOCOL, Type=28 High End Server Response](,/class1.protocol.md#type28) have changed capabilities bit values. |
+ | 2015-09-10 | AKHE | [ CLASS1_INFORMATION, Type = 9 (0x09) Node Heartbeat](./class1.information.md#type9) is now mandatory for all Level I nodes. For Level 2 nodes [ CLASS1_INFORMATION, Type=2 (0x0002) Level II Node Heartbeat](./class2.information.md#type2) is now  |
  | 2015-09-10 | AKHE | [Level II Class=1040 (0x410) Measurement string](./class2.measurement_str.md#description) have unit byte increased to 255 instead of 3. |
  | 2015-07-07 | AKHE | Cleared up define of data byte for CLASS1.DATA. Added CLASS1.DATA, Type=6, Count. KWh is optional unit 1 for energy. |
  | 2015-06-26 | AKHE | Introduces [Setup Recipes](./vscp_module_description_file.md&#setup_recipes) |
