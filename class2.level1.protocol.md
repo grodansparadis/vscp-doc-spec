@@ -1347,7 +1347,7 @@ Part of the VSCP boot-loader functionality. This is the negative response after 
 ## Type=50 (0x32) - Block data ACK. :id=type50
 
 ```
-VSCP_TYPE_PROTOCOL_BLOCK_DATA_CHUNK_ACK
+VSCP_TYPE_PROTOCOL_START_BLOCK_ACK
 ```
 **Not mandatory** Only needed if a VSCP boot loader algorithm is used.
 
@@ -1361,7 +1361,7 @@ Part of the VSCP boot-loader functionality. This is the positive response after 
 ## Type=51 (0x33) - Block data NACK. :id=type51
 
 ```
-VSCP_TYPE_PROTOCOL_BLOCK_DATA_CHUNK_NACK
+VSCP_TYPE_PROTOCOL_START_BLOCK_NACK
 ```
 **Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
 

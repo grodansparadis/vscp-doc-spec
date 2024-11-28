@@ -2,9 +2,6 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|2024-11-28 | AKHE | Renamed VSCP_TYPE_PROTOCOL_START_BLOCK_ACK and VSCP_TYPE_PROTOCOL_START_BLOCK_NACK 
-to VSCP_TYPE_PROTOCOL_BLOCK_DATA_CHUNK_ACK and VSCP_TYPE_PROTOCOL_BLOCK_DATA_CHUNK_NACK |
-|2024-11-28| AKHE | Reverted Changed name for tokens VSCP_TYPE_PROTOCOL_START_BLOCK_ACK, VSCP_TYPE_PROTOCOL_START_BLOCK_NACK rename to VSCP_TYPE_PROTOCOL_CHUNK_ACK, VSCP_TYPE_PROTOCOL_CHUNK_NACK | 
 |2024-11-28| AKHE | Fixed non working links | 
 |2024-11-28| AKHE | Changed name for tokens VSCP_TYPE_PROTOCOL_START_BLOCK_ACK, VSCP_TYPE_PROTOCOL_START_BLOCK_NACK rename to VSCP_TYPE_PROTOCOL_CHUNK_ACK, VSCP_TYPE_PROTOCOL_CHUNK_NACK | 
 |2024-11-21| AKHE | Added missing BLE transport frame format |
