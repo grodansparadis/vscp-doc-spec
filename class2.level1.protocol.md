@@ -1344,28 +1344,28 @@ Part of the VSCP boot-loader functionality. This is the negative response after 
 ----
 
 
-## Type=50 (0x32) - Block data transfer ACK. :id=type50
+## Type=50 (0x32) - Block data ACK. :id=type50
 
 ```
-VSCP_TYPE_PROTOCOL_START_BLOCK_ACK
+VSCP_TYPE_PROTOCOL_BLOCK_DATA_ACK
 ```
 **Not mandatory** Only needed if a VSCP boot loader algorithm is used.
 
-Part of the VSCP boot-loader functionality. This is the positive response after a node received a [CLASS1.PROTOCOL, Type=16 (Block data)](./class1.protocol.md#type16) event. It is sent by the node as a validation that it can handle the block data transfer. 
+Part of the VSCP boot-loader functionality. This is the positive response after a node received a [CLASS1.PROTOCOL, Type=16 (Block data)](./class1.protocol.md#type16) event (a part of a block). It is sent by the node as a validation that it can handle the block data transfer. 
 
 
 
 ----
 
 
-## Type=51 (0x33) - Block data transfer NACK. :id=type51
+## Type=51 (0x33) - Block data NACK. :id=type51
 
 ```
-VSCP_TYPE_PROTOCOL_START_BLOCK_NACK
+VSCP_TYPE_PROTOCOL_BLOCK_DATA_NACK
 ```
 **Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
 
-Part of the VSCP boot-loader functionality. This is the negative response after a node received a [CLASS1.PROTOCOL, Type=16 (Block data)](./class1.protocol.md#type16) event. It is sent by the node as an indication that it can NOT handle the block data transfer. 
+Part of the VSCP boot-loader functionality. This is the negative response after a node received a [CLASS1.PROTOCOL, Type=16 (Block data)](./class1.protocol.md#type16) event (a part of a block). It is sent by the node as an indication that it can NOT handle the block data transfer. 
 
 
 
