@@ -20,7 +20,6 @@ Most flash devices are programmed block by block. The boot loader algorithm must
 
 The boot loader sequence is as follows:
 
-
 *  **master** - device that initiate boot loading process and uploads firmware
 *  **node** - Device that will get it's firmware updated.
  1.  The master instructs the node to enter boot loader mode by sending an [enter boot loader mode](./class1.protocol.md#type12) event to the node. This event have information on which boot loader method that is expected by the master. This can be the VSCP boot loader which is described here or another boot loader. __If this event is received in an stage below the boot loading process should be restarted.__
@@ -39,6 +38,40 @@ The boot-loader is built to direct control flash if other methods such as interm
 ![Firmware update procedure](./images/vscp_std_boot_loader_algorithm.png)
 Diagram by **Andreas Merkle**
 
+#### Type of memory to write (byte 4)
+
+This is the currently defined  memory types that can be used.
+
+ | Memory type | Description | 
+ | :-----------: | ----------- | 
+ | 0 or byte absent | PROGRAM Flash (status quo for old nodes) | 
+ | 1 | DATA (EEPROM, MRAM, FRAM) | 
+ | 2 | CONFIG (CPU configuration) | 
+ | 3 | RAM | 
+ | 4 | USERID/GUID etc | 
+ | 5 | FUSES |
+ | 6 | BOOTLOADER |
+ | 7-252  | Currently undefined - send a NACK as response | 
+ | 253 | User specified memory area 1 |
+ | 254 | User specified memory area 2 |
+ | 255 | User specified memory area 3 |
+
+#### Abstract memory ranges
+
+The abstract memory ranges that is defined for each memory type. This is the memory that is requested by the bootloader data and has nothing to do with the actual memory layout of the device.
+
+ | Range | Description |
+ | :----: | ----------- |
+ | 0x00000000 - 0x3FFFFFFF  | Flash memory |
+ | 0x40000000 - 0xBFFFFFFF  | RAM memory |
+ | 0xC1000000 - 0xC1FFFFFF | User id memory |
+ | 0xC2000000 - 0xC2FFFFFF | Config memory |
+ | 0xC3000000 - 0xC3FFFFFF | EEPROM memory |
+ | 0xC4000000 - 0xC4FFFFFF | Bootloader memory |
+ | 0xC5000000 - 0xC5FFFFFF | Fuses memory |
+ | 0xD0000000 - 0xDFFFFFFF | User 0 memory |
+ | 0xE0000000 - 0xEFFFFFFF | User 1 memory |
+ | 0xF0000000 - 0xFFFFFFFF | User 2 memory |
 
 ## Microchip custom algorithm for PIC18 devices
 

@@ -471,8 +471,8 @@ The node confirms that it has entered boot loader mode. This is only sent for th
  | 2 | Flash block size.                   | 
  | 3 | LSB of flash block size.            | 
  | 4 | MSB of number of blocks available.  | 
- | 5 | Number of block s available.        | 
- | 6 | Number of block s available.        | 
+ | 5 | Number of blocks available.        | 
+ | 6 | Number of blocks available.        | 
  | 7 | LSB of number of blocks available.  |
 
  
@@ -507,7 +507,20 @@ VSCP_TYPE_PROTOCOL_START_BLOCK
 ```
 **Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
 
-Begin transfer of data for a block of memory. This event has no meaning for any node that is not in boot mode and should be disregarded.
+Begin transfer of data for a block of memory. This event should be followed by the block data events and then the programming of the block for each block until all blocks are transferred and programmed for a memory type. Other memory type can next be programmed starting with a new start block transfer event. Lastly the activate image event is sent by the master to activate the new image of the node.
+
+As an alternative each memory type can be programmed in a separate session.
+
+ | Data byte | Description | 
+ | :---------: | ----------- | 
+ | 0         | MSB of block number. | 
+ | 1         | Block number. | 
+ | 2         | Block number. | 
+ | 3         | LSB of block number. | 
+ | 4         | (optional) Type of Memory we want to write. See table below | 
+ | 5         | (optional) Bank/Image to be written Used together with byte 4 to specify either separate Flash or EEPROM/MRAM spaces. If absent or set to zero normally, means first memory from the view of the node creator, e.g. internal Flash, internal EEPROM etc. Useful for projects that have internal as well as external EEPROMs so the external one could be addressed with byte5=1. Also with byte4=0 and byte5=1 an SD-Card as well as a second firmware image inside the flash could be addressed. |  
+
+This event has no meaning for any node that is not in boot mode and should be disregarded.
 
  | Data byte | Description | 
  | :---------: | ----------- | 
@@ -525,13 +538,30 @@ Begin transfer of data for a block of memory. This event has no meaning for any 
  | :-----------: | ----------- | 
  | 0 or byte absent | PROGRAM Flash (status quo for old nodes) | 
  | 1 | DATA (EEPROM, MRAM, FRAM) | 
- | 2 | CONFIG (Fuses, CPU configuration) | 
+ | 2 | CONFIG (CPU configuration) | 
  | 3 | RAM | 
  | 4 | USERID/GUID etc | 
- | 5-252  | Currently undefined - send a NACK as response | 
+ | 5 | FUSES |
+ | 6 | BOOTLOADER |
+ | 7-252  | Currently undefined - send a NACK as response | 
  | 253 | User specified memory area 1 |
  | 254 | User specified memory area 2 |
  | 255 | User specified memory area 3 |
+
+**Abstract memory ranges**
+
+ | Range | Description |
+ | :----: | ----------- |
+ | 0x00000000 - 0x3FFFFFFF  | Flash memory |
+ | 0x40000000 - 0xBFFFFFFF  | RAM memory |
+ | 0xC1000000 - 0xC1FFFFFF | User id memory |
+ | 0xC2000000 - 0xC2FFFFFF | Config memory |
+ | 0xC3000000 - 0xC3FFFFFF | EEPROM memory |
+ | 0xC4000000 - 0xC4FFFFFF | Bootloader memory |
+ | 0xC5000000 - 0xC5FFFFFF | Fuses memory |
+ | 0xD0000000 - 0xDFFFFFFF | User 0 memory |
+ | 0xE0000000 - 0xEFFFFFFF | User 1 memory |
+ | 0xF0000000 - 0xFFFFFFFF | User 2 memory |
 
 Response can be 
 
@@ -567,10 +597,10 @@ Data for a block of memory. This event has no meaning for any node that is not i
  | 6         | Data.       | 
  | 7         | Data.       | 
 
-A [CLASS1.PROTOCOL, Type=50 (Block Data ACK)](./class1.protocol.md#type50)
+A [CLASS1.PROTOCOL, Type=51 (Block Chunk ACK)](./class1.protocol.md#type51)
 is sent as a response for each event received.
 
-A [CLASS1.PROTOCOL, Type=51 (Block Data NACK)](./class1.protocol.md#type51)
+A [CLASS1.PROTOCOL, Type=52 (Block Chunk NACK)](./class1.protocol.md#type52)
 is sent on failure.
 
 **Note** If the block to fill is not a multiple of eight the receiving node should handle and discard any excess data. This is true also if more block data frames are received than the block can hold.
@@ -595,12 +625,12 @@ Confirm the reception of a complete data block. This event has no meaning for an
  | :---------: | ----------- | 
  | 0 | MSB of 16-bit CRC for block. | 
  | 1 | LSB for 16-bit CRC for block. | 
- | 2 | MSB of write pointer.         | 
- | 3 | write pointer.                | 
- | 4 | write pointer.                | 
- | 5 | LSB of write pointer.         | 
+ | 2 | MSB of block to write.         | 
+ | 3 | block to write.                | 
+ | 4 | block to write.                | 
+ | 5 | LSB of block to write.         | 
 
-The write pointer is the actual pointer after the last data has been written i,e the next position on which data will be written. 
+The block to write is the block that was sent in the last block data event. The CRC is calculated over the block data only.
 
 
 
@@ -620,12 +650,14 @@ NACK the reception of data block. This event has no meaning for any node that is
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | User defined error code. | 
- | 1 | MSB of write pointer.    | 
- | 2 | write pointer.           | 
- | 3 | write pointer.           | 
- | 4 | LSB of write pointer.    | 
+ | 1 | MSB of block to write.    | 
+ | 2 | block to write.           | 
+ | 3 | block to write.           | 
+ | 4 | block to write.    | 
 
-The write pointer is the actual pointer after the last data has been written i,e the next position on which data will be written. 
+The block to write is the block that was sent in the last block data event.
+
+The state machine of the node that is loaded with firmware should accept new start block data events after this event. Other memory types can be programmed.
 
 
 
@@ -648,6 +680,7 @@ Request from a node to program a data block that has been uploaded and confirmed
  | 2 | Block number.        | 
  | 3 | LSB of block number. | 
 
+Sent only if the block was successfully received and confirmed by checking the crc for the full block. The block number is the number of the block that was sent in the last block data event.
 
 
 ----
@@ -703,14 +736,16 @@ VSCP_TYPE_PROTOCOL_ACTIVATE_NEW_IMAGE
 ```
 **Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
 
-This command is sent as the last command during the boot-loader sequence. It resets the device and starts it up using the newly loaded code. The 16-bit CRC for the entire program block is sent as an argument. This must be correct for the reset/activation to be performed. NACK boot loader mode will be sent if the CRC is not correct and the node will not leave boot loader mode. 
+This command is sent as the last command during the boot-loader sequence. It resets the device and starts it up using the newly loaded code. The 16-bit sum of all CRC blocks that was transferred to the node (all memory types) is sent as an argument. This sum should be checked and be correct for the reset/activation to be performed. [CLASS1.PROTOCOL, Type=49 (Activate new image NACK)](./class1.protocol.md#type49) will be sent if the CRC is not correct and the node will not leave boot loader mode. 
+
+If just one memory type is programmed, the CRC sum is the same as the CRC for the programmed block. This can be used as an alternative way to program different memory types, that is enter boot loader mode, program an area, and then activate the new image, and then enter boot loader mode again and program another area, and so on.
 
  | Data byte | Description | 
  | :-------: | ----------- | 
- | 0 | 16 bit CRC of full flash data block, MSB | 
- | 1 | 16 bit CRC of full flash data block LSB  | 
+ | 0 | 16 bit sum of all CRC of blocks that was transferred to the node up to this point (all memory types), MSB | 
+ | 1 | 16 bit sum of all CRC of blocks that was transferred to the node up to this point (all memory types), LSB | 
 
-To leave boot mode just send this event and a dummy CRC. Other methods could have been used to load the code but it can still be activated with this event as long as the CRC is correct. This event has no meaning for any node that is not in boot mode and should be disregarded. 
+This event has no meaning for any node that is not in boot mode and should be disregarded. 
 
 Response can be 
 
@@ -1344,28 +1379,81 @@ Part of the VSCP boot-loader functionality. This is the negative response after 
 ----
 
 
-## Type=50 (0x32) - Block data ACK. :id=type50
+## Type=50 (0x32) - Start Block ACK. :id=type50
 
 ```
-VSCP_TYPE_PROTOCOL_START_BLOCK_ACK
+VSCP_TYPE_PROTOCOL_START_BLOCK_ACK 
 ```
 **Not mandatory** Only needed if a VSCP boot loader algorithm is used.
 
-Part of the VSCP boot-loader functionality. This is the positive response after a node received a [CLASS1.PROTOCOL, Type=16 (Block data)](./class1.protocol.md#type16) event (a part of a block). It is sent by the node as a validation that it can handle the block data transfer. 
+Part of the VSCP boot-loader functionality. This is the positive response after a node received
+a [CLASS1.PROTOCOL, Type=15 (Start block data transfer)](./class1.protocol.md#type15) event (a part of a block). 
+It is sent by the node as a validation that it can handle the block data transfer. 
 
 
 
 ----
 
 
-## Type=51 (0x33) - Block data NACK. :id=type51
+## Type=51 (0x33) - Start Block NACK. :id=type51
 
 ```
 VSCP_TYPE_PROTOCOL_START_BLOCK_NACK
 ```
-**Not mandatory.** Only needed if a VSCP boot-loader algorithm is used.
+**Not mandatory** Only needed if a VSCP boot loader algorithm is used.
 
-Part of the VSCP boot-loader functionality. This is the negative response after a node received a [CLASS1.PROTOCOL, Type=16 (Block data)](./class1.protocol.md#type16) event (a part of a block). It is sent by the node as an indication that it can NOT handle the block data transfer. 
+Part of the VSCP boot-loader functionality. This is the negative response after a node received
+a [CLASS1.PROTOCOL, Type=15 (Start block data transfer)](./class1.protocol.md#type15) event (a part of a block). 
+It is sent by the node as a validation that it can handle the block data transfer. 
+
+
+
+----
+
+
+## Type=52 (0x34) - Block Data Chunk ACK. :id=type52
+
+```
+VSCP_TYPE_PROTOCOL_BLOCK_CHUNK_ACK 
+```
+**Not mandatory** Only needed if a VSCP boot loader algorithm is used.
+
+Part of the VSCP boot-loader functionality. This is the positive response after a node received
+a [CLASS1.PROTOCOL, Type=16 (Start Block data transfer)](./class1.protocol.md#type16) event (a part of a block). 
+It is sent by the node as a validation that it can handle the block data transfer. 
+
+
+
+----
+
+
+## Type=53 (0x35) - Block Data Chunk NACK. :id=type53
+
+```
+VSCP_TYPE_PROTOCOL_BLOCK_CHUNK_NACK
+```
+**Not mandatory** Only needed if a VSCP boot loader algorithm is used.
+
+Part of the VSCP boot-loader functionality. This is the negative response after a node received
+a [CLASS1.PROTOCOL, Type=16 (Start Block data transfer)](./class1.protocol.md#type16) event (a part of a block). 
+It is sent by the node as a validation that it can handle the block data transfer. 
+
+
+
+----
+
+
+## Type=54 (0x36) - Bootloader CHECK. :id=type54
+
+```
+VSCP_TYPE_PROTOCOL_BOOT_LOADER_CHECK
+```
+**Not mandatory** Only needed if a VSCP boot loader algorithm is used.
+
+Part of the VSCP boot-loader functionality. This event is a way to check if a device is already in bootloader mode. A device that is in bootloader mode should respond with a [CLASS1.PROTOCOL, Type=13 (ACK boot loader mode)](./class1.protocol.md#type13) event regardless of the internal state it is in.
+
+**This event was added in version 1.15.0 so we aware that older devices may not support this event.**
+
 
 
 
