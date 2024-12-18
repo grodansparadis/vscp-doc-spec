@@ -70,6 +70,8 @@ VSCP_TYPE_PROTOCOL_GENERAL
 ```
 General Event.
 
+You can use this event for anything you want. It's a general event, so it can be used for anything. The data format and the use is all up to your needs. It is important of course that you document the data format and the use of the event in your documentation and in the MDF for the device. But of course if there is an existing event that does the job you want, you should probably use that one instead of this one.
+
 
 ----
 
@@ -681,6 +683,7 @@ Request from a node to program a data block that has been uploaded and confirmed
  | 3 | LSB of block number. | 
 
 Sent only if the block was successfully received and confirmed by checking the crc for the full block. The block number is the number of the block that was sent in the last block data event.
+
 
 
 ----
@@ -1404,7 +1407,7 @@ VSCP_TYPE_PROTOCOL_START_BLOCK_NACK
 
 Part of the VSCP boot-loader functionality. This is the negative response after a node received
 a [CLASS1.PROTOCOL, Type=15 (Start block data transfer)](./class1.protocol.md#type15) event (a part of a block). 
-It is sent by the node as a validation that it can handle the block data transfer. 
+It is sent by the node as a validation that it can't handle the block data transfer. 
 
 
 
@@ -1419,7 +1422,7 @@ VSCP_TYPE_PROTOCOL_BLOCK_CHUNK_ACK
 **Not mandatory** Only needed if a VSCP boot loader algorithm is used.
 
 Part of the VSCP boot-loader functionality. This is the positive response after a node received
-a [CLASS1.PROTOCOL, Type=16 (Start Block data transfer)](./class1.protocol.md#type16) event (a part of a block). 
+a [CLASS1.PROTOCOL, Type=16 (Block data)](./class1.protocol.md#type16) event (a part of a block). 
 It is sent by the node as a validation that it can handle the block data transfer. 
 
 
@@ -1435,8 +1438,8 @@ VSCP_TYPE_PROTOCOL_BLOCK_CHUNK_NACK
 **Not mandatory** Only needed if a VSCP boot loader algorithm is used.
 
 Part of the VSCP boot-loader functionality. This is the negative response after a node received
-a [CLASS1.PROTOCOL, Type=16 (Start Block data transfer)](./class1.protocol.md#type16) event (a part of a block). 
-It is sent by the node as a validation that it can handle the block data transfer. 
+a [CLASS1.PROTOCOL, Type=16 (Block dasta)](./class1.protocol.md#type16) event (a part of a block). 
+It is sent by the node as a validation that it can't handle the block data transfer. 
 
 
 
