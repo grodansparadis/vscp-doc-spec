@@ -988,13 +988,13 @@ Read a register from a node with page information.
 
 Implementation must take care so all page register change done by these routines must restore the content of the page registers to there original content when they are done. 
 
- | Data byte | Description | 
- | :---------: | ----------- | 
- | 0 | Node address. | 
- | 1 | MSB of page where the register is located. | 
- | 2 | LSB of page where the register is located. | 
- | 3 | Register to read (offset into page). | 
- | 4 | Optional: Number of registers to read. Read as 0 if absent. | 
+ | Data byte | Description |
+ | :---------: | ----------- |
+ | 0 | Node address. |
+ | 1 | MSB of page where the register is located. |
+ | 2 | LSB of page where the register is located. |
+ | 3 | Register to read (offset into page). |
+ | 4 | Optional: Number of registers to read. Read as 0 if absent. |
 
 If the number of registers to read is set to zero 256 - offset registers will be read. __Note that some nodes my have small buffers so this bursts of messages may be a problem.__
 
@@ -1098,6 +1098,22 @@ The event is intended for very low bandwidth nodes like low power wireless nodes
 The response is [CLASS1_PROTOCOL, VSCP_TYPE_PROTOCOL_GET_EVENT_INTEREST_RESPONSE](./class1.protocol.md#type41) for a level I node and
 [CLASS2_PROTOCOL, VSCP2_TYPE_PROTOCOL_GET_EVENT_INTEREST_RESPONSE](./class2.protocol.md#type41) for a level II node.
 
+ | Data byte | Description |
+ | :---------: | ----------- |
+ | 0 | Node address. |
+
+ For 16-bit nickname id devices
+
+ | Data byte | Description |
+ | :---------: | ----------- |
+ | 0 | Node address MSB. |
+ | 1 | Node address LSB. |
+
+ The following format can be used for nodes on a Level II segment as a midway between a full Level II handling as specified in Class=1024 and Level I. 
+
+ | Data byte | Description | 
+ | :---------: | ----------- | 
+ | 0-15 | GUID. | 
 ----
 
 ## Type=41 (0x29) - Get event interest response. :id=type41
