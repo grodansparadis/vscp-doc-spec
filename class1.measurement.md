@@ -615,13 +615,13 @@ This is a measurement of chemical mass concentration.
 
 ## Type=47 (0x2F) - Reserved :id=type47
 ```
-VSCP_TYPE_MEASUREMENT_DOSE_EQVIVALENT
+VSCP_TYPE_MEASUREMENT_RESERVED47
 ```
 Reserved
 
 
 
- 
+
 
 ----
 
@@ -783,7 +783,7 @@ Sound level expressed in decibel. This event is supplied for convenience.
 
 ## Type=61 (0x3D) - Radiation dose (equivalent) :id=type61
 ```
-VSCP_TYPE_MEASUREMENT_RADIATION_DOSE_EQ
+VSCP_TYPE_MEASUREMENT_DOSE_EQVIVALENT
 ```
 **Default unit:** sievert (Sv).
 
