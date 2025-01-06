@@ -4,7 +4,7 @@
 
 ## Description
 
-Representation for different general data types. **Byte 0** is the data coding byte described [here](./data_coding.md). Unit may not have meaning for some of the types and should be set to zero in that case.
+Representation for different general data types. **Byte 0** is the data coding byte described [here](./vscp_measurements?id=datacoding). Unit may not have meaning for some of the types and should be set to zero in that case.
 
 ## Type=0 (0x00) - General event :id=type0
 ```

@@ -1,4 +1,4 @@
-# VSCP tcp/p link protocol
+# VSCP tcp/ip link protocol
 
 This protocol can be used by tcp/p based nodes to export an interface to it's VSCP functionality.
 
