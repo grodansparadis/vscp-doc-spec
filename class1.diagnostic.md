@@ -18,7 +18,7 @@ General Event.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0         | index. Often used as an index for channels/subdevices within a module. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones. | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones. | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
         
@@ -33,7 +33,7 @@ Over voltage has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -48,7 +48,7 @@ Under voltage has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -63,7 +63,7 @@ Low voltage on USB VBUS has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -78,7 +78,7 @@ Low battery voltage has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -94,7 +94,7 @@ Battery full voltage has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -109,7 +109,7 @@ Battery error has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -124,7 +124,7 @@ Functional battery has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -140,7 +140,7 @@ Over current has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -156,7 +156,7 @@ Circuit error has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -172,7 +172,7 @@ Short circuit has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -187,7 +187,7 @@ Open Circuit has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -202,7 +202,7 @@ Moist has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -217,7 +217,7 @@ Wire failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -232,7 +232,7 @@ Wireless faliure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -247,7 +247,7 @@ IR failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -262,7 +262,7 @@ VSCP_TYPE_DIAGNOSTIC_1WIRE_FAIL
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -277,7 +277,7 @@ RS-222 failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -292,7 +292,7 @@ RS-232 failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -307,7 +307,7 @@ RS-423 failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -323,7 +323,7 @@ RS-485 failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -338,7 +338,7 @@ CAN failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -354,7 +354,7 @@ LAN failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -369,7 +369,7 @@ USB failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -384,7 +384,7 @@ Wifi failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -399,7 +399,7 @@ NFC/RFID failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -414,7 +414,7 @@ Low signal has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -429,7 +429,7 @@ High signal has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -445,7 +445,7 @@ ADC failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -460,7 +460,7 @@ ALU failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -475,7 +475,7 @@ An assert has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -490,7 +490,7 @@ DAC failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -505,7 +505,7 @@ DMA failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -520,7 +520,7 @@ Ethernet failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -536,7 +536,7 @@ Exception has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -551,7 +551,7 @@ Floating point unit (FPU) failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -566,7 +566,7 @@ General purpose I/O (GPIO) failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -581,7 +581,7 @@ I2C failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -596,7 +596,7 @@ I2C failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -611,7 +611,7 @@ Invalid configuration has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -626,7 +626,7 @@ Memory Management Unit (MMU) failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -641,7 +641,7 @@ Non mask-able interrupt (NMI) failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -656,7 +656,7 @@ Overheat has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -671,7 +671,7 @@ Phased Locked Loop (PLL) fail has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -686,7 +686,7 @@ Power ON Reset (POR) fail has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -701,7 +701,7 @@ Pulse Width Modulation (PWM) failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -716,7 +716,7 @@ Random Access Memory (RAM) failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -731,7 +731,7 @@ Read only memory (ROM) failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -746,7 +746,7 @@ Serial peripheral interface (SPI) failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -761,7 +761,7 @@ Stack failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -777,7 +777,7 @@ LIN bus failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -793,7 +793,7 @@ UART failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -808,7 +808,7 @@ Unhandled interrupt has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -823,7 +823,7 @@ Memory failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -838,7 +838,7 @@ Variable range failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -853,7 +853,7 @@ Watch Dog Timer (WDT) failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -868,7 +868,7 @@ EEPROM failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -883,7 +883,7 @@ Encryption failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -898,7 +898,7 @@ Bad user input failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -913,7 +913,7 @@ Decryption failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -928,7 +928,7 @@ Noise has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -943,7 +943,7 @@ Boot loader failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -959,7 +959,7 @@ Program flow failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -974,7 +974,7 @@ Real Time Clock (RTC) failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -989,7 +989,7 @@ System test failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -1004,7 +1004,7 @@ Sensor failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -1019,7 +1019,7 @@ Safe state entered has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -1034,7 +1034,7 @@ Signal implausible has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -1049,7 +1049,7 @@ Storage fail has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -1064,7 +1064,7 @@ Self test OK has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -1079,7 +1079,7 @@ ESD/EMC/EMI failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -1094,7 +1094,7 @@ Timeout has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -1109,7 +1109,7 @@ LCD failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -1124,7 +1124,7 @@ Touch panel failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -1139,7 +1139,7 @@ No load has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -1154,7 +1154,7 @@ Cooling failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -1169,7 +1169,7 @@ Heating failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -1184,7 +1184,7 @@ Transmission failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -1199,7 +1199,7 @@ Receiption failure has been diagnosed.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -1214,7 +1214,7 @@ A failure in an external IC circuit has been detected.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -1229,7 +1229,7 @@ Indicates that charging (of a battery for example) is active.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
  
@@ -1244,7 +1244,7 @@ Indicates that charging (of a battery for example) is inactive.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/subdevices within a module.                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
  

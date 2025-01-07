@@ -29,7 +29,7 @@ The winter season has started.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -48,7 +48,7 @@ The spring season has started.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -66,7 +66,7 @@ The summer season has started.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -84,7 +84,7 @@ The autumn season has started.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -102,7 +102,7 @@ No wind
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -120,7 +120,7 @@ Low wind speed conditions.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -138,7 +138,7 @@ Medium wind speed conditions.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -156,7 +156,7 @@ High wind speed conditions.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -174,7 +174,7 @@ Very high wind speed conditions.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -192,7 +192,7 @@ Fogg.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -210,7 +210,7 @@ Freezing.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -228,7 +228,7 @@ Cold
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -246,7 +246,7 @@ Very cold
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -264,7 +264,7 @@ Air normal
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -282,7 +282,7 @@ Air hot
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -300,7 +300,7 @@ Air very hot
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -318,7 +318,7 @@ Pollution low
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -336,7 +336,7 @@ Pollution medium
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -354,7 +354,7 @@ Pollution high
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -372,7 +372,7 @@ Air humid
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -390,7 +390,7 @@ Air dry
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -408,7 +408,7 @@ soil humid
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -426,7 +426,7 @@ soil dry
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -444,7 +444,7 @@ Rain none
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -462,7 +462,7 @@ Rain light
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -480,7 +480,7 @@ Rain heavy
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -498,7 +498,7 @@ Rain very heavy
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -516,7 +516,7 @@ Sun none
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -534,7 +534,7 @@ Sun light
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -552,7 +552,7 @@ Sun heavy
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -570,7 +570,7 @@ Snow none.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -588,7 +588,7 @@ Snow light.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -606,7 +606,7 @@ Snow heavy.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -624,7 +624,7 @@ Dew point.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -642,7 +642,7 @@ Storm.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -660,7 +660,7 @@ Flood.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -678,7 +678,7 @@ Earthquake
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -696,7 +696,7 @@ Nuclera disaster
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -714,7 +714,7 @@ Fire.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -732,7 +732,7 @@ Lightning.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -750,7 +750,7 @@ Radiation low.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -768,7 +768,7 @@ Radiation medium.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -786,7 +786,7 @@ Radiation normal.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -804,7 +804,7 @@ Radiation high.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -822,7 +822,7 @@ Radiation very high.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -840,7 +840,7 @@ Warning level 1. This is the lowest varning level.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -858,7 +858,7 @@ Warninglevel 2.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  
 
@@ -876,7 +876,7 @@ Warninglevel 3.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -894,7 +894,7 @@ Warning level 4.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -912,7 +912,7 @@ Warning level 5. This is the highest warning level.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -930,7 +930,7 @@ The final warning level not seen by humans.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -949,7 +949,7 @@ UV Index is an international scale for UV intensity which can have the range of 
  | Data byte | Description                         |
  | :-------: | ----------------------------------- |
  | 0    | Index.                                                             |
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  | 3    | UV index (0-15)                        |
 

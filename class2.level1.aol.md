@@ -28,7 +28,7 @@ This node was unplugged from its power source.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for record.                                                  | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -46,7 +46,7 @@ This node was unplugged from the network.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for record.                                                  | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -64,7 +64,7 @@ This node detected chassis intrusion.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for record.                                                  | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -82,7 +82,7 @@ This node detected processor removal.
  | Data byte | Description                                                        | 
  | --------- | -----------                                                        | 
  | 0         | Index for record.                                                  | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -100,7 +100,7 @@ This node detected system environmental errors.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for record.                                                  | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -118,7 +118,7 @@ This node detected high temperature.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for record.                                                  | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -136,7 +136,7 @@ This node detected Fan speed problem.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for record.                                                  | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -154,7 +154,7 @@ This node detected Voltage fluctuations.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for record.                                                  | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -172,7 +172,7 @@ This node detected Operating system errors.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for record.                                                  | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -190,7 +190,7 @@ This node detected System power-on errors.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for record.                                                  | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -208,7 +208,7 @@ This node detected System is hung.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for record.                                                  | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -226,7 +226,7 @@ This node detected Component failure.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for record.                                                  | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -244,7 +244,7 @@ This node detected Remote system reboot upon report of a critical failure.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for record.                                                  | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -262,7 +262,7 @@ This node detected Repair Operating System.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for record.                                                  | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -280,7 +280,7 @@ This node detected Update BIOS image.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for record.                                                  | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -298,7 +298,7 @@ This node detected Update Perform other diagnostic procedures.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for record.                                                  | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 

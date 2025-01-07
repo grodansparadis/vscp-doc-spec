@@ -31,7 +31,7 @@ Indicates a warning condition.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | **0**=off. **1**=on. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones. | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones. | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
@@ -51,7 +51,7 @@ Indicates an alarm condition.
  | Data byte | Description                                                        |
  | :-------: | ------------------------------------------------------------------ |
  |     0     | Alarm byte from standard register 128/0x80 or a code of choice describing the alarm. |
- |     1     | Zone for which event applies to (0-255). 255 is all zones.         |
+ |     1     | Zone for which event applies to (0-254). 255 is all zones.         |
  |     2     | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
 If byte 0 is zero this event can be interpreted as alarm-reset.
@@ -73,7 +73,7 @@ Alarm sound should be turned on or off.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | **0**=off. **1**=on. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones. | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones. | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
@@ -93,7 +93,7 @@ Alarm light should be turned on or off.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | **0**=off. **1**=on. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones. | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones. | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
@@ -113,7 +113,7 @@ Power has been lost or is available again.
  | Data byte | Description | 
  | :---------: | -----------  | 
  | 0 | **0**=off. **1**=on. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones. | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones. | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones.| 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
@@ -133,7 +133,7 @@ Emergency stop has been hit/activated. All systems on the zone/sub-zone should g
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | **0**=off. **1**=on. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
@@ -153,7 +153,7 @@ Emergency pause has been hit/activated. All systems on the zone/sub-zone should 
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | **0**=off. **1**=on. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones. | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones. | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all subzones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
@@ -173,7 +173,7 @@ Issued after an emergency stop or pause in order for nodes to reset and start op
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | **0**=off. **1**=on. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones. | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones. | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
@@ -193,7 +193,7 @@ Issued after an emergency pause in order for nodes to start operating from where
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | **0**=off. **1**=on. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
@@ -213,7 +213,7 @@ Issued after an alarm system has been armed.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | **0**=off. **1**=on. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
@@ -233,7 +233,7 @@ Issued after an alarm system has been disarmed.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | **0**=off. **1**=on. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
@@ -253,7 +253,7 @@ Issued when a watchdog has been triggered.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | index. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
@@ -275,7 +275,7 @@ Indicates an alarm reset condition.
  | Data byte | Description                                                        |
  | :-------: | ------------------------------------------------------------------ |
  |     0     | Alarm byte from standard register 128/0x80  or a code of choice describing the alarm. |
- |     1     | Zone for which event applies to (0-255). 255 is all zones.         |
+ |     1     | Zone for which event applies to (0-254). 255 is all zones.         |
  |     2     | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.

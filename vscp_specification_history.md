@@ -2,6 +2,7 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|2025-01-07| AKHE | Added events CLASS1_CONTROL: VSCP_TYPE_CONTROL_TURN_ALL_OFF (17), VSCP_TYPE_CONTROL_TURN_ALL_ON (18) VSCP_TYPE_CONTROL_TURN_ALL_X (19) Fixes grodansparadis/vscp#278 |
 |2025-01-06| AKHE | Fixed several faulty data coding links, typo fixed. |
 |2025-01-02| AKHE | Arguments for CLASS1.PROTOCOL,VSCP_TYPE_PROTOCOL_GET_EVENT_INTEREST added. Fixed faulty links. | 
 |2024-12-18| AKHE | Fixing typos |

@@ -28,7 +28,7 @@ Clear the display on displays in a certain zone,sub-zone.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Code - not yet defined.                                            | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -46,7 +46,7 @@ Move the cursor to a specific position on displays in a certain zone,sub-zone.
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index.                                                             | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3    | Row to move to (first row is 0).                                   | 
  | 4    | Column to move to (first column is 0).                             | 
@@ -67,7 +67,7 @@ Write to display(s) in a certain zone,sub-zone. The update of the display is imm
  | Byte | Description                                                               | 
  | :----: | -----------                                                               | 
  | 0    | index - Increase by one for each event sent for specific text to display. | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.                | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.                | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones.        | 
  | 3-7  | Display data.                                                             | 
 
@@ -88,7 +88,7 @@ Write to the buffers of displays in a certain zone,sub-zone. The update of the d
  | Byte | Description                                                               | 
  | :----: | -----------                                                               | 
  | 0    | index - Increase by one for each event sent for specific text to display. | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.                | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.                | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones.        | 
  | 3-7  | Display data.                                                             | 
 
@@ -111,7 +111,7 @@ Tells displays in a certain zone,sub-zone to display the content in their displa
  | Byte | Description                                                               | 
  | :----: | -----------                                                               | 
  | 0    | index - Increase by one for each event sent for specific text to display. | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.                | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.                | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones.        | 
 
 
@@ -153,7 +153,7 @@ This event can have the same functionality as Write Display or be set on an high
  | Byte | Description                                                               | 
  | :----: | -----------                                                               | 
  | 0    | Index - Increase by one for each event sent for specific text to display. | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.                | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.                | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones.        | 
  | 3-7  | event.                                                                    | 
 
@@ -178,7 +178,7 @@ This event contains information that should be displayed on LED(s) pointed out b
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index                                                              | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3    | 0 =off, 1=on, 2=blink                                              | 
  | 4    | Blink period: MSB milliseconds for ON.                             | 
@@ -203,7 +203,7 @@ This event set the color for LED(s) (or similar device) pointed out by zone/sub-
  | Byte | Description                                                        | 
  | :----: | -----------                                                        | 
  | 0    | Index                                                              | 
- | 1    | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1    | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2    | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3    | Color R to display 0-255.                                          | 
  | 4    | Color G to display 0-255.                                          | 

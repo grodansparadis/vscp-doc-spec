@@ -25,7 +25,7 @@ This is for controlling playback functionality
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Function (See below)                                               | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 ##### Function Codes
@@ -63,7 +63,7 @@ This is typically for navigation functions or DVD controls
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Function                                                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 ##### Function Codes
@@ -93,7 +93,7 @@ This is typically for adjusting the contrast level of a display device
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                | 
  | :---------: | -----------                                                                                                                                                                                                                                                                                                                                                                | 
  | 0         | A value between 0 and 127 indicates the specific contrast level to set. A value between 128 and 159 is change down by the specified number of contrast levels. A value between 160 and 191 is change up by the specified number of contrast levels. A value of 255 means that this is and extended event and that the specific contrast level is sent in byte 3 and after. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                                 | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                                                                                                                                                                                                                 | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                         | 
 
 ----
@@ -107,7 +107,7 @@ This is typically for adjusting the focus settings of a display device
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                    | 
  | :---------: | -----------                                                                                                                                                                                                                                                                                                                                                    | 
  | 0         | A value between 0 and 127 indicates the specific focus level to set. A value between 128 and 159 is change down by the specified number of focus levels. A value between 160 and 191 is change up by the specified number of focus levels. A value of 255 means that this is and extended event and that the specific focus level is sent in byte 3 and after. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                     | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                                                                                                                                                                                                     | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                             | 
 
 ----
@@ -121,7 +121,7 @@ This is typically for adjusting the tint settings of a display device
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                | 
  | :---------: | -----------                                                                                                                                                                                                                                                                                                                                                | 
  | 0         | A value between 0 and 127 indicates the specific tint level to set. A value between 128 and 159 is change down by the specified number of tint levels. A value between 160 and 191 is change up by the specified number of tint levels. A value of 255 means that this is and extended event and that the specific tint level is sent in byte 3 and after. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                 | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                                                                                                                                                                                                 | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                         | 
 
 ----
@@ -135,7 +135,7 @@ This is typically for adjusting the color balance settings of a display device.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 ----
@@ -149,7 +149,7 @@ This is typically for adjusting the tint settings of a display device
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                        | 
  | :---------: | -----------                                                                                                                                                                                                                                                                                                                                                                        | 
  | 0         | A value between 0 and 127 indicates the specific brightness level to set. A value between 128 and 159 is change down by the specified number of brightness levels. A value between 160 and 191 is change up by the specified number of brightness levels. A value of 255 means that this is and extended event and that the specific brightness level is sent in byte 3 and after. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                                         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                                                                                                                                                                                                                         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                                 | 
 
 ----
@@ -163,7 +163,7 @@ This is typically for adjusting the hue settings of a display device
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | A value between 0 and 127 indicates the specific hue level to set. A value between 128 and 159 is change down by the specified number of hue levels. A value between 160 and 191 is change up by the specified number of hue levels. A value of 255 means that this is and extended event and that the specific hue level is sent in byte 3 and after. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 ----
@@ -177,7 +177,7 @@ This is typically for adjusting the bass level settings of a sound device. Depen
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                | 
  | :---------: | -----------                                                                                                                                                                                                                                                                                                                                                | 
  | 0         | A value between 0 and 127 indicates the specific bass level to set. A value between 128 and 159 is change down by the specified number of bass levels. A value between 160 and 191 is change up by the specified number of bass levels. A value of 255 means that this is and extended event and that the specific bass level is sent in byte 3 and after. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                 | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                                                                                                                                                                                                 | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                         | 
 
 ----
@@ -191,7 +191,7 @@ This is typically for adjusting the treble level settings of a sound device. Dep
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                          | 
  | :---------: | -----------                                                                                                                                                                                                                                                                                                                                                          | 
  | 0         | 0 A value between 0 and 127 indicates the specific treble level to set. A value between 128 and 159 is change down by the specified number of treble levels. A value between 160 and 191 is change up by the specified number of treble levels. A value of 255 means that this is and extended event and that the specific treble level is sent in byte 3 and after. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                           | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                                                                                                                                                                                                           | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                   | 
 
 ----
@@ -205,7 +205,7 @@ This is typically for adjusting the master volume level. This could be used for 
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                        | 
  | :---------: | -----------                                                                                                                                                                                                                                                                                                                                                        | 
  | 0         | A value between 0 and 127 indicates the specific volume level to set. A value between 128 and 159 is change down by the specified number of volume levels. A value between 160 and 191 is change up by the specified number of volume levels. A value of 255 means that this is and extended event and that the specific volume level is sent in byte 3 and after. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                                                                                                                                                                                                         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                 | 
 
 ----
@@ -219,7 +219,7 @@ This is typically for adjusting the front speaker volume level. This usually mea
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                        | 
  | :---------: | -----------                                                                                                                                                                                                                                                                                                                                                        | 
  | 0         | A value between 0 and 127 indicates the specific volume level to set. A value between 128 and 159 is change down by the specified number of volume levels. A value between 160 and 191 is change up by the specified number of volume levels. A value of 255 means that this is and extended event and that the specific volume level is sent in byte 3 and after. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                                                                                                                                                                                                         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                 | 
 
 ----
@@ -233,7 +233,7 @@ This is typically for adjusting the front speaker volume level. This usually mea
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                        | 
  | :---------: | -----------                                                                                                                                                                                                                                                                                                                                                        | 
  | 0         | A value between 0 and 127 indicates the specific volume level to set. A value between 128 and 159 is change down by the specified number of volume levels. A value between 160 and 191 is change up by the specified number of volume levels. A value of 255 means that this is and extended event and that the specific volume level is sent in byte 3 and after. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                                                                                                                                                                                                         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                 | 
 
 ----
@@ -247,7 +247,7 @@ This is typically for adjusting the rear speaker volume level.
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                        | 
  | :---------: | -----------                                                                                                                                                                                                                                                                                                                                                        | 
  | 0         | A value between 0 and 127 indicates the specific volume level to set. A value between 128 and 159 is change down by the specified number of volume levels. A value between 160 and 191 is change up by the specified number of volume levels. A value of 255 means that this is and extended event and that the specific volume level is sent in byte 3 and after. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                                                                                                                                                                                                         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                 | 
 
 ----
@@ -261,7 +261,7 @@ This is typically for adjusting the side speaker volume level.
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                        | 
  | :---------: | -----------                                                                                                                                                                                                                                                                                                                                                        | 
  | 0         | A value between 0 and 127 indicates the specific volume level to set. A value between 128 and 159 is change down by the specified number of volume levels. A value between 160 and 191 is change up by the specified number of volume levels. A value of 255 means that this is and extended event and that the specific volume level is sent in byte 3 and after. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                                                                                                                                                                                                         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                 | 
 
 ----
@@ -303,7 +303,7 @@ This is typically for selecting a disk for playback
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                 | 
  | :---------: | -----------                                                                                                                                                                                                                                                                                                                                                                 | 
  | 0         | A value between 0 and 127 indicates the specific disk number. A value between 128 and 159 is change down by the specified number of disks. A value between 160 and 191 is change up by the specified number of disks. A value of 200 means select a random disk. A value of 255 means that this is and extended event and that the disk number is sent in byte 3 and after. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                                  | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                                                                                                                                                                                                                  | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                          | 
 
 ----
@@ -317,7 +317,7 @@ This is typically for selecting a track for playback
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                             | 
  | :---------: | -----------                                                                                                                                                                                                                                                                                                                                                             | 
  | 0         | A value between 0 and 127 indicates the track number. A value between 128 and 159 is change down by the specified number of tracks. A value between 160 and 191 is change up by the specified number of tracks. A value of 200 means select a random track. A value of 255 means that this is and extended event and that the track number is sent in byte 3 and after. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                              | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                                                                                                                                                                                                              | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                      | 
 
 ----
@@ -331,7 +331,7 @@ This is typically for selecting an album or play-list for playback
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                                  | 
  | :---------: | -----------                                                                                                                                                                                                                                                                                                                                                                                  | 
  | 0         | A value between 0 and 127 indicates the album/play-list number. A value between 128 and 159 is change down by the specified number of albums/play-lists. A value between 160 and 191 is change up by the specified number of albums. A value of 200 means select a random album. A value of 255 means that this is and extended event and that the album number is sent in byte 3 and after. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                                                   | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                                                                                                                                                                                                                                   | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                                           | 
 
 ----
@@ -345,7 +345,7 @@ This is typically for selecting a TV Channel
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                       | 
  | :---------: | -----------                                                                                                                                                                                                                                                                                                                                                                       | 
  | 0         | A value between 0 and 127 indicates the channel number. A value between 128 and 159 is change down by the specified number of channels. A value between 160 and 191 is change up by the specified number of channels. A value of 200 means select a random channel. A value of 255 means that this is and extended event and that the channel number is sent in byte 3 and after. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                                                                                                                                                                                                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                                | 
 
 ----
@@ -359,7 +359,7 @@ This is typically for selecting a page of a film
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                        | 
  | :---------: | -----------                                                                                                                                                                                                                                                                                                                                                        | 
  | 0         | A value between 0 and 127 indicates the page number. A value between 128 and 159 is change down by the specified number of pages. A value between 160 and 191 is change up by the specified number of pages. A value of 200 means select a random page. A value of 255 means that this is and extended event and that the page number is sent in byte 3 and after. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                                                                                                                                                                                                         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                 | 
 
 ----
@@ -373,7 +373,7 @@ This is typically for selecting a chapter of a film
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                       | 
  | :---------: | -----------                                                                                                                                                                                                                                                                                                                                                                       | 
  | 0         | A value between 0 and 127 indicates the chapter number. A value between 128 and 159 is change down by the specified number of chapters. A value between 160 and 191 is change up by the specified number of chapters. A value of 200 means select a random chapter. A value of 255 means that this is and extended event and that the chapter number is sent in byte 3 and after. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                                                                                                                                                                                                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                                | 
 
 ----
@@ -387,7 +387,7 @@ This is for controlling screen format of a display device
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | 0 = Auto, 1 = Just, 2 = Norma,l 3 = Zoom.                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 ----
@@ -401,7 +401,7 @@ This is for controlling the input source of a playback device
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Device code                                                        | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 ##### Device Code
@@ -443,7 +443,7 @@ This is for controlling the output of a playback device
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Output Code                                                        | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 ##### Output Code
@@ -472,7 +472,7 @@ Control a recording device.
  | Data byte | Description                                                            | 
  | :---------: | -----------                                                            | 
  | 0         | 0 - Start to record, 1 - Stop record, 2 - Disable, AGC 3 - Enable AGC. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.             | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.             | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.     | 
 
 ----
@@ -486,7 +486,7 @@ Control a recording device.
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                                                | 
  | :---------: | -----------                                                                                                                                                                                                                                                                                                                                                                | 
  | 0         | A value between 0 and 127 indicates the specific contrast level to set. A value between 128 and 159 is change down by the specified number of contrast levels. A value between 160 and 191 is change up by the specified number of contrast levels. A value of 255 means that this is and extended event and that the specific contrast level is sent in byte 3 and after. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                                 | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                                                                                                                                                                                                                 | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                                         | 
 
 ----
@@ -500,7 +500,7 @@ This is typically for accessing TIVO functions
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | TIVO Code                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 ##### TIVO Code
@@ -532,7 +532,7 @@ Get the title for the current active media.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 ----
@@ -546,7 +546,7 @@ This is for controlling the position in the stream/file of a playback device
  | Data byte | Description                                                                                                                                                                                         | 
  | :---------: | -----------                                                                                                                                                                                         | 
  | 0         | Reserved                                                                                                                                                                                            | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                          | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                                          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                  | 
  | 3-7       | Position in milliseconds, This is an integer with a size specified by the event size. This 0xFF, 0xFFFF, 0xFFFFFF, 0xFFFFFFFF and 0xFFFFFFFFFF is the maximum that can be sent for different sizes. | 
 
@@ -561,7 +561,7 @@ Get various media information from a device.
  | Data byte | Description                                                                                                                                                                          | 
  | :---------: | -----------                                                                                                                                                                          | 
  | 0         | Type of media information requested. 1 - Current Title, 1 - Get Folders, 2 - Get Disks, 3 - Get Tracks, 4 - Get Albums/Play list,s 5 - Get Channels, 6 - Get Pages, 7 - Get Chapters | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                           | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                           | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                   | 
 
 If a device does not support the requested type of media information its sends a CLASS1.INFORMATION error event or does not response. 
@@ -577,7 +577,7 @@ Remove an item from an album.
  | Data byte | Description                                                                                                                                                       | 
  | :---------: | -----------                                                                                                                                                       | 
  | 0         | 0-128 - Pos to remove from album/play-list A value of 255 means that this is and extended event and that the specific contrast level is sent in byte 3 and after. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                | 
 
 ----
@@ -591,7 +591,7 @@ Remove all items from an album.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 ----
@@ -605,7 +605,7 @@ Save album/play-list to permanent storage.
  | Data byte | Description                                                          | 
  | :---------: | -----------                                                          | 
  | 0         | 0 - Do not overwrite if it already exists 1 - Overwrite if it exist. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.           | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.           | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.   | 
 
 ----
@@ -621,7 +621,7 @@ Response should be Type=61
  | Data byte | Description                                                          | 
  | :---------: | -----------                                                          | 
  | 0         | Control codes                                                        | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.           | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.           | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.   | 
  | 3         | Index. Base 0. Increase by one for every fragment of the title sent. | 
  | 4-7       | Data.                                                                | 

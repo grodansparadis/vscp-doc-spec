@@ -17,7 +17,7 @@ This error message is used to report success, that is no error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -36,7 +36,7 @@ This error message is used to indicate an error condition.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -55,7 +55,7 @@ This error message is used to indicate a (communication) channel problem.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -74,7 +74,7 @@ This error message is used to indicate a fifo empty problem.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -93,7 +93,7 @@ This error message is used to indicate a fifo full problem.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -112,7 +112,7 @@ This error message is used to indicate a fifo size problem.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -131,7 +131,7 @@ This error message is used to indicate a fifo wait problem.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -150,7 +150,7 @@ This error message is used to indicate a generic error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -169,7 +169,7 @@ This error message is used to indicate a hardware error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -188,7 +188,7 @@ This error message is used to indicate a initialization error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -207,7 +207,7 @@ This error message is used to indicate a missing initialization error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -226,7 +226,7 @@ This error message is used to indicate a initialization ready error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -245,7 +245,7 @@ This error message is used to indicate a not supported error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -264,7 +264,7 @@ This error message is used to indicate an overrun error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -283,7 +283,7 @@ This error message is used to indicate a receiver empty error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -302,7 +302,7 @@ This error message is used to indicate a register error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -321,7 +321,7 @@ This error message is used to indicate a transmitter full error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -340,7 +340,7 @@ This error message is used to indicate a library error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -359,7 +359,7 @@ This error message is used to indicate a procedural address error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -378,7 +378,7 @@ This error message is used to indicate an only one instance error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -397,7 +397,7 @@ This error message is used to indicate a sub driver error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -416,7 +416,7 @@ This error message is used to indicate a timeout error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -435,7 +435,7 @@ This error message is used to indicate a not open error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -454,7 +454,7 @@ This error message is used to indicate a parameter error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -473,7 +473,7 @@ This error message is used to indicate a memory error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -492,7 +492,7 @@ This error message is used to indicate a internal error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -511,7 +511,7 @@ This error message is used to indicate a communication error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -530,7 +530,7 @@ This error message is used to indicate a user error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -549,7 +549,7 @@ This error message is used to indicate a password error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -568,7 +568,7 @@ This error message is used to indicate a connection error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -587,7 +587,7 @@ This error message is used to indicate a invalid handle error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -606,7 +606,7 @@ This error message is used to indicate an operation failed error.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -625,7 +625,7 @@ This error message is used to indicate that the supplied buffer is to small to f
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -644,7 +644,7 @@ This error message is used to indicate that the requested item (remote variable)
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -663,7 +663,7 @@ This error message is used to indicate that the name is already in use.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -682,7 +682,7 @@ This error message is used to indicate an error when writing data.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 
@@ -701,7 +701,7 @@ This error message is used to indicate a stopped or an aborted operation.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. |
 
@@ -719,7 +719,7 @@ This error message is used to indicate a pointer with an invalid value.
  | Data byte | Description                                                                                       | 
  | :---------: | -----------                                                                                       | 
  | 0         | index. Often used as an index for channels/sub devices within a module.                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                | 
  | 3-7       | Can be present or not be present. If present the bytes give additional user specific information. | 
 

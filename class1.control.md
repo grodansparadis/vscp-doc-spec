@@ -22,7 +22,7 @@ Mute/Un-mute all sound generating nodes in a zone
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | If equal to zero no mute else mute.                                | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 ----
@@ -36,10 +36,12 @@ Turn on/off lamps on nodes in zone.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | If equal to zero off else on.                                      | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 See also [CLASS1.CONTROL, Type=40](./class1.control.md#type40) and [CLASS1.CONTROL, Type=42](./class1.control.md#type41) which don't use byte 0 but instead are separated in two distinct events.
+
+It is recommended to use the more general [CLASS1.CONTROL, Type=17](./class1.control.md#type41),[CLASS1.CONTROL, Type=18](./class1.control.md#type18),[CLASS1.CONTROL, Type=19](./class1.control.md#type19) to keep a higher abstraction level. This event is keept for compatibility with legacy systems.
 
 ----
 
@@ -51,8 +53,8 @@ Perform open on all nodes in zone.
 
  | Data byte | Description                                                         | 
  | :---------: | -----------                                                         | 
- | 0         | Optional byte that have a meaning given by the issuer of the event. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
+ | 0         | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability. | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 
@@ -66,8 +68,8 @@ Perform close on all nodes in zone.
 
  | Data byte | Description                                                         | 
  | :---------: | -----------                                                         | 
- | 0         | Optional byte that have a meaning given by the issuer of the event. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
+ | 0         | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability. | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 
@@ -81,8 +83,8 @@ Turn On a nodes in a zone/subzone.
 
  | Data byte | Description                                                         | 
  | :---------: | -----------                                                         | 
- | 0         | Optional byte that have a meaning given by the issuer of the event. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
+ | 0         | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability. | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 
@@ -96,8 +98,8 @@ Turn Off a nodes in a zone/subzone.
 
  | Data byte | Description                                                         | 
  | :---------: | -----------                                                         | 
- | 0         | Optional byte that have a meaning given by the issuer of the event. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
+ | 0         | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability. | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 
@@ -111,8 +113,8 @@ Start all nodes in a zone.
 
  | Data byte | Description                                                         | 
  | :---------: | -----------                                                         | 
- | 0         | Optional byte that have a meaning given by the issuer of the event. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
+ | 0         | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability. | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 ----
@@ -125,8 +127,8 @@ Stop all nodes in zone.
 
  | Data byte | Description                                                         | 
  | :---------: | -----------                                                         | 
- | 0         | Optional byte that have a meaning given by the issuer of the event. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
+ | 0         | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability. | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 
@@ -140,8 +142,8 @@ Perform Reset on all nodes in zone.
 
  | Data byte | Description                                                         | 
  | :---------: | -----------                                                         | 
- | 0         | Optional byte that have a meaning given by the issuer of the event. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
+ | 0         | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability. | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 
@@ -156,7 +158,7 @@ Perform Interrupt on all nodes in zone.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Interrupt level. (0 – 255 , zero is lowest interrupt level. ).   | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -170,8 +172,8 @@ Perform Sleep on all nodes in zone.
 
  | Data byte | Description                                                         | 
  | :---------: | -----------                                                         | 
- | 0         | Optional byte that have a meaning given by the issuer of the event. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
+ | 0         | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability. | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 
@@ -185,8 +187,8 @@ Wakeup all nodes in zone.
 
  | Data byte | Description                                                         | 
  | :---------: | -----------                                                         | 
- | 0         | Optional byte that have a meaning given by the issuer of the event. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
+ | 0         | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability. | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 
@@ -200,8 +202,8 @@ Resume all nodes in zone.
 
  | Data byte | Description                                                         | 
  | :---------: | -----------                                                         | 
- | 0         | Optional byte that have a meaning given by the issuer of the event. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
+ | 0         | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability. | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 
@@ -215,8 +217,8 @@ Pause all nodes in zone.
 
  | Data byte | Description                                                         | 
  | :---------: | -----------                                                         | 
- | 0         | Optional byte that have a meaning given by the issuer of the event. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
+ | 0         | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability. | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 
@@ -230,8 +232,8 @@ Activate all nodes in zone.
 
  | Data byte | Description                                                         | 
  | :---------: | -----------                                                         | 
- | 0         | Optional byte that have a meaning given by the issuer of the event. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
+ | 0         | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability. | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 
@@ -245,32 +247,51 @@ Deactivate all nodes in zone.
 
  | Data byte | Description                                                         | 
  | :---------: | -----------                                                         | 
- | 0         | Optional byte that have a meaning given by the issuer of the event. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
+ | 0         | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability. | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 
 ----
 
-## Type=17 (0x11) - Reserved for future use :id=type17
+## Type=17 (0x11) - Set all devices off :id=type17
 ```
-VSCP_TYPE_CONTROL_RESERVED17
+VSCP_TYPE_CONTROL_TURN_ALL_OFF
 ```
-Reserved. 
+Turn off all devices identified by zone/subzone/index.
+
+ | Data byte | Description                                                        | 
+ | :-------: | -----------                                                        | 
+ | 0         | Index. 255 is all indeces. | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
+ | 2         | Sub-zone for which event applies to (0-254). 255 is all sub-zones. | 
 ----
 
-## Type=18 (0x12) - Reserved for future use :id=type18
+## Type=18 (0x12) - Set all devices on :id=type18
 ```
-VSCP_TYPE_CONTROL_RESERVED18
+VSCP_TYPE_CONTROL_TURN_ALL_ON
 ```
-Reserved. 
+Turn on all devices identified by zone/subzone/index.
+
+ | Data byte | Description                                                        | 
+ | :---------: | -----------                                                        | 
+ | 0         | Index. 255 is all indeces. | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
+ | 2         | Sub-zone for which event applies to (0-254). 255 is all sub-zones. |  
 ----
 
-## Type=19 (0x13) - Reserved for future use :id=type19
+## Type=19 (0x13) - Set all device on/off as of argument :id=type19
 ```
-VSCP_TYPE_CONTROL_RESERVED19
+VSCP_TYPE_CONTROL_TURN_ALL_X
 ```
-Reserved.
+Turn on/off all devices identified by zone/subzone/index.
+
+ | Data byte | Description                                                        | 
+ | :---------: | -----------                                                      | 
+ | 0         | Index. 255 is all indeces. | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
+ | 2         | Sub-zone for which event applies to (0-254). 255 is all sub-zones. | 
+ | 3         | 0 = off, 1= on. | 
 ----
 
 ## Type=20 (0x14) - Dim lamp(s) :id=type20
@@ -279,10 +300,12 @@ VSCP_TYPE_CONTROL_DIM_LAMPS
 ```
 Dim all dimmer devices on a segment to a specified dim value. 
 
+This is mainly constructed for dimming of lamps but is general for all dimmable devices.
+
  | Data byte | Description                                                                             | 
  | :---------: | -----------                                                                             | 
  | 0         | Value (0 – 100) . 0 = off, 100 = full on. 254 dim down one step. 255 dim up one step. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                              | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                              | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                      | 
 
 ----
@@ -296,7 +319,7 @@ This is typical for changing TV channels or for changing AV amp input source etc
  | Data byte | Description                                                                                                                                                                                                                                                                                                                                               | 
  | :---------: | -----------                                                                                                                                                                                                                                                                                                                                               | 
  | 0         | A value between 0 and 127 indicates the channel number. A value between 128 to 157 is change down by the specified number of channels. A value between 160 to 191 is change up by the specified number of channels. A value of 255 means that this is an extended change channel event and that the channel number is sent in byte 3 and after if needed. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                                                                                                                                                                                                                | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                                                                                                                                                                                                                | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                                                                                                                                                                                                        | 
 
 ----
@@ -310,7 +333,7 @@ Change an absolute level.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Absolute level.                                                    | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 ----
@@ -325,7 +348,7 @@ VSCP_TYPE_CONTROL_RELATIVE_CHANGE_LEVEL
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Relative level.                                                    | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 ----
@@ -339,7 +362,7 @@ Measurement Request
 | Data byte | Description                                                                                                                                                           | 
  | :---------: | -----------                                                                                                                                                           | 
  | 0         | Zero indicates all measurements supported by node should be sent (as separate events). Non-zero indicates a node specific index specifying which measurement to send. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                                            | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                                            | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                                                    | 
 
 ----
@@ -368,7 +391,7 @@ Synchronize events on a segment.
  | Data byte | Description                                                                                                                                  | 
  | :---------: | -----------                                                                                                                                  | 
  | 0         | Sensor index for a sensor within a module (see [data coding](./vscp_measurements?id=datacoding). 255 is all sensors. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                                                   | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                                                   | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                                                           | 
 
 The sensor index can be used to index units within a module also or used as some other indexing schema. 
@@ -384,7 +407,7 @@ Request streamed data from nodes identified by zone/subzone.
  | Data byte | Description                                                               | 
  | :---------: | -----------                                                               | 
  | 0         | Sequence number which is increase by one for each stream data event sent. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.        | 
  | 3-7       | Stream data.                                                              | 
 
@@ -403,7 +426,7 @@ Type=48 as a response event.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Code for pre-set to set.                                           | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 ----
@@ -418,8 +441,8 @@ Note: This may be a bad design option as it often demands that the state should 
 
  | Data byte | Description                                                         | 
  | :---------: | -----------                                                         | 
- | 0         | Optional byte that have a meaning given by the issuer of the event. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
+ | 0         | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability. | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
 
 ----
@@ -432,8 +455,8 @@ With this event it is possible to generate a timed pulse that is on for a specif
 
  | Data byte | Description                                                         |
  | :---------: | ----------- |
- | 0         | Optional byte that have a meaning given by the issuer of the event. |
- | 1         | Zone for which event applies to (0-255). 255 is all zones.      |
+ | 0         | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability. |
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.      |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  |
  | 3         | Control byte.                                                       |
  | 4-7       | Set time as a long with MSB in the first byte.                      |
@@ -471,8 +494,8 @@ With this event it is possible to generate a timed pulse that is off for a speci
 
  | Data byte | Description                                                         | 
  | :---------: | -----------                                                         | 
- | 0         | Optional byte that have a meaning given by the issuer of the event. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.          | 
+ | 0         | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability. | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.          | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  | 
  | 3         | Control byte.                                                       | 
  | 4-7       | Set time as a long with MSB in the first byte.                      | 
@@ -512,7 +535,7 @@ Set country and language.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Country/Language code.                                             | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3-7       | Country/Language code specific                                     | 
 
@@ -539,93 +562,93 @@ Big Change level can be used in situations when the one byte level of CLASS1.CON
  | Data byte | Description  | 
  | :---------: | -----------   | 
  | 0         | Index        | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.   | 
  | 3-7       | Level as signed integer. The range can be adjusted by the user by sending just the needed number of bytes (1-5) which form the signed integer (MSB first). | 
 
 ----
 
-## Type=34 (0x22) - Move shutter up :id=type34
+## Type=34 (0x22) - Move (shutter) up :id=type34
 ```
 VSCP_TYPE_CONTROL_SHUTTER_UP
 ```
-Move shutter up.
+Move (shutter) up.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index.                                                             | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 ----
 
-## Type=35 (0x23) - Move shutter down :id=type35
+## Type=35 (0x23) - Move (shutter) down :id=type35
 ```
 VSCP_TYPE_CONTROL_SHUTTER_DOWN
 ```
-Move shutter down.
+Move (shutter) down.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index.                                                             | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 ----
 
-## Type=36 (0x24) - Move shutter left :id=type36
+## Type=36 (0x24) - Move (shutter) left :id=type36
 ```
 VSCP_TYPE_CONTROL_SHUTTER_LEFT
 ```
-Move shutter left.
+Move (shutter) left.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index.                                                             | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
 ----
 
-## Type=37 (0x25) - Move shutter right :id=type37
+## Type=37 (0x25) - Move (shutter) right :id=type37
 ```
 VSCP_TYPE_CONTROL_SHUTTER_RIGHT
 ```
-Move shutter right.
+Move (shutter) right.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index.                                                             | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 ----
 
-## Type=38 (0x26) - Move shutter to middle position :id=type38
+## Type=38 (0x26) - Move (shutter) to middle position :id=type38
 ```
 VSCP_TYPE_CONTROL_SHUTTER_MIDDLE
 ```
-Move shutter to middle position.
+Move (shutter) to middle position.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index.                                                             | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 ----
 
-## Type=39 (0x27) - Move shutter to preset position :id=type39
+## Type=39 (0x27) - Move (shutter) to preset position :id=type39
 ```
 VSCP_TYPE_CONTROL_SHUTTER_PRESET
 ```
-Move shutter to preset position.
+Move (shutter) to preset position.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index.                                                             | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3         | Position 0-100.                                                    | 
 
@@ -639,11 +662,13 @@ Turn on all lamps in a zone.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
- | 0         |	Optional byte that have a meaning given by the issuer of the event.| 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 0         |	Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability.| 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 See also [CLASS1.CONTROL, Type=2](./class1.control.md#type2)
+
+It is recommended to use the more general [CLASS1.CONTROL, Type=17](./class1.control.md#type41),[CLASS1.CONTROL, Type=18](./class1.control.md#type18), [CLASS1.CONTROL, Type=19](./class1.control.md#type19) to keep a higher abstraction level. This event is keept for compatibility with legacy systems.
 
 ----
 
@@ -655,11 +680,13 @@ Turn off all lamps in a zone.
 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
- | 0         |	Optional byte that have a meaning given by the issuer of the event.| 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 0         |	Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability.| 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 See also [CLASS1.CONTROL, Type=2](./class1.control.md#type2)
+
+It is recommended to use the more general [CLASS1.CONTROL, Type=17](./class1.control.md#type41),[CLASS1.CONTROL, Type=18](./class1.control.md#type18), [CLASS1.CONTROL, Type=19](./class1.control.md#type19) to keep a higher abstraction level. This event is keept for compatibility with legacy systems.
 
 ----
 
@@ -671,8 +698,8 @@ Lock devices in a zone.
 
  | Data byte | Description                                                        |
  | :---------: | -----------                                                      |
- | 0         |	Optional byte that have a meaning given by the issuer of the event.| 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 0         |	Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability.| 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
 ----
@@ -685,8 +712,8 @@ Unlock devices in a zone.
 
  | Data byte | Description                                                        |
  | :---------: | -----------                                                        |
- | 0         |	Optional byte that have a meaning given by the issuer of the event.| 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 0         |	Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability.| 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
 ----
@@ -700,7 +727,7 @@ With this event it is possible to set duty cycle output such as PWM.
  | Data byte | Description   |
  | :---------: | ----------- |
  | 0         | Repeat/counter: 0=repeat forever, >0 number of repeats |
- | 1         | Zone for which event applies to (0-255). 255 is all zones.      |
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.      |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.  |
  | 3         | Control byte.  |
  | 4         | Time-On MSB |
@@ -741,8 +768,8 @@ Lock devices with token.
 
  | Data byte | Description                                                        |
  | :---------: | -----------                                                      |
- | 0         |	Optional byte that have a meaning given by the issuer of the event.| 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 0         |	Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability.| 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  | 3-7 | Token. This token can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775. MSB byte is stored in first byte. |
  
@@ -757,8 +784,8 @@ Unlock devices with token.
 
  | Data byte | Description                                                        |
  | :---------: | -----------                                                      |
- | 0         |	Optional byte that have a meaning given by the issuer of the event.| 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 0         |	Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability.| 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  | 3-7 | Token. This token can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775. MSB byte is stored in first byte. |
  
@@ -774,7 +801,7 @@ Set security level.
  | Data byte | Description                                                        |
  | :---------: | -----------                                                      |
  | 0         | Security level to set. 0-255 (Higher value is higher security level).  |
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  
 
@@ -788,8 +815,8 @@ Set security pin.
 
  | Data byte | Description                                                        |
  | :---------: | -----------                                                      |
- | 0         |	Optional byte that have a meaning given by the issuer of the event.| 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 0         |	Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability.| 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  | 3-7 | Security pin. This pin can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775. MSB byte is stored in first byte. |
  
@@ -804,8 +831,8 @@ Set security password.
 
  | Data byte | Description                                                        |
  | :---------: | -----------                                                      |
- | 0         |	Optional byte that have a meaning given by the issuer of the event.| 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 0         |	Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability.| 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  | 3-7 | Security password. This password can be 1-5 bytes and length of event is set accordingly. It should be interpreted as a UTF-8 string of length equal to the event data length minus 3 bytes |
  
@@ -820,8 +847,8 @@ Set security token.
 
  | Data byte | Description                                                        |
  | :---------: | -----------                                                      |
- | 0         |	Optional byte that have a meaning given by the issuer of the event.| 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 0         |	Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability.| 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  | 3-7 | Token. This token can be 1-5 bytes and length of event is set accordingly. It should be interpreted as an unsigned integer in the range 0-1099511627775. MSB byte is stored in first byte. |
  
@@ -836,8 +863,8 @@ Request new security token.
 
  | Data byte | Description                                                        |
  | :---------: | -----------                                                      |
- | 0         |	Optional byte that have a meaning given by the issuer of the event.| 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 0         |	Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability.| 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  
  
@@ -852,8 +879,8 @@ Increment value.
 
  | Data byte | Description  | 
  | :---------: | -----------   | 
- | 0         | Optional byte that have a meaning given by the issuer of the event.        | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.        | 
+ | 0         | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability.        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.   | 
  | 3-7       | Increment as unsigned integer. The range can be adjusted by the user by sending just the needed number of bytes (1-5) which form the unsigned integer (MSB first). If omitted (or 0) 1 is assumed as default increment value. | 
 
@@ -867,8 +894,8 @@ Decrement value.
 
  | Data byte | Description  | 
  | :---------: | -----------   | 
- | 0         | Optional byte that have a meaning given by the issuer of the event.        | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.        | 
+ | 0         | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability.        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.   | 
  | 3-7       | Decrement as unsigned integer. The range can be adjusted by the user by sending just the needed number of bytes (1-5) which form the unsigned integer (MSB first). If omitted (or 0) 1 is assumed as default decrement value. | 
 

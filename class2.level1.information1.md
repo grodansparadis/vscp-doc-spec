@@ -72,7 +72,7 @@ A node indicates that a condition is in its on state. Heater on, lights on are t
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | index. Often used as an index for channels within a module.        | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -90,7 +90,7 @@ A node indicates that a condition is in its off state. Heater off, lights off ar
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index.                                                             | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -108,7 +108,7 @@ A node tells the world that it is alive.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | User specified.                                                    | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -126,7 +126,7 @@ A node tells the world that it is terminating.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | User specified.                                                    | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 Byte2 Sub-zone for which event applies to (0-255). 255 is all sub-zones.
@@ -146,7 +146,7 @@ A node indicates that an open has occurred. This can be a door/window open, a mo
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | User specified.                                                    | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -164,7 +164,7 @@ A node indicates that a close has occurred. This can be a door/window close, a m
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | User specified.                                                    | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -184,7 +184,7 @@ Heartbeats can be used to indicate that a unit is alive or to send periodic data
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | User specified.                                                    | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -202,7 +202,7 @@ This indicates that the node has a condition that is below a configurable limit.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -220,7 +220,7 @@ This indicates that the node has a condition that is above a configurable limit.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -238,7 +238,7 @@ This can be used for slow pulse counts. This can be an S0-pulse interface or som
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -256,7 +256,7 @@ A node indicates that an error occurred.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -274,7 +274,7 @@ A node indicates that it has resumed operation.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -292,7 +292,7 @@ A node indicates that it has paused.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -310,7 +310,7 @@ A node indicates that it entered a sleeping state.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -328,7 +328,7 @@ The system should enter its morning state. This can be a user pressing a button 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -346,7 +346,7 @@ The system should enter its day state. This can be a user pressing a button to s
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -364,7 +364,7 @@ The system should enter its afternoon state. This can be a user pressing a butto
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -382,7 +382,7 @@ The system should enter its evening state. This can be a user pressing a button 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -400,7 +400,7 @@ The system should enter its night state. This can be a user pressing a button to
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -418,7 +418,7 @@ The system should be on a temporary alert. This can be a user locking the door t
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -436,7 +436,7 @@ The system should be on a goodbye alert. This can be a user locking the door to 
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -454,7 +454,7 @@ A node indicates that a stop event occurred. This can for example be a motor sto
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -472,7 +472,7 @@ A node indicates that a start event occurred. This can be a motor starting.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -490,7 +490,7 @@ A node indicates that a reset occurred. This can be a node doing a warm start.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -508,7 +508,7 @@ A node indicates that a reset occurred. This can also be a node doing a warm sta
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -526,7 +526,7 @@ A node indicates that a sleep event occurred. This can be a node going to its in
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -544,7 +544,7 @@ A node indicates that a wakeup event occurred. This can be a node going to it aw
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -562,7 +562,7 @@ A node indicates that the system should enter its dusk state.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -580,7 +580,7 @@ A node indicates that the system should enter its dawn state.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -598,7 +598,7 @@ A node indicates that its active.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -616,7 +616,7 @@ A node indicates that its inactive.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -634,7 +634,7 @@ A node indicates that its busy.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -652,7 +652,7 @@ A node indicates that its idle.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -782,7 +782,7 @@ Response/confirmation from ex. a dimmer control after a dimmer command or some o
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Relative or absolute level.                                        | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -800,7 +800,7 @@ VSCP_TYPE_INFORMATION_WARNING
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0         | Reserved level. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones. | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones. | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -818,7 +818,7 @@ A node indicates that a state change has occurred. Th numerical ID for the curre
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | User specified.                                                    | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3         | State changed from.                                                | 
  | 4         | New State.                                                         | 
@@ -838,7 +838,7 @@ A node indicates that an action has been triggered by this event.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Action ID.                                                         | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -856,7 +856,7 @@ A node indicates that sunrise is detected/calculated.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | User specified.                                                    | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -874,7 +874,7 @@ A node indicates that sunset is detected/calculated.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | User specified.                                                    | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -892,7 +892,7 @@ This event is used to mark the start of a multi-frame data transfer. This can ty
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for record.                                                  | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3         | Number of frames to follow or zero for not used.                   | 
 
@@ -911,7 +911,7 @@ This event is used to mark the end of a multi-frame data transfer. The index byt
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for record.                                                  | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -929,7 +929,7 @@ This event is used to tell the system that a pre-set configuration is active. Us
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | User specified.                                                    | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3         | Code for pre-set that has been set.                                | 
 
@@ -948,7 +948,7 @@ This event is used to tell the system that a detection of some kind has occurred
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index.                                                             | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 The first byte is used as an index if a module have several channels or detectors. 
@@ -968,7 +968,7 @@ This event is used to tell the system that an overflow of some kind has occurred
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index.                                                             | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 The first byte is used as an index if a module have several channels or detectors.
@@ -988,7 +988,7 @@ This is meant to be used as a confirmation event for CLASS1.CONTROL, Type=33 eve
  | Data byte | Description                                                                                               | 
  | :---------: | -----------                                                                                               | 
  | 0         | Index.                                                                                                    | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.                                                | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.                                                | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.                                        | 
  | 3,4,5,6,7 | Level as signed Integer. The range can be adjusted by the user by sending the needed number of bytes 1-5. | 
 
@@ -1015,7 +1015,7 @@ A node indicates that sunrise twilight time is detected/calculated.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | User specified.                                                    | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1041,7 +1041,7 @@ Technically, the start and end times are when the true geocentric position of th
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | User specified.                                                    | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1067,7 +1067,7 @@ Technically, the start and end times are when the true geocentric position of th
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | User specified.                                                    | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1093,7 +1093,7 @@ Technically, the start and end times are when the true geocentric position of th
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | User specified.                                                    | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1117,7 +1117,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | User specified.                                                    | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1141,7 +1141,7 @@ Astronomical twilight is the period when the center of the Sun is between 12 and
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | User specified.                                                    | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1159,7 +1159,7 @@ This event is used for reporting of a calculated noon (real noon).
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1177,7 +1177,7 @@ Shutter is moving up.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1195,7 +1195,7 @@ Shutter is moving down.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1213,7 +1213,7 @@ Shutter is moving left.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1231,7 +1231,7 @@ Shutter is moving right.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1249,7 +1249,7 @@ Shutter reached top end.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1268,7 +1268,7 @@ Shutter reached bottom end.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1286,7 +1286,7 @@ Shutter reached middle end.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1304,7 +1304,7 @@ Shutter reached preset end.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1322,7 +1322,7 @@ Shutter reached preset left.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1340,7 +1340,7 @@ Shutter reached preset right.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Reserved.                                                          | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1358,7 +1358,7 @@ Long click detected.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for device generating long click. Set to zero if not used.   | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1376,7 +1376,7 @@ Single click detected.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for device generating single click. Set to zero if not used. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1394,7 +1394,7 @@ Double click detected.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for device generating double click. Set to zero if not used. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1412,7 +1412,7 @@ A device generated a date event. Time is UTC.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for device generating date. Set to zero if not used.         | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3         | year century                                                       | 
  | 4         | year                                                               | 
@@ -1436,7 +1436,7 @@ A device generated a time event. Time is UTC.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for device generating time. Set to zero if not used.         | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3         | Hour (0-23)                                                        | 
  | 4         | minutes (0-59)                                                     | 
@@ -1461,7 +1461,7 @@ A device generated a weekday event.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for device generating weekday info. Set to zero if not used. | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3         | Weekday ( 0 (Monday) - 6 (Sunday))                                 | 
 
@@ -1480,7 +1480,7 @@ A device got locked.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for device. Set to zero if not used.                         | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1498,7 +1498,7 @@ A device got unlocked.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for device. Set to zero if not used.                         | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -1516,7 +1516,7 @@ A device generated a date/time event. Time is UTC.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for device. Set to zero if not used.                         | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3 - 7     | Date/time in  five byte bit array.                                 | 
 
@@ -1556,7 +1556,7 @@ A rising (edge) is detected.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for device. Set to zero if not used.                         | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  
 
@@ -1574,7 +1574,7 @@ A falling (edge) is detected.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for device. Set to zero if not used.                         | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  
 
@@ -1592,7 +1592,7 @@ Something has been updated.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for device. Set to zero if not used.                         | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  
 
@@ -1610,7 +1610,7 @@ Something has been connected.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for device. Set to zero if not used.                         | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  
 
@@ -1628,7 +1628,7 @@ Something has been disconnected.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for device. Set to zero if not used.                         | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  
 
@@ -1646,7 +1646,7 @@ Something has been reconnected.
  | Data byte | Description                                                        | 
  | :---------: | -----------                                                        | 
  | 0         | Index for device. Set to zero if not used.                         | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  
 
@@ -1664,7 +1664,7 @@ Enter, something has been entered.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | Index for device. Set to zero if not used. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones. | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones. | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  
 
@@ -1682,7 +1682,7 @@ Exit, something has been exited.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | Index for device. Set to zero if not used.| 
- | 1 | Zone for which event applies to (0-255). 255 is all zones. | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones. | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  
 
@@ -1699,8 +1699,8 @@ This is meant to be used as a confirmation event for CLASS1.CONTROL, Type=52 eve
 
  | Data byte | Description  | 
  | :---------: | -----------   | 
- | 0         | Optional byte that have a meaning given by the issuer of the event.        | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.        | 
+ | 0         | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability.        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.   | 
  | 3-7       | Incremented value. The range can be adjusted by the user by sending just the needed number of bytes 1-5. | 
 
@@ -1718,8 +1718,8 @@ This is meant to be used as a confirmation event for CLASS1.CONTROL, Type=53 eve
 
  | Data byte | Description  | 
  | :---------: | -----------   | 
- | 0         | Optional byte that have a meaning given by the issuer of the event.        | 
- | 1         | Zone for which event applies to (0-255). 255 is all zones.        | 
+ | 0         | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability.        | 
+ | 1         | Zone for which event applies to (0-254). 255 is all zones.        | 
  | 2         | Sub-zone for which event applies to (0-255). 255 is all sub-zones.   | 
  | 3-7       | Decremented value. The range can be adjusted by the user by sending just the needed number of bytes 1-5. | 
 
@@ -1737,8 +1737,8 @@ Proximity detected.
 
  | Data byte | Description  | 
  | :---------: | -----------   | 
- | 0 | Optional byte that have a meaning given by the issuer of the event. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones. | 
+ | 0 | Optional byte that have a meaning given by the issuer of the event. Prefered use is _index_ for compability. | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones. | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3, 4 | Optional uint16 that sets proximity level if present. | 
  

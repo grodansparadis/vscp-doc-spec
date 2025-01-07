@@ -28,7 +28,7 @@ A motion has been detected.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | User defined data. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones. | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones. | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
  | 3 | Optional. Status | 
 
@@ -57,7 +57,7 @@ A glass break event has been detected.
  | Data byte | Description | 
  | :---------: | -----------  | 
  | 0 | User defined data. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones. | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones. | 
  | 2  | Sub-zone for which event applies to (0-255). 255 is all subzones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
@@ -77,7 +77,7 @@ A beam break event has been detected.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | User defined data. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
@@ -97,7 +97,7 @@ A sensor tamper has been detected.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | User defined data. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
@@ -117,7 +117,7 @@ A shock sensor event has been detected.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | User defined data. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
@@ -137,7 +137,7 @@ A smoke sensor event has been detected.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | User defined data. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
@@ -157,7 +157,7 @@ A heat sensor event has been detected.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | User defined data. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
@@ -177,7 +177,7 @@ A panic switch event has been detected.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | User defined data. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255. 
@@ -197,7 +197,7 @@ Indicates a door sensor reports that a door is open.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | User defined data. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones. | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones. | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
@@ -217,7 +217,7 @@ Indicates a window sensor reports that a window is open.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | User defined data. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
@@ -237,7 +237,7 @@ CO sensor has detected CO at non secure level
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | User defined data. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
@@ -257,7 +257,7 @@ A frost sensor condition is detected
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | User defined data. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
@@ -277,7 +277,7 @@ Flame is detected.
  | Data byte | Description | 
  | :---------: | -----------  | 
  | 0 | User defined data. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
@@ -297,7 +297,7 @@ Low oxygen level detected.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | User defined data. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
@@ -317,7 +317,7 @@ Weight-detector triggered.
  | Data byte | Description | 
  | :---------: | -----------  | 
  | 0 | User defined data. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
@@ -337,7 +337,7 @@ Water has been detected.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | User defined data. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
@@ -357,7 +357,7 @@ Condensation (humidity) detected.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | User defined data. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones. | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones. | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
@@ -377,7 +377,7 @@ Noise (sound) has been detected.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | User defined data. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
@@ -397,7 +397,7 @@ Harmful sound levels detected.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | User defined data. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 If both or one of zone/sub-zone are omitted they should be interpreted as if they where 255.
@@ -417,7 +417,7 @@ Tamper detected.
  | Data byte | Description | 
  | :---------: | ----------- | 
  | 0 | User defined data. | 
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         | 
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         | 
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. | 
 
 
@@ -435,7 +435,7 @@ Authenticated. A user or a device has been authenticated.
  | Data byte | Description |
  | :---------: | ----------- |
  | 0 | User defined data. |
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
 
@@ -452,7 +452,7 @@ Unauthenticated. A user or a device has failed authentication.
  | Data byte | Description |
  | :---------: | ----------- |
  | 0 | User defined data. |
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
 
@@ -469,7 +469,7 @@ Authorized. A user or a device has been authorized.
  | Data byte | Description |
  | :---------: | ----------- |
  | 0 | User defined data. |
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
 
@@ -486,7 +486,7 @@ Unauthorized. A user or a device has failed authorization.
  | Data byte | Description |
  | :---------: | ----------- |
  | 0 | User defined data. |
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
 
@@ -503,7 +503,7 @@ ID Check. A user or a device has gone through an identification test and is eith
  | Data byte | Description |
  | :---------: | ----------- |
  | 0 | ID check bits. |
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
  **ID Check bits**
@@ -528,7 +528,7 @@ Valid pin. A valid pin has been entered by a device or user.
  | Data byte | Description |
  | :---------: | ----------- |
  | 0 | User defined data. |
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
 
@@ -545,7 +545,7 @@ Invalid pin. An invalid pin has been entered by a device or user.
  | Data byte | Description |
  | :---------: | ----------- |
  | 0 | User defined data. |
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
 
@@ -562,7 +562,7 @@ Pin warning. An invalid pin has been entered by a device or user and a warning h
  | Data byte | Description |
  | :---------: | ----------- |
  | 0 | User defined data. |
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
 
@@ -579,7 +579,7 @@ Pin error. An invalid pin has been entered by a device or user and it has failed
  | Data byte | Description |
  | :---------: | ----------- |
  | 0 | User defined data. |
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
 
@@ -596,7 +596,7 @@ Valid password. A valid password has been entered by a device or user.
  | Data byte | Description |
  | :---------: | ----------- |
  | 0 | User defined data. |
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
 
@@ -613,7 +613,7 @@ Invalid password. An invalid password has been entered by a device or user.
  | Data byte | Description |
  | :---------: | ----------- |
  | 0 | User defined data. |
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
 
@@ -630,7 +630,7 @@ Password warning. An invalid password has been entered by a device or user and a
  | Data byte | Description |
  | :---------: | ----------- |
  | 0 | User defined data. |
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
 
@@ -647,7 +647,7 @@ Password error. An invalid password has been entered by a device or user and it 
  | Data byte | Description |
  | :---------: | ----------- |
  | 0 | User defined data. |
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
 
 
@@ -665,7 +665,7 @@ Gas has been detected.
  | Data byte | Description |
  | :---------: | ----------- |
  | 0 | User defined data. |
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  
 
@@ -683,7 +683,7 @@ An object is in motion
  | Data byte | Description |
  | :---------: | ----------- |
  | 0 | User defined data. |
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  
 
@@ -701,7 +701,7 @@ An object is in rest (jammed)
  | Data byte | Description |
  | :---------: | ----------- |
  | 0 | User defined data. |
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  
 
@@ -719,7 +719,7 @@ Vibration detected
  | Data byte | Description |
  | :---------: | ----------- |
  | 0 | User defined data. |
- | 1 | Zone for which event applies to (0-255). 255 is all zones.         |
+ | 1 | Zone for which event applies to (0-254). 255 is all zones.         |
  | 2 | Sub-zone for which event applies to (0-255). 255 is all sub-zones. |
  
 
