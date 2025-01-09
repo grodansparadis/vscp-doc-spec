@@ -237,6 +237,8 @@ VSCP_TYPE_MEASUREMENT_ENERGY
 ```
 **Default unit:** Joule.  
 **Optional unit:** KWh (1)
+**Optional unit:** KWh (2)
+**Optional unit:** eV (electron volts) (3)
 
 This is a measurement of energy. 
 
@@ -253,7 +255,8 @@ This is a measurement of energy.
 VSCP_TYPE_MEASUREMENT_POWER
 ```
 **Default unit:** watt.  
-**Optional unit:** Horse power (1).
+**Optional unit:** Horse power Metric (1).
+**Optional unit:** Horse power Imperial (2).
 
 This is a measurement of power. 
 
