@@ -220,8 +220,8 @@ This is a measurement of pressure.
 VSCP_TYPE_MEASUREMENT_ENERGY
 ```
 **Default unit:** Joule.  
-**Optional unit:** KWh (1)
-**Optional unit:** KWh (2)
+**Optional unit:** kWh (1)
+**Optional unit:** Wh (2)
 **Optional unit:** eV (electron volts) (3)
 
 This is a measurement of energy. 
@@ -335,7 +335,7 @@ This is a measurement of electrical conductance.
 VSCP_TYPE_MEASUREMENT_MAGNETIC_FIELD_STRENGTH
 ```
 **Default unit:** amperes per meter (H).  
-**Optional units:** teslas (B) (1)
+**Optional units:** Oersted (Oe) (1)
 
 This is a measurement of magnetic field strength. 
 
@@ -467,7 +467,7 @@ This is a measurement of catalytic activity used in biochemistry.
 VSCP_TYPE_MEASUREMENT_VOLUME
 ```
 **Default unit:** cubic meter (m³)   
-**Opt. unit:** Liter (dm³) (1), decilitre (100 cm³) (2), centilitre (10 cm³) (3), millilitre (cm³) (4) where unit 4 is only available for Level II measurement events where units can hold this value.
+**Opt. unit:** Liter (dm³) (1), millilitre (cm³) (2) , decilitre (100 cm³) (3), centilitre (10 cm³) (4) where unit 4 is only available for Level II measurement events where units can hold this value.
 
 This is a measurement of volume. 
 
@@ -536,7 +536,8 @@ This is a (decimal) measurement of a position as of WGS 84. Normally given as a 
 VSCP_TYPE_MEASUREMENT_SPEED
 ```
 **Default unit:** Meters per second.   
-**Optional unit:** Kilometers per hour (1) Miles per hour (2)
+**Optional unit:** Kilometers per hour (1) 
+**Optional unit:** Miles per hour (2)
 
 This is a measurement of a speed. 
 
@@ -552,7 +553,7 @@ This is a measurement of a speed.
 ```
 VSCP_TYPE_MEASUREMENT_ACCELERATION
 ```
-**Default unit:** Meters per second/second (m/s2).
+**Default unit:** Metre per second squared (m/s2).
 
 This is a measurement of acceleration. 
 
@@ -698,7 +699,7 @@ This is a measurement of sound resistance.
 ```
 VSCP_TYPE_MEASUREMENT_ELECTRIC_ELASTANCE
 ```
-**Default unit:** daraf (f-1).
+**Default unit:** daraf (F-1).
 
 This is a measurement of electric elasticity. 
 
@@ -857,6 +858,7 @@ Altitude in meters.
 VSCP_TYPE_MEASUREMENT_AREA
 ```
 **Default unit:** square meter (m²)
+**Opt unit:** are (are) (1), hectare, (2), square kilometer (km²) (3)
 
 Area in square meter. 
 
