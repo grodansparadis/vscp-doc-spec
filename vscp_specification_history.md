@@ -2,6 +2,7 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|2025-01-19| AKHE | Added bootloader abort events |
 |2025-01-13| AKHE | Misc updates/fixed for measurement units. [See](https://github.com/grodansparadis/vscp/discussions/279#discussioncomment-11796872) |
 |2025-01-09| AKHE | CLASS1.MEASUREMENT, type13/14 new units. Fixed faulty link. Fixed unit error. |
 |2025-01-07| AKHE | Added events CLASS1_CONTROL: VSCP_TYPE_CONTROL_TURN_ALL_OFF (17), VSCP_TYPE_CONTROL_TURN_ALL_ON (18) VSCP_TYPE_CONTROL_TURN_ALL_X (19) Fixes grodansparadis/vscp#278 |

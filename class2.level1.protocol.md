@@ -1479,4 +1479,67 @@ Part of the VSCP boot-loader functionality. This event is a way to check if a de
 ----
 
 
+## Type=55 (0x37) - Bootloader abort :id=type55
+
+```
+VSCP_TYPE_PROTOCOL_BOOT_LOADER_ABORT
+```
+**Not mandatory** Only needed if a VSCP boot loader algorithm is used.
+
+Part of the VSCP boot-loader functionality. This event provide a way to leave the bootloader in a secure fashion if there is problems loading firmware to a device. It is only available if the device has a bootloader that supports this functionality. Typically this is a device that has several firmware slots and can switch between them, and by that switch back to the last known working firmware.
+
+The event can be sent in all states of the bootloading procedure.
+
+[CLASS1.PROTOCOL, Type=56 (Bootloader abort ACK)](./class1.protocol.md#type56) should be sent as a positive response to a bootloader exit or rollback
+
+[CLASS1.PROTOCOL, Type=57 (Bootloader abort NACK)](./class1.protocol.md#type57) should be sent as a negative response to a bootloader exit or rollback
+
+
+**This event was added in version 1.15.10 so we aware that older devices may not support this event.**
+
+
+
+
+----
+
+
+## Type=56 (0x38) - Bootloader abort ACK :id=type56
+
+```
+VSCP_TYPE_PROTOCOL_BOOT_LOADER_ABORT_ACK
+```
+**Not mandatory** Only needed if a VSCP boot loader algorithm is used.
+
+Part of the VSCP boot-loader functionality. This event is a positive response to a bootloader abort or rollback [CLASS1.PROTOCOL, Type=55 (Bootloader abort)](./class1.protocol.md#type55).
+
+Event is sent before execution of the new firmware starts. It is used to tell the controlling device that the device is ready to leave the bootloader mode and start the new firmware.
+
+**This event was added in version 1.15.10 so we aware that older devices may not support this event.**
+
+
+
+
+----
+
+
+## Type=57 (0x39) - Bootloader abort NACK :id=type57
+
+```
+VSCP_TYPE_PROTOCOL_BOOT_LOADER_ABORT_NACK
+```
+**Not mandatory** Only needed if a VSCP boot loader algorithm is used.
+
+Part of the VSCP boot-loader functionality. This event is a negative response to a bootloader abort or rollback [CLASS1.PROTOCOL, Type=55 (Bootloader abort)](./class1.protocol.md#type55).
+
+Om a single slot firmware device where a firmware update has failed and there is no working firmware to switch back to this event should be sent to tell the controlling device that we can't leave the bootloader mode until a new full firmware has been loaded.
+
+**This event was added in version 1.15.10 so we aware that older devices may not support this event.**
+
+
+
+
+
+----
+
+
 [filename](./bottom_copyright.md ':include')

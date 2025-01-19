@@ -20,22 +20,24 @@ Most flash devices are programmed block by block. The boot loader algorithm must
 
 The boot loader sequence is as follows:
 
-*  **master** - device that initiate boot loading process and uploads firmware
-*  **node** - Device that will get it's firmware updated.
- 1.  The master instructs the node to enter boot loader mode by sending an [enter boot loader mode](./class1.protocol.md#type12) event to the node. This event have information on which boot loader method that is expected by the master. This can be the VSCP boot loader which is described here or another boot loader. __If this event is received in an stage below the boot loading process should be restarted.__
- 2.  The node confirms that it is ready for code loading with the requested boot loader algorithm by sending the [ACK boot loader mode](./class1.protocol.md#type13) event. Block size and number of blocks are sent as arguments in the acknowledge event. The node respond with [NACK boot loader mode event](./class1.protocol.md#type14) if it can't handle the requested boot loader algorithm or because of some other reason cant initiate the boot loading process.
- 3.  The master sends a [start block data transfer](./class1.protocol.md#type15) event to specify which block should be programmed and by that initiating the transfer of data for the block. 
- 4.  The node confirms block transfer by sending an [ACK data block](./class1.protocol.md#type17) event. 
- 5.  The master sends one or several [block data](./class1.protocol.md#type16) events until the complete block is transferred. 
- 6.  When all data for a block is received by a node it sends a [block ACK](./class1.protocol.md#type17) event to acknowledge the reception of a complete block. 
- 7.  The master now sends a program block event to the node to make it write the block buffer into flash memory. 
- 8.  The node confirms the block programming by responding with an [ACK program block](./class1.protocol.md#type20) event.
- 9.  The next block is handled or the node is taken out of the boot loader mode by sending a [drop nickname/reset device](./class1.protocol.md#type8) event. 
- 10.  To activate the new program code the master sends an [activate new image](./class1.protocol.md#type22) event with the 16 bit CRC for the full new firmware as an argument. The new node should come up after reboot. The 16-bit CCITT CRC is used. [One activate new image ACK](./class1.protocol.md#type48) event is set if this happens if something is wrong an [activate new image NACK](./class1.protocol.md#type48) event is sent.
+*  **controller** - device that initiate boot loading process and uploads firmware
+*  **device** - Device that will get it's firmware updated.
+ 1.  The controller instructs the device to enter boot loader mode by sending an [enter boot loader mode](./class1.protocol.md#type12) event to the device. This event have information on which boot loader method that is expected by the controller. This can be the VSCP boot loader which is described here or another boot loader. __If this event is received in an stage below the boot loading process should be restarted.__
+ 2.  The device confirms that it is ready for code loading with the requested boot loader algorithm by sending the [ACK boot loader mode](./class1.protocol.md#type13) event. Block size and number of blocks are sent as arguments in the acknowledge event. The device respond with [NACK boot loader mode event](./class1.protocol.md#type14) if it can't handle the requested boot loader algorithm or because of some other reason cant initiate the boot loading process.
+ 3.  The controller sends a [start block data transfer](./class1.protocol.md#type15) event to specify which block should be programmed and by that initiating the transfer of data for the block. 
+ 4.  The device confirms block transfer by sending an [ACK data block](./class1.protocol.md#type17) event. 
+ 5.  The controller sends one or several [block data](./class1.protocol.md#type16) events until the complete block is transferred. 
+ 6.  When all data for a block is received by a device it sends a [block ACK](./class1.protocol.md#type17) event to acknowledge the reception of a complete block. 
+ 7.  The controller now sends a program block event to the device to make it write the block buffer into flash memory. 
+ 8.  The device confirms the block programming by responding with an [ACK program block](./class1.protocol.md#type20) event.
+ 9.  The next block is handled or the device is taken out of the boot loader mode by sending a [drop nickname/reset device](./class1.protocol.md#type8) event. 
+ 10.  To activate the new program code the controller sends an [activate new image](./class1.protocol.md#type22) event with the 16 bit CRC for the full new firmware as an argument. The new device should come up after reboot. The 16-bit CCITT CRC is used. [One activate new image ACK](./class1.protocol.md#type48) event is set if this happens if something is wrong an [activate new image NACK](./class1.protocol.md#type48) event is sent.
 
 The boot-loader is built to direct control flash if other methods such as intermediate storage is used. Data can be loaded direct and program block can just get a dummy ACK. 
 
-![Firmware update procedure](./images/vscp_std_boot_loader_algorithm.png)
+The controller can always abort the bootloader process by sending a [bootloader abort](./class1.protocol.md#type55) event. If the device accept it or not depends if the device can switch to a working firmware or not. Doing this usualy requires the device to have a dual (or more) firmware setup.
+
+![Firmware update procedure](./images/vscp_std_bootloader_algorithm.png)
 Diagram by **Andreas Merkle**
 
 #### Type of memory to write (byte 4)
@@ -44,7 +46,7 @@ This is the currently defined  memory types that can be used.
 
  | Memory type | Description | 
  | :-----------: | ----------- | 
- | 0 or byte absent | PROGRAM Flash (status quo for old nodes) | 
+ | 0 or byte absent | PROGRAM Flash (status quo for old devices) | 
  | 1 | DATA (EEPROM, MRAM, FRAM) | 
  | 2 | CONFIG (CPU configuration) | 
  | 3 | RAM | 

@@ -454,7 +454,7 @@ This is a measurement of a speed.
 ```
 VSCP_TYPE_MEASUREMENT_ACCELERATION
 ```
-**Default unit:** Metre per second squared (m/s2).
+**Default unit:** Metre per second squared (m/s²).
 
 This is a measurement of acceleration. 
 
