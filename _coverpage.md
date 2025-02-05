@@ -1,6 +1,6 @@
 
 
-![VSCP logo](./images/logo_400.png)
+![VSCP logo](./images/logo_100.png)
 
 # The VSCP Specification
 

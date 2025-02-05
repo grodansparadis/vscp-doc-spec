@@ -2,6 +2,7 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2025-02-05 | AKHE | Added info that a zero value means not set/used for the standard register firmware code. |
 |2025-01-19| AKHE | Added bootloader abort events |
 |2025-01-13| AKHE | Misc updates/fixed for measurement units. [See](https://github.com/grodansparadis/vscp/discussions/279#discussioncomment-11796872) |
 |2025-01-09| AKHE | CLASS1.MEASUREMENT, type13/14 new units. Fixed faulty link. Fixed unit error. |
