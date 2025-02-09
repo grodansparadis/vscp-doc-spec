@@ -6,7 +6,7 @@ The 'abstraction' comes from the fact that registers normally is not a real thin
 
 Above the register abstraction model is **remote variables** (defined below) which describe the system in higher level terms such as int's strings and logical values. Remote variables maps directly to registers. 
 
-The end result is that only two methods is need to be implemented. Read and write a register. After thye are in place all remote configuration issues can be handled.
+The end result is that only two methods is need to be implemented. Read and write a register. After they are in place all remote configuration issues can be handled.
 
 ## Level I - Register Abstraction Model
 
