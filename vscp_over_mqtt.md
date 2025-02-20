@@ -11,7 +11,7 @@ The string form where each event is on this form
     head,class,type,obid,datetime,timestamp,GUID,data1,data2,data3....
 
 ### MQTT auto detect string format 
-First non white space character not 0x00, "<" or "{" ==> string format
+First non white space character that is not 0x00, "<" or "{" ==> string format
 
 ## XML
 
@@ -120,19 +120,30 @@ several of the fields can be skipped if the information is already known.
 
 **vscpData** If there is no data it can be left out.
 
-**vscpGuid** If known it can be left out. Typically it can bne decuced from the MQTT topic.
+**vscpGuid** If known it can be left out. Typically it can be deduced from the MQTT topic and should be set by the application.
 
-So a minimum JSON formated MQTT event scan look like
+So a minimum JSON formatted MQTT event scan look like
 
 ```json
 {
   "vscpClass": 10,
   "vscpType": 8,
-  "vscpData": [1,2,3,4,5,6,7],
+  "vscpData": [0x81,0x01,0x07],
 }
 ```
 
-If the MQTT topic also contains the class and type they can also be skipped and only the date needs to be sent. In this case both the VSCP class and the VSCP type will be set to zero by the parser and need to be set by the application.
+which is a temperature measurement (26.4 degrees Celsius),  and even more minimized as
+
+```json
+{
+  "vscpClass": 0,
+  "vscpType": 3,
+}
+```
+
+if there is no data.
+
+If the MQTT topic also contains the class and type they both can also be skipped and only the data needs to be sent. In this case both the VSCP class and the VSCP type will be set to zero by the parser and need to be set by the application.
 
 ### MQTT auto detect JSON format
 First non white space character "{" ==> JSON
@@ -152,13 +163,23 @@ One can use the topics and the structure that is suitable for the task ahead. Th
 
 The preferred topic for VSCP events published to a MQTT broker is
 
-    vscp/{{guid}}/{{class}}/{{type}}
+```bash
+  vscp/{{guid}}/{{class}}/{{type}}/{{nickname}}/{{sensor-index}}/{{zone}}/{{subzone}}
+```
 
 **guid** is the actual guid fo the node, typically something like FF:FF:FF:FF:FF:FF:FF:FE:5C:CF:7F:C4:1E:7B:00:00
 
 **class** is the actual numerical VSCP class for the event.
 
 **type** is the actual numerical VSCP type for the event.
+
+**nickname** is the two least significant bytes in MSB order of the GUID forming a 16-bit unsigned int. This is a way to make it easier to filter on a specific node. The format is also used for a full level II event although it does not use a nickname.
+
+**sensor-index** is the sensor index for the sensor that sent originated the event. This is optional, and used optionally by the sensors. Omit if sensor index is not valid for the event or set to zero if zone/subzone is used.
+
+**zone** is the zone for the sensor that sent originated the event. This is optional, and used optionally by the sensors. Omit if zone/subzone is not valid for the event.
+
+**subzone** is the subzone for the sensor that sent originated the event. This is optional, and used optionally by the sensors. Omit if zone/subzone is not valid for the event.
 
 A client can easily filter out events from a specific remote node and of a certain type using this schema.
 

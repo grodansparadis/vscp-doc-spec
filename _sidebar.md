@@ -6,6 +6,7 @@
 * Essential VSCP Parts
   * [The VSCP Protocol](./vscp_protocol.md)
   * [General VSCP concepts](./vscp_general.md)
+  * [VSCP Addressing](./vscp_addressing.md)
   * [VSCP Level I Specifics](./vscp_level_i_specifics.md)
   * [VSCP Level II Specifics](./vscp_level_ii_specifics.md)
   * [Globally Unique Identifiers GUID](./vscp_globally_unique_identifiers.md)

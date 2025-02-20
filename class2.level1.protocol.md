@@ -6,7 +6,7 @@
 
 This class mirrors the [CLASS1.PROTOCOL](./class1.protocol.md) class but use a different data format.
 
-Class 512-1023 is reserved for events that should stay in the Level 2 network but that in all other aspects (the lower nine bits + type) are defined in the same manner as for Level I. For [CLASS2.PROTOCOL1](./class1.protocol.md) the first 16 bytes of the data field is the GUID of the node the event is intended for. 
+Class 512-1023 is reserved for events that should stay in the Level 2 network but that in all other aspects (the lower nine bits + type) are defined in the same manner as for Level I. For [CLASS2.LEVEL1.PROTOCOL](./class2.level1.protocol) the first 16 bytes of the data field is the GUID of the node the event is intended for.
 
 This is used for translation in the VSCP daemon for instance where a level II client can send events that are automatically sent to the correct interface and is addressed to the correct device in question. To use this feature send events with the GUID of the i/f where the device is located when addressing is needed. The correct nickname is needed and it should be set in GUID byte 16.
 
@@ -71,6 +71,8 @@ VSCP_TYPE_PROTOCOL_GENERAL
 General Event.
 
 You can use this event for anything you want. It's a general event, so it can be used for anything. The data format and the use is all up to your needs. It is important of course that you document the data format and the use of the event in your documentation and in the MDF for the device. But of course if there is an existing event that does the job you want, you should probably use that one instead of this one.
+
+
 
 
 ----
