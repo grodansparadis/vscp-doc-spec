@@ -478,10 +478,10 @@ This command reports server capabilities of this server.
 
 The capabilities are described in a 64-bit array (8 bytes). The capabilities is reported on the form
 
-    00-00-00-00-00-00-00-00
+    00-00-00-00-00-00-00-00 1234567890ABCDEF
     +OK
 
-where each pair of hex digits is a byte in the 64-bit capabilities structure. MSB is the first (left most) byte.
+where each pair of hex digits is a byte in the 64-bit capabilities structure. MSB is the first (left most) byte, follows by 64-bit value (1234567890ABCDEF). The 64-bit value at the end is optional but recommended.
 
 The VSCP server 64-bit capability code is described in the specification document for [CLASS2.PROTOCOL, Type=20, High end server/service capabilities](http://docs.vscp.org/spec/latest/#/./class2.protocol?id=type20-0x14-high-end-serverservice-capabilities). It gives information about the capabilities of a VSCP server.
 
