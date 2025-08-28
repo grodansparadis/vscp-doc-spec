@@ -2,7 +2,7 @@
 
 # VSCP Daemon VSCP Websocket Interface
 
-The daemon exports a HTML5 websocket interface from version 0.3.3. This interface makes it possible to have web widgets that are self contained and entirely written in JavaScript which can send and receive VSCP events. This means that you can create a simple web page, place your widgets on it and with or without a stand alone web server have a lightweight user interface. As phone, tablets and other devices generally also support HTML5. That is you have a general way for user interface creation. If you prefer apps. you can compile your interface code using **phonegap** or similar tools.
+The daemon exports a HTML5 websocket interface from version 0.3.3. This interface makes it possible to have web widgets that are self contained and entirely written in JavaScript which can send and receive VSCP events. This means that you can create a simple web page, place your widgets on it and with or without a stand alone web server have a lightweight user interface. As phone, tablets and other devices generally also support HTML5. That is you have a general way for user interface creation. If you prefer apps. 
 
 The websocket server can be reached on port 8080(default) just as the internal web server and will use SSL if the web server is configured to use it. The VSCP & Friends package comes with a few simple test pages.
 
@@ -153,7 +153,7 @@ Send this command to initiate the authentication. This is process is normally st
 This command is used by a client to authenticate itself. When connecting to a ws1 websocket the VSCP daemon will send something like
 
 ```
-"+;AUTH0:5a475c082c80dcdf7f2dfbd976253b24" 
+"+;AUTH0;5a475c082c80dcdf7f2dfbd976253b24" 
 ```
 
 as a security challenge to the client (Also sent after a **CHALLENGE** command has been sent to a host by a client.). The "5a475c082c80dcdf7f2dfbd976253b24" is a session id or sid that is different for every connection.
@@ -301,15 +301,15 @@ This table list the errors that currently is defined
  | 8 | Parse error, invalid format. |
  | 9 | Unknown type, only know "COMMAND" and "EVENT". |
 
-### ws2 - JSON based websocket interface :id=ws2-description
+## ws2 - JSON based websocket interface :id=ws2-description
 
 The protocol is a JSON based protocol that is simple and effective. Only **AUTH** and **NOOP** commands are valid in a system where the client has not been authenticated.
 
-#### Packet format
+### Packet format
 
 Message traffic on the socket is on JSON format and there are a few different objects used.
 
-#### Command object :id=ws2-command-object
+### Command object :id=ws2-command-object
 
 ```json
 {
@@ -331,7 +331,7 @@ _args_ is either _null_ if the command has no arguments or a list of argument pa
 
 Se AUTH command below for a command with arguments and the NOOP command for a command without arguments.
 
-#### Positive reply object :id=ws2-positive-reply-object
+### Positive reply object :id=ws2-positive-reply-object
 
 
 ```json
@@ -355,7 +355,7 @@ A positive reply. _command_ tells which command the positive reply is associated
 ```
 
 
-#### Negative reply object :id=ws2-negative-reply-object
+### Negative reply object :id=ws2-negative-reply-object
 
 ```json
 {
@@ -368,7 +368,7 @@ A positive reply. _command_ tells which command the positive reply is associated
 
 A negative reply. _command_ tells which command the negative reply is associated with. _error-code_ is set to a numerical error code describing the problem and _error-str_ is set to real text message that describe the error. [Error codes](./websocket_protocol_description.md#ws1-error-codes) are the same as for ws1 above.
 
-#### VSCP event object :id=ws2-event-object
+### VSCP event object :id=ws2-event-object
 
 This is either an event from a client to the VSCP daemon or an event from the daemon to the client. A client sending an event object will get a positive or negative reply object in return where command is set to "EVENT"
 
@@ -389,9 +389,9 @@ This is either an event from a client to the VSCP daemon or an event from the da
 }
 ```
 
-#### Commands :id=ws2-command
+### Commands :id=ws2-command
 
-##### AUTH :id=ws2-command-auth
+#### AUTH :id=ws2-command-auth
 
 The client send the _AUTH_ command to create a session with the server. This session is active until the client disconnect from the websocket and can be over tls if needed.
 
@@ -473,7 +473,7 @@ The error code/message may be different depending on the cause of the negative r
 
 Note that in addition to the credentials the client ip address must also be valid as of the [configuration](./configuring_the_vscp_daemon.md#config-remote-user) allowfrom for this user.
 
-##### CHALLENGE :id=ws2-command-challenge
+#### CHALLENGE :id=ws2-command-challenge
 
 ```json
 {
@@ -495,7 +495,7 @@ The challenge command can be sent to get the session id. The response is the sam
 }
 ```
 
-##### OPEN :id=ws2-command-open
+#### OPEN :id=ws2-command-open
 
 ```json
 {
@@ -507,7 +507,7 @@ The challenge command can be sent to get the session id. The response is the sam
 
 Open the communication channel. It is now possible to send events and incoming events will be received instead of just being queued. 
 
-##### CLOSE :id=ws2-command-close
+#### CLOSE :id=ws2-command-close
 
 ```json
 {
@@ -519,7 +519,7 @@ Open the communication channel. It is now possible to send events and incoming e
 
 Close the communication channel. It is no longer possible to send events after this has been done and incoming events will be queued.
 
-##### SETFILTER / SF :id=ws2-command-setfilter
+#### SETFILTER / SF :id=ws2-command-setfilter
 
 ```json
 {
@@ -542,7 +542,7 @@ Set filter/mask for the communication channel so the channel just receive the ev
 
 The reply is either a positive or a negative reply object.
 
-##### CLRQUEUE / CLRQ :id=ws2-command-clrqueue
+#### CLRQUEUE / CLRQ :id=ws2-command-clrqueue
 
 ```json
 {
@@ -556,7 +556,7 @@ Clear the incoming event queue for the communication channel.
 
 The reply is either a positive or a negative reply object.
 
-##### VERSION / VER :id=ws2-command-version
+#### VERSION / VER :id=ws2-command-version
 
 ```json
 {
@@ -581,7 +581,7 @@ The reply is the following object
 ```
 
 
-##### COPYRIGHT :id=ws2-command-copyright
+#### COPYRIGHT :id=ws2-command-copyright
 
 ```json
 {
@@ -605,16 +605,16 @@ The reply is the following object
 }
 ```
 
-#### WS2 examples
+### WS2 examples
 
-##### HTML5
+#### HTML5
 
 A simple ws2 interface connection example is [here](https://github.com/grodansparadis/vscp/blob/master/tests/websockets/ws2.html)
 
-##### Python
+#### Python
 Code that issue some commands, send an event and waiting for incoming events is [here](https://github.com/grodansparadis/vscp/blob/master/tests/websockets/test_ws2.py)
 
-##### node.js
+#### node.js
 Code that issue some commands, send an event and waiting for incoming events is [here](https://github.com/grodansparadis/vscp/blob/master/tests/websockets/test_ws2.js)
 
 

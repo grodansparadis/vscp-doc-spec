@@ -16,7 +16,7 @@ UDP be used to send and receive VSCP frames, non encrypted or encrypted and with
  | 5     | Timestamp microseconds             | Yes | 
  | 6     | Timestamp microseconds LSB         | Yes | 
  | 7     | Year MSB                           | Yes | 
- | 9     | Year LSB                           | Yes | 
+ | 8     | Year LSB                           | Yes | 
  | 9     | Month                              | Yes | 
  | 10    | Day                                | Yes | 
  | 11    | Hour                               | Yes | 
@@ -55,7 +55,7 @@ Time should always be UTC time. If the time block is set to all zero the current
  | 3    | AES256 CBC encryption. 16-byte IV is appended to each frame. | 
  | 4-15 | Reserved | 
 
-For encryption/decryption code using OpenSSL see [this link](https:///wiki.openssl.org/index.php/EVP_Authenticated_Encryption_and_Decryption). Note that byte 0 of the frame is never encrypted. The encryption/decryption is instead carried out over byte 1 to the CRC.
+For encryption/decryption code using AES-128/192/256. Note that byte 0 of the frame is never encrypted. The encryption/decryption is instead carried out over byte 1 up to the CRC.
 
 On the VSCP Server the md5 of the [vscptoken](https://docs.vscp.org/vscpd/13.1/#/configuring_the_vscp_daemon?id=security) is used as the key for AES128.
 
@@ -72,7 +72,7 @@ See [vscp.h](https://github.com/grodansparadis/vscp/blob/master/src/vscp/common/
  | 11-8  | Reserved (**Set to zero!**).                                        | 
  | 7,6,5 | Priority.                                                           | 
  | 4     | Hard-coded.                                                         | 
- | 3     | Don't calculate CRC if bit set. CRC should be set to 0xAA55 if set. | 
+ | 3     | Don't calculate CRC if bit set.                                     | 
  | 2,1,0 | Rolling index.                                                      |  
 
 Note also that the MSB is sent before the LSB (network byte order, Big Endian). So, for little endian machines such as a typical PC the byte order needs to be reversed for multi-byte types.

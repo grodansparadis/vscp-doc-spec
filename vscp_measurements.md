@@ -42,7 +42,7 @@ The event that handle string values is the level II class [CLASS2.MEASUREMENT_ST
  | 1    | Zone, 0-255. |
  | 2    | Subzone, 0-255. |
  | 3    | Unit from measurements, 0-255. |
- | 4..  | String up to the maximum data size 483 digits including a possible decimal point. The decimal pint should always be a "." independent of locale. |
+ | 4..  | String up to the maximum data size 483 digits including a possible decimal point. The decimal point should always be a "." independent of locale. A minus sign in front of the number indicates a negative value. Floating point values can be represented in the standard way so '123e5' and '123e-5' is allowed. This means VERY large and VERY small numbers can be represented.|
 
  **Index for the sensor** (sensor index) identifies one of several sensors on a device. The device is itself identified by the GUID it carries. And the sensor of the device is identified by it's sensor index. A device that can handle level II events can therefore have a maximum of 256 sensors. A level I device can have at most seven sensors. You can of course extend this without limitations by giving each sensors it's own GUID. 
 
@@ -50,7 +50,7 @@ The event that handle string values is the level II class [CLASS2.MEASUREMENT_ST
 
  **Unit** is the measurement unit. Each measurement event have one or more units defined. For a level I device there is a maximum of four units. A level II device have the ability to extend this to 256 units. This is however seldom used. 
 
-**Measurement value** The measurement value is a string with maximum length of 483 characters representing a floating point value. Decimal separator is always '.'. Floating point values can be represented in the standard way so '123e5' and '123e-5' is allowed. This means VERY large and VERY small numbers can be represented. Event more or less than standard software can handle in which case custom parsers must be built.
+**Measurement value** The measurement value is a string with maximum length of 483 characters representing a floating point value. Decimal separator is always '.'. A minus sign in front of the number indicates a negative value. Floating point values can be represented in the standard way so '123e5' and '123e-5' is allowed. This means VERY large and VERY small numbers can be represented. Event more or less than standard software can handle in which case custom parsers must be built.
 
 ### CLASS2.MEASUREMENT_FLOAT
 
@@ -140,7 +140,7 @@ The data should be represented as a set of bytes.
 
 ##### 010b String Format( 0x40 )
 
-The data should be represented as an ASCII numerical string. Max seven characters that together represent a number. A "." should always be used as possible decimal separator independent of locale. Example “-123”, “1.3456”, “0.00001” etc
+The data should be represented as an ASCII numerical string. Max seven characters that together represent a number. A "." should always be used as possible decimal separator independent of locale. Example “-123”, “1.3456”, “0.00001” etc. A minus sign in front of the number indicates a negative value. Floating point values can be represented in the standard way so '123e5' and '123e-5' is allowed. This means VERY large and VERY small numbers can be represented.
 
 ##### 011b Integer Format( 0x60 )
 

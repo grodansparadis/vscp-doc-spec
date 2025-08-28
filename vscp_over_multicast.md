@@ -8,11 +8,23 @@ should be used.Please see the following:
 
 [https://www.iana.org/assignments/multicast-addresses](https://www.iana.org/assignments/multicast-addresses) and [https://www.tldp.org/HOWTO/Multicast-HOWTO.html](https://www.tldp.org/HOWTO/Multicast-HOWTO.html) 
 
-Currently the multicast interface is used for heart beats and announcements of available services and to set up multicast groups that share events. For this port **9698** is always used.
+Currently the multicast interface is used for heart beats and announcements of available services and to set up multicast groups that share events. For this port **9598** is always used.
 
 General multicast information can be found [here](https://www.juniper.net/techpubs/en_US/junos12.1x46/topics/concept/multicast-ip-overview.html).
 
+## Comparison between broadcast and multicast
+
+| Comparison | Broadcast | Multicast |
+| ---------- | --------- | --------- |
+| Principle | Packets are sent to all hosts connected to the network. | Packets are sent only to their intended recipients in the network. |
+| Transmission | One-to-all | One-to-many |
+| Management | No need for group management | Need group management |
+| Network | May cause network bandwidth waste and congestion | Controllable network bandwidth | 
+| Rate | Slow | Fast |
+
 ## Packet format
+
+The frame format is the same as for UDP frames.
 
  | Byte  | Description                                                            | Encrypted           | 
  | :----:  | :-----------                                                         | ---------           | 
