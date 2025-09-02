@@ -4,7 +4,6 @@
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |2025-09-02| AKHE | VSCP over LoRA. Reserved GUID series |
 |2025-09-02| AKHE | VSCP over serial now allow for AES-128 CBC encryption. |
-|2025-08-28| AKHE | Clarified negative string values in measurement events. |
 |2025-02-21| AKHE | VSCP tcp/ip link protocol now can add optional 64-bit value at the end for WCYD response. |
 |2025-02-20| AKHE | Added reserved GUID group (FF:FF:FF:FF:FF:FF:FF:F3:XX:XX:XX:XX:YY:YY:ZZ:ZZ) for interfaces. Added
 section about addressing. |
