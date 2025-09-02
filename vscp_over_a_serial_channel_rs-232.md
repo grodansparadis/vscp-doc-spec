@@ -16,6 +16,9 @@ The sequence number byte marks a number for a sequence of a special frame. For i
 
 As noted there can be two types of ACKs/NACKs one (251/252) is a general ACK/NACK that is the response when a frame is received and put in a buffer. This is generally all that is needed. The other version (249/250) can optionally be sent when the frame is actually sent on the interface.
 
+### Security
+If security is a concern (for instance a serial channel used over the air), it is recommended to implement additional measures such as encryption and authentication to protect the data being transmitted over the serial channel. AES encryption is one option that can be considered for securing the data. VSCP use AES-128 CBC mode for encryption in many applications and this is the recommended encryption also here. In this case the IV (Initialization Vector) should be unique and random for each session to ensure the security of the encrypted data and should typically be added to the end of the frame. Also the frame must be a multiple of the AES block size (16 bytes).
+
 ### Frame format
 
  | Byte  | Content          | Description                                                                          |
@@ -31,6 +34,15 @@ As noted there can be two types of ACKs/NACKs one (251/252) is a general ACK/NAC
  | len-2 | [DLE]            | Escape character                                                                     |
  | len-1 | [ETX]            | End of frame                                                                         |
 
+If the frame is encrypted using AES-128 CBC mode, the following additional considerations apply:
+
+1. **Initialization Vector (IV)**: The IV should be unique and random for each session to ensure the security of the encrypted data. It is recommended to add the IV to the end of the frame payload. Frame size should include it.
+
+2. **Frame Size**: The frame payload must be a multiple of the AES block size (16 bytes). If the frame is not a multiple of 16 bytes, padding should be added to the frame to make it so. Only the original payload is encrypted (including any padding bytes), the IV is not.
+
+3. **Encryption Process**: The payload of the frame should be encrypted using AES-128 CBC mode before being sent. The encryption key should be kept secret and secure.
+
+4. **Decryption Process**: Upon receiving an encrypted frame, the recipient must extract the IV from the end of the frame, then decrypt the payload using AES-128 CBC mode with the same key.
 
 ### Frame types
 
@@ -52,7 +64,9 @@ As noted there can be two types of ACKs/NACKs one (251/252) is a general ACK/NAC
  | 13 (0x0d)    | Multi frame CANAL message to/from node WITH timestamp.                                                                                    |
  | 14 (0x0e)-15 (0x0f) | Reserved.                                                                                                                                 |
  | 16 (0x10)    | Unused/reserved and __will never be used__ (DLE).                                                                                         |
- | 17-248 | Reserved.                                                                                                                                 |
+ | 17-31 | Reserved.                                                                                                                                 |
+ | 32-47 | Same as 0-15 but encrypted with AES-128 CBC mode.                                                                                         |
+ | 48-248 | Reserved.                                                                                                                                 |
  | 249 (0xf9)   | Sent ACK.                                                                                                                                 |
  | 250 (0xfa)   | Sent NACK.                                                                                                                                |
  | 251 (0xfb)   | ACK.                                                                                                                                      |
@@ -109,10 +123,10 @@ To make sending and receiving more efficient it is possible to send multiple CAN
 
  | Data byte | Description                |
  | --------- | -----------                |
- | 0         | id MSB                     |
- | 1         | id                         |
- | 2         | id                         |
- | 3         | id LSB                     |
+ | 0         | CAN id MSB                 |
+ | 1         | CAN id                     |
+ | 2         | CAN id                     |
+
  | 4         | datacount                  |
  | 5-n       | data                       |
  | n+1       | Start of next CANAL frame. |
@@ -167,7 +181,7 @@ Do not make expectations of the length of this frame as it will most certainly g
  | --------- | -----------                                    |
  | 0         | VSCP head MSB                                  |
  | 1         | VSCP head LSB                                  |
- | 2         | Timestamp MSB Microsconds                      |
+ | 2         | Timestamp MSB Microseconds                      |
  | 3         | Timestamp                                      |
  | 4         | Timestamp                                      |
  | 5         | Timestamp LSB                                  |
@@ -186,7 +200,7 @@ Do not make expectations of the length of this frame as it will most certainly g
  | 1         | CAN id                     |
  | 2         | CAN id                     |
  | 3         | CAN id (LSB)               |
- | 4         | Timestamp MSB Microsconds  |
+ | 4         | Timestamp MSB Microseconds |
  | 5         | Timestamp                  |
  | 6         | Timestamp                  |
  | 7         | Timestamp LSB              |
@@ -203,7 +217,7 @@ To make sending and receiving more efficient it is possible to send multiple CAN
  | 1         | id                         |
  | 2         | id                         |
  | 3         | id LSB                     |
- | 4         | Timestamp MSB Microsconds  |
+ | 4         | Timestamp MSB Microseconds  |
  | 5         | Timestamp                  |
  | 6         | Timestamp                  |
  | 7         | Timestamp LSB              |
@@ -222,7 +236,7 @@ To make sending and receiving more efficient it is possible to send multiple VSC
  | --------- | -----------                                    |
  | 0         | VSCP head MSB                                  |
  | 1         | VSCP head LSB                                  |
- | 2         | Timestamp MSB Microsconds                      |
+ | 2         | Timestamp MSB Microseconds                      |
  | 3         | Timestamp                                      |
  | 4         | Timestamp                                      |
  | 5         | Timestamp LSB                                  |

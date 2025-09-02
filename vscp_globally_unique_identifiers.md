@@ -36,7 +36,10 @@ It is possible to create your own GUID without requesting a series and still get
  | <pre>FF:FF:FF:FF:FF:FF:FF:F5:XX:XX:XX:XX:XX:XX:XX:XX</pre> | Reserved for VSCP & Friends demo and example usage. | 
  | <pre>FF:FF:FF:FF:FF:FF:FF:F4:XX:XX:XX:XX:XX:XX:YY:YY</pre> | Reserved for VSCP grouping where YY defines the group id. XX is not currently used. | 
  | <pre>FF:FF:FF:FF:FF:FF:FF:F3:XX:XX:XX:XX:YY:YY:ZZ:ZZ</pre> | Reserved for VSCP interfaces where YY:YY defines the interface and ZZ:ZZ the node id for a node on that interface. XX:XX:XX:XX can be used as the user likes, typically host id (ip4 address for example) | 
- | <pre>FF:FF:FF:FF:FF:FF:FF:00:00:00:00:00:00:00:00:00 - </pre><pre>FF:FF:FF:FF:FF:FF:FF:F2:FF:FF:FF:FF:FF:FF:FF:FF</pre> | Reserved  | 
+ | <pre>FF:FF:FF:FF:FF:FF:FF:F2:XX:XX:ZZ:ZZ:ZZ:ZZ:ZZ:ZZ</pre> | Reserved for LoRa 2 byte MAC address |
+ | <pre>FF:FF:FF:FF:FF:FF:FF:F1:XX:XX:XX:XX:ZZ:ZZ:ZZ:ZZ</pre> | Reserved for LoRa 4 byte MAC address |
+ | <pre>FF:FF:FF:FF:FF:FF:FF:F0:XX:XX:XX:XX:XX:XX:ZZ:ZZ</pre> | Reserved for LoRa 6 byte MAC address |
+ | <pre>FF:FF:FF:FF:FF:FF:FF:00:00:00:00:00:00:00:00:00 - </pre><pre>FF:FF:FF:FF:FF:FF:FF:EF:FF:FF:FF:FF:FF:FF:FF:FF</pre> | Reserved  | 
  | <pre>00:00:00:00:00:00:00:00:00:00:00:00:xx:xx:xx:xx</pre> | Lab usage. You can use this range for your own development or for in-house local use. The GUID should never appear outside your local segments. | 
  | <pre>FE:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY</pre> | Reserved for a generated 128 bit GUID where the most significant byte is replaced by FE Only use for Level II and on internal net. [https://hegel.ittc.ku.edu/topics/internet/internet-drafts/draft-l/draft-leach-uuids-guids-01.txt](https://hegel.ittc.ku.edu/topics/internet/internet-drafts/draft-l/draft-leach-uuids-guids-01.txt) | 
  | <pre>FD:AA:BB:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY</pre> | Reserved for MCU internal id's provided by some manufacturers. AA is manufacturer id. BB is circuit family. There is room for a 13-byte id. If the particular CPU have a an id that is shorter than put used bits to the right and set unused MSB bytes to zero. See information below. | 

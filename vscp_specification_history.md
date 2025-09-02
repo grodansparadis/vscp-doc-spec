@@ -2,11 +2,13 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
- |2025-08-28| AKHE | Clarified negative string values in measurement events. |
+|2025-09-02| AKHE | VSCP over LoRA. Reserved GUID series |
+|2025-09-02| AKHE | VSCP over serial now allow for AES-128 CBC encryption. |
+|2025-08-28| AKHE | Clarified negative string values in measurement events. |
 |2025-02-21| AKHE | VSCP tcp/ip link protocol now can add optional 64-bit value at the end for WCYD response. |
 |2025-02-20| AKHE | Added reserved GUID group (FF:FF:FF:FF:FF:FF:FF:F3:XX:XX:XX:XX:YY:YY:ZZ:ZZ) for interfaces. Added
 section about addressing. |
-|2025-02-05 | AKHE | Added info that a zero value means not set/used for the standard register firmware code. |
+|2025-02-05| AKHE | Added info that a zero value means not set/used for the standard register firmware code. |
 |2025-01-19| AKHE | Added bootloader abort events |
 |2025-01-13| AKHE | Misc updates/fixed for measurement units. [See](https://github.com/grodansparadis/vscp/discussions/279#discussioncomment-11796872) |
 |2025-01-09| AKHE | CLASS1.MEASUREMENT, type13/14 new units. Fixed faulty link. Fixed unit error. |
