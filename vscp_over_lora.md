@@ -1,5 +1,11 @@
 # VSCP over LoRa
 
+Generally LoRa nodes will be dumb nodes. They simply send and receive data without any VSCP processing or intelligence. They can have registers and a decision matrix but the configuration of a node will be very slow. Still there will be a need to configure a LoRa node. Other communication methods can be used for that (like a serial line) but it would also be possible to setup VSCP registers if a node need to be configured also in the field. The only thing it needs to implement for this tp work is the read/write events of the VSCP protocol. The configuring application must then take care not to take up to much bandwidth with it's operations and use delays between read/write operations.
+
+Communication parameters, such as region, spread factor, and transmit power and the encryption key is an example of parameters that needs to be set for nodes.
+
+LoRa nodes should send VSCP heartbeats at regular intervals to indicate they are alive. It is recommended that the heartbeat is sent unencrypted.
+
 ## LoRa transparent mode
 
 **preliminary**
@@ -37,8 +43,60 @@ Due to the nature of LoRa communication, devices can be classified as either "du
 
 ## LoRa block/frame mode
 
-t.b.d
+**preliminary**
 
+In block or frame mode we send the frames in binary format. A frame should fit in one block of LoRA data. That means a maximum theoretical frame size of 256 bytes. The frame is sent as is without any additional packaging.  It is recommended that **AES-128**/192/256 CBC encryption is used for all LoRa transmissions but it can be sent unencrypted also. In any case 16-bytes is perfect for the VSCP part and if encrypted with AES-128/192/256 CBC, the total frame size would be 32 bytes (16 bytes for the encrypted data and 16 bytes for the IV).
 
+## Frame format 
+
+| Byte | Description |
+| ---- | ----------- |
+| 0 | Frame type & encryption settings. (**never encrypted**)|
+| 1* | Flags |
+| 2* | Sequence counter, increased with one for each sent frame |
+| 3* | Originating node id (radio id) MSB |
+| 4* | Originating node id (radio id)  LSB |
+| 5* | VSCP class |
+| 6* | VSCP type |
+| 7* | VSCP data length (without zero padding) |
+| 8-16* | VSCP frame data (padding with zero to always make 8 bytes) |
+| 17-32| AES-128/192/256 CBC IV (16 bytes) |
+
+Bytes marked with '*' are encrypted when the frame is encrypted forming a 16-byte block.
+
+Radio id equal to 0 and radio id equal to 0xffff (65535) is broadcast and should not be originating id's.
+
+### Definition of frame type
+
+The byte is never encrypted.
+
+| Bits | Description |
+| ---- | ----------- |
+| 7,6,5,4 | Packet type. Currently always zero. |
+| 3,2,1,0 | Encryption. |
+
+### Frame and encryption types
+| Code | Description |
+| 0 | No encryption |
+| 1 | AES128 CBC encryption. 16-byte IV is appended to each frame. |
+| 2 | AES192 CBC encryption. 16-byte IV is appended to each frame. |
+| 3 | AES256 CBC encryption. 16-byte IV is appended to each frame. |
+| 4-15 | Reserved |
+
+### Definition of flags
+
+| Bits | Description |
+| ---- | ----------- |
+| 7 | If set this is a dumb node.  |
+| 6,5,4,3,2,1,0 | Reserved |
+
+# Reference
+  * LoRA docs - https://lora.readthedocs.io/en/latest/
+  * LoRa & LoRaWAN Explained! - https://www.youtube.com/watch?v=XvrVjpQBSL0
+  * Example of transparent and fixed modes - https://www.youtube.com/watch?v=JvBC7cEgI0E
+
+# Manufacturers
+  * SHEN ZHEN DX-SMART TECHNOL OGY CO.，LTD. - http://en.szdx-smart.com/m/EN/zlxz/LORAmk/Lora1/514.html
+  * Ebyte - https://www.cdebyte.com/?gad_source=1&gad_campaignid=22838789706&gclid=Cj0KCQjwzt_FBhCEARIsAJGFWVmOa9puKMdUa4mIVf4j5-rR9xQ3IBpDvBQPUHLFWPznaOESgbKq38IaAuVYEALw_wcB
 
 [filename](./bottom_copyright.md ':include')
