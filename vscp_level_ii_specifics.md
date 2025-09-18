@@ -106,7 +106,7 @@ A event from a node on a Level I that is transferred out on a Level II can have 
 
 For interfaces the machine MAC address, if available, is a good base for a GUID which easily can map to real physical nodes that are handled by the interface. By using this method each MAC address gives 65536 unique GUID's.
 
-Other methods to generate GUID's s also available form more information see Appendix A.
+Other methods to generate GUID's s also available form more information [see](https://grodansparadis.github.io/vscp-doc-spec/#/./vscp_globally_unique_identifiers).
 
 ## String Representation
 In some cases it is useful to have a compact string representation of the an Event. This is for instance used in the [VSCP tcp/ip link protocol](./vscp_over_tcp_ip.md). The format is
@@ -166,6 +166,8 @@ If vscpTimeStamp and or vscpDateTime is absent they should be treated as 'now'.
 vscpTimeStamp is a sender relative value expressed in microseconds that can be used for more precise timing calculations
 
 vscpDateTime is date + time in UTC on ISO format
+
+Defaults for absent fields is described in the JSON section below.
 
 ## JSON Representation
 
@@ -262,9 +264,9 @@ The GUID address is not normally used during communication with a node. Instead 
 
 Besides the GUID it is recommended that all nodes should have a node description string in the firmware that points to a URL that can give full information about the node and its family of devices. As well as providing information about the node, this address can point at drivers for various operating systems or segment controller environments. Reserved GUID's
 
-Some GUID's are reserved and unavailable for assignment. Appendix A list these and also assigned IDs.
+Some GUID's are reserved and unavailable for assignment. [Here](./assigned_guids) is a list these and also assigned IDs.
 
-The VSCP team controls the rest of the addresses and will allocate addresses to individuals or companies by them sending a request to [guid_request@vscp.org](guid_request@vscp.org). You can request a series of 32-bits making it possible for you to manufacture 4294967295 nodes. If you need more (!!!) you can ask for another series. There is no cost for reserving a series. Appendix A in this document contains a list of assigned addresses which will also be available at [https://www.vscp.org](https://www.vscp.org)
+The VSCP team controls the rest of the addresses and will allocate addresses to individuals or companies by them sending a request to [guid_request@vscp.org](guid_request@vscp.org). You can request a series of 32-bits making it possible for you to manufacture 4294967295 nodes. If you need more (!!!) you can ask for another series. There is no cost for reserving a series. [This page](./assigned_guids) contains a list of assigned addresses which will also be available at [https://www.vscp.org](https://www.vscp.org)
 
 ## Predefined VSCP GUID's
 
@@ -274,7 +276,7 @@ It is possible to create your own GUID without requesting a series and still hav
 
 ## Assigned VSCP GUID's
 
-Current predefined GUID series is listed in [appendix A](./appendix_a.md). You can request your own series by writing [guid_request@vscp.org](guid_request@vscp.org)
+Current predefined GUID series is listed [here](./assigned_guids.md)). You can request your own series by writing [guid_request@vscp.org](guid_request@vscp.org)
 
 ## Shorthand GUID's
 
