@@ -96,7 +96,8 @@ The byte is never encrypted.
   * Example of transparent and fixed modes - https://www.youtube.com/watch?v=JvBC7cEgI0E
 
 # Manufacturers
-  * SHEN ZHEN DX-SMART TECHNOL OGY CO.，LTD. - http://en.szdx-smart.com/m/EN/zlxz/LORAmk/Lora1/514.html
   * Ebyte - https://www.cdebyte.com/?gad_source=1&gad_campaignid=22838789706&gclid=Cj0KCQjwzt_FBhCEARIsAJGFWVmOa9puKMdUa4mIVf4j5-rR9xQ3IBpDvBQPUHLFWPznaOESgbKq38IaAuVYEALw_wcB
+  * SHEN ZHEN DX-SMART TECHNOL OGY CO.，LTD. - http://en.szdx-smart.com/m/EN/zlxz/LORAmk/Lora1/514.html
+  
 
 [filename](./bottom_copyright.md ':include')

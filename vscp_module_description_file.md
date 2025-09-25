@@ -280,7 +280,7 @@ For "target" and "format" you can really use anything that your bootloader softw
   <firmware name="Firmware for PIC18F2558" 
             target="pic18f2558"
             targetcode="0x00" 
-            url="https://github.com/grodansparadis/can4vscp_vilnius/releases/download/v1.04/Vilnius_pic18f2580_1_0_4_relocated.hex" 
+            url="https://github.com/grodansparadis/can4vscp-vilnius/releases/download/v1.04/Vilnius_pic18f2580_1_0_4_relocated.hex" 
             format="intelhex8" 
             date="2020-05-15" 
             version_major="1" 
@@ -291,7 +291,7 @@ For "target" and "format" you can really use anything that your bootloader softw
   <firmware name="Firmware for PIC18F26K58" 
             target="pic18f26k58"
             targetcode="0x02" 
-            url="https://github.com/grodansparadis/can4vscp_vilnius/releases/download/v1.0.3/Vilnius_2580_1_0_3.hex" 
+            url="https://github.com/grodansparadis/can4vscp-vilnius/releases/download/v1.0.3/Vilnius_2580_1_0_3.hex" 
             format="intelhex8" 
             date="2016-03-23" 
             version_major="1" 
@@ -302,7 +302,7 @@ For "target" and "format" you can really use anything that your bootloader softw
   <firmware name="Firmware for PIC18F2558" 
             target="pic18f2558" 
             targetcode="0x00" 
-            url="https://github.com/grodansparadis/can4vscp_vilnius/releases/download/v1.0.0/Vilnius_1.0.0.hex" 
+            url="https://github.com/grodansparadis/can4vscp-vilnius/releases/download/v1.0.0/Vilnius_1.0.0.hex" 
             format="intelhex8" 
             date="2015-07-07" 
             version_major="1" 
@@ -313,7 +313,7 @@ For "target" and "format" you can really use anything that your bootloader softw
   <firmware name="Firmware for PIC18F2558" 
             target="pic18f2558"
             targetcode="0x00"  
-            url="https://github.com/grodansparadis/can4vscp_vilnius/releases/download/v1.0.0/Vilnius_1.0.0.hex" 
+            url="https://github.com/grodansparadis/can4vscp-vilnius/releases/download/v1.0.0/Vilnius_1.0.0.hex" 
             format="intelhex8" 
             date="2015-07-07" 
             version_major="1" 
@@ -1367,11 +1367,11 @@ Event data can use value lists and bit fields. See description above for more in
 
 ### Kelvin NTC10K
 
-The Kelvin NTC10K is one of [Grodans Paradis AB's](https://www.grodansparadis.com/) modules and it has it's product page [here](https://www.grodansparadis.com/kelvinntc10k/kelvin_ntc10ka.html). The MDF file for this modules is [here](https://www.eurosource.se/ntc10KA_1.xml).
+The Kelvin NTC10K is one of [Grodans Paradis AB's](https://www.grodansparadis.com/) modules and it has it's product page [here](https://github.com/grodansparadis/can4vscp-kelvin-ntc10k). The MDF file for this modules is [here](https://www.eurosource.se/ntc10KA_1.xml).
 
 ### Paris relay module
 
-The Paris module is another module from Grodans Paradis AB and it is documented [here](https://www.grodansparadis.com/paris/paris.html). The MDF file for this modules is [here](https://www.eurosource.se/paris_010.xml).
+The Paris module is another module from Grodans Paradis AB and it is documented [here](https://github.com/grodansparadis/can4vscp-paris). The MDF file for this modules is [here](https://www.eurosource.se/paris_010.xml).
 
 ---
 
