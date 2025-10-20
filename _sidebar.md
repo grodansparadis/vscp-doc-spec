@@ -25,7 +25,7 @@
    * [VSCP over Ethernet (raw Ethernet)](./vscp_over_ethernet_raw_ethernet.md)
    * [VSCP over UDP](./vscp_over_udp.md)
    * [VSCP over Multicast](./vscp_over_multicast.md)
-   * [VSCP over websocket](./vscp_websocket.md)
+   * [VSCP over Websockets](./vscp_websocket.md)
    * [VSCP over RESTful interface](./vscp_rest.md)
    * [VSCP over CAN (CAN4VSCP)](./vscp_over_can_can4vscp.md)
    * [VSCP over a serial channel (RS-232)](./vscp_over_a_serial_channel_rs-232.md)

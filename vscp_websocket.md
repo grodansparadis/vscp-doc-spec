@@ -1,6 +1,6 @@
-# VSCP websocket
+# VSCP websockets
 
-# VSCP Daemon VSCP Websocket Interface
+# VSCP Daemon VSCP Websockets Interface
 
 The daemon exports a HTML5 websocket interface from version 0.3.3. This interface makes it possible to have web widgets that are self contained and entirely written in JavaScript which can send and receive VSCP events. This means that you can create a simple web page, place your widgets on it and with or without a stand alone web server have a lightweight user interface. As phone, tablets and other devices generally also support HTML5. That is you have a general way for user interface creation. If you prefer apps. 
 
@@ -170,7 +170,7 @@ for example
 C;AUTH;5a475c082c80dcdf7f2dfbd976253b24;69b1180d2f4809d39be34e19c750107f
 ```
 
-where the sid is used as a 16.byte random iv for AES-128 encryption over
+where the sid is used as a 16-byte random iv for AES-128 encryption over
 
 ```
 "username:password"
