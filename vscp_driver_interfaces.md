@@ -63,7 +63,7 @@ Letting the driver talk to the daemon over the MQTT interface is favorable in th
 
 The level II driver is, just as the Level I driver, a shared library, a .dll (Windows) or a .so (Linux), with a specific set of exported methods. The exported methods are four of the methods from the CANAL interface and uses identical calling parameters and return values. There are some differences however noted below. 
 
-## Add and configure a driver
+### Add and configure a driver
 
 Go to the repository for the driver and download it and install it.
 
@@ -89,13 +89,13 @@ How this is done for other software like [VSCP Works](https://grodansparadis.git
 
 The driver configuration file is documented in the drivers own documentation.
 
-## Creating your own driver
+### Creating your own driver
 To make a Level II driver just create a dynamically linked library that export the Level II interface (described below). There are plenty of examples to use as a starting point for creating your own driver. Use one of the divers [here](https://docs.vscp.org/#level2drv) as your starting point.
 
 
-## VSCP Level II API
+### VSCP Level II API
 
-## VSCPOpen
+### VSCPOpen
 
 ```c
 long VSCPOpen( const char *pPathConfig,
@@ -104,30 +104,30 @@ long VSCPOpen( const char *pPathConfig,
 
 Start the driver and give it a pointer to some initial configuration data which the driver itself reads from the configuration file. The supplied guid must be unique.
 
-### pPathConfig
+#### pPathConfig
 Path to a configuration file. Usually this file is in JSON or XML format but the driver maker can freely do this select of configuration file format.
 
-### pguid
+#### pguid
 Pointer to a unique GUID.
 
-### return
+#### return
 A handle to the opened interface.
 
 
-## VSCPClose
+### VSCPClose
 
 ```c
 int VSCPClose( long handle );
 ```
 Close a driver interface.
 
-### handle
+#### handle
 A valid handle received from a successful call to VSCPOpen.
 
-### return
+#### return
 VSCP_ERROR_SUCCESS if successful otherwise one of the error codes defined in [vscp.h](https://github.com/grodansparadis/vscp/blob/master/src/vscp/common/vscp.h)
 
-## VSCPWrite
+### VSCPWrite
 
 ```c
 int VSCPBlockingSend( long handle, 
@@ -138,19 +138,19 @@ int VSCPBlockingSend( long handle,
 
 Send an event while blocking for 'timeout' milliseconds (forever if timeout=0). 
 
-### handle
+#### handle
 A valid handle received from a successful call to VSCPOpen.
 
-### pEvent
+#### pEvent
 A pointer to a VSCP event as defined in [vscp.h](https://github.com/grodansparadis/vscp/blob/master/src/vscp/common/vscp.h). The driver copies the event so the caller is free to reuse the memory after the call.
 
-### timeout
+#### timeout
 Time to block in milliseconds if the event can't be sent. If timeout is set to zero it should block for ever.
 
-### return
+#### return
 VSCP_ERROR_SUCCESS if successful otherwise one of the error codes defined in [vscp.h](https://github.com/grodansparadis/vscp/blob/master/src/vscp/common/vscp.h)
 
-## VSCPBlockingReceive
+### VSCPBlockingReceive
 
 ```c
 int VSCPBlockingReceive( long handle, 
@@ -161,19 +161,19 @@ int VSCPBlockingReceive( long handle,
 
 Blocking receive of an event. Blocks for 'timeout' milliseconds and forever if timeout=0. 
 
-### handle
+#### handle
 A valid handle received from a successful call to VSCPOpen.
 
-### pEvent
+#### pEvent
 A pointer to a VSCP event as defined in [vscp.h](https://github.com/grodansparadis/vscp/blob/master/src/vscp/common/vscp.h). The receiver is responsible for allocating and freeing the event.
 
-### timeout
+#### timeout
 Time to block in milliseconds if no event is received. If timeout is set to zero it should block for ever.
 
-### return
+#### return
 VSCP_ERROR_SUCCESS if successful otherwise one of the error codes defined in [vscp.h](https://github.com/grodansparadis/vscp/blob/master/src/vscp/common/vscp.h)
 
-## VSCPGetVersion
+### VSCPGetVersion
 
 ```c
 unsigned long VSCPGetVersion( void ) 
@@ -181,7 +181,7 @@ unsigned long VSCPGetVersion( void )
 
 Fetch the version of the driver.
 
-### return
+#### return
 The version of the driver as an unsigned long. The returned value is packed as 
 
 ```c
@@ -190,6 +190,8 @@ unsigned long ver = MAJOR_VERSION << 24 |
                         RELEASE_VERSION << 8 |
                         BUILD_VERSION;
 ```
+### Test code for driver
 
+The vscpl2drv-websocket contains test code that can be used as a starting point for creating your own Level II driver. The test code is located [here](https://github.com/grodansparadis/vscpl2drv-websocksrv/tree/main/testapp). This code loads the driver and uses the Level II API to send and receive events.
 
 [filename](./bottom_copyright.md ':include')
