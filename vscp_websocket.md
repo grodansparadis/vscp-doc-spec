@@ -31,7 +31,7 @@ See the documentation for the [vscpl2drv-websocketdrv driver](https://github.com
 
 
 
-### VSCP Daemon Websocket Protocol Description :id=websocket-protocol-description
+### VSCP Websocket Protocol Description :id=websocket-protocol-description
 
 #### Accessing the websocket interface :id=ws1-access
 ```
