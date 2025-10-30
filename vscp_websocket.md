@@ -1,6 +1,6 @@
 # VSCP websockets
 
-# VSCP Websockets Interface
+# Interfaces
 
 The [vscpl2drv-websocketdrv](https://github.com/grodansparadis/vscpl2drv-websocksrv) exports a  websocket interface. Embedded VSCP nodes and other software may also export this interface. The websocket interface makes it possible to have web widgets that are self contained and entirely written in JavaScript which can send and receive VSCP events. This means that you can create a simple web page, place your widgets on it and with or without a stand alone web server have a lightweight user interface. As phone, tablets and other devices generally also support HTML5. That is you have a general way for user interface creation. If you prefer apps. 
 
