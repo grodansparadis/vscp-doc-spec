@@ -63,6 +63,8 @@ Letting the driver talk to the daemon over the MQTT interface is favorable in th
 
 The level II driver is, just as the Level I driver, a shared library, a .dll (Windows) or a .so (Linux), with a specific set of exported methods. The exported methods are four of the methods from the CANAL interface and uses identical calling parameters and return values. There are some differences however noted below. 
 
+The driver header file is available [here](https://github.com/grodansparadis/vscp/blob/master/src/vscp/common/level2drvdef.h) and contains all information needed to create your own Level II driver. You can manually load the driver and find the methods if you want to avoid linking to the driver at compile time. See the [this code](https://github.com/grodansparadis/vscpl2drv-websocksrv/blob/main/testapp/main.cpp) below for an example of how to do this.
+
 ### Add and configure a driver
 
 Go to the repository for the driver and download it and install it.
