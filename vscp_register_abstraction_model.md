@@ -22,6 +22,7 @@ The VSCP registers are defined as follows:
 
 _Note:_ Add 0xFFFFFF80 to an address below to get the corresponding level II standard register abstraction address.
 
+
  | Address   | Access Mode | Description  | 
  | -------   | ----------- | -----------  | 
  | 0x00–0x7F |             | Device specific (a page). Unimplemented registers should return zero. | 
@@ -42,12 +43,12 @@ _Note:_ Add 0xFFFFFF80 to an address below to get the corresponding level II sta
  | 142/0x8E  | Read only   | VSCP_STD_REGISTER_USER_MANSUBDEV_ID+1 <br />Manufacturer sub device ID byte 1. | 
  | 143/0x8F  | Read only   | VSCP_STD_REGISTER_USER_MANSUBDEV_ID+2 <br />Manufacturer sub device ID byte 2. | 
  | 144/0x90  | Read only   | VSCP_STD_REGISTER_USER_MANSUBDEV_ID+3 <br />Manufacturer sub device ID byte 3. | 
- | 145/0x91  | Read only   | VSCP_STD_REGISTER_NICKNAME_ID <br />VSCP_STD_REGISTER_NICKNAME_ID_LSB <br />Nickname-ID for node if assigned or 0xFF if no nickname-ID assigned. This is LSB for the nickname of nodes with 16-bit nikckname id. In this case the MSB is stored in register 0xA5. | 
- | 146/0x92  | Read/Write  | VSCP_STD_REGISTER_PAGE_SELECT_MSB <br /> Page select register MSB | 
- | 147/0x93  | Read/Write  | VSCP_STD_REGISTER_PAGE_SELECT_LSB <br /> Page Select register LSB | 
- | 148/0x94  | Read Only   | VSCP_STD_REGISTER_FIRMWARE_MAJOR<br /> Firmware major version number. This is the version for the firmware loaded on the devive. | 
- | 149/0x95  | Read Only   | VSCP_STD_REGISTER_FIRMWARE_MINOR<br />Firmware minor version number. This is the version for the firmware loaded on the devive.| 
- | 150/0x96  | Read Only   | VSCP_STD_REGISTER_FIRMWARE_SUBMINOR <br />VSCP_STD_REGISTER_FIRMWARE_RELEASE<br />Firmware sub minor version number. This is the version for the firmware loaded on the devive.| 
+ | 145/0x91  | Read only   | VSCP_STD_REGISTER_NICKNAME_ID <br />VSCP_STD_REGISTER_NICKNAME_ID_LSB <br />Nickname-ID for node if assigned or 0xFF if no nickname-ID assigned. This is LSB for the nickname of nodes with 16-bit nickname id. In this case the MSB is stored in register 0xA5. | 
+ | 146/0x92  | Read/Write  | VSCP_STD_REGISTER_PAGE_SELECT_MSB <br /> Page select register MSB. | 
+ | 147/0x93  | Read/Write  | VSCP_STD_REGISTER_PAGE_SELECT_LSB <br /> Page Select register LSB. | 
+ | 148/0x94  | Read Only   | VSCP_STD_REGISTER_FIRMWARE_MAJOR<br /> Firmware major version number. This is the version for the firmware loaded on the device. | 
+ | 149/0x95  | Read Only   | VSCP_STD_REGISTER_FIRMWARE_MINOR<br />Firmware minor version number. This is the version for the firmware loaded on the device.| 
+ | 150/0x96  | Read Only   | VSCP_STD_REGISTER_FIRMWARE_SUBMINOR <br />VSCP_STD_REGISTER_FIRMWARE_RELEASE<br />Firmware sub minor version number. This is the version for the firmware loaded on the device.| 
  | 151/0x97  | Read Only   | VSCP_STD_REGISTER_BOOT_LOADER<br /> Boot loader algorithm used. 0xFF for no boot loader support. Codes for algorithms are specified here [CLASS1.PROTOCOL, Type=12](./class1.protocol#id=type12) | 
  | 152/0x98  | Read Only   | VSCP_STD_REGISTER_BUFFER_SIZE<br /> Buffer size. **Deprecated from version 1.14.2**. Always return zero in new code when the register is read. The value here gives an indication for clients that want to talk to this node if it can support the larger mid level Level I control events which has the full GUID. If set to 0 the default size should used. That is 8 bytes for Level I and 512 for Level II. | 
  | 153/0x99  | Read Only   | VSCP_STD_REGISTER_PAGES_COUNT<br />Number of register pages used. If not implemented one page is assumed. Set to zero if your device have more then 255 pages. **Deprecated**: Use the MDF instead as the central place for information about actual number of pages.    | 
@@ -66,6 +67,8 @@ _Note:_ Add 0xFFFFFF80 to an address below to get the corresponding level II sta
  | 165/0xA6-207/0xCF | —         | Reserved for future use. Return  | 
  | 208/0xD0-223/0xDF | Read Only   | VSCP_STD_REGISTER_GUID<br /> 128-bit (16-byte) globally unique ID (GUID) identifier for the device. This identifier uniquely identifies the device throughout the world and can give additional information on where driver and driver information can be found for the device. MSB for the identifier is stored first (in 0xD0). | 
  | 224/0xE0-255/0xFF | Read Only   | VSCP_STD_REGISTER_DEVICE_URL<br />Module Description File URL. A zero terminates the ASCII string if not exactly 32 bytes long. The URL points to a file that gives further information about where drivers for different environments are located. Can be returned as a zero string for devices with low memory. For a node with an embedded MDF return a zero string. The CLASS1.PROTOCOL, Type=34/35 can then be used to get the information if available. | 
+
+ **Important**: The page select registers (0x92 and 0x93) are used to select the page for the lower 128 bytes of the register space (0x00-0x7F) for level I devices. It is important that an application that uses the page functionality switch back to page 0x00 when its ready. Applications can use the page registers as a mutex which is signaled when not zero. Best is to use the paged register read commands and write commands when working with paged registers as there read/write operations will be atomic. This is a must where several clients can access the same device at the same time. 
 
 #### User ID
 
