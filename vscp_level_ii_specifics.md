@@ -130,7 +130,7 @@ typedef struct _vscpEventEx {
 } vscpEventEx;
 
 typedef vscpEventEx *PVSCPEVENTEX;
-  ``
+```
 
 The biggest differences is that the GUID is sent in each event and that both class and type has a 16-bit length.
 
