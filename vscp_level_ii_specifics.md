@@ -6,49 +6,131 @@ Level II nodes are intended for media with higher bandwidth then Level I nodes a
 
 ## Level II events
 
-The header for a level II event is defined as
+The frame for a level II event is defined as one version where data is dynamically allocated to save resources 
 
 ```c++
-typedef struct {
-        uint16_t crc;           /* crc checksum (calculated from here to end) */
-                                /* Used for UDP/Ethernet etc */
+typedef struct _vscpEvent {
 
-        uint32_t obid;          /* Used by driver for channel info etc. */
+  /*
+      Bit 15 - This is a dumb node. No MDF, register, nothing.
+      Bit 14 - GUID type
+      Bit 13 - GUID type
+      Bit 12 - GUID type (GUID is IP v.6 address if set and 13/14 is zero.)
+      Bit 8-11 = Reserved
+      Bit 765 =  priority, Priority 0-7 where 0 is highest priority.
+      Bit 4 = hard coded, true for a hard coded device.
+      Bit 3 = Don't calculate CRC, false for CRC usage.
+            Just checked when CRC is used.
+            If set the CRC should be set to 0xAA55 for
+            the event to be accepted without a CRC check.
+      Bit 2 = Rolling index.
+      Bit 1 = Rolling index.
+      Bit 0 = Rolling index.
+  */
+  uint16_t head;
 
-        /* Time block - Always UTC time */
-        uint16_t year;
-        uint8_t month;          /* 1-12 */
-        uint8_t day;            /* 1-31 */
-        uint8_t hour;           /* 0-23 */
-        uint8_t minute;         /* 0-59 */
-        uint8_t second;         /* 0-59 */
+  /* ----- CRC should be calculated from here to end + data block ----  */
 
-        uint32_t timestamp;     /* Relative time stamp for package in microseconds */
-                                /* ~71 minutes before roll over */
+  uint32_t obid; /* Used by driver for channel info etc. */
 
-        /* ----- CRC should be calculated from here to end + data block ----  */
+  /*
+    Time block - Always UTC time. I all zero set current time on receiving end
 
-        uint16_t head;          /* Bit 15   GUID is IP v.6 address. */
-	                            /* Bit 14   This is a dumb node. No MDF, register, nothing. */
-                                /* Bit 8-13 = Reserved */
-                                /* bit 765  priority, Priority 0-7 where 0 is highest. */
-                                /* bit 4 = hard coded, true for a hard coded device. */
-                                /* bit 3 = Don't calculate CRC, false for CRC usage. */
-                                /*          Just checked when CRC is used.                */
-                                /*          If set the CRC should be set to 0xAA55 for    */
-                                /*          the event to be accepted without a CRC check. */
-                                /* bit 2 = Rolling index. */
-                                /* bit 1 = Rolling index. */
-                                /* bit 0 = Rolling index. */
-        uint16_t vscp_class;    /* VSCP class */
-        uint16_t vscp_type;     /* VSCP type */
-        uint8_t GUID[ 16 ];     /* Node globally unique id MSB(0) -> LSB(15) */
-        uint16_t sizeData;      /* Number of valid data bytes */
+    If year is set to 0xffff a unix UTC timestamp with nanosecond precision is formed by the
+    eight byte buffer starting at the day field MSB first.
+  */
+  uint16_t year;
+  uint8_t month; /* 1-12 */
 
-        uint8_t *pdata;         /* Pointer to data. Max 512 bytes */
+  union {
+    uint64_t timestamp_ns; /* Unix timestamp with nanosecond precision (when year == 0xffff) */
+    struct {
+      uint8_t day;        /* 1-31 */
+      uint8_t hour;       /* 0-23 */
+      uint8_t minute;     /* 0-59 */
+      uint8_t second;     /* 0-59 */
+      uint32_t timestamp; /* Relative time stamp for package in microseconds */
+                          /* ~71 minutes before roll over */
+                          /* If all zero set relative time on receiving end */
+    };
+  };
 
-    } vscpEvent;
+  uint16_t vscp_class; /* VSCP class */
+  uint16_t vscp_type;  /* VSCP type */
+  uint8_t GUID[16];    /* Node globally unique id MSB(0) -> LSB(15) */
+  uint16_t sizeData;   /* Number of valid data bytes */
+
+  uint8_t *pdata; /* Pointer to data. Max 512 bytes */
+
+  uint16_t crc; /* Used for UDP/Ethernet etc */
+
+} vscpEvent;
+
+typedef vscpEvent *PVSCPEVENT;
 ```
+
+and in a version where the data is included in the struct
+
+```c++
+typedef struct _vscpEventEx {
+
+  /*
+      Bit 15 - This is a dumb node. No MDF, register, nothing.
+      Bit 14 - GUID type
+      Bit 13 - GUID type
+      Bit 12 - GUID type (GUID is IP v.6 address if set and 13/14 is zero.)
+      Bit 8-11 = Reserved
+      Bit 765 =  priority, Priority 0-7 where 0 is highest priority.
+      Bit 4 = hard coded, true for a hard coded device.
+      Bit 3 = Don't calculate CRC, false for CRC usage.
+            Just checked when CRC is used.
+            If set the CRC should be set to 0xAA55 for
+            the event to be accepted without a CRC check.
+      Bit 2 = Rolling index.
+      Bit 1 = Rolling index.
+      Bit 0 = Rolling index.
+  */
+  uint16_t head;
+
+  /* CRC should be calculated from here to end + data block */
+
+  uint32_t obid; /* Used by driver for channel info etc. */
+
+  /*
+    Time block - Always UTC time. I all zero set current time on receiving end
+
+    If year is set to 0xffff a unix UTC timestamp with nanosecond precision is formed by the eight
+    byte buffer starting at the day field MSB first.
+  */
+  uint16_t year;
+  uint8_t month; /* 1-12 */
+
+  union {
+    uint64_t timestamp_ns; /* Unix timestamp with nanosecond precision (when year == 0xffff) */
+    struct {
+      uint8_t day;        /* 1-31 */
+      uint8_t hour;       /* 0-23 */
+      uint8_t minute;     /* 0-59 */
+      uint8_t second;     /* 0-59 */
+      uint32_t timestamp; /* Relative time stamp for package in microseconds */
+                          /* ~71 minutes before roll over */
+                          /* If all zero set relative time on receiving end */
+    };
+
+    uint16_t crc; /* Used for UDP/Ethernet etc */
+  };
+
+  uint16_t vscp_class; /* VSCP class   */
+  uint16_t vscp_type;  /* VSCP type    */
+  uint8_t GUID[16];    /* Node globally unique id MSB(0) -> LSB(15)    */
+  uint16_t sizeData;   /* Number of valid data bytes   */
+
+  uint8_t data[VSCP_MAX_DATA]; /* Pointer to data. Max. 512 bytes     */
+
+} vscpEventEx;
+
+typedef vscpEventEx *PVSCPEVENTEX;
+  ``
 
 The biggest differences is that the GUID is sent in each event and that both class and type has a 16-bit length.
 
