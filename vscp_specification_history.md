@@ -2,6 +2,7 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-02-20 | AKHE | JSON format has been changed to be consistent with XML format. Breaking change! | 
 | 2025-10-30 | AKHE | Added driver interface descriptions from the VSCP daemon documentation |
 | 2025-10-30 | AKHE | websocket interface description rewritten and clarified |
 | 2025-10-29 | AKHE | VSCP websocket ws2 protocol initial AUTH0 should have empty CMD. |

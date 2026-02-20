@@ -57,17 +57,19 @@ The JSON format where each VSCP event is packed as
 
 ```json
 {
-    "vscpHead": 2,
-    "vscpObId": 123,
-    "vscpDateTime": "2017-01-13T10:16:02",
-    "vscpTimeStamp":50817,
-    "vscpClass": 10,
-    "vscpType": 8,
-    "vscpGuid": "00:00:00:00:00:00:00:00:00:00:00:00:00:01:00:02",
-    "vscpData": [1,2,3,4,5,6,7],
+    "head": 2,
+    "obid": 123,
+    "datetime": "2017-01-13T10:16:02",
+    "timestamp":50817,
+    "class": 10,
+    "type": 8,
+    "guid": "00:00:00:00:00:00:00:00:00:00:00:00:00:01:00:02",
+    "data": [1,2,3,4,5,6,7],
     "note": "This is some text"
 }
 ```
+__All tags was preceded with "vscp..." in versions < 16.0. This has changed to be consistent with.__
+
 __Note the casing. The format is **not** case insensitive.__
 
 ### Optional extra fields
@@ -94,41 +96,41 @@ Although a VSCP event on JSON format can look like
 
 ```json
 {
-    "vscpHead": 2,
-    "vscpObId": 123,
-    "vscpDateTime": "2017-01-13T10:16:02",
-    "vscpTimeStamp":50817,
-    "vscpClass": 10,
-    "vscpType": 8,
-    "vscpGuid": "00:00:00:00:00:00:00:00:00:00:00:00:00:01:00:02",
-    "vscpData": [1,2,3,4,5,6,7],
+    "head": 2,
+    "obid": 123,
+    "datetime": "2017-01-13T10:16:02",
+    "timestamp":50817,
+    "class": 10,
+    "type": 8,
+    "guid": "00:00:00:00:00:00:00:00:00:00:00:00:00:01:00:02",
+    "data": [1,2,3,4,5,6,7],
     "note": "This is some text"
 }
 ```
 
 several of the fields can be skipped if the information is already known. 
 
-**note** is extra of course and is never needed.
+**note** is optional.
 
-**vscpHead** Set to zero if absent.
+**head** Set to zero if absent.
 
-**vscpObId** Should be read as zero if not present,
+**obid** Should be read as zero if not present,
 
-**vscpDateTime** Should be read as now and today if not present, that is todays date and time when the event was received.
+**datetime** Should be read as now and today if not present, that is todays date and time when the event was received.
 
-**vscpTimeStamp** Should be set to a microsecond timestamp on the receiving side or be set to zero to let other layers set it.
+**timestamp** Should be set to a microsecond timestamp on the receiving side or be set to zero to let other layers set it.
 
-**vscpData** If there is no data it can be left out.
+**data** If there is no data it can be left out.
 
-**vscpGuid** If known it can be left out. Typically it can be deduced from the MQTT topic and should be set by the application.
+**guid** If known it can be deduced from the MQTT topic and should be set by the application.
 
 So a minimum JSON formatted MQTT event scan look like
 
 ```json
 {
-  "vscpClass": 10,
-  "vscpType": 8,
-  "vscpData": [0x81,0x01,0x07],
+  "class": 10,
+  "type": 8,
+  "data": [0x81,0x01,0x07],
 }
 ```
 
@@ -136,8 +138,8 @@ which is a temperature measurement (26.4 degrees Celsius),  and even more minimi
 
 ```json
 {
-  "vscpClass": 0,
-  "vscpType": 3,
+  "class": 0,
+  "type": 3,
 }
 ```
 
