@@ -34,7 +34,7 @@ See the documentation for the [vscpl2drv-websocketdrv driver](https://github.com
 ### VSCP Websocket Protocol Description :id=websocket-protocol-description
 
 #### Accessing the websocket interface :id=ws1-access
-```
+
 You reach the ws1 interface by default at
 
 ```url
