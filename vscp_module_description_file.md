@@ -139,7 +139,7 @@ points to web pages that have info in three different languages.
 #### buffersize
 For Level II nodes the buffer size specify the max VSCP data a node can receive.  This makes it possible to have nodes, that due to low internal resources, that can receive events, but not all events, just those under a specified maximum size. The default is eight bytes which is the data size for a level I node. Set to <= 512 for a level II nodes.
 
-### manufacturer:id=manudacturer_xml
+### manufacturer manudacturer_xml
 The manufacturer block describes the manufacturer of the module.
 
 #### name
@@ -213,7 +213,7 @@ This is a web address of the manufacturer. As many web addresses as one like can
 ```
 The infourl is optional.
 
-### Files:id=files_xml
+### Files :id=files_xml
 
 ```xml
 <files>
@@ -228,7 +228,7 @@ The infourl is optional.
 
 This block contains info about files that are related to the module. _picture_, _videos_, _firmware_, _driver_ and _manual_ are current defined types of files. _setup_ is reserved for future use.
 
-#### firmware:id=firmware_xml
+#### firmware :id=firmware_xml
 
 In the firmware block you can specify links to firmware file that is used by the module and describe them. The format is
 
@@ -324,7 +324,7 @@ For "target" and "format" you can really use anything that your bootloader softw
 </files>
 ```
 
-#### picture:id=picture_xml
+#### picture :id=picture_xml
 
 In the picture block you can specify a link to an image file that in some way is related the module and describe it. The format is
 
@@ -350,7 +350,7 @@ Any number of anguage specific descriptions and/or infourl's can be set for each
 | **format** | The format of the picture file. "png", "jpeg" and "jpg" is current valid values. |
 | **date** | Publish date in ISO format. |
 
-#### video:id=video_xml
+#### video :id=video_xml
 
 In the video block you can specify a link to a video file that in some way is related the module and describe it. The format is
 
@@ -376,7 +376,7 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 | **format** | The format of the video file. "mp4", "mov" and "avi" is current valid values. |
 | **date** | Publish date in ISO format. |
 
-#### manual:id=manual_xml
+#### manual :id=manual_xml
 
 In the manual block you can specify a link to a manual file that in some way is related to the module and describe it. The format is
 
@@ -406,7 +406,7 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 | **version_minor** | Minor version number for manual. |
 | **version_subminor** | Sub minor version number for manual. |
 
-#### driver:id=driver_xml
+#### driver :id=driver_xml
 
 In the driver block you can specify a link to a driver for a specific version of an operation system file that in some way is related the module and describe it. Typically this is a device driver or a VSCP daemon driver or similar. zip and gz packed files are allowed. The format is
 
@@ -446,7 +446,7 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 | **version_subminor** | Sub minor version number for driver. |
 | **md5** | MD5 checksum for the driver file as hexadecimal string. Empty if not used. |
 
-#### setup:id=setup_xml
+#### setup :id=setup_xml
 
 In the setup block you can specify a link to a setup file that contain a VSCP setup script that do a specific setup of the device. The format is
 
@@ -475,7 +475,7 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 | **version_minor** | Minor version number for setup. |
 | **version_subminor** | Sub minor version number for setup. |
 
-### Bootloader block:id=bootloader_xml
+### Bootloader block :id=bootloader_xml
 
 ```xml
 <boot>
@@ -489,7 +489,7 @@ The bootloader block specify the bootloader algorithm that should be used to dow
 
 Firmware listed in the *Module Description File* file block have a [targetcode](#firmware) as an attribute. This code specify the hardware for a version of the a module the firmware is intended for. Typically the code is different for modules of the same type which have different versions of micro processor, memory, peripherals etc and therefore need different versions of the firmware. A bootloader should read this register and verify the targetcode with the content of the target code registers before loading firmware as loading wrong firmware version can brick a module.
 
-### Registers:id=registers_xml
+### Registers :id=registers_xml
 
 ```xml
 <registers>
@@ -649,7 +649,7 @@ control_register6
 control_register7
 ```
 
-#### Register value lists:id=register_value_lists_xml
+#### Register value lists :id=register_value_lists_xml
 
 Register definitions can have values lists. A value list is a list of values that can be used for a register.
 
@@ -689,7 +689,7 @@ The valuelist specify a number of values (*items*)  that can be used for a regis
 
 Any number of language specific descriptions and/or infourl's can be set for each value item. If no language attribute is given "en" for English will be used. The language code should be a valid two letter code (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 
-#### Register bit fields:id=register_bit_fields_xml
+#### Register bit fields :id=register_bit_fields_xml
 
 You can define a register as a bit field. A bit field is a register that is split into a number of bits. The bits are defined in a bit field list. There can be a maximum of eight bits defined for a register.
 
@@ -764,7 +764,7 @@ As seen above [valuelists](#register_value_lists) can be used for bit fields as 
 
 Any number of language specific descriptions and/or infourl's can be set for each register item. If no language attribute is given "en" for English will be used. The language code should be a valid two letter code (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 
-### Remote Variables (Abstractions):id=remote_variables_xml
+### Remote Variables (Abstractions) :id=remote_variables_xml
 
 Types for remote varaibles are documented [here](./vscp_register_abstraction_model.md#remote-variables)
 
@@ -935,7 +935,7 @@ In the same way as registers remote variables can also have valuelists and bit f
 </remotevar>
 ```
 
-### Alarms:id=alarm
+### Alarms :id=alarm
 
 ```xml
 <alarm>
@@ -984,7 +984,7 @@ The alarm block specify the meaning of the alarm bits in the standard alarm regi
 
 Any number of language specific descriptions and/or infourl's can be set for each register item. If no language attribute is given "en" for English will be used. The language code should be a valid two letter code (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 
-### Decision Matrix:id=dm_xml
+### Decision Matrix :id=dm_xml
 
 ```xml
 <dmatrix level="1" spart-page="3" start-offset="0" rowcnt="0" rowsize="8">
@@ -1219,7 +1219,7 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 </dmatrix>
 ```
 
-### Events:id=events_xml
+### Events :id=events_xml
 
 ```xml
 <events>
@@ -1718,7 +1718,7 @@ points to web pages that have info in three different languages.
 #### buffersize
 For Level II nodes the buffer size specify the max VSCP data a node can receive.  This makes it possible to have nodes, that due to low internal resources, that can receive events, but not all events, just those under a specified maximum size. The default is eight bytes which is the data size for a level I node. Set to <= 512 for a level II nodes.
 
-### manufacturer:id=manufacturer_json
+### manufacturer  :id=manufacturer_json
 The manufacturer block describes the manufacturer of the module.
 
 #### name
@@ -1818,7 +1818,7 @@ This is a web address of the manufacturer. As many web addresses as one like can
 
 The infourl is optional.
 
-### boot:id=boot_json
+### boot :id=boot_json
 
 ```json
 {
@@ -1834,7 +1834,7 @@ The bootloader object specify the bootloader algorithm that should be used to do
 
 Firmware listed in the *Module Description File* file block have a [targetcode](#firmware) as an attribute. This code specify the hardware for a version of the a module the firmware is intended for. Typically the code is different for modules of the same type which have different versions of micro processor, memory, peripherals etc and therefore need different versions of the firmware. A bootloader should read this register and verify the targetcode with the content of the target code registers before loading firmware as loading wrong firmware version can brick a module.
 
-### Files:id=files_json
+### Files :id=files_json
 
 ```json
 {
@@ -1870,7 +1870,7 @@ Firmware listed in the *Module Description File* file block have a [targetcode](
   ]
 }
 ```
-#### picture:id=picture_json
+#### picture :id=picture_json
 
 In the picture block you can specify a link to an image file that in some way is related the module and describe it. The format is
 
@@ -1907,7 +1907,7 @@ Any number of anguage specific descriptions and/or infourl's can be set for each
 | **path**  | (Deprecated alternative to "url"). The url to the picture file. |
 | **format** | The format of the picture file. "png", "jpeg" and "jpg" is current valid values. |
 
-#### video:id=video_json
+#### video :id=video_json
 
 In the video block you can specify a link to a video file that in some way is related the module and describe it. The format is
 
@@ -1942,7 +1942,7 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 | **path**  | (Deprecated alternative to "url"). The url to the video file. |
 | **format** | The format of the video file. "mp4", "mov" and "avi" is current valid values. |
 
-#### manual:id=manual_json
+#### manual :id=manual_json
 
 In the manual block you can specify a link to a manual file that in some way is related to the module and describe it. The format is
 
@@ -1981,7 +1981,7 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 
 In the driver object you can specify a link to a driver for a specific version of an operation system file that in some way is related the module and describe it. Typically this is a device driver or a VSCP daemon driver or similar. zip and gz packed files are allowed. The format is
 
-#### driver:id=driver_json
+#### driver :id=driver_json
 
 
 ```json
@@ -2026,7 +2026,7 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 | **version_subminor** | Sub minor version number for driver. |
 | **md5** | MD5 checksum for the driver file as hexadecimal string. Empty if not used. |
 
-#### setup:id=setup_json
+#### setup :id=setup_json
 
 In the setup block you can specify a link to a setup file that contain a VSCP setup script that do a specific setup of the device. The format is
 
@@ -2040,7 +2040,7 @@ In the setup block you can specify a link to a setup file that contain a VSCP se
         "format" : "pdf",
         "url" : "https://www.somewhere.com/setup.js",
         "description": {
-          "en": "Description of driver"
+          "en": "Description of setup"
         },
         "infourl": {
           "en": "htps://www.somewhere.com"
@@ -2062,7 +2062,7 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 | **path**  | (Deprecated alternative to "url"). The url to the video file. |
 | **format** | The format of the setup file. "vscpjs" for VSCP javascript setup is the only current valid value. |
 
-### Register:id=register_json
+### Register :id=register_json
 
 ```json
 {
@@ -2450,7 +2450,7 @@ Registers can have bit fields that define bits and groups of bits of the registe
 }
 ```
 
-### Remote variables:id=remotevars_json
+### Remote variables :id=remotevars_json
 
 Types for remote varaibles are documented [here](./vscp_register_abstraction_model.md#remote-variables)
 
@@ -2719,7 +2719,7 @@ In the same way as registers remote variables can also have valuelists and bit f
 ```
 
 
-### Alarms:id=alarm_json
+### Alarms :id=alarm_json
 
 ```json
 "alarm" [
@@ -2849,7 +2849,7 @@ The alarm block specify the meaning of the alarm bits in the standard alarm regi
 Any number of language specific descriptions and/or infourl's can be set for each register item. If no language attribute is given "en" for English will be used. The language code should be a valid two letter code (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 
 
-### Decision Matrix:id=dm_json
+### Decision Matrix :id=dm_json
 
 ```json
 "dmatrix" : {
@@ -3131,7 +3131,7 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 ```
 
 
-### Events:id=events_json
+### Events :id=events_json
 
 ```json
 "events" : [

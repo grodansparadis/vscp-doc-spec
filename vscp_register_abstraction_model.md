@@ -18,7 +18,7 @@ Reading of an unimplemented register should return 0x00.
 
 The VSCP registers are defined as follows: 
 
-### Register abstraction model:id=register_abstraction_model
+### Register abstraction model :id=register_abstraction_model
 
 _Note:_ Add 0xFFFFFF80 to an address below to get the corresponding level II standard register abstraction address.
 
@@ -107,7 +107,7 @@ The level I standard register space is present in area at address 0xFFFFFF80 to 
  | 0xFFFF0000 | Read Only  | MSB of max frame size this device can or prefer to handle. A full frame of 512 bytes is default. | 
  | 0xFFFF0001 | Read Only  | LSB of max frame size this device can or prefer to handle. A full frame of 512 bytes is default. | 
 
-## Remote variables:id=remote-variables
+## Remote variables :id=remote-variables
 
 **Note:** Remote variables where called *abstractions* in previous versions (1.13) of the specification.
 

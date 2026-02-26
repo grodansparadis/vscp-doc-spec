@@ -303,7 +303,7 @@ is received if it got sent and
 
 is returned if there was a problem sending the event.
 
-#### Version:id=ws1-version
+#### Version :id=ws1-version
 
 The __VERSION__ command can be used to get the version of the protocol the server supports. The command is issued as
 
@@ -711,17 +711,17 @@ The reply is the following object
 
 ### WS2 examples :id=ws2-examples
 
-#### HTML5:id=ws2-examples-html5
+#### HTML5 :id=ws2-examples-html5
 
 A simple ws2 interface connection example is [here](https://github.com/grodansparadis/vscpl2drv-websocksrv/blob/main/test/test_ws2.html)
 
-#### Python:id=ws2-examples-python
+#### Python :id=ws2-examples-python
 Code that issue some commands, send an event and waiting for incoming events is [here](https://github.com/grodansparadis/vscpl2drv-websocksrv/blob/main/test/test_ws2.py)
 
-#### node.js:id=ws2-examples-nodejs
+#### node.js :id=ws2-examples-nodejs
 Code that issue some commands, send an event and waiting for incoming events is [here](https://github.com/grodansparadis/vscpl2drv-websocksrv/blob/main/test/test_ws2.js)
 
-#### C:id=ws2-examples-c
+#### C :id=ws2-examples-c
 Code that issue some commands, send an event and waiting for incoming events is [here](https://github.com/grodansparadis/vscp/blob/master/tests/websockets/test_ws2.c)
 
 [filename](./bottom_copyright.md ':include')
