@@ -313,7 +313,8 @@ C;VERSION
 
 And the server will respond with
 
-```+;VERSION;major.minor.release.build
+```
++;VERSION;major.minor.release.build
 ``` 
 
 For example
@@ -328,7 +329,8 @@ For example
 
 The __COPYRIGHT__ command can be used to get copyright information. The command is issued as
 
-```C;COPYRIGHT
+```
+C;COPYRIGHT
 ```
 And the server will respond with something like
 
@@ -499,7 +501,8 @@ Two arguments must be supplied
 
 The sid argument is used as a 16 byte random iv for AES-128 encryption over
 
-```"username:password"
+```
+"username:password"
 ```
 
 When connecting to a ws2 websocket the websocket interface will send something like
