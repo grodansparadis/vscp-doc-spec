@@ -141,7 +141,7 @@ E;0,30,5,0,2000-01-01T12:33:14,0,FF:FF:FF:FF:FF:FF:FF:FE:00:26:55:CA:00:06:00:00
 You may be missing a __receive event__ above but received events are automatically delivered asynchronously to you after a channel has been opened. Very convenient when you want to keep a graphical element or similar updated.
 
 
-#### NOOP:id=ws1-noop
+#### NOOP :id=ws1-noop
 
 No operation. Will always give a positive response.
 
@@ -149,7 +149,7 @@ No operation. Will always give a positive response.
 C;NOOP
 ```
 
-#### CHALLENGE:id=ws1-challenge
+#### CHALLENGE :id=ws1-challenge
 
 ```
 C;CHALLENGE
@@ -157,7 +157,7 @@ C;CHALLENGE
 
 Send this command to initiate the authentication. This is process is normally started automatically on a connect.
 
-####  AUTH:id=ws1-auth
+####  AUTH :id=ws1-auth
 
 This command is used by a client to authenticate itself. When connecting to a ws1 websocket ws interface it  will send something like
 
@@ -231,7 +231,7 @@ positive response is
 “+;OPEN”
 ```
 
-####  CLOSE:id=ws1-close
+####  CLOSE :id=ws1-close
 
 Stop receiving events. Events are still collected in the receive queue on the server side and will be delivered when the connection is opened again. Positive/negative response is returned.
 
@@ -284,7 +284,7 @@ positive response is
 Note that there is a semicolon between filter and mask information and commas between parts of each filter and mask.
 
 
-#### Send event:id=ws1-send-event
+#### Send event :id=ws1-send-event
 
 The same string format is used to send events as receiving events.
 
@@ -325,7 +325,7 @@ For example
 
 **Note** that this is the highest supported protocol version not the version of the firmware/software/driver.
 
-#### Copyright:id=ws1-copyright
+#### Copyright :id=ws1-copyright
 
 The __COPYRIGHT__ command can be used to get copyright information. The command is issued as
 
@@ -341,7 +341,7 @@ And the server will respond with something like
 This is the copyright information for the firmware/software/driver not the protocol.
 
 
-### Errors:id=ws1-error-codes
+### Errors :id=ws1-error-codes
 
 This table list the errors that currently is defined
 
@@ -356,21 +356,21 @@ This table list the errors that currently is defined
  | 6 | Not authorized to send events. | 
  | 7 | Not allowed to do that. |
  | 8 | Parse error, invalid format. |
- | 9 | Unknown type, only know "COMMAND" and "EVENT". |
+ | 9 | Unknown ws1 message type, only know "COMMAND" and "EVENT". |
 
 ### WS1 examples :id=ws1-examples
 
-#### HTML5:id=ws1-examples-html5
+#### HTML5 :id=ws1-examples-html5
 
 A simple ws1 interface connection example is [here](https://github.com/grodansparadis/vscpl2drv-websocksrv/blob/main/test/test_ws1.html)
 
-#### Python:id=ws1-examples-python
+#### Python :id=ws1-examples-python
 Code that issue some commands, send an event and waiting for incoming events is [here](https://github.com/grodansparadis/vscpl2drv-websocksrv/blob/main/test/test_ws1.py)
 
-#### node.js
+#### node.js :id=ws1-examples-nodejs
 Code that issue some commands, send an event and waiting for incoming events is [here](https://github.com/grodansparadis/vscpl2drv-websocksrv/blob/main/test/test_ws1.js)
 
-#### C:id=ws1-examples-c
+#### C :id=ws1-examples-c
 Code that issue some commands, send an event and waiting for incoming events is [here](https://github.com/grodansparadis/vscpl2drv-websocksrv/blob/main/test/test_ws1.c)
 
 ## ws2 - JSON based websocket interface :id=ws2-description
