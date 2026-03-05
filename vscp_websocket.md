@@ -193,7 +193,7 @@ where the sid is used as a 128-bit random iv for AES-128 encryption over
 leveraging a shared 128-bit secret key (vscpkey) configured in the driver settings file. Following successful credential validation, the server will respond with
 
 ```
-"+;AUTH1;userid;namefullname;filtermask;rights;remotes;events;note"
+"+;AUTH1;userid;;namefullname;filtermask;rights;remotes;events;note"
 ```
 
 If invalid the server will respond with
