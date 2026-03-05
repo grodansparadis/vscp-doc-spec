@@ -128,6 +128,7 @@ E;0,30,5,0,2000-01-01T12:33:14,0,FF:FF:FF:FF:FF:FF:FF:FE:00:26:55:CA:00:06:00:00
  | Command | Privilege | Description    | 
  | ------- | :---------: | -----------  | 
  | [NOOP](#ws1-noop)               | 0 | No operation   | 
+ | [CHALLENGE](#ws1-challenge)     | 0 | Challenge for authentication   | 
  | [VERSION](#ws1-version)         | 0 | get protocol version   | 
  | [COPYRIGHT](#ws1-copyright)     | 0 | get interface copyright   | 
  | [AUTH](#ws1-auth)               | 0 | Authentication | 
@@ -155,7 +156,11 @@ C;NOOP
 C;CHALLENGE
 ```
 
-Send this command to initiate the authentication. This is process is normally started automatically on a connect.
+Send this command to initiate the authentication. This is process is normally started automatically on a connect. The server will respond with a message like
+
+```"+;AUTH0;55BCA4DC7C1FD9C3E6967F37C8747698"```
+
+where the _"55BCA4DC7C1FD9C3E6967F37C8747698"_ is a session id or sid that is different for every connection and which should be used as a 128 bit iv for the encrypted username/password.
 
 ####  AUTH :id=ws1-auth
 
@@ -188,10 +193,10 @@ where the sid is used as a 128-bit random iv for AES-128 encryption over
 leveraging a shared 128-bit secret key (vscpkey) configured in the driver settings file. Following successful credential validation, the server will respond with
 
 ```
-"+;AUTH1;userid;name;password;fullname;filtermask;rights;remotes;events;note"
+"+;AUTH1;userid;namefullname;filtermask;rights;remotes;events;note"
 ```
 
-and if invalid the server will respond with
+If invalid the server will respond with
 
 ```
 "-;8,Not authorized"
