@@ -193,7 +193,7 @@ where the sid is used as a 128-bit random iv for AES-128 encryption over
 leveraging a shared 128-bit secret key (vscpkey) configured in the driver settings file. Following successful credential validation, the server will respond with
 
 ```
-"+;AUTH1;userid;;namefullname;filtermask;rights;remotes;events;note"
+"+;AUTH1;userid;[password];fullname;filter;mask;rights;remotes;events;note"
 ```
 
 If invalid the server will respond with
@@ -208,11 +208,13 @@ Note that in addition to the credentials the client IP address may need to be va
 
 **Note:** its is not allowed to have a username with a semicolon in the name.
 
+All fields in the AUTH1 response is separated with semicolons and the password field (after userid) is empty. Any of the other fields except "useid" may also be empty but they are still separated with semicolons. If they are sensible defaults should be set instead.
+
 The standard vscp password hash is calculated over `username:password`. 
 
  - *userid* is the unique user id for this user.
  - *name* is the user name.
- - *password* is the hashed password for the user shown as stars.
+ - *password* is the hashed password for the user shown as stars or is empty.
  - *fullname* is the full name of the user.
  - *filtermask* is the filter/mask for this user shown as eight bytes separated with semicolon. This is the filter/mask that will be applied to incoming events for this user.
  - *rights* is a numerical value representing the rights for this user. 
