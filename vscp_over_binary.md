@@ -6,6 +6,8 @@ Encryption is available, but optional. When used it can be AES-128, AES-192 or A
 
 Encrypting frames has the advantage over TLS that it can be used on any transport and that it can be used in a peer-to-peer manner without the need for a client-server architecture. It also allows for end-to-end encryption between devices without the need for a secure tunnel between them. The disadvantage is that it does not provide integrity protection and that it requires a shared secret key which can be difficult to manage in large deployments. The main advantage is the simplicity and flexibility of the protocol which allows it to be used in a wide range of applications and scenarios and abovove all no need to update certificates on devices.
 
+On higher end systems use TLS/SSL. On lower end systems this protocol might be an alternative.
+
 
 ### The packet format 0
 

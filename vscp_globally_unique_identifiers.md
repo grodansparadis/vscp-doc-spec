@@ -10,6 +10,73 @@ Besides the GUID it is recommended that all nodes should have a node description
 
 A general discussion of UUID's/GUID's is [here](https:///en.wikipedia.org/wiki/Universally_unique_identifier).
 
+There are different types of GUID's available
+
+| Type | Description |
+| :---: | ----------- |
+| 0 | Standard GUID (recommended) |
+| 1 | IP v.6 address |
+| 2 | RFC 4122 Version 1 |
+| 3 | RFC 4122 Version 4 |
+| 4 | Random number (not recommended) |
+
+GUID's are written in hexadecimal form with the most significant byte first. For example
+
+    FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:01
+
+Hex characters can be written in upper or lower case. The above GUID can also be written as
+
+    ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:01
+
+As FF is very common a GUID with FF in the most significant byte can be written as
+
+    ::1
+
+this is the same as above. The :: is a short cut notation for FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF:FF.
+
+You can also groupo GUID's in other ways
+
+    ::0102:03aa:44:01:30
+
+this is equal to 
+
+    FF:FF:FF:FF:FF:FF:FF:FF:01:02:03:AA:44:01:30
+
+You can even write
+
+    *:1
+
+You can use the standard form for GUID's
+
+    {FFFFFFFF-FFFF-FFFF-0102-03AABB440130}
+
+whish also can be written as
+
+    FFFFFFFF-FFFF-FFFF-0102-03AABB440130
+
+A GUID with all FF is called a broadcast GUID and is used for broadcasting events to all nodes in the segment. You can wite it as
+
+    ::
+
+or
+
+    FFFFFFFF-FFFF-FFFF-FFFF-FFFF-FFFF-FFFF-FFFF
+
+A GUID with all NULL's can be written as
+
+    -
+
+This GUID has a special meaning in it's way through vscp interfaces. The first interface the event passes through should fill in the interface GUID of the interface with the four lowest bytes  set to zero. This is used for tracking the path of the event through the system.
+
+Actually you can group the GUID in any way you like as long as you keep the most significant byte first and the least significant byte last. The grouping is just for readability and it's up to you how you want to group it.
+
+Just as for ::1 with GUID's starting with FF's you can write
+
+    -:1,2,3
+
+for GUID's starting with zero's giving
+
+    00:00:00:00:00:00:00:00:00:00:00:00:00:01:02:03
 
 [Grodans Paradis AB](https://www.grodansparadis.com) controls the rest of the addresses and will allocate addresses to individuals or companies by them sending a request to [guid_request@vscp.org](guid_request@vscp.org). You can request a series of 32-bits making it possible for you to manufacture 4294967295 nodes. If you need more (!**!!**) you can ask for another series. There is no cost for reserving a series. 
 
@@ -39,7 +106,7 @@ It is possible to create your own GUID without requesting a series and still get
  | <pre>FF:FF:FF:FF:FF:FF:FF:F2:XX:XX:ZZ:ZZ:ZZ:ZZ:ZZ:ZZ</pre> | Reserved for LoRa 2 byte MAC address |
  | <pre>FF:FF:FF:FF:FF:FF:FF:F1:XX:XX:XX:XX:ZZ:ZZ:ZZ:ZZ</pre> | Reserved for LoRa 4 byte MAC address |
  | <pre>FF:FF:FF:FF:FF:FF:FF:F0:XX:XX:XX:XX:XX:XX:ZZ:ZZ</pre> | Reserved for LoRa 6 byte MAC address |
- | <pre>FF:FF:FF:FF:FF:FF:FF:00:00:00:00:00:00:00:00:00 - </pre><pre>FF:FF:FF:FF:FF:FF:FF:EF:FF:FF:FF:FF:FF:FF:FF:FF</pre> | Reserved  | 
+ | <pre>FF:FF:FF:FF:FF:FF:FF:00:00:00:00:00:00:00:00:00 - </pre><pre>FF:FF:FF:FF:FF:FF:FF:EF:FF:FF:FF:FF:FF:FF:FF:FF</pre> | Reserved  |
  | <pre>00:00:00:00:00:00:00:00:00:00:00:00:xx:xx:xx:xx</pre> | Lab usage. You can use this range for your own development or for in-house local use. The GUID should never appear outside your local segments. | 
  | <pre>FE:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY</pre> | Reserved for a generated 128 bit GUID where the most significant byte is replaced by FE Only use for Level II and on internal net. [https://hegel.ittc.ku.edu/topics/internet/internet-drafts/draft-l/draft-leach-uuids-guids-01.txt](https://hegel.ittc.ku.edu/topics/internet/internet-drafts/draft-l/draft-leach-uuids-guids-01.txt) | 
  | <pre>FD:AA:BB:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY:YY</pre> | Reserved for MCU internal id's provided by some manufacturers. AA is manufacturer id. BB is circuit family. There is room for a 13-byte id. If the particular CPU have a an id that is shorter than put used bits to the right and set unused MSB bytes to zero. See information below. | 
