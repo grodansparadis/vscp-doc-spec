@@ -196,6 +196,25 @@ leveraging a shared 128-bit secret key (vscpkey) configured in the driver settin
 "+;AUTH1;userid;[password];fullname;filter;mask;rights;remotes;events;note"
 ```
 
+'password' can be left bland or be sent as stars or in rare cases (not rrecommended) as the actual password.
+
+'filter' is
+
+```
+filter-priority, filter-class, filter-type, filter-GUID
+```
+
+'mask' is
+
+```
+mask-priority, mask-class, mask-type, mask-GUID
+```
+
+all fields except userid can be omitted so minimum response is
+
+```"+;AUTH1;userid;;;;;;;"
+``` 
+
 If invalid the server will respond with
 
 ```
