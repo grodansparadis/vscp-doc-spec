@@ -89,8 +89,6 @@ This is the access level this user have. This is a 32-bit value where the lower 
 Level II drivers is started through the normal driver interface, but after the start it also do some of its communication through the tcp/p interface. It can also use the variables defined in the system for its own configuration and state. A driver of this type needs a username/password pair and it could be defined for the driver in the configuration but an internal schema create these credentials automatically if they are not manually configured. The Host-list for the user drivers to be used, should always be the Localhost to increase security.
 
 
-[filename](./bottom_copyright.md ':include')
-
 # tcp/ip link interface protocol description
 
 ## Port
@@ -214,11 +212,19 @@ or
 
 The GUID is given on the form MSB-byte:MSB-byte-1:MSB-byte-2……. The GUID can also be given as ”-” in which case the GUID of the interface is used for the event. This GUID is constructed from the Ethernet MAC address and some other parameters to be globally unique. It always consist of hexadecimal values without a preceding “0x”.
 
+datetime and timestamp can be sent in two different ways
+
+1.) Legacy
+
 **datetime** is UTC date time (Coordinated Universal Time) on ISO format
     YYYY-MM-DDTHH:MM:DD
-Can be empty left empty and in that case the current UTC date/time is set by the system.
+Can be empty left empty and in that case the current UTC date/time is set by the system. 
 
 If timestamp is a relative time in microseconds. It can be empty in which case a timestamp will be set by the system. Before version *1.12.20.0* a timestamp of zero would be replaced by a system set timestamp this is not the case anymore.
+
+2.) With nanosecond timestamp
+
+Leave datetime empty (keep the comma) and set timestamp to a 64-bit unix timestamp with nanosecond resolution. This is the number of nanoseconds since 1970-01-01T00:00:00Z with nanosecond resolution. 
 
 Note: obid is just a place holder here to have a similar line as the receive command and is used internally by the daemon as an interface index. The value you use will always be overwritten by the daemon. head is currently not used.
 
@@ -271,6 +277,12 @@ This command can be used to retrieve one or several events from the input queue.
 
     head,class,type,obid,datetime,timestamp,GUID,data0,data1,data2,...........
 
+on legacy systems where timestamp is in microseconds. Newer systems will return
+
+    head,class,type,obid,,timestamp,GUID,data0,data1,data2,...........
+
+where timestamp is a 64-bit unix timestamp with nanosecond resolution. This is the number of nanoseconds since 1970-01-01T00:00:00Z with nanosecond resolution.
+
 **Important note** datetime was added in version *1.12.20.0*
 
 GUID with MSB first.
@@ -284,6 +296,8 @@ which gives
     0,20,3,0,2001-11-02T17:43:15,0,FF:FF:FF:FF:FF:FF:FF:FE:0:5:93:140:2:32:0:1
     0,20,4,0,2001-11-02T17:43:15,0,FF:FF:FF:FF:FF:FF:FF:FE:0:5:93:140:2:32:0:1
     +OK - Success
+
+in the lecacy format.
 
 If no events is available in the queue
 
@@ -311,6 +325,8 @@ VSCP Event originating from a CANAL driver have the nickname of the node in the 
 If no argument is given one event is fetched even if there are more in the queue.
 
 If you try to receive more events then there is events in the buffer -OK will be returned after the available number of events have been retrieved and been listed.
+
+A datetime set to all zero (legacy) or left empty (newer) is treated as a request to set the current date/time on the event. This is useful when you want to send an event with the current date/time but do not want to calculate the date/time on the client side. The same is true for a timestamp set to zero or left empty.
 
 ## RCVLOOP - Send events to client as soon as they arrive :id=tcpip-rcvloop
 

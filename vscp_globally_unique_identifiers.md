@@ -66,7 +66,7 @@ A GUID with all NULL's can be written as
 
     -
 
-This GUID has a special meaning in it's way through vscp interfaces. The first interface the event passes through should fill in the interface GUID of the interface with the four lowest bytes  set to zero. This is used for tracking the path of the event through the system.
+This GUID has a special meaning in it's way through vscp interfaces. The first interface the event passes through should fill in the interface GUID of the interface with the two lowest bytes  set to zero. This is used for tracking the path of the event through the system.
 
 Actually you can group the GUID in any way you like as long as you keep the most significant byte first and the least significant byte last. The grouping is just for readability and it's up to you how you want to group it.
 

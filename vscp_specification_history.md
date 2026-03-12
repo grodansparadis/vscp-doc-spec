@@ -2,7 +2,8 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2026-03-12 | AKHE | New formats possible for GUID's. |
+| 2026-03-12 | AKHE | tcp/ip link now handle nanosecond timestamp format |
+| 2026-03-12 | AKHE | Added abbrevations and flexible presentation formats for GUID's |
 | 2026-03-12 | AKHE | Introducing the VSCP general binary protocol (VSCP-GPB). |
 | 2026-03-05 | AKHE | Response on websocket ws1 validation respons changed. (password removed) |
 | 2026-02-20 | AKHE | Updated VSCP event structure to latest. |
