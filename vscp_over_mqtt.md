@@ -156,6 +156,7 @@ Encrypted binary format that use the [VSCP over UDP format](./vscp_over_udp.md).
 ### MQTT auto detect BINARY format
 First character 0x00 and content len > 0  ==>  Binary   (UDP format)
 
+See [VSCP over binary](./vscp_over_binary.md) for more information.
 
 ## Topics
 
