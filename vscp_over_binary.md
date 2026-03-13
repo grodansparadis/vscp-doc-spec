@@ -2,18 +2,18 @@
 
 The VSCP binary protocol is designed to be used on different types of transports such as TCP, UDP, serial, etc. The protocol is designed to be simple and efficient for sending VSCP events and commands between devices. 
 
-Encryption is available, but optional. When used it can be AES-128, AES-192 or AES-256 in CBC mode. The encryption is applied to the entire packet except for the first byte which contains the packet type and encryption settings. The encryption key is a common key with length of 128/192/256 bits that is secret and shared between the devices. Encryption gives confidentiality but not integrity. The integrity is instead provided by the CRC which is calculated on the encrypted data. The encryption settings are defined in the first byte of the packet and indicate if encryption is used and if so which encryption method is used. Overhead for encryption is 16 bytes for all encryption types as AES has a fixed block size of 128 bits, regardless of key length.
+Encryption is available, but optional. When used it can be AES-128, AES-192 or AES-256 in CBC mode. The encryption is applied to the entire frame except for the first byte which contains the frame type and encryption settings. The encryption key is a common key with length of 128/192/256 bits that is secret and shared between the devices. Encryption gives confidentiality but not integrity. The integrity is instead provided by the CRC which is calculated on the encrypted data. The encryption settings are defined in the first byte of the frame and indicate if encryption is used and if so which encryption method is used. Overhead for encryption is 16 bytes for all encryption types as AES has a fixed block size of 128 bits, regardless of key length.
 
 Encrypting frames has the advantage over TLS that it can be used on any transport and that it can be used in a peer-to-peer manner without the need for a client-server architecture. It also allows for end-to-end encryption between devices without the need for a secure tunnel between them. The disadvantage is that it does not provide integrity protection and that it requires a shared secret key which can be difficult to manage in large deployments. The main advantage is the simplicity and flexibility of the protocol which allows it to be used in a wide range of applications and scenarios and abovove all no need to update certificates on devices.
 
 On higher end systems use TLS/SSL. On lower end systems this protocol might be an alternative.
 
 
-### The packet format 0
+### Frame format 0
 
  | Byte  | Description | Encrypted | 
  | :----:  | ----------- | :---------: | 
- | 0     | Packet type & encryption settings. | _Never encrypted_ | 
+ | 0     | Frame type & encryption settings. | _Never encrypted_ | 
  | 1     | VSCP Level II Head MSB             | Yes | 
  | 2     | VSCP Level II Head LSB             | Yes | 
  | 3     | Timestamp microseconds MSB         | Yes | 
@@ -43,11 +43,11 @@ The number above is the offset in the package. Len is the total datagram size.
 
 Time should always be UTC time. If the time block is set to all zero the current time will be set by interface (VSCP Server for example).
 
-### The packet format 1
+### Frame format 1
 
  | Byte  | Description | Encrypted | 
  | :----:  | ----------- | :---------: | 
- | 0     | Packet type & encryption settings. | _Never encrypted_ | 
+ | 0     | Frame type & encryption settings. | _Never encrypted_ | 
  | 1     | VSCP Level II Head MSB             | Yes | 
  | 2     | VSCP Level II Head LSB             | Yes | 
  | 3     | Timestamp nanoseconds MSB         | Yes | 
@@ -79,13 +79,13 @@ Time should always be UTC time. If the time block is set to all zero the current
 
 Timestamp is nanoseconds since the epoch (GMT).
 
-### The packet format 14 - Protocol
+### Frame format 14 - Protocol
 
-This packet can go both ways. It is used to send protocol commands and replies. The command/reply code is defined in the same way as the event type (16-bit) and the command/reply arguments are defined in the same way as the data field for events. The command/reply code and arguments are encrypted in the same way as for events.
+This frame can go both ways. It is used to send protocol commands and replies. The command/reply code is defined in the same way as the event type (16-bit) and the command/reply arguments are defined in the same way as the data field for events. The command/reply code and arguments are encrypted in the same way as for events.
 
  | Byte  | Description | Encrypted | 
  | :----:  | ----------- | :---------: | 
- | 0     | Packet type & encryption settings. | _Never encrypted_ | 
+ | 0     | Frame type & encryption settings. | _Never encrypted_ | 
  | 1     | Command code MSB             | Yes |
  | 2     | Command code LSB             | Yes |
  | 3-n    | command argument         | Yes |
@@ -93,11 +93,11 @@ This packet can go both ways. It is used to send protocol commands and replies. 
  | len-1 | CRC LSB  | yes | 
  | opt   | Optional encryption data such as a 16/24/32-byte IV for AES follow here | No |
 
-### The packet format 15 - Reply
+### Frame format 15 - Reply
 
  | Byte  | Description | Encrypted | 
  | :----:  | ----------- | :---------: | 
- | 0     | Packet type & encryption settings. | _Never encrypted_ | 
+ | 0     | Frame type & encryption settings. | _Never encrypted_ | 
  | 1     | Command code MSB             | Yes |
  | 2     | Command code LSB             | Yes |
  | 3     | Error code MSB             | Yes |
@@ -117,10 +117,10 @@ This packet can go both ways. It is used to send protocol commands and replies. 
 
  | Bits | Description | 
  | :----: | ----------- | 
- | 7,6,5,4 | Packet type.| 
+ | 7,6,5,4 | Frame type.| 
  | 3,2,1,0 | Encryption. | 
 
-##### Packet types
+##### Frame types
 
 | Value | Description | 
  | :----: | ----------- | 
@@ -167,9 +167,9 @@ There is a 24-byte overhead to send one byte of data so this is not a protocol w
 
 The CRC used is the 16-bit CCITT type and it should be calculated across all bytes except for the CRC itself.
 
-As indicated, the Class is 16-bits allowing for 65535 classes. Class 0000000x xxxxxxxx is reserved for the Level I classes. A low-end device should ignore all packages with a class > 511.
+As indicated, the Class is 16-bits allowing for 65535 classes. Class 0000000x xxxxxxxx is reserved for the Level I classes. A low-end device should ignore all frames with a class > 511.
 
-A packet traveling from a Level I device out to the Level II world should have an address translation done by the master so that a full address will be visible on the level II segment. A packet traveling from a Level II segment to a Level I segment must have a class with a value that is less then 512 in order for it to be recognized. If it has it is aimed for the Level I segment. Classes 512-1023 are reserved for packets that should stay in the Level II segment but in all other aspects (the lower nine bits + type) are defined in the same manner as for the low-end net.
+A frame traveling from a Level I device out to the Level II world should have an address translation done by the master so that a full address will be visible on the level II segment. A frame traveling from a Level II segment to a Level I segment must have a class with a value that is less then 512 in order for it to be recognized. If it has it is aimed for the Level I segment. Classes 512-1023 are reserved for frames that should stay in the Level II segment but in all other aspects (the lower nine bits + type) are defined in the same manner as for the low-end net.
 
 The Level II register abstraction level also has more registers (32-bit address is used) and all registers are 32–bits wide. Registers 0-255 are byte wide and are the same as for level 1. If these registers are read at level 2 they still is read as 32-bit but have the unused bits set to zero. 
 
