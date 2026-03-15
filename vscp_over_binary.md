@@ -1,6 +1,6 @@
 # VSCP general binary protocol (VSCP-GPB)
 
-The VSCP binary protocol is designed to be used on different types of transports such as TCP, UDP, serial, etc. The protocol is designed to be simple and efficient for sending VSCP events and commands between devices. 
+The VSCP binary protocol is designed to be used on different types of transports such as TCP, UDP, Multicast, serial, etc. The protocol is designed to be simple and efficient for sending VSCP events and commands between devices. 
 
 Encryption is available, but optional. When used it can be AES-128, AES-192 or AES-256 in CBC mode. The encryption is applied to the entire frame except for the first byte which contains the frame type and encryption settings. The encryption key is a common key with length of 128/192/256 bits that is secret and shared between the devices. Encryption gives confidentiality but not integrity. The integrity is instead provided by the CRC which is calculated on the encrypted data. The encryption settings are defined in the first byte of the frame and indicate if encryption is used and if so which encryption method is used. Overhead for encryption is 16 bytes for all encryption types as AES has a fixed block size of 128 bits, regardless of key length.
 
@@ -8,8 +8,15 @@ Encrypting frames has the advantage over TLS that it can be used on any transpor
 
 On higher end systems use TLS/SSL. On lower end systems this protocol might be an alternative.
 
+It's important to distinguish between the frame format/type and the VSCP frame type. The frame format/type is defined by the first byte of a frame and indicates the type of frame and the encryption settings. The VSCP frame type is defined by the bits 8/9 in the VSCP header and indicates the type of event and the format of the timestamp. The difference between the two is:
 
-### Frame format 0
+  * **VSCP Frame type = 0** Frame type 0 has a timestamp in microseconds since the epoch (GMT) and seperate bytes that defines the time for year/month/day/hour/minute/second. This is the original binary frame type and should normally not be useed anymore. It is kept for backward compatibility reasons.
+  * **VSCP Frame type = 1** Frame type 1 has a timestamp in nanoseconds since the epoch (GMT) and reserved bytes for future use. Year/month/day/hour/minute/second can be calculated from the timestamp if needed. This is the recommended frame format for current implementations.
+
+
+### Frame format 0 - VSCP frame type = 0
+
+If frame is of type 0 (defined by bits 8/9 of head MSB byte) the timestamp is in microseconds since the epoch (GMT).
 
  | Byte  | Description | Encrypted | 
  | :----:  | ----------- | :---------: | 
@@ -43,7 +50,9 @@ The number above is the offset in the package. Len is the total datagram size.
 
 Time should always be UTC time. If the time block is set to all zero the current time will be set by interface (VSCP Server for example).
 
-### Frame format 1
+### Frame format 0 - - VSCP frame type  = 1
+
+If VSCP frametype is of type 1 (defined by bits 8/9 of head MSB byte) the timestamp is in nanoseconds since the epoch (GMT). 
 
  | Byte  | Description | Encrypted | 
  | :----:  | ----------- | :---------: | 
