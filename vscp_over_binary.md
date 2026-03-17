@@ -20,7 +20,7 @@ If frame is of type 0 (defined by bits 8/9 of head MSB byte) the timestamp is in
 
  | Byte  | Description | Encrypted | 
  | :----:  | ----------- | :---------: | 
- | 0     | Frame type & encryption settings. | _Never encrypted_ | 
+ | 0     | Frame type & encryption settings. | _Byte is never encrypted_ | 
  | 1     | VSCP Level II Head MSB             | Yes | 
  | 2     | VSCP Level II Head LSB             | Yes | 
  | 3     | Timestamp microseconds MSB         | Yes | 
@@ -56,7 +56,7 @@ If VSCP frametype is of type 1 (defined by bits 8/9 of head MSB byte) the timest
 
  | Byte  | Description | Encrypted | 
  | :----:  | ----------- | :---------: | 
- | 0     | Frame type & encryption settings. | _Never encrypted_ | 
+ | 0     | Frame type & encryption settings. | _Byte is never encrypted_ | 
  | 1     | VSCP Level II Head MSB             | Yes | 
  | 2     | VSCP Level II Head LSB             | Yes | 
  | 3     | Timestamp nanoseconds MSB         | Yes | 
@@ -94,7 +94,7 @@ This frame can go both ways. It is used to send protocol commands and replies. T
 
  | Byte  | Description | Encrypted | 
  | :----:  | ----------- | :---------: | 
- | 0     | Frame type & encryption settings. | _Never encrypted_ | 
+ | 0     | Frame type & encryption settings. | _Byte is never encrypted_ | 
  | 1     | Command code MSB             | Yes |
  | 2     | Command code LSB             | Yes |
  | 3-n    | command argument         | Yes |
@@ -106,7 +106,7 @@ This frame can go both ways. It is used to send protocol commands and replies. T
 
  | Byte  | Description | Encrypted | 
  | :----:  | ----------- | :---------: | 
- | 0     | Frame type & encryption settings. | _Never encrypted_ | 
+ | 0     | Frame type & encryption settings. | _Byte is never encrypted_ | 
  | 1     | Command code MSB             | Yes |
  | 2     | Command code LSB             | Yes |
  | 3     | Error code MSB             | Yes |
@@ -208,10 +208,11 @@ VSCP level II driver implementation [described here](https://github.com/grodansp
   | 17 | SETFILTER | Set filter for channel. |
   | 18 | SETMASK | Set mask for channel. |
   | 19 | INTERFACE | List interfaces on device |
-  | 19 | TEST | Perform tests. |
-  | 20 | SHUTDOWN | Shutdown device (privileged command). |
-  | 21 | RESTART | Restart device (privilegded command). |
-  | 22-65279 | Reserved | Reserved. |
+  | 20 | TEST | Perform tests. |
+  | 21 | WCYD | What Can You Do, find out what a node supports. |
+  | 22 | SHUTDOWN | Shutdown device (privileged command). |
+  | 23 | RESTART | Restart device (privilegded command). |
+  | 24-65279 | Reserved | Reserved. |
   | 65280-65535 | USER | User defined commands. |
 
 
@@ -446,6 +447,13 @@ Test number followed by optional test data. Testnumber zero is reserved for ALL 
 | Argument | Description |
 | :---: | ----------- |
 | 0-1 | Test to perform |
+
+
+### WCYD - What Can You Do, find out what a node supports.
+Find out what a node supports. The reply argument is a 64-bit bitfield with supported commands and features on the device. The bitfield is described [here](https://docs.vscp.org/spec/latest/#/./class2.protocol?id=type20)
+
+#### Argument
+Eight bytes representing the 64-bit bitfield with supported commands and features on the device. MSB first.
 
 ### SHUTDOWN - Shutdown device (privileged command)
 
