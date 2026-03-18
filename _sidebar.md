@@ -19,9 +19,9 @@
   * [VSCP driver interfaces](./vscp_driver_interfaces.md)
 
 * Transport protocols
-  * [Low level protocols](./physical_level_lower_level_protocols.md)
-   * [VSCP general binary protocol](./vscp_over_binary.md)
+  * [Low level protocols](./physical_level_lower_level_protocols.md)   
    * [Dumb nodes](./vscp_dumb.md)
+   * [VSCP general binary protocol (VSCP-GBP)](./vscp_over_binary.md)
    * [VSCP over TCP/IP](./vscp_over_tcp_ip.md)
      * * [VSCP tcp/ip link protocol](./vscp_tcpiplink.md)
    * [VSCP over Ethernet (raw Ethernet)](./vscp_over_ethernet_raw_ethernet.md)

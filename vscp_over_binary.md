@@ -14,7 +14,7 @@ It's important to distinguish between the frame format/type and the VSCP frame t
   * **VSCP Frame type = 1** Frame type 1 has a timestamp in nanoseconds since the epoch (GMT) and reserved bytes for future use. Year/month/day/hour/minute/second can be calculated from the timestamp if needed. This is the recommended frame format for current implementations.
 
 
-### Frame format 0 - VSCP frame type = 0
+### Frame format 0 - VSCP frame type = 0 :id=frame-format-0
 
 If frame is of type 0 (defined by bits 8/9 of head MSB byte) the timestamp is in microseconds since the epoch (GMT).
 
@@ -41,7 +41,7 @@ If frame is of type 0 (defined by bits 8/9 of head MSB byte) the timestamp is in
  | 18-33 | ORIGINATING GUID                   | Yes | 
  | 34    | DATA SIZE MSB                      | Yes | 
  | 35    | DATA SIZE LSB                      | Yes | 
- | 36-n  | data ... limited to max 512-25 = 487 bytes  | Yes | 
+ | 36-n  | data ... limited to max 512 bytes  | Yes | 
  | len-2 | CRC MSB (Calculated on HEAD + CLASS + TYPE + ADDRESS + SIZE + DATA…) | Yes | 
  | len-1 | CRC LSB  | Yes | 
  | opt   | Optional encryption data such as a 16/24/32-byte IV for AES follow here | No | 
@@ -180,122 +180,176 @@ As indicated, the Class is 16-bits allowing for 65535 classes. Class 0000000x xx
 
 A frame traveling from a Level I device out to the Level II world should have an address translation done by the master so that a full address will be visible on the level II segment. A frame traveling from a Level II segment to a Level I segment must have a class with a value that is less then 512 in order for it to be recognized. If it has it is aimed for the Level I segment. Classes 512-1023 are reserved for frames that should stay in the Level II segment but in all other aspects (the lower nine bits + type) are defined in the same manner as for the low-end net.
 
-The Level II register abstraction level also has more registers (32-bit address is used) and all registers are 32–bits wide. Registers 0-255 are byte wide and are the same as for level 1. If these registers are read at level 2 they still is read as 32-bit but have the unused bits set to zero. 
+The Level II register abstraction level also has more registers (32-bit address is used) and all registers are 32–bits wide. Registers 0-255 are byte wide and are the same as for level 1. If these registers are read at level 2 they still is read as 32-bit but have the unused bits set to zero.
 
 VSCP level II driver implementation [described here](https://github.com/grodansparadis/vscpl2drv-udp).
 
 ## Defined Commands
 
- | Code  | Token |Description |
+ | Code | Token | Description |
  | :---: | ----- | ----------- |
- | 0 | NOOP | No Operation. |
- | 1 | QUIT | Quit. |
- | 2 | USER | Send username. |
- | 3 | PASS | Send password. |
- | 4 | CHALLENGE | Challenge security. |
- | 5 | SEND | Send event. |
- | 6 | RETR | Retrieve one or more events |
- | 7 | OPEN | Open a connection to a device. |
- | 8 | CLOSE | Close a connection to a device. |
- | 9 | CHKDATA | Check if events are available. |
- | 10 | CLEAR | Clear input queue. |
- | 11 | STAT | Get statistical information. |
- | 12 | INFO | Get status information. |
- | 13 | GETCHID | Get channel id. |
- | 14 | SETGUID | Set GUID for channel (privileged command). |
-  | 15 | GETGUID | Get GUID for channel. |
-  | 16 | VERSION | Get version for interface. |
-  | 17 | SETFILTER | Set filter for channel. |
-  | 18 | SETMASK | Set mask for channel. |
-  | 19 | INTERFACE | List interfaces on device |
-  | 20 | TEST | Perform tests. |
-  | 21 | WCYD | What Can You Do, find out what a node supports. |
-  | 22 | SHUTDOWN | Shutdown device (privileged command). |
-  | 23 | RESTART | Restart device (privilegded command). |
+ | 0 | [NOOP](#noop) | No Operation. |
+ | 1 | [QUIT](#quit) | Quit. |
+ | 2 | [USER](#user) | Send username. |
+ | 3 | [PASS](#pass) | Send password. |
+ | 4 | [CHALLENGE](#challenge) | Challenge security. |
+ | 5 | [SEND](#send) | Reserved. |
+ | 6 | [RETR](#retr) | Retrieve one or more event(s) on nodes that does not have asynchronous event support. |
+ | 7 | [OPEN](#open) | Open a connection to a device. |
+ | 8 | [CLOSE](#close) | Close a connection to a device. |
+ | 9 | [CHKDATA](#chkdata) | Check if events are available on nodes that does not have asynchronous event support. |
+ | 10 | [CLEAR](#clear) | Clear input queue on nodes that does not have asynchronous event support. |
+ | 11 | [STAT](#stat) | Get statistical information. |
+ | 12 | [INFO](#info) | Get status information. |
+ | 13 | [GETCHID](#getchid) | Get channel id. |
+ | 14 | [SETGUID](#setguid) | Set GUID for the device (privileged command). |
+  | 15 | [GETGUID](#getguid) | Get GUID for the device. |
+  | 16 | [VERSION](#version) | Get version of binary interface. |
+  | 17 | [SETFILTER](#setfilter) | Set filter for channel. |
+  | 18 | [SETMASK](#setmask) | Set mask for channel. |
+  | 19 | [INTERFACE](#interface) | List interfaces on device |
+  | 20 | [TEST](#test) | Perform tests. |
+  | 21 | [WCYD](#wcyd) | What Can You Do, find out what a node supports. |
+  | 22 | [SHUTDOWN](#shutdown) | Shutdown device (privileged command). |
+  | 23 | [RESTART](#restart) | Restart device (privilegded command). |
   | 24-65279 | Reserved | Reserved. |
   | 65280-65535 | USER | User defined commands. |
 
+---
+---
 
-### NOOP - NO OPeration 
+### NOOP - NO OPeration :id=noop
 
 Do nothing, just send a positive reply.
 
 #### Argument
 None
 
-#### Argument
+#### Reply
 
-### QUIT - Quit session 
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for NOOP command (0x0000). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
 
-Send a reply and close the connection.
+---
+---
+
+### QUIT - Quit session
+
+Send a positive reply and close the connection.
 
 #### Argument
 None
 
-### USER - Send username
+#### Reply
 
-Send the username for authentication. The username is sent as the command argument. Optionally the password can be sent in the same command argument separated by a colon. If the password is not sent in the same command argument it will be sent in a separate PASS command.
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for QUIT command (0x0001). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
 
-Note that the username and password are not encrypted in the command argument. Instead, the encryption is applied to the entire command including the command argument. So, if encryption is used the username and password will be encrypted in the same way as for events.
+---
+---
 
-It is perfectly fine to construct devices that do not care about user and password and that just accept any username and password. In this case the USER and PASS commands can be used to send any string as the username and password. Privileges are coupled to users so if they are used usernames should be unique and not shared between users.
+### USER - Send username :id=user
 
-If both username and password is given do a login on the device and retretive the credentials for the user if he/she exists.
+Send the username for authentication. The username is sent as the command argument. Optionally the password can be sent in the same command argument separated by a colon.
+
+If the password is not sent in the same command argument it will be sent in a separate [PASS](#pass) command.
+
+Note that the username and password are not encrypted in the command argument. Instead, the encryption is applied to the entire frame including the command argument. So, if encryption is used the username and password will be encrypted in the same way as for events.
+
+It is perfectly fine to construct devices that do not care about user and password and that just accept any username and password. In this case the **USER** and [PASS](#pass) commands can be used to accept anything that is received. Privileges are coupled to users so if privileges are used, usernames should be unique and not shared between users.
+
+If both username and password is given do a login on the device and retretive the credentials for the user if he/she exists and the credentials are valid. If not return error and disconnect.
+
+Send a positive reply if the user exists and a negative reply if the user does not exist. If a login is successful the credentials for the user will be used for subsequent commands. If a login is not successful the credentials will not be set and subsequent commands will be treated as if no user is logged in.
+
+If no password is given the device should **always** accept the username and wait for a password to be sent in a separate [PASS](#pass) command where the check of the credentials will take place. If a [PASS](#pass) command is not received within a reasonable time (for example, 30 seconds) the device should return an error and disconnect.
+
+It is perfectly fine to send multiple **USER** commands in a row. The last one will be the one that is used for authentication.
 
 #### Argument
 
 | Argument | Description |
 | :---: | ----------- |
-| username | The username for authentication. |
-| : | Separator |
-| password | The password for authentication. Optional, can be sent in a separate PASS command. |
+| username | The username for authentication. Max 64 characters.|
+| : | Optional colon separator if password is set. |
+| password | The optional password for authentication. Can be sent in a separate [PASS](#pass) command. Max 64 characters.|
 
-### PASS - Send password
+#### Reply
 
-Send the password for authentication. The password is sent as the command argument. 
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for USER command (0x0002). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
 
-See notes for USER command.
+---
+---
 
-If username has previously been entered do a login on the device and retretive the credentials for the user if he/she exists. If a username command has not been seen report and error.
+### PASS - Send password :id=pass
+
+Send the password for authentication. The password is sent as the command argument.
+
+See notes for [USER](#user) command.
+
+If username has previously been entered do a login on the device and retretive the credentials for the user if he/she exists and the credentials are valid. If not return error and disconnect. If a username command has not been seen report and error and disconnect.
+
+If no username has been given the device should return an error and wait for a [USER](#user) command to restart the login process.
 
 #### Argument
 
 | Argument | Description |
 | :---: | ----------- |
-| password | The password for authentication. |
+| password | The password for authentication. Max 64 characters. |
 
-### CHALLENGE - Challenge security
+#### Reply
 
-The reponse to a CHALLENGE is a 16 byte random  number on hex format.
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for PASS command (0x0003). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+
+---
+---
+
+### CHALLENGE - Challenge security :id=challenge
+
+The reponse to a CHALLENGE is a 16 byte random number, aka session id,  on hex format.
 
 #### Argument
 None
 
-### SEND - Send event
+#### Reply
 
-Send an event. The command argument is the same as for the data field for events.
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for CHALLENGE command (0x0004). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+| 4-35 | 16 byte random number (session id) in hex format. |
+
+---
+---
+
+### SEND - Send event (deprecated) :id=send
+
+Send event to the device. The event is sent as the command argument in the same format as for events sent asynchronously. This command is deprecated and should not be used. Instead, events should be sent asynchronously and the [OPEN](#open) command should be used to open a channel for receiving asynchronous events.
 
 #### Argument
-Event data. The format of the event data is defined in the same way as the data field for events.
 
-| Argument | Description |
-| :---: | ----------- |
-| Event | The event to send on binary form |
-
-The event is stored in the following format
-
-| Byte  | Description |
-| :----:  | ----------- | 
- | 0     | VSCP Level II Head MSB             |
+ | Argument | Description |
+ | :---: | ----------- |
+ | 0     | VSCP Level II Head MSB              |
  | 1     | VSCP Level II Head LSB             |
  | 2     | Timestamp nanoseconds MSB          |
- | 3     | Timestamp nanoseconds             |
- | 4     | Timestamp nanoseconds             |
- | 5     | Timestamp nanoseconds             |
- | 6     | Timestamp nanoseconds             |
- | 7     | Timestamp nanoseconds             |
- | 8     | Timestamp nanoseconds             |
- | 9     | Timestamp nanoseconds LSB         |
+ | 3     | Timestamp nanoseconds              |
+ | 4     | Timestamp nanoseconds              |
+ | 5     | Timestamp nanoseconds              |
+ | 6     | Timestamp nanoseconds              |
+ | 7     | Timestamp nanoseconds              |
+ | 8     | Timestamp nanoseconds              |
+ | 9     | Timestamp nanoseconds LSB          |
  | 10    | Reserved                           |
  | 11    | Reserved                           |
  | 12    | Reserved                           |
@@ -303,100 +357,247 @@ The event is stored in the following format
  | 14    | CLASS LSB                          |
  | 15    | TYPE MSB                           |
  | 16    | TYPE LSB                           |
- | 17-34 | ORIGINATING GUID                   |
- | 35    | DATA SIZE MSB                      |
- | 36    | DATA SIZE LSB                      |
- | 37-n  | data ... limited to max 512-25 = 487 bytes  |
+ | 17-32 | ORIGINATING GUID                   |
+ | 33    | DATA SIZE MSB                      |
+ | 34    | DATA SIZE LSB                      |
+ | 35-n  | data ... limited to max 512 bytes  |
+
+#### Reply
+| Byte | Description |
+| :---: | ----------- |§  | 0-1 | Command code for SEND command (0x0005). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+
+
+---
+---
 
 ### RETR - Retrieve one or more events
 
-Retrieve one or more events from the remote queue. The command argument is the number of events to retrieve. If the command argument is zero  one event will be retrieved. If the command argument is greater than zero that number of events will be retrieved (if available). If the command argument is less than zero (or absent) all events in the queue will be retrieved.
+Retrieve one or more events from the remote queue. The command argument is the number of events to retrieve. If the command argument is zero or absent, one event will be retrieved. If the command argument is greater than zero that number of events will be retrieved (if available).
+
+Events are retrieved in the same format as for events sent asynchronously.
+
+This command is used on nodes that does not have asynchronous event support or which have their channel closed. On nodes that have asynchronous event support the events will be sent as they arrive and the RETR command is not needed and will always return a positive reply.
 
 #### Argument
-Nr of events to retrieve. Zero or absent means one event. Negative means all events.
+Number of events to retrieve. Zero or absent means one event.
 
 | Byte | Description |
 | :---: | --------- |
 | 0 | Number of events to retreive MSB |
-| 1 | Number of events to retreive MSB |
+| 1 | Number of events to retreive LSB |
 
-### OPEN - Open a connection to a device
+#### Reply
 
-Open a connection to a device. This opens the receive of asynchronious events to be received.
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for RETR command (0x0006). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
 
-#### Argument
-None
+Events are returned in the same format as for events sent asynchronously. If the command argument is greater than zero and that number of events is not available, all available events will be returned and a positive reply will be sent. If no events are available a negative reply with error code VSCP_ERROR_RCV_EMPTY (msg=vscp_binary_MSG_NO_MSG) will be sent.
 
-### CLOSE - Close a connection to a device
+---
+---
 
-Close a connection to a device. This closes the receive of asynchronious events to flow.
+### OPEN - Open a connection to a device :id=open
 
-#### Argument
-None
-
-### CHKDATA - Check if events are available
-
-Check if events are available in the input queue. The reply argument is the number of events available in the input queue. If a channel is opened with the OPEN command the events will be sent as they arrive and the CHKDATA command is not needed and will return zero.
+Open a connection to a channel on the device. This opens the receive of asynchronous events to be received.
 
 #### Argument
 None
 
-### CLEAR - Clear input queue
+#### Reply
 
-Clear the input queue. This will remove all events from the input queue.
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for OPEN command (0x0007). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+
+---
+---
+
+### CLOSE - Close a connection to a device :id=close
+
+Close a connection to a channel on the device. This closes the flow of asynchronous events. Events will still be collected in the input queue and can be retrieved with the RETR command or checked for availability with the CHKDATA command.
+
+#### Reply
+
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for CLOSE command (0x0008). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
 
 #### Argument
 None
 
-### STAT - Get statistical information
+---
+---
 
-Get statistical information about the device.
+### CHKDATA - Check if events are available :id=chkdata 
+
+Check if events are available in the input queue. The reply is the number of events available in the input queue. If a channel is opened with the OPEN command the events will be sent as they arrive and the CHKDATA command is not needed and will always return zero.
 
 #### Argument
 None
 
-### INFO -- Get status information.
+#### Reply
+
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for CHKDATA command (0x0009). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+| 4-7 | Number of events available in the input queue MSB first. |
+
+---
+---
+
+### CLEAR - Clear input queue :id=clear
+
+On a devices with asynchronous event support this command can be used to clear the events that have arrived but not yet been sent to the client. On a device without asynchronous event support this command can be used to clear the events that have arrived and are waiting in the input queue.
+
+Before the [OPEN](#open) command has been received by the device the events will be collected in the input queue and can be retrieved with the [RETR](#retr) command or checked for availability with the [CHKDATA](#chkdata) command. If a channel is opened with the [OPEN](#open) command the events will be sent as they arrive and the CLEAR command will not have any effect on the events that have arrived but not yet been sent to the client.
+
+#### Argument
+None
+
+#### Reply
+
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for CLEAR command (0x000A). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+
+---
+---
+
+### STAT - Get statistical information :id=stat
+
+Get statistical information about the device. Eight values are returned in the reply argument:
+
+#### Argument
+None
+
+#### Reply
+
+| Bytes | Description |
+| :---: | ----------- |
+| 0-1 | Command code for STAT command (0x000B). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+| 4-7 | Currently undefined value x MSB first. |
+| 8-11 | Currently undefined value y MSB first. |
+| 12-15 | Currently undefined value z MSB first. |
+| 16-19 | Number of databytes received by the device MSB first. |
+| 20-23 | Number of frames received by the device MSB first. |
+| 24-27 | Number of databytes transmitted by the device MSB first. |
+| 28-31 | Number of frames transmitted by the device MSB first. |  
+| 32-35 | Number of overruns (send/receive) MSB first. |
+
+---
+---
+
+### INFO -- Get status information :id=info
 
 Get status information about the device.
 
 #### Argument
 None
 
-### GETCHID - Get channel id
+#### Reply
 
-Get the channel id for the current channel. The channel id is a unique identifier for the channel and is used to identify the channel in the device.
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for INFO command (0x000C ). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+| 4-7 | Channel status (user defined code) |
+| 8-11 | Last error code |
+| 12-15 | Last error subcode |
+| 16-len (max: 91) | Last error string. Max 80 bytes including zero termination. |
+
+---
+---
+
+### GETCHID - Get channel id :id=getchid
+
+Get the channel id for the current channel. The channel id is a unique 32-bit identifier for the channel and is used to identify the channel in the device. A device that does not care about channels return zero.
 
 #### Argument
 None
 
-### SETGUID - Set GUID for channel (privileged command)
+#### Reply
 
-Set the GUID for the channel. The command argument is the GUID to set for the channel.
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for GETCHID command (0x000D). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+| 4-7 | Channel id. The channel id is a 32-bit value that identifies the channel. MSB first. |
 
-The filter is supplied on binary form (16 bytes MSB first)
+---
+---
+
+### SETGUID - Set GUID for channel (privileged command) :id=setguid
+
+Set the GUID for the device. The command argument is the GUID to setl.
+
+Most devices form a GUID from a unique identifier such as a MAC address and a device id. This command can be used to set the GUID to a custom value. This is a privileged command and should only be allowed for users with the appropriate privileges.
 
 #### Argument
-GUID to set for the channel. The GUID is a 16-byte value that is sent in the same format as the originating GUID for events.
+GUID to set for the device. T
 
 | Argument | Description |
 | :---: | ----------- |
-| 0-15 | The GUID to set for the channel. The GUID is a 16-byte value that is sent in the same format as the originating GUID for events. MSB first. |
+| 0-1 | Command code for SETGUID command (0x000E). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+| 4-19 | The GUID to set for the device. The GUID is a 16-byte value that is sent in the same format as the originating GUID for events. MSB first. |
 
-### GETGUID - Get GUID for channel
+#### Reply
 
-Get the GUID for the channel. The reply argument is the GUID for the channel.
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for SETGUID command (0x000E). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+
+---
+---
+
+### GETGUID - Get GUID for device :id=getguid
+
+Get the GUID for the device.
 
 #### Argument
 None
 
-### VERSION - Get version for interface
+#### Reply
+
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for GETGUID command (0x000F). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+| 4-19 | GUID for the device. The GUID is a 16-byte value that is sent in the same format as the originating GUID for events. MSB first. |
+
+---
+---
+
+### VERSION - Get version for interface :id=version
 
 Get the version for the interface. The reply argument is the version for the interface.
 
 #### Argument
 None
 
-### SETFILTER - Set filter for channel
+#### Reply
+
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for VERSION command (0x0010). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+| 4-7 | Major version |
+| 8-11 | Minor version |
+| 12-15 | Patch version |
+
+---
+---
+
+### SETFILTER - Set filter for channel :id=setfilter
 
 Set the filter for the channel. The command argument is the filter to set for the channel. The mask can also be set at the same time with this command.
 
@@ -416,7 +617,17 @@ The filter (and the optional mask) is supplied on binary form.
 | 24-25 | OPTIONAL Mask type |
 | 26-41 | OPTIONAL Mask GUID |
 
-### SETMASK - Set mask for channel
+#### Reply
+
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for SETFILTER command (0x0011). | |
+| 2-3 | Error code. Zero is success, non-zero is error. | 
+
+---
+---
+
+### SETMASK - Set mask for channel :id=setmask
 
 Set the mask for the channel. The command argument is the mask to set for the channel.
 
@@ -430,14 +641,39 @@ Mask to set for the cannel. The mask is supplied on binary form.
 | 3-4 | Mask type |
 | 5-20 | Mask GUID |
 
-### INTERFACE - List interfaces on device
+#### Reply
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for SETMASK command (0x0012). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+
+---
+---
+
+### INTERFACE - List interfaces on device :id=interface
 
 List the interfaces on the device. The reply argument is a list of interfaces on the device.
 
 #### Argument
 None
 
-### TEST - Perform tests
+#### Reply
+
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for INTERFACE command (0x0013). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+| 4-7 | Number of interfaces on the device MSB first. |
+| 8-11 | Interface 1 id MSB first. |
+| 12-15 | Interface 2 id MSB first. |
+| 16-19 | Interface 3 id MSB first. |
+| ... | ... |
+| 4+(n-1)*4 - 4+n*4-1 | Interface n id MSB first. |
+
+---
+---
+
+### TEST - Perform tests :id=test
 
 Perform tests on the device. The command argument is the test to perform. The reply argument is the result of the test.
 
@@ -448,23 +684,60 @@ Test number followed by optional test data. Testnumber zero is reserved for ALL 
 | :---: | ----------- |
 | 0-1 | Test to perform |
 
+#### Reply
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for TEST command (0x0014). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+| 4-7 | Test result. The format of the test result is defined by the test that is performed. |
 
-### WCYD - What Can You Do, find out what a node supports.
+---
+---
+
+### WCYD - What Can You Do, find out what a node supports :id=wchyd
 Find out what a node supports. The reply argument is a 64-bit bitfield with supported commands and features on the device. The bitfield is described [here](https://docs.vscp.org/spec/latest/#/./class2.protocol?id=type20)
 
 #### Argument
 Eight bytes representing the 64-bit bitfield with supported commands and features on the device. MSB first.
 
-### SHUTDOWN - Shutdown device (privileged command)
+#### Reply
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for WCYD command (0x0015). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+| 4-11 | 64-bit bitfield with supported commands and features on the device. MSB first. |
+
+---
+---
+
+### SHUTDOWN - Shutdown device (privileged command) :id=shutdown
 
 Shutdown the device. This is a privileged command and should only be allowed for users with the appropriate privileges.
 
 #### Argument
 None
 
-### RESTART - Restart device (privilegded command)
+#### Reply
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for SHUTDOWN command (0x0016). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+
+---
+---
+
+### RESTART - Restart device (privilegded command) :id=restart
 
 Restart the device. This is a privileged command and should only be allowed for users with the appropriate privileges.
 
 #### Argument
 None
+
+#### Reply
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for RESTART command (0x0017). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+
+---
+---
