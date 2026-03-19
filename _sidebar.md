@@ -9,8 +9,9 @@
   * [VSCP Addressing](./vscp_addressing.md)
   * [VSCP Level I Specifics](./vscp_level_i_specifics.md)
   * [VSCP Level II Specifics](./vscp_level_ii_specifics.md)
-  * [Globally Unique Identifiers GUID](./vscp_globally_unique_identifiers.md)
-  * [Assigned GUIDs](assigned_guids.md)
+  * GUID - Globally Unique Identifiers
+    * [Described](./vscp_globally_unique_identifiers.md)
+    * [Assigned GUIDs](assigned_guids.md)
   * [Register Abstraction Model](./vscp_register_abstraction_model.md)
   * [Measurements](./vscp_measurements.md)
   * [Decision Matrix](./vscp_decision_matrix.md)

@@ -212,7 +212,8 @@ VSCP level II driver implementation [described here](https://github.com/grodansp
   | 21 | [WCYD](#wcyd) | What Can You Do, find out what a node supports. |
   | 22 | [SHUTDOWN](#shutdown) | Shutdown device (privileged command). |
   | 23 | [RESTART](#restart) | Restart device (privilegded command). |
-  | 24-65279 | Reserved | Reserved. |
+  | 24 | [TEXT](#text) | Go back to realtext mode. |
+  | 25-65279 | Reserved | Reserved. |
   | 65280-65535 | USER | User defined commands. |
 
 ---
@@ -235,7 +236,7 @@ None
 ---
 ---
 
-### QUIT - Quit session
+### QUIT - Quit session :id=quit
 
 Send a positive reply and close the connection.
 
@@ -737,6 +738,24 @@ None
 | Byte | Description |
 | :---: | ----------- |
 | 0-1 | Command code for RESTART command (0x0017). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+
+---
+---
+
+### TEXT - Go back to realtext mode :id=text
+
+Go back to realtext mode. This command is used in the VSCP tcp/ip link protocol to return into realtext mode leaving the binary protocol mode. If your device supports both the binary protocol and a realtext  protocol this command can be used to switch back to text mode.  If your device does not support the text protocol this command can be ignored and a negative reply can be returned.
+
+The VSCP link protocol is designed to be able to switch between binary and text mode on the fly. This allows for example a client to connect to a device using the binary protocol, perform some operations and then switch back to text mode to interact with the device in a more human friendly way. The **BINARY** command is used on the text protocol to switch to binary mode.
+
+#### Argument
+None
+
+#### Reply
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for TEXT command (0x0018). |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 
 ---

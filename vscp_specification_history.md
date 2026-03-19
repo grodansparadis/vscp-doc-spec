@@ -2,6 +2,10 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-03-19 | AKHE | Rewritten VSCP tcp/ip link section (a bit). |  
+| 2026-03-19 | AKHE | GUID's can now be represented with standard clear text format using {} as prefix and suffix | 
+| 2026-03-19 | AKHE | BINARY command added to the VSCP tcp/ip link protocol |  
+| 2026-03-19 | AKHE | TEXT command added to the VSCP tcp/ip link protocol | 
 | 2026-03-15 | AKHE | General binary frame format/type clearified (hopefully) | 
 | 2026-03-12 | AKHE | tcp/ip link now handle nanosecond timestamp format |
 | 2026-03-12 | AKHE | Added abbrevations and flexible presentation formats for GUID's |
