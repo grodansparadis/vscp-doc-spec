@@ -165,16 +165,26 @@ On the VSCP Server the md5 of the [vscptoken](https://docs.vscp.org/vscpd/13.1/#
 
 See [vscp.h](https://github.com/grodansparadis/vscp/blob/master/src/vscp/common/vscp.h)
 
+```mermaid
+packet
+  +1: "D"
+  +3: "GUID type"
+  +2: "Reserved"
+  +2: "Frame"
+  +3: "Priority"
+  +1: "HC"
+  +1: "!CRC"
+  +3: "Rolling index"
+```
+
  | Bits  | Description                                                         | 
  | :----: | -----------                                                         | 
- | 15    | Set if this is a dumb node. No MDF, register, nothing.              | 
- | 14    | GUID type                                                           |
- | 13    | GUID type                                                           | 
- | 12    | GUID type                                                           |  
- | 11-8  | Reserved (**Set to zero!**).                                        | 
- | 9-8  | Frame type.                                                         | 
+ | 15    | Set if this is a dumb node. No MDF, register, nothing (D).              | 
+ | 14,13,12    | GUID type                                                           | 
+ | 11-10  | Reserved (**Set to zero!**).                                        | 
+ | 9,8  | Frame type.                                                         | 
  | 7,6,5 | Priority.                                                           | 
- | 4     | Hard-coded.                                                         | 
+ | 4     | Hard-coded (HC).                                                         | 
  | 3     | Don't calculate CRC if bit set.                                     | 
  | 2,1,0 | Rolling index.                                                      |  
 
