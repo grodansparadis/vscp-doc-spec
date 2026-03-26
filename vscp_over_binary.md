@@ -172,6 +172,7 @@ See [vscp.h](https://github.com/grodansparadis/vscp/blob/master/src/vscp/common/
  | 13    | GUID type                                                           | 
  | 12    | GUID type                                                           |  
  | 11-8  | Reserved (**Set to zero!**).                                        | 
+ | 9-8  | Frame type.                                                         | 
  | 7,6,5 | Priority.                                                           | 
  | 4     | Hard-coded.                                                         | 
  | 3     | Don't calculate CRC if bit set.                                     | 
@@ -191,7 +192,7 @@ The Level II register abstraction level also has more registers (32-bit address 
 
 VSCP level II driver implementation [described here](https://github.com/grodansparadis/vscpl2drv-udp).
 
-## Defined Commands
+## Commands
 
  | Code | Token | Description |
  | :---: | ----- | ----------- |
