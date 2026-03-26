@@ -16,6 +16,13 @@ It's important to distinguish between the frame format/type and the VSCP frame t
 
 ### Frame format 0 - VSCP frame type = 0 :id=frame-format-0
 
+<style>
+.mermaid svg {
+  height: 320px !important;
+  width: 100%;
+}
+</style>
+
 If frame is of type 0 (defined by bits 8/9 of head MSB byte) the timestamp is in microseconds since the epoch (GMT).
 
  | Byte  | Description | Encrypted | 
@@ -42,7 +49,7 @@ If frame is of type 0 (defined by bits 8/9 of head MSB byte) the timestamp is in
  | 34    | DATA SIZE MSB                      | Yes | 
  | 35    | DATA SIZE LSB                      | Yes | 
  | 36-n  | data ... limited to max 512 bytes  | Yes | 
- | len-2 | CRC MSB (Calculated on HEAD + CLASS + TYPE + ADDRESS + SIZE + DATA…) | Yes | 
+ | len-2 | CRC MSB (Calculated over HEAD + CLASS + TYPE + ADDRESS + SIZE + DATA…) | Yes | 
  | len-1 | CRC LSB  | Yes | 
  | opt   | Optional encryption data such as a 16/24/32-byte IV for AES follow here | No | 
 
@@ -98,7 +105,7 @@ This frame can go both ways. It is used to send protocol commands and replies. T
  | 1     | Command code MSB             | Yes |
  | 2     | Command code LSB             | Yes |
  | 3-n    | command argument         | Yes |
- | len-2 | CRC MSB (Calculated on HEAD + CLASS + TYPE + ADDRESS + SIZE + DATA…) | Yes | 
+ | len-2 | CRC MSB (Calculated over HEAD + CLASS + TYPE + ADDRESS + SIZE + DATA…) | Yes | 
  | len-1 | CRC LSB  | yes | 
  | opt   | Optional encryption data such as a 16/24/32-byte IV for AES follow here | No |
 
@@ -208,12 +215,12 @@ VSCP level II driver implementation [described here](https://github.com/grodansp
   | 17 | [SETFILTER](#setfilter) | Set filter for channel. |
   | 18 | [SETMASK](#setmask) | Set mask for channel. |
   | 19 | [INTERFACE](#interface) | List interfaces on device |
-  | 20 | [TEST](#test) | Perform tests. |
-  | 21 | [WCYD](#wcyd) | What Can You Do, find out what a node supports. |
-  | 22 | [SHUTDOWN](#shutdown) | Shutdown device (privileged command). |
-  | 23 | [RESTART](#restart) | Restart device (privilegded command). |
-  | 24 | [TEXT](#text) | Go back to realtext mode. |
-  | 25-65279 | Reserved | Reserved. |
+  | 30 | [TEST](#test) | Perform tests. |
+  | 31 | [WCYD](#wcyd) | What Can You Do, find out what a node supports. |
+  | 32 | [SHUTDOWN](#shutdown) | Shutdown device (privileged command). |
+  | 33 | [RESTART](#restart) | Restart device (privilegded command). |
+  | 34 | [TEXT](#text) | Go back to realtext mode. |
+  | 35-65279 | Reserved | Reserved. |
   | 65280-65535 | USER | User defined commands. |
 
 ---
@@ -365,7 +372,8 @@ Send event to the device. The event is sent as the command argument in the same 
 
 #### Reply
 | Byte | Description |
-| :---: | ----------- |§  | 0-1 | Command code for SEND command (0x0005). |
+| :---: | ----------- | 
+| 0-1 | Command code for SEND command (0x0005). |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 
 
@@ -656,20 +664,49 @@ Mask to set for the cannel. The mask is supplied on binary form.
 List the interfaces on the device. The reply argument is a list of interfaces on the device.
 
 #### Argument
-None
+| First argument | Second argument | Description |
+| :---: | :---: | ----------- |
+| 0 | - | Get interface count |
+| 1 | Index of the interface | Get interface information. The reply will contain the information for one interface. If the device has more than one interface this command can be sent multiple times to get the information for all interfaces. The argument is the index of the interface to get information for, starting from zero. |
+| 2 | Index of the interface | Close interface. The argument is the index of the interface to close, starting from zero. This will close the interface and stop receiving/sending events on that interface. |
+| 3 | Index of the interface | Open interface. The argument is the index of the interface to open, starting from zero. This will open the interface and start receiving/sending events on that interface. |
 
 #### Reply
+
+##### Get interface count
 
 | Byte | Description |
 | :---: | ----------- |
 | 0-1 | Command code for INTERFACE command (0x0013). |
 | 2-3 | Error code. Zero is success, non-zero is error. |
-| 4-7 | Number of interfaces on the device MSB first. |
-| 8-11 | Interface 1 id MSB first. |
-| 12-15 | Interface 2 id MSB first. |
-| 16-19 | Interface 3 id MSB first. |
-| ... | ... |
-| 4+(n-1)*4 - 4+n*4-1 | Interface n id MSB first. |
+| 4-5 | Interface count. |
+
+##### Get interface information
+
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for INTERFACE + 1 command (0x0014). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+| 6-7 | Interface index MSB first. |
+| 8-23 | Interface GUID |
+| 24-87 | Interface description. Max 64 bytes including null termination. |
+
+
+##### Close interface
+
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for INTERFACE + 2 command (0x0015). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+| 6-7 | Interface index MSB first. |
+
+##### Open interface
+
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for INTERFACE + 3 command (0x0016). |
+| 2-3 | Error code. Zero is success, non-zero is error. |
+| 6-7 | Interface index MSB first. |
 
 ---
 ---
