@@ -14,7 +14,9 @@ It's important to distinguish between the frame format/type and the VSCP frame t
   * **VSCP Frame type = 1** Frame type 1 has a timestamp in nanoseconds since the epoch (GMT) and reserved bytes for future use. Year/month/day/hour/minute/second can be calculated from the timestamp if needed. This is the recommended frame format for current implementations.
 
 
-## Frame format 0 - VSCP frame type = 0 :id=vscp-frame-type-0
+## Frame format 0 :id=vscp-frame-format-0
+
+### VSCP frame type=0 :id=vscp-frame-type-0
 
 
 If frame is of type 0 (defined by bits 8/9 of head MSB byte) the timestamp is in microseconds since the epoch (GMT).
@@ -51,7 +53,7 @@ The number above is the offset in the package. Len is the total datagram size.
 
 Time should always be UTC time. If the time block is set to all zero the current time will be set by interface (VSCP Server for example).
 
-## Frame format 0 (VSCP frame type=1) :id=vscp-frame-type-1
+### VSCP frame type=1 :id=vscp-frame-type-1
 
 If VSCP frametype is of type 1 (defined by bits 8/9 of head MSB byte) the timestamp is in nanoseconds since the epoch (GMT). 
 
