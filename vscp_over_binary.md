@@ -15,12 +15,6 @@ It's important to distinguish between the frame format/type and the VSCP frame t
 
 # Frame format 0 - VSCP frame type = 0 :id=frame-format-0
 
-<style>
-.mermaid svg {
-  height: 320px !important;
-  width: 100%;
-}
-</style>
 
 If frame is of type 0 (defined by bits 8/9 of head MSB byte) the timestamp is in microseconds since the epoch (GMT).
 
@@ -56,7 +50,7 @@ The number above is the offset in the package. Len is the total datagram size.
 
 Time should always be UTC time. If the time block is set to all zero the current time will be set by interface (VSCP Server for example).
 
-# Frame format 0 - - VSCP frame type  = 1
+# Frame format 0 - - VSCP frame type  = 1 :id=frame-format-0
 
 If VSCP frametype is of type 1 (defined by bits 8/9 of head MSB byte) the timestamp is in nanoseconds since the epoch (GMT). 
 
