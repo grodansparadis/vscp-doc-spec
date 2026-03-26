@@ -1,3 +1,4 @@
+# VSCP general binary protocol (VSCP-GBP)
 
 The VSCP binary protocol is designed to be used on different types of transports such as TCP, UDP, Multicast, serial, etc. The protocol is designed to be simple and efficient for sending VSCP events and commands between devices. 
 
@@ -13,7 +14,7 @@ It's important to distinguish between the frame format/type and the VSCP frame t
   * **VSCP Frame type = 1** Frame type 1 has a timestamp in nanoseconds since the epoch (GMT) and reserved bytes for future use. Year/month/day/hour/minute/second can be calculated from the timestamp if needed. This is the recommended frame format for current implementations.
 
 
-# Frame format 0 - VSCP frame type = 0 :id=vscp-frame-type-0
+## Frame format 0 - VSCP frame type = 0 :id=vscp-frame-type-0
 
 
 If frame is of type 0 (defined by bits 8/9 of head MSB byte) the timestamp is in microseconds since the epoch (GMT).
@@ -50,7 +51,7 @@ The number above is the offset in the package. Len is the total datagram size.
 
 Time should always be UTC time. If the time block is set to all zero the current time will be set by interface (VSCP Server for example).
 
-# Frame format 0 - - VSCP frame type  = 1 :id=vscp-frame-type-1
+## Frame format 0 (VSCP frame type=1) :id=vscp-frame-type-1
 
 If VSCP frametype is of type 1 (defined by bits 8/9 of head MSB byte) the timestamp is in nanoseconds since the epoch (GMT). 
 
@@ -88,7 +89,7 @@ Time should always be UTC time. If the time block is set to all zero the current
 
 Timestamp is nanoseconds since the epoch (GMT).
 
-# Frame format 14 - Protocol
+## Frame format 14 - Protocol
 
 This frame can go both ways. It is used to send protocol commands and replies. The command/reply code is defined in the same way as the event type (16-bit) and the command/reply arguments are defined in the same way as the data field for events. The command/reply code and arguments are encrypted in the same way as for events.
 
@@ -102,7 +103,7 @@ This frame can go both ways. It is used to send protocol commands and replies. T
  | len-1 | CRC LSB  | yes | 
  | opt   | Optional encryption data such as a 16/24/32-byte IV for AES follow here | No |
 
-# Frame format 15 - Reply
+## Frame format 15 - Reply
 
  | Byte  | Description | Encrypted | 
  | :----:  | ----------- | :---------: | 
@@ -122,14 +123,14 @@ This frame can go both ways. It is used to send protocol commands and replies. T
 
  The reply argument can be used to return data from the command. For example, if the command was to read a register the reply argument would contain the value of the register. The format of the reply argument is defined in the same way as the data field for events.
 
-## Definition of type byte
+### Definition of type byte
 
  | Bits | Description | 
  | :----: | ----------- | 
  | 7,6,5,4 | Frame type.| 
  | 3,2,1,0 | Encryption. | 
 
-## Frame types
+### Frame types
 
 | Value | Description | 
  | :----: | ----------- | 
@@ -140,7 +141,7 @@ This frame can go both ways. It is used to send protocol commands and replies. T
  | 15 | Reply |
 
 
-## Encryption types
+### Encryption types
 
  | Code | Description |
  | :----: | ----------- |
@@ -154,7 +155,7 @@ For encryption/decryption code using AES-128/192/256. Note that byte 0 of the fr
 
 On the VSCP Server the md5 of the [vscptoken](https://docs.vscp.org/vscpd/13.1/#/configuring_the_vscp_daemon?id=security) is used as the key for AES128.
 
-## Definition of VSCP head
+### Definition of VSCP head
 
 See [vscp.h](https://github.com/grodansparadis/vscp/blob/master/src/vscp/common/vscp.h)
 
