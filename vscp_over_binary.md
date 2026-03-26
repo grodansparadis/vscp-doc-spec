@@ -1,4 +1,3 @@
-# VSCP general binary protocol (VSCP-GPB)
 
 The VSCP binary protocol is designed to be used on different types of transports such as TCP, UDP, Multicast, serial, etc. The protocol is designed to be simple and efficient for sending VSCP events and commands between devices. 
 
@@ -14,7 +13,7 @@ It's important to distinguish between the frame format/type and the VSCP frame t
   * **VSCP Frame type = 1** Frame type 1 has a timestamp in nanoseconds since the epoch (GMT) and reserved bytes for future use. Year/month/day/hour/minute/second can be calculated from the timestamp if needed. This is the recommended frame format for current implementations.
 
 
-### Frame format 0 - VSCP frame type = 0 :id=frame-format-0
+# Frame format 0 - VSCP frame type = 0 :id=frame-format-0
 
 <style>
 .mermaid svg {
@@ -57,7 +56,7 @@ The number above is the offset in the package. Len is the total datagram size.
 
 Time should always be UTC time. If the time block is set to all zero the current time will be set by interface (VSCP Server for example).
 
-### Frame format 0 - - VSCP frame type  = 1
+# Frame format 0 - - VSCP frame type  = 1
 
 If VSCP frametype is of type 1 (defined by bits 8/9 of head MSB byte) the timestamp is in nanoseconds since the epoch (GMT). 
 
@@ -95,7 +94,7 @@ Time should always be UTC time. If the time block is set to all zero the current
 
 Timestamp is nanoseconds since the epoch (GMT).
 
-### Frame format 14 - Protocol
+# Frame format 14 - Protocol
 
 This frame can go both ways. It is used to send protocol commands and replies. The command/reply code is defined in the same way as the event type (16-bit) and the command/reply arguments are defined in the same way as the data field for events. The command/reply code and arguments are encrypted in the same way as for events.
 
@@ -109,7 +108,7 @@ This frame can go both ways. It is used to send protocol commands and replies. T
  | len-1 | CRC LSB  | yes | 
  | opt   | Optional encryption data such as a 16/24/32-byte IV for AES follow here | No |
 
-### Frame format 15 - Reply
+# Frame format 15 - Reply
 
  | Byte  | Description | Encrypted | 
  | :----:  | ----------- | :---------: | 
@@ -129,14 +128,14 @@ This frame can go both ways. It is used to send protocol commands and replies. T
 
  The reply argument can be used to return data from the command. For example, if the command was to read a register the reply argument would contain the value of the register. The format of the reply argument is defined in the same way as the data field for events.
 
-##### Definition of type
+## Definition of type byte
 
  | Bits | Description | 
  | :----: | ----------- | 
  | 7,6,5,4 | Frame type.| 
  | 3,2,1,0 | Encryption. | 
 
-##### Frame types
+## Frame types
 
 | Value | Description | 
  | :----: | ----------- | 
@@ -147,7 +146,7 @@ This frame can go both ways. It is used to send protocol commands and replies. T
  | 15 | Reply |
 
 
-##### Encryption types
+## Encryption types
 
  | Code | Description |
  | :----: | ----------- |
@@ -161,20 +160,20 @@ For encryption/decryption code using AES-128/192/256. Note that byte 0 of the fr
 
 On the VSCP Server the md5 of the [vscptoken](https://docs.vscp.org/vscpd/13.1/#/configuring_the_vscp_daemon?id=security) is used as the key for AES128.
 
-##### Definition of head
+## Definition of VSCP head
 
 See [vscp.h](https://github.com/grodansparadis/vscp/blob/master/src/vscp/common/vscp.h)
 
 ```mermaid
 packet
-  +1: "D"
-  +3: "GUID type"
-  +2: "Reserved"
-  +2: "Frame"
-  +3: "Priority"
-  +1: "HC"
-  +1: "!CRC"
   +3: "Rolling index"
+  +1: "!CRC"
+  +1: "HC"
+  +3: "Priority"
+  +2: "Frame"
+  +2: "Reserved"
+  +3: "GUID type"
+  +1: "D"
 ```
 
  | Bits  | Description                                                         | 
@@ -202,7 +201,7 @@ The Level II register abstraction level also has more registers (32-bit address 
 
 VSCP level II driver implementation [described here](https://github.com/grodansparadis/vscpl2drv-udp).
 
-## Commands
+# Commands
 
  | Code | Token | Description |
  | :---: | ----- | ----------- |
@@ -237,14 +236,14 @@ VSCP level II driver implementation [described here](https://github.com/grodansp
 ---
 ---
 
-### NOOP - NO OPeration :id=noop
+## NOOP - NO OPeration :id=noop
 
 Do nothing, just send a positive reply.
 
-#### Argument
+### Argument
 None
 
-#### Reply
+### Reply
 
 | Byte | Description |
 | :---: | ----------- |
@@ -254,14 +253,14 @@ None
 ---
 ---
 
-### QUIT - Quit session :id=quit
+## QUIT - Quit session :id=quit
 
 Send a positive reply and close the connection.
 
-#### Argument
+### Argument
 None
 
-#### Reply
+### Reply
 
 | Byte | Description |
 | :---: | ----------- |
@@ -271,7 +270,7 @@ None
 ---
 ---
 
-### USER - Send username :id=user
+## USER - Send username :id=user
 
 Send the username for authentication. The username is sent as the command argument. Optionally the password can be sent in the same command argument separated by a colon.
 
@@ -289,7 +288,7 @@ If no password is given the device should **always** accept the username and wai
 
 It is perfectly fine to send multiple **USER** commands in a row. The last one will be the one that is used for authentication.
 
-#### Argument
+### Argument
 
 | Argument | Description |
 | :---: | ----------- |
@@ -297,7 +296,7 @@ It is perfectly fine to send multiple **USER** commands in a row. The last one w
 | : | Optional colon separator if password is set. |
 | password | The optional password for authentication. Can be sent in a separate [PASS](#pass) command. Max 64 characters.|
 
-#### Reply
+### Reply
 
 | Byte | Description |
 | :---: | ----------- |
@@ -307,7 +306,7 @@ It is perfectly fine to send multiple **USER** commands in a row. The last one w
 ---
 ---
 
-### PASS - Send password :id=pass
+## PASS - Send password :id=pass
 
 Send the password for authentication. The password is sent as the command argument.
 
@@ -317,13 +316,13 @@ If username has previously been entered do a login on the device and retretive t
 
 If no username has been given the device should return an error and wait for a [USER](#user) command to restart the login process.
 
-#### Argument
+### Argument
 
 | Argument | Description |
 | :---: | ----------- |
 | password | The password for authentication. Max 64 characters. |
 
-#### Reply
+### Reply
 
 | Byte | Description |
 | :---: | ----------- |
@@ -333,14 +332,14 @@ If no username has been given the device should return an error and wait for a [
 ---
 ---
 
-### CHALLENGE - Challenge security :id=challenge
+## CHALLENGE - Challenge security :id=challenge
 
 The reponse to a CHALLENGE is a 16 byte random number, aka session id,  on hex format.
 
-#### Argument
+### Argument
 None
 
-#### Reply
+### Reply
 
 | Byte | Description |
 | :---: | ----------- |
@@ -351,11 +350,11 @@ None
 ---
 ---
 
-### SEND - Send event (deprecated) :id=send
+## SEND - Send event (deprecated) :id=send
 
 Send event to the device. The event is sent as the command argument in the same format as for events sent asynchronously. This command is deprecated and should not be used. Instead, events should be sent asynchronously and the [OPEN](#open) command should be used to open a channel for receiving asynchronous events.
 
-#### Argument
+### Argument
 
  | Argument | Description |
  | :---: | ----------- |
@@ -381,7 +380,7 @@ Send event to the device. The event is sent as the command argument in the same 
  | 34    | DATA SIZE LSB                      |
  | 35-n  | data ... limited to max 512 bytes  |
 
-#### Reply
+### Reply
 | Byte | Description |
 | :---: | ----------- | 
 | 0-1 | Command code for SEND command (0x0005). |
@@ -391,7 +390,7 @@ Send event to the device. The event is sent as the command argument in the same 
 ---
 ---
 
-### RETR - Retrieve one or more events
+## RETR - Retrieve one or more events
 
 Retrieve one or more events from the remote queue. The command argument is the number of events to retrieve. If the command argument is zero or absent, one event will be retrieved. If the command argument is greater than zero that number of events will be retrieved (if available).
 
@@ -399,7 +398,7 @@ Events are retrieved in the same format as for events sent asynchronously.
 
 This command is used on nodes that does not have asynchronous event support or which have their channel closed. On nodes that have asynchronous event support the events will be sent as they arrive and the RETR command is not needed and will always return a positive reply.
 
-#### Argument
+### Argument
 Number of events to retrieve. Zero or absent means one event.
 
 | Byte | Description |
@@ -407,7 +406,7 @@ Number of events to retrieve. Zero or absent means one event.
 | 0 | Number of events to retreive MSB |
 | 1 | Number of events to retreive LSB |
 
-#### Reply
+### Reply
 
 | Byte | Description |
 | :---: | ----------- |
@@ -419,14 +418,14 @@ Events are returned in the same format as for events sent asynchronously. If the
 ---
 ---
 
-### OPEN - Open a connection to a device :id=open
+## OPEN - Open a connection to a device :id=open
 
 Open a connection to a channel on the device. This opens the receive of asynchronous events to be received.
 
-#### Argument
+### Argument
 None
 
-#### Reply
+### Reply
 
 | Byte | Description |
 | :---: | ----------- |
@@ -436,31 +435,31 @@ None
 ---
 ---
 
-### CLOSE - Close a connection to a device :id=close
+## CLOSE - Close a connection to a device :id=close
 
 Close a connection to a channel on the device. This closes the flow of asynchronous events. Events will still be collected in the input queue and can be retrieved with the RETR command or checked for availability with the CHKDATA command.
 
-#### Reply
+### Reply
 
 | Byte | Description |
 | :---: | ----------- |
 | 0-1 | Command code for CLOSE command (0x0008). |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 
-#### Argument
+### Argument
 None
 
 ---
 ---
 
-### CHKDATA - Check if events are available :id=chkdata 
+## CHKDATA - Check if events are available :id=chkdata 
 
 Check if events are available in the input queue. The reply is the number of events available in the input queue. If a channel is opened with the OPEN command the events will be sent as they arrive and the CHKDATA command is not needed and will always return zero.
 
-#### Argument
+### Argument
 None
 
-#### Reply
+### Reply
 
 | Byte | Description |
 | :---: | ----------- |
@@ -471,16 +470,16 @@ None
 ---
 ---
 
-### CLEAR - Clear input queue :id=clear
+## CLEAR - Clear input queue :id=clear
 
 On a devices with asynchronous event support this command can be used to clear the events that have arrived but not yet been sent to the client. On a device without asynchronous event support this command can be used to clear the events that have arrived and are waiting in the input queue.
 
 Before the [OPEN](#open) command has been received by the device the events will be collected in the input queue and can be retrieved with the [RETR](#retr) command or checked for availability with the [CHKDATA](#chkdata) command. If a channel is opened with the [OPEN](#open) command the events will be sent as they arrive and the CLEAR command will not have any effect on the events that have arrived but not yet been sent to the client.
 
-#### Argument
+### Argument
 None
 
-#### Reply
+### Reply
 
 | Byte | Description |
 | :---: | ----------- |
@@ -490,14 +489,14 @@ None
 ---
 ---
 
-### STAT - Get statistical information :id=stat
+## STAT - Get statistical information :id=stat
 
 Get statistical information about the device. Eight values are returned in the reply argument:
 
-#### Argument
+### Argument
 None
 
-#### Reply
+### Reply
 
 | Bytes | Description |
 | :---: | ----------- |
@@ -515,14 +514,14 @@ None
 ---
 ---
 
-### INFO -- Get status information :id=info
+## INFO -- Get status information :id=info
 
 Get status information about the device.
 
-#### Argument
+### Argument
 None
 
-#### Reply
+### Reply
 
 | Byte | Description |
 | :---: | ----------- |
@@ -536,14 +535,14 @@ None
 ---
 ---
 
-### GETCHID - Get channel id :id=getchid
+## GETCHID - Get channel id :id=getchid
 
 Get the channel id for the current channel. The channel id is a unique 32-bit identifier for the channel and is used to identify the channel in the device. A device that does not care about channels return zero.
 
-#### Argument
+### Argument
 None
 
-#### Reply
+### Reply
 
 | Byte | Description |
 | :---: | ----------- |
@@ -554,13 +553,13 @@ None
 ---
 ---
 
-### SETGUID - Set GUID for channel (privileged command) :id=setguid
+## SETGUID - Set GUID for channel (privileged command) :id=setguid
 
 Set the GUID for the device. The command argument is the GUID to setl.
 
 Most devices form a GUID from a unique identifier such as a MAC address and a device id. This command can be used to set the GUID to a custom value. This is a privileged command and should only be allowed for users with the appropriate privileges.
 
-#### Argument
+### Argument
 GUID to set for the device. T
 
 | Argument | Description |
@@ -569,7 +568,7 @@ GUID to set for the device. T
 | 2-3 | Error code. Zero is success, non-zero is error. |
 | 4-19 | The GUID to set for the device. The GUID is a 16-byte value that is sent in the same format as the originating GUID for events. MSB first. |
 
-#### Reply
+### Reply
 
 | Byte | Description |
 | :---: | ----------- |
@@ -579,14 +578,14 @@ GUID to set for the device. T
 ---
 ---
 
-### GETGUID - Get GUID for device :id=getguid
+## GETGUID - Get GUID for device :id=getguid
 
 Get the GUID for the device.
 
-#### Argument
+### Argument
 None
 
-#### Reply
+### Reply
 
 | Byte | Description |
 | :---: | ----------- |
@@ -597,14 +596,14 @@ None
 ---
 ---
 
-### VERSION - Get version for interface :id=version
+## VERSION - Get version for interface :id=version
 
 Get the version for the interface. The reply argument is the version for the interface.
 
-#### Argument
+### Argument
 None
 
-#### Reply
+### Reply
 
 | Byte | Description |
 | :---: | ----------- |
@@ -617,11 +616,11 @@ None
 ---
 ---
 
-### SETFILTER - Set filter for channel :id=setfilter
+## SETFILTER - Set filter for channel :id=setfilter
 
 Set the filter for the channel. The command argument is the filter to set for the channel. The mask can also be set at the same time with this command.
 
-#### Argument
+### Argument
 Filter to set for the channel. Mask can be included as a second argument.
 
 The filter (and the optional mask) is supplied on binary form.
@@ -637,7 +636,7 @@ The filter (and the optional mask) is supplied on binary form.
 | 24-25 | OPTIONAL Mask type |
 | 26-41 | OPTIONAL Mask GUID |
 
-#### Reply
+### Reply
 
 | Byte | Description |
 | :---: | ----------- |
@@ -647,11 +646,11 @@ The filter (and the optional mask) is supplied on binary form.
 ---
 ---
 
-### SETMASK - Set mask for channel :id=setmask
+## SETMASK - Set mask for channel :id=setmask
 
 Set the mask for the channel. The command argument is the mask to set for the channel.
 
-#### Argument
+### Argument
 Mask to set for the cannel. The mask is supplied on binary form.
 
 | Argument | Description |
@@ -661,7 +660,7 @@ Mask to set for the cannel. The mask is supplied on binary form.
 | 3-4 | Mask type |
 | 5-20 | Mask GUID |
 
-#### Reply
+### Reply
 | Byte | Description |
 | :---: | ----------- |
 | 0-1 | Command code for SETMASK command (0x0012). |
@@ -670,11 +669,11 @@ Mask to set for the cannel. The mask is supplied on binary form.
 ---
 ---
 
-### INTERFACE - List interfaces on device :id=interface
+## INTERFACE - List interfaces on device :id=interface
 
 List the interfaces on the device. The reply argument is a list of interfaces on the device.
 
-#### Argument
+### Argument
 | First argument | Second argument | Description |
 | :---: | :---: | ----------- |
 | 0 | - | Get interface count |
@@ -682,9 +681,9 @@ List the interfaces on the device. The reply argument is a list of interfaces on
 | 2 | Index of the interface | Close interface. The argument is the index of the interface to close, starting from zero. This will close the interface and stop receiving/sending events on that interface. |
 | 3 | Index of the interface | Open interface. The argument is the index of the interface to open, starting from zero. This will open the interface and start receiving/sending events on that interface. |
 
-#### Reply
+### Reply
 
-##### Get interface count
+#### Get interface count
 
 | Byte | Description |
 | :---: | ----------- |
@@ -692,7 +691,7 @@ List the interfaces on the device. The reply argument is a list of interfaces on
 | 2-3 | Error code. Zero is success, non-zero is error. |
 | 4-5 | Interface count. |
 
-##### Get interface information
+#### Get interface information
 
 | Byte | Description |
 | :---: | ----------- |
@@ -703,7 +702,7 @@ List the interfaces on the device. The reply argument is a list of interfaces on
 | 24-87 | Interface description. Max 64 bytes including null termination. |
 
 
-##### Close interface
+#### Close interface
 
 | Byte | Description |
 | :---: | ----------- |
@@ -711,7 +710,7 @@ List the interfaces on the device. The reply argument is a list of interfaces on
 | 2-3 | Error code. Zero is success, non-zero is error. |
 | 6-7 | Interface index MSB first. |
 
-##### Open interface
+#### Open interface
 
 | Byte | Description |
 | :---: | ----------- |
@@ -722,18 +721,18 @@ List the interfaces on the device. The reply argument is a list of interfaces on
 ---
 ---
 
-### TEST - Perform tests :id=test
+## TEST - Perform tests :id=test
 
 Perform tests on the device. The command argument is the test to perform. The reply argument is the result of the test.
 
-#### Argument
+### Argument
 Test number followed by optional test data. Testnumber zero is reserved for ALL tests.
 
 | Argument | Description |
 | :---: | ----------- |
 | 0-1 | Test to perform |
 
-#### Reply
+### Reply
 | Byte | Description |
 | :---: | ----------- |
 | 0-1 | Command code for TEST command (0x0014). |
@@ -743,13 +742,13 @@ Test number followed by optional test data. Testnumber zero is reserved for ALL 
 ---
 ---
 
-### WCYD - What Can You Do, find out what a node supports :id=wchyd
+## WCYD - What Can You Do, find out what a node supports :id=wchyd
 Find out what a node supports. The reply argument is a 64-bit bitfield with supported commands and features on the device. The bitfield is described [here](https://docs.vscp.org/spec/latest/#/./class2.protocol?id=type20)
 
-#### Argument
+### Argument
 Eight bytes representing the 64-bit bitfield with supported commands and features on the device. MSB first.
 
-#### Reply
+### Reply
 | Byte | Description |
 | :---: | ----------- |
 | 0-1 | Command code for WCYD command (0x0015). |
@@ -759,14 +758,14 @@ Eight bytes representing the 64-bit bitfield with supported commands and feature
 ---
 ---
 
-### SHUTDOWN - Shutdown device (privileged command) :id=shutdown
+## SHUTDOWN - Shutdown device (privileged command) :id=shutdown
 
 Shutdown the device. This is a privileged command and should only be allowed for users with the appropriate privileges.
 
-#### Argument
+### Argument
 None
 
-#### Reply
+### Reply
 | Byte | Description |
 | :---: | ----------- |
 | 0-1 | Command code for SHUTDOWN command (0x0016). |
@@ -775,14 +774,14 @@ None
 ---
 ---
 
-### RESTART - Restart device (privilegded command) :id=restart
+## RESTART - Restart device (privilegded command) :id=restart
 
 Restart the device. This is a privileged command and should only be allowed for users with the appropriate privileges.
 
-#### Argument
+### Argument
 None
 
-#### Reply
+### Reply
 | Byte | Description |
 | :---: | ----------- |
 | 0-1 | Command code for RESTART command (0x0017). |
@@ -791,16 +790,16 @@ None
 ---
 ---
 
-### TEXT - Go back to realtext mode :id=text
+## TEXT - Go back to realtext mode :id=text
 
 Go back to realtext mode. This command is used in the VSCP tcp/ip link protocol to return into realtext mode leaving the binary protocol mode. If your device supports both the binary protocol and a realtext  protocol this command can be used to switch back to text mode.  If your device does not support the text protocol this command can be ignored and a negative reply can be returned.
 
 The VSCP link protocol is designed to be able to switch between binary and text mode on the fly. This allows for example a client to connect to a device using the binary protocol, perform some operations and then switch back to text mode to interact with the device in a more human friendly way. The **BINARY** command is used on the text protocol to switch to binary mode.
 
-#### Argument
+### Argument
 None
 
-#### Reply
+### Reply
 | Byte | Description |
 | :---: | ----------- |
 | 0-1 | Command code for TEXT command (0x0018). |
