@@ -1,6 +1,6 @@
 # VSCP general binary protocol (VSCP-GBP)
 
-The VSCP binary protocol is designed to be used on different types of transports such as TCP, UDP, Multicast, serial, etc. The protocol is designed to be simple and efficient for sending VSCP events and commands between devices. 
+The VSCP binary protocol is designed to be used on different types of transports such as TCP, UDP, Multicast, serial, etc. The protocol is designed to be simple and efficient for sending VSCP events and commands between devices.
 
 Encryption is available, but optional. When used it can be AES-128, AES-192 or AES-256 in CBC mode. The encryption is applied to the entire frame except for the first byte which contains the frame type and encryption settings. The encryption key is a common key with length of 128/192/256 bits that is secret and shared between the devices. Encryption gives confidentiality but not integrity. The integrity is instead provided by the CRC which is calculated on the encrypted data. The encryption settings are defined in the first byte of the frame and indicate if encryption is used and if so which encryption method is used. Overhead for encryption is 16 bytes for all encryption types as AES has a fixed block size of 128 bits, regardless of key length.
 
@@ -14,7 +14,9 @@ It's important to distinguish between the frame format/type and the VSCP frame t
   * **VSCP Frame type = 1** Frame type 1 has a timestamp in nanoseconds since the epoch (GMT) and reserved bytes for future use. Year/month/day/hour/minute/second can be calculated from the timestamp if needed. This is the recommended frame format for current implementations.
 
 
-## Frame format 0 :id=vscp-frame-format-0
+## Frame format & type :id=vscp-frame-format
+
+This is the format for an asynchroniously sent or received VSCP event. The receiving end send no acknowledgement that the event has been received. The sender does not know if the event has been received or not. Other means should be used to ensure that events actually are received. For example if a [TURN-ON-event](./class1.control.md?#type5) is sent, confirm this by waiting for a corresponding [ON-event](./class1.information.md?#type3).
 
 ### VSCP frame type=0 :id=vscp-frame-type-0
 
@@ -91,7 +93,7 @@ Time should always be UTC time. If the time block is set to all zero the current
 
 Timestamp is nanoseconds since the epoch (GMT).
 
-## Frame format 14 - Protocol
+## Frame format=14 - Protocol
 
 This frame can go both ways. It is used to send protocol commands and replies. The command/reply code is defined in the same way as the event type (16-bit) and the command/reply arguments are defined in the same way as the data field for events. The command/reply code and arguments are encrypted in the same way as for events.
 
@@ -105,7 +107,7 @@ This frame can go both ways. It is used to send protocol commands and replies. T
  | len-1 | CRC LSB  | yes | 
  | opt   | Optional encryption data such as a 16/24/32-byte IV for AES follow here | No |
 
-## Frame format 15 - Reply
+## Frame format=15 - Reply
 
  | Byte  | Description | Encrypted | 
  | :----:  | ----------- | :---------: | 
@@ -121,18 +123,17 @@ This frame can go both ways. It is used to send protocol commands and replies. T
 
  The command codes are the same as the command codes for the commands they are responses to.
 
- The error code is the standard VSCP  error code. Zero is a success. Non-zero is an error code. See [VSCP error codes](https://docs.vscp.org/vscp/specification/4.0/#_error_codes) for more information.
-
+ The error code is the standard VSCP  error code. Zero is a success. Non-zero is an error code. See [VSCP error codes (VSCP_ERROR...)](https://github.com/grodansparadis/vscp/blob/master/src/vscp/common/vscp.h) for more information.
  The reply argument can be used to return data from the command. For example, if the command was to read a register the reply argument would contain the value of the register. The format of the reply argument is defined in the same way as the data field for events.
 
-### Definition of type byte
+## Definition of type byte
 
  | Bits | Description | 
  | :----: | ----------- | 
  | 7,6,5,4 | Frame type.| 
  | 3,2,1,0 | Encryption. | 
 
-### Frame types
+## Frame types
 
 | Value | Description | 
  | :----: | ----------- | 
@@ -143,7 +144,7 @@ This frame can go both ways. It is used to send protocol commands and replies. T
  | 15 | Reply |
 
 
-### Encryption types
+## Encryption types
 
  | Code | Description |
  | :----: | ----------- |
@@ -155,15 +156,13 @@ This frame can go both ways. It is used to send protocol commands and replies. T
 
 For encryption/decryption code using AES-128/192/256. Note that byte 0 of the frame is never encrypted. The encryption/decryption is instead carried out over byte 1 up to the CRC.
 
-On the VSCP Server the md5 of the [vscptoken](https://docs.vscp.org/vscpd/13.1/#/configuring_the_vscp_daemon?id=security) is used as the key for AES128.
-
-### Definition of VSCP head
+## Definition of VSCP head
 
 See [vscp.h](https://github.com/grodansparadis/vscp/blob/master/src/vscp/common/vscp.h)
 
 ```mermaid
 packet
-  +3: "Rolling index"
+  +3: "R.Index"
   +1: "!CRC"
   +1: "HC"
   +3: "Priority"
@@ -181,7 +180,7 @@ packet
  | 9,8  | Frame type.                                                         | 
  | 7,6,5 | Priority.                                                           | 
  | 4     | Hard-coded (HC).                                                         | 
- | 3     | Don't calculate CRC if bit set.                                     | 
+ | 3     | Don't calculate CRC if bit set (!CRC).                                     | 
  | 2,1,0 | Rolling index.                                                      |  
 
 Note also that the MSB is sent before the LSB (network byte order, Big Endian). So, for little endian machines such as a typical PC the byte order needs to be reversed for multi-byte types.
@@ -196,7 +195,6 @@ A frame traveling from a Level I device out to the Level II world should have an
 
 The Level II register abstraction level also has more registers (32-bit address is used) and all registers are 32–bits wide. Registers 0-255 are byte wide and are the same as for level 1. If these registers are read at level 2 they still is read as 32-bit but have the unused bits set to zero.
 
-VSCP level II driver implementation [described here](https://github.com/grodansparadis/vscpl2drv-udp).
 
 # Commands
 
@@ -393,7 +391,7 @@ Retrieve one or more events from the remote queue. The command argument is the n
 
 Events are retrieved in the same format as for events sent asynchronously.
 
-This command is used on nodes that does not have asynchronous event support or which have their channel closed. On nodes that have asynchronous event support the events will be sent as they arrive and the RETR command is not needed and will always return a positive reply.
+This command is used on nodes that does not have asynchronous event support or which have their channel closed. On nodes that have asynchronous event support the events will be sent as they arrive and the RETR command is not needed and will return VSCP_ERROR_UNSUPPORTED.
 
 ### Argument
 Number of events to retrieve. Zero or absent means one event.
@@ -409,6 +407,26 @@ Number of events to retrieve. Zero or absent means one event.
 | :---: | ----------- |
 | 0-1 | Command code for RETR command (0x0006). |
 | 2-3 | Error code. Zero is success, non-zero is error. |
+| 4     | VSCP Level II Head MSB             | Yes | 
+ | 5     | VSCP Level II Head LSB             | Yes | 
+ | 6     | Timestamp nanoseconds MSB         | Yes | 
+ | 7     | Timestamp nanoseconds             | Yes | 
+ | 7     | Timestamp nanoseconds             | Yes | 
+ | 8     | Timestamp nanoseconds             | Yes | 
+ | 9     | Timestamp nanoseconds             | Yes | 
+ | 10    | Timestamp nanoseconds             | Yes | 
+ | 11    | Timestamp nanoseconds LSB         | Yes | 
+ | 12    | Reserved                           | Yes | 
+ | 13    | Reserved                           | Yes | 
+ | 14    | Reserved                           | Yes | 
+ | 15    | CLASS MSB                          | Yes | 
+ | 16    | CLASS LSB                          | Yes | 
+ | 17    | TYPE MSB                           | Yes | 
+ | 18    | TYPE LSB                           | Yes | 
+ | 19-34 | ORIGINATING GUID                   | Yes | 
+ | 35    | DATA SIZE MSB                      | Yes | 
+ | 36    | DATA SIZE LSB                      | Yes | 
+ | 37-n  | data ... limited to max 512-25 = 487 bytes  | Yes | 
 
 Events are returned in the same format as for events sent asynchronously. If the command argument is greater than zero and that number of events is not available, all available events will be returned and a positive reply will be sent. If no events are available a negative reply with error code VSCP_ERROR_RCV_EMPTY (msg=vscp_binary_MSG_NO_MSG) will be sent.
 
