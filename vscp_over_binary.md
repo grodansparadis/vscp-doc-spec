@@ -128,6 +128,12 @@ This frame can go both ways. It is used to send protocol commands and replies. T
 
 ## Definition of type byte
 
+```mermaid
+packet
+  +4: "Type"
+  +4: "Encoding"
+```
+
  | Bits | Description | 
  | :----: | ----------- | 
  | 7,6,5,4 | Frame type.| 
@@ -198,35 +204,46 @@ The Level II register abstraction level also has more registers (32-bit address 
 
 # Commands
 
- | Code | Token | Description |
- | :---: | ----- | ----------- |
- | 0 | [NOOP](#noop) | No Operation. |
- | 1 | [QUIT](#quit) | Quit. |
- | 2 | [USER](#user) | Send username. |
- | 3 | [PASS](#pass) | Send password. |
- | 4 | [CHALLENGE](#challenge) | Challenge security. |
- | 5 | [SEND](#send) | Reserved. |
- | 6 | [RETR](#retr) | Retrieve one or more event(s) on nodes that does not have asynchronous event support. |
- | 7 | [OPEN](#open) | Open a connection to a device. |
- | 8 | [CLOSE](#close) | Close a connection to a device. |
- | 9 | [CHKDATA](#chkdata) | Check if events are available on nodes that does not have asynchronous event support. |
- | 10 | [CLEAR](#clear) | Clear input queue on nodes that does not have asynchronous event support. |
- | 11 | [STAT](#stat) | Get statistical information. |
- | 12 | [INFO](#info) | Get status information. |
- | 13 | [GETCHID](#getchid) | Get channel id. |
- | 14 | [SETGUID](#setguid) | Set GUID for the device (privileged command). |
-  | 15 | [GETGUID](#getguid) | Get GUID for the device. |
-  | 16 | [VERSION](#version) | Get version of binary interface. |
-  | 17 | [SETFILTER](#setfilter) | Set filter for channel. |
-  | 18 | [SETMASK](#setmask) | Set mask for channel. |
-  | 19 | [INTERFACE](#interface) | List interfaces on device |
-  | 30 | [TEST](#test) | Perform tests. |
-  | 31 | [WCYD](#wcyd) | What Can You Do, find out what a node supports. |
-  | 32 | [SHUTDOWN](#shutdown) | Shutdown device (privileged command). |
-  | 33 | [RESTART](#restart) | Restart device (privilegded command). |
-  | 34 | [TEXT](#text) | Go back to realtext mode. |
-  | 35-65279 | Reserved | Reserved. |
-  | 65280-65535 | USER | User defined commands. |
+ | Code | Token | Privilege | Description |
+ | :---: | ----- | --------- | ----------- |
+ | 0 | [NOOP](#noop) | 0 | No Operation. |
+ | 1 | [QUIT](#quit) | 0 | Quit. |
+ | 2 | [USER](#user) | 0 | Send username. |
+ | 3 | [PASS](#pass) | 0 | Send password. |
+ | 4 | [CHALLENGE](#challenge) | 0 | Challenge security. |
+ | 5 | [SEND](#send) | 4 | Reserved. |
+ | 6 | [RETR](#retr) | 1 | Retrieve one or more event(s) on nodes that does not have asynchronous event support. |
+ | 7 | [OPEN](#open) | 1 | Open a connection to a device. |
+ | 8 | [CLOSE](#close) | 1 | Close a connection to a device. |
+ | 9 | [CHKDATA](#chkdata) | 1 | Check if events are available on nodes that does not have asynchronous event support. |
+ | 10 | [CLEAR](#clear) | 1 | Clear input queue on nodes that does not have asynchronous event support. |
+ | 11 | [STAT](#stat) | 1 | Get statistical information. |
+ | 12 | [INFO](#info) | 1 | Get status information. |
+ | 13 | [GETCHID](#getchid) | 1 | Get channel id. |
+ | 14 | [SETGUID](#setguid) | 6 | Set GUID for the device (privileged command). |
+  | 15 | [GETGUID](#getguid) | 1 | Get GUID for the device. |
+  | 16 | [VERSION](#version) | 0 | Get version of binary interface. |
+  | 17 | [SETFILTER](#setfilter) | 1 | Set filter for channel. |
+  | 18 | [SETMASK](#setmask) | 1 | Set mask for channel. |
+  | 19 | [INTERFACE](#interface) | 1 | List interfaces on device |
+  | 20 | [TEST](#test) | 15 | Perform tests. |
+  | 21 | [WCYD](#wcyd) | 0 | What Can You Do, find out what a node supports. |
+  | 22 | [SHUTDOWN](#shutdown) | 15 | Shutdown device (privileged command). |
+  | 23 | [RESTART](#restart) | 15 | Restart device (privilegded command). |
+  | 24 | [TEXT](#text) | 0 | Go back to text mode. |
+  | 25-65279 | Reserved | x | Reserved. |
+  | 65280-65534 | USER | x | User defined commands. |
+  | 65535 | [Event confirm](#event-confirm) | x | Sent as a reply for received event confirmation. |
+
+Privilege levels are the user privilege needed to execute the command. The levels are defined as follows:
+| Level | Description |
+| :---: | ----------- |
+| 0 | No privileges needed. |
+| 1 | User privileges needed. |
+| 2 | Operator privileges needed. |
+| 15 | Administrator privileges needed. |
+
+
 
 ---
 ---
@@ -624,9 +641,11 @@ None
 | :---: | ----------- |
 | 0-1 | Command code for VERSION command (0x0010). |
 | 2-3 | Error code. Zero is success, non-zero is error. |
-| 4-7 | Major version |
-| 8-11 | Minor version |
-| 12-15 | Patch version |
+| 4-5 | Major version |
+| 6-7 | Minor version |
+| 8-9 | Patch version |
+| 10-13 | Build number |
+
 
 ---
 ---
@@ -819,6 +838,21 @@ None
 | :---: | ----------- |
 | 0-1 | Command code for TEXT command (0x0018). |
 | 2-3 | Error code. Zero is success, non-zero is error. |
+
+---
+---
+
+## Event confirm - Confirm received evente :id=event-confirm
+
+This is not a command that is sent by the client but a reply that is sent by the device as a confirmation for received events. When a device receives an event from the client it should send an event confirm reply to confirm that the event has been received and processed. The event confirm reply contains the command code for the event confirm command and the error code for the processing of the event. If the event was processed successfully a positive reply with error code zero should be sent. If there was an error processing the event a negative reply with a non-zero error code should be sent.
+
+### Reply
+| Byte | Description |
+| :---: | ----------- |
+| 0-1 | Command code for EVENT CONFIRM command (0xFFFF). |
+| 2-3 | Error code. Zero is success, non-zero is error. | 
+| 4-7 | Head for send event (rolling index). |
+| 8-9 | CRC for sent event. |
 
 ---
 ---
