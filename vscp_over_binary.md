@@ -842,8 +842,7 @@ None
 ---
 ---
 
-<a id="event-confirm"></a>
-## Event confirm - Confirm received event
+## Event confirm - Confirm received event :id=event-confirm
 
 This is not a command that is sent by the client but a reply that is sent by the device as a confirmation for received events. When a device receives an event from the client it should send an event confirm reply to confirm that the event has been received and processed. The event confirm reply contains the command code for the event confirm command and the error code for the processing of the event. If the event was processed successfully a positive reply with error code zero should be sent. If there was an error processing the event a negative reply with a non-zero error code should be sent.
 
