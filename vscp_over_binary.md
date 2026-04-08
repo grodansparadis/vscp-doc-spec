@@ -776,7 +776,7 @@ Test number followed by optional test data. Testnumber zero is reserved for ALL 
 ---
 ---
 
-## WCYD - What Can You Do, find out what a node supports :id=wchyd
+## WCYD - What Can You Do, find out what a node supports :id=wcyd
 Find out what a node supports. The reply argument is a 64-bit bitfield with supported commands and features on the device. The bitfield is described [here](https://docs.vscp.org/spec/latest/#/./class2.protocol?id=type20)
 
 ### Argument
