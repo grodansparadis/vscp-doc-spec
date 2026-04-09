@@ -259,7 +259,7 @@ None
 
 | Byte | Description |
 | :---: | ----------- |
-| 0-1 | Command code for NOOP command (0x0000). |
+| 0-1 | Command code for NOOP command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 
 ---
@@ -276,7 +276,7 @@ None
 
 | Byte | Description |
 | :---: | ----------- |
-| 0-1 | Command code for QUIT command (0x0001). |
+| 0-1 | Command code for QUIT command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 
 ---
@@ -338,7 +338,7 @@ If no username has been given the device should return an error and wait for a [
 
 | Byte | Description |
 | :---: | ----------- |
-| 0-1 | Command code for PASS command (0x0003). |
+| 0-1 | Command code for PASS command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 
 ---
@@ -395,7 +395,7 @@ Send event to the device. The event is sent as the command argument in the same 
 ### Reply
 | Byte | Description |
 | :---: | ----------- | 
-| 0-1 | Command code for SEND command (0x0005). |
+| 0-1 | Command code for SEND command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 
 
@@ -461,7 +461,7 @@ None
 
 | Byte | Description |
 | :---: | ----------- |
-| 0-1 | Command code for OPEN command (0x0007). |
+| 0-1 | Command code for OPEN command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 
 ---
@@ -495,7 +495,7 @@ None
 
 | Byte | Description |
 | :---: | ----------- |
-| 0-1 | Command code for CHKDATA command (0x0009). |
+| 0-1 | Command code for CHKDATA command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 | 4-7 | Number of events available in the input queue MSB first. |
 
@@ -515,7 +515,7 @@ None
 
 | Byte | Description |
 | :---: | ----------- |
-| 0-1 | Command code for CLEAR command (0x000A). |
+| 0-1 | Command code for CLEAR command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 
 ---
@@ -532,7 +532,7 @@ None
 
 | Bytes | Description |
 | :---: | ----------- |
-| 0-1 | Command code for STAT command (0x000B). |
+| 0-1 | Command code for STAT command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 | 4-7 | Currently undefined value x MSB first. |
 | 8-11 | Currently undefined value y MSB first. |
@@ -557,7 +557,7 @@ None
 
 | Byte | Description |
 | :---: | ----------- |
-| 0-1 | Command code for INFO command (0x000C ). |
+| 0-1 | Command code for INFO command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 | 4-7 | Channel status (user defined code) |
 | 8-11 | Last error code |
@@ -578,7 +578,7 @@ None
 
 | Byte | Description |
 | :---: | ----------- |
-| 0-1 | Command code for GETCHID command (0x000D). |
+| 0-1 | Command code for GETCHID command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 | 4-7 | Channel id. The channel id is a 32-bit value that identifies the channel. MSB first. |
 
@@ -596,7 +596,7 @@ GUID to set for the device. T
 
 | Argument | Description |
 | :---: | ----------- |
-| 0-1 | Command code for SETGUID command (0x000E). |
+| 0-1 | Command code for SETGUID command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 | 4-19 | The GUID to set for the device. The GUID is a 16-byte value that is sent in the same format as the originating GUID for events. MSB first. |
 
@@ -604,7 +604,7 @@ GUID to set for the device. T
 
 | Byte | Description |
 | :---: | ----------- |
-| 0-1 | Command code for SETGUID command (0x000E). |
+| 0-1 | Command code for SETGUID command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 
 ---
@@ -621,7 +621,7 @@ None
 
 | Byte | Description |
 | :---: | ----------- |
-| 0-1 | Command code for GETGUID command (0x000F). |
+| 0-1 | Command code for GETGUID command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 | 4-19 | GUID for the device. The GUID is a 16-byte value that is sent in the same format as the originating GUID for events. MSB first. |
 
@@ -639,7 +639,7 @@ None
 
 | Byte | Description |
 | :---: | ----------- |
-| 0-1 | Command code for VERSION command (0x0010). |
+| 0-1 | Command code for VERSION command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 | 4-5 | Major version |
 | 6-7 | Minor version |
@@ -674,7 +674,7 @@ The filter (and the optional mask) is supplied on binary form.
 
 | Byte | Description |
 | :---: | ----------- |
-| 0-1 | Command code for SETFILTER command (0x0011). | |
+| 0-1 | Command code for SETFILTER command. |
 | 2-3 | Error code. Zero is success, non-zero is error. | 
 
 ---
@@ -697,7 +697,7 @@ Mask to set for the cannel. The mask is supplied on binary form.
 ### Reply
 | Byte | Description |
 | :---: | ----------- |
-| 0-1 | Command code for SETMASK command (0x0012). |
+| 0-1 | Command code for SETMASK command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 
 ---
@@ -721,7 +721,7 @@ List the interfaces on the device. The reply argument is a list of interfaces on
 
 | Byte | Description |
 | :---: | ----------- |
-| 0-1 | Command code for INTERFACE command (0x0013). |
+| 0-1 | Command code for INTERFACE command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 | 4-5 | Interface count. |
 
@@ -729,7 +729,7 @@ List the interfaces on the device. The reply argument is a list of interfaces on
 
 | Byte | Description |
 | :---: | ----------- |
-| 0-1 | Command code for INTERFACE + 1 command (0x0014). |
+| 0-1 | Command code for INTERFACE + 1 command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 | 6-7 | Interface index MSB first. |
 | 8-23 | Interface GUID |
@@ -740,7 +740,7 @@ List the interfaces on the device. The reply argument is a list of interfaces on
 
 | Byte | Description |
 | :---: | ----------- |
-| 0-1 | Command code for INTERFACE + 2 command (0x0015). |
+| 0-1 | Command code for INTERFACE + 2 command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 | 6-7 | Interface index MSB first. |
 
@@ -748,7 +748,7 @@ List the interfaces on the device. The reply argument is a list of interfaces on
 
 | Byte | Description |
 | :---: | ----------- |
-| 0-1 | Command code for INTERFACE + 3 command (0x0016). |
+| 0-1 | Command code for INTERFACE + 3 command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 | 6-7 | Interface index MSB first. |
 
@@ -769,7 +769,7 @@ Test number followed by optional test data. Testnumber zero is reserved for ALL 
 ### Reply
 | Byte | Description |
 | :---: | ----------- |
-| 0-1 | Command code for TEST command (0x0014). |
+| 0-1 | Command code for TEST command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 | 4-7 | Test result. The format of the test result is defined by the test that is performed. |
 
@@ -785,7 +785,7 @@ Eight bytes representing the 64-bit bitfield with supported commands and feature
 ### Reply
 | Byte | Description |
 | :---: | ----------- |
-| 0-1 | Command code for WCYD command (0x0015). |
+| 0-1 | Command code for WCYD command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 | 4-11 | 64-bit bitfield with supported commands and features on the device. MSB first. |
 
@@ -818,7 +818,7 @@ None
 ### Reply
 | Byte | Description |
 | :---: | ----------- |
-| 0-1 | Command code for RESTART command (0x0017). |
+| 0-1 | Command code for RESTART command. |
 | 2-3 | Error code. Zero is success, non-zero is error. |
 
 ---
@@ -850,11 +850,62 @@ This is not a command that is sent by the client but a reply that is sent by the
 | Byte | Description |
 | :---: | ----------- |
 | 0-1 | Command code for EVENT CONFIRM command (0xFFFF). |
-| 2-3 | Error code. Zero is success, non-zero is error. | 
+| 2-3 | Error code. Zero is success, non-zero is error. |
 | 4-7 | Head for send event (rolling index). |
 | 8-9 | CRC for sent event. |
 
 ---
 ---
+
+
+# Using the binary protocol
+
+The binary protocol (with encryption) solves a problem on embedded servers where traditional security like TLS/SSL is hard to maintain due to the need to update certificates. With the binary protocol only a shared secret key is needed and the encryption can be applied to the entire frame including the command arguments. This allows for a simple and secure protocol that can be used on embedded devices without the need for complex certificate management.
+
+The binary protocol can be used with
+
+  - VSCP serial communication
+  - VSCP websockets protocol
+  - VSCP tcp/ip link protocol
+  - VSCP Multicast communication
+  - VSCP UDP communication
+  - VSCP Bluetooth communication
+
+It is often possible to use the binary protocol and the text protocol on the same device. The **BINARY** command can be used on the text protocol to switch to binary mode and the [TEXT](#text) command can be used on the binary protocol to switch back to text mode. This allows for a flexible device that can support both protocols and allow clients to choose which protocol they want to use.
+
+If loged in in one of the modes, the other mode preserves the login state. So, if you log in using the text protocol and then switch to binary mode, you will still be logged in and have the same privileges in binary mode. The same applies if you log in using the binary protocol and then switch to text mode.
+
+As the text based protocol is more human friendly it is often used for interactive use and for debugging while the binary protocol is used for production use and for applications where performance is important. The binary protocol is also used for communication between devices where the text protocol is not suitable.
+
+The text based protocols exchange credentilas in an open way and a malicious actor could easily sniff the credentials and use them to gain unauthorized access to the device. The binary protocol, on the other hand, encrypts the entire frame including the command arguments, which makes it much more difficult for a malicious actor to sniff the credentials and gain unauthorized access to the device.
+
+## Log in and authentication
+
+When you connect to a device most of the devices will require you to log in with a username and password. The **USER** and [PASS](#pass) commands are used to send the username and password for authentication. This set the privilege for the user and the privileges are used to control which commands the user is allowed to execute. The device can be configured to have different users with different privileges and the user can log in with the appropriate username and password to get the desired privileges.
+
+A binary connection is not authenticated by default and the device should not allow any privileged commands to be executed until a successful login has been performed. The device should also have a timeout for the login process, so if a [USER](#user) command is received but no [PASS](#pass) command is received within a reasonable time (for example, 30 seconds) the device should return an error and disconnect.
+
+Different from text based protocols, the binary protocol does not have a separate login command. Instead, the login process is initiated by sending a **USER** command with the username and optionally the password. If the password is not sent in the same command argument it will be sent in a separate [PASS](#pass) command. The device will then check the credentials and set the privileges for the user if the login is successful. If the login is not successful the device will return an error and disconnect. If the login is successful the device will return a positive reply and the user will be logged in with the appropriate privileges.
+
+It is recommended to use the binary protocol with encryption to protect the credentials and prevent unauthorized access to the device. The encryption will make it much more difficult for a malicious actor to sniff the credentials and gain unauthorized access to the device.
+
+  * Connect to device.
+  * The device will send an optional greeting and then a CHALLENGE command response with a random number (session id) for the client to use in the encryption of the credentials.
+  * Send **USER** command with username and optionally password.
+  * If password is not sent in the same command argument, send [PASS](#pass) command with password.
+  * If login is successful, device will return a positive reply and user will be logged in with appropriate privileges. If login is not successful, device will return an error and the client will be disconnected.
+  * Issue the [OPEN](#open) command to open a channel for receiving asynchronous events if needed.
+
+## Send events
+
+Events should be sent asynchronously and the [OPEN](#open) command should be used to open a channel for receiving asynchronous events. The [SEND](#send) command is deprecated and should not be used.
+
+When you send an event to the device it will reply with an event confirm reply to confirm that the event has been received and processed. The event confirm reply contains the command code for the event confirm command and the error code for the processing of the event plus the event header and the event crc. If the event was processed successfully a positive reply with error code zero should be sent. If there was an error processing the event a negative reply with a non-zero error code should be sent.
+
+## Receive events
+
+When you receive an event from the device it will be sent as an asynchronous event if a channel has been opened with the [OPEN](#open) command. If a channel has not been opened the events will be collected in the input queue and can be retrieved with the [RETR](#retr) command or checked for availability with the [CHKDATA](#chkdata) command.
+
+When you receive an event asynchroniously from the device you should send an event confirm reply to confirm that the event has been received and processed on your side. The event confirm reply contains the command code for the event confirm command and the error code for the processing of the event plus the event header and the event crc. If the event was processed successfully a positive reply with error code zero should be sent. If there was an error processing the event a negative reply with a non-zero error code should be sent.
 
 [filename](./bottom_copyright.md ':include')
