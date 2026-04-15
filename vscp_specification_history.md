@@ -2,7 +2,8 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
- | 2026-03-19 | AKHE | Updated UDP and multicast pprotocol descriptions. | 
+| 20206-04-15 | AKHE | Changed links to the VSCP daemon |
+| 2026-03-19 | AKHE | Updated UDP and multicast pprotocol descriptions. | 
 | 2026-03-19 | AKHE | Rewritten VSCP tcp/ip link section (a bit). |  
 | 2026-03-19 | AKHE | GUID's can now be represented with standard clear text format using {} as prefix and suffix | 
 | 2026-03-19 | AKHE | BINARY command added to the VSCP tcp/ip link protocol |  

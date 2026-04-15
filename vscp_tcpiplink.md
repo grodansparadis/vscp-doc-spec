@@ -2,7 +2,7 @@
 
 This protocol can be used by tcp/ip based nodes to export an interface to it's VSCP functionality. The device can be a device that implemets registers and have an MDF with specifi cconfigurable functionality or it can be a simple device that just have a tcp/ip interface and no MDF and just connect to some other interfaces which send and receive events. Or it can of course be a mixture of the two.
 
-Originally the VSCP tcp/ip link interface was added to allow clients to connect to the [VSCP daemon](https://grodansparadis.github.io/vscp/#/). But as the protocol is very flexible it has evolved to be used for other purposes as well.
+Originally the VSCP tcp/ip link interface was added to allow clients to connect to the [VSCP daemon](https://grodansparadis.github.io/vscp-daemon/#/). But as the protocol is very flexible it has evolved to be used for other purposes as well.
 
 Mostly however the tcp/ip link interface is used by clients to connect to a server and to send and receive events. The tcp/ip link protocol is very much like the POP3 protocol. A command is sent (ending with CRLF) and a response line is received starting with either ”**+OK**” for success or ”**-OK**” for failure. The initial “token” is followed by some descriptive text that is separated from the initial token with “ - “ (a dash with a space on it's both sides).
 

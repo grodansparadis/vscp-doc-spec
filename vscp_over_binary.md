@@ -103,8 +103,8 @@ This frame can go both ways. It is used to send protocol commands and replies. T
  | 1     | Command code MSB             | Yes |
  | 2     | Command code LSB             | Yes |
  | 3-n    | command argument         | Yes |
- | len-2 | CRC MSB (Calculated over HEAD + CLASS + TYPE + ADDRESS + SIZE + DATA…) | Yes | 
- | len-1 | CRC LSB  | yes | 
+ | len-2 | CRC MSB (Calculated over HEAD + CLASS + TYPE + ADDRESS + SIZE + DATA…) | Yes |
+ | len-1 | CRC LSB  | yes |
  | opt   | Optional encryption data such as a 16/24/32-byte IV for AES follow here | No |
 
 ## Frame format=15 - Reply
@@ -134,15 +134,15 @@ packet
   +4: "Encoding"
 ```
 
- | Bits | Description | 
- | :----: | ----------- | 
- | 7,6,5,4 | Frame type.| 
- | 3,2,1,0 | Encryption. | 
+ | Bits | Description |
+ | :----: | ----------- |
+ | 7,6,5,4 | Frame type.|
+ | 3,2,1,0 | Encryption. |
 
 ## Frame types
 
-| Value | Description | 
- | :----: | ----------- | 
+| Value | Description |
+ | :----: | ----------- |
  | 0 | VSCP event frame type 0 |
  | 1 | VSCP event frame type 1 |
  | 2-13 | Reserved |
@@ -178,15 +178,15 @@ packet
   +1: "D"
 ```
 
- | Bits  | Description                                                         | 
- | :----: | -----------                                                         | 
- | 15    | Set if this is a dumb node. No MDF, register, nothing (D).              | 
- | 14,13,12    | GUID type                                                           | 
- | 11-10  | Reserved (**Set to zero!**).                                        | 
- | 9,8  | Frame type.                                                         | 
+ | Bits  | Description                                                         |
+ | :----: |-----------                                                         |
+ | 15    | Set if this is a dumb node. No MDF, register, nothing (D).              |
+ | 14,13,12    | GUID type                                                           |
+ | 11-10  | Reserved (**Set to zero!**).                                        |
+ | 9,8  | Frame type.                                                         |
  | 7,6,5 | Priority.                                                           | 
- | 4     | Hard-coded (HC).                                                         | 
- | 3     | Don't calculate CRC if bit set (!CRC).                                     | 
+ | 4     | Hard-coded (HC).                                                         |
+ | 3     | Don't calculate CRC if bit set (!CRC).                                     |
  | 2,1,0 | Rolling index.                                                      |  
 
 Note also that the MSB is sent before the LSB (network byte order, Big Endian). So, for little endian machines such as a typical PC the byte order needs to be reversed for multi-byte types.
@@ -211,7 +211,7 @@ The Level II register abstraction level also has more registers (32-bit address 
  | 2 | [USER](#user) | 0 | Send username. |
  | 3 | [PASS](#pass) | 0 | Send password. |
  | 4 | [CHALLENGE](#challenge) | 0 | Challenge security. |
- | 5 | [SEND](#send) | 4 | Reserved. |
+ | 5 | [SEND](#send) | 4 | Send event. (use asynchronious send instead) |
  | 6 | [RETR](#retr) | 1 | Retrieve one or more event(s) on nodes that does not have asynchronous event support. |
  | 7 | [OPEN](#open) | 1 | Open a connection to a device. |
  | 8 | [CLOSE](#close) | 1 | Close a connection to a device. |

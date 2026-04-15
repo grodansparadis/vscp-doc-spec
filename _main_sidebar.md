@@ -41,7 +41,7 @@
 
 * Other VSCP documents
   * [Home of all VSCP documentation](https://docs.vscp.org)
-  * [VSCP Daemon](https://grodansparadis.github.io/vscp/#/)
+  * [VSCP Daemon](https://grodansparadis.github.io/vscp-daemon/#/)
   * [VSCP Helper lib](https://grodansparadis.github.io/vscp-helper-lib/#/)
   * [VSCP Works](http://docs.vscp.org/vscpworks/latest/#/)
   * [VSCP Firmware](http://docs.vscp.org/firmware/latest/#/)

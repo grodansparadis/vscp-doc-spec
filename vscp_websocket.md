@@ -553,7 +553,7 @@ The sid argument is used as a 16 byte random iv for AES-128 encryption over
 "username:password"
 ```
 
-using  a common 128 bit **secret** key in hex format.  The [VSCP daemon](https://grodansparadis.github.io/vscp/#/) for example store this key in _/etc/vscp_ as a hex string but it can be stored in a secure place elsewhere or be embedded in the client software.
+using  a common 128 bit **secret** key in hex format.  The [VSCP daemon](-daemon/#/) for example store this key in _/etc/vscp_ as a hex string but it can be stored in a secure place elsewhere or be embedded in the client software.
 
 If the credentials is valid the server will respond with
 
