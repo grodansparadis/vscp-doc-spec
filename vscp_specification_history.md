@@ -2,7 +2,8 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 20206-04-15 | AKHE | Changed links to the VSCP daemon |
+| 2026-05-21 | AKHE | Removed duplicate url's in MDF JSON description. |
+| 2026-04-15 | AKHE | Changed links to the VSCP daemon |
 | 2026-03-19 | AKHE | Updated UDP and multicast pprotocol descriptions. | 
 | 2026-03-19 | AKHE | Rewritten VSCP tcp/ip link section (a bit). |  
 | 2026-03-19 | AKHE | GUID's can now be represented with standard clear text format using {} as prefix and suffix | 

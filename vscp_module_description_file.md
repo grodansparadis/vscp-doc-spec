@@ -1878,25 +1878,24 @@ In the picture block you can specify a link to an image file that in some way is
 "files" : [
   "picture" : [
     {
-     "url" : "path",
+     "url" : "https://www.somewhere.com/picture.jpg",
      "format" : "jpeg",
      "date" : "ISO date",
      "version_major" : "a",
      "version_minor" : "b",
-     "version_subminor" : "c",
-      "url" : "https://www.somewhere.com/picture.jpg",
-      "description" :  {
+     "version_subminor" : "c",  
+     "description" :  {
         "en" : "Description of picture"
-      },
-      "infourl" : {
+     },
+     "infourl" : {
         "en" : "htps://www.somewhere.com"
-      }
+     }
     }
   ]
 ]
 ```
 
-Any number of anguage specific descriptions and/or infourl's can be set for each picture item. If no language attribute is given "en" for English will be used. The language code should be a valid two letter code (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
+Any number of language specific descriptions and/or infourl's can be set for each picture item. If no language attribute is given "en" for English will be used. The language code should be a valid two letter code (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 
 ##### Keys
 
@@ -1916,9 +1915,8 @@ In the video block you can specify a link to a video file that in some way is re
   {
     "video" : [
       { 
-        "url" : "path",
-        "format" : "mp4",
         "url" : "https://www.somewhere.com/video.mp4",
+        "format" : "mp4",
         "description" : {
           "en" : "Description of picture"
         },
@@ -1952,9 +1950,8 @@ In the manual block you can specify a link to a manual file that in some way is 
     "manual" : [
       { 
         "name" : "driver1",
-        "url" : "path",
-        "format" : "pdf",
         "url" : "https://www.somewhere.com/manual.pdf",
+        "format" : "pdf",
         "description" : {
           "en" : "Description of picture"
         },
@@ -1990,14 +1987,13 @@ In the driver object you can specify a link to a driver for a specific version o
     "driver": [
       {
         "name": "driver1",
-        "url": "path",
+        "url": "https://www.somewhere.com/driver.zip",
         "type":"mp4", 
         "os": "windows",
         "osver": 10,
         "version_major": 1,
         "version_minor": 0, 
         "version_subminor": 0,
-        "url": "https://www.somewhere.com/driver.zip",
         "description": {
           "en": "Description of driver"
         },
@@ -2036,9 +2032,8 @@ In the setup block you can specify a link to a setup file that contain a VSCP se
     "setup" : [
       {
         "name" : "setup1",
-        "url" : "path",
-        "format" : "pdf",
         "url" : "https://www.somewhere.com/setup.js",
+        "format" : "pdf",
         "description": {
           "en": "Description of setup"
         },
