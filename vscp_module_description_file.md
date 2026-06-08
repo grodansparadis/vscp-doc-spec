@@ -25,7 +25,8 @@ The MDF file have the following general structure:
  - **setup**: Is macros to setup and configure and control a module using wizard like interfacec.
 
 ## XML Format Specification
-### Format notes 
+
+### Format notes  
 
 #### Register definitions
 Register definitions must be available for all nodes (if the module have registers defined). 
@@ -44,7 +45,7 @@ The type for the remote variable in this case will always be “uint8_t”
 #### Newlines
 “\n” can be used to define a new line in descriptive text. It will be translated in an appropriate way by the renderer.
 
-## File overall structure
+### File overall structure
 
 ```xml
 <vscp>
@@ -62,7 +63,8 @@ The redirect can be used to tell the parser to download the MDF from a different
 
 ### Module
 In the **module**-block the module is described. Currently only one module can be defined in a mdf file. This may change in the future.
-## Module information
+
+#### Module information
 
 Every module should have an initial block that describes the module. This block is called the **General module information**. The block looks like this
 
@@ -82,13 +84,13 @@ Every module should have an initial block that describes the module. This block 
 </module>    
 ```
 
-#### level
+##### level
 VSCP level of protocol this module works with. Defaults to 1 if not present.
 
-#### changed
+##### changed
 Date on ISO format for last change of file.
 
-#### name
+##### name
 Name is the name of the module. A unique describing name is recommended. This name will be translated to lower case and is used as the name of the module when referring to it in software.
 
 **note** In previous version the name of the module was language specific just as descriptions and info url's. This is no longer the case. If
@@ -102,13 +104,13 @@ Name is the name of the module. A unique describing name is recommended. This na
 
 the last parsed name will be used.
 
-#### model
+##### model
 This is the model of the module. Format is defined by the designer.
 
-#### version
+##### version
 This is the version of the module. Format is defined by the designer.
 
-#### description
+##### description
 The description is a short description of the module. It is recommended to use a language specific description. If no language attribute is given "en" for English will be used. The language code should be a valid two letter (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 
 Descriptions can be multiline and can use "\n" to define a new line.
@@ -123,7 +125,7 @@ As an example
 
 will create an English, Lithuanian, and a Spanish description. Software that handle languages can then switch between languages fast and efficiently.
 
-#### infourl
+##### infourl
 The infourl is an url pointing to a full description of the module in the language given by the **lang** attribute. It is recommended to use a language specific infourl. If no language attribute is given "en" for English will be used. The language code should be a valid two letter (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 
 As an example
@@ -136,18 +138,20 @@ As an example
 
 points to web pages that have info in three different languages.
 
-#### buffersize
+##### buffersize
 For Level II nodes the buffer size specify the max VSCP data a node can receive.  This makes it possible to have nodes, that due to low internal resources, that can receive events, but not all events, just those under a specified maximum size. The default is eight bytes which is the data size for a level I node. Set to <= 512 for a level II nodes.
 
-### manufacturer manudacturer_xml
+Defaults to 8 if not set.
+
+#### manufacturer :id=manufacturer_xml
 The manufacturer block describes the manufacturer of the module.
 
-#### name
+##### name
 Name is the name of the company that manufactured the module.
 
 **note** In previous version the name of the module was language specific just as descriptions and info url's. This is no longer the case.
 
-#### Address
+##### Address
 The address block looks like this
 
 ```xml
@@ -167,7 +171,7 @@ and specify the address to the manufacturer of the module. Use the tags that are
 **note** In previous version the address of the module was language specific just as descriptions and info url's. This is no longer the case. Only one address can be defined.
 
 
-#### Telephone
+##### Telephone
 This is a phone number of the manufacturer. As many phone numbers as one like can be defined. The format is
 
 ```xml
@@ -179,7 +183,7 @@ This is a phone number of the manufacturer. As many phone numbers as one like ca
 ```
 The infourl is optional.
 
-#### Fax
+##### Fax
 This is a telefax number of the manufacturer. As many fax numbers as one like can be defined. The format is
 
 ```xml
@@ -190,7 +194,8 @@ This is a telefax number of the manufacturer. As many fax numbers as one like ca
 </fax>
 ```
 The infourl is optional.
-#### Email
+
+##### Email
 This is an email address of the manufacturer. As many email addresses as one like can be defined. The format is
 
 ```xml
@@ -201,7 +206,8 @@ This is an email address of the manufacturer. As many email addresses as one lik
 </email>
 ```
 The infourl is optional.
-#### Web
+
+##### Web
 This is a web address of the manufacturer. As many web addresses as one like can be defined. The format is
 
 ```xml
@@ -563,7 +569,7 @@ An alternative (but deprecated) form is
 | **default** | VSCP Works specific: Default value in string form. Default is 'UNDEF' Used by VSCP Works to restore default value to a register. |
 | **fgcolor** | VSCP Works specific: foreground color. Used as foreground color by VSCP Works when rendering this register row. |
 | **bgcolor** | VSCP Works specific: background color. Used as background color by VSCP Works rendering this register row. |
-| **remotevar** | You are able to define a remote variable embeded in a register definitition. All key/value values that are available for remotevar below is available here to. Absent key/value values will have defaults from the register defines. If left without content defaults will be used for all key/value pairs. |
+| **remotevar** | You are able to define a remote variable embedded in a register definition. All key/value values that are available for remotevar below is available here to. Absent key/value values will have defaults from the register defines. If left without content defaults will be used for all key/value pairs. |
 
 
 Any number of language specific descriptions and/or infourl's can be set for each register item. If no language attribute is given "en" for English will be used. The language code should be a valid two letter code (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
@@ -1219,7 +1225,7 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 </dmatrix>
 ```
 
-### Events :id=events_xml
+#### Events :id=events_xml
 
 ```xml
 <events>
@@ -1255,7 +1261,7 @@ For data blocks bit fields and value lists can be used. See description above fo
 | **priority** | Priority for the event. Default=3. |
 | **dir**  | Direction of event. "in" is incoming event. "out" is outgoing event. Default="out" |
 
-#### Attributes event data
+##### Attributes event data
 
 | Name | Description  | 
 | :----     | :----------- | 
@@ -1264,7 +1270,7 @@ For data blocks bit fields and value lists can be used. See description above fo
 
 Event data can use value lists and bit fields. See description above for more information.
 
-#### Example
+##### Example
 
 ```xml
 <events>
@@ -1363,13 +1369,13 @@ Event data can use value lists and bit fields. See description above for more in
 </events>
 ```
 
-## Real life MDF XML formatted file examples
+### Real life MDF XML formatted file examples
 
-### Kelvin NTC10K
+#### Kelvin NTC10K
 
 The Kelvin NTC10K is one of [Grodans Paradis AB's](https://www.grodansparadis.com/) modules and it has it's product page [here](https://github.com/grodansparadis/can4vscp-kelvin-ntc10k). The MDF file for this modules is [here](https://www.eurosource.se/ntc10KA_1.xml).
 
-### Paris relay module
+#### Paris relay module
 
 The Paris module is another module from Grodans Paradis AB and it is documented [here](https://github.com/grodansparadis/can4vscp-paris). The MDF file for this modules is [here](https://www.eurosource.se/paris_010.xml).
 
@@ -1541,7 +1547,7 @@ As JSON can only handle decimal numbers it is possible to define positive number
 
 This is only valid for numbers that is positive. Negative numbers are not supported in this way and must be of numeric type.
 
-## Module
+### Module
 In the **module**-object the module is described. Currently only one module can be defined in a mdf file. This may change in the future.
 
 ```json
@@ -1566,10 +1572,10 @@ In the **module**-object the module is described. Currently only one module can 
 | **dmatrix** | Decission matrix information. |
 | **event** | Event information. |
 
-### Redirect
+#### Redirect
 If set the redirect key should be the first key-pair in the module object. The redirect key can be used to tell the parser to download the MDF from a different URL. If it is defined the file pointed to by the redirect url should be downloaded and parsed instead of the loaded MDF file.
 
-### Module information
+#### Module information
 
 Every module should have an initial block that describes the module. This block is called the **General module information**. The block looks like this
 
@@ -1668,19 +1674,19 @@ Every module should have an initial block that describes the module. This block 
 }
 ```
 
-#### level
+##### level
 Level of the VSCP protocol this module works with. Can be 1 or 2 and defaults to 1 if not present.
 
-#### name
+##### name
 Name is the name of the module. A unique describing name is recommended. This name will be translated to lower case and is used as the name of the module when referring to it in software.
 
-#### model
+##### model
 This is the model of the module. Format is defined by the designer.
 
-#### version
+##### version
 This is the version of the module. Format is defined by the designer.
 
-#### description
+##### description
 The description is a short description of the module. It is recommended to use a language specific description. If no language attribute is given "en" for English will be used. The language code should be a valid two letter (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 
 Descriptions can be multiline and can use "\n" to define a new line.
@@ -1699,7 +1705,7 @@ As an example
 
 will create an English, Lithuanian, and a Spanish description. Software that handle languages can then switch between languages fast and efficiently.
 
-#### infourl
+##### infourl
 The infourl is an url pointing to a full description of the module in the language given by the **lang** attribute. It is recommended to use a language specific infourl. If no language attribute is given "en" for English will be used. The language code should be a valid two letter (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 
 As an example
@@ -1715,17 +1721,17 @@ As an example
 
 points to web pages that have info in three different languages.
 
-#### buffersize
+##### buffersize
 For Level II nodes the buffer size specify the max VSCP data a node can receive.  This makes it possible to have nodes, that due to low internal resources, that can receive events, but not all events, just those under a specified maximum size. The default is eight bytes which is the data size for a level I node. Set to <= 512 for a level II nodes.
 
-### manufacturer  :id=manufacturer_json
+#### manufacturer  :id=manufacturer_json
 The manufacturer block describes the manufacturer of the module.
 
-#### name
+##### name
 Name is the name of the company that manufactured the module.
 
 
-#### Address
+##### Address
 The address block looks like this
 
 ```json
@@ -1745,7 +1751,7 @@ The address block looks like this
 and specify the address to the manufacturer of the module. Use the tags that are appropriate for your project.
 
 
-#### Telephone
+##### Telephone
 This is a phone number of the manufacturer. As many phone numbers as one like can be defined. The format is
 
 ```json
@@ -1763,7 +1769,7 @@ This is a phone number of the manufacturer. As many phone numbers as one like ca
 ```
 The infourl is optional.
 
-#### Fax
+##### Fax
 This is a telefax number of the manufacturer. As many fax numbers as one like can be defined. The format is
 
 ```json
@@ -1781,7 +1787,7 @@ This is a telefax number of the manufacturer. As many fax numbers as one like ca
 ```
 The infourl is optional.
 
-#### Email
+##### Email
 This is an email address of the manufacturer. As many email addresses as one like can be defined. The format is
 
 ```json
@@ -1799,7 +1805,7 @@ This is an email address of the manufacturer. As many email addresses as one lik
 ```
 The infourl is optional.
 
-#### Web
+##### Web
 This is a web address of the manufacturer. As many web addresses as one like can be defined. The format is
 
 ```json
@@ -1818,7 +1824,7 @@ This is a web address of the manufacturer. As many web addresses as one like can
 
 The infourl is optional.
 
-### boot :id=boot_json
+#### boot :id=boot_json
 
 ```json
 {
@@ -1834,7 +1840,7 @@ The bootloader object specify the bootloader algorithm that should be used to do
 
 Firmware listed in the *Module Description File* file block have a [targetcode](#firmware) as an attribute. This code specify the hardware for a version of the a module the firmware is intended for. Typically the code is different for modules of the same type which have different versions of micro processor, memory, peripherals etc and therefore need different versions of the firmware. A bootloader should read this register and verify the targetcode with the content of the target code registers before loading firmware as loading wrong firmware version can brick a module.
 
-### Files :id=files_json
+#### Files :id=files_json
 
 ```json
 {
@@ -1870,7 +1876,7 @@ Firmware listed in the *Module Description File* file block have a [targetcode](
   ]
 }
 ```
-#### picture :id=picture_json
+##### picture :id=picture_json
 
 In the picture block you can specify a link to an image file that in some way is related the module and describe it. The format is
 
@@ -1897,7 +1903,7 @@ In the picture block you can specify a link to an image file that in some way is
 
 Any number of language specific descriptions and/or infourl's can be set for each picture item. If no language attribute is given "en" for English will be used. The language code should be a valid two letter code (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 
-##### Keys
+###### Keys
 
 | Name      | Description  | 
 | :----     | :----------- | 
@@ -1906,7 +1912,7 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 | **path**  | (Deprecated alternative to "url"). The url to the picture file. |
 | **format** | The format of the picture file. "png", "jpeg" and "jpg" is current valid values. |
 
-#### video :id=video_json
+##### video :id=video_json
 
 In the video block you can specify a link to a video file that in some way is related the module and describe it. The format is
 
@@ -1931,7 +1937,7 @@ In the video block you can specify a link to a video file that in some way is re
 
 Any number of language specific descriptions and/or infourl's can be set for each video item. If no language attribute is given "en" for English will be used. The language code should be a valid two letter code (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 
-##### Keys
+###### Keys
 
 | Name      | Description  | 
 | :----     | :----------- | 
@@ -1940,7 +1946,7 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 | **path**  | (Deprecated alternative to "url"). The url to the video file. |
 | **format** | The format of the video file. "mp4", "mov" and "avi" is current valid values. |
 
-#### manual :id=manual_json
+##### manual :id=manual_json
 
 In the manual block you can specify a link to a manual file that in some way is related to the module and describe it. The format is
 
@@ -1966,7 +1972,7 @@ In the manual block you can specify a link to a manual file that in some way is 
 
 Any number of language specific descriptions and/or infourl's can be set for each manual item. If no language attribute is given "en" for English will be used. The language code should be a valid two letter code (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 
-##### Keys
+###### Keys
 
 | Name      | Description  | 
 | :----     | :----------- | 
@@ -1978,7 +1984,7 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 
 In the driver object you can specify a link to a driver for a specific version of an operation system file that in some way is related the module and describe it. Typically this is a device driver or a VSCP daemon driver or similar. zip and gz packed files are allowed. The format is
 
-#### driver :id=driver_json
+##### driver :id=driver_json
 
 
 ```json
@@ -2008,7 +2014,7 @@ In the driver object you can specify a link to a driver for a specific version o
 
 Any number of language specific descriptions and/or infourl's can be set for each driver item. If no language attribute is given "en" for English will be used. The language code should be a valid two letter code (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 
-##### Keys
+###### Keys
 
 | Name      | Description  | 
 | :----     | :----------- | 
@@ -2022,7 +2028,7 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 | **version_subminor** | Sub minor version number for driver. |
 | **md5** | MD5 checksum for the driver file as hexadecimal string. Empty if not used. |
 
-#### setup :id=setup_json
+##### setup :id=setup_json
 
 In the setup block you can specify a link to a setup file that contain a VSCP setup script that do a specific setup of the device. The format is
 
@@ -2048,7 +2054,7 @@ In the setup block you can specify a link to a setup file that contain a VSCP se
 
 Any number of language specific descriptions and/or infourl's can be set for each setup item. If no language attribute is given "en" for English will be used. The language code should be a valid two letter code (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 
-##### Keys
+###### Keys
 
 | Name      | Description  | 
 | :----     | :----------- | 
@@ -2057,7 +2063,7 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 | **path**  | (Deprecated alternative to "url"). The url to the video file. |
 | **format** | The format of the setup file. "vscpjs" for VSCP javascript setup is the only current valid value. |
 
-### Register :id=register_json
+#### Register :id=register_json
 
 ```json
 {
@@ -2108,7 +2114,7 @@ All defined registers of a module is defined in the registers block. The format 
 }
 ```
 
-#### Keys
+##### Keys
 
 | Name      | Description  | 
 | :----     | :----------- | 
@@ -2140,7 +2146,7 @@ Note that
 
 is valid and will set all key/value pairs to defaults.
 
-#### Value lists
+##### Value lists
 
 Registers can have valuelists taht define valid possible values
 
@@ -2188,7 +2194,7 @@ Registers can have valuelists taht define valid possible values
 ]
 ```
 
-#### Bit fields
+##### Bit fields
 
 Registers can have bit fields that define bits and groups of bits of the register. It is possible to use value lists for bit groups.
 
@@ -2277,7 +2283,7 @@ Registers can have bit fields that define bits and groups of bits of the registe
 ]
 ```
 
-#### Example
+##### Example
 
 ```json
 {
@@ -2445,7 +2451,7 @@ Registers can have bit fields that define bits and groups of bits of the registe
 }
 ```
 
-### Remote variables :id=remotevars_json
+#### Remote variables :id=remotevars_json
 
 Types for remote varaibles are documented [here](./vscp_register_abstraction_model.md#remote-variables)
 
@@ -2506,7 +2512,7 @@ _rv_<register_name>_
 So for example if you have a register named "Reg1" then the remote variable will be named "_rv_reg1_".
 
 Needless to say names with this pattern are reserved.
-#### Keys
+##### Keys
 
 | Name      | Description  | 
 | :----     | :----------- | 
@@ -2520,7 +2526,7 @@ Needless to say names with this pattern are reserved.
 
 In the same way as registers remote variables can also have valuelists and bit fields. See docs above.
 
-#### Example with valuelist
+##### Example with valuelist
 
 ```json
 "remotevar" : [
@@ -2714,7 +2720,7 @@ In the same way as registers remote variables can also have valuelists and bit f
 ```
 
 
-### Alarms :id=alarm_json
+#### Alarms :id=alarm_json
 
 ```json
 "alarm" [
@@ -2835,7 +2841,7 @@ In the same way as registers remote variables can also have valuelists and bit f
 
 The alarm block specify the meaning of the alarm bits in the standard alarm register [128/0x80](./vscp_register_abstraction_model.md#register_abstraction_model). In the block there is a bit filed of max eight bit definitions each describing the alarm bits of the register. You just need to specify the bits that is used.
 
-#### Keys
+##### Keys
 
 | Name      | Description  | 
 | :----     | :----------- | 
@@ -2844,7 +2850,7 @@ The alarm block specify the meaning of the alarm bits in the standard alarm regi
 Any number of language specific descriptions and/or infourl's can be set for each register item. If no language attribute is given "en" for English will be used. The language code should be a valid two letter code (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 
 
-### Decision Matrix :id=dm_json
+#### Decision Matrix :id=dm_json
 
 ```json
 "dmatrix" : {
@@ -2892,7 +2898,7 @@ If the module have a [decision matrix](./vscp_decision_matrix.md) it can be defi
 
 For a level I decision matrix there is one and only one parameter for each action. For Level II decision matrixes however there can be several (defined by the attribute *rowsize*). In both cases the parameter(s) is described in the param block. 
 
-#### Keys dmatrix
+##### Keys dmatrix
 
 | Name      | Description  | 
 | :----     | :----------- | 
@@ -2902,14 +2908,14 @@ For a level I decision matrix there is one and only one parameter for each actio
 | **rowcnt**  | Number of decision matrix rows. |
 | **rowsize**  | Number of decision matrix bytes on each row. For a level I decision matrix this is always eight. Default=8. |
 
-#### Keys action
+##### Keys action
 
 | Name      | Description  | 
 | :----     | :----------- | 
 | **name**  | Name for the action. |
 | **code**  | The numerical code for the action (0-255). |
 
-#### Keys action parameter
+##### Keys action parameter
 
 | Name      | Description  | 
 | :----     | :----------- | 
@@ -2920,7 +2926,7 @@ For a level I decision matrix there is one and only one parameter for each actio
 
 Any number of language specific descriptions and/or infourl's can be set for each register item. If no language attribute is given "en" for English will be used. The language code should be a valid two letter code (ISO 639-1 code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 
-#### Example
+##### Example
 
 ```json
 "dmatrix" : {
@@ -3126,7 +3132,7 @@ Any number of language specific descriptions and/or infourl's can be set for eac
 ```
 
 
-### Events :id=events_json
+#### Events :id=events_json
 
 ```json
 "events" : [
@@ -3178,7 +3184,7 @@ In the *event* object events that the module can receive and handle is described
 
 For data blocks bit fields and value lists can be used. See description above for more information.
 
-#### Keys for event
+##### Keys for event
 
 | Name      | Description  |
 | :----     | :----------- |
@@ -3188,7 +3194,7 @@ For data blocks bit fields and value lists can be used. See description above fo
 | **priority** | Priority for the event. Default=3. |
 | **dir**  | Direction of event. "in" is incoming event. "out" is outgoing event. Default="out" |
 
-#### Keys for event data
+##### Keys for event data
 
 | Name | Description  | 
 | :----     | :----------- | 
@@ -3197,7 +3203,7 @@ For data blocks bit fields and value lists can be used. See description above fo
 
 Event data can use value lists and bit fields. See description above for more information.
 
-#### Example
+##### Example
 
 ```json
 "events" : [
@@ -3315,7 +3321,7 @@ Event data can use value lists and bit fields. See description above for more in
 ]
 ```
 
-## Real life MDF XML formatted file examples
+### Real life MDF JSON formatted files
 
 Some example files can be found [here](https://github.com/grodansparadis/vscp/tree/development/tests/mdfparser/json).
 
