@@ -1499,23 +1499,23 @@ JSON is a file containing objects and arrays. Each item in an object is a key va
 ### A note on JSON file content
 
 ### Descriptions
-Many keys can be defined both as string, number or object. The description key is typical. It can have a value that is a string in which case it is set as an english description. But it can also be an object in which case the language is defined as keys to each description in that language. The language key shall be set as a two character (ISO 639-1 lanuage code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
+Many keys can be defined both as string, number or object. The description key is typical. It can have a value that is a string in which case it is set as an english description. But it can also be an object in which case the language is defined as keys to each description in that language. The language key shall be set as a two character (ISO 639-1 language code)[https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes6].
 
 Like this
 
 ```json
-"description": "description in english"
+"en": "description in english"
 ```
 
 or multilingual as this
 
 ```json
 "description" : {
-	"eng": "English description",
-	"swe": "Svensk beskrivning"
+	"en": "English description",
+	"se": "Svensk beskrivning"
 }
 ```
-Language tags is two letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+Language tags is two letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). There are exceptions to the two byte code. One example is Japanese wich can be "ja-JP" and another is Chinese that can be "xe-CN" 
 
 ### infourl
 
@@ -1523,15 +1523,15 @@ Info URL's point to a web page that contains information about the item where th
 
 
 ```json
-"infourl": "url to info in english "
+"en": "url to info in english "
 ```
 
 or multilingual as this
 
 ```json
 "infourl" : {
-	"eng": "English info url",
-	"swe": "Svensk info url"
+	"en": "English info url",
+	"se": "Svensk info url"
 }
 ```
 Language tags is two letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
@@ -1545,7 +1545,7 @@ As JSON can only handle decimal numbers it is possible to define positive number
  - **0o7700** will be interpreted as an octal number.
  - **0b11010101** will be interpreted as a binary number.
 
-This is only valid for numbers that is positive. Negative numbers are not supported in this way and must be of numeric type.
+This is only valid for numbers that is positive. Negative numbers are not supported in this way and must be of numeric type. 
 
 ### Module
 In the **module**-object the module is described. Currently only one module can be defined in a mdf file. This may change in the future.
@@ -1651,7 +1651,7 @@ Every module should have an initial block that describes the module. This block 
       },
       {
         "address": "info@grodansparadis.com",
-        "<description": {
+        "description": {
           "en": "General email"
         }
       }
