@@ -130,10 +130,11 @@ As explained above GUID's with 0xFD in the most significant byte is reserved for
  | 8    | GigaDevice Semiconductor | 
  | 9    | Raspberry Pi | 
  | 10   | EspressIf | 
+ | 255   | Undefined/Unknown manufacturer |
 
 ### Family codes
 
-Family codes are deprecated as of 1.20.4. 
+Family codes are deprecated as of 1.20.0. 
 
 #### Microchip
 

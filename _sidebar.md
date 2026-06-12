@@ -37,6 +37,7 @@
    * [VSCP over Bluetooth LE (BLE)](./vscp_over_bt_ble.md)     
    * [VSCP over IEEE 802.15.4](./vscp_over_ieee_802.15.4.md)
    * [VSCP over MQTT](./vscp_over_mqtt.md)
+   * [VSCP over low bandwidth links](./vscp_over_low_bandwidth.md)
    * [VSCP Text](./vscp_text.md)
 
 * Other VSCP documents

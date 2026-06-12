@@ -2,7 +2,7 @@
 
 ## Event handling and Rules
 
-Every event on a VSCP segment can be seen as an event. To be of any use to anyone a decision has to be taken on what to do as a result of the event. This is done in a decision matrix, which is a standardized way to write the rules that take care of events. To get something done when a specific event is detected some sort of action mechanism is needed.
+Everything that happnes on a VSCP segment can be seen as an event. To be of any use to anyone a decision has to be taken on what to do as a result of the event. This is done in a decision matrix, which is a standardized way to write the rules that take care of events. To get something done when a specific event is detected some sort of action mechanism is needed.
 
 The event-decision-action model or eda-model is the way we look at the functionality of a VSCP-node. First of all a node can be a level I or level II node. A level I node can perform actions from all level I events. A level II node can handle both level I and level II events. In fact when we define rules we define them at the highest level. 
 

@@ -762,10 +762,7 @@ type is
 
 If the device support binary mode this command can be used to switch to binary mode. In binary mode all commands and responses are sent as binary data. The format for the commands and responses is described in the document [VSCP over binary](./vscp_over_binary.md).
 
-It is possible to switch back and forth between binary and text mode. To switch back to text mode use the command
-
-    text
-
+It is possible to switch back and forth between binary and text mode. 
 The response to the binary command is
 
     +OK - Binary mode enabled<CR><LF>
@@ -773,6 +770,8 @@ The response to the binary command is
 or
 
     -OK - Binary mode not supported<CR><LF>
+
+The binary protcol (VSCP_-GBD) is described[here](./vscp_over_binary.md)
 
 ### Argument
 No argument.
