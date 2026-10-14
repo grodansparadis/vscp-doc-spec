@@ -119,6 +119,9 @@ The wildcards '-', '*' and '::' can only be used once.
 | *:0102:03aa:44:01:30 | FF:FF:FF:FF:FF:FF:FF:FF:FF:01:02:03:AA:44:01:30 | |
 | -:0102:03aa:44:01:30 | 00:00:00:00:00:00:00:00:00:01:02:03:AA:44:01:30 | |
 | -:1,2,3 | 00:00:00:00:00:00:00:00:00:00:00:00:00:01:02:03 | |
+| 01:02:02:-04 | 01:02:02:00:00:00:00:00:00:00:00:00:00:00:00:04 | Dash in the middle adds zeros at that position |
+| 01:02:03::04 | 01:02:03:00:00:00:00:00:00:00:00:00:00:00:00:04 | Double colon adds zeros in the middle |
+| 01:02:03:*:45 | 01:02:03:FF:FF:FF:FF:FF:FF:FF:FF:FF:45 | Asterisk in the middle adds FF's at that position |
 | 01:- | 01:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00 | Dash at end adds zeros at end |
 | 01:: | 01:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00 | Same as above |
 | 01 | 01:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00 | Same as above |
