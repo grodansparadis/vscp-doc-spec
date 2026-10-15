@@ -13,12 +13,24 @@ It's important to distinguish between the frame format/type and the VSCP frame t
   * **VSCP Frame type = 0** Frame type 0 has a timestamp in microseconds since the epoch (GMT) and seperate bytes that defines the time for year/month/day/hour/minute/second. This is the original binary frame type and should normally not be useed anymore. It is kept for backward compatibility reasons.
   * **VSCP Frame type = 1** Frame type 1 has a timestamp in nanoseconds since the epoch (GMT) and reserved bytes for future use. Year/month/day/hour/minute/second can be calculated from the timestamp if needed. This is the recommended frame format for current implementations.
 
+## Frame prefix used on some systems
+
+![](./images/vscp-gbp-frame-prefix.jpeg)
+
+On systems where the data is on stream form a prefix consisting of a preample/sync byte 0x55 and two length bytes that are added in front of the frame data specified below. The three most significant byte of the length is protocol version. Currently set to zero.
+
+To sync on a steam look for the preample and if found try to decrypt and crc check the frame. On failure look for next preamble until synced.
+
+This is used for vscp-gbp over tcp/ip
+
 
 ## Frame format & type :id=vscp-frame-format
 
 This is the format for an asynchroniously sent or received VSCP event. The receiving end send no acknowledgement that the event has been received. The sender does not know if the event has been received or not. Other means should be used to ensure that events actually are received. For example if a [TURN-ON-event](./class1.control.md?#type5) is sent, confirm this by waiting for a corresponding [ON-event](./class1.information.md?#type3).
 
 ### VSCP frame type=0 :id=vscp-frame-type-0
+
+![](./images/vscp-gbp-frame0.jpeg)
 
 
 If frame is of type 0 (defined by bits 8/9 of head MSB byte) the timestamp is in microseconds since the epoch (GMT).
@@ -56,6 +68,8 @@ The number above is the offset in the package. Len is the total datagram size.
 Time should always be UTC time. If the time block is set to all zero the current time will be set by interface (VSCP Server for example).
 
 ### VSCP frame type=1 :id=vscp-frame-type-1
+
+![](./images/vscp-gbp-frame1.jpeg)
 
 If VSCP frametype is of type 1 (defined by bits 8/9 of head MSB byte) the timestamp is in nanoseconds since the epoch (GMT). 
 
@@ -95,6 +109,8 @@ Timestamp is nanoseconds since the epoch (GMT).
 
 ## Frame format=14 - Protocol
 
+![](./images/vscp-gbp-frame14.jpg)
+
 This frame can go both ways. It is used to send protocol commands and replies. The command/reply code is defined in the same way as the event type (16-bit) and the command/reply arguments are defined in the same way as the data field for events. The command/reply code and arguments are encrypted in the same way as for events.
 
  | Byte  | Description | Encrypted | 
@@ -108,6 +124,8 @@ This frame can go both ways. It is used to send protocol commands and replies. T
  | opt   | Optional encryption data such as a 16/24/32-byte IV for AES follow here | No |
 
 ## Frame format=15 - Reply
+
+![](./images/vscp-gbp-frame15.jpeg)
 
  | Byte  | Description | Encrypted | 
  | :----:  | ----------- | :---------: | 
@@ -130,8 +148,8 @@ This frame can go both ways. It is used to send protocol commands and replies. T
 
 ```mermaid
 packet
-  +4: "Type"
-  +4: "Encoding"
+  +4: "Frame Type "
+  +4: "Encryption Type"
 ```
 
  | Bits | Description |
@@ -140,6 +158,7 @@ packet
  | 3,2,1,0 | Encryption. |
 
 ## Frame types
+
 
 | Value | Description |
  | :----: | ----------- |
