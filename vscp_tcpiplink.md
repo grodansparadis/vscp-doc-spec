@@ -720,15 +720,15 @@ Also low end devices that implement the vscp tcp/ip link protocol should impleme
 
 
 
-### list :id=tcpip-interface-list (deprecated)
+## LIST :id=tcpip-interface-list (deprecated)
 
 List interfaces.
 
-#### Argument
+### Argument
 list and close can be given as argumenst but both are deprecated and should be ignored if given. The command should be used without arguments.
 
 
-#### Response
+### Response
 
 The command will respond with
 
@@ -760,7 +760,7 @@ type is
 ----
 ---- 
 
-### binary :id=tcpip-binary
+## BINARY :id=tcpip-binary
 
 If the device support binary mode this command can be used to switch to binary mode. In binary mode all commands and responses are sent as binary data. The format for the commands and responses is described in the document [VSCP over binary](./vscp_over_binary.md).
 
