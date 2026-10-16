@@ -757,9 +757,6 @@ type is
 ---- 
 
 
-----
----- 
-
 ## BINARY :id=tcpip-binary
 
 If the device support binary mode this command can be used to switch to binary mode. In binary mode all commands and responses are sent as binary data. The format for the commands and responses is described in the document [VSCP over binary](./vscp_over_binary.md).
@@ -785,6 +782,115 @@ No argument.
 ----  
 
 
+## M / MEASUREMENT Send measurement event :id=tcpip-measurement
+
+Send a measurement as an events. All measuremet classes and types are supported.
+
+### Argument
+class,type,value,[unit],[index],[zone],[subzone],[guid],[timestamp_ns] where
+
+- **class** - One of the VSCP measurement class. Mandatory.
+- **type** - A type in the selected measurement class. Mandatory-
+- **value** - An integer or a floting point value. The decimal point should be set as a '.'. Mandatory.
+- **unit** - The unit for the measurement. Optional. Default is zero, the default unit.
+- **index** - The sensor index. Optional. Default is zero.
+- **zone** - The measurement zone. Optional. Default is zero. 
+- **subzone** - The measurement subzone. Optional. Default is zero.
+- **timestamp_ns** - The unix nano second timestamp. Optional. Default is UTC now.
+
+### Response
+  +OK - Success.<CR><LF>
+
+### Supported classes
+
+| Measurement class | Note | 
+| ----------------- | ---- |
+| [CLASS1.MEASUREMENT](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.measurement) | Standard level I measurement. Coding byte set type |
+| [CLASS1.MEASUREMENTX1](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.measurementx1) |      Standard level I measurement. Coding byte set type (reserved for future use) |
+| [CLASS1.MEASUREMENTX2](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.measurementx2) | 		 Standard level I measurement. Coding byte set type (reserved for future use) |
+| [CLASS1.MEASUREMENTX3](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.measurementx3) |      Standard level I measurement. Coding byte set type (reserved for future use) |
+| [CLASS1.MEASUREMENTX4](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.measurementx4) |      Standard level I measurement. Coding byte set type (reserved for future use) |
+| [CLASS1.MEASUREMENT64](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.measurement64 ) |     Floating point double precision measurements. |
+| [CLASS1.MEASUREMENT64X1](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.measurement64x1) |    Floating point double precision measurements. (reserved for future use) |
+| [CLASS1.MEASUREMENT64X2](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.measurement64x2 ) |   Floating point double precision measurements. (reserved for future use) |
+| [CLASS1.MEASUREMENT64X3](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.measurement64x3) |    Floating point double precision measurements. (reserved for future use) |
+| [CLASS1.MEASUREMENT64X4](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.measurement64x4) |    Floating point double precision measurements. (reserved for future use) |
+| [CLASS1.MEASUREZONE](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.measurezone) |        Measurements with zone information. |
+| [CLASS1.MEASUREZONEX1](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.measurezonex1) |      Measurements with zone information.(reserved for future use) |
+| [CLASS1.MEASUREZONEX2](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.measurezonex2) |      Measurements with zone information.(reserved for future use) |
+| [CLASS1.MEASUREZONEX3](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.measurezonex3) |      Measurements with zone information.(reserved for future use) |
+| [CLASS1.MEASUREZONEX4](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.measurezonex4 ) |     Measurements with zone information.(reserved for future use) |
+| [CLASS1.MEASUREMENT32](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.measurement32) |      Floating point single precision measurements. |
+| [CLASS1.MEASUREMENT32X1](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.measurement32x1 ) |   Floating point single precision measurements. (reserved for future use) |
+| [CLASS1.MEASUREMENT32X2](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.measurement32x2) |    Floating point single precision measurements. (reserved for future use) |
+| [CLASS1.MEASUREMENT32X3](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.measurement32x3) |    Floating point single precision measurements. (reserved for future use) |
+| [CLASS1.MEASUREMENT32X4](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.measurement32x4) |    Floating point single precision measurements. (reserved for future use) |
+| [CLASS1.SETVALUEZONE](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.setvaluezone) |       This class mirrors the standard measurement events is CLASS1.MEASUREMENT=10 but also have zone information and is intended for setting a value instead of providing a measurement. |
+| [CLASS1.SETVALUEZONEX1](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.setvaluezonex1) |     Same as above. (reserved for future use) |
+| [CLASS1.SETVALUEZONEX2](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.setvaluezonex2 ) |    Same as above. (reserved for future use) |
+| [CLASS1.SETVALUEZONEX3](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.setvaluezonex3 ) |    Same as above. (reserved for future use) |
+| [CLASS1.SETVALUEZONEX4](https://grodansparadis.github.io/vscp-doc-spec/#/./class1.setvaluezonex4) |     Same as above. (reserved for future use) |
+| [CLASS2.MEASUREMENT_STR](https://grodansparadis.github.io/vscp-doc-spec/#/./class2.measurement_str) |   measurement value as string |
+| [CLASS2.MEASUREMENT_FLOAT](https://grodansparadis.github.io/vscp-doc-spec/#/./class2.measurement_float ) | measurement value as double precision floating point value |
+
+
+Also the mirror measurement events in the range 512-1023 are valid.
+
+### Examples
+
+```bash
+  measurement 1040,6,23.4
+  +OK - Success.
+```
+
+**This result in level II event**
+
+352,1040,6,1,,1792153441707591681,FF:FF:FF:FF:FF:FF:FF:FD:C0:A8:01:09:00:01:00:00,0x00,0x00,0x00,0x00,0x32,0x33,0x2E,0x34,0x00
+
+Data is numerical value on string format.
+
+```bash
+measurement 1060,6,23.4
++OK - Success.
+```
+
+**This result in level II event**
+ 
+_352,1060,6,1,,1792154568425002319,FF:FF:FF:FF:FF:FF:FF:FD:C0:A8:01:09:00:01:00:00,0x00,0x00,0x00,0x00,0x40,0x37,0x66,0x66,0x66,0x66,0x66,0x66_
+
+
+Data is 64-bit floating point value.
+
+```bash
+measurement 10,6,23.4
++OK - Success.
+```
+
+**This result in level I event**
+
+_352,10,6,1,,1792153501207384974,FF:FF:FF:FF:FF:FF:FF:FD:C0:A8:01:09:00:01:00:00,0xA0,0x41,0xBB,0x33,0x33_
+
+Data is 32-bit float point value
+
+```bash
+measurement 10,6,65
++OK - Success.
+```
+**This result in level I event**
+
+_352,10,6,1,,1792153778442324758,FF:FF:FF:FF:FF:FF:FF:FD:C0:A8:01:09:00:01:00:00,0x60,0x41_
+
+Data is an 8-bit integer. Size of integer is increased if needed.
+
+```bash
+measurement 60,6,23.4
++OK - Success.
+```
+**This result in level I event**
+
+_352,60,6,1,,1792154699776710993,FF:FF:FF:FF:FF:FF:FF:FD:C0:A8:01:09:00:01:00:00,0x40,0x37,0x66,0x66,0x66,0x66,0x66,0x66_
+
+Data is a 64-bit floating point value
 
 
 [filename](./bottom_copyright.md ':include')

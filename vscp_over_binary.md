@@ -23,6 +23,23 @@ To sync on a steam look for the preample and if found try to decrypt and crc che
 
 This is used for vscp-gbp over tcp/ip
 
+The packet version has the following 
+
+| version | description |
+| 0 | Legacy format |
+| 1 | With HMAC-SHA-256. |
+| 2 | Reserved |
+| 3 | Reserved |
+
+### Version 0
+
+| 0x55 | length (2 bytes) | encrypted-frame | IV |
+
+### Version 1 HMAC
+The HMAC is truncated to using the left most 128 bits.  It is calculated over the encrypted frame and the IV and placed at the end of the frame after the IV
+
+| 0x55 | length (2 bytes) | encrypted-frame | IV (16 bytes) | HMAC (16 bytes) |
+
 
 ## Frame format & type :id=vscp-frame-format
 

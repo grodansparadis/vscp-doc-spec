@@ -121,8 +121,12 @@ As a guideline the format defined bellow for the first data byte of a data frame
 
 ### Definitions for bits in control byte
 
- | coding(bits 7,6,5) | unit (bits 4,3) | Sensor index (bits 2,1,0) | 
- | ------------------ | --------------- | ------------------------- | 
+```mermaid
+packet
+  +3: "Coding"
+  +2: "Unit"
+  +3: "Sensor index"
+```
 
 Tells how data that follows should be interpreted. This is used for [CLASS1.MEASUREMENT](./class1.measurement.md) and [CLASS1.DATA](./class1.data.md) among others. 
 
