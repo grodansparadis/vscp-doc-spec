@@ -2,7 +2,7 @@
 
 The VSCP binary protocol is designed to be used on different types of transports such as TCP, UDP, Multicast, serial, etc. The protocol is designed to be simple and efficient for sending VSCP events and commands between devices.
 
-Encryption is available, but optional. When used it can be AES-128, AES-192 or AES-256 in CBC mode. The encryption is applied to the entire frame except for the first byte which contains the frame type and encryption settings. The encryption key is a common key with length of 128/192/256 bits that is secret and shared between the devices. Encryption gives confidentiality but not integrity. The integrity is instead provided by the CRC which is calculated on the encrypted data. The encryption settings are defined in the first byte of the frame and indicate if encryption is used and if so which encryption method is used. Overhead for encryption is 16 bytes for all encryption types as AES has a fixed block size of 128 bits, regardless of key length.
+Encryption is available, but optional. When used it can be AES-128, AES-192 or AES-256 in CBC mode. The event body, including its CRC and PKCS#7 padding, is encrypted; the first byte containing the frame type and encryption settings remains clear. The shared secret encryption key is 128/192/256 bits long. The CRC is calculated on the plaintext body before encryption and detects accidental corruption; it does not provide cryptographic integrity. Version 1 adds HMAC-SHA256 authentication. AES always has a 16-byte block size and 16-byte IV, regardless of key length. Encryption overhead consists of 1-16 padding bytes plus the 16-byte IV; authenticated packets additionally carry the prefix and 16-byte tag described below.
 
 Encrypting frames has the advantage over TLS that it can be used on any transport and that it can be used in a peer-to-peer manner without the need for a client-server architecture. It also allows for end-to-end encryption between devices without the need for a secure tunnel between them. The disadvantage is that it does not provide integrity protection and that it requires a shared secret key which can be difficult to manage in large deployments. The main advantage is the simplicity and flexibility of the protocol which allows it to be used in a wide range of applications and scenarios and abovove all no need to update certificates on devices.
 
@@ -13,11 +13,13 @@ It's important to distinguish between the frame format/type and the VSCP frame t
   * **VSCP Frame type = 0** Frame type 0 has a timestamp in microseconds since the epoch (GMT) and seperate bytes that defines the time for year/month/day/hour/minute/second. This is the original binary frame type and should normally not be useed anymore. It is kept for backward compatibility reasons.
   * **VSCP Frame type = 1** Frame type 1 has a timestamp in nanoseconds since the epoch (GMT) and reserved bytes for future use. Year/month/day/hour/minute/second can be calculated from the timestamp if needed. This is the recommended frame format for current implementations.
 
-## Frame prefix used on some systems
+## Frame prefix used on transports such as tcp/ip UDP, Multicast etc
 
 ![](./images/vscp-gbp-frame-prefix.jpeg)
 
-On systems where the data is on stream form a prefix consisting of a preample/sync byte 0x55 and two length bytes that are added in front of the frame data specified below. The three most significant byte of the length is protocol version. Currently set to zero.
+For stream framing, a prefix consisting of the sync byte 0x55 and a two-byte big-endian version/length word is added before the inner frame. The three most significant **bits** of that word are the packet version; the remaining 13 bits are the length of everything after the prefix, including type, ciphertext/plaintext, IV and tag where present. The prefix itself is not counted. Versions 0 and 1 are described below.
+
+The current VSCP UDP driver uses no prefix for unauthenticated datagrams and requires the version-1 prefix for HMAC-authenticated datagrams. A transport's framing rules must therefore be agreed by both endpoints; do not assume every UDP datagram has a prefix.
 
 To sync on a steam look for the preample and if found try to decrypt and crc check the frame. On failure look for next preamble until synced.
 
@@ -26,19 +28,208 @@ This is used for vscp-gbp over tcp/ip
 The packet version has the following 
 
 | version | description |
+|---------|-------------|
 | 0 | Legacy format |
-| 1 | With HMAC-SHA-256. |
+| 1 | With HMAC-SHA-256. A truncated 16-byte HMAC is at the the end of the frame after the IV. |
 | 2 | Reserved |
 | 3 | Reserved |
+
+HMAC is never used for non encrypted frames.
 
 ### Version 0
 
 | 0x55 | length (2 bytes) | encrypted-frame | IV |
 
 ### Version 1 HMAC
-The HMAC is truncated to using the left most 128 bits.  It is calculated over the encrypted frame and the IV and placed at the end of the frame after the IV
+The HMAC is truncated to its leftmost 128 bits (16 bytes). It is calculated over the three-byte prefix, the clear type byte, the ciphertext and the IV, and placed after the IV. The length in the authenticated prefix includes the tag. The tag itself is excluded from its HMAC input.
 
 | 0x55 | length (2 bytes) | encrypted-frame | IV (16 bytes) | HMAC (16 bytes) |
+
+### Byte-by-byte event packet layouts
+
+All offsets below are zero-based, in bytes, and inclusive. Multi-byte integers
+are big-endian (most significant byte first). These layouts describe event
+frames 0 and 1, not command/reply frames 14 and 15.
+
+Notation:
+
+- `N`: event data length, 0-512 bytes for the current Level II UDP driver.
+- `F = 38 + N`: length of the complete unencrypted inner event frame.
+- `B = F - 1 = 37 + N`: event body length, including CRC but excluding type.
+- `P = 16 - (B mod 16)`: number of PKCS#7 padding bytes, always 1-16.
+- `C = B + P = 16 * (floor(B / 16) + 1)`: ciphertext length.
+- `T = (frame_format << 4) | encryption`: clear type byte.
+
+For frame format 1, `T` is `0x10` (plain), `0x11` (AES-128),
+`0x12` (AES-192) or `0x13` (AES-256). For legacy format 0 the corresponding
+values are `0x00`, `0x01`, `0x02` and `0x03`. Packet prefix version 0/1 is
+independent of event frame format 0/1.
+
+#### Unencrypted event: exact inner-frame offsets
+
+This is also the complete unauthenticated plaintext UDP payload: no prefix,
+padding, IV or HMAC tag is present.
+
+| Offset | Bytes | Field | Value / byte order |
+|--------|-------|-------|--------------------|
+| 0 | 1 | Type | `0x10` for format 1, `0x00` for format 0; low nibble zero. |
+| 1 | 1 | Head MSB | Header bits 15-8. |
+| 2 | 1 | Head LSB | Header bits 7-0. |
+| 3 | 1 | Timestamp | Format 1: bits 63-56. Format 0: microsecond timestamp bits 31-24. |
+| 4 | 1 | Timestamp | Format 1: bits 55-48. Format 0: bits 23-16. |
+| 5 | 1 | Timestamp | Format 1: bits 47-40. Format 0: bits 15-8. |
+| 6 | 1 | Timestamp | Format 1: bits 39-32. Format 0: bits 7-0. |
+| 7 | 1 | Timestamp / year | Format 1: bits 31-24. Format 0: year MSB. |
+| 8 | 1 | Timestamp / year | Format 1: bits 23-16. Format 0: year LSB. |
+| 9 | 1 | Timestamp / month | Format 1: bits 15-8. Format 0: month. |
+| 10 | 1 | Timestamp / day | Format 1: bits 7-0. Format 0: day. |
+| 11 | 1 | Reserved / hour | Format 1: zero. Format 0: hour. |
+| 12 | 1 | Reserved / minute | Format 1: zero. Format 0: minute. |
+| 13 | 1 | Reserved / second | Format 1: zero. Format 0: second. |
+| 14 | 1 | Class MSB | Class bits 15-8. |
+| 15 | 1 | Class LSB | Class bits 7-0. |
+| 16 | 1 | Type MSB | Event type bits 15-8, distinct from packet type at offset 0. |
+| 17 | 1 | Type LSB | Event type bits 7-0. |
+| 18 + i, i=0..15 | 16 total | GUID byte i | GUID bytes in their displayed order, from first to last. |
+| 34 | 1 | Data size MSB | `N >> 8`. |
+| 35 | 1 | Data size LSB | `N & 0xff`. |
+| 36 + i, i=0..N-1 | N total | Data byte i | No data bytes when `N=0`. |
+| 36 + N | 1 | CRC MSB | CRC bits 15-8. |
+| 37 + N | 1 | CRC LSB | CRC bits 7-0. |
+
+Format-1 timestamps are nanoseconds since the Unix epoch in UTC. The current
+UDP encoder emits format 1 and sets header bits 9-8 accordingly.
+
+The normal CRC is CRC-16/CCITT-FALSE: polynomial `0x1021`, initial value
+`0xffff`, no input/output reflection, final XOR `0x0000`; the check value for
+ASCII `123456789` is `0x29b1`. Calculate it over offsets **1 through 35+N**,
+inclusive. Exclude type byte 0, the CRC bytes themselves, any padding, prefix,
+IV and HMAC. Store the result MSB first. The CRC is part of the body encrypted
+in the AES layouts below.
+
+```text
+Plain UDP payload (F = 38 + N bytes):
+offset 0      1 ................................ 35  36 ...... 35+N  36+N 37+N
+       [type][head | timestamp/date | class | type | GUID | N][data][CRC MSB/LSB]
+```
+
+If a transport uses version-0 stream framing for plaintext, prepend
+`55 [F high] [F low]` (version bits zero). Every inner offset in the table then
+moves forward by three bytes; the total packet size is `3 + F`.
+
+#### AES without HMAC: exact datagram offsets
+
+First form the plaintext frame above. Append `P` copies of the byte value `P`
+to its body (offsets 1 through `F-1`), then AES-CBC encrypt that padded body.
+Even if `B` is already a multiple of 16, append a full block of sixteen `0x10`
+bytes. The type byte is not encrypted.
+
+| Wire offset | Bytes | Field | Encrypted? |
+|-------------|-------|-------|------------|
+| 0 | 1 | `T`: frame format and AES selection. | No |
+| 1 + j, j=0..C-1 | C total | Ciphertext byte j. | Yes |
+| 1 + C + i, i=0..15 | 16 total | IV byte i, in original byte order. | No |
+
+```text
+AES UDP payload (C + 17 bytes):
+[T:1][AES-CBC(head ... data | CRC | PKCS#7 padding):C][IV:16]
+```
+
+After decryption, plaintext byte at inner offset `k` is at padded-body index
+`k-1`. Fields cannot be read directly at their plaintext offsets on the wire:
+CBC encrypts complete blocks. The padding is encrypted too.
+
+Use a fresh unpredictable 16-byte IV for every packet. AES-128/192/256 differ
+only in key size (16/24/32 bytes), not block size, IV size or layout.
+
+For a version-0 prefixed AES packet, let `L = C + 17` and send:
+
+| Wire offset | Field |
+|-------------|-------|
+| 0 | `0x55` |
+| 1 | `(L >> 8) & 0x1f` (version 0) |
+| 2 | `L & 0xff` |
+| 3 | `T` |
+| 4 through 3+C | C ciphertext bytes |
+| 4+C through 19+C | 16 IV bytes |
+
+The total is `C + 20` bytes. The unauthenticated UDP driver uses the
+**unprefixed** layout, not this prefixed stream variant.
+
+#### AES with HMAC-SHA256: exact version-1 offsets
+
+Let `L = 1 + C + 16 + 16 = C + 33` and `W = (1 << 13) | L`.
+`L` must fit in 13 bits (`L <= 8191`). The prefix length includes the tag,
+but not the three-byte prefix itself.
+
+| Wire offset | Bytes | Field | Encrypted? | HMAC input? |
+|-------------|-------|-------|------------|-------------|
+| 0 | 1 | Sync `0x55`. | No | Yes |
+| 1 | 1 | `W >> 8`: version bits `001` followed by length bits 12-8. | No | Yes |
+| 2 | 1 | `W & 0xff`: length bits 7-0. | No | Yes |
+| 3 | 1 | `T`: clear frame type and AES selection. | No | Yes |
+| 4 + j, j=0..C-1 | C total | Ciphertext byte j. | Yes | Yes |
+| 4 + C + i, i=0..15 | 16 total | IV byte i. | No | Yes |
+| 20 + C + i, i=0..15 | 16 total | HMAC digest byte i (first 16 bytes). | No | No |
+
+```text
+Authenticated packet (C + 36 bytes):
+[55][version/length:2][T:1][ciphertext:C][IV:16][tag:16]
+```
+
+Compute the full 32-byte digest with a separate 32-byte HMAC key:
+
+```text
+digest = HMAC-SHA256(hmac_key, packet[0 .. C+19])
+tag    = digest[0 .. 15]
+```
+
+Thus authentication covers the prefix **including version and length**, the
+clear type, all ciphertext and the IV. Compare the tag in constant time before
+decryption; then verify PKCS#7 padding, declared event length and CRC. HMAC is
+not used with unencrypted packets. This is the authenticated UDP layout used
+by the current driver when its `hmac` key file is configured.
+
+#### Worked offsets for three data bytes
+
+For format 1 with data `01 02 ff`, `N=3`, `F=41`, `B=40`, `P=8` and `C=48`.
+
+| Representation | Wire offsets | Total bytes |
+|----------------|--------------|-------------|
+| Plain UDP | type 0; body 1-38; CRC 39-40 | 41 |
+| Plain with version-0 prefix | prefix 0-2 (`55 00 29`); inner frame 3-43 | 44 |
+| AES UDP | type 0; ciphertext 1-48; IV 49-64 | 65 |
+| AES with version-0 prefix | prefix 0-2 (`55 00 41`); type 3; ciphertext 4-51; IV 52-67 | 68 |
+| AES with HMAC/version 1 | prefix 0-2 (`55 20 51`); type 3; ciphertext 4-51; IV 52-67; tag 68-83 | 84 |
+
+For the AES cases, the padded plaintext body has head at indices 0-1,
+timestamp at 2-9, reserved bytes at 10-12, class at 13-14, event type at 15-16,
+GUID at 17-32, data length at 33-34, data at 35-37, CRC at 38-39, and eight
+`08` padding bytes at 40-47. Those are **decrypted body indices**, not wire
+offsets.
+
+An exact plaintext example (head `0100`, timestamp zero, reserved bytes zero,
+class 10, event type 6, all-zero GUID, three data bytes) is:
+
+```text
+Offset  Hex bytes
+00      10
+01-02   01 00
+03-10   00 00 00 00 00 00 00 00
+11-13   00 00 00
+14-15   00 0a
+16-17   00 06
+18-33   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+34-35   00 03
+36-38   01 02 ff
+39-40   c4 74
+```
+
+For AES-256 change the clear type to `13`, encrypt example bytes 1-40 plus
+eight `08` padding bytes, then append the fresh IV. For authenticated AES-256,
+prepend `55 20 51`, then append the HMAC tag after the IV. Actual ciphertext,
+IV and tag bytes depend on the keys and newly generated IV; they are not fixed
+protocol constants.
 
 
 ## Frame format & type :id=vscp-frame-format
@@ -76,11 +267,13 @@ If frame is of type 0 (defined by bits 8/9 of head MSB byte) the timestamp is in
  | 34    | DATA SIZE MSB                      | Yes | 
  | 35    | DATA SIZE LSB                      | Yes | 
  | 36-n  | data ... limited to max 512 bytes  | Yes | 
- | len-2 | CRC MSB (Calculated over HEAD + CLASS + TYPE + ADDRESS + SIZE + DATA…) | Yes | 
+ | len-2 | CRC MSB (calculated over plaintext bytes 1 through 35+N; see exact layout above) | Yes |
  | len-1 | CRC LSB  | Yes | 
- | opt   | Optional encryption data such as a 16/24/32-byte IV for AES follow here | No | 
+ | opt   | When encrypted: PKCS#7 padding is included in the ciphertext, followed by a clear 16-byte IV and, for packet version 1, a clear 16-byte HMAC tag | Padding only |
 
-The number above is the offset in the package. Len is the total datagram size.
+The offsets above refer to the unencrypted inner frame. Here `len = 38+N`,
+not the encrypted datagram size. Prefixes shift offsets; encryption replaces
+the body with ciphertext as shown in the exact layouts above.
 
 Time should always be UTC time. If the time block is set to all zero the current time will be set by interface (VSCP Server for example).
 
@@ -113,12 +306,14 @@ If VSCP frametype is of type 1 (defined by bits 8/9 of head MSB byte) the timest
  | 18-33 | ORIGINATING GUID                   | Yes | 
  | 34    | DATA SIZE MSB                      | Yes | 
  | 35    | DATA SIZE LSB                      | Yes | 
- | 36-n  | data ... limited to max 512-25 = 487 bytes  | Yes | 
- | len-2 | CRC MSB (Calculated on HEAD + CLASS + TYPE + ADDRESS + SIZE + DATA…) | Yes | 
+ | 36-n  | data ... limited to max 512 bytes for the Level II UDP driver | Yes |
+ | len-2 | CRC MSB (calculated over plaintext bytes 1 through 35+N; see exact layout above) | Yes |
  | len-1 | CRC LSB  | yes | 
- | opt   | Optional encryption data such as a 16/24/32-byte IV for AES follow here | No | 
+ | opt   | When encrypted: PKCS#7 padding is included in the ciphertext, followed by a clear 16-byte IV and, for packet version 1, a clear 16-byte HMAC tag | Padding only |
 
-The number above is the offset in the package. Len is the total datagram size.
+The offsets above refer to the unencrypted inner frame. Here `len = 38+N`,
+not the encrypted datagram size. Prefixes shift offsets; encryption replaces
+the body with ciphertext as shown in the exact layouts above.
 
 Time should always be UTC time. If the time block is set to all zero the current time will be set by interface (VSCP Server for example).
 
@@ -138,7 +333,7 @@ This frame can go both ways. It is used to send protocol commands and replies. T
  | 3-n    | command argument         | Yes |
  | len-2 | CRC MSB (Calculated over HEAD + CLASS + TYPE + ADDRESS + SIZE + DATA…) | Yes |
  | len-1 | CRC LSB  | yes |
- | opt   | Optional encryption data such as a 16/24/32-byte IV for AES follow here | No |
+ | opt   | AES uses a 16-byte IV for every key size; encrypted padding precedes it and a version-1 HMAC tag follows it | Padding only |
 
 ## Frame format=15 - Reply
 
@@ -154,7 +349,7 @@ This frame can go both ways. It is used to send protocol commands and replies. T
  | 5-n    | Reply argument         | Yes |
  | len-2 | CRC MSB (Calculated on HEAD + CLASS + TYPE + ADDRESS + SIZE + DATA…) | Yes | 
  | len-1 | CRC LSB  | yes | 
- | opt   | Optional encryption data such as a 16/24/32-byte IV for AES follow here | No |
+ | opt   | AES uses a 16-byte IV for every key size; encrypted padding precedes it and a version-1 HMAC tag follows it | Padding only |
 
  The command codes are the same as the command codes for the commands they are responses to.
 
@@ -229,7 +424,10 @@ Note also that the MSB is sent before the LSB (network byte order, Big Endian). 
 
 There is a 24-byte overhead to send one byte of data so this is not a protocol which should be used where an efficient protocol for data intensive applications is required and where data is sent in small packets.
 
-The CRC used is the 16-bit CCITT type and it should be calculated across all bytes except for the CRC itself.
+The CRC is CRC-16/CCITT-FALSE, calculated across the plaintext inner body
+excluding the leading frame type/encryption byte and the CRC itself. For event
+frames this is offsets 1 through 35+N. It does not cover the prefix, padding,
+IV or HMAC tag; see the byte-by-byte layouts above.
 
 As indicated, the Class is 16-bits allowing for 65535 classes. Class 0000000x xxxxxxxx is reserved for the Level I classes. A low-end device should ignore all frames with a class > 511.
 
