@@ -231,6 +231,161 @@ prepend `55 20 51`, then append the HMAC tag after the IV. Actual ciphertext,
 IV and tag bytes depend on the keys and newly generated IV; they are not fixed
 protocol constants.
 
+### Example from vscpl2drv-udp
+
+#### Sending frames with the VSCP Level II UDP driver
+
+These examples use `vscpl2drv-udp` and its `vscp-udp-peer` CLI in
+**driver-loading mode**. Run the commands from the driver repository root after
+building both targets:
+
+```bash
+cmake --build build --target vscpl2drv-udp vscp-udp-peer
+```
+
+The examples below use Linux library paths. On macOS replace
+`./build/libvscpl2drv-udp.so` with `./build/libvscpl2drv-udp.dylib`.
+On Windows use `.\build\Release\vscp-udp-peer.exe` and
+`--driver .\build\Release\vscpl2drv-udp.dll`; enter the commands on one line
+or use PowerShell continuation syntax.
+
+The CLI supplies a normal VSCP event through `VSCPWrite`. **Do not construct
+the prefix, ciphertext, IV, CRC or HMAC yourself**: the driver generates them
+according to its configuration. Encryption is selected when the driver opens,
+not by the event's class/type or a per-send CLI switch.
+
+##### Send an AES-encrypted frame with HMAC
+
+1. Generate independent AES-256 and HMAC-SHA256 keys in a private directory.
+   On Linux/macOS:
+
+   ```bash
+   umask 077
+   mkdir -p private
+   openssl rand -hex 32 > private/aes.key
+   openssl rand -hex 32 > private/hmac.key
+   ```
+
+   The files contain hex text, not raw binary. Each has 64 hex digits, with an
+   optional trailing newline. On Windows, generate the same hex-text files and
+   restrict their filesystem permissions to the appropriate user.
+
+2. Save this as `send-auth.json`. Replace the key paths with actual absolute
+   paths and replace `127.0.0.1` with the receiving host's address for a network
+   test:
+
+   ```json
+   {
+     "interface": "udp://127.0.0.1:33333",
+     "flags": 2,
+     "security": {
+       "encryption": "aes256",
+       "key": "/absolute/path/private/aes.key",
+       "hmac": "/absolute/path/private/hmac.key"
+     },
+     "logging": { "console-enable": false }
+   }
+   ```
+
+   For Windows JSON paths, use forward slashes, e.g. `C:/private/aes.key`.
+   `flags: 2` makes this instance send-only.
+
+3. Send one event through the loaded driver:
+
+   ```bash
+   ./build/vscp-udp-peer send --driver ./build/libvscpl2drv-udp.so \
+     --config send-auth.json --class 10 --type 6 --data 01,02,ff --count 1
+   ```
+
+   The resulting UDP payload is:
+
+   ```text
+   [55][20][51][13][48 ciphertext bytes][16 IV bytes][16 HMAC tag bytes]
+   ```
+
+   For these three data bytes, the packet is 84 bytes long. `13` means event
+   frame format 1 with AES-256; `20 51` means packet version 1 and an 81-byte
+   inner length. The timestamp and IV are generated afresh, so ciphertext and
+   HMAC values differ between sends.
+
+These encryption/key/HMAC settings belong inside the `security` object.
+For AES-128 use `"encryption": "aes128"` there and an AES key file generated with
+`openssl rand -hex 16`; for AES-192 use `"aes192"` and
+`openssl rand -hex 24`. The separate HMAC key remains 32 bytes for all AES sizes.
+The packet sizes above remain the same; the clear type becomes `11` or `12`.
+
+To receive locally, copy `send-auth.json` to `receive-auth.json` and change
+`"flags": 2` to `"flags": 1`. Start the standalone receiver **before** sending:
+
+```bash
+./build/vscp-udp-peer receive --config receive-auth.json --count 1 --timeout 60000
+```
+
+The receiver must have the same encryption mode and identical AES/HMAC key
+material; file paths may differ on another host. It validates and decrypts the
+packet and prints the event as JSON. No daemon is needed for this test.
+
+##### Send an unencrypted frame
+
+Save this as `send-plain.json`:
+
+```json
+{
+  "interface": "udp://127.0.0.1:33333",
+  "flags": 2,
+  "security": {
+    "encryption": "none",
+    "key": "",
+    "hmac": ""
+  },
+  "logging": { "console-enable": false }
+}
+```
+
+Then send the same event through the driver:
+
+```bash
+./build/vscp-udp-peer send --driver ./build/libvscpl2drv-udp.so \
+  --config send-plain.json --class 10 --type 6 --data 01,02,ff --count 1
+```
+
+The UDP payload is 41 bytes:
+
+```text
+[10][head:2][timestamp:8][reserved:3][class:2][type:2][GUID:16][size:2][data:3][CRC:2]
+```
+
+There is **no** `55` prefix, padding, IV or HMAC tag. The driver still generates
+and checks the CRC; a CRC is not cryptographic authentication.
+
+For a local receiver, copy `send-plain.json` to `receive-plain.json`, change
+`flags` to `1`, then start it before sending:
+
+```bash
+./build/vscp-udp-peer receive --config receive-plain.json --count 1 --timeout 60000
+```
+
+An empty or omitted `security.hmac` disables authentication. A nonempty HMAC path with
+`"encryption": "none"` is invalid and prevents startup. Plain and authenticated
+receivers are not interchangeable: both sides must agree on the mode.
+
+The driver also accepts legacy top-level `encryption`, `key` and `hmac` when
+`security` is absent. Mixing the nested and top-level forms is rejected.
+
+##### Sending from a host application instead of the CLI
+
+Open the driver using `VSCPOpen(config_path, interface_guid)`, submit a normal
+`vscpEvent` with `VSCPWrite(handle, &event, timeout_ms)`, and finally call
+`VSCPClose(handle)`. Use `send-auth.json` or `send-plain.json` to select the
+desired wire format. A VSCP daemon does the same through its driver entry:
+set `path-driver` to the library and `path-config` to the selected JSON file,
+then publish events routed to that driver.
+
+Close and reopen the driver after changing configuration or key files. A
+successful send only means that the socket accepted the datagram; it does not
+confirm delivery. Protect unencrypted traffic appropriately, and do not send
+secret payloads with the plaintext configuration.
+
 
 ## Frame format & type :id=vscp-frame-format
 

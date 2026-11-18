@@ -152,3 +152,7 @@ Events can be also be specified as a JSON list on the form
     row3
 ]
 ```
+
+
+
+[filename](./bottom_copyright.md ':include')
