@@ -2297,7 +2297,6 @@ Registers can have bit fields that define bits and groups of bits of the registe
         "max" : 128,
         "access" : "rw",
         "default": 99,
-        "rowpos" : 11,
         "bgcolor" : "0xfff3d4",
         "fgcolor" : "0x001200",        
         "name" : "Register example 1",
@@ -2320,7 +2319,6 @@ Registers can have bit fields that define bits and groups of bits of the registe
         "max" : "0x000f",
         "access" : "r",
         "default": "0xfd",
-        "rowpos" : "0xaa",
         "bgcolor" : "0x00f3d4",
         "fgcolor" : "0x100000",
         "name" : "Register example 2",
@@ -2386,7 +2384,6 @@ Registers can have bit fields that define bits and groups of bits of the registe
         "min" : 0,
         "max" : 255,
         "access" : "w",
-        "rowpos" : "200",
         "bgcolor" : "0xfffff3d4",
         "fgcolor" : "0xffffffff",        
         "description" : {
@@ -2537,7 +2534,6 @@ In the same way as registers remote variables can also have valuelists and bit f
     "access": "rw",
     "page" :"2",
     "offset" :18,
-    "rowpos": 99,
     "bgcolor" :"0xCCFFFF",
     "fgcolor" :"0x123456",
     
@@ -2559,7 +2555,6 @@ In the same way as registers remote variables can also have valuelists and bit f
     "access": "r",
     "page" : "0x11",
     "offset" :"12",
-    "rowpos": "0x04",
     "bgcolor" :"0x777777",
     "fgcolor" :"0x888888",        
     "description" : {
@@ -2622,7 +2617,6 @@ In the same way as registers remote variables can also have valuelists and bit f
     "access": "rw",
     "page" :"9",
     "offset" :98,
-    "rowpos": "0x44",
     "bgcolor" :"0x999999",
     "fgcolor" :"0xAAAAAA",
     
@@ -2933,7 +2927,6 @@ Any number of language specific descriptions and/or infourl's can be set for eac
   "level" : 1,
   "start-page" : "0x10",
   "start-offset": 88,
-  "indexed": false,
   "rowcount" : 10,
   "rowsize" : 8,
   "action": [
