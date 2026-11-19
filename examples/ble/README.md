@@ -29,3 +29,37 @@ Zephyr: place the supplied `src/main.c` and `prj.conf` in a Zephyr application; 
 Linux: install BlueZ and Python D-Bus bindings; use `python3 examples/ble/bluez/scan.py`. BlueZ D-Bus scanning exposes manufacturer data but **does not guarantee complete extended-advertising reports or data-status visibility** on every version/adapter. This sample therefore only observes and validates E1-like manufacturer values; it is not a conformance-grade extended advertising receiver.
 
 **Status:** illustrative source; hardware, OS-version, compiler, and radio interoperability validation remains outstanding. Unsupported BLE features must be reported as unsupported, never silently converted to legacy advertisements.
+
+## A2 authenticated frame and G1 transport-core tests
+
+The new portable [A2 AES-128-CCM OpenSSL reference](common/vscp_ble_a2_openssl.c) implements the draft authenticated frame encoding, tag verification and in-memory replay rejection. It uses the [A2 interface](common/vscp_ble_a2.h). **Before accepting an A2 event**, the application MUST durably persist the updated replay state and enforce VSCP authorization. Before sending, the application MUST reserve and persist a unique epoch/sequence; the example deliberately does not manage persistent keys or counters.
+
+The [G1 framing core](common/vscp_ble_g1.c) and [interface](common/vscp_ble_g1.h) implement VSCP event serialization, ATT-MTU-aware fragmentation and bounded, ordered reassembly. They are transport-neutral building blocks for GATT clients and servers, **not complete Bluetooth GATT applications**. GATT UUID registration, characteristic permissions, HELLO/Control indications, transaction scheduling, pairing and platform-specific server/client integration remain to be implemented.
+
+Build and run portable tests on a Linux development host with OpenSSL headers and libraries:
+
+```sh
+cc -std=c11 -Wall -Wextra -Werror -Iexamples/ble/common \
+  examples/ble/tests/test_e1.c -o /tmp/test_vscp_e1
+/tmp/test_vscp_e1
+
+cc -std=c11 -Wall -Wextra -Werror -Iexamples/ble/common \
+  examples/ble/tests/test_a2_g1.c \
+  examples/ble/common/vscp_ble_a2_openssl.c \
+  examples/ble/common/vscp_ble_g1.c -lcrypto -o /tmp/test_vscp_a2_g1
+/tmp/test_vscp_a2_g1
+```
+
+The A2 known-answer vector is independently reproduced using Python `cryptography` AESCCM: nonce `a0a1a2a3a40000000100000002`, ciphertext plus tag `3c4532039788b44a4ad321c6493748c0f6c4d1`. This does not substitute for a security audit.
+
+## Hardware interoperability acceptance procedure (not yet executed)
+
+1. Record **exact** board/SoC, controller firmware, SDK, OS/BlueZ version, adapter, PHY and controller-reported advertising limits.
+2. Build the ESP32, Nordic and Zephyr transmitters with an assigned test GUID and the test-only Company ID in an isolated lab. Capture **raw complete advertising data**, not only the decoded BLE name, on an independent BLE sniffer.
+3. Confirm E1 sequence, GUID, class, type and data bytes match the shared C vector on **two different vendor controllers**. Exercise minimum and maximum E1 payloads, truncated reports, reserved flags and unsupported controllers.
+4. Verify the Linux BlueZ observer receives the supported frames; if BlueZ hides truncation/report status, use a raw HCI or dedicated sniffer capture for the conformance verdict.
+5. Integrate the A2 codec into the advertising sender/receiver with provisioned unique keys and **durable** counters/replay state. Verify CCM vectors, tamper rejection, replay rejection and power-loss behavior on physical devices.
+6. Implement G1 UUID service, secure ATT permissions, HELLO/Control and notifications/writes in at least two platform stacks. Validate 23-byte and larger MTUs, disconnect/reconnect, authorization and failure codes.
+7. Attach capture files, console logs and firmware revisions to the draft PR. Mark unsupported features **SKIP** with evidence, and unexecuted hardware cases **NOT RUN**, never PASS.
+
+**Current result:** source and test cases are committed; the independent Python AES-CCM known-answer calculation was executed successfully. Platform builds, live radio captures, hardware replay persistence, and complete GATT client/server interoperability are **NOT RUN**.
