@@ -30,22 +30,76 @@ Extended advertising uses primary-channel pointers to secondary-channel advertis
 
 ## 4. Legacy advertising (L0, version 0)
 
-The original draft describes a 16-octet VSCP block, optionally encrypted with AES-128 ECB, and a 16-octet continuation in scan-response data. Its field sizes add up to **16 octets**:
+### 4.1 Explicit proposed legacy AD layout
 
-| Offset | Field | Octets | Encoding |
+**Compatibility status:** The previous specification described a 16-octet VSCP block, a Company Identifier and flags but did not unambiguously place all fields in the on-air AD structure. The following is a **proposed canonical layout for new L0 implementations**, not a verified claim about every deployed legacy device. Existing firmware and captured advertisements MUST be checked before this layout is declared historically interoperable.
+
+The VSCP data is carried in a Manufacturer Specific Data AD structure (AD Type `0xFF`). Offsets below are measured from the **first byte of this AD structure**, not from the link-layer PDU:
+
+| Offset | Field | Octets | Encoding / value |
 | ---: | --- | ---: | --- |
-| 0 | Node ID | 2 | Last two octets of derived GUID |
-| 2 | Head | 1 | Low 8 bits of VSCP head; legacy bit 4 forced to one |
-| 3 | VSCP class | 2 | Network byte order |
-| 5 | VSCP type | 2 | Network byte order |
-| 7 | Data length | 1 | 0–8 for self-contained frame; legacy extension claimed up to 24 |
-| 8 | VSCP data | 8 | Zero-padded |
+| 0 | AD Length | 1 | `0x14` (20 following octets, including AD Type) |
+| 1 | AD Type | 1 | `0xFF` (Manufacturer Specific Data) |
+| 2–3 | Company Identifier | 2 | Bluetooth SIG assigned identifier, little-endian |
+| 4 | VSCP flags | 1 | Version/encryption bit field, see §4.2 |
+| 5–6 | Node ID | 2 | Proposed network byte order (big-endian) |
+| 7 | VSCP head | 1 | Low eight bits of VSCP header |
+| 8–9 | VSCP class | 2 | Proposed network byte order (big-endian) |
+| 10–11 | VSCP type | 2 | Proposed network byte order (big-endian) |
+| 12 | Data length | 1 | 0–8 for self-contained advertisement |
+| 13–20 | VSCP data | 8 | Event bytes followed by zero padding |
 
-The existing flag definition is: bits 0–3 = frame version (0); bits 4–6 reserved; bit 7 = encrypted. The previous text did **not** unambiguously define the exact AD structure enclosing this block, placement of the flags relative to the manufacturer identifier, a normative cipher-key provisioning procedure, or a robust association of scan response with a particular event. Therefore **L0 is a legacy description, not a newly complete interoperable byte-level standard**. Existing deployed encodings MUST be validated against their implementation before changes are made.
+Total: **21 octets** for this AD structure; the VSCP block at offsets 5–20 is exactly **16 octets**. The Company Identifier and flags are **not** part of the encrypted block. When encryption flag bit 7 is set, bytes 5–20 are a single encrypted 16-octet block, and their subfields are interpreted **only after decryption**. This preserves the historical 16-octet encryption-block concept without claiming AES-ECB is secure.
 
-Legacy GUID construction is `FF:FF:FF:FF:FF:FF:FF:F8:YY:YY:YY:YY:YY:YY:XX:XX`, where `YY` is the BLE address and `XX` the node ID. This is not a persistent identity when the device uses BLE private addresses. The receiver sets `obid` and event timestamp fields as appropriate.
+The proposed byte order for the Node ID, class and type is big-endian. The historical text did not specify this byte order explicitly; interoperability with existing firmware MUST be verified before treating it as an established legacy rule.
 
-**Security warning:** AES-128 ECB does not authenticate an event or protect against replay. Legacy encrypted events MUST NOT be used to authorize safety-critical or access-control operations. Existing scan-response continuation is best-effort and MUST NOT be treated as a guaranteed 24-byte VSCP event transport. Receivers SHOULD reject incomplete continuations rather than silently accepting truncated events.
+### 4.2 Flags
+
+| Bit(s) | Meaning |
+| --- | --- |
+| 0–3 | Frame version; **0** for L0 |
+| 4–6 | Reserved; sender MUST set to zero, receiver MUST reject nonzero values under this proposed canonical layout |
+| 7 | Encrypted block if 1; plaintext block if 0 |
+
+The frame flags occupy offset 4 in the proposed layout. An L0 receiver MUST NOT mistake this byte for a VSCP header.
+
+### 4.3 AD structure sizing and optional device name
+
+A legacy advertising data set has a maximum of **31 octets**. The manufacturer-specific AD structure above uses 21, leaving **10 octets** for other AD structures. For example, the standard Flags AD structure `02 01 06` uses 3 octets, leaving 7 octets; a Complete Local Name AD structure then has at most 5 name bytes (`Length + Type + 5 bytes`). A longer name MAY instead be placed in scan-response data if supported, or omitted.
+
+**Do not confuse** the standard Bluetooth Flags AD Type `0x01` with the **VSCP flags byte** at offset 4. The old draft's statement that the advertising format was “max 32 bytes” is corrected to **31 advertising data octets**. The name AD Type is `0x09` for Complete Local Name or `0x08` for Shortened Local Name, not the old draft's value 6.
+
+### 4.4 Byte-exact illustrative example (plaintext)
+
+Test-only Company Identifier `0xFFFF`; version 0; no encryption; node ID `0x1234`; head `0x10`; class `0x000A`; type `0x0006`; two data octets `AA BB`:
+
+```text
+02 01 06                                  # Standard Bluetooth Flags AD structure
+14 FF FF FF 00 12 34 10 00 0A 00 06 02 AA BB 00 00 00 00 00 00
+|  |  |     |  |     |  |     |     |  |-----------------------|
+|  |  |     |  |     |  |     |     |        8 data octets
+|  |  |     |  |     |  |     |     data length = 2
+|  |  |     |  |     |  |     type = 0x0006
+|  |  |     |  |     |  class = 0x000A
+|  |  |     |  |     head = 0x10
+|  |  |     |  node ID = 0x1234
+|  |  |     VSCP flags = 0x00
+|  |  Company ID = 0xFFFF (test only, little-endian)
+|  AD Type = 0xFF
+AD Length = 0x14
+```
+
+The manufacturer AD structure is 21 octets, plus 3 octets for the standard Flags AD structure: **24 of the permitted 31 advertising data octets**. The VSCP block is 16 octets. This is a framing test, not a validated VSCP application-event example. `0xFFFF` MUST NOT be used as a production Company Identifier.
+
+### 4.5 GUID and legacy scan response
+
+The original legacy GUID derivation is `FF:FF:FF:FF:FF:FF:FF:F8:YY:YY:YY:YY:YY:YY:XX:XX`, where `YY` is the BLE address and `XX` is the node ID. The receiver sets `obid` and timestamps as appropriate. This derived GUID is not stable with BLE private-address rotation.
+
+The historical draft claimed that a scan response could carry a timestamp and 16 extra data bytes when the event length is 9–24 bytes. **No canonical scan-response AD structure or event-to-response association was specified.** A BLE scan request contains no application-level VSCP request payload; scan response delivery is not guaranteed. New senders SHOULD limit L0 to 0–8 data bytes unless interoperability with an existing, separately documented extension has been established. A receiver MUST NOT accept an incomplete 9–24-byte event as complete.
+
+### 4.6 Legacy security
+
+AES-128 ECB, when used by historical devices, provides neither event authentication nor replay protection. L0 encrypted frames MUST NOT authorize access control or other privileged operations solely on that basis. Do not infer authentication from the encryption flag.
 
 ### Legacy connected devices
 
