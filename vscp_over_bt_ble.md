@@ -677,7 +677,68 @@ An E1 receiver MUST:
 
 A test suite SHOULD include zero-length data, the largest permitted single-AD event, truncated AD structures, off-by-one lengths, invalid version, reserved bits, duplicate sequences, controller feature absence, and legacy-version separation.
 
-## 9. Implementation and compatibility guidance
+## 9. Optional F1 connectionless fragmentation (proposed, S0 only)
+
+> **Status and security boundary:** F1 is an optional **new manufacturer-data frame version `0x03`** for public S0 events exceeding the E1 single-AD limit. It does **not** modify E1 v1, A2 v2, G1 fragmentation or Bluetooth controller-managed auxiliary-PDU chaining. F1 is **unauthenticated and unencrypted**: F1 MUST NOT carry S1/S2 or privileged events. Authenticated oversized events MUST use an authorized G1 connection or another secure transport until a separately reviewed end-to-end authenticated fragmentation envelope is standardized.
+
+### 9.1 Constraints and transport
+
+F1 transmits one VSCP event as a sequence of complete, individually valid Manufacturer Specific Data AD structures (`0xFF`), **one fragment per extended advertising data set**. Use the EA-B operating mode (non-connectable, non-scannable, non-directed, LE 1M primary and secondary) or an explicitly supported optional EA-C/EA-F PHY variant. F1 MUST NOT be used with legacy 31-octet advertising, scan-response continuation, or multiple fragments packed into one advertising data set. The sender SHOULD transmit fragments in ascending offset order and MAY repeat the same byte-identical fragments to improve best-effort reception. There is no acknowledgment or guaranteed delivery.
+
+**Baseline limits:** maximum event data **1,024 octets**, maximum **8 fragments**, maximum **2 concurrent reassemblies per receiver** (a deployment MAY lower this to one), maximum **2,048 octets of aggregate fragment-data buffering** and **3 seconds** elapsed from the first accepted fragment to completion. Implementations MAY impose stricter limits and MUST advertise/document them out of band. Larger events MUST use G1 or another transport. Receivers MUST reject, rather than partially accept, events exceeding their configured limits.
+
+### 9.2 Exact F1 fragment wire layout
+
+Offsets include the AD Length and AD Type. Company Identifier is little-endian; all other multioctet integers are unsigned big-endian.
+
+| Offset | Field | Octets | Validation |
+| ---: | --- | ---: | --- |
+| 0 | AD Length | 1 | `0x2A + C` (42 + C) |
+| 1 | AD Type | 1 | `0xFF` |
+| 2–3 | Company Identifier | 2 | Configured assigned identifier, LE; `0xFFFF` test-only |
+| 4 | Frame version | 1 | Exactly `0x03` |
+| 5 | Flags | 1 | Bit 0 FIRST; bit 1 LAST; bits 2–7 zero |
+| 6–9 | Message ID | 4 | Nonzero, sender-generated per event |
+| 10–25 | Sender GUID | 16 | Canonical, nonzero GUID |
+| 26–27 | VSCP head | 2 | Full 16-bit value |
+| 28–29 | VSCP class | 2 | Full 16-bit value |
+| 30–31 | VSCP type | 2 | Full 16-bit value |
+| 32–33 | Total event-data length | 2 | `T`, range 223–1,024 |
+| 34 | Fragment index | 1 | Zero-based index |
+| 35 | Fragment count | 1 | `K`, range 2–8 |
+| 36–37 | Fragment offset | 2 | `O`, zero-based |
+| 38–39 | Chunk length | 2 | `C`, range 1–212 |
+| 40–41 | Reserved | 2 | Both zero |
+| 42–(41+C) | Chunk bytes | C | Exact slice of event data |
+
+The complete AD structure is **42 + C octets**; the AD Length byte is **41 + C** (maximum 253 for `C=212`). No padding is permitted. The fixed header is 42 octets including AD Length and AD Type. The maximum chunk is 212 octets; a sender MUST choose `K = ceil(T / 212)` and divide data into contiguous chunks of at most 212 octets, with all non-final chunks **exactly 212 octets**. Each fragment has `index=i`, `offset=i×212`, `C=min(212,T-offset)`. FIRST is set exactly for `i=0`, LAST exactly for `i=K-1`; no other flag combinations are valid. These canonical rules eliminate ambiguous overlap or reordering layouts.
+
+The tuple `(Company Identifier, Sender GUID, Message ID)` identifies an in-progress reassembly. A sender MUST avoid reusing Message ID with the same GUID while any receiver could retain the old message or its duplicate cache. A persistent monotonically increasing ID is RECOMMENDED; wraparound requires a new sender identity or explicit reset of trust/reassembly state. Message IDs and GUIDs are **not** authentication.
+
+### 9.3 Receiver reassembly algorithm
+
+1. Validate complete extended advertising report, AD structure boundaries, Company Identifier, version, reserved bits, exact `42+C` length, and all F1 limits **before allocation**.
+2. Validate `T`, `K=ceil(T/212)`, index, offset, chunk size, FIRST/LAST flags and nonzero GUID/Message ID. Reject noncanonical fragments; no partial event is delivered.
+3. Look up the reassembly by `(Company Identifier, GUID, Message ID)`. On first accepted fragment, allocate at most `T` bytes and an 8-bit received-fragment bitmap. A receiver MAY start on a non-FIRST fragment but MUST apply the same total resource limits and deadline.
+4. Every fragment in one reassembly MUST have identical GUID, Message ID, head, class, type, T and K. Any conflicting metadata or conflicting bytes for an already received index MUST invalidate the **entire** reassembly. Byte-identical duplicates MAY be ignored without extending the deadline.
+5. Copy only the canonical slice into the bounded buffer; set its bitmap bit. A completed event requires **all K distinct fragments**, the exact T bytes, and no conflicts. Validate the resulting VSCP event and S0-only application policy before delivering it **once**.
+6. Discard incomplete reassembly at the absolute 3-second deadline, on resource exhaustion, or on detected conflict. Do not reset the deadline when later fragments arrive. Maintain a bounded recent-completion cache for at least 3 seconds to suppress repeated delivery of the same tuple; cache eviction may reduce duplicate suppression but MUST NOT weaken event security policy.
+
+When two reassemblies are active, new third-message fragments MUST be dropped without evicting an active message unless a deployment explicitly defines a deterministic bounded eviction policy. A receiver MUST NOT allocate unbounded state based on untrusted GUIDs or Message IDs. Implementations SHOULD rate-limit repeated malformed or resource-exhausting frames.
+
+### 9.4 Compatibility, fallback and security
+
+F1 support is optional and **cannot be inferred** from E1, A2, G1 or Bluetooth 5 capability. Receivers that do not implement version `0x03` MUST ignore/reject F1 frames without interpreting them as E1 or A2. There is no in-band F1 capability announcement in this revision; transmitters MUST be configured with receiver support out of band, or use a negotiated connected transport.
+
+F1 frames MUST be treated as **untrusted public data**, regardless of sender GUID. F1 MUST NOT be used for access control, firmware update, actuation, configuration, secrets, or other security-sensitive VSCP events. Reassembly completeness and duplicate suppression are **not** cryptographic integrity or replay protection. If F1 is unavailable, senders MAY use E1 only if the complete event fits E1; otherwise use G1 or another transport. An A2 event MUST NOT be downgraded to F1 to bypass its size limit.
+
+### 9.5 Fragmentation test vectors
+
+**F1 canonical 223-byte event:** `T=0x00DF`, `K=2`, Message ID `0x00000001`, GUID `00..0F`, head/class/type `0000/000A/0006`, event data `data[i]=i mod 256` for `0≤i<223`. The first fragment has `index=0`, `offset=0`, `C=212`, flags `0x01`, AD Length `0xFD`; the second has `index=1`, `offset=212`, `C=11`, flags `0x02`, AD Length `0x35`. Reassembly MUST yield the original 223 data octets exactly once.
+
+**F1 maximum 1,024-byte event:** `K=5`; chunk sizes `212,212,212,212,176`, offsets `0,212,424,636,848`. Reject `T=1,025`, `K=9`, a missing fragment, duplicate index with changed bytes, inconsistent class/type, incorrect offset, bad FIRST/LAST, nonzero reserved bytes, truncated AD report, timeout, and a third concurrent message exceeding the receiver's two-message limit. Test out-of-order reception, byte-identical duplicates, and completion-cache duplicate suppression.
+
+## 10. Implementation and compatibility guidance
 
 - Keep existing L0 implementations unchanged unless tested against real deployed traffic.
 - Prefer E1 for short, connectionless public events on controllers supporting extended advertising.
@@ -686,7 +747,7 @@ A test suite SHOULD include zero-length data, the largest permitted single-AD ev
 - Keep the legacy format and new version 1 on separately recognizable frame encodings; do not infer the version from a Bluetooth PHY.
 - For large VSCP Level II events, use GATT or another transport until a fully specified fragmentation/large-event encoding is standardized.
 
-## 10. Open standardization decisions
+## 11. Open standardization decisions
 
 The following MUST be resolved before declaring E1/G1 a final VSCP transport standard:
 
@@ -697,7 +758,7 @@ The following MUST be resolved before declaring E1/G1 a final VSCP transport sta
 5. Should large events use multiple AD structures, an application fragment format, or connected transfer only?
 6. Which hardware/host combinations form the interoperability reference test matrix?
 
-## 11. References
+## 12. References
 
 - [BLE interoperability tests, E1/A2 byte vectors and platform matrix](./tests/ble_interoperability.md)
 
