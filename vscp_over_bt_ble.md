@@ -734,7 +734,7 @@ F1 frames MUST be treated as **untrusted public data**, regardless of sender GUI
 
 ### 9.5 Fragmentation test vectors
 
-**F1 canonical 223-byte event:** `T=0x00DF`, `K=2`, Message ID `0x00000001`, GUID `00..0F`, head/class/type `0000/000A/0006`, event data `data[i]=i mod 256` for `0≤i<223`. The first fragment has `index=0`, `offset=0`, `C=212`, flags `0x01`, AD Length `0xFD`; the second has `index=1`, `offset=212`, `C=11`, flags `0x02`, AD Length `0x35`. Reassembly MUST yield the original 223 data octets exactly once.
+**F1 canonical 223-byte event:** `T=0x00DF`, `K=2`, Message ID `0x00000001`, GUID `00..0F`, head/class/type `0000/000A/0006`, event data `data[i]=i mod 256` for `0≤i<223`. The first fragment has `index=0`, `offset=0`, `C=212`, flags `0x01`, AD Length `0xFD`; the second has `index=1`, `offset=212`, `C=11`, flags `0x02`, AD Length `0x34`. Reassembly MUST yield the original 223 data octets exactly once.
 
 **F1 maximum 1,024-byte event:** `K=5`; chunk sizes `212,212,212,212,176`, offsets `0,212,424,636,848`. Reject `T=1,025`, `K=9`, a missing fragment, duplicate index with changed bytes, inconsistent class/type, incorrect offset, bad FIRST/LAST, nonzero reserved bytes, truncated AD report, timeout, and a third concurrent message exceeding the receiver's two-message limit. Test out-of-order reception, byte-identical duplicates, and completion-cache duplicate suppression.
 
