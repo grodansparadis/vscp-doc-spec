@@ -1,85 +1,178 @@
-# VSCP over BLE
+# VSCP over Bluetooth Low Energy (BLE)
 
-The general BLE frame format is as follows
+> **Status: proposed revision for review.** The legacy version 0 encoding is documented for compatibility. The version 1 encoding, UUID allocation, and security profile in this document are proposals, not registered or deployed interoperability standards. Do not claim conformance to version 1 until these parameters are ratified.
 
-![VSCP Bluetooth](./images/ble-advertising-pdu.png)
+## 1. Scope
 
-VSCP devices can be of two type. Beacon devices that send out advertising packets and connected devices that can be connected to a central device. The advertising packets are used to send out VSCP data without the need for a connection. This is useful for devices that need to send out data but do not need to be connected all the time.
+VSCP over BLE transports VSCP events using (a) legacy advertising, (b) Bluetooth 5 extended advertising, and (c) connected GATT communication. Advertising is connectionless and provides **no delivery guarantee**. GATT offers bidirectional transfer but does not by itself guarantee application processing. Implementations MUST distinguish the VSCP application event from the BLE advertising data (AD) structure and the link-layer PDU.
 
-VSCP Beacon data packets is always initially sent unencrypted. A VSCP beacon device is connectable and scannable. If you want to have a secure connection you need to connected to the device. The connected device can be used to send and receive data in a secure way. 
+Bluetooth LE 5.0 extended advertising is an **optional controller/host capability**: a Bluetooth 5 version number alone does not establish support. LE 2M and LE Coded PHY are separate optional features. Legacy advertising data is limited to 31 octets; extended advertising can use a chain of PDUs, with an advertising data set of up to 1650 octets where supported. A 255-octet extended advertising PDU payload is **not** equivalent to 255 octets of VSCP data.
 
-Bluetooth 5 also enables an advertising packet to hold up to 255 bytes of data, which is a lot larger than the 31 bytes that was possible in Bluetooth 4.0 up to Bluetooth 4.2. This makes it possible to support more data for VSCP level II frames. The advertising packet can also be sent out at a much higher rate than before. This makes it possible to send out more data in a shorter time. This is useful for devices that need to send out data but do not need to be connected all the time.
+![Bluetooth advertising illustration](./images/ble-advertising-pdu.png)
 
-These features require both devices to be Bluetooth 5 compatible, which isn't currently very common as most smartphones are still support v4.2 or older. But over time this feature will begin getting traction and getting used in a number of applications.
+## 2. Transport profiles
 
-## VSCP legacy beacon devices
+| Profile | BLE mechanism | Intended use | Security |
+| --- | --- | --- | --- |
+| L0 (legacy) | Legacy advertising, optionally scan response | Compatibility with deployed nodes | Legacy limitations apply |
+| E1 (proposed) | Extended advertising, optionally periodic advertising in a future extension | Connectionless measurements, alarms, discovery | Open or authenticated/encrypted |
+| G1 (proposed) | Connected GATT service | Configuration, event exchange, register access | Authenticated provisioning and protected writes |
 
-The general BLE advertising format is max 32 bytes and for VSCP as follows
+An implementation MAY support several profiles. A receiver MUST NOT interpret an unknown frame version as version 0. Security policy MUST be enforced independently of which profiles a device advertises.
 
-| Description | Size | Note |
+## 3. Bluetooth advertising fundamentals
+
+Advertising data is a series of AD structures: **Length (1 octet), AD Type (1 octet), AD Data (Length - 1 octets)**. Manufacturer Specific Data uses AD Type `0xFF` and begins with a **Bluetooth SIG-assigned Company Identifier**, encoded little-endian. `0xFFFF` is reserved for testing and MUST NOT be used as a production company identifier.
+
+Legacy advertising supports at most 31 octets of advertising data and, separately, up to 31 octets of scan-response data. The legacy `ADV_IND` advertising event is connectable and scannable. A scan request is a BLE link-layer operation; it does **not** contain arbitrary VSCP request payload or a VSCP timestamp. A scan response is not guaranteed to arrive, is not bound transactionally to an individual VSCP event, and MUST NOT be treated as reliable delivery.
+
+Extended advertising uses primary-channel pointers to secondary-channel advertising PDUs. The host/controller handles PDU chaining. Extended advertising and legacy connectable/scannable behavior have different combinations and limitations; an implementation MUST use a controller-supported advertising mode. Periodic advertising and LE Coded PHY are optional and MUST be advertised as capabilities, not presumed.
+
+## 4. Legacy advertising (L0, version 0)
+
+The original draft describes a 16-octet VSCP block, optionally encrypted with AES-128 ECB, and a 16-octet continuation in scan-response data. Its field sizes add up to **16 octets**:
+
+| Offset | Field | Octets | Encoding |
+| ---: | --- | ---: | --- |
+| 0 | Node ID | 2 | Last two octets of derived GUID |
+| 2 | Head | 1 | Low 8 bits of VSCP head; legacy bit 4 forced to one |
+| 3 | VSCP class | 2 | Network byte order |
+| 5 | VSCP type | 2 | Network byte order |
+| 7 | Data length | 1 | 0–8 for self-contained frame; legacy extension claimed up to 24 |
+| 8 | VSCP data | 8 | Zero-padded |
+
+The existing flag definition is: bits 0–3 = frame version (0); bits 4–6 reserved; bit 7 = encrypted. The previous text did **not** unambiguously define the exact AD structure enclosing this block, placement of the flags relative to the manufacturer identifier, a normative cipher-key provisioning procedure, or a robust association of scan response with a particular event. Therefore **L0 is a legacy description, not a newly complete interoperable byte-level standard**. Existing deployed encodings MUST be validated against their implementation before changes are made.
+
+Legacy GUID construction is `FF:FF:FF:FF:FF:FF:FF:F8:YY:YY:YY:YY:YY:YY:XX:XX`, where `YY` is the BLE address and `XX` the node ID. This is not a persistent identity when the device uses BLE private addresses. The receiver sets `obid` and event timestamp fields as appropriate.
+
+**Security warning:** AES-128 ECB does not authenticate an event or protect against replay. Legacy encrypted events MUST NOT be used to authorize safety-critical or access-control operations. Existing scan-response continuation is best-effort and MUST NOT be treated as a guaranteed 24-byte VSCP event transport. Receivers SHOULD reject incomplete continuations rather than silently accepting truncated events.
+
+### Legacy connected devices
+
+The former document lists Name (11 bytes), Key (16 bytes), and Period (1 byte) characteristics without UUIDs, properties, access permissions, or framing. These are **historical descriptions only**, not a complete GATT profile. A generic writable plaintext Key characteristic MUST NOT be introduced in new implementations.
+
+## 5. Proposed extended advertising profile E1
+
+### 5.1 General rules
+
+E1 carries one complete VSCP event in a Manufacturer Specific Data AD structure where possible. For the first interoperable revision, **application-level fragmentation is not supported**: if the encoded event does not fit the configured advertising data set, the sender MUST use G1 or another VSCP transport. Bluetooth controller-managed extended-PDU chaining is permitted. Receivers MUST validate the complete AD structure before parsing and MUST reject malformed lengths, unknown versions, unsupported flags, and duplicate/conflicting fields.
+
+**Wire-order convention:** the Company Identifier is little-endian per Bluetooth; all multioctet VSCP fields and the sequence number are big-endian. The GUID is a 16-octet binary value in VSCP canonical order.
+
+### 5.2 E1 cleartext frame, version 1 (proposed normative encoding)
+
+The following offsets are relative to the **AD Data** portion of the Manufacturer Specific Data AD structure (excluding the outer Length and AD Type octets):
+
+| Offset | Field | Octets | Value / semantics |
+| ---: | --- | ---: | --- |
+| 0 | Company ID | 2 | Assigned Bluetooth SIG Company Identifier, little-endian |
+| 2 | Format version | 1 | `0x01` |
+| 3 | Flags | 1 | Bit 0 encrypted; bits 1–7 reserved and MUST be zero |
+| 4 | Sequence | 4 | Unsigned monotonic counter, big-endian, scoped to sender/key epoch |
+| 8 | GUID | 16 | Stable full VSCP GUID |
+| 24 | VSCP head | 2 | Full VSCP header, big-endian |
+| 26 | VSCP class | 2 | Big-endian |
+| 28 | VSCP type | 2 | Big-endian |
+| 30 | Data length | 2 | Big-endian unsigned integer |
+| 32 | Event data | N | Exactly N octets |
+
+An unencrypted E1 AD Data value has **32 + N octets**, plus the outer AD Length and AD Type. The sender MUST ensure that the enclosing AD structure fits the selected advertising data set and the one-octet AD Length field. Therefore a single manufacturer AD structure has at most **254 octets of AD Data** and the E1 cleartext event data is limited to **222 octets**. An advertising data set may be larger, but a single AD structure cannot exceed the one-octet AD Length representation. Larger events require another defined encoding or GATT.
+
+Unencrypted E1 is intended for public telemetry/discovery only. It provides neither authenticity nor confidentiality. Consumers MUST NOT authorize privileged actions based on unencrypted E1 events.
+
+### 5.3 E1 encrypted envelope (design reserved; not yet interoperable)
+
+Flag bit 0 is **reserved for a future authenticated-encryption envelope**. Senders MUST set bit 0 to zero until an interoperable envelope with an assigned key ID, unique nonce construction, authentication tag size, authenticated header fields, persistent counter/epoch behavior, key rotation, and test vectors has been ratified. Receivers MUST reject frames with bit 0 set unless they implement that separately ratified extension.
+
+The future profile SHOULD use a constrained-device AEAD such as AES-CCM, authenticate the version, flags, identity, sequence and event metadata as associated data or ciphertext, and define replay protection. AES-ECB MUST NOT be used for E1. A device MUST NOT silently downgrade a command requiring authentication to unencrypted E1.
+
+### 5.4 Identity, sequence and replay
+
+A stable VSCP GUID MUST NOT be derived solely from a rotating BLE private address. The 32-bit sequence counter helps detect duplicates but, without authentication, **does not provide replay security**. Counter wraparound, reboot and key-epoch transitions MUST be specified in the future authenticated profile. Receivers MAY deduplicate cleartext telemetry using (GUID, sequence) within a bounded window; such deduplication is not a security guarantee.
+
+### 5.5 Example byte encoding (proposed; illustrative)
+
+For test-only Company ID `0xFFFF`, version 1, flags 0, sequence 1, GUID `00:01:02:03:04:05:06:07:08:09:0A:0B:0C:0D:0E:0F`, head `0x0000`, class `0x000A`, type `0x0006`, data `11 22`:
+
+```text
+AD Length: 0x23 (35 = AD Type 1 + AD Data 34)
+AD Type:   FF
+AD Data:
+  FF FF 01 00 00 00 00 01
+  00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
+  00 00 00 0A 00 06 00 02 11 22
+```
+
+This is a **synthetic encoding test**, not a claim that the chosen VSCP class/type/data combination is a valid application event. A production sender MUST replace the test Company ID with its assigned identifier.
+
+## 6. Proposed connected GATT profile G1
+
+G1 SHOULD expose a dedicated VSCP service with these logical characteristics:
+
+| Characteristic | Properties | Purpose |
 | --- | --- | --- |
-| length | 1 byte | Length for name |
-| type | 1 bytes | Type for name. 6 |
-| name | 0-10 bytes | Device real text name |
-| Manufacturer | 2 bytes | Bluetooth manufacturer id, use 0xFFFF for test. Note that little endian is used for this value. |
-| Flags | 1 byte | 0x01 |
-| **node id** | 2 bytes | Node id. This is the last two bytes of the GUID. |
-| **head** | 1 byte | VSCP Head. Bit 4 is always set to one (hardcoded). |
-| **vscp-class** | 2 bytes | VSCP class |
-| **vscp-type** | 2 bytes | VSCP type |
-| **sizeData** | 1 byte | Number of data bytes (0-8/24). |
-| **VSCP data** | 8 bytes | VSCP data (unused bytes set to zero) |
+| Capabilities | Read | Supported profiles, frame versions, MTU/size limits, security modes |
+| Device GUID | Read | Stable 16-octet GUID |
+| Event TX | Notify | Peripheral-to-central framed VSCP events |
+| Event RX | Write | Central-to-peripheral framed VSCP events |
+| Control | Read/Write/Indicate | Negotiation, status, application errors |
+| Configuration | Read/Write | Authorized transport configuration |
+| Security status | Read | Provisioning and authorization state |
 
-The VSCP part of the advertisement frame is always 16 bytes long (bold in table). This is true even if the data field is less than 8 bytes. In this case the data field is padded with zeros to make it 8 bytes long. This is because we want a 16-byte part of the frame which we can encrypt with AES-128 ECB.
+**UUIDs are intentionally unassigned.** This table is an architecture proposal, not a usable interoperable GATT service. Before publishing G1 as normative, allocate and publish 128-bit UUIDs and specify characteristic permissions, wire frames, ATT MTU handling, fragmentation, credits/flow control, response/error codes, ordering, disconnect behavior, and capability negotiation.
 
-Bold data is part iof encrypted part of frame.
+Configuration and command writes MUST require appropriate authenticated authorization. Do not expose plaintext key material via a generic Key characteristic. BLE link encryption alone MUST NOT be assumed to authorize an application-level command; the implementation must enforce its own trust and provisioning policy.
 
-**cnt** can be 0-8/24 bytes.  If cnt is greater then 8 bytes (9-24) a response frame will be used to send the extra data bytes. More information about this below. This makes it possible to send certain VSCP level II events who's data fits in the 24 byte max data limit.
+## 7. Security requirements
 
-  * GUID is constructed from BLE MAC, prefix _FF:FF:FF:FF:FF:FF:FF:F8:YY:YY:YY:YY:YY:YY:XX:XX_ where _YY:YY:YY:YY:YY:YY_ is the BLE MAC and _XX:XX_ is the node id. 
-  * obid is set by receiver, zero if not used.
-  * time fields is set by receiver
-  * Encryption block is [node-id, head, vscp-class, vscp-type, cnt, VSCP-data (always 8-bytes)]
+The following application policy classes are proposed:
 
-### Flags
-| Bits | Description |
-| --- | --- |
-| 0-3 | Frame version (currently 0) |
-| 4-6 | Reserved |
-| 7 | Frame is encrypted (if set). |
-
-### Head
-This is the 8 low bits of the VSCP standard header.
-
-### Scan response
-The scan response is used to send back data to the device that sent the scan request. For a VSCP BLE node the scan request contain the following data
-
-| Description | Size | Note |
+| Policy | Requirement | Example |
 | --- | --- | --- |
-| timestamp | 4 bytes | Microsecond timestamp |
-| **data** | 16 bytes | Extra data. The extra data is either 0 or 16 in length padded with zero. |
+| S0 | No application-layer authenticity | Public temperature telemetry |
+| S1 | Authenticated integrity and anti-replay | Trusted alarm reporting |
+| S2 | Authenticated encryption and anti-replay | Access control and sensitive configuration |
 
-Data is encrypted if the encryption bit is set in the advertising frame.
+**Only S0 is currently encoded by the proposed E1 cleartext frame.** S1 and S2 are requirements for future normative security envelopes, not implementations specified by this revision. They MUST define cryptographic algorithms, keys, nonce/counter lifecycle, tag validation, replay windows, rekeying, downgrade resistance, and known-answer tests. A receiver MUST fail closed for an event requiring a higher policy than the received frame provides.
 
-## VSCP connectable devices
+## 8. Interoperability and error handling
 
-When a VSCP device advertise it uses **ADV_IND**  This means the beacon frames are scannable and connectable. 
+An E1 receiver MUST:
+1. Parse the outer AD Length and AD Type and verify the manufacturer AD structure is complete.
+2. Match the expected Company ID and frame version.
+3. Reject any reserved flag bits, encrypted frames without a ratified envelope, or unsupported versions.
+4. Verify that the data length equals the exact remaining number of octets.
+5. Preserve the 16-octet GUID, full head, class, type and data without reinterpretation.
+6. Bound allocations and parsing work to configured resource limits.
+7. Never interpret an incomplete or unauthenticated event as an authenticated control command.
 
-Beacon frames will not be available after the connection is established.
+A test suite SHOULD include zero-length data, the largest permitted single-AD event, truncated AD structures, off-by-one lengths, invalid version, reserved bits, duplicate sequences, controller feature absence, and legacy-version separation.
 
-### Characteristics
+## 9. Implementation and compatibility guidance
 
-| Description | Size | Note |
-| --- | --- | --- |
-| Name | 11 bytes | Name of device |
-| Key | 16 bytes | Encryption key |
-| Period | 1 bytes | Advertising period |
+- Keep existing L0 implementations unchanged unless tested against real deployed traffic.
+- Prefer E1 for short, connectionless public events on controllers supporting extended advertising.
+- Prefer G1 (once ratified) or another established secure VSCP transport for bidirectional or privileged operations.
+- Do not assume every BLE 5 controller supports extended advertising, LE 2M, LE Coded PHY, or periodic advertising.
+- Keep the legacy format and new version 1 on separately recognizable frame encodings; do not infer the version from a Bluetooth PHY.
+- For large VSCP Level II events, use GATT or another transport until a fully specified fragmentation/large-event encoding is standardized.
 
-Appearance is one of - https://www.bluetooth.com/wp-content/uploads/Files/Specification/Assigned_Numbers.html#bookmark49
+## 10. Open standardization decisions
 
+The following MUST be resolved before declaring E1/G1 a final VSCP transport standard:
 
-## BLE 5.0 format
+1. Which assigned Company Identifier or Service Data UUID identifies VSCP on the wire?
+2. Is the full GUID required in every E1 advertisement, or is a separately provisioned compact identity mode needed?
+3. Which authenticated-encryption envelope and provisioning method will be reused from the broader VSCP security model?
+4. Which GATT UUIDs, exact event wire encoding, flow control, and application error model will be standardized?
+5. Should large events use multiple AD structures, an application fragment format, or connected transfer only?
+6. Which hardware/host combinations form the interoperability reference test matrix?
 
-To be defined.
+## 11. References
+
+- [Bluetooth SIG specifications and assigned numbers](https://www.bluetooth.com/specifications/specs/)
+- [Bluetooth Core Specification](https://www.bluetooth.com/specifications/specs/core-specification/)
+- [VSCP specification repository](https://github.com/grodansparadis/vscp-doc-spec)
+- [VSCP Bluetooth mesh transport](./vscp_over_bt_mesh.md)
 
 [filename](./bottom_copyright.md ':include')
