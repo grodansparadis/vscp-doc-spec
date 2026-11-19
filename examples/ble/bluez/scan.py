@@ -36,6 +36,9 @@ def observe(path, props):
         return
     key = (path, event[0], event[1])
     if key not in seen:
+        # Bound this observer's cache; eviction may allow a repeat to be printed.
+        if len(seen) >= 4096:
+            seen.pop()
         seen.add(key)
         print("GUID=%s seq=%d class=%d type=%d data=%s" %
               (event[0], event[1], event[2], event[3], event[4].hex()))
