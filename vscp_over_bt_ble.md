@@ -407,7 +407,7 @@ G1 uses the same canonical VSCP GUID byte order as E1. All G1 multioctet integer
 | 2 | Record flags | 1 | `0x00` (all bits reserved) |
 | 3 | Reserved | 1 | `0x00` |
 | 4–7 | Transaction ID | 4 | Sender-selected, nonzero; unique among in-flight records on that connection |
-| 8–9 | VSCP event length | 2 | `L = 22 + N` |
+| 8–9 | VSCP event length | 2 | `L = 24 + N` |
 | 10–25 | Sender GUID | 16 | Canonical 16-octet GUID |
 | 26–27 | VSCP head | 2 | Full 16-bit VSCP head |
 | 28–29 | VSCP class | 2 | 16-bit VSCP class |
@@ -415,7 +415,7 @@ G1 uses the same canonical VSCP GUID byte order as E1. All G1 multioctet integer
 | 32–33 | VSCP data length | 2 | `N` |
 | 34–(33+N) | VSCP event data | N | Exactly N octets |
 
-The record is **34 + N** octets, with `L=22+N` denoting the 16-byte GUID, 2-byte head, 2-byte class, 2-byte type, 2-byte data length, and `N` data octets. The record carries no implicit timestamp or obid; gateways may supply these as local metadata. `N` MUST be between 0 and the negotiated `max_event_data`, never greater than 487 octets for this G1 revision. The maximum record size is therefore 521 octets. Zero GUID, unsupported record kind/version/flags, or inconsistent lengths MUST be rejected.
+The record is **34 + N** octets, with `L=24+N` denoting the 16-byte GUID, 2-byte head, 2-byte class, 2-byte type, 2-byte data length, and `N` data octets. The record carries no implicit timestamp or obid; gateways may supply these as local metadata. `N` MUST be between 0 and the negotiated `max_event_data`, never greater than 487 octets for this G1 revision. The maximum record size is therefore 521 octets. Zero GUID, unsupported record kind/version/flags, or inconsistent lengths MUST be rejected.
 
 ### 6.3 ATT fragmentation
 
