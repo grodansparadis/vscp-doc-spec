@@ -776,12 +776,8 @@ The following MUST be resolved before declaring E1/G1 a final VSCP transport sta
 
 ## 12. References
 
-- [BLE implementation examples for ESP32, Nordic, Zephyr and Linux BlueZ](./examples/ble/README.md)
-
-
-- [BLE interoperability tests, E1/A2 byte vectors and platform matrix](./tests/ble_interoperability.md)
-
-
+- [vscp-ble: reference implementation, examples for ESP32, Nordic, Zephyr and Linux BlueZ](https://github.com/grodansparadis/vscp-ble)
+- [vscp-ble conformance and interoperability tests, E1/A2 byte vectors](https://github.com/grodansparadis/vscp-ble/blob/master/docs/conformance.md)
 - [Bluetooth SIG specifications and assigned numbers](https://www.bluetooth.com/specifications/specs/)
 - [Bluetooth Core Specification](https://www.bluetooth.com/specifications/specs/core-specification/)
 - [VSCP specification repository](https://github.com/grodansparadis/vscp-doc-spec)
