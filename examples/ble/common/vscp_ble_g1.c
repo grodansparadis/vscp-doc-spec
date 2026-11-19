@@ -30,20 +30,21 @@ size_t vscp_g1_fragment(uint8_t *o,size_t cap,const uint8_t *record,
 }
 int vscp_g1_feed(vscp_g1_reassembly *r,const uint8_t *f,size_t len,
                  uint64_t now,size_t max_record){
-    if(!r||!f||len<9||f[0]!=1||(f[1]&~3u)||!rd32(f+2)||
-       max_record<34||max_record>521)return -1;
+    if(!r)return -1;
+    if(!f||len<9||f[0]!=1||(f[1]&~3u)||!rd32(f+2)||
+       max_record<34||max_record>521){vscp_g1_reset(r);return -1;}
     if(r->active&&((now<r->started_ms)||(now-r->started_ms>5000))){
         vscp_g1_reset(r);return -1;
     }
     size_t off=rd16(f+6),chunk=len-8;uint32_t id=rd32(f+2);
     if(off==0){
         if(!(f[1]&1)||chunk<10||r->active||f[8]!=1||f[9]!=1||
-           f[10]!=0||f[11]!=0||rd32(f+12)!=id)return -1;
+           f[10]!=0||f[11]!=0||rd32(f+12)!=id){vscp_g1_reset(r);return -1;}
         size_t total=12u+rd16(f+16);
-        if(total<34||total>max_record||total>521||chunk>total)return -1;
+        if(total<34||total>max_record||total>521||chunk>total){vscp_g1_reset(r);return -1;}
         vscp_g1_reset(r);r->active=1;r->transaction=id;
         r->expected=total;r->started_ms=now;
-    } else if(!r->active||(f[1]&1)||r->transaction!=id)return -1;
+    } else if(!r->active||(f[1]&1)||r->transaction!=id){vscp_g1_reset(r);return -1;}
     if(off!=r->received||chunk>r->expected-off){vscp_g1_reset(r);return -1;}
     memcpy(r->record+off,f+8,chunk);r->received+=chunk;
     if(r->received==r->expected){
