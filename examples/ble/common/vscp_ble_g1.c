@@ -47,6 +47,7 @@ int vscp_g1_feed(vscp_g1_reassembly *r,const uint8_t *f,size_t len,
     } else if(!r->active||(f[1]&1)||r->transaction!=id){vscp_g1_reset(r);return -1;}
     if(off!=r->received||chunk>r->expected-off){vscp_g1_reset(r);return -1;}
     memcpy(r->record+off,f+8,chunk);r->received+=chunk;
+    r->started_ms=now;
     if(r->received==r->expected){
         if(!(f[1]&2)||r->record[0]!=1||r->record[1]!=1||
            r->record[2]!=0||r->record[3]!=0||
