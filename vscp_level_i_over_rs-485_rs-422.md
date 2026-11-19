@@ -35,7 +35,7 @@ sequenceDiagram
 ##### Frame format
 
  | Byte | Content                                              | 
- | :----: | :-------                                              | 
+ | :----: | :-------                                           | 
  | 0    | Nine bit destination address                         | 
  | 1    | Originating address (master=0)                       | 
  | 2    | Operation (see below)                                | 
@@ -83,7 +83,26 @@ The DOW checksum is used. [https://www.vscp.org/wiki/doku.php?id=vscp_specificat
  | 4   | Bit nine of Class.               | 
  | 5-7 | reserved and should be set to 0. | 
 
+## Work in progress: V1 clarification proposal
 
+**Status: experimental and non-normative.** This section records a candidate interpretation for implementation and interoperability testing. It does not replace or silently amend the existing description above. Do not claim compatibility with deployed VSCP devices until the open questions below have been checked against existing firmware or captured bus traffic.
+
+### Provisional UART and frame interpretation
+
+- The first UART character is a nine-bit destination word. The candidate interpretation treats bit 8 as an address marker and bits 0–7 as a numeric address from 0 to 127. All following characters are eight-bit data.
+- The candidate EVENT frame contains a destination word, source, operation, flags, class low byte, type, 0–8 data bytes, and CRC: `7 + data_length` UART characters in total.
+- The candidate POLL and NO_EVENTS short frames each contain four characters: destination word, source, operation, and CRC. Flags, class, type, and data are omitted.
+- For EVENT, flags bits 0–3 carry data length, bit 4 carries class bit 8, and bits 5–7 are zero. Class is 0–511 and type is 0–255.
+- The prototype CRC is CRC-8/MAXIM-DOW (reflected polynomial `0x8c`, initial value 0, final XOR 0). It covers the low eight bits of the destination followed by the remaining frame bytes before the CRC; the ninth address marker is not included.
+- The coordinator polls nodes; an addressed node may return one event or NO_EVENTS in its response slot. Nodes do not send unsolicited frames on a shared half-duplex bus.
+
+These are software-prototype assumptions, **not verified wire-level requirements**. In particular, the CRC check string `123456789 -> A1` checks only the CRC algorithm, not legacy VSCP CRC coverage or frame compatibility.
+
+### Decisions required before normative publication
+
+Confirm the ninth-bit meaning and address filtering, short-frame layout, CRC parameters and byte coverage against deployed firmware. Define legal/reserved addresses and duplicate-address handling; response deadlines and turnaround timing for each supported UART/transceiver; frame recovery after timeout or UART errors; and separate physical profiles for half-duplex RS-485 and full-duplex RS-422. GUID mapping and event delivery/queue semantics also remain to be specified.
+
+The Linux UART capability probe and backend limitations are described in [the RS-485 UART backend proposal](./proposals/rs485-linux-uart-backends.md). A positive ioctl capability report does not establish nine-bit VSCP interoperability. Promote this proposal into the normative specification only after independent golden vectors and physical tests pass.
 
 [filename](./bottom_copyright.md ':include')
 
