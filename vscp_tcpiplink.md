@@ -70,6 +70,28 @@ For some commands there can be data in between the two lines. For instance the â
     received line 1: '1,0,0<CR><LF>
     received line 2: '+OK - Success.<CR><LF>
 
+A typical session with login looks like this
+
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+    C->>S: TCP connect (default port 9598)
+    C->>S: USER username
+    S-->>C: +OK - User name accepted, password please.
+    C->>S: PASS password
+    alt valid credentials
+        S-->>C: +OK - Success.
+        C->>S: SEND / RETR / other commands
+        S-->>C: +OK / -OK responses
+        C->>S: QUIT
+        S-->>C: +OK - Success.
+    else invalid credentials
+        S-->>C: -OK - Invalid username or password.
+        Note over S: The connection is closed
+    end
+```
+
 ## List of defined commands
 
  | Command  | Privilege | Link | From version | Description  |
@@ -425,6 +447,20 @@ No argument.
 ## QUITLOOP - quit receiving loop :id=tcpip-quitloop
 
 Quit a receive loop started by the RCVLOOP command.
+
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+    C->>S: RCVLOOP
+    S-->>C: +OK - Success.
+    loop while receive loop is active
+        S-->>C: event (same format as RETR)
+        S-->>C: +OK (keep-alive, every two seconds)
+    end
+    C->>S: QUITLOOP
+    S-->>C: +OK - Success.
+```
 
 ### Argument
 No argument.

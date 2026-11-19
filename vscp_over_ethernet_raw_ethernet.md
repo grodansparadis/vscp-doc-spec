@@ -34,6 +34,32 @@ VSCP can use Ethernet directly making it possible to construct very low end node
 
 Time should always be UTC time. If the time block is set to all zero the current time will be set by interface (VSCP Server for example).
 
+```mermaid
+packet
+  +48: "Destination MAC (FF:FF:FF:FF:FF:FF)"
+  +48: "Source MAC (part of GUID)"
+  +16: "Ethernet type (0x257E)"
+  +8: "Version (1)"
+  +8: "Packet type & encryption"
+  +16: "VSCP head"
+  +32: "Timestamp"
+  +16: "Year"
+  +8: "Month"
+  +8: "Day"
+  +8: "Hour"
+  +8: "Minute"
+  +8: "Second"
+  +16: "VSCP class"
+  +16: "VSCP type"
+  +128: "Originating GUID"
+  +16: "Data size"
+  +32: "Payload (0-487 bytes, variable length)"
+  +16: "crc"
+  +128: "Optional IV for AES (16 bytes)"
+```
+
+_The Ethernet preamble, SOF and the trailing 32-bit Ethernet CRC are omitted in the diagram above._
+
 ##### Definition of type
 
  | Bits    | Description                  | 

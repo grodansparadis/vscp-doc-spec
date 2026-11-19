@@ -8,6 +8,14 @@ Level I is effective over bandwidth limited links but don't have the full GUID o
 
 Level II use the full GUID and can handle more data. This level is useful for nodes which have more resources.
 
+```mermaid
+flowchart TD
+    E["VSCP events"] --> L1["Level I<br>max 8 data bytes, nickname addressing<br>designed for bandwidth limited links"]
+    E --> L2["Level II<br>full GUID in every frame, up to 512 data bytes<br>for nodes with more resources"]
+    L1 --> T1["CAN (CAN4VSCP), RS-232, RS-485/RS-422,<br>RF links (LoRa, IEEE 802.15.4), ..."]
+    L2 --> T2["TCP/IP, UDP, multicast, raw Ethernet,<br>MQTT, websocket, REST, ..."]
+```
+
 
 
 ## Transport protocols currently used by VSCP

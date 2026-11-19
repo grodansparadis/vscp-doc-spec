@@ -22,6 +22,21 @@ General multicast information can be found [here](https://www.juniper.net/techpu
 | Network | May cause network bandwidth waste and congestion | Controllable network bandwidth | 
 | Rate | Slow | Fast |
 
+```mermaid
+flowchart LR
+    subgraph bc["Broadcast - one to all"]
+        SB["Sender"] --> H1["Host 1"]
+        SB --> H2["Host 2"]
+        SB --> H3["Host 3<br>(not interested,<br>still receives)"]
+    end
+    subgraph mc["Multicast - one to many"]
+        SM["Sender"] --> G["Multicast group<br>224.0.23.158 port 9598"]
+        G --> M1["Group member 1"]
+        G --> M2["Group member 2"]
+        H4["Host outside the group<br>receives nothing"]
+    end
+```
+
 ## Packet format
 
 See [VSCP general binary protocol](https://grodansparadis.github.io/vscp-doc-spec/#/./vscp_over_binary) for the general binary protocol. The UDP protocol is a subset of the general binary protocol

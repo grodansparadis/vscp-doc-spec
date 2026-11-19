@@ -24,6 +24,19 @@ The MDF file have the following general structure:
  - **decision matrix**: Describes the decision matrix for the module if it have one.
  - **setup**: Is macros to setup and configure and control a module using wizard like interfacec.
 
+```mermaid
+flowchart TD
+    MDF["MDF<br>(XML or JSON format)"] --> GI["General module<br>information"]
+    MDF --> MAN["Manufacturer"]
+    MDF --> FIL["Files<br>(firmware, pictures,<br>manuals, ...)"]
+    MDF --> BL["Bootloader<br>information"]
+    MDF --> REG["Registers"]
+    MDF --> RV["Remote<br>variables"]
+    MDF --> EV["Events"]
+    MDF --> DM["Decision<br>matrix"]
+    MDF --> SU["Setup<br>wizards"]
+```
+
 ## XML Format Specification
 
 ### Format notes  

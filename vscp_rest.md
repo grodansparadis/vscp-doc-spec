@@ -39,6 +39,21 @@ You can use **GET** or **POST** HTTP requests. They differ a little in format as
 
 A REST session normally lives between **open** and **close** HTTP requests. If for some reason a rest session is not closed and not accessed within ten minutes the system will regard it as an orphan and close it. To issue a *status* HTTP request from time to time is a good way to hold a session open. But any other of the HTTP requests that need the session value also will do.
 
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as REST interface
+    C->>S: op=open, vscpuser, vscpsecret
+    S-->>C: success + vscpsession key
+    loop active session
+        C->>S: op=sendevent / readevent / status / ... with vscpsession
+        S-->>C: response (plain/csv/xml/json/jsonp)
+    end
+    Note over C,S: A session not accessed within ten minutes<br>is regarded as an orphan and closed
+    C->>S: op=close with vscpsession
+    S-->>C: success
+```
+
 ### JSONP
 
 If you are using JavaScript in a web browser to retrieve data, then you might be interested in using the JSONP format. JSONP allows you to make to requests from a server from a different domain, which is normally not possible because of the same-origin policy.

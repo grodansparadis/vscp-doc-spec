@@ -136,6 +136,36 @@ typedef vscpEventEx *PVSCPEVENTEX;
 
 The main differences from Level I are that the full GUID is sent with each event, and both the class and type fields are 16 bits wide.
 
+The two structures hold the same information and only differ in how the data block is stored:
+
+```mermaid
+classDiagram
+    class vscpEvent {
+        uint16_t head
+        uint32_t obid
+        TimeBlock time
+        uint16_t vscp_class
+        uint16_t vscp_type
+        uint8_t[16] GUID
+        uint16_t sizeData
+        uint8_t* pdata
+        uint16_t crc
+    }
+    class vscpEventEx {
+        uint16_t head
+        uint32_t obid
+        TimeBlock time
+        uint16_t vscp_class
+        uint16_t vscp_type
+        uint8_t[16] GUID
+        uint16_t sizeData
+        uint8_t[512] data
+        uint16_t crc
+    }
+    note for vscpEvent "Data in dynamically allocated<br>memory pointed to by pdata"
+    note for vscpEventEx "Data stored inside<br>the structure itself"
+```
+
 The CRC is calculated using the CCITT polynomial.
 
 The stream format is described in the relevant transport specification.
@@ -180,6 +210,26 @@ The stream format is described in the relevant transport specification.
 #define VSCP_MULTICAST_PACKET0_POS_VSCP_SIZE_LSB        35
 
 #define VSCP_MULTICAST_PACKET0_POS_VSCP_DATA            36
+```
+
+The datagram layout (bit offsets shown, divide by eight for the byte offsets listed above):
+
+```mermaid
+packet
+  +8: "Packet type"
+  +16: "head"
+  +32: "timestamp"
+  +16: "year"
+  +8: "month"
+  +8: "day"
+  +8: "hour"
+  +8: "minute"
+  +8: "second"
+  +16: "vscp_class"
+  +16: "vscp_type"
+  +128: "GUID"
+  +16: "sizeData"
+  +32: "data (0-512 bytes, variable length)"
 ```
 
 The `obid` and time fields are not present in this datagram layout. They are inserted by the driver or interface software when the datagram is converted to a VSCP event.

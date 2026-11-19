@@ -19,6 +19,19 @@ The events is standard VSCP Level I events in every other aspect.
 
 A master on a RS-485 segment must check for new nodes on regular intervals. With 127 possible nodes this process could take 1.3 seconds to perform. Instead of doing all this at once it may be better to spread it over the standard polling range. That is to do a full polling of all active nodes and then try to discover a new node on an unused address etc etc. 
 
+```mermaid
+sequenceDiagram
+    participant M as Master<br>(address 0)
+    participant N as Node<br>(address n)
+    M->>N: Poll for event (operation=2)
+    alt node has an event to send
+        N-->>M: Level I event (operation=1)<br>within one max packet time (10 ms)
+    else no events
+        N-->>M: No events to send (operation=3)
+    end
+    Note over M: The master also polls unused addresses<br>at regular intervals to discover new nodes
+```
+
 ##### Frame format
 
  | Byte | Content                                              | 
@@ -38,6 +51,18 @@ A master on a RS-485 segment must check for new nodes on regular intervals. With
  | 12   | Data byte 6                                          | 
  | 13   | Data byte 7                                          | 
  | 14   | Packet CRC (counted from address (low 8-bits of it). | 
+
+```mermaid
+packet
+  +8: "Destination address"
+  +8: "Originating address"
+  +8: "Operation"
+  +8: "Flags + class bit 9"
+  +8: "VSCP class (low 8 bits)"
+  +8: "VSCP type"
+  +64: "Data bytes 0-7"
+  +8: "CRC"
+```
 
 The DOW checksum is used. [https://www.vscp.org/wiki/doku.php?id=vscp_specification_crc_polynoms.](https://www.vscp.org/wiki/doku.php?id=vscp_specification_crc_polynoms.)
 

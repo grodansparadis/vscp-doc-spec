@@ -55,6 +55,28 @@ union {
 
 When `timestamp_ns` is used, `year` and `month` act as flags and do not contain datetime values. When the legacy representation is used, `day`, `hour`, `minute`, `second`, and `timestamp` contain the UTC date and relative time information.
 
+The two interpretations of the time block look like this. Legacy representation:
+
+```mermaid
+packet
+  +16: "year"
+  +8: "month (1-12)"
+  +8: "day"
+  +8: "hour"
+  +8: "minute"
+  +8: "second"
+  +32: "timestamp (relative, microseconds)"
+```
+
+When `year` is 0xFFFF and `month` is 0xFF:
+
+```mermaid
+packet
+  +16: "year = 0xFFFF (flag)"
+  +8: "month = 0xFF (flag)"
+  +64: "timestamp_ns (Unix nanoseconds, MSB first)"
+```
+
 ## Conversion rules
 
 When **receiving** an event:
@@ -66,6 +88,19 @@ When **receiving** an event:
 5. If no absolute time is supplied, assign the current time at the receiving end as required by the relevant protocol.
 
 When **sending** an event, new software SHOULD use `timestamp_ns`. Receivers MUST continue to accept the legacy `datetime` and `timestamp` fields for backward compatibility.
+
+```mermaid
+flowchart TD
+    R["Event received"] --> A{"timestamp_ns<br>present?"}
+    A -->|"yes"| U1["Use timestamp_ns<br>as absolute time"]
+    A -->|"no"| B{"datetime<br>present?"}
+    B -->|"yes"| C["Convert datetime<br>to Unix nanoseconds"]
+    C --> D{"legacy timestamp<br>present?"}
+    D -->|"yes"| E["Add timestamp x 1000<br>nanoseconds"]
+    D -->|"no"| U2["Use converted value<br>as absolute time"]
+    E --> U2
+    B -->|"no"| F["Assign current time<br>at the receiving end"]
+```
 
 ## String format
 

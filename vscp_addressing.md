@@ -12,6 +12,11 @@ VSCP identify a device or remote node by it's GUID. This is a 128-bit number tha
 
 It is important to remeber that the GUID is still the real identity of the device. The nickname is just a shorter proxy address that is used to address the device on the bus. It is still hardly connected to the GUID.
 
+```mermaid
+flowchart LR
+    G["GUID<br>128-bit globally unique identity<br>hard coded into the device"] <-->|"always possible to map<br>between the two"| N["Nickname<br>8-bit (or 16-bit) proxy address<br>discovered or assigned on the bus,<br>stored in non-volatile memory"]
+```
+
 For standard most level I cases only 253 devices can be connected to a VSCP bus at the lowest level. This is because the nickname 0 is reserved for a central host and 254 is used by a node that is in bootloder mode and is without a nickname and lastly 255 is used for node that does not have a nickname yet.
 
 In some cases the nickname uses 16-bits and allow for more nodes on the bus. In this case also nickname=0 is reserved fro a central host, 0xFFFE for a node that has not yet got a nickname assigned to it and which is in bootloader mode. And last 0xFFFF is used for a node that has not yet got a nickname assigned to it.
@@ -33,6 +38,14 @@ FF:FF:FF:FF:FF:FF:FF:F3:XX:XX:XX:XX:YY:YY:ZZ:ZZ
 ```
 
 which is reserved for VSCP interfaces.
+
+```mermaid
+packet
+  +64: "FF:FF:FF:FF:FF:FF:FF:F3 (reserved VSCP interface prefix)"
+  +32: "Host (XX:XX:XX:XX)"
+  +16: "Interface (YY:YY)"
+  +16: "Node nickname (ZZ:ZZ)"
+```
 
 | GUID | Description |
 |------|-------------|

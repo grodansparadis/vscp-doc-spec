@@ -97,6 +97,21 @@ VSCP_TYPE_PROTOCOL_PROBE_ACK
 
 This event is sent from a node as a response to a probe. There are no arguments.
 
+The nickname discovery procedure using probe and probe ACK looks like this
+
+```mermaid
+sequenceDiagram
+    participant New as New node<br>(temporary nickname 0xFF)
+    participant N0 as Node with nickname 0
+    participant N1 as Node with nickname 1
+    Note over New: Starts nickname discovery
+    New->>N0: Probe (Type=2, target address=0)
+    N0-->>New: Probe ACK (Type=3)
+    Note over New: Nickname 0 is in use, try the next one
+    New->>N1: Probe (Type=2, target address=1)
+    Note over New: No probe ACK within timeout -<br>nickname 1 is free and is taken
+    New-->>N1: New node on line (Type=2, origin=1, byte 0=1)
+```
 
 ----
 
@@ -152,6 +167,15 @@ VSCP_TYPE_PROTOCOL_NICKNAME_ACCEPTED
 **Mandatory.** Must be implemented by all level I devices.
 
 A node sends this event to confirm that it accepts its assigned nickname-ID. When sending this event the node uses its newly assigned nickname address.
+
+```mermaid
+sequenceDiagram
+    participant H as Host /<br>segment controller
+    participant N as Node<br>(nickname 0x42)
+    H->>N: Set nickname-ID (Type=6, old=0x42, new=0x11)
+    Note over N: Node starts using nickname 0x11
+    N-->>H: Nickname-ID accepted (Type=7, origin=0x11)
+```
 
 ----
 
@@ -293,6 +317,19 @@ The following format can be used for nodes on a Level II segment as a midway bet
  | 16 | Reserved. | 
  | 17 | Register to write.   | 
  | 18 | Content of register. | 
+
+A typical register read/write exchange (Type=9/10/11) looks like this
+
+```mermaid
+sequenceDiagram
+    participant H as Host
+    participant N as Node<br>(nickname 0x42)
+    H->>N: Read register (Type=9, address=0x42, register=0xD0)
+    N-->>H: Read/Write response (Type=10, register=0xD0, content)
+    H->>N: Write register (Type=11, address=0x42, register=0x22, content)
+    N-->>H: Read/Write response (Type=10, register=0x22, content)
+    Note over H: The returned content should be<br>checked for validity in both cases
+```
 
 ----
 

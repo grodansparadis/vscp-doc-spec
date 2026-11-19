@@ -241,6 +241,26 @@ The standard vscp password hash is calculated over `username:password`.
  - *events* Get all allowed events as a comma separated string. An empty list means all events are allowed.
  - *note*  is a text note about the user and it is base64 coded to allow special characters.
 
+The full ws1 authentication exchange looks like this
+
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Websocket server
+    C->>S: Connect to http[s]://server:port/ws1
+    S-->>C: #43;#59;AUTH0#59;sid (security challenge)
+    Note over C: AES-128 encrypt "username:password"<br>with key=vscpkey and iv=sid
+    C->>S: C#59;AUTH#59;sid#59;crypto
+    alt valid credentials
+        S-->>C: #43;#59;AUTH1#59;userid#59;...#59;note
+        C->>S: C#59;OPEN (start receiving events)
+    else invalid credentials
+        S-->>C: #45;#59;8,Not authorized
+        Note over S: A new sid is generated
+        C->>S: C#59;CHALLENGE (get the new sid before retrying)
+    end
+```
+
 #### OPEN :id=ws1-open
 
 Start receiving events. Collected events in queue will be sent. Positive/negative response is returned.
@@ -602,6 +622,25 @@ and if invalid the server will respond with
 The error code/message may be different depending on the cause of the negative reply. See [possible error codes](#ws1-error-codes) above.
 
 Note that in addition to the credentials the client ip address must also be valid as of the configuration for the interface.
+
+The full ws2 authentication exchange looks like this
+
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Websocket server
+    C->>S: Connect to http[s]://server:port/ws2
+    S-->>C: {"type":"+", "args":["AUTH0", sid]}
+    Note over C: AES-128 encrypt "username:password"<br>with the shared secret key and iv=sid
+    C->>S: {"type":"cmd", "command":"auth", "args":{"iv":sid, "crypto":...}}
+    alt valid credentials
+        S-->>C: {"type":"+", "command":"AUTH"}
+        C->>S: {"type":"cmd", "command":"open"}
+    else invalid credentials
+        S-->>C: {"type":"-", "command":"AUTH", "error-code":8}
+        C->>S: {"type":"cmd", "command":"challenge"} to get a new sid
+    end
+```
 
 #### CHALLENGE :id=ws2-challenge
 

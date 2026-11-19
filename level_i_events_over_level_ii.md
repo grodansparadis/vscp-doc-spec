@@ -8,6 +8,12 @@ Instead of writing numbers a class can be described as **CLASS2.level1.XXXX** in
 
 This type of classes have the same data content as level I classes except that the data is shifted 16-bytes. The first 16 bytes are instead used for the destination GUID. This is typically the GUID for a specific node or a GUID for an interface on a node or at the [VSCP Daemon](https://docs.vscp.org/#vscpd).
 
+```mermaid
+packet
+  +128: "Destination GUID (16 bytes, MSB first)"
+  +64: "Original Level I event data (0-8 bytes)"
+```
+
 Naming events of this group **proxy events** is valid as the communication interface often act as a proxy. You talk to the interface and the interface do the actual talking to the device/node on your behalf.
 
 ----

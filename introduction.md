@@ -99,6 +99,18 @@ When its job is done as a confirmation for the rest of the system.
 
 An application does not need to bother how the actual control is done. On the application level it's enough to implement a button and some visual indication to indicate the outcome of the operation.
 
+```mermaid
+sequenceDiagram
+    participant App as Application
+    participant Drv as Driver
+    participant Dev as Device<br>(Matter/Zigbee/KNX/X10/...)
+    App->>Drv: CLASS1.CONTROL, Type=5, TurnOn
+    Drv->>Dev: Technology specific command
+    Dev-->>Drv: Technology specific confirmation
+    Drv->>App: CLASS1.INFORMATION, Type=3, ON
+    Note over App,Dev: The application only knows VSCP events.<br>The driver hides the underlying technology.
+```
+
 A system to present some measurement data is another example. Think of a system with temperature sensors. They all use different technologies but a driver for each translate the temperature readings to a common
 
     CLASS1.MEASUREMENT, Type=6, Temperature measurement events
@@ -139,6 +151,15 @@ A special class is used for measurements and events for all SI units and derived
 
 As VSCP is event based, one often need to think a bit differently when constructing a system. A typical example is a tank with a level sensor and a pump which together construct a self contained system. A traditional system system would have used a master to control the pump and the sensor. In VSCP we allow for this also but try to distribute as much of the intelligence as possible to the nodes themselves. So what we do is to tell the level sensor to send level information with a predefined interval. Several sensors can be added for redundancy. We tell the pump that it should start to fill up the tank when the tank reach a low level and stop at a high level. This might be dangerous as the sensor may stop working, the cable get cut or whatever. In this case the we also program the pump goes to its safe state == pump off and alarming this state to the rest of the system when it does not receive sensor measurements any more.. This “safe state“ is often possible to find for most control situations. As the transport mechanism is unknown to the application, timing must be very lose for VSCP. We cannot be certain when an event arrives or if it arrives. Many transport mechanisms, such as CAN and TCP/IP, makes delivery more certain while other solutions like UDP, RF and PLC can be problematic. It is therefore very important that a sent event always get a confirmation event back. For some nodes this might not be important. A temperature node or the level sensor node above just send there measurements and don't care if someone uses them or not. This thinking is central. The node that originate an event should – if possible - know as little as possible about how the event it sends out will be used. This make the system very flexible. 
 
+```mermaid
+flowchart TD
+    S["Level sensor"] -->|"level measurement events<br>at a predefined interval"| P["Pump node"]
+    P -->|"low level reached"| ON["Start pump"]
+    P -->|"high level reached"| OFF["Stop pump"]
+    P -->|"sensor events stop arriving"| SAFE["Safe state: pump off"]
+    SAFE -->|"alarm event"| SYS["Rest of system"]
+```
+
 ### The "Friends"
 
 A software package called VSCP & Friends is available to support VSCP users. This package can be downloaded and used for free and contain a lot of application and code. Everything is available both for Windows and Linux based systems.
@@ -146,6 +167,16 @@ A software package called VSCP & Friends is available to support VSCP users. Thi
 First and possibly most important it contain the VSCP daemon. This is a server software that makes it possible to control several VSCP segments over the Internet. 
 
 The server expose a secure Internet interface and makes it possible to add drivers for segments of nodes or special equipment. A driver can communicate with the server using the CANAL interface for a Level I driver and the TCP/IP interface for a Level II driver. 
+
+```mermaid
+flowchart TD
+    W["VSCP Works /<br>client applications"] <--> D["VSCP daemon"]
+    R["Remote VSCP daemons /<br>Internet clients"] <-->|"secure TCP/IP interface"| D
+    D <-->|"CANAL interface"| L1["Level I driver"]
+    D <-->|"TCP/IP interface"| L2["Level II driver"]
+    L1 <--> SEG1["CAN / RS-485 / ...<br>node segment"]
+    L2 <--> SEG2["Ethernet/WiFi nodes,<br>other technologies"]
+```
 
 CANAL stands for CAN Abstraction Layer and was initially developed as a software layer between application software and CAN equipment. For the VSCP it is not limited to interface CAN equipment but CAN drivers for most CAN adapters such as PEAK, IXXAT, PORT etc is included in the package as many CAN users use the system.
 

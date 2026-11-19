@@ -14,6 +14,15 @@ Byte wide bit registers are a central part of the VSCP specification. All nodes 
 
 Registers 0x00 – 0x7F are application specific. Registers between 0x80 – 0xFF are reserved for VSCP usage. If the node has implemented the decision matrix it is stored in application register space.
 
+```mermaid
+flowchart TB
+    A["0x00-0x7F<br>Application specific registers<br>(paged via the page select registers,<br>up to 65535 pages)"]
+    B["0x80-0xCF<br>VSCP standard registers<br>(alarm status, versions, user/manufacturer id,<br>nickname, page select, firmware info, ...)"]
+    C["0xD0-0xDF<br>GUID (16 bytes, MSB first)"]
+    D["0xE0-0xFF<br>Module Description File URL (32 bytes)"]
+    A --- B --- C --- D
+```
+
 Reading of an unimplemented register should return 0x00.  
 
 The VSCP registers are defined as follows: 
@@ -112,6 +121,12 @@ The level I standard register space is present in area at address 0xFFFFFF80 to 
 **Note:** Remote variables where called *abstractions* in previous versions (1.13) of the specification.
 
 A VSCP device is describing it's configuration to the world with the register model described above where each register is eight bit in width. This is often inconvenient for a human user who is used to higher level types and this is what *remote variables* is defined for. They sit above registers and specify higher level types as strings, floats, integers and other such higher level types.
+
+```mermaid
+flowchart LR
+    RV["Remote variable<br>(e.g. a 32-bit signed integer<br>described in the MDF)"] -->|"maps to"| R["Four 8-bit registers<br>in register space"]
+    R -->|"register read/write<br>events"| M["Actual variable in<br>device memory"]
+```
 
 Just as register definitions, remote variables live there life in the [Module Description file (MDF)](./vscp_module_description_file.md).
 

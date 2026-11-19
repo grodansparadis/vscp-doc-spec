@@ -18,6 +18,13 @@ In LoRa transparent mode, a serial connection is established between the VSCP de
 2. **Fixed point**: A VSCP frame is sent to a specific device on the LoRa network where the device is specified by its 16-bit MAC address and it's channel. Typically this device can be a LoRA gateway/bridge.
 3. **Broadcast**: A VSCP frame is sent to all devices on the same channel on the LoRa network.
 
+```mermaid
+flowchart LR
+    N["VSCP LoRa node"] -->|"1. Transparent<br>(destination channel)"| GW["LoRa gateway/bridge"]
+    N -->|"2. Fixed point<br>(16-bit MAC address + channel)"| D["Specific LoRa device"]
+    N -->|"3. Broadcast<br>(same channel)"| ALL["All devices on the channel"]
+```
+
 A big advantage with the transparent mode is it's ease of use. All that is needed is a serial channel and then the VSCP frames can be sent without any additional packaging or processing.
 
 ### Frame format
@@ -63,6 +70,21 @@ In block or frame mode we send the frames in binary format. A frame should fit i
 | 17-32| AES-128/192/256 CBC IV (16 bytes) |
 
 Bytes marked with '*' are encrypted when the frame is encrypted forming a 16-byte block.
+
+```mermaid
+packet
+  +8: "Frame type & encryption (never encrypted)"
+  +8: "Flags *"
+  +8: "Sequence counter *"
+  +16: "Originating node id *"
+  +8: "VSCP class *"
+  +8: "VSCP type *"
+  +8: "VSCP data length *"
+  +72: "VSCP frame data, zero padded *"
+  +128: "AES-128/192/256 CBC IV (16 bytes)"
+```
+
+_Fields marked with '*' form the encrypted 16-byte block when encryption is used._
 
 Radio id equal to 0 and radio id equal to 0xffff (65535) is broadcast and should not be originating id's.
 

@@ -137,6 +137,15 @@ The wildcards '-', '*' and '::' can only be used once.
 
 It is possible to create your own GUID without requesting a series and still get a valid VSCP GUID.
 
+Most of the predefined series below follow the same pattern: a reserved prefix, an already globally unique identity you own, and in some cases bytes that are free to use. Using the Ethernet MAC series as an example
+
+```mermaid
+packet
+  +64: "Reserved prefix (FF:FF:FF:FF:FF:FF:FF:FE)"
+  +48: "Ethernet MAC address (MSB first)"
+  +16: "Freely usable by the address holder"
+```
+
 
  | Assigned Global Unique IDs | IDs Series Reserved to/for | 
  | :-------------------------- | -------------------------- | 

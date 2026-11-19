@@ -20,6 +20,19 @@ The full definition is
  | 3     | Don't calculate CRC if bit set. CRC should be set to 0xAA55 if set. | 
  | 2,1,0 | Rolling index.                                                      | 
 
+```mermaid
+packet
+  +3: "Rolling index"
+  +1: "!CRC"
+  +1: "Hard-coded"
+  +3: "Priority"
+  +4: "Reserved (set to zero)"
+  +3: "GUID type"
+  +1: "Dumb node"
+```
+
+_Bit 0 is to the left in the diagram above._
+
 ## Bit 15 - Dumb node
 If set the event comes from a dumb node. That is a node that does not have a MDF, register or behave as a good VSCP device should. Typically the node is a node that just send events.
 

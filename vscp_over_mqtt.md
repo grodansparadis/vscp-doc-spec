@@ -2,7 +2,34 @@
 
 VSCP is really the prefect match for MQTT. See [MQTT-driver](https://github.com/grodansparadis/vscpl2drv-mqtt) for a description on how to use MQTT with the VSCP daemon. 
 
+A typical VSCP over MQTT setup looks like this
+
+```mermaid
+flowchart LR
+    subgraph bus["VSCP bus (CAN, RS-485, ...)"]
+        N1["VSCP node"]
+        N2["VSCP node"]
+    end
+    N1 --> D["VSCP daemon /<br>MQTT driver"]
+    N2 --> D
+    D <-->|"publish / subscribe"| B(("MQTT<br>broker"))
+    W["Ethernet/WiFi<br>VSCP node"] <-->|"publish / subscribe"| B
+    B <-->|"publish / subscribe"| C1["Client application /<br>subscriber"]
+    B <-->|"publish / subscribe"| C2["Other VSCP<br>node"]
+```
+
 There is four different package formats available that a user can select from when working with VSCP over MQTT. 
+
+The format of a received payload can be automatically detected like this
+
+```mermaid
+flowchart TD
+    A["Incoming MQTT payload"] --> B{"First character<br>of payload?"}
+    B -->|"0x00 and content length > 0"| BIN["BINARY<br>(VSCP over UDP format)"]
+    B -->|"first non white space<br>character is '&lt;'"| XML["XML"]
+    B -->|"first non white space<br>character is '{'"| JSON["JSON"]
+    B -->|"any other non white space<br>character"| STR["STRING"]
+```
 
 ## STRING
 
@@ -172,6 +199,23 @@ The preferred topic for VSCP events published to a MQTT broker is
   vscp/{{guid}}/{{class}}/{{type}}/{{nickname}}/{{sensor-index}}/{{zone}}/{{subzone}}
 ```
 
+```mermaid
+flowchart LR
+    T["vscp"] --> G["{{guid}}"]
+    G --> C["{{class}}"]
+    C --> Y["{{type}}"]
+    Y --> N["{{nickname}}"]
+    N --> S["{{sensor-index}}"]
+    S --> Z["{{zone}}"]
+    Z --> SZ["{{subzone}}"]
+    classDef required fill:#4a7ebb,stroke:#2c4d73,color:#fff
+    classDef optional fill:#e8f0fa,stroke:#4a7ebb,stroke-dasharray: 5 5
+    class T,G,C,Y,N required
+    class S,Z,SZ optional
+```
+
+_Filled topic levels are part of the recommended schema, dashed levels are optional._
+
 **guid** is the actual guid fo the node, typically something like FF:FF:FF:FF:FF:FF:FF:FE:5C:CF:7F:C4:1E:7B:00:00
 
 **class** is the actual numerical VSCP class for the event.
@@ -193,6 +237,19 @@ For level I drivers or level II drivers where it makes sense (vscpl2drv-tcpiplin
     vscp/{{guid}}/{{class}}/{{type}}/{{nickname}}
 
 is recommended. Here nickname is _256*GUID[14] + GUID[15]_ that is the unsigned integer formed by the two lsb bytes of the GUID. With this setting it is easier to also filter on nickname.
+
+The following sequence shows how a published event reaches a subscribing client through the broker
+
+```mermaid
+sequenceDiagram
+    participant Node as VSCP node<br>(temperature sensor)
+    participant Broker as MQTT broker
+    participant App as Client application
+    App->>Broker: SUBSCRIBE vscp/+/10/6/#35;
+    Node->>Broker: PUBLISH vscp/FF:FF:...:7B:00:00/10/6/123
+    Note right of Node: Payload is the VSCP event in<br>STRING/XML/JSON/BINARY format
+    Broker->>App: Event delivered (topic matches filter)
+```
 
 ### Subscribe
 

@@ -121,6 +121,17 @@ The decision matrix consists of **rows**, with each row representing a rule or c
 #### 4. **Enable/Disable Flag**
    - A flag to enable or disable a specific rule in the matrix without deleting it.
 
+The processing of an incoming event against a decision matrix row looks like this
+
+```mermaid
+flowchart LR
+    E["Incoming event"] --> F{"Event filter match?<br>class / type / priority /<br>zone / subzone"}
+    F -->|"no"| X["Row ignored"]
+    F -->|"yes"| EN{"Row enabled?"}
+    EN -->|"no"| X
+    EN -->|"yes"| A["Execute action<br>with action parameters"]
+```
+
 ---
 
 ### Example Decision Matrix
@@ -149,6 +160,18 @@ The **Black Box Principle** is a powerful abstraction tool that simplifies the d
 ## Events and the black box principle
 
 Events are the core of the VSCP protocol. They are used to send information between nodes in the VSCP network. Events are sent from a source node to a destination node. The source node is the node that sends the event and the destination node is the node that receives the event. The destination node can be a specific node or a group of nodes. The event contains information about the event type, the priority of the event, and the data associated with the event. The data can be of different types, such as integer, floating point, string, etc. Events are used to send information about the state of a node, to control the behavior of a node, or to request information from a node. Events are sent asynchronously, meaning that the source node does not wait for a response from the destination node. This allows the source node to continue its operation without being blocked by the event transmission.
+
+```mermaid
+sequenceDiagram
+    participant S as Source node
+    participant NA as Node A
+    participant NB as Node B
+    S-->>NA: Event (broadcast, asynchronous)
+    S-->>NB: Event (broadcast, asynchronous)
+    Note over S: Continues its work without<br>waiting for any response
+    Note over NA: Interested - decides itself<br>how to act on the event
+    Note over NB: Not interested - ignores it
+```
 
 Even if VSCP have events to **Turn something On** it does not demand that the receiving node actually turns something on. It is up to the receiving node to decide what to do with the event. This is the black box principle in action. The sender does not need to know what the receiver does with the event. It is up to the receiver to decide what to do with the event. This makes the VSCP protocol very flexible and easy to use in a wide range of applications.  
 

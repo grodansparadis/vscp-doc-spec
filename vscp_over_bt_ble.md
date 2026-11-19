@@ -32,6 +32,23 @@ The general BLE advertising format is max 32 bytes and for VSCP as follows
 
 The VSCP part of the advertisement frame is always 16 bytes long (bold in table). This is true even if the data field is less than 8 bytes. In this case the data field is padded with zeros to make it 8 bytes long. This is because we want a 16-byte part of the frame which we can encrypt with AES-128 ECB.
 
+```mermaid
+packet
+  +8: "Length"
+  +8: "Type (6)"
+  +80: "Name (0-10 bytes, variable length)"
+  +16: "Manufacturer id (little endian)"
+  +8: "Flags"
+  +16: "node id *"
+  +8: "head *"
+  +16: "vscp-class *"
+  +16: "vscp-type *"
+  +8: "sizeData *"
+  +64: "VSCP data (zero padded to 8 bytes) *"
+```
+
+_Fields marked with '*' form the 16-byte block that can be encrypted with AES-128 ECB._
+
 Bold data is part iof encrypted part of frame.
 
 **cnt** can be 0-8/24 bytes.  If cnt is greater then 8 bytes (9-24) a response frame will be used to send the extra data bytes. More information about this below. This makes it possible to send certain VSCP level II events who's data fits in the 24 byte max data limit.

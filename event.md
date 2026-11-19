@@ -21,6 +21,18 @@ The Event consist of the following parts
 | _minute_ | The UTC minute of of the event |
 | _second_ | The UTC second of of the event |
 
+The logical layout of an event and the size of each part is shown below. The actual wire format depends on the transport that carries the event.
+
+```mermaid
+flowchart LR
+    H["head<br>2 bytes"] --> C["class<br>2 bytes"]
+    C --> T["type<br>2 bytes"]
+    T --> G["GUID<br>16 bytes"]
+    G --> D["data<br>0-8 bytes (Level I)<br>0-512 bytes (Level II)"]
+    D --> TS["timestamp<br>4 bytes"]
+    TS --> DT["date/time block<br>7 bytes<br>(year 2, month 1, day 1,<br>hour 1, minute 1, second 1)"]
+```
+
 ## Head
 The Head is a byte that contains the flags for the event. The flags are defined in the following table.
 

@@ -16,6 +16,25 @@ The sequence number byte marks a number for a sequence of a special frame. For i
 
 As noted there can be two types of ACKs/NACKs one (251/252) is a general ACK/NACK that is the response when a frame is received and put in a buffer. This is generally all that is needed. The other version (249/250) can optionally be sent when the frame is actually sent on the interface.
 
+A typical exchange, including an event poll, looks like this
+
+```mermaid
+sequenceDiagram
+    participant H as Host
+    participant D as Device
+    H->>D: VSCP event frame (type=1, sequence=n)
+    D-->>H: ACK (type=251, sequence=n)
+    Note over D: Frame received and buffered
+    D-->>H: Sent ACK (type=249, sequence=n, optional)
+    Note over D: Frame actually sent on the interface
+    H->>D: Poll (type=4)
+    alt event available
+        D-->>H: VSCP event frame (type=1)
+    else no events
+        D-->>H: No events to send (type=5)
+    end
+```
+
 ### Security
 If security is a concern (for instance a serial channel used over the air), it is recommended to implement additional measures such as encryption and authentication to protect the data being transmitted over the serial channel. AES encryption is one option that can be considered for securing the data. VSCP use AES-128 CBC mode for encryption in many applications and this is the recommended encryption also here. In this case the IV (Initialization Vector) should be unique and random for each session to ensure the security of the encrypted data and should typically be added to the end of the frame. Also the frame must be a multiple of the AES block size (16 bytes).
 
@@ -33,6 +52,22 @@ If security is a concern (for instance a serial channel used over the air), it i
  | len-3 | Frame check sum. | CRC (X8 + X2 + X + 1).                                                               |
  | len-2 | [DLE]            | Escape character                                                                     |
  | len-1 | [ETX]            | End of frame                                                                         |
+
+```mermaid
+packet
+  +8: "DLE"
+  +8: "STX"
+  +8: "Frame type"
+  +8: "Channel"
+  +8: "Sequence number"
+  +16: "Payload size (MSB/LSB)"
+  +24: "Payload (variable length)"
+  +8: "CRC"
+  +8: "DLE"
+  +8: "ETX"
+```
+
+_DLE bytes inside the payload are escaped as DLE DLE._
 
 If the frame is encrypted using AES-128 CBC mode, the following additional considerations apply:
 

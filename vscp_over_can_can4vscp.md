@@ -57,6 +57,17 @@ The cable should be terminated at both ends with 120 ohm resistors. VSCP uses Ex
  | 1   | Originating-Address |                                                                                                                                                                                                                                                            | 
  | 0   | Originating-Address |                                                                                                                                                                                                                                                            | 
 
+```mermaid
+packet
+  +8: "Originating address (nickname)"
+  +8: "VSCP type"
+  +9: "VSCP class"
+  +1: "HC"
+  +3: "Priority"
+```
+
+_Bit 0 is to the left in the diagram above. HC = hard-coded nickname._
+
 If addressing of a particular node is needed the nickname address for the node is given as the first byte in the data part. This is a rare situation for VSCP and is mostly used in the register read/write events. 
 
 ### RJ-XX pin-out

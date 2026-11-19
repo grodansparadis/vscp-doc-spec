@@ -24,6 +24,13 @@ The action is the function, thread, procedure, method or other functionality tha
 
 The states represented by EVENT + DECISION + ACTION are treated as one transaction. All steps must be handled for the transaction to be marked as completed.
 
+```mermaid
+flowchart LR
+    E["EVENT<br>something happens<br>(timer, measurement, alarm, ...)"] --> D{"DECISION<br>does a decision matrix<br>row match the event?"}
+    D -->|"match"| A["ACTION<br>function/procedure carried out.<br>May itself generate new events."]
+    D -->|"no match"| I["No action"]
+```
+
 So when you describe the functionality of a VSCP-node you say
 
 
@@ -46,6 +53,18 @@ A matrix row consists of 8 bytes and has the following format
  | Byte 0 | Byte 1 | Byte 2     | Byte 3       | Byte 4    | Byte 5      | Byte 6 | Byte 7           | 
  | ------ | ------ | ------     | ------       | ------    | ------      | ------ | ------           | 
  | oaddr  | flags  | class-mask | class-filter | type-mask | type-filter | action | action-parameter | 
+
+```mermaid
+packet
+  +8: "oaddr"
+  +8: "flags"
+  +8: "class-mask"
+  +8: "class-filter"
+  +8: "type-mask"
+  +8: "type-filter"
+  +8: "action"
+  +8: "action-parameter"
+```
 
 ###  oaddr 
 
