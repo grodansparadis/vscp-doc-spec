@@ -760,6 +760,9 @@ The following MUST be resolved before declaring E1/G1 a final VSCP transport sta
 
 ## 12. References
 
+- [BLE implementation examples for ESP32, Nordic, Zephyr and Linux BlueZ](./examples/ble/README.md)
+
+
 - [BLE interoperability tests, E1/A2 byte vectors and platform matrix](./tests/ble_interoperability.md)
 
 
