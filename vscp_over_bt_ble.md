@@ -529,6 +529,72 @@ Conformance testing MUST include AES-128-CCM known-answer tests for the **exact 
 
 **Open deployment dependencies:** a production Bluetooth SIG Company Identifier, secure provisioning protocol, device trust anchors, persistent counter implementation, receiver storage model, and published executable known-answer vectors. These are mandatory deployment decisions; a wire format alone cannot supply them.
 
+## 8. Discovery, capabilities and compatibility
+
+### 8.1 Discovery principles
+
+A BLE device address identifies a radio endpoint for a particular observation; it is **not** a durable VSCP node identity. A scanner MUST NOT infer E1, A2, or G1 support merely from the Bluetooth Core version, PHY, appearance, local name, or presence of a manufacturer-specific AD structure. A receiver MUST verify the actual AD Type, configured Company Identifier, frame version, exact framing, and security policy before accepting a VSCP event.
+
+Discovery is a best-effort process. Passive scanning can observe legacy or extended advertisements supported by the scanner; active scanning can additionally solicit scan responses from scannable advertisers. Extended advertising reports may be fragmented or truncated by the host API. A receiver MUST ignore incomplete frames and MUST NOT interpret missing observations as proof that a capability is absent.
+
+### 8.2 Profile support detection
+
+| Profile | Positive support evidence | What is **not** sufficient |
+| --- | --- | --- |
+| L0 | Successfully parsed, implementation-verified legacy version 0 manufacturer AD structure | BLE local name, arbitrary manufacturer data, or a scan response alone |
+| E1 | Complete manufacturer AD structure with configured Company Identifier, version `0x01`, valid flags and length | Bluetooth 5 version or extended advertising presence alone |
+| A2 | Complete authenticated version `0x02` frame, provisioned key record, valid CCM tag and replay checks | Version byte alone, Key ID alone, or unverified GUID |
+| G1 | Discovery of the exact G1 primary service UUID and required characteristics, successful secure HELLO negotiation | Device name, advertisement of an unverified service UUID, or an encrypted link alone |
+
+For G1, service UUIDs MAY be advertised in standard Service UUID AD structures to accelerate discovery. Such advertising is a **hint**, not proof: the client MUST connect and discover the actual GATT service, verify characteristic properties, establish required security, and negotiate HELLO. Devices MAY omit the service UUID from advertising because of space constraints; clients MAY discover G1 after connecting to a device selected by other authorized means.
+
+A G1 server MUST expose the Capabilities and Device GUID characteristics defined in §6. A client MUST verify that the Device GUID read is 16 octets and nonzero. An application MUST NOT treat a public Device GUID read as cryptographic proof of identity.
+
+### 8.3 Stable GUID mapping and multiple transports
+
+The canonical VSCP identity is the **16-octet Sender GUID**, not the Bluetooth MAC address. For a single VSCP node, the E1/A2 sender GUID and G1 Device GUID MUST match when the same node originates the event. Gateways that forward events from other VSCP nodes MUST preserve each event's original Sender GUID and MUST NOT replace it with the gateway's GATT Device GUID.
+
+A receiver MAY maintain a temporary association between observed BLE address, advertising set, GATT connection, and canonical GUID for discovery and diagnostics. Such associations MUST tolerate BLE private-address rotation, reconnection, and address reuse. They MUST NOT be used as authentication or as the sole key for long-lived VSCP identity records.
+
+Legacy L0 may derive its GUID from a BLE address and Node ID as described in §4.5. This derived identity MUST NOT be automatically merged with a stable E1/A2/G1 GUID without an explicit trusted provisioning record. If multiple devices claim the same stable GUID, receivers SHOULD flag an identity conflict; privileged communication MUST fail closed until the conflict is resolved.
+
+### 8.4 Capability sources and negotiation
+
+G1 Capabilities Read (§6.6) reports G1 protocol version, maximum event data, maximum record size, fragment capacity, and G1 feature bits. Its `supported_features` field is **G1-scoped** and is zero in version 1; it MUST NOT be interpreted as a bitmap advertising L0/E1/A2 support. The actual negotiated G1 limits are established by HELLO (§6.4). The effective transfer limit is the minimum of both peers' limits and current ATT MTU constraints.
+
+E1 and A2 have **no separate discovery-capability advertisement** in this revision. Support is observed by receiving and validating a frame of that version. Observing an E1 frame does not prove A2 support, and observing an A2 frame does not authorize E1 fallback. Implementations MUST NOT invent meanings for reserved flags or infer support for unadvertised versions.
+
+If a future capability AD structure or G1 capability extension is introduced, it MUST receive its own explicit versioned wire definition and must not reinterpret reserved bytes of existing E1/A2 frames. Capability claims from unauthenticated advertising are advisory; security-critical capabilities and policy MUST be verified through authenticated configuration or a trusted provisioning record.
+
+### 8.5 Version compatibility matrix
+
+| Sender format | Receiver support | Result |
+| --- | --- | --- |
+| L0 v0 | Verified L0 decoder | Accept only under configured legacy security policy |
+| E1 v1 | E1 v1 decoder | Accept only as S0 untrusted data |
+| A2 v2 | A2 v2 decoder with valid key and replay state | Accept subject to authorization policy |
+| G1 v1 | G1 v1 service and successful HELLO | Exchange events within negotiated limits |
+| Any newer/unknown version | No explicit decoder | Reject or ignore; MUST NOT reinterpret as an older version |
+
+A G1 HELLO request with an unsupported protocol version MUST fail with `UNSUPPORTED_VERSION`; the client MAY negotiate a separately supported older G1 version only when local policy permits it. Unknown E1/A2 frame versions MUST be ignored or rejected without guessing their layouts. A receiver MUST NOT treat the lower four bits of an E1/A2 version byte as an L0 version field.
+
+### 8.6 Fallback and downgrade prevention
+
+A transport selection policy MUST be configured independently of discovery. For each class of operation, the application SHOULD define the minimum acceptable security level (S0, S1, or S2) and required directionality, payload size, and delivery semantics. The following is a recommended preference order **only among profiles that satisfy the policy**:
+
+1. **G1** for authorized bidirectional event exchange and configuration, after secure HELLO.
+2. **A2** for authenticated, connectionless event reporting with valid keys and replay state.
+3. **E1** for public, untrusted connectionless telemetry.
+4. **L0** only for explicitly enabled, verified legacy interoperability.
+
+This order is not a universal ranking: an application needing broadcast reception may prefer A2 over G1; a deployment with no credentials cannot claim A2 support. **Security policy overrides convenience and transport availability.** If an authenticated profile fails due to invalid tags, missing credentials, replay, revocation, or incompatible security, the implementation MUST NOT retry the same privileged operation over E1, L0, or an unauthenticated G1 link. A2 failure MUST NOT trigger plaintext fallback. Fallback from G1 to E1/L0 MAY occur only for operations independently authorized as public S0 data.
+
+A scanner or GATT client SHOULD cache supported capabilities per **trusted stable GUID**, with an expiration or explicit invalidation rule. Cached capabilities MUST be refreshed after firmware upgrade, re-provisioning, key rotation, or incompatible protocol responses. A BLE address alone MUST NOT be a persistent capability-cache key. Negative discovery results SHOULD be treated as temporary because advertisements and scan responses may be missed.
+
+### 8.7 Discovery and fallback test cases
+
+Conformance tests SHOULD cover: L0-only devices; E1-only devices; A2 with correct and incorrect credentials; G1 UUID advertised but service absent; G1 service present but HELLO incompatible; GUID match across E1/A2/G1; rotating BLE private addresses; conflicting GUIDs; truncated extended reports; unsupported frame versions; stale cached capabilities; failed authenticated transport with attempted downgrade; and G1 operation on a controller without extended advertising support.
+
 ## 8. Interoperability and error handling
 
 An E1 receiver MUST:
