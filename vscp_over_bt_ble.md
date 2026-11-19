@@ -91,13 +91,58 @@ AD Length = 0x14
 
 The manufacturer AD structure is 21 octets, plus 3 octets for the standard Flags AD structure: **24 of the permitted 31 advertising data octets**. The VSCP block is 16 octets. This is a framing test, not a validated VSCP application-event example. `0xFFFF` MUST NOT be used as a production Company Identifier.
 
-### 4.5 GUID and legacy scan response
+### 4.5 GUID construction
 
 The original legacy GUID derivation is `FF:FF:FF:FF:FF:FF:FF:F8:YY:YY:YY:YY:YY:YY:XX:XX`, where `YY` is the BLE address and `XX` is the node ID. The receiver sets `obid` and timestamps as appropriate. This derived GUID is not stable with BLE private-address rotation.
 
-The historical draft claimed that a scan response could carry a timestamp and 16 extra data bytes when the event length is 9–24 bytes. **No canonical scan-response AD structure or event-to-response association was specified.** A BLE scan request contains no application-level VSCP request payload; scan response delivery is not guaranteed. New senders SHOULD limit L0 to 0–8 data bytes unless interoperability with an existing, separately documented extension has been established. A receiver MUST NOT accept an incomplete 9–24-byte event as complete.
+### 4.6 Legacy scan request and scan response
 
-### 4.6 Legacy security
+#### 4.6.1 Standard BLE operation
+
+For a legacy **scannable** advertiser, a scanner performing **active scanning** may initiate the following Link Layer exchange:
+
+```text
+Advertiser                                 Active scanner
+    |                                             |
+    | -------- ADV_IND (advertising data) ------> |
+    | <------- SCAN_REQ (scanner, advertiser) --- |
+    | -------- SCAN_RSP (scan-response data) ---> |
+    |                                             |
+```
+
+The diagram illustrates the normal legacy active-scan exchange, not a guaranteed application transaction. A scanner performing **passive scanning** does not transmit `SCAN_REQ` and therefore does not solicit `SCAN_RSP`. Whether active scanning is supported or permitted can depend on the host, controller, advertising mode, scanning configuration, filtering, and platform APIs.
+
+A legacy `SCAN_REQ` is a Bluetooth Link Layer control PDU containing scanner and advertiser address information. It is **not** a VSCP request, and it has no application-defined timestamp, VSCP class, VSCP type, or arbitrary data field. An application cannot place VSCP commands or additional event bytes inside a standard `SCAN_REQ`.
+
+The advertiser's `SCAN_RSP` carries a separately configured **scan-response advertising data set**, consisting of standard AD structures. For legacy advertising its maximum size is **31 octets**, independent of the maximum 31-octet advertising data set. It is not a response payload dynamically assembled from fields in the scan request. Implementations MUST distinguish these AD data sets from the Bluetooth Link Layer packet headers.
+
+#### 4.6.2 Limitations for extending VSCP events
+
+The earlier VSCP draft suggested carrying a 4-octet timestamp and 16 additional VSCP data octets in the scan response when the advertised event's data length is 9–24. That text did not specify the required AD Length, AD Type, Company Identifier, byte ordering, timestamp reference, encryption handling, or binding of the continuation to a particular event. **Those 20 bytes are not a complete BLE scan-response wire format.**
+
+Even when a `SCAN_RSP` is received, the scanner may have missed the associated advertisement, or the advertiser may have changed its event data between advertising and scanning. A scanner may also receive an advertisement without its scan response. Bluetooth does not provide a VSCP event identifier, transaction ID, or atomic snapshot across the two AD data sets.
+
+Therefore:
+
+1. New L0 senders **SHOULD** transmit self-contained events with data lengths **0–8**.
+2. New receivers **MUST NOT** reconstruct a 9–24-byte VSCP event merely by concatenating an arbitrary scan response with an advertisement.
+3. A receiver **MUST NOT** report a partial extended event as a valid complete VSCP event.
+4. A receiver **MUST NOT** treat a scan response as an acknowledgment of receipt or processing.
+5. A receiver **MUST NOT** assume a scan response is available through passive scanning or every platform's scanning API.
+6. Any deployed legacy continuation scheme **MAY** be supported in an explicitly documented compatibility mode, with verified AD framing, matching rules, and timeouts. It MUST NOT be claimed as interoperable solely from the original draft.
+7. New transports needing more than eight VSCP data octets **SHOULD** use the E1 extended-advertising profile (within its limits) or a connected transport once standardized.
+
+#### 4.6.3 Compatibility-mode requirements for a historical 9–24-byte extension
+
+If an implementation must receive an existing continuation format, its documentation MUST identify the actual on-air AD structures and offsets, timestamp encoding and units, encryption scheme, and how the 16-octet continuation relates to the primary event. The receiver SHOULD impose a short, bounded association window and reject mismatched, missing, duplicated, stale, or ambiguous continuations. A matching Bluetooth advertiser address alone is insufficient to prove that two data sets belong to the same VSCP event.
+
+A newly standardized continuation format would require a common event identifier or sequence counter in **both** AD data sets, authenticated binding where security is required, and a complete byte-level definition. Such a format is **not defined in L0** by this revision.
+
+#### 4.6.4 Practical receiver behavior
+
+A passive scanner can decode complete 0–8-byte L0 events without waiting for scan responses. An active scanner MAY receive scan-response AD structures for discovery information such as a shortened/complete local name, but that information MUST NOT be interpreted as VSCP event continuation unless a separately verified compatibility format is enabled. Incomplete, malformed, or unsupported legacy extended events SHOULD be counted or logged for diagnostics without delivering them to the VSCP application layer.
+
+### 4.7 Legacy security
 
 AES-128 ECB, when used by historical devices, provides neither event authentication nor replay protection. L0 encrypted frames MUST NOT authorize access control or other privileged operations solely on that basis. Do not infer authentication from the encryption flag.
 
