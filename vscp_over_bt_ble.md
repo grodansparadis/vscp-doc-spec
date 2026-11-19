@@ -699,6 +699,9 @@ The following MUST be resolved before declaring E1/G1 a final VSCP transport sta
 
 ## 11. References
 
+- [BLE interoperability tests, E1/A2 byte vectors and platform matrix](./tests/ble_interoperability.md)
+
+
 - [Bluetooth SIG specifications and assigned numbers](https://www.bluetooth.com/specifications/specs/)
 - [Bluetooth Core Specification](https://www.bluetooth.com/specifications/specs/core-specification/)
 - [VSCP specification repository](https://github.com/grodansparadis/vscp-doc-spec)
