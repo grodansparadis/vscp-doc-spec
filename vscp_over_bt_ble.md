@@ -26,7 +26,62 @@ Advertising data is a series of AD structures: **Length (1 octet), AD Type (1 oc
 
 Legacy advertising supports at most 31 octets of advertising data and, separately, up to 31 octets of scan-response data. The legacy `ADV_IND` advertising event is connectable and scannable. A scan request is a BLE link-layer operation; it does **not** contain arbitrary VSCP request payload or a VSCP timestamp. A scan response is not guaranteed to arrive, is not bound transactionally to an individual VSCP event, and MUST NOT be treated as reliable delivery.
 
-Extended advertising uses primary-channel pointers to secondary-channel advertising PDUs. The host/controller handles PDU chaining. Extended advertising and legacy connectable/scannable behavior have different combinations and limitations; an implementation MUST use a controller-supported advertising mode. Periodic advertising and LE Coded PHY are optional and MUST be advertised as capabilities, not presumed.
+### 3.1 Bluetooth 5 extended advertising: PDU size versus advertising data set
+
+Bluetooth 5.0 introduced **LE Advertising Extensions**. This is a feature of the controller and host stack, not a guarantee implied merely by a Bluetooth version label. Extended advertising uses a primary-channel `ADV_EXT_IND` PDU (on advertising channels 37–39) that can point via `AuxPtr` to a secondary-channel `AUX_ADV_IND` PDU (on channels 0–36). Further `AUX_CHAIN_IND` PDUs can carry additional advertising data. The Link Layer/controller handles this PDU chaining; it is **not** VSCP application-level fragmentation.
+
+```text
+Primary advertising channel (37, 38, 39)
+    ADV_EXT_IND
+       |
+       | AuxPtr
+       v
+Secondary advertising channel (0–36)
+    AUX_ADV_IND  -->  AUX_CHAIN_IND  -->  AUX_CHAIN_IND ...
+         advertising data set, split by controller as needed
+```
+
+**Three different limits MUST NOT be confused:**
+
+| Quantity | Limit | What it actually limits |
+| --- | ---: | --- |
+| Legacy advertising data | 31 octets | Total host AD data in a legacy advertisement |
+| Extended advertising physical-channel PDU payload | Up to 255 octets | Includes the extended advertising header and optional fields; **not** 255 octets of application data |
+| Extended advertising data set | Up to 1,650 octets | Total host advertising data across controller-managed auxiliary PDU chains, **if supported by the controller and configuration** |
+
+The amount of advertising data in any one auxiliary PDU is less than the maximum PDU payload when extended-header fields are present. The exact available amount varies with the PDU type and included fields. An AD structure may cross a PDU boundary; the receiver processes the reconstructed advertising data set rather than assuming one AD structure per PDU.
+
+### 3.2 Actual controller and host limits
+
+**1,650 octets is a specification ceiling, not a guaranteed minimum.** A compliant implementation may support a shorter advertising data set. On controllers exposing the standard HCI interface, the host SHOULD check:
+
+- `LE Read Local Supported Features` for LE Advertising Extensions.
+- `LE Read Maximum Advertising Data Length` (HCI OCF `0x003A`): reports `Max_Advertising_Data_Length`, in the defined range **31–1,650 octets**.
+- `LE Read Number of Supported Advertising Sets` (HCI OCF `0x003B`): reports available advertising sets; available capacity can change as controller resources are allocated.
+
+The host MUST also check whether the operating-system BLE API and controller firmware expose extended advertising, and whether the receiver can obtain complete extended advertising reports. A controller's advertised maximum is **not** a promise that every combination of advertising interval, PHY, event duration, advertising mode, and concurrent sets can transmit that much data. A controller may reject parameters or data with an error such as `Packet Too Long (0x45)`. Applications SHOULD handle these errors and fall back to a shorter data set or a different VSCP transport.
+
+The HCI `LE Set Extended Advertising Data` command accepts **at most 251 advertising-data octets per HCI command**, with first/intermediate/last/complete operation values for assembling a larger data set in the controller. This **251-octet HCI transfer limit** is distinct from the 255-octet on-air PDU payload limit and the 1,650-octet advertising data-set limit.
+
+Extended scanning implementations may also have smaller receive/report buffers or may deliver incomplete/truncated reports. A VSCP receiver MUST reject truncated AD structures or incomplete VSCP frames rather than treating them as valid events.
+
+### 3.3 Advertising modes and PHYs
+
+Extended advertising supports distinct **non-connectable**, **scannable**, and **connectable** configurations, subject to Bluetooth Link Layer restrictions. Unlike legacy `ADV_IND`, extended advertising does **not** generally combine connectable and scannable properties in one advertising set. In particular, a scannable extended advertising set carries its host data in the extended scan response, not ordinary advertising data; VSCP E1 senders SHOULD use a **non-connectable, non-scannable extended advertising set** for standalone broadcast events unless a separately specified profile requires otherwise.
+
+The primary `ADV_EXT_IND` may use LE 1M or LE Coded PHY where supported; secondary advertising may use LE 1M, LE 2M, or LE Coded PHY where supported. LE 2M, LE Coded (S=2/S=8), and periodic advertising are **separate optional capabilities** and MUST NOT be inferred from the presence of Bluetooth 5 or extended advertising alone.
+
+### 3.4 Implications for VSCP
+
+VSCP E1 events SHOULD be self-contained within a complete, correctly reconstructed advertising data set. The current proposed E1 format uses **one Manufacturer Specific Data AD structure**, which is constrained by the **one-octet AD Length field** even if the controller supports a 1,650-octet data set. In that format, the manufacturer AD structure can hold at most 254 octets of AD Data, of which 32 are the proposed E1 header, leaving **222 octets of VSCP event data** in an unencrypted E1 frame. This is a **format limit**, not a Bluetooth 5 PDU limit.
+
+Supporting larger VSCP events would require a new, explicitly specified encoding (for example multiple AD structures or application-level fragmentation), with length validation, identity, reassembly limits, and security rules. Controller-managed PDU chaining alone does not remove the AD-structure length limit or guarantee delivery. A connected VSCP transport SHOULD be preferred when larger payloads, bidirectional transfer, or reliable application-level handling are needed.
+
+### 3.5 References
+
+- [Bluetooth SIG: Bluetooth LE primer, legacy versus extended advertising](https://www.bluetooth.com/bluetooth-le-primer/)
+- [Bluetooth Core Specification: HCI LE Read Maximum Advertising Data Length and LE Set Extended Advertising Data](https://www.bluetooth.com/wp-content/uploads/Files/Specification/HTML/Core-62/out/en/host-controller-interface/host-controller-interface-functional-specification.html)
+- [Bluetooth Core Specification: Link Layer advertising PDU payloads and auxiliary chaining](https://www.bluetooth.com/wp-content/uploads/Files/Specification/HTML/Core-60/out/en/low-energy-controller/link-layer-specification.html)
 
 ## 4. Legacy advertising (L0, version 0)
 
