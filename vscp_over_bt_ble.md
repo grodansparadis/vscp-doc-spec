@@ -304,23 +304,137 @@ Both vectors are **framing tests**, not claims that the selected VSCP class/type
 
 E1 version 1 as defined here is **cleartext and unauthenticated**. It MUST be restricted to data permitted by policy to be public and untrusted. AES-ECB is not permitted for E1. Authenticated/encrypted E1 requires a separately specified and tested envelope with key identifiers, nonce uniqueness, authenticated metadata, replay protection, key lifecycle, and known-answer vectors. Until then, flag bit 0 remains reserved and unusable.
 
-## 6. Proposed connected GATT profile G1
+## 6. Connected GATT profile G1 — proposed version 1
 
-G1 SHOULD expose a dedicated VSCP service with these logical characteristics:
+> **Allocation status:** The 128-bit UUIDs below are allocated **by this VSCP draft specification**, not registered with or assigned by the Bluetooth SIG. They MUST be reviewed for conflicts with existing VSCP deployments before ratification. They are not Bluetooth SIG 16-bit UUIDs.
 
-| Characteristic | Properties | Purpose |
+### 6.1 Roles, UUIDs and characteristic definitions
+
+The VSCP node is normally the GATT **server** (BLE peripheral), and the gateway or controller is the GATT **client** (BLE central). The event transport is bidirectional: Event TX sends server-to-client notifications; Event RX accepts client-to-server writes. A central may host another VSCP service only as a separate instance, not by reversing the semantics of these characteristics.
+
+The following UUID block is **provisionally reserved for this G1 draft**:
+
+| Attribute | UUID (128-bit) | Properties | Access policy |
+| --- | --- | --- | --- |
+| VSCP G1 primary service | `9b7a0000-6e44-4b8a-9d64-565343502001` | Primary service | Discoverable |
+| Capabilities | `9b7a0001-6e44-4b8a-9d64-565343502001` | Read | Public; no secrets |
+| Device GUID | `9b7a0002-6e44-4b8a-9d64-565343502001` | Read | Public asserted identity |
+| Event TX | `9b7a0003-6e44-4b8a-9d64-565343502001` | Notify | Authenticated, encrypted, authorized subscription |
+| Event RX | `9b7a0004-6e44-4b8a-9d64-565343502001` | Write (with response) | Authenticated, encrypted, authorized write |
+| Control | `9b7a0005-6e44-4b8a-9d64-565343502001` | Write (with response), Indicate | Authenticated, encrypted, authorized |
+| Configuration | `9b7a0006-6e44-4b8a-9d64-565343502001` | Read, Write (with response) | Authenticated, encrypted, admin authorization |
+| Security Status | `9b7a0007-6e44-4b8a-9d64-565343502001` | Read | Authenticated, encrypted; no key material |
+
+Each Notify/Indicate characteristic MUST have a Client Characteristic Configuration Descriptor (CCCD, standard UUID `0x2902`). The GATT server MUST enforce link encryption and authenticated pairing (MITM protection) for protected attributes, plus an application trust/authorization policy. **LE Secure Connections with authenticated association is RECOMMENDED**; if a platform cannot provide authenticated pairing, it MUST NOT expose privileged operations through G1. A bonded device is not automatically an authorized VSCP administrator. Just Works pairing alone MUST NOT authorize sensitive writes. There is **no** writable plaintext Key characteristic.
+
+### 6.2 Byte order and common record framing
+
+G1 uses the same canonical VSCP GUID byte order as E1. All G1 multioctet integers are unsigned **big-endian**. Each Event TX or Event RX message is a complete **G1 record**, split across ATT value transfers when necessary. A record header is:
+
+| Offset | Field | Size | Value |
+| ---: | --- | ---: | --- |
+| 0 | Protocol version | 1 | `0x01` |
+| 1 | Record kind | 1 | `0x01` = VSCP event |
+| 2 | Record flags | 1 | `0x00` (all bits reserved) |
+| 3 | Reserved | 1 | `0x00` |
+| 4–7 | Transaction ID | 4 | Sender-selected, nonzero; unique among in-flight records on that connection |
+| 8–9 | VSCP event length | 2 | `L = 22 + N` |
+| 10–25 | Sender GUID | 16 | Canonical 16-octet GUID |
+| 26–27 | VSCP head | 2 | Full 16-bit VSCP head |
+| 28–29 | VSCP class | 2 | 16-bit VSCP class |
+| 30–31 | VSCP type | 2 | 16-bit VSCP type |
+| 32–33 | VSCP data length | 2 | `N` |
+| 34–(33+N) | VSCP event data | N | Exactly N octets |
+
+The record is **34 + N** octets, with `L=22+N` denoting the 16-byte GUID, 2-byte head, 2-byte class, 2-byte type, 2-byte data length, and `N` data octets. The record carries no implicit timestamp or obid; gateways may supply these as local metadata. `N` MUST be between 0 and the negotiated `max_event_data`, never greater than 487 octets for this G1 revision. The maximum record size is therefore 521 octets. Zero GUID, unsupported record kind/version/flags, or inconsistent lengths MUST be rejected.
+
+### 6.3 ATT fragmentation
+
+ATT notifications and writes can carry at most **ATT_MTU - 3** octets of characteristic value. G1 does not require a particular ATT MTU; the minimum ATT MTU of 23 is supported. Every Event TX notification and Event RX Write Request carries **one fragment** of exactly one G1 record. Each fragment has this 8-octet header:
+
+| Offset | Field | Size | Value |
+| ---: | --- | ---: | --- |
+| 0 | Fragment version | 1 | `0x01` |
+| 1 | Flags | 1 | Bit 0 FIRST, bit 1 LAST; bits 2–7 zero |
+| 2–5 | Transaction ID | 4 | Matches the G1 record |
+| 6–7 | Offset | 2 | Zero-based byte offset into complete G1 record |
+| 8… | Fragment bytes | Variable | Contiguous bytes from the record |
+
+A fragment MUST fit `ATT_MTU - 3`; therefore fragment payload capacity is `ATT_MTU - 11` (12 octets at MTU 23). The FIRST fragment MUST have offset zero and include at least the first 10 record-header octets; its record Transaction ID MUST match the fragment Transaction ID. Fragments MUST arrive in strictly increasing contiguous offset order for a transaction; gaps, overlaps, duplicates, and unexpected offsets are rejected. The LAST fragment MUST end exactly at the record's computed total length. Zero-length fragment payloads are invalid. A single-fragment record sets both FIRST and LAST.
+
+At most **one reassembly transaction per direction per connection** is permitted in G1 version 1. This avoids interleaving and makes memory limits explicit. The receiver MUST bound buffers to the negotiated maximum record length and discard incomplete reassembly after **5 seconds** without a new fragment. A disconnect immediately discards all incomplete records. No partially reassembled event may reach the VSCP application.
+
+### 6.4 Control characteristic and flow control
+
+Control uses Write Request for client-to-server commands and **Indications** for server-to-client results. The client MUST enable Control indications before sending Event RX records. Every Control value has:
+
+```text
+byte 0    version = 0x01
+byte 1    opcode
+bytes 2–5 transaction ID (uint32 BE; zero for connection-level commands)
+byte 6    status
+byte 7    payload length P
+bytes 8…  payload (P octets)
+```
+
+The total value length MUST be exactly `8 + P` and fit the negotiated ATT MTU. Unknown opcodes, invalid lengths, and reserved status values MUST be rejected. Opcodes:
+
+| Opcode | Direction | Semantics |
 | --- | --- | --- |
-| Capabilities | Read | Supported profiles, frame versions, MTU/size limits, security modes |
-| Device GUID | Read | Stable 16-octet GUID |
-| Event TX | Notify | Peripheral-to-central framed VSCP events |
-| Event RX | Write | Central-to-peripheral framed VSCP events |
-| Control | Read/Write/Indicate | Negotiation, status, application errors |
-| Configuration | Read/Write | Authorized transport configuration |
-| Security status | Read | Provisioning and authorization state |
+| `0x01` HELLO | Client → server | Negotiate version and limits |
+| `0x81` HELLO_RESULT | Server → client | Negotiated limits or error |
+| `0x02` RESET | Client → server | Cancel incomplete inbound record |
+| `0x82` EVENT_RESULT | Server → client | Application acceptance/rejection for Event RX transaction |
+| `0x83` TX_RESULT | Server → client | Status for server-side Event TX delivery attempt; not client acknowledgment |
 
-**UUIDs are intentionally unassigned.** This table is an architecture proposal, not a usable interoperable GATT service. Before publishing G1 as normative, allocate and publish 128-bit UUIDs and specify characteristic permissions, wire frames, ATT MTU handling, fragmentation, credits/flow control, response/error codes, ordering, disconnect behavior, and capability negotiation.
+HELLO request payload is exactly six octets: `max_event_data` (uint16 BE, 0–487), `max_record_size` (uint16 BE, 34–521), `features` (uint16 BE; all bits zero in version 1). HELLO_RESULT success uses the same six-octet payload with negotiated minima. The client MUST complete HELLO successfully before sending Event RX or subscribing to Event TX event traffic. The server MUST reject events that exceed negotiated limits. Both peers MUST enforce the maximum of one outstanding event per direction; the sender waits for an Event RX `EVENT_RESULT` before starting another Event RX record.
 
-Configuration and command writes MUST require appropriate authenticated authorization. Do not expose plaintext key material via a generic Key characteristic. BLE link encryption alone MUST NOT be assumed to authorize an application-level command; the implementation must enforce its own trust and provisioning policy.
+An ATT Write Response confirms only that a fragment was accepted by the GATT server; it does **not** mean the complete VSCP event was accepted or executed. `EVENT_RESULT` indicates that a complete event passed framing and admission checks, **not** that its physical side effects completed. Any application requiring execution acknowledgment MUST define a separate VSCP-level response. Server-to-client Event TX uses notifications and has no G1 application acknowledgment in this revision; a server MUST NOT claim reliable client processing based on a successful notification API call.
+
+### 6.5 Status and error handling
+
+Control status codes:
+
+| Code | Name | Meaning |
+| --- | --- | --- |
+| `0x00` | OK | Command or event accepted |
+| `0x01` | UNSUPPORTED_VERSION | Unknown protocol version |
+| `0x02` | BAD_LENGTH | Invalid or inconsistent length |
+| `0x03` | BAD_FLAGS | Reserved or invalid flag bits |
+| `0x04` | BAD_SEQUENCE | Fragment offset/order mismatch |
+| `0x05` | BUSY | Another record is in progress |
+| `0x06` | NOT_AUTHORIZED | Insufficient application permission |
+| `0x07` | TOO_LARGE | Exceeds negotiated limits |
+| `0x08` | TIMEOUT | Reassembly expired |
+| `0x09` | INVALID_EVENT | VSCP semantic validation failed |
+| `0x0A` | NOT_READY | HELLO or CCCD setup incomplete |
+| `0x0B` | INTERNAL_ERROR | Server unable to process request |
+
+A failed ATT access permission MUST use standard ATT errors (such as Insufficient Authentication, Insufficient Encryption, or Insufficient Authorization), not silently downgrade. A structurally valid Event RX transaction that fails VSCP admission MUST receive `EVENT_RESULT` with an appropriate status, if the connection remains active. On fragmentation errors, the receiver MUST discard the current record, return a status where the protocol allows, and require a fresh FIRST fragment. Clients MUST NOT retry a privileged command with weaker permissions or a different security profile.
+
+### 6.6 Capabilities, configuration and security status
+
+Capabilities Read returns a fixed 12-octet structure:
+
+```text
+0       G1 version (0x01)
+1       flags (0x00, reserved)
+2–3     max_event_data (uint16 BE; <= 487)
+4–5     max_record_size (uint16 BE; <= 521)
+6–7     max_fragment_payload (uint16 BE; ATT_MTU-dependent, 0 if not negotiated)
+8–9     supported_features (uint16 BE; 0x0000 in v1)
+10–11   reserved (0x0000)
+```
+
+Device GUID Read returns exactly 16 octets in VSCP canonical order. Configuration Read/Write uses a versioned TLV envelope: `version (1)=0x01, count (1), repeated [type (1), length (1), value (length)]`. Version 1 defines **no writable TLV types**; a write MUST be rejected as unsupported unless a separately published authorized extension defines it. This prevents unspecified configuration writes from becoming de facto interoperability requirements.
+
+Security Status Read returns exactly four octets: `version=0x01, pairing_state, authorization_state, reserved=0x00`. Pairing state is `0` unauthenticated or `1` authenticated/encrypted; authorization state is `0` none, `1` event access, `2` administrator. These are advisory status indicators, not proof of authorization. No keys, key identifiers, or nonce prefixes are exposed.
+
+### 6.7 Connection lifecycle and interoperability
+
+On connection, the client discovers the service and characteristics, establishes required BLE link security, subscribes to Control indications, reads Capabilities and Device GUID, and sends HELLO. On successful HELLO it may subscribe to Event TX and use Event RX subject to authorization. Notifications/indications MUST NOT carry unnegotiated event records. On reconnect, negotiation and transaction IDs start a new connection scope; stale fragments and outstanding transactions MUST be discarded.
+
+Implementations MUST validate every byte length before allocating memory or decoding a VSCP event, rate-limit malformed traffic, and never execute an event from a partial record. Implementers SHOULD provide conformance tests at ATT MTU 23 and larger MTUs, including single/multi-fragment records, maximum payload, missing LAST, overlapping fragments, duplicate transaction IDs, timeout, disconnect, permission failures, HELLO failure, and invalid VSCP data.
 
 ## 7. Authenticated security profile A2 (proposed)
 
