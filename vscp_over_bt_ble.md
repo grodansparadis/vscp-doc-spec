@@ -1,5 +1,7 @@
 # VSCP over Bluetooth Low Energy (BLE)
 
+> ** THIS IS WORK IN PROGRESS!!!! **
+
 > **Status: proposed revision for review.** The legacy version 0 encoding is documented for compatibility. The version 1 encoding, UUID allocation, and security profile in this document are proposals, not registered or deployed interoperability standards. Do not claim conformance to version 1 until these parameters are ratified.
 
 ## 1. Scope
