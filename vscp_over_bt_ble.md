@@ -671,7 +671,7 @@ An E1 receiver MUST:
 2. Match the expected Company ID and frame version.
 3. Reject any reserved flag bits, encrypted frames without a ratified envelope, or unsupported versions.
 4. Verify that the data length equals the exact remaining number of octets.
-5. Preserve the 16-octet GUID, full head, class, type and data without reinterpretation.
+5. Preserve the 16-octet GUID, full head, class, type and data without reinterpretation. E1 carries no source timestamp or `obid`: assign the current receive time according to [the timestamp conversion rules](./timestamp.md), and set `obid` to the receiving interface's identifier (or zero when unused). Source event timestamps are not preserved by E1; use another transport when their preservation is required.
 6. Bound allocations and parsing work to configured resource limits.
 7. Never interpret an incomplete or unauthenticated event as an authenticated control command.
 
