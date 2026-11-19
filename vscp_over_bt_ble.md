@@ -71,13 +71,82 @@ Extended advertising supports distinct **non-connectable**, **scannable**, and *
 
 The primary `ADV_EXT_IND` may use LE 1M or LE Coded PHY where supported; secondary advertising may use LE 1M, LE 2M, or LE Coded PHY where supported. LE 2M, LE Coded (S=2/S=8), and periodic advertising are **separate optional capabilities** and MUST NOT be inferred from the presence of Bluetooth 5 or extended advertising alone.
 
-### 3.4 Implications for VSCP
+### 3.4 VSCP extended advertising operating profiles
+
+The following operating profiles define **how** E1 version 1 and A2 version 2 frames are transmitted. They do not introduce new frame-version values or modify their manufacturer AD structures. Advertising properties MUST be configured explicitly; implementations MUST NOT infer them from the VSCP frame version.
+
+| Profile | Purpose | Extended advertising properties | VSCP event placement | PHY |
+| --- | --- | --- | --- | --- |
+| **EA-B** (baseline broadcast) | E1 public telemetry/discovery events | Non-connectable, non-scannable, non-directed | Complete E1 v1 manufacturer AD structure in advertising data | Primary LE 1M; secondary LE 1M |
+| **EA-S** (secure broadcast) | A2 authenticated event reporting | Non-connectable, non-scannable, non-directed | Complete A2 v2 manufacturer AD structure in advertising data | Primary LE 1M; secondary LE 1M |
+| **EA-C** (coded broadcast, optional) | Greater coverage where supported | Non-connectable, non-scannable, non-directed | Complete E1 or A2 structure in advertising data | Primary LE Coded; secondary LE Coded |
+| **EA-F** (fast secondary, optional) | Reduced secondary-channel airtime where supported | Non-connectable, non-scannable, non-directed | Complete E1 or A2 structure in advertising data | Primary LE 1M; secondary LE 2M |
+| **EA-D** (G1 discovery, optional) | Advertise availability of connected GATT service | Connectable, non-scannable extended advertising | Service UUID/discovery AD structures; no E1/A2 event required | Primary LE 1M; secondary LE 1M, or supported optional PHYs |
+| **EA-R** (scan-response discovery, optional) | Additional discovery metadata | Scannable, non-connectable extended advertising | Discovery AD structures in **extended scan-response data**, not VSCP event continuation | Primary LE 1M; secondary LE 1M, or supported optional PHYs |
+
+**EA-B and EA-S are the baseline extended advertising operating profiles** for E1 and A2 respectively. EA-C, EA-F, EA-D and EA-R are optional operating profiles; support for one MUST NOT imply support for another. A device MAY operate multiple advertising sets when supported, subject to controller capacity. In particular, a device may advertise connectionless VSCP events on one set and G1 discovery on another.
+
+For extended advertising, connectable and scannable properties MUST NOT both be set on the same advertising set. A directed advertising set is outside these baseline profiles. EA-R MUST NOT be used as an implicit continuation channel for E1/A2 event data. Periodic advertising is **not** defined as a VSCP transport profile in this revision; it requires separate synchronization, discovery, payload and compatibility rules.
+
+### 3.5 PHY and advertising-mode requirements
+
+A conforming EA-B/EA-S transmitter MUST support the LE 1M primary and secondary PHY configuration if its controller/host provides extended advertising. An implementation that supports only other PHY combinations MAY describe itself as supporting an optional VSCP operating profile, but MUST NOT claim EA-B/EA-S baseline interoperability.
+
+LE 2M is a **secondary advertising PHY option**; primary-channel extended advertising does not use LE 2M. LE Coded is optional, with controller-selected coding behavior and effective airtime/range dependent on configuration and radio conditions. The selected primary and secondary PHYs MUST be valid for the controller and accepted by its advertising-parameter API. Receivers MUST support the relevant primary and secondary PHYs and extended scanning to discover an optional profile. A receiver that supports only LE 1M cannot be assumed to receive EA-C.
+
+| Property | EA-B / EA-S | EA-C | EA-F | EA-D | EA-R |
+| --- | --- | --- | --- | --- | --- |
+| Extended advertising feature | Required | Required | Required | Required | Required |
+| Primary LE 1M | Required | No | Required | Baseline | Baseline |
+| Primary LE Coded | No | Required | No | Optional | Optional |
+| Secondary LE 1M | Required | No | No | Baseline | Baseline |
+| Secondary LE 2M | No | No | Required | Optional | Optional |
+| Secondary LE Coded | No | Required | No | Optional | Optional |
+| Extended scan support at receiver | Required | Required | Required | For discovery | For scan response |
+| Active scanning at receiver | Not required | Not required | Not required | Not required | Required |
+| GATT connection | Not required | Not required | Not required | Required for actual G1 negotiation | Not required |
+
+The baseline profiles SHOULD use a discoverable, non-directed advertising configuration appropriate to their application, without treating the Bluetooth discoverable-mode flag as a security or authentication indicator. A receiver MUST inspect complete extended advertising reports, including data status, and MUST NOT deliver a truncated event.
+
+### 3.6 Payload limits by VSCP profile
+
+| Format / placement | Maximum VSCP event data | Additional constraints |
+| --- | ---: | --- |
+| L0 legacy manufacturer AD | 8 octets | 21-octet proposed AD structure; legacy 31-octet advertising data limit |
+| E1 v1 in EA-B / EA-C / EA-F | **222 octets** | Single manufacturer AD structure: `34 + N` total octets |
+| A2 v2 in EA-S / EA-C / EA-F | **200 octets** | Single manufacturer AD structure: `56 + N` total octets, including 16-octet CCM tag |
+| EA-D / EA-R discovery | No VSCP event-data capacity defined | Discovery-only AD structures; do not encode arbitrary VSCP event continuations |
+
+The advertised maximum **1,650-octet data set** does not increase these E1/A2 limits, because their current framing uses exactly one AD structure with a one-octet Length field. A transmitter MUST ensure that the **entire configured advertising data set**, including other AD structures, fits the controller-reported maximum. It MUST NOT split one E1/A2 event into multiple AD structures, advertising sets, or scan responses. Bluetooth Link Layer auxiliary-PDU chaining remains permitted.
+
+### 3.7 Controller and host capability checks
+
+Before enabling any extended advertising operating profile, the implementation MUST verify that the controller and host expose **LE Advertising Extensions**, can create the required advertising set and property combination, and accept the chosen primary/secondary PHY. When standard HCI commands are available, the implementation SHOULD query `LE Read Local Supported Features`, `LE Read Maximum Advertising Data Length`, and `LE Read Number of Supported Advertising Sets`. It MUST validate the actual maximum advertising-data length and handle failure of `LE Set Extended Advertising Parameters`, `LE Set Extended Advertising Data`, and `LE Set Extended Advertising Enable`.
+
+A transmitter MUST check:
+
+1. Extended advertising support in **both controller and host API**.
+2. Supported advertising properties, primary/secondary PHY combination, advertising interval and event duration.
+3. Available advertising set handles and controller memory for concurrently enabled sets.
+4. Effective advertising-data length, including all AD structures; an E1 maximum frame is 256 octets in total and an A2 maximum frame is also 256 octets.
+5. HCI command fragmentation support for advertising data exceeding the single-command transfer limit.
+6. Whether configuration is accepted at runtime; advertised theoretical limits alone do not prove the chosen configuration will work.
+
+A receiver MUST verify extended scanning support, selected PHY support, availability of complete extended advertising reports, and sufficient host buffering. An incomplete or truncated report MUST NOT be interpreted as a valid E1/A2 event. Applications SHOULD log unsupported configurations and offer a safe alternative transport, but MUST NOT silently weaken the security policy.
+
+**Fallback:** If EA-C or EA-F is unsupported, a transmitter MAY switch to EA-B or EA-S with LE 1M **without changing E1/A2 frame bytes or security requirements**. If extended advertising is unavailable, a public S0 application MAY use a separately verified L0 compatibility profile, provided its event fits L0. An authenticated A2 event MUST NOT be converted to unauthenticated E1/L0. Applications needing authenticated bidirectional delivery SHOULD use authorized G1 or another secure VSCP transport when available.
+
+### 3.8 Operating-profile interoperability tests
+
+Tests SHOULD include LE 1M baseline reception; optional LE Coded and LE 2M combinations; invalid connectable+scannable settings; a controller with only one advertising set; controller maximum advertising data length below the E1/A2 maximum frame size; failure to allocate or enable an advertising set; host API lacking extended advertising despite a Bluetooth 5 controller; truncated extended advertising reports; full 222-octet E1 and 200-octet A2 payloads; multiple simultaneous advertising sets; and authenticated-profile fallback attempts.
+
+### 3.9 Implications for VSCP
 
 VSCP E1 events SHOULD be self-contained within a complete, correctly reconstructed advertising data set. The current proposed E1 format uses **one Manufacturer Specific Data AD structure**, which is constrained by the **one-octet AD Length field** even if the controller supports a 1,650-octet data set. In that format, the manufacturer AD structure can hold at most 254 octets of AD Data, of which 32 are the proposed E1 header, leaving **222 octets of VSCP event data** in an unencrypted E1 frame. This is a **format limit**, not a Bluetooth 5 PDU limit.
 
 Supporting larger VSCP events would require a new, explicitly specified encoding (for example multiple AD structures or application-level fragmentation), with length validation, identity, reassembly limits, and security rules. Controller-managed PDU chaining alone does not remove the AD-structure length limit or guarantee delivery. A connected VSCP transport SHOULD be preferred when larger payloads, bidirectional transfer, or reliable application-level handling are needed.
 
-### 3.5 References
+### 3.10 References
 
 - [Bluetooth SIG: Bluetooth LE primer, legacy versus extended advertising](https://www.bluetooth.com/bluetooth-le-primer/)
 - [Bluetooth Core Specification: HCI LE Read Maximum Advertising Data Length and LE Set Extended Advertising Data](https://www.bluetooth.com/wp-content/uploads/Files/Specification/HTML/Core-62/out/en/host-controller-interface/host-controller-interface-functional-specification.html)
