@@ -9,13 +9,13 @@
 #include <linux/serial.h>
 #include <asm/ioctls.h>
 #ifndef SER_RS485_ADDRB
-#define SER_RS485_ADDRB (1U << 5)
+#define SER_RS485_ADDRB (1U << 6)
 #endif
 #ifndef SER_RS485_ADDR_RECV
-#define SER_RS485_ADDR_RECV (1U << 6)
+#define SER_RS485_ADDR_RECV (1U << 7)
 #endif
 #ifndef SER_RS485_ADDR_DEST
-#define SER_RS485_ADDR_DEST (1U << 7)
+#define SER_RS485_ADDR_DEST (1U << 8)
 #endif
 int main(int argc, char **argv) {
     struct serial_rs485 cfg = {0};
