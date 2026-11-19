@@ -693,7 +693,7 @@ Offsets include the AD Length and AD Type. Company Identifier is little-endian; 
 
 | Offset | Field | Octets | Validation |
 | ---: | --- | ---: | --- |
-| 0 | AD Length | 1 | `0x2A + C` (42 + C) |
+| 0 | AD Length | 1 | `0x29 + C` (41 + C) |
 | 1 | AD Type | 1 | `0xFF` |
 | 2–3 | Company Identifier | 2 | Configured assigned identifier, LE; `0xFFFF` test-only |
 | 4 | Frame version | 1 | Exactly `0x03` |
