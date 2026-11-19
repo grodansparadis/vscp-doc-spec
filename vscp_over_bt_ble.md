@@ -205,59 +205,104 @@ AES-128 ECB, when used by historical devices, provides neither event authenticat
 
 The former document lists Name (11 bytes), Key (16 bytes), and Period (1 byte) characteristics without UUIDs, properties, access permissions, or framing. These are **historical descriptions only**, not a complete GATT profile. A generic writable plaintext Key characteristic MUST NOT be introduced in new implementations.
 
-## 5. Proposed extended advertising profile E1
+## 5. Proposed extended advertising profile E1 — frame version 1
 
-### 5.1 General rules
+> **Status:** This section defines a complete **cleartext E1 version 1 wire format** for technical review and interoperability testing. It is a proposed format, not a deployed standard. Authenticated/encrypted E1 frames are **not defined** here and MUST NOT be transmitted under version 1 until a separate extension is ratified.
 
-E1 carries one complete VSCP event in a Manufacturer Specific Data AD structure where possible. For the first interoperable revision, **application-level fragmentation is not supported**: if the encoded event does not fit the configured advertising data set, the sender MUST use G1 or another VSCP transport. Bluetooth controller-managed extended-PDU chaining is permitted. Receivers MUST validate the complete AD structure before parsing and MUST reject malformed lengths, unknown versions, unsupported flags, and duplicate/conflicting fields.
+### 5.1 Encapsulation and byte order
 
-**Wire-order convention:** the Company Identifier is little-endian per Bluetooth; all multioctet VSCP fields and the sequence number are big-endian. The GUID is a 16-octet binary value in VSCP canonical order.
+E1 version 1 carries **exactly one complete VSCP event** in **one Manufacturer Specific Data AD structure** (AD Type `0xFF`). The structure can be transmitted using a controller-supported extended advertising data set; controller-managed `AUX_CHAIN_IND` PDU chaining does not change the E1 bytes. No E1 application-level fragmentation, multiple-event packing, or continuation via scan response is defined.
 
-### 5.2 E1 cleartext frame, version 1 (proposed normative encoding)
+All offsets in §5.2 are measured from the **first octet of the AD structure** (the AD Length octet). All multi-octet VSCP and sequence fields are **unsigned big-endian** (most-significant octet first). The Bluetooth Company Identifier is **little-endian**, as required by the Bluetooth AD format. A GUID is exactly 16 octets in canonical VSCP byte order; it is not a character string or a BLE address.
 
-The following offsets are relative to the **AD Data** portion of the Manufacturer Specific Data AD structure (excluding the outer Length and AD Type octets):
+The Company Identifier is a Bluetooth SIG-assigned identifier selected for this transport deployment. **No globally assigned VSCP Company Identifier is specified by this proposal.** `0xFFFF` MAY be used only in isolated test fixtures and MUST NOT be transmitted in production. A production deployment MUST document the actual assigned identifier used and receivers MUST filter by that identifier before interpreting E1 fields.
 
-| Offset | Field | Octets | Value / semantics |
+### 5.2 Byte-exact AD structure
+
+| Offset | Field | Octets | Encoding / validation |
 | ---: | --- | ---: | --- |
-| 0 | Company ID | 2 | Assigned Bluetooth SIG Company Identifier, little-endian |
-| 2 | Format version | 1 | `0x01` |
-| 3 | Flags | 1 | Bit 0 encrypted; bits 1–7 reserved and MUST be zero |
-| 4 | Sequence | 4 | Unsigned monotonic counter, big-endian, scoped to sender/key epoch |
-| 8 | GUID | 16 | Stable full VSCP GUID |
-| 24 | VSCP head | 2 | Full VSCP header, big-endian |
-| 26 | VSCP class | 2 | Big-endian |
-| 28 | VSCP type | 2 | Big-endian |
-| 30 | Data length | 2 | Big-endian unsigned integer |
-| 32 | Event data | N | Exactly N octets |
+| 0 | AD Length | 1 | `0x21 + N` (33 + N); counts all following octets, including AD Type |
+| 1 | AD Type | 1 | `0xFF` (Manufacturer Specific Data) |
+| 2–3 | Company Identifier | 2 | Bluetooth SIG assigned identifier, **little-endian** |
+| 4 | Frame version | 1 | Exactly `0x01` |
+| 5 | Flags | 1 | Exactly `0x00` for this cleartext version; see §5.3 |
+| 6–9 | Sequence number | 4 | Unsigned 32-bit integer, **big-endian** |
+| 10–25 | Sender GUID | 16 | Stable canonical VSCP GUID |
+| 26–27 | VSCP head | 2 | Unsigned 16-bit header, **big-endian** |
+| 28–29 | VSCP class | 2 | Unsigned 16-bit class, **big-endian** |
+| 30–31 | VSCP type | 2 | Unsigned 16-bit type, **big-endian** |
+| 32–33 | VSCP data length | 2 | Unsigned 16-bit `N`, **big-endian** |
+| 34–(33+N) | VSCP event data | N | Exactly `N` octets, unpadded |
 
-An unencrypted E1 AD Data value has **32 + N octets**, plus the outer AD Length and AD Type. The sender MUST ensure that the enclosing AD structure fits the selected advertising data set and the one-octet AD Length field. Therefore a single manufacturer AD structure has at most **254 octets of AD Data** and the E1 cleartext event data is limited to **222 octets**. An advertising data set may be larger, but a single AD structure cannot exceed the one-octet AD Length representation. Larger events require another defined encoding or GATT.
+The complete AD structure occupies **34 + N octets**. The AD Length field is **33 + N**, and the Manufacturer Specific AD Data occupies **32 + N octets**. Since the one-octet AD Length field cannot exceed 255, **0 ≤ N ≤ 222**. Other AD structures, if present, consume additional advertising data-set capacity. Senders MUST also respect the controller's actual supported advertising data-set length. No implicit null terminator, checksum, padding, or trailing bytes are permitted **inside this AD structure**.
 
-Unencrypted E1 is intended for public telemetry/discovery only. It provides neither authenticity nor confidentiality. Consumers MUST NOT authorize privileged actions based on unencrypted E1 events.
+### 5.3 Flags and reserved bits
 
-### 5.3 E1 encrypted envelope (design reserved; not yet interoperable)
+| Flag bit | Definition for version 1 |
+| --- | --- |
+| 0 | Reserved for a future authenticated-encryption envelope; MUST be zero |
+| 1–7 | Reserved; MUST be zero |
 
-Flag bit 0 is **reserved for a future authenticated-encryption envelope**. Senders MUST set bit 0 to zero until an interoperable envelope with an assigned key ID, unique nonce construction, authentication tag size, authenticated header fields, persistent counter/epoch behavior, key rotation, and test vectors has been ratified. Receivers MUST reject frames with bit 0 set unless they implement that separately ratified extension.
+Thus, the only valid flags octet for this proposal is `0x00`. A receiver MUST reject a version 1 AD structure with any flags bit set. A receiver MUST NOT assume that bit 0 identifies a supported cipher or attempt to interpret encrypted bytes as a cleartext event. Future formats MUST define their envelope and compatibility rules explicitly; reserved bits are not available for vendor-specific meanings.
 
-The future profile SHOULD use a constrained-device AEAD such as AES-CCM, authenticate the version, flags, identity, sequence and event metadata as associated data or ciphertext, and define replay protection. AES-ECB MUST NOT be used for E1. A device MUST NOT silently downgrade a command requiring authentication to unencrypted E1.
+The VSCP head is **not** the E1 flags octet. Its bit definitions and valid combinations remain those of the applicable VSCP event specification. A receiver MUST validate VSCP head/class/type/data semantics at the VSCP application layer, after structural decoding.
 
-### 5.4 Identity, sequence and replay
+### 5.4 Sender identity
 
-A stable VSCP GUID MUST NOT be derived solely from a rotating BLE private address. The 32-bit sequence counter helps detect duplicates but, without authentication, **does not provide replay security**. Counter wraparound, reboot and key-epoch transitions MUST be specified in the future authenticated profile. Receivers MAY deduplicate cleartext telemetry using (GUID, sequence) within a bounded window; such deduplication is not a security guarantee.
+The Sender GUID identifies the VSCP node that originated the event, not the BLE scanner or gateway. It MUST remain stable across ordinary reboots and BLE private-address rotation. A sender MUST NOT derive the E1 GUID solely from its current BLE MAC address. A gateway MUST preserve the sender GUID when forwarding the event; it MAY separately record the observed BLE address as transport metadata. A receiver MUST NOT replace the on-wire GUID with a reconstructed MAC-derived GUID.
 
-### 5.5 Example byte encoding (proposed; illustrative)
+An all-zero GUID is **invalid in this proposed E1 profile** and MUST be rejected. Provisioning MUST ensure GUID uniqueness within the intended VSCP network. Since E1 cleartext is unauthenticated, a GUID is an **asserted identity**, not cryptographic proof of origin; receivers MUST NOT use it alone to authorize privileged actions.
 
-For test-only Company ID `0xFFFF`, version 1, flags 0, sequence 1, GUID `00:01:02:03:04:05:06:07:08:09:0A:0B:0C:0D:0E:0F`, head `0x0000`, class `0x000A`, type `0x0006`, data `11 22`:
+### 5.5 Sequence numbering and duplicate handling
+
+The sequence number is a 32-bit **unsigned** counter, scoped to one stable Sender GUID and E1 version 1 frame stream, across all event classes and types. The sender MUST assign a new value to each newly constructed event and MUST NOT reuse a value for a different event under the same GUID. Repeated transmissions of the **same unchanged event frame** MAY retain the same sequence number. The counter MUST increase by one modulo no wrap: valid transmitted values are `0x00000000` through `0xFFFFFFFF`; **wrap to zero is forbidden** under the same GUID. A sender MUST stop transmitting E1 version 1 events when the counter space is exhausted until a new unique GUID is provisioned or a future epoch-bearing format is used.
+
+A sender MUST maintain the next sequence number across reboot, power loss, and firmware update, or MUST stop E1 transmission until a safe new identity is provisioned. Implementations SHOULD use nonvolatile counter-range reservation to avoid a flash write for every event. Skipped counter values are allowed (for example after a crash or reservation); receivers MUST NOT assume gap-free delivery. **A new device GUID starts a new sequence space.**
+
+Receivers MAY deduplicate by the pair `(Sender GUID, sequence number)` within a bounded retention window. Identical repeats MAY be ignored. If the same pair appears with different event bytes, the receiver SHOULD report a conflict and MUST NOT merge their data. A receiver MUST NOT require contiguous sequences or reject a valid event solely because a previous advertisement was lost or arrived out of order. Sequence numbers do **not** provide authenticity or cryptographic anti-replay for cleartext E1.
+
+### 5.6 Validation algorithm
+
+For each **complete** advertising data set, the receiver MUST:
+
+1. Parse its AD structures using their Length octets, checking bounds before every read. A zero AD Length terminates parsing; any remaining bytes are not part of an AD structure.
+2. Select Manufacturer Specific Data AD structures (`0xFF`) with the configured Company Identifier. Ignore unrelated manufacturers and AD types.
+3. Require at least **34 octets** in a candidate E1 AD structure (including AD Length and AD Type).
+4. Require frame version exactly `0x01`. Unknown versions MUST NOT be interpreted as legacy version 0.
+5. Require flags exactly `0x00`; reject all reserved-bit combinations.
+6. Decode `N` at offsets 32–33 as big-endian and require `0 ≤ N ≤ 222`.
+7. Require the AD Length value to equal **33 + N**, and the AD structure size to equal **34 + N**. Reject missing, excess, or padded event octets within the structure.
+8. Require a nonzero Sender GUID. Preserve the full VSCP head, class, type, and exact `N` event data octets.
+9. Reject ambiguous data sets containing more than one candidate E1 event under the same configured Company Identifier; multi-event packing is not defined.
+10. Apply VSCP application validation, local resource limits, and security policy **before** delivering the event. Unauthenticated E1 MUST NOT authorize privileged operations.
+
+The receiver MUST reject truncated extended advertising reports or incomplete controller-reassembled data sets. Malformed packets MUST NOT cause out-of-bounds reads, unbounded allocations, or implicit fallback to another frame version.
+
+### 5.7 Hexadecimal interoperability vectors
+
+**Vector A — empty event payload.** Test-only Company Identifier `0xFFFF`; sequence 0; GUID `00:01:02:03:04:05:06:07:08:09:0A:0B:0C:0D:0E:0F`; head/class/type all zero; `N = 0`.
 
 ```text
-AD Length: 0x23 (35 = AD Type 1 + AD Data 34)
-AD Type:   FF
-AD Data:
-  FF FF 01 00 00 00 00 01
-  00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
-  00 00 00 0A 00 06 00 02 11 22
+21 FF FF FF 01 00 00 00 00 00
+00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
+00 00 00 00 00 00 00 00
 ```
 
-This is a **synthetic encoding test**, not a claim that the chosen VSCP class/type/data combination is a valid application event. A production sender MUST replace the test Company ID with its assigned identifier.
+**Vector B — two event-data octets.** Same test identifier and GUID; sequence 1; head `0x0000`; class `0x000A`; type `0x0006`; event data `11 22`; `N = 2`.
+
+```text
+23 FF FF FF 01 00 00 00 00 01
+00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
+00 00 00 0A 00 06 00 02 11 22
+```
+
+Both vectors are **framing tests**, not claims that the selected VSCP class/type combinations constitute meaningful application events. Both use `0xFFFF` strictly as a test identifier.
+
+**Negative tests:** reject version `0x02`, flags `0x01` or `0x80`, zero GUID, `N=223`, AD Length not equal to `33+N`, truncated data, extra bytes inside the candidate AD structure, multiple candidate E1 frames, and incomplete extended advertising reports.
+
+### 5.8 Security boundary
+
+E1 version 1 as defined here is **cleartext and unauthenticated**. It MUST be restricted to data permitted by policy to be public and untrusted. AES-ECB is not permitted for E1. Authenticated/encrypted E1 requires a separately specified and tested envelope with key identifiers, nonce uniqueness, authenticated metadata, replay protection, key lifecycle, and known-answer vectors. Until then, flag bit 0 remains reserved and unusable.
 
 ## 6. Proposed connected GATT profile G1
 
