@@ -31,7 +31,7 @@ size_t vscp_a2_encode(uint8_t out[256],const vscp_a2_sender *s,
     if(EVP_EncryptInit_ex(ctx,NULL,NULL,s->key,iv)!=1)goto end;
     if(EVP_EncryptUpdate(ctx,NULL,&k,NULL,(int)n)!=1)goto end;
     if(EVP_EncryptUpdate(ctx,NULL,&k,ad,49)!=1)goto end;
-    if(n&&EVP_EncryptUpdate(ctx,out+40,&k,plaintext,(int)n)!=1)goto end;
+    if(EVP_EncryptUpdate(ctx,out+40,&k,n?plaintext:(const uint8_t *)"",(int)n)!=1)goto end;
     if(EVP_EncryptFinal_ex(ctx,out+40+n,&k)!=1)goto end;
     if(EVP_CIPHER_CTX_ctrl(ctx,EVP_CTRL_AEAD_GET_TAG,16,out+40+n)!=1)goto end;
     ok=1;
