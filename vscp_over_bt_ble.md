@@ -322,17 +322,98 @@ G1 SHOULD expose a dedicated VSCP service with these logical characteristics:
 
 Configuration and command writes MUST require appropriate authenticated authorization. Do not expose plaintext key material via a generic Key characteristic. BLE link encryption alone MUST NOT be assumed to authorize an application-level command; the implementation must enforce its own trust and provisioning policy.
 
-## 7. Security requirements
+## 7. Authenticated security profile A2 (proposed)
 
-The following application policy classes are proposed:
+> **Status:** A2 is a **new, proposed frame version 2**. It does not redefine E1 version 1, whose flags MUST remain zero. A2 uses authenticated encryption; interoperability requires provisioning the same key records and implementing the rules below. Cryptographic test vectors and independent implementation review are required before ratification or production deployment.
 
-| Policy | Requirement | Example |
+### 7.1 Security policy and threat model
+
+| Policy | Requirement | Allowed format |
 | --- | --- | --- |
-| S0 | No application-layer authenticity | Public temperature telemetry |
-| S1 | Authenticated integrity and anti-replay | Trusted alarm reporting |
-| S2 | Authenticated encryption and anti-replay | Access control and sensitive configuration |
+| S0 | Public, untrusted telemetry; no origin authentication | E1 version 1 |
+| S1 | Origin authentication, integrity, anti-replay | A2 version 2 (AEAD, even if data is not sensitive) |
+| S2 | Origin authentication, confidentiality, integrity, anti-replay | A2 version 2 |
 
-**Only S0 is currently encoded by the proposed E1 cleartext frame.** S1 and S2 are requirements for future normative security envelopes, not implementations specified by this revision. They MUST define cryptographic algorithms, keys, nonce/counter lifecycle, tag validation, replay windows, rekeying, downgrade resistance, and known-answer tests. A receiver MUST fail closed for an event requiring a higher policy than the received frame provides.
+A2 always encrypts the event data and authenticates the complete event metadata; it therefore satisfies the **cryptographic transport** requirements for S1 and S2. Policy authorization remains separate. A2 does not protect against radio jamming, intentional packet loss, traffic analysis, compromised endpoints, or denial of service. BLE link-layer encryption is not a substitute for A2 authentication of broadcast data. Never authorize a privileged VSCP action from S0 or legacy AES-ECB alone.
+
+### 7.2 A2 cryptographic suite
+
+The mandatory suite is **AES-128-CCM**, with a **13-octet nonce** and **16-octet authentication tag** (CCM parameter `L=2`, `M=16`). The secret is a uniformly random **16-octet AES key**. A2 MUST NOT use AES-ECB, unauthenticated AES-CTR, truncated tags, or ad hoc MAC constructions. An implementation MUST use a vetted constant-time cryptographic library where available, verify the tag before exposing plaintext, and clear sensitive temporary buffers.
+
+The AES-CCM plaintext is the `N` VSCP event data octets; the entire fixed A2 header, including the VSCP head/class/type, is authenticated as associated data (AAD). The **AAD** is the ASCII domain separator `VSCP-BLE-A2` (11 octets) followed by the **38-octet A2 AD Data header**, from Company Identifier through Data Length (offsets 2–39 of the AD structure). The outer AD Length and AD Type are validated as framing but are not part of AAD.
+
+### 7.3 A2 frame version 2: exact on-air layout
+
+Offsets are relative to the first octet of the complete Manufacturer Specific Data AD structure, including AD Length and AD Type. The Company Identifier is little-endian; all other multioctet integers are unsigned **big-endian**.
+
+| Offset | Field | Octets | Encoding / validation |
+| ---: | --- | ---: | --- |
+| 0 | AD Length | 1 | `0x37 + N` (55 + N) |
+| 1 | AD Type | 1 | `0xFF` |
+| 2–3 | Company Identifier | 2 | Assigned Bluetooth SIG identifier, little-endian |
+| 4 | Version | 1 | Exactly `0x02` |
+| 5 | Flags | 1 | Exactly `0x01`: authenticated encryption enabled; all other bits reserved/zero |
+| 6–7 | Key ID | 2 | Nonzero key-record identifier, big-endian |
+| 8–11 | Key epoch | 4 | Unsigned 32-bit persistent epoch, big-endian |
+| 12–15 | Sequence | 4 | Unsigned 32-bit counter, big-endian |
+| 16–31 | Sender GUID | 16 | Stable, nonzero VSCP GUID |
+| 32–33 | VSCP head | 2 | Big-endian |
+| 34–35 | VSCP class | 2 | Big-endian |
+| 36–37 | VSCP type | 2 | Big-endian |
+| 38–39 | VSCP data length | 2 | Unsigned `N`, big-endian |
+| 40–(39+N) | Ciphertext | N | AES-CCM encryption of exactly `N` VSCP event-data octets |
+| (40+N)–(55+N) | Authentication tag | 16 | AES-CCM tag, untruncated |
+
+The A2 AD Data header is **38 octets**. The complete AD structure is **56 + N octets**, and AD Length is **55 + N**. Therefore **0 ≤ N ≤ 200** for a single AD structure. No padding, trailing fields, fragmentation, or multiple events per AD structure are defined. The Company Identifier MUST be assigned and configured for production; `0xFFFF` is for isolated tests only.
+
+**A2 flags:** bit 0 MUST be one (AES-128-CCM); bits 1–7 MUST be zero. Unknown versions, suites, flags, or key IDs MUST be rejected without fallback to cleartext. The E1 version 1 flag byte remains strictly `0x00`.
+
+### 7.4 Nonce construction and uniqueness
+
+The AES-CCM nonce is exactly 13 octets:
+
+```text
+nonce[0..4]   = sender-specific 5-octet nonce prefix (provisioned)
+nonce[5..8]   = key epoch (4 octets, big-endian)
+nonce[9..12]  = sequence (4 octets, big-endian)
+```
+
+The 5-octet prefix is stored in the receiver's authenticated key record and is **not transmitted**. Each sender/key combination MUST have a unique prefix; if the same AES key is shared by multiple senders, prefixes MUST be unique across all those senders, and epochs/counters MUST never repeat for a given prefix and key. **Per-sender keys are strongly recommended**; group/shared keys weaken attribution and require coordinated prefix allocation.
+
+For any given AES key, a nonce MUST NEVER be reused to encrypt two distinct plaintext/AAD combinations. Retransmission of the **identical precomputed frame** is allowed; retransmission MUST NOT re-encrypt changed data using the same nonce. A sender MUST reserve or persist sequence ranges safely **before use**, including across power loss, rollback, restore, or firmware update. Counter `0xFFFFFFFF` is the final allowed value in an epoch; wraparound is forbidden. On exhaustion, the sender MUST advance to a previously unused, durably recorded epoch before encrypting more frames, or stop transmission. Epoch values MUST NOT repeat with the same key/prefix; if epoch exhaustion or persistence failure occurs, rekey and provision a fresh nonce prefix before resuming.
+
+### 7.5 Key provisioning, lifecycle and authorization
+
+Each receiver's protected key store MUST associate `(Company Identifier, Sender GUID, Key ID)` with an AES key, unique 5-octet nonce prefix, authorized event policy, permitted epoch range, and revocation state. The Key ID is a lookup identifier, **not a secret**. The receiver MUST verify that the authenticated sender GUID matches the provisioned record; it MUST NOT trust a claimed GUID merely because the frame names a known Key ID.
+
+Keys MUST be generated with a cryptographically secure random generator, provisioned using an authenticated and confidential out-of-band channel or authenticated protected GATT procedure, and stored using platform-supported protected storage where available. Factory-default universal keys, keys embedded in publicly distributed firmware, plaintext advertising of keys, and unprotected writable GATT Key characteristics MUST NOT be used. Where protected storage is unavailable, deployments MUST document physical extraction risks and restrict security-sensitive applications accordingly.
+
+Key rotation MUST provision a **new AES key**, a new nonzero Key ID (or a carefully versioned non-ambiguous identifier), and a fresh nonce prefix; receiver acceptance of old and new keys MAY overlap for a bounded migration period. Revocation MUST disable the old key record, including its replay state, and MUST NOT allow automatic fallback to an older key. A compromised sender or leaked shared key requires revocation and re-provisioning; a new Key ID alone is not rekeying.
+
+The receiver MUST check authorization **after tag verification** and **before event delivery**. Permissions SHOULD be scoped by GUID, VSCP class/type, intended target, and allowed actions. Successful authentication MUST NOT imply blanket permission for control, firmware updates, access control, or configuration.
+
+### 7.6 Replay protection and receiver processing
+
+The receiver MUST maintain replay state for each `(Company Identifier, Sender GUID, Key ID, epoch)` and enforce a **strictly increasing sequence** within the accepted epoch. To avoid ambiguity, the baseline profile **does not support out-of-order acceptance**: a correctly authenticated frame with a sequence number not greater than the highest accepted value for that epoch is rejected as replay/duplicate. Gaps are allowed. A higher epoch is accepted only when authorized by the provisioned key record and monotonic epoch policy; lower epochs are rejected after advancing. Replay state (highest epoch and sequence) MUST survive receiver restart and rollback, or the receiver MUST fail closed until re-provisioned or securely resynchronized.
+
+A2 is intended for event reporting, not guaranteed delivery. A sender MAY retransmit the same authenticated frame; the receiver then discards duplicates. Where reliable command execution is required, use an authenticated connected transport with application-level acknowledgment and idempotency controls.
+
+Receiver order of operations:
+
+1. Check the complete AD structure, AD Type, configured Company Identifier, exact version `0x02`, flags `0x01`, and exact length `56+N` with `0 ≤ N ≤ 200`; reject truncated reports and duplicate candidate frames.
+2. Reject all-zero GUID, unknown/revoked Key ID, unsupported key epoch, and key-record/GUID mismatch. Apply bounded parsing and resource limits.
+3. Construct the 13-octet nonce from the provisioned prefix, transmitted epoch, and sequence. Construct AAD exactly as in §7.2.
+4. Verify the **full 16-octet CCM tag** and decrypt into a private buffer; on failure, discard without event delivery and without updating replay state. Never release unauthenticated plaintext.
+5. Under an atomic per-sender replay-state update, reject stale/duplicate sequence or epoch; persist the new replay state before accepting security-sensitive events. Implementations MUST avoid races between parallel receive paths.
+6. Validate VSCP head/class/type/data semantics and authorization policy, then deliver the event. Authentication failures MUST NOT trigger plaintext fallback.
+
+A replay database that cannot be safely persisted MUST NOT be used for security-sensitive event acceptance. Logging SHOULD rate-limit repeated failures and MUST NOT expose secret keys, nonce prefixes, or decrypted sensitive event contents.
+
+### 7.7 Implementation and interoperability tests
+
+Conformance testing MUST include AES-128-CCM known-answer tests for the **exact AAD and nonce construction**, empty payload (`N=0`), maximum payload (`N=200`), modified ciphertext, modified authenticated header, modified tag, unknown/revoked Key ID, zero GUID, reserved flags, malformed lengths, replayed sequence, out-of-order frames, counter exhaustion, epoch advancement, reboot/power-loss recovery, concurrent receiver updates, and sender/receiver rollback. Independent interoperable implementations SHOULD verify byte-identical ciphertext and tags before the profile is ratified.
+
+**Open deployment dependencies:** a production Bluetooth SIG Company Identifier, secure provisioning protocol, device trust anchors, persistent counter implementation, receiver storage model, and published executable known-answer vectors. These are mandatory deployment decisions; a wire format alone cannot supply them.
 
 ## 8. Interoperability and error handling
 
