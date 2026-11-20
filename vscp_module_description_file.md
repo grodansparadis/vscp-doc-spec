@@ -3161,6 +3161,7 @@ Any number of language specific descriptions and/or infourl's can be set for eac
     "data" : [
       {
         "name": "test event data 1",
+        "offset": 0,
         "description" : {
           "en": "English event data description 3",
           "se": "Svensk event data beskrivning 3",
@@ -3195,6 +3196,7 @@ For data blocks bit fields and value lists can be used. See description above fo
 | Name      | Description  |
 | :----     | :----------- |
 | **name**  | Name for the event. |
+| **offset** | Offset/position in data array |
 | **class** | Event class. Mandatory. Can be set to '-' whish means all classes. |
 | **type**  | Event type. Mandatory. Can be set to '-' whish means all types. |
 | **priority** | Priority for the event. Default=3. |
@@ -3232,6 +3234,7 @@ Event data can use value lists and bit fields. See description above for more in
     "data" : [
       {
         "name": "test event data 1",
+        "offset": 0,
         "description" : {
           "en": "English event data description 3",
           "se": "Svensk event data beskrivning 3",
