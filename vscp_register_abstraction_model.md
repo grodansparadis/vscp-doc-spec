@@ -147,8 +147,8 @@ The following remote variables are currently defined
  | uint64_t    | A 64 bit unsigned number. Hexadecimal if it starts with "0x" else decimal.    | 
  | float       | Data is coded as a IEEE-754 1985 floating point value That is a total of 32-bits. The most significant byte is stored first.  | 
  | double      | IEEE-754, 64 Bits, double precision.  That is a total of 64-bits. The most significant byte is stored first.        | 
- | date        | Must be passed in the format dd-mm-yyyy and mapped to "yy yy mm dd" that is four bytes, MSB->LSB  | 
- | time        | Must be passed in the format hh:mm:ss where hh is 24 hour clock and mapped to "hh mm ss" MSB->LSBthat is four bytes.   |  
+ | date        | Must be passed in the format dd-mm-yyyy and mapped to "yy yy mm dd" (16-bit year) that is four bytes, MSB->LSB.  | 
+ | time        | Must be passed in the format hh:mm:ss where hh is 24 hour clock and mapped to "hh mm ss" MSB->LSB that is three bytes.   |  
 
 A note on floating point numbers and storage (source Wikipedia)
 

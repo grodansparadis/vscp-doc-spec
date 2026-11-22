@@ -2,6 +2,7 @@
 
  | Date       | By   | Description |
  | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-11-22 | AKHE | Register abstraction model: remote variable type time is three bytes (hh mm ss), not four. Date is four bytes with a 16-bit year (issue grodansparadis/vscp#331). |
 | 2026-10-23 | AKHE | HMAC use in binary frames clearified |
 | 2026-10-16 | AKHE | Prefix and HMAC-SHA256 added to VSCP binary protocol. |
 | 2026-10-16 | AKHE | Measurement command added to VSCP link protocol. |

@@ -7,6 +7,7 @@ tagged, rename **Unreleased** to the version and date, and start a new
 
 ## Unreleased
 
+- Register abstraction model: the time remote variable is three bytes (hh mm ss); the text said four. Date is four bytes with a 16-bit year (grodansparadis/vscp#331)
 - HMAC use in binary frames clearified (bc49ecf)
 - Prefix and HMAC-SHA256 added to VSCP binary protocol. (1939aa2)
 - Measurement command added to VSCP link protocol. (8dd341b)
